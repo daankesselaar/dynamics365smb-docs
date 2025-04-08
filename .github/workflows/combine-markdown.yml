@@ -1,9 +1,9 @@
-name: Combine Markdown Daily
+name: Combine Markdown
 
 on:
   schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch: # <-- Allows you to trigger it manually as well
+    - cron: '0 1 * * *'  # Runs daily at 01:00 UTC
+  workflow_dispatch:      # Allows manual triggers from the Actions tab
 
 jobs:
   combine-markdown:
@@ -16,11 +16,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Combine all .md files
+      - name: Combine .md files in top-level business-central folder only
         run: |
+          # Remove old file (if any)
           rm -f BusinessCentralDocumentation.md
-          find . -type f -name "*.md" \
-            -not -path "./BusinessCentralDocumentation.md" \
+
+          # Find only .md files in the "business-central" folder (no subfolders),
+          # and append them to BusinessCentralDocumentation.md
+          find business-central -maxdepth 1 -type f -name "*.md" \
             -exec cat {} \; >> BusinessCentralDocumentation.md
 
       - name: Commit and push changes
