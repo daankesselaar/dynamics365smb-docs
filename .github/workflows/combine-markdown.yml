@@ -1,0 +1,32 @@
+name: Combine Markdown Daily
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch: # <-- Allows you to trigger it manually as well
+
+jobs:
+  combine-markdown:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Combine all .md files
+        run: |
+          rm -f BusinessCentralDocumentation.md
+          find . -type f -name "*.md" \
+            -not -path "./BusinessCentralDocumentation.md" \
+            -exec cat {} \; >> BusinessCentralDocumentation.md
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add BusinessCentralDocumentation.md
+          git commit -m "Combine markdown files" || echo "No changes to commit"
+          git push
