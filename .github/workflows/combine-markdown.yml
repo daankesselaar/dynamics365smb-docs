@@ -1,4 +1,4 @@
-name: Combine Markdown
+name: Combine Markdown to TXT
 
 on:
   schedule:
@@ -18,18 +18,17 @@ jobs:
 
       - name: Combine .md files in top-level business-central folder only
         run: |
-          # Remove old file (if any)
-          rm -f BusinessCentralDocumentation.md
+          # Remove old .txt file (if any)
+          rm -f BusinessCentralDocumentation.txt
 
-          # Find only .md files in the "business-central" folder (no subfolders),
-          # and append them to BusinessCentralDocumentation.md
+          # Find only .md files in "business-central" (excluding subfolders)
           find business-central -maxdepth 1 -type f -name "*.md" \
-            -exec cat {} \; >> BusinessCentralDocumentation.md
+            -exec cat {} \; >> BusinessCentralDocumentation.txt
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add BusinessCentralDocumentation.md
-          git commit -m "Combine markdown files" || echo "No changes to commit"
+          git add BusinessCentralDocumentation.txt
+          git commit -m "Combine markdown files into .txt" || echo "No changes to commit"
           git push
