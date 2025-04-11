@@ -1,4 +1,4 @@
-name: Combine Markdown to TXT
+name: Split Markdown into Chunks
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:      # Allows manual triggers from the Actions tab
 
 jobs:
-  combine-markdown:
+  combine-and-split-markdown:
     runs-on: ubuntu-latest
 
     permissions:
@@ -16,34 +16,52 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Combine .md files into BusinessCentralDocumentation.txt
+      - name: Combine .md files in chunks of 200
         run: |
-          # Remove old file (if any)
-          rm -f BusinessCentralDocumentation.txt
+          # Remove old chunk files (if any) so they don't accumulate
+          rm -f BusinessCentralDocumentation_part_*.md
+          
+          # Variables to track file counts and chunk indexes
+          count=0
+          file_index=1
+          
+          # Start with the first output file
+          output_file="BusinessCentralDocumentation_part_${file_index}.md"
 
-          # Loop over each .md file in the top-level business-central folder
-          find business-central -maxdepth 1 -type f -name "*.md" | while read -r f
+          # Find only .md files in top-level 'business-central' folder (no subfolders)
+          # Sort them alphabetically, then iterate
+          find business-central -maxdepth 1 -type f -name "*.md" | sort | while read -r f
           do
-            # Get the filename (no .md extension)
+            # Extract filename without .md extension
             filename="$(basename "$f" .md)"
 
-            # Start each article with a link to Microsoft Learn
-            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> BusinessCentralDocumentation.txt
+            # Write the "Link to Microsoft Learn Page" line
+            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
+            
+            # Append the .md file contents
+            cat "$f" >> "$output_file"
+            
+            # Close the article
+            echo "end of article" >> "$output_file"
 
-            # Append the file contents
-            cat "$f" >> BusinessCentralDocumentation.txt
+            # Add a blank line for readability (optional)
+            echo >> "$output_file"
 
-            # End of article
-            echo "end of article" >> BusinessCentralDocumentation.txt
+            # Increment the article counter
+            ((count++))
 
-            # Optional blank line for readability
-            echo >> BusinessCentralDocumentation.txt
+            # If we've reached 200 articles in this chunk, start a new file
+            if [ "$count" -eq 200 ]; then
+              ((file_index++))
+              output_file="BusinessCentralDocumentation_part_${file_index}.md"
+              count=0
+            fi
           done
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add BusinessCentralDocumentation.txt
-          git commit -m "Combine markdown files into BusinessCentralDocumentation.txt"
+          git add BusinessCentralDocumentation_part_*.md
+          git commit -m "Combine markdown files in chunks of 200"
           git push || echo "No changes to push"
