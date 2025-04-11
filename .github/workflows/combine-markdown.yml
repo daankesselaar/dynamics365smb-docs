@@ -16,34 +16,48 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Combine .md files into BusinessCentralDocumentation.txt
+      - name: Combine .md files into multiple TXT files
         run: |
-          # Remove old file (if any)
-          rm -f BusinessCentralDocumentation.txt
+          # Initialize variables
+          counter=0
+          file_index=1
+          output_file="BusinessCentralDocumentation_${file_index}.txt"
+
+          # Remove old files (if any)
+          rm -f BusinessCentralDocumentation_*.txt
 
           # Loop over each .md file in the top-level business-central folder
           find business-central -maxdepth 1 -type f -name "*.md" | while read -r f
           do
+            # Increment counter
+            counter=$((counter + 1))
+
+            # Create a new file after every 200 articles
+            if [ $((counter % 200)) -eq 1 ] && [ $counter -ne 1 ]; then
+              file_index=$((file_index + 1))
+              output_file="BusinessCentralDocumentation_${file_index}.txt"
+            fi
+
             # Get the filename (no .md extension)
             filename="$(basename "$f" .md)"
 
             # Start each article with a link to Microsoft Learn
-            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> BusinessCentralDocumentation.txt
+            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
 
             # Append the file contents
-            cat "$f" >> BusinessCentralDocumentation.txt
+            cat "$f" >> "$output_file"
 
             # End of article
-            echo "end of article" >> BusinessCentralDocumentation.txt
+            echo "end of article" >> "$output_file"
 
             # Optional blank line for readability
-            echo >> BusinessCentralDocumentation.txt
+            echo >> "$output_file"
           done
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add BusinessCentralDocumentation.txt
-          git commit -m "Combine markdown files into BusinessCentralDocumentation.txt"
+          git add BusinessCentralDocumentation_*.txt
+          git commit -m "Combine markdown files into multiple TXT files"
           git push || echo "No changes to push"
