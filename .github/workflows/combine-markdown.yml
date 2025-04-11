@@ -48,17 +48,6 @@ jobs:
             # Current output file
             doc_file="${docs[$doc_index]}"
 
-            # Extract the filename (without .md) for the link
-            filename="$(basename "$f" .md)"
-
-            # Write the header, actual article content, footer, and a blank line to the doc file
-            {
-              echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename"
-              cat "$f"
-              echo "end of article"
-              echo
-            } >> "$doc_file"
-
             # Update counters
             ((count++))
             if [ $count -eq $max_articles ]; then
