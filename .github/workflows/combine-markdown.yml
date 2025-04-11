@@ -16,19 +16,34 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Combine .md files in top-level business-central folder only
+      - name: Combine .md files into BusinessCentralDocumentation.txt
         run: |
-          # Remove old .txt file (if any)
+          # Remove old file (if any)
           rm -f BusinessCentralDocumentation.txt
 
-          # Find only .md files in "business-central" (excluding subfolders)
-          find business-central -maxdepth 1 -type f -name "*.md" \
-            -exec cat {} \; >> BusinessCentralDocumentation.txt
+          # Loop over each .md file in the top-level business-central folder
+          find business-central -maxdepth 1 -type f -name "*.md" | while read -r f
+          do
+            # Get the filename (no .md extension)
+            filename="$(basename "$f" .md)"
+
+            # Start each article with a link to Microsoft Learn
+            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> BusinessCentralDocumentation.txt
+
+            # Append the file contents
+            cat "$f" >> BusinessCentralDocumentation.txt
+
+            # End of article
+            echo "end of article" >> BusinessCentralDocumentation.txt
+
+            # Optional blank line for readability
+            echo >> BusinessCentralDocumentation.txt
+          done
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add BusinessCentralDocumentation.txt
-          git commit -m "Combine markdown files into .txt" || echo "No changes to commit"
-          git push
+          git commit -m "Combine markdown files into BusinessCentralDocumentation.txt"
+          git push || echo "No changes to push"
