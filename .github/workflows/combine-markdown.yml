@@ -18,13 +18,13 @@ jobs:
 
       - name: Distribute Markdown articles into six BCdoc files
         run: |
-          # The 6 doc files you have in your repository root
+          # The 6 doc files you have in your repository main
           docs=(BCdoc1.txt BCdoc2.txt BCdoc3.txt BCdoc4.txt BCdoc5.txt BCdoc6.txt)
 
           # 1) Verify each of the 6 doc files actually exists in the repo
           for doc in "${docs[@]}"; do
             if [ ! -f "$doc" ]; then
-              echo "Error: $doc does not exist in the repository root." >&2
+              echo "Error: $doc does not exist in the repository main." >&2
               exit 1
             fi
           done
