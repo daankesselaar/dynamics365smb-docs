@@ -18,39 +18,36 @@ jobs:
 
       - name: Combine .md files in chunks of 200
         run: |
-          # Remove old chunk files (if any) so they don't accumulate
-          rm -f BusinessCentralDocumentation_part_*.md
+          # Safely remove old chunk files (if any), ignoring errors if none are found
+          rm -f BusinessCentralDocumentation_part_*.md || true
           
-          # Variables to track file counts and chunk indexes
           count=0
           file_index=1
-          
-          # Start with the first output file
           output_file="BusinessCentralDocumentation_part_${file_index}.md"
 
-          # Find only .md files in top-level 'business-central' folder (no subfolders)
-          # Sort them alphabetically, then iterate
+          # Find only .md files in top-level 'business-central' (no subfolders)
+          # Sort them alphabetically before iteration
           find business-central -maxdepth 1 -type f -name "*.md" | sort | while read -r f
           do
-            # Extract filename without .md extension
+            # Extract filename (without .md extension)
             filename="$(basename "$f" .md)"
 
-            # Write the "Link to Microsoft Learn Page" line
+            # Start each article with the link to Microsoft Learn
             echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
             
-            # Append the .md file contents
+            # Append the original file contents
             cat "$f" >> "$output_file"
             
-            # Close the article
+            # End of article
             echo "end of article" >> "$output_file"
 
-            # Add a blank line for readability (optional)
+            # Optional blank line for readability
             echo >> "$output_file"
 
-            # Increment the article counter
+            # Increment file counter
             ((count++))
 
-            # If we've reached 200 articles in this chunk, start a new file
+            # If we've reached 200 articles, start a new file
             if [ "$count" -eq 200 ]; then
               ((file_index++))
               output_file="BusinessCentralDocumentation_part_${file_index}.md"
