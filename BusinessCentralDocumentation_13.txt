@@ -1,0 +1,387 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/payment-scenario-3-foreign-payment-lcy-to-fcy-
+---
+title: Scenario 3 - Foreign Payment (LCY to FCY) [NL]
+description: This article describes a third scenario where you can use telebanking for trade with domestic and foreign customers and vendors.
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords: domestic payments, domestic payments example, Dutch version, Netherlands
+ms.date: 03/19/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Payment scenario 3 - Foreign payment (LCY  to FCY) in the Dutch version
+
+You can use telebanking for trade with domestic and foreign customers and vendors. This article describes a scenario where the trade is with foreign customers and vendors that use a different currency than your local currency.  
+
+1. Create Vendor/Customer.  
+1. Create Vendor/Customer Bank Account.  
+1. Create and Post Purchase Invoice for Vendor or Sales Invoice for Customer.  
+1. Create Proposal.  
+1. Create Payment History.  
+1. Export Payment History.  
+1. Import Bank Statement.  
+
+> [!NOTE]  
+> In the following examples, some standard CRONUS data is being used. Likewise, instead of creating a vendor/customer and a vendor/customer bank account you could use existing data.  
+
+## Create vendor/customer
+
+Create vendor/customer and enter all necessary information. Special attention should be paid to the following fields:  
+
+- **Currency Code**: Set it to the foreign currency (FCY).  
+- **Transaction Mode**: Select an appropriate, default transaction mode - that is, one that can deal with foreign currency payments for your local bank.  
+- **Preferred Bank Account**: Select an appropriate, default vendor/customer bank account having the same Currency Code as the vendor/customer itself.  
+
+> [!NOTE]  
+> To enter a bank account in the **Bank Account**, vendor/customer bank accounts must be available. See below.  
+
+### Example
+
+Hernandez Ortiz (code **ORTIZ**) is one of our Mexican vendors. Purchase invoices are paid through our national bank account (code **ABN**) to their bank account (code **HOBA**). While our bank account ABN is denominated in local currency (LCY), Hernandez Ortiz's bank account HOBA is denominated in Mexican peso (MXN). Therefore, on Hernandez Ortiz's vendor card, we set the **Currency Code** field to **MXN**, fill the **Transaction Mode** field with **ABN** that is linked to our bank account, ABN, and set the **Bank Account** field to **HOBA**.  
+
+## Create vendor/customer bank account
+
+Create vendor/customer bank account and enter all necessary information. Special attention should be paid to the following fields:  
+
+- **Preferred Bank Account**: Enter a valid bank account number.  
+- **Currency Code**: Set it to the foreign currency (FCY).  
+- **Owner Information**: Be sure all owner information is entered.  
+
+### Example
+
+Hernandez Ortiz's bank account (code **HOBA**) is denominated in **MXN**. Therefore, on Hernandez Ortiz's vendor bank account card, we enter a valid number in the **Bank Account No.** field, set the **Currency Code** field to **MXN**, and fill the fields on the **Owner Information** FastTab with appropriate values.  
+
+## Create and post purchase invoice for vendor or sales invoice for customer
+
+Create a purchase/sales invoice and enter all necessary information. Special attention should be paid to the following fields:  
+
+- **Currency Code**: Set it to the foreign currency (FCY).  
+- **Transaction Mode**: Select an appropriate, default transaction mode - that is, one that can deal with local currency payments for your local bank.  
+- **Preferred Bank Account**: Select an appropriate, default vendor/customer bank account having the same Currency Code is the vendor/customer itself.  
+
+By default these three fields are populated with values taken from the vendor/customer card.  
+
+When the invoice is finished, it can be posted.  
+
+### Example
+
+When creating a purchase invoice for Hernandez Ortiz, we enter **ORTIZ** in the **Buy-from Vendor No.** field. By default, the **Currency Code**, **Transaction Mode**, and **Bank Account** fields are populated with values taken from the Hernandez Ortiz's vendor card. Therefore, the **Currency Code**, **Transaction Mode**, and **Bank Account** fields are **MXN**, **ABN**, and **HOBA** respectively. Nevertheless, these values can be changed.  
+
+## Create proposal
+
+Open the **Telebank - Bank Overview** page and browse to the bank through which we want to perform our payment. Open the **Proposal** page and generate payment proposals using the **Get Proposal Entries** batch job.  
+
+### Example
+
+Through the **Telebank - Bank Overview** page, we open the **Proposal** page for our bank, ABN. Using the batch job, one proposal line is created for the purchase invoice we just created and posted for the vendor ORTIZ. The amount of the payment is in local currency (LCY).  
+
+## Create payment history
+
+From the **Proposal** page, we process our proposal into a payment history. The proposal disappears and can be found on the **Payment History Overview** page for the same bank.  
+
+### Example
+
+We process our proposal concerning the payment to the vendor ORTIZ and open the **Payment History Overview** page for our bank, ABN. The last payment history is the one we just created.  
+
+## Export payment history
+
+Open the **Payment History Overview** page, browse to the relevant payment history, and then choose the **Export** action. The export batch job appears for the export protocol that is linked to this payment. For this export, the system already has entered appropriate filters. Check, if wanted, any of the fields on the **Options** FastTab, and choose the **OK** button to export the payment. The system generates a text file using a filename as defined in the **Default File Names Field** field of the export protocol, which now is ready to be sent to our bank.  
+
+### Example
+
+As the transaction mode associated with our payment is **ABN**, the **BBV** or **PAYMUL** batch job appears.  
+
+## Import bank statement
+
+After receiving electronic bank statements from our bank, we can import them by running the appropriate import protocol from the **Import Protocol List** page.  
+
+### Example
+
+The bank statement containing our payment to Hernandez Ortiz is sent to us by our bank, ABN. Therefore, we should choose **OFFICE NET EXTRA** as the appropriate import protocol.  
+
+## Related information
+
+- [Create Proposals](how-to-create-proposals.md)   
+- [Create and Export Payment History](how-to-create-and-export-payment-history.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/required-descriptions-in-g-l-entry
+---
+title: Required descriptions in G-L entry
+description: When entering general journal lines on a form, the system automatically fills in the description field.
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords: journal lines, general journal description, Dutch version, Netherlands
+ms.date: 03/20/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Required descriptions in G-L entry
+
+When entering general journal lines on a form, the system automatically fills in the description field. This description is also stored in the G/L entry after posting the journal. For a good audit trail, a more detailed description is desirable, when you post a journal line of type G/L Account.  
+
+To force the user to enter a more detailed description, it's possible to choose if the system must fill in automatically the description of the G/L account or leave the field blank. If the **Omit Default Descr. in Jnl. Field** checkbox on the **G/L Account Card** page is checked, the system doesn't fill in the **Description** field for that G/L account when selected in a general journal line.  
+
+When posting the journal lines, the system checks if all the **Description** fields are filled in. If there's a blank description, an error message appears.  
+
+> [!NOTE]  
+> Leaving the description field blank and checking if all the description fields are filled in before posting will only be done on the general journal pages in several application areas and on the local Cash Bank Giro pages.  
+
+## Related information
+
+- [Apply Customer Payments Manually](../../receivables-how-apply-sales-transactions-manually.md)  
+- [Create an Audit File for the Tax Authority](how-to-create-an-audit-file-for-the-tax-authority.md)  
+- [Understanding the General Ledger and the COA](../../finance-general-ledger.md)  
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/how-to-submit-vendor-payments-electronically-in-sepa-iso-20022-payment-format
+---
+title: Submit Vendor Payments Electronically in SEPA ISO 20022 Format (NL)
+description: In the Dutch version of Business Central, you can electronically create and submit vendor payments in the Single Euro Payments Area (SEPA) ISO 20022 format.
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords: create vendor payments, submit vendor payments, SEPA ISO 20022, Dutch version, Netherlands
+ms.date: 03/18/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Submit vendor payments electronically in SEPA ISO 20022 payment format
+
+In the Dutch version of [!INCLUDE[prod_short](../../includes/prod_short.md)], you can create and submit Single Euro Payments Area (SEPA) ISO 20022 vendor payments electronically.  
+
+Before you can create and submit SEPA vendor payments, you must enable SEPA payments. Learn more in [Activate SEPA Payments](how-to-activate-sepa-payments.md).  
+
+## Process
+
+1. Choose the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Telebank-Bank Overview**, and then choose the related link.  
+1. Select the relevant bank account, and then choose the **Proposal** action.  
+1. Select the relevant vendor bank account, and then choose the **Get Entries** action.  
+1. In the **Get Proposal Entries** batch job, on the **Options** FastTab, fill in the fields as described in the following table.  
+
+    |Field|Description|  
+    |---------------------------------|---------------------------------------|  
+    |**Currency Date**|Specify the currency date.|  
+    |**Pmt. Discount Date**|Specify the payment discount date.|  
+
+1. On the **Transaction Mode** FastTab, select the appropriate filters.  
+1. On the **Cust. Ledger Entry** FastTab, select the appropriate filters.  
+1. On the **Vendor Ledger Entry** FastTab, select the **Vendor No.** filter, and then select a vendor number.  
+
+   > [!NOTE]
+   > Select other appropriate filters if required.  
+
+1. Choose the **OK** button.  
+
+The proposal lines populate on the **Telebank Proposal** page.  
+
+## Related information
+
+- [Activate SEPA Payments](how-to-activate-sepa-payments.md)
+- [Single EURO Payments Area (SEPA)](single-euro-payments-area-sepa-.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/cmr-notes
+---
+title: CMR Notes [NL]
+description: Claims with complete CMR note information are easily processed. Use the Dutch feature to follow the CRM Convention with standard CRM notes.
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords:
+ms.date: 06/18/2021
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# CMR Notes in the Dutch Version
+A CMR note is a bill of lading or an international consignment note defined under the 1956 United Nations Convention for the Contract of the International Carriage of Goods by Road. This is also known as the CMR Convention.  
+
+ Claims with complete CMR note information are easily processed.  
+
+## CMR Notes  
+Countries/Regions that follow the CMR Convention adhere to a standard form for CMR notes. The type of CMR note used depends on the type of transaction. There are three types:  
+
+- **CMR - Sales Shipment** – This report is used to print CMR documents for sales shipments. For each CMR document, the report shows address data for the sender, shipping agent and consignee, along with data about the shipped items.
+
+- **CMR - Purchase Return Shipment** – This report is used to print CMR documents for purchase return shipments. For each CMR document, the report shows address data for the sender, shipping agent and consignee, along with data about the shipped items.       
+
+- **CMR - Transfer Shipment** – This report is used to print CMR documents for transfer shipments. For each CMR document, the report shows address data for the location from which the items are shipped, the location to which the items are shipped, and information regarding the shipping agent, along with data about the shipped items.
+
+> [!NOTE]  
+>  CMR notes are formatted to print on preprinted CMR forms.  
+
+The following details the standard life cycle of a CMR note:  
+
+- The warehouse manager prints the CMR notes for the shipments that need to be sent.  
+- The shipments are then packed and handed to the truck driver, along with the CMR notes.  
+- The driver ensures that each shipment has a CMR note.  
+- When goods are delivered to the customers, the driver ensures that the customers sign the CMR notes.  
+- The signed CMR notes are then given to the respective internal Accounts Receivable departments.  
+- The Accounts Payable administrators receive the signed CMR notes, along with the invoice for freight forwarding services from the freight forwarder.  
+
+## See Also  
+ [Netherlands Local Functionality](netherlands-local-functionality.md)
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/how-to-set-up-electronic-vat-and-icp-declarations
+---
+title: Electronic VAT and ICP Declarations [NL]
+description: Learn how to set up electronic VAT and ICP declarations in the Dutch Version.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: v-soumramani
+ms.service: dynamics-365-business-central
+ms.topic: how-to
+ms.date: 03/18/2025
+ms.custom: bap-template
+---
+
+# Setting up electronic VAT and ICP declarations in the Dutch version
+
+To create electronic VAT and ICP declarations and communicate with tax authorities, set up general information about electronic tax declarations. Your company must be registered with the tax authorities before you can send electronic declarations.
+
+When electronic declarations are set up, you can begin to declare VAT and ICP to the tax authorities. Learn more in [Submitting Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md).  
+
+## Set up electronic declarations  
+
+Ensure that you've uploaded the certificates needed to communicate with Digipoort. Use the **Certificates** page to upload a client and a service certificate. When they're added to the list of certificates, you can continue with setting up electronics declarations.
+
+1. Choose the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Elec. Tax Declaration Setup**, and then choose the related link.  
+1. On the **Elec. Tax Declaration Setup** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](../../includes/tooltip-inline-tip_md.md)]
+1. If you want the contact ID in the electronic declaration to be filled with the VAT registration number of the company, then select  **Tax Payer** in the **VAT Contact Type** field.
+1. If you want to send electronic ICP declarations for a subsidiary company of a fiscal entity, select the **Part of Fiscal Entity** checkbox.  
+
+   > [!NOTE]  
+   > If a company has several companies registered as subsidiaries of a holding company, they have the option to submit the VAT declaration individually or combined for one fiscal entity. To set up electronic declarations for subsidiaries of a holding company, you must select the **Part of Fiscal Entity** field on the **Elec. Tax Declaration Setup** page. You can then create an electronic declaration for only one company.<br><br/>
+   If you want to combine the tax information for all subsidiaries of a holding company, you must create a VAT statement on paper for each subsidiary company and manually calculate the total amounts for the holding company. These total amounts of the holding company must be entered on the website of the tax authorities.<br><br/>
+   You can't combine tax information for ICP declarations. ICP declarations must always be submitted individually.<br><br/>
+   For each subsidiary company, an electronic ICP declaration can be created and submitted to the tax authorities. These electronic ICP declarations must contain the VAT registration number of the subsidiary company and the value of the **Fiscal Entity No.** field on the **Company Information** page of the holding company.
+
+1. On the **Digipoort** FastTab, set up the following configurations:
+   - In the **Digipoort Delivery URL** field, specify the URL for the production version of the Digipoort Aanlever service. Learn more on [digipoort](https://www.logius.nl/producten/gegevensuitwisseling/digipoort).  
+   - In the **Digipoort Status URL** field, specify the URL for the status information that is coming from the Digipoort Statusinformatie service. Learn more in [Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md).
+   - Select **Use Certificate Setup** to specify that the certificate codes specified in the next step must be considered to transfer data to the information service.
+   - In the **Client Certificate Code** field, specify the client certificate.
+   - In the **Service Certificate Code** field, specify the service certificate.
+
+1. To set up endpoints, add the endpoint URLs on the **Endpoints** FastTab.
+
+   > [!NOTE]  
+   > Endpoints set up is deployed to 21.1 tenants. However, all values are blank, but the Digipoort solution still works by taking hardcoded values if there are no values in the setup. In the 21.2 release, [!INCLUDE [prod_short](../../includes/prod_short.md)] automatically runs an upgrade.
+
+## Related information
+
+- [Submitting Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md)  
+- [Netherlands Local Functionality](netherlands-local-functionality.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/how-to-create-an-audit-file-for-the-tax-authority
+---
+title: Create an Audit File for Tax Authority [NL]
+description: The following article explains how to Create an Audit File for the Tax Authority with the Dutch version of Business Central. 
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords:
+ms.date: 06/25/2021
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Create an Audit File for the Tax Authority in the Dutch Version
+During an examination of the books for a fiscal year, a tax inspector can ask for data about the basis transactions from the general ledger for that fiscal year. Basis transactions usually are processed via journal entries. That is the reason why the journal entries are the basis for the audit file.  
+
+ The tax authority stimulates companies to use the audit file but it is not prescribed.  
+
+ The audit file can also be used to exchange data between companies. You can select every period you want, but the start and end date of the entered period must be in the same fiscal year.  
+
+## To make an Audit file  
+
+1.  Choose the ![Lightbulb that opens the Tell Me feature.](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Tax Authority - Audit File**, and then choose the related link.  
+2.  On the **Options** FastTab, fill in the fields as described in the following table.  
+
+    |Field|Description|  
+    |---------------------------------|---------------------------------------|  
+    |**Start Date**|Specify the start date of the period on which the data must be based.|  
+    |**End Date**|Specify the end date of the period on which the data must be based.|  
+    |**Exclude Begin Balance**|Specifies if the audit file must contain the begin balance of general ledger accounts.<br /><br /> The field is editable if the start date of the period is equal to the start date of a fiscal year.|  
+
+3.  Choose the **OK** button to create the audit file. If you do not want to create the audit file, choose the **Cancel** button to close the page.  
+
+When you run the report, you must specify the name and location of the exported file. The default file name is **audit.xaf**, but you can change that. The file extension must be .xaf.  
+
+## See Also  
+ [Submitting Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md)
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/dutch-electronic-banking
+---
+title: Dutch Electronic Banking
+description: This topic covers how to create electronic payment files and direct debit files, and import electronic bank statements from supported bank software.
+author: brentholtorf
+ms.topic: conceptual
+ms.devlang: al
+ms.search.keywords:
+ms.date: 06/18/2021
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Dutch Electronic Banking
+
+Electronic banking functionality allows you to create electronic payment files and direct debit files, and to import electronic bank statements from supported bank software.  
+
+## Telebanking
+
+Using Telebanking, you can export payments, import bank statements, and collect data to forward to the bank. For more information, see [Telebanking](telebanking.md).  
+
+You can create payment proposals and reconcile bank accounts in the cash, bank, and giro journals.  
+
+### Payment Files
+
+You can make payment proposals for paying open invoices to suppliers. Payment proposals can be edited manually prior to processing to add or remove payment invoices, or to change payment amounts. After processing a proposed payment batch, you can transfer electronic payment files to the bank. If an error occurs in the payment file while importing into the banking software, you can make a copy of the payment file to resubmit to the bank.  
+
+You can make domestic payments and international payments using the designated formats. For more information, see [Telebanking](telebanking.md).  
+
+### Direct Debit Files
+
+You can create a payment proposal to collect payment from customer bank accounts. You can edit payment proposals manually to add or remove invoices, or to change collection amounts. After processing a proposed payment batch, you can transfer electronic direct debit files to the bank. If an error occurs in the direct debit file while importing into the banking software, you can make a copy of the direct debit file to resubmit to the bank.  
+
+You can only collect payments domestically at this time. For more information, see [Create Proposals](how-to-create-proposals.md).  
+
+### Bank Statement Import
+
+You can import bank statements from supported bank software, and reconcile them with incoming and outgoing payments. You can also reconcile bank charges and interest earned.  
+
+For more information, see [Import and Reconcile Bank Statements](how-to-import-and-reconcile-bank-statements.md).  
+
+## See Also
+
+[Telebanking](telebanking.md)  
+[Enter and Post Cash and Bank/Giro Journals](how-to-enter-and-post-cash-and-bank-or-giro-journals.md)  
+[Import and Reconcile Bank Statements](how-to-import-and-reconcile-bank-statements.md)  
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]end of article
+
