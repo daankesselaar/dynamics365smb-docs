@@ -26,35 +26,38 @@ jobs:
           # Remove old files (if any)
           rm -f BusinessCentralDocumentation_*.txt
 
-          # Loop over each .md file in the specified directories
-          find business-central business-central/LocalFunctionality/Germany \
-               business-central/LocalFunctionality/Belgium \
-               business-central/LocalFunctionality/Netherlands \
-               -type f -name "*.md" | while read -r f
+          # Loop over each .md file in the specified directories (no subfolders)
+          for folder in business-central \
+                        business-central/LocalFunctionality/Germany \
+                        business-central/LocalFunctionality/Belgium \
+                        business-central/LocalFunctionality/Netherlands
           do
-            # Increment counter
-            counter=$((counter + 1))
+            find "$folder" -maxdepth 1 -type f -name "*.md" | while read -r f
+            do
+              # Increment counter
+              counter=$((counter + 1))
 
-            # Create a new file after every 200 articles
-            if [ $((counter % 200)) -eq 1 ] && [ $counter -ne 1 ]; then
-              file_index=$((file_index + 1))
-              output_file="BusinessCentralDocumentation_${file_index}.txt"
-            fi
+              # Create a new file after every 200 articles
+              if [ $((counter % 200)) -eq 1 ] && [ $counter -ne 1 ]; then
+                file_index=$((file_index + 1))
+                output_file="BusinessCentralDocumentation_${file_index}.txt"
+              fi
 
-            # Get the filename (no .md extension)
-            filename="$(basename "$f" .md)"
+              # Get the filename (no .md extension)
+              filename="$(basename "$f" .md)"
 
-            # Start each article with a link to Microsoft Learn
-            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
+              # Start each article with a link to Microsoft Learn
+              echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
 
-            # Append the file contents
-            cat "$f" >> "$output_file"
+              # Append the file contents
+              cat "$f" >> "$output_file"
 
-            # End of article
-            echo "end of article" >> "$output_file"
+              # End of article
+              echo "end of article" >> "$output_file"
 
-            # Optional blank line for readability
-            echo >> "$output_file"
+              # Optional blank line for readability
+              echo >> "$output_file"
+            done
           done
 
       - name: Commit and push changes
