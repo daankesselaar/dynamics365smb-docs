@@ -26,8 +26,11 @@ jobs:
           # Remove old files (if any)
           rm -f BusinessCentralDocumentation_*.txt
 
-          # Loop over each .md file in the top-level business-central folder
-          find business-central -maxdepth 1 -type f -name "*.md" | while read -r f
+          # Loop over each .md file in the specified directories
+          find business-central business-central/LocalFunctionality/Germany \
+               business-central/LocalFunctionality/Belgium \
+               business-central/LocalFunctionality/Netherlands \
+               -type f -name "*.md" | while read -r f
           do
             # Increment counter
             counter=$((counter + 1))
