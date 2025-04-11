@@ -1,4 +1,4 @@
-name: Split Markdown into Chunks
+name: Distribute Markdown into 6 Text Files
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:      # Allows manual triggers from the Actions tab
 
 jobs:
-  combine-and-split-markdown:
+  distribute-markdown:
     runs-on: ubuntu-latest
 
     permissions:
@@ -16,42 +16,59 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Combine .md files in chunks of 200
+      - name: Distribute Markdown articles into six BCdoc files
         run: |
-          # Safely remove old chunk files (if any), ignoring errors if none are found
-          rm -f BusinessCentralDocumentation_part_*.md || true
-          
-          count=0
-          file_index=1
-          output_file="BusinessCentralDocumentation_part_${file_index}.md"
+          # The 6 doc files you have in your repository root
+          docs=(BCdoc1.txt BCdoc2.txt BCdoc3.txt BCdoc4.txt BCdoc5.txt BCdoc6.txt)
 
-          # Find only .md files in top-level 'business-central' (no subfolders)
-          # Sort them alphabetically before iteration
-          find business-central -maxdepth 1 -type f -name "*.md" | sort | while read -r f
-          do
-            # Extract filename (without .md extension)
+          # 1) Verify each of the 6 doc files actually exists in the repo
+          for doc in "${docs[@]}"; do
+            if [ ! -f "$doc" ]; then
+              echo "Error: $doc does not exist in the repository root." >&2
+              exit 1
+            fi
+          done
+
+          # 2) Overwrite each doc file with an empty file so there's no leftover content
+          for doc in "${docs[@]}"; do
+            : > "$doc"  # The ':' is a no-op; this effectively empties the file
+          done
+
+          # 3) Prepare counters
+          doc_index=0    # which of the 6 files we're currently using
+          count=0        # how many articles have been added to the current doc file
+          max_articles=200
+
+          # 4) Find and sort all .md files in the top-level 'business-central' folder
+          md_files=$(find business-central -maxdepth 1 -type f -name "*.md" | sort)
+
+          # 5) Loop through each .md file and distribute in chunks of 200
+          for f in $md_files; do
+            # If we've already filled up all 6 docs, fail with an error
+            if [ $doc_index -ge ${#docs[@]} ]; then
+              echo "Error: All 6 documents are full (more than $(( ${#docs[@]} * max_articles )) articles)!"
+              exit 1
+            fi
+
+            # Current output file
+            doc_file="${docs[$doc_index]}"
+
+            # Extract the filename (without .md) for the link
             filename="$(basename "$f" .md)"
 
-            # Start each article with the link to Microsoft Learn
-            echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
-            
-            # Append the original file contents
-            cat "$f" >> "$output_file"
-            
-            # End of article
-            echo "end of article" >> "$output_file"
+            # Write the header, actual article content, footer, and a blank line to the doc file
+            {
+              echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename"
+              cat "$f"
+              echo "end of article"
+              echo
+            } >> "$doc_file"
 
-            # Optional blank line for readability
-            echo >> "$output_file"
-
-            # Increment file counter
+            # Update counters
             ((count++))
-
-            # If we've reached 200 articles, start a new file
-            if [ "$count" -eq 200 ]; then
-              ((file_index++))
-              output_file="BusinessCentralDocumentation_part_${file_index}.md"
+            if [ $count -eq $max_articles ]; then
               count=0
+              ((doc_index++))
             fi
           done
 
@@ -59,6 +76,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add BusinessCentralDocumentation_part_*.md
-          git commit -m "Combine markdown files in chunks of 200"
+          git add BCdoc*.txt
+          git commit -m "Distribute markdown files into 6 BCdoc text files"
           git push || echo "No changes to push"
