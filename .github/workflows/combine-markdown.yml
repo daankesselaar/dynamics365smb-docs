@@ -22,6 +22,7 @@ jobs:
           counter=0
           file_index=1
           output_file="BusinessCentralDocumentation_${file_index}.txt"
+          max_files=6
 
           # Remove old files (if any)
           rm -f BusinessCentralDocumentation_*.txt
@@ -45,6 +46,13 @@ jobs:
               # Create a new file after every 200 articles
               if [ $((counter % 200)) -eq 1 ] && [ $counter -ne 1 ]; then
                 file_index=$((file_index + 1))
+
+                # Check if the maximum file limit has been reached
+                if [ $file_index -gt $max_files ]; then
+                  echo "Error: Maximum of $max_files files allowed. Exiting with error."
+                  exit 1
+                fi
+
                 output_file="BusinessCentralDocumentation_${file_index}.txt"
               fi
 
@@ -69,6 +77,13 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
+          # Add changes and commit
           git add BusinessCentralDocumentation_*.txt
-          git commit -m "Combine markdown files into multiple TXT files"
-          git push || echo "No changes to push"
+          if git commit -m "Combine markdown files into multiple TXT files"; then
+            # Push changes only if a commit was made
+            git push
+          else
+            # Exit gracefully if no changes were found
+            echo "No changes to commit. Exiting gracefully."
+          fi
