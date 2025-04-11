@@ -21,11 +21,11 @@ jobs:
           # The 6 doc files you have in your repository root
           docs=(BCdoc1.txt BCdoc2.txt BCdoc3.txt BCdoc4.txt BCdoc5.txt BCdoc6.txt)
 
-          # 1) Verify each of the 6 doc files actually exists in the repo
+          # 1) Ensure each of the 6 doc files exists (create if missing)
           for doc in "${docs[@]}"; do
             if [ ! -f "$doc" ]; then
-              echo "Error: $doc does not exist in the repository root." >&2
-              exit 1
+              echo "$doc does not exist — creating it."
+              touch "$doc"
             fi
           done
 
@@ -77,5 +77,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add BCdoc*.txt
-          git commit -m "Distribute markdown files into 6 BCdoc text files"
+          git commit -m "Distribute markdown files into 6 BCdoc text files" || echo "No changes to commit"
           git push || echo "No changes to push"
