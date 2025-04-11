@@ -26,11 +26,16 @@ jobs:
           # Remove old files (if any)
           rm -f BusinessCentralDocumentation_*.txt
 
+          # Define the specific directories to include
+          directories=(
+            "business-central"
+            "business-central/LocalFunctionality/Germany"
+            "business-central/LocalFunctionality/Belgium"
+            "business-central/LocalFunctionality/Netherlands"
+          )
+
           # Loop over each .md file in the specified directories (no subfolders)
-          for folder in business-central \
-                        business-central/LocalFunctionality/Germany \
-                        business-central/LocalFunctionality/Belgium \
-                        business-central/LocalFunctionality/Netherlands
+          for folder in "${directories[@]}"
           do
             find "$folder" -maxdepth 1 -type f -name "*.md" | while read -r f
             do
