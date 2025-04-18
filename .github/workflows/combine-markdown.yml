@@ -35,21 +35,6 @@ jobs:
             "business-central/LocalFunctionality/Netherlands"
           )
 
-          # Function to resolve and include referenced .md files
-          include_file_content() {
-            local include_path="$1"
-            # Resolve the path relative to the root of the repository
-            local resolved_path="$(realpath --relative-to=. "$include_path" 2>/dev/null || echo "")"
-  
-            if [ -f "$resolved_path" ]; then
-              # Add the content of the included file
-              cat "$resolved_path"
-            else
-              # Log an error if the file is missing
-              echo "Error: Included file '$resolved_path' not found. Skipping." >&2
-            fi
-          }
-
           # Loop over each .md file in the specified directories (no subfolders)
           for folder in "${directories[@]}"
           do
@@ -79,17 +64,8 @@ jobs:
               # Start each article with a link to Microsoft Learn
               echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/$filename" >> "$output_file"
 
-              # Process the file content
-              while IFS= read -r line
-              do
-                # Check for include directives
-                if [[ "$line" =~ \[!INCLUDE\ \[.*\]\((.*)\)\] ]]; then
-                  include_path="${BASH_REMATCH[1]}"
-                  include_file_content "$include_path" >> "$output_file"
-                else
-                  echo "$line" >> "$output_file"
-                fi
-              done < "$f"
+              # Append the file contents
+               cat "$f" >> "$output_file"
 
               # End of article
               echo "end of article" >> "$output_file"
