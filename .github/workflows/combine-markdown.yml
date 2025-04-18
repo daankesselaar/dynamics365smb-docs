@@ -57,10 +57,10 @@ jobs:
               fi
 
               # Get the filename (no .md extension)
-              filename="$(basename "$f" .md)"
+              filename="${f%.md}"
 
               # Start each article with a link to Microsoft Learn
-              echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/$filename" >> "$output_file"
+              echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/$filename" >> "$output_file"
 
               # Append the file contents
               cat "$f" >> "$output_file"
