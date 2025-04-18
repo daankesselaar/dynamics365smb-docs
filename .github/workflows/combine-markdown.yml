@@ -72,8 +72,17 @@ jobs:
               # Start each article with a link to Microsoft Learn
               echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/$filename" >> "$output_file"
 
-              # Append the file contents
-              cat "$f" >> "$output_file"
+              # Process the file content
+              while IFS= read -r line
+              do
+                # Check for include directives
+                if [[ "$line" =~ \[!INCLUDE\ \[.*\]\((.*)\)\] ]]; then
+                  include_path="${BASH_REMATCH[1]}"
+                  include_file_content "$include_path" >> "$output_file"
+                else
+                  echo "$line" >> "$output_file"
+                fi
+              done < "$f"
 
               # End of article
               echo "end of article" >> "$output_file"
