@@ -35,10 +35,20 @@ jobs:
             "business-central/LocalFunctionality/Netherlands"
           )
 
+          # Function to resolve and include referenced .md files
+          include_file_content() {
+            local include_path="$1"
+            if [ -f "$include_path" ]; then
+              cat "$include_path"
+            fi
+          }
+
           # Loop over each .md file in the specified directories (no subfolders)
           for folder in "${directories[@]}"
           do
-            find "$folder" -maxdepth 1 -type f -name "*.md" | while read -r f
+            find "$folder" -maxdepth 1 -type f -name "*.md" \
+              -not -name "TOC.md" \
+              -not -name "Reservation-Entry-table-features-that-update-the-table.md" | while read -r f
             do
               # Increment counter
               counter=$((counter + 1))
