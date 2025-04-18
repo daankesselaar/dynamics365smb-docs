@@ -38,8 +38,15 @@ jobs:
           # Function to resolve and include referenced .md files
           include_file_content() {
             local include_path="$1"
-            if [ -f "$include_path" ]; then
-              cat "$include_path"
+            # Resolve the path relative to the root of the repository
+            local resolved_path="$(realpath --relative-to=. "$include_path" 2>/dev/null || echo "")"
+  
+            if [ -f "$resolved_path" ]; then
+              # Add the content of the included file
+              cat "$resolved_path"
+            else
+              # Log an error if the file is missing
+              echo "Error: Included file '$resolved_path' not found. Skipping." >&2
             fi
           }
 
