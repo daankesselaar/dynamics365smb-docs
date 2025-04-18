@@ -35,13 +35,6 @@ jobs:
             "business-central/LocalFunctionality/Netherlands"
           )
 
-          # Function to replace all [!INCLUDE] references
-          replace_includes() {
-            local file_content="$1"
-            local base_dir="$2"
-            echo "$file_content" | sed -E "s~\[!INCLUDE\[([^\]]+)\]\(([^)]+)\)\]~\$(cat \"$base_dir/\2\")~g"
-          }
-
           # Loop over each .md file in the specified directories (no subfolders)
           for folder in "${directories[@]}"
           do
@@ -71,12 +64,8 @@ jobs:
               # Start each article with a link to Microsoft Learn
               echo "Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/$filename" >> "$output_file"
 
-              # Read the file content and replace [!INCLUDE] references
-              file_content=$(cat "$f")
-              replaced_content=$(replace_includes "$file_content" ".")
-
-              # Append the processed content to the output file
-              echo "$replaced_content" >> "$output_file"
+              # Append the file contents
+               cat "$f" >> "$output_file"
 
               # End of article
               echo "end of article" >> "$output_file"
@@ -99,3 +88,4 @@ jobs:
           else
             # Exit gracefully if no changes were found
             echo "No changes to commit. Exiting gracefully."
+          fi
