@@ -26,7 +26,6 @@ You can set up VAT calculations manually, but that can be tricky and time-consum
 
 However, if you want to set up the VAT calculations yourself, or just want to learn about each step, this article contains descriptions of each step.  
 
-[!INCLUDE [finance-vat](includes/finance-vat.md)]
 
 ## Set up VAT using the assisted setup guide (recommended)
 
@@ -37,19 +36,14 @@ To start the assisted setup guide, follow these steps:
 
 1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon and enter **Assisted Setup**. 
 2. Choose **Set up Value-Added Tax (VAT)** and complete the steps.
-3. After you complete the assisted setup, go to the **VAT Posting Setup** page to check whether you need to fill in more fields according to the local requirements in your version of [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more at [Local functionality in Business Central](about-localization.md).  
 
 ### Check the VAT posting setup
 
-To support your fast start, [!INCLUDE [prod_short](includes/prod_short.md)] notifies you of missing general ledger (G/L) accounts in posting groups or posting setups, such as on the **VAT Posting Setup** page. You can turn this type of notification on or off using the **G/L Account is missing in posting group or setup** notification in the **My Notifications** page. Just go to the **My settings** page, and then choose the **Change when I receive notifications** link.  
 
-If you choose the notification, [!INCLUDE [prod_short](includes/prod_short.md)] creates posting setups based on the posting groups in the document or journal you're currently working on.  
 
-At this point, you can just fill in the missing G/L accounts. But, when you further refine your setup later, you might realize your initial setup is wrong. [!INCLUDE [prod_short](includes/prod_short.md)] doesn't allow you to delete a VAT posting setup and general posting setup after they're used to create entries. To prevent people from mistakenly using a setup that's no longer relevant for new postings, you can use the **Blocked** field on the **General Posting Setup** page.
 
 ## Set up a default VAT date for documents and journals
 
-VAT reporting in [!INCLUDE [prod_short](includes/prod_short.md)] is based on the **VAT Date** to include VAT entries on VAT reports in a VAT period. The VAT date can be changed on all documents and journals, but you must specify a default value for VAT date.
 
 > [!NOTE]
 > After posting the document or journal, the **VAT Date** will appear on **VAT Entries** and **G/L Entries** as well as on the posted document if exists.
@@ -76,12 +70,10 @@ To set up the level of VAT date usage, follow these steps:
    |--------------------|-----------------------------------------|
    | **Use full VAT Date functionality** | Everything related to **VAT Date** works by default, giving you the maximum **VAT Date** functionality. You can set up the date, change it in documents, report based on it, and modify the date after posting as long as the period isn't closed or protected with allowed dates for posting. |
    | **Use but do not allow modifications** | Everything related to **VAT Date** works by default with one exception. You can't modify the **VAT Date** in **VAT Entries**. |
-   | **Not using VAT Date functionality** | [!INCLUDE [prod_short](includes/prod_short.md)] hides and makes the **VAT Date** fields unavailable on documents, journals, and entries. The **Default VAT Date** is configured as the **Posting Date**. |
 
 3. Close the page.
 
 > [!IMPORTANT]
-> Even if you choose the **Not using VAT Date functionality** option, [!INCLUDE [prod_short](includes/prod_short.md)] will use the **VAT Date** in the background. Because the **Default VAT Date** is configured as the **Posting Date**, and you can't change it in this case, you'll get the same experience as without this feature. **VAT Date** fields will be removed from all pages, but this field will still exist in tables and reports will work based on it.
 
 ### Limiting periods for posting and changing the VAT date
 
@@ -97,7 +89,6 @@ You can prevent people from posting or changing VAT entries in specific date ran
 
 | Type | Description |
 |--------------------|-----------------------------------------|
-| **Block posting within closed and warn for released period** | Prevent people from posting a document or journal, or changing VAT entries that have a VAT date within a closed **VAT Return Period**. [!INCLUDE [prod_short](includes/prod_short.md)] also shows a warning if your **VAT Return Period** is open, but the status of **VAT Return** is **Released** or **Submitted**. |
 | **Block posting within closed period** | Prevent people from posting a document or journal, or changing vat entries that have a VAT date within the closed **VAT Return Period**. |
 | **Warn when posting in closed period** | Show a warning, but don't block posting, if you want to post a document or journal that has a VAT date within a closed **VAT Return Period**. |
 | **Disabled** | Take no action based on a closed **VAT Return Period**. |
@@ -197,7 +188,6 @@ Set up as many combinations as you need. To group VAT posting setup combinations
 To combine VAT posting setups, follow these steps:
 
 1. Choose the ![Lightbulb that opens the Tell Me feature 5.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Posting Setup**, and then choose the related link.
-2. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
 ## Assign VAT posting groups by default to multiple entities
 
@@ -314,7 +304,6 @@ To correctly calculate VAT on sales to EU countries/regions, you should:
 * Set up a line for sales with the same information for purchases. If you set up lines on the **VAT Posting Setup** page for purchases from EU countries/regions, you can also use these lines for sales.  
 * Assign the VAT business posting groups in the **VAT Bus. Posting Group** field on the **Invoicing** FastTab of the customer card of each EU customer. You should also enter the customer's VAT registration number in the **VAT Registration No.** field on the **Foreign Trade** FastTab.  
 
-When you post a sale to a customer in another EU country/region, [!INCLUDE [prod_short](includes/prod_short.md)] calculates the VAT amount and creates a VAT entry based on information about the reverse charge VAT and the VAT base. This amount is used to calculate the VAT amount. No entries are posted to the VAT accounts in the general ledger.
 
 If you want to use combination of VAT business posting group and VAT product posting group for reporting as services in the periodic VAT reports, mark the **EU Service** field.
 
@@ -323,13 +312,11 @@ If you want to use combination of VAT business posting group and VAT product pos
 
 ## VAT rounding for documents
 
-Amounts in documents that aren't posted are rounded and displayed to correspond with the final rounding of amounts that are posted. [!INCLUDE [prod_short](includes/prod_short.md)] calculates VAT for a complete document. The VAT calculation is based on the sum of all lines with the same VAT identifier in the document.  
 
 ## Set up VAT reporting
 
 You must set up information about how the tax authorities in your country or region require you to submit VAT reports. The following steps illustrate the most commonly used information. However, your country or region might require other steps. For more information, see the relevant article in the *Local functionality* section in the panel to the left.
 
-[!INCLUDE [vat-report-setup](includes/vat-report-setup.md)]
 
 ## See also
 
@@ -585,7 +572,7 @@ Try the report here: [Project Invoiced Sales by Type](https://businesscentral.dy
 [Power BI Projects app](projects-powerbi-app.md)  
 [Built-in Projects reports](project-reports.md)  
 [Project management analytics overview](projects-analytics-overview.md)  
-[Project management overview](projects-manage-projects.md)  end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/autofill-fields-with-copilot
 ---
@@ -603,15 +590,12 @@ ms.custom: bap-template
 
 # Autofill fields with Copilot (preview)
 
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
 Copilot's autofill feature assists you by automatically filling in editable blank fields on your page. Use autofill when creating or modifying a record. It suggests field values that you can choose to keep or discard. These suggestions are based on your Business Central data, such as frequently or recently used values, or they can be AI-generated based on option values, lookup values, or page context.
 
 When Copilot generates suggestions, it only accesses the business data you can access. Copilot never saves suggestions automatically but presents them for you to decide what to keep. Copilot uses AI, and suggestions might not be correct.
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]
 
-<!--[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]-->
 
 <!--Suggestions are based on Business Central that only you have access to.-->
 
@@ -706,7 +690,6 @@ ms.service: dynamics-365-business-central
 ---
 # Set Up Warehouse Employees
 
-You must set up each user who performs warehouse activities as a warehouse employee and assign them to a default location. [!INCLUDE [prod_short](includes/prod_short.md)] filters warehouse activities to the employee's default location. They can only perform the warehouse activities at the location. You can also assign a user to other locations. They can access but not perform activities at those locations.
 
 ## To set up warehouse employees  
 
@@ -827,7 +810,6 @@ Before you can perform the tasks in the walkthrough, you must do the following:
 4.  Select the **Default** field.  
 
 > [!NOTE]
-> [!INCLUDE [locations-cronus](includes/locations-cronus.md)]
 
 Prepare WHITE location for assembly processing by following these steps:  
 
@@ -1205,11 +1187,8 @@ ms.custom: bap-template
 
 # Specify the languages that are available in your Business Central environment
 
-To let people work in their preferred language, the user interface (UI) in [!INCLUDE [prod_short](includes/prod_short.md)] is translated by apps that Microsoft provides, or by language apps that our partners provide on AppSource. Administrators install the language apps in their [!INCLUDE [prod_short](includes/prod_short.md)] environment. Afterward, on the **My Settings** page, people can choose the language in which they want to use [!INCLUDE [prod_short](includes/prod_short.md)].
 
-The **Languages** page lists all languages that [!INCLUDE [prod_short](includes/prod_short.md)] supports. However, to use [!INCLUDE [prod_short](includes/prod_short.md)] in a selected language, the language app must be installed in the environment. If someone chooses a language that a language app isn't installed for, they might be confused when the UI doesn't change.
 
-To avoid confusion and make it easier for people to select a language they can use, administrators can use the **Allowed Languages** page to list the languages that they installed language apps for. [!INCLUDE [prod_short](includes/prod_short.md)] filters the list of languages on the **My Settings** page to show only the allowed languages.
 
 ## Create a list of allowed languages
 
@@ -1221,7 +1200,7 @@ To avoid confusion and make it easier for people to select a language they can u
 
 [Administration Tasks](admin-setup-and-administration.md)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-consolidated-company-reporting-setup
 ---
@@ -1295,11 +1274,8 @@ In the consolidated company, set up each company that you want to consolidate da
 
 A significant part of setting up the business unit is to specify how the unit shares it's financial data with the consolidated company. There are manual and automated options:
 
-* To use a manual process, for [!INCLUDE [prod_short](includes/prod_short.md)] online and on-premises, you can export an .xml file that contains the unit's general ledger entries. Then import the file in the consolidated company.
-* To automate the data exchange, for [!INCLUDE [prod_short](includes/prod_short.md)] online you can use an API that [!INCLUDE [prod_short](includes/prod_short.md)] provides to share data across environments. If your companies are in the same environment, you can use the **Database** option.
 
 > [!NOTE]
-> The API option also lets you share general ledger entries from other [!INCLUDE [prod_short](includes/prod_short.md)] environments. To use the API option, the user who configures the consolidation must have permission to access G/L entries. For example, the D365 Basic and D365 Read permission sets provide access.
 
 #### Set up business unit currencies
 
@@ -1325,7 +1301,6 @@ You start the **Run Consolidation** batch job from the **Business Units** list p
    * To share data between companies in the same environment, choose **Database**.
    * To share data between companies in different environments, choose **API**, and then fill in the **API's Endpoint** field.
         
-        To get the endpoint URL, in the business unit company's [!INCLUDE [prod_short](includes/prod_short.md)], open the **Consolidation Setup Page** and check the Current environment's API Endpoint field value. 
    * To export an .xml file and manually share it, choose **File Format**.
 
 ### <a name="glacc"></a>Prepare general ledger accounts for consolidation
@@ -1334,11 +1309,8 @@ The chart of accounts for a company that you will consolidate must specify accou
 
 If the chart of accounts in the business unit differs from the consolidated company, you must prepare general ledger accounts for consolidation. You can specify the accounts to post debits and credits to, and the method to use to translate currencies in the consolidated company.
 
-1. In each business unit's [!INCLUDE [prod_short](includes/prod_short.md)], choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Chart of Accounts**, and then choose the related link.  
-2. Open the card for the account, and then fill in the fields on the **Consolidation** FastTab. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
 > [!NOTE]
-> If you don't fill in the **Consol. Debit Acc.** and **Consol. Credit Acc.** fields, [!INCLUDE [prod_short](includes/prod_short.md)] assumes they're mapped to the same accounts in the consolidated company.
 
 > [!TIP]
 > There might be scenarios where you don't want to include an account in a consolidation. For example, if you want your consolidation company to reflect only the balance sheets from the subsidiary companies. To exclude an account from consolidation, turn on the **Exclude from Consolidation** toggle for the account.
@@ -1362,7 +1334,6 @@ To specify exchange rates for a business unit, follow these steps:
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Business Units**, and then choose the related link.  
 2. On the **Business Unit List** page, choose the business unit, and then choose the **Exchange Rates** action.  
-3. On the **Setup Business Unit Currencies** page, fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
 ### <a name="dim"></a>Include or exclude dimensions
 
@@ -1570,7 +1541,7 @@ You can use the **Service Credit Memo Statistics** page to get a statistical ove
 [Planning Service](service-plan-service.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-deploy-excel-addin
 ---
@@ -1683,7 +1654,6 @@ If a user can't connect automatically, you can unblock them by asking them to fo
 4. When prompted, sign in with your Business Central user name and password.
 5. Optionally, choose the environment and company that you want to connect to.
 
-The add-in is now connected to [!INCLUDE [prod_short](includes/prod_short.md)], and you can edit data and publish the changes to [!INCLUDE [prod_short](includes/prod_short.md)].  
 
 ## Prepare devices and network for the Excel add-in
 
@@ -1696,11 +1666,7 @@ Sometimes, users run into problems with the Excel add-in. This section gives tip
 |Problem  |Solution or workaround  |Comments  |
 |---------|---------|---------|
 |The add-in doesn't start. <br><br>For example, the user gets the message "Add-in Warning: This add-in is no longer available" when trying to use the add-in. This particular problem can happen if Centralized Deployment is configured correctly, but the user wasn't assigned access.|Check whether the add-in is deployed centrally. Or, check whether the user is blocked from installing it locally. | The admin can configure Office so that users can't acquire add-ins. In that case, the admin must deploy the add-in centrally. For more information, see [Deploy add-ins in the admin center](/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide&preserve-view=true).|
-|Data doesn't load into Excel.|Test the connection by opening another list in Excel from [!INCLUDE [prod_short](includes/prod_short.md)]. Or, open the workbook in Excel in a browser.|If the user specified a company name that contains special characters, the add-in can't connect. |
-|Data can't publish back to [!INCLUDE [prod_short](includes/prod_short.md)].|Test the connection by opening the workbook in Excel in a browser. |Sometimes an extension can block the publishing job. If the page is extended or customized, remove the extensions, and then try again.|
-|The dates are wrong.  |Excel might show times and dates in a different format than [!INCLUDE [prod_short](includes/prod_short.md)]. This condition doesn't make them wrong, and the data in [!INCLUDE [prod_short](includes/prod_short.md)] doesn't get messed up.|         |
 |For some list pages, editing multiple lines in Excel consistently causes errors. This condition can occur if OData calls include FlowFields and fields outside of the repeater control.|On the **Web Services** page, select the **Exclude Non-Editable FlowFields** and **Exclude Fields Outside of the Repeater** checkboxes for the published page. Selecting these checkboxes excludes noneditable FlowFields and fields from the eTag calculation. |These checkboxes are hidden by default. To show them on the **Web Services** page, use [personalization](/dynamics365/business-central/ui-personalization-user). |
-|Users can no longer sign in to the add-in. When they try to sign in, the process stops without completing.| This problem might happen because of an update that we made to the add-in, sometime in July 2022. For more information and a fix, see [Modify the Excel Add-in Configuration to Support July 2022 Update](/dynamics365/business-central/dev-itpro/administration/update-excel-addin-configuration).|Applies to [!INCLUDE [prod_short](includes/prod_short.md)] on-premises only.|
 | The add-in communicates using the API v2.0 for Dynamics 365 Business Central, and any limitations of this API are automatically inherited. An example limitation is if you try to edit a list and the underlying card uses a confirmation dialog in its AL logic, for example, as its validation logic. | Sometimes there's nothing to do because it's a design choice that the user must explicitly confirm the change. If the confirmation is negligible when using **Edit in Excel**, then you can wrap the confirmation dialog call in an if-conditional statement that checks whether the client type is different from ODataV4, for example, `if SESSION.CurrentClientType() <> ClientType::ODataV4 then`. | There might be other clients that you want to remove the confirmation dialog from, such as OData and SOAP. |
 
 ## Known limitations in business logic
@@ -1712,7 +1678,6 @@ Sometimes, users run into problems with the Excel add-in. This section gives tip
 
 ## Known limitations in metadata generation
 
-When using **Edit in Excel** in [!INCLUDE [prod_short](includes/prod_short.md)], either by selecting the **Edit in Excel** action on a page or when the Excel add-in loads after opening an Excel workbook, you might encounter the following error: _Metadata was unable to be retrieved for entity \<entity name\> as it was not found_.
 
 This error occurs when the page you're attempting to modify becomes too complex for **Edit in Excel** to process effectively. The primary cause is the installation of multiple extensions that add fields with identical field names to the same parent page, leading to conflicts. It's also possible for a single extension to block the metadata generation.
 
@@ -1888,7 +1853,6 @@ To resolve this issue, you need access to the code of at least one of the extens
 <!--
 ## Deploy the Excel add-in for Business Central online
 
-For [!INCLUDE [prod_short](includes/prod_short.md)] online, the administrator can deploy the add-in for all users. But users can also install the add-in themselves, provided they have permission to configure their Office experience.  
 
 > [!TIP]
 > In some organizations, administrators cannot deploy add-ins centrally. For more information, see [Determine if Centralized Deployment of add-ins works for your organization](/microsoft-365/admin/manage/centralized-deployment-of-add-ins?view=o365-worldwide&preserve-view=true).
@@ -1913,7 +1877,6 @@ For [!INCLUDE [prod_short](includes/prod_short.md)] online, the administrator ca
 When the add-in is installed, it shows up as a panel in Excel. Next, you must configure the connection.
 
 > [!TIP]
-> If the workbook is not automatically saved to the user's OneDrive, then recommend them to save all workbooks that they export from [!INCLUDE [prod_short](includes/prod_short.md)].When they open the workbook again, the connection is still available, so they do not have to configure the connection again.
 
 > [!NOTE]
 > In certain deployments, the administrator must configure network access to unblock the Excel add-in. For more information, see [Preparing Your Network for the Excel Add-In](configuring-network-for-addins.md).-->
@@ -1969,7 +1932,7 @@ To see a report, choose the ![Lightbulb that opens the Tell Me feature.](media/u
 
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-manage-sales
 ---
@@ -1998,7 +1961,6 @@ You can easily correct or cancel a posted sales invoice before the customer pays
 
 Good sales and marketing practices are all about how to make the best decisions at the right time. Marketing functionality in [!INCLUDE[prod_short](includes/prod_short.md)] provides a precise and timely overview of your contact information so you can serve your prospective customers more efficiently and increase customer satisfaction. Learn more at [Relationship Management](marketing-relationship-management.md).
 
-If you use Microsoft Dynamics 365 Sales for customer engagement, you can enjoy seamless integration in the lead-to-cash process by using [!INCLUDE [prod_short](includes/prod_short.md)] for backend activities. For example, to process orders, manage inventory, and do your finances. Learn more at [Use Dynamics 365 Sales from Business Central](marketing-integrate-dynamicscrm.md).
 
 In business environments where the customer must pay before products are delivered, such as in retail, you must wait for the receipt of payment before you deliver the products. In most cases, you process incoming payments some weeks after delivery by applying the payments to their related posted, unpaid sales invoices. Learn more at [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).
 
@@ -2111,21 +2073,18 @@ ms.reviewer: bholtorf
 
 [!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
 
-Some people work in multiple companies in [!INCLUDE [prod_short](includes/prod_short.md)], and some also work in more than one organization, such as external accountants, or employees and managers of corporations with multiple subsidiaries. For these users, and many others, the company hub serves as a landing page that gives a financial overview across companies and environments. It provides users with a tool for managing work across the various environments that they work in, across companies, environments, and regions.  
 
 You can access the company hub by switching to the **Company Hub** role in My Settings, or by opening the **Company Hub** page directly. You can do the same work in both places, but actions are placed slightly different in menus.  
 
 [![Shows the company hub page that lists all companies.](media/company-hub.png)](media/company-hub.png#lightbox)  
 
 > [!NOTE]
-> You can connect the company hub to as many companies as you need. However, you can only connect the company hub to companies that are hosted in [!INCLUDE [prod_short](includes/prod_short.md)] online.
 
 ## Company hub home page
 
 If you use the **Company Hub** role, your home page shows a list of companies that you have access to, including information about key point of interest (KPI) data, and links to open each company. <!--You can customize the dashboard to show the data points that you want to see by adding or removing columns. For example, you might want to see taxes that are due, how many open sales documents each company has, or the number of purchase invoices that are due next week. You can configure the view to suit your needs. If you have added many companies, you can use filters to sort your view.--> Choose the **Company Hub** action to open the company hub, where you can work more closely with each company.  
 
 > [!TIP]
-> To access a specific company in [!INCLUDE [prod_short](includes/prod_short.md)], choose the name of the company, or choose the **Go To Company** menu item - you are logged in automatically in a new browser tab.
 
 :::image type="content" source="media/company-hub-company-list-actions.png" alt-text="Actions for a company that is listed in the company hub.":::
 
@@ -2150,7 +2109,6 @@ Otherwise, close the details pane and continue to the next company.  -->
 
 ## Assigned tasks
 
-In [!INCLUDE [prod_short](includes/prod_short.md)], you can assign tasks to yourself and others, and others can assign tasks to you. The company hub gives you an overview of assigned tasks for each company, and you can also access a list of all assigned tasks by choosing **My User Tasks** on the **Home** page.  
 
 <!--In the client company, you also have cues that call out tasks assigned to you in this particular client.  -->
 
@@ -2168,12 +2126,10 @@ For more information about companies and environments, see [Environment links](c
 
 ## Access the company hub
 
-[!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
 
 In order to access the company hub, you must have access through either the *D365 COMPANY HUB* user group or through the *D365 COMPANY HUB*  permission set. You must also have access to the companies that are listed in your company hub, which means that you must be a user in those companies. For more information, see [Create Users According to Licenses](ui-how-users-permissions.md).  
 
 > [!IMPORTANT]
-> The company hub is a company-wide list, so any user who is granted access to the company hub will be able to see all companies in their own [!INCLUDE [prod_short](includes/prod_short.md)] tenant, and all KPIs for the companies that they have access to.
 
 If you cannot find the company hub, and you know that you have been granted access to it, then check with your administrator if the company hub is listed in the **Extension Management** page. For more information, see [Customizing Business Central Using Extensions](ui-extensions.md).  
 
@@ -2181,11 +2137,8 @@ If you cannot find the company hub, and you know that you have been granted acce
 
 To start using the company hub, you must add one or more companies to your dashboard. For more information, see [Add Companies to Your Company Hub](company-hub-add-company.md).  
 
-But to add a company, you must have been given access to one or more instances of [!INCLUDE [prod_short](includes/prod_short.md)] in addition to the company that you use the company hub in.  
 
-For example, if you are an accountant, your clients can invite you to their [!INCLUDE [prod_short](includes/prod_short.md)]. For more information, see [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).  
 
-Administrators can use the same assisted setup guide to add you to their [!INCLUDE [prod_short](includes/prod_short.md)], or they can add you to the relevant Microsoft Entra account in the Microsoft 365 admin center. For more information, see [Manage users and groups](/microsoft-365/admin/add-users/?view=o365-worldwide&preserve-view=true).  
 
 ## See also
 
@@ -2195,7 +2148,7 @@ Administrators can use the same assisted setup guide to add you to their [!INCLU
 [Change Basic Settings](ui-change-basic-settings.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-use-allocation-keys-general-journals
 ---
@@ -2242,7 +2195,7 @@ You can allocate an entry in a general journal to several different accounts whe
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-liabilities
 ---
@@ -2323,7 +2276,7 @@ Try the report here: [Liabilities](https://businesscentral.dynamics.com?page=369
 [Built-in accounts receivable reports](receivables-reports.md)  
 [Built-in accounts payable reports](payables-reports.md)  
 [Financial analytics overview](bi.md)  
-[Finance overview](finance.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-to-set-up-shipping-agents
 ---
@@ -2368,7 +2321,7 @@ When you have assigned a shipping agent service to a sales order line, the shipp
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-setup-edocuments-external
 ---
@@ -2585,7 +2538,6 @@ If scrap is produced during processing, it can be entered in the output journal.
 4. In the **Scrap Code** field, enter the scrap code.  
 5. Choose the **Post** action to post the specified scrap per operation.  
 
-    [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]    
 
 ## See Also
 
@@ -2597,7 +2549,7 @@ If scrap is produced during processing, it can be entered in the output journal.
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-to-sell-items-assembled-to-order
 ---
@@ -2671,7 +2623,7 @@ In this procedure, you process the sale of an item that will be assembled accord
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-posting-engine-structure
 ---
@@ -2710,7 +2662,7 @@ Posting interface and some other functions in codeunit 12 use posting engine fun
 ## See Also  
  [Design Details: Posting Interface Structure](design-details-posting-interface-structure.md)
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-send-documents-email
 ---
@@ -2897,9 +2849,7 @@ ms.reviewer: jswymer
 ---
 # OneDrive in Business Central FAQ
 
-[!INCLUDE [online_only](includes/online_only.md)]
 
-This article answers common questions about using OneDrive for Business with [!INCLUDE [prod_short](includes/prod_short.md)].
 
 ## Does this work with all [!INCLUDE[prod_short](includes/prod_short.md)] clients?
 
@@ -3028,14 +2978,11 @@ ms.search.form: 4400, 4410_Primary
 ---
 # Item availability in Sales Order Agent (preview)
 
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
 The **Item Availability** page is part of the Sales Order Agent for checking item availability during the sale order taking process. This article provides a detailed overview of how the **Item Availability** page functions, including configuration and field descriptions.
 
 ![Screenshot of item availability page](media/soa-item-availability-page-clip.svg)
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
-<!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
 
 ## Overview
 
@@ -3296,11 +3243,9 @@ ms.collection: bap-ai-copilot
 
 # Suggest lines on sales documents with Copilot (preview)
 
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
 This article explains how to create sales documents faster by letting Copilot suggest the items to add to lines on sales documents for your customers.
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
 ## Sales line suggestions
 
@@ -3308,7 +3253,6 @@ Sales line suggestion can assist with creating lines on sales documents such as 
 
 - Find products
 
-  Information that describes products is stored in multiple places in [!INCLUDE [prod_short](includes/prod_short.md)]. For example, item numbers and descriptions are stored in the **Item** table, multiple barcodes are stored in the **Item Reference** table, and product properties are stored in the **Item Attributes** table. While you might prompt for *Red bicycle*, the actual product might be *Crimson tourer*, where *Bicycle* is a product category and *red* is an attribute.
 
 - Find documents by reference
 
@@ -3498,7 +3442,6 @@ ms.service: dynamics-365-business-central
 
 # Suggest vendor payments
 
-On the **Payment Journal** page, you can use the **Suggest Vendor Payments** batch job to suggest payment lines. Based on your settings, [!INCLUDE [prod_short](includes/prod_short.md)] suggests lines for:
 
 - Payments that are due soon.
 - Payments where a payment discount is available.
@@ -3682,9 +3625,7 @@ You can enter all relevant data on the **Company Information** page when you set
 ## To set up company information  
 
 1. Choose the ![Sprocket icon to open the Settings menu.](media/ui-experience/settings_icon_small.png) menu, and then choose the **Company Information** action.
-2. Enter the information into the FastTabs as described in the following table. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
-    [!INCLUDE [admin-company-info-fasttabs](includes/admin-company-info-fasttabs.md)]
 
 Once you have completed filling in the information, you can close the page.  
 
@@ -3736,7 +3677,7 @@ The following table provides best practices on how to set up the **Costing Metho
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-manage-inventory-costs
 ---
@@ -4187,7 +4128,6 @@ When all items on the warehouse shipment document are registered as picked, the 
 
 ## Post non-inventory items
 
-[!INCLUDE [post-non-inventory-items](includes/post-non-inventory-items.md)]
 
 ## See also
 
@@ -4209,11 +4149,8 @@ ms.author: kepontop
 ms.service: dynamics-365-business-central
 ---
 
-# Multi-language [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)]
 
-This article describes how to test and use multi-language capabilities in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)].
 
-## Try a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] app in your language/locale
 
 To try an app in a language, add `language = <culture name>` to the url parameters. For example, this URL shows an app in German:
 
@@ -4390,7 +4327,7 @@ To assign a template to an API, you must go through the following steps.
 [Endpoints for the APIs](/dynamics-nav/endpoints-apis-for-dynamics)  
 [Administration](admin-setup-and-administration.md)
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-powerbi-setup
 ---
@@ -4415,18 +4352,14 @@ This article describes how to get [!INCLUDE[prod_short](includes/prod_short.md)]
 
 With [!INCLUDE[prod_short](includes/prod_short.md)], users get a free Power BI license that provides access to the most common features in [!INCLUDE[prod_short](includes/prod_short.md)] and Power BI. You can also purchase a Power BI Pro license that provides access to additional features. The following table provides an overview of the features available with each license.
 
-|Power License|View reports|Create reports|Share reports|Refresh reports| [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] Apps|
 |-------------|--------||
 |Power BI free|![a checkmark.](media/check.png) (in your personal workspace)  | ![another checkmark](media/check.png) (in your personal workspace) |(limited)|(limited)||
 |Power BI Pro|![yet another checkmark.](media/check.png) |![it's a checkmark](media/check.png)|![again a checkmark](media/check.png)|(extensive)|![last checkmark](media/check.png)|
 
-You can't use a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] free license for the [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] Apps. To learn more, go to [Prerequisites for installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md#prerequisites)
 
-To learn more about [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licensing in general, go to [Licensing the Power BI service for users in your organization](/power-bi/admin/service-admin-licensing-organization) or [Sign up for the Power BI service as an individual](/power-bi/fundamentals/service-self-service-signup-for-power-bi).
 
 ## <a name="exposedata"></a>Expose data through API or OData web services
 
-[!INCLUDE[prod_short](includes/prod_short.md)] offers two ways to expose data that can be consumed by [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports: 
 
 * API pages or queries
 * Open Data Protocol (OData) web services
@@ -4437,12 +4370,9 @@ To learn more about [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licensin
 
 Developers can define page objects and query objects that are of the type *API*. This way, they can expose data from database tables through a webhook-supported, OData v4-enabled, REST service. This type of data can't be displayed in the user interface, but is intended for building reliable integration services.
 
-[!INCLUDE[prod_short](includes/prod_short.md)] online comes with a set of built-in APIs that you can use to get data for typical business entities, like customers, items, sales orders, and more. No extra work or setup is required to use these APIs as a data source for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports. To learn more about these APIs, go to [Business Central API V2.0](/dynamics365/business-central/dev-itpro/api-reference/v2.0/).
 
-[!INCLUDE[prod_short](includes/prod_short.md)] online also supports custom APIs. Application developers of [!INCLUDE[prod_short](includes/prod_short.md)] solutions can create their own API pages and queries and package them into apps. You then install the apps on your tenant. When they're installed, you use the API pages for your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports, like you'd do with the built-in APIs (v2.0). To learn more about how to create an API by exposing pages or queries, go to [Developing a Custom API](/dynamics365/business-central/dev-itpro/developer/devenv-develop-custom-api).
 
 > [!IMPORTANT]
-> Starting in February 2022, [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for [!INCLUDE[prod_short](includes/prod_short.md)] online are sourced from a secondary, read-only database replica for performance reasons. AL developers should avoid designing API pages that make database modifications while the pages are opening or loading records. In particular, consider the code on the AL triggers: `OnInit`, `OnOpenPage`, `OnFindRecord`, `OnNextRecord`, `OnAfterGetRecord`, and `OnAfterGetCurrRecord`. In some cases, these database modifications might cause performance problems and prevent the report from refreshing data. To learn more, go to [Performance Articles For Developers](/dynamics365/business-central/dev-itpro/performance/performance-developer?branch=main#writing-efficient-web-services) in the [!INCLUDE[prod_short](includes/prod_short.md)] development content.
 >
 > In rare cases, the behavior causes an error when you try to get data from the API for a report in Power BI Desktop. However, if the custom API requires database modifications, Power BI Desktop users can force the behavior. To learn more, go to [Building Power BI Reports to Display Business Central Data](across-how-use-financials-data-source-powerbi.md#fixing-problems).
 
@@ -4454,9 +4384,7 @@ To learn about what you can do to ensure the best performance of web services, a
 
 ### Choosing whether to use API pages or OData web services
 
-We recommend that you use API pages instead of OData web services. API pages load data faster in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports than OData web services. Plus, they're more flexible because they let you get data from table fields that aren't defined in a page object.
 
-Stability is another reason for why you shouldn't base your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports on UI pages exposed as OData web services. Fields on UI pages in [!INCLUDE[prod_short](includes/prod_short.md)] can change between updates. The changes are done either by the app publisher (the organization that develops the code), or with per-tenant extensions or apps that modify the page. In both cases, [!INCLUDE[prod_short](includes/prod_short.md)] doesn't know about [!INCLUDE [powerbi-name](includes/powerbi-name.md)] report dependencies on page objects, so the change in the UI page might break your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports. This problem doesn't happen if you base your reports on API pages or queries.
 
 <!--## <a name="setup"></a>Set up [!INCLUDE[prod_short](includes/prod_short.md)] on-premises for Power BI integration
 
@@ -4901,7 +4829,6 @@ ms.custom: bap-template
 
 [!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
 
-[!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
 
 This article describes how administrators create users and define who can sign in to [!INCLUDE[prod_short](includes/prod_short.md)]. This article also describes how to assign permissions to different users according to your product licenses.
 
@@ -4910,11 +4837,9 @@ When you create users in [!INCLUDE[prod_short](includes/prod_short.md)], you gra
 For more information about the different types of licenses and how licensing works in [!INCLUDE[prod_short](includes/prod_short.md)], [download the Dynamics 365 Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=866544).
 
 > [!NOTE]
-> The process of managing users and licenses varies depending on whether [!INCLUDE[prod_short](includes/prod_short.md)] is deployed online or on-premises. For [!INCLUDE [prod_short](includes/prod_short.md)] online, you must add users from Microsoft 365. In on-premises deployments, you can create, edit, and delete users directly.  
 
 ## Manage users and licenses in online tenants
 
-User accounts in [!INCLUDE[prod_short](includes/prod_short.md)] must be first created in the Microsoft 365 admin center. These user accounts aren't exclusive to [!INCLUDE [prod_short](includes/prod_short.md)]. If you subscribe to other plans, they can be used to sign in to other applications, such as Power BI. For information about creating users in the Microsoft 365 admin center, go to [Add users in Microsoft admin center](/microsoft-365/admin/add-users/add-users).
 
 Your subscription to [!INCLUDE[prod_short](includes/prod_short.md)] online defines how many [!INCLUDE[prod_short](includes/prod_short.md)] user licenses you're allowed. Users are added to your tenant in the Microsoft Partner Center, typically by your Microsoft partner. For more information, see [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration).
 
@@ -4925,16 +4850,12 @@ You assign licenses to users according to the work each user does in [!INCLUDE[p
 
 For more information, see [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration) in the administration Help.
 
-After user accounts are created in the Microsoft 365 admin center, there are two ways to import them to [!INCLUDE [prod_short](includes/prod_short.md)]:
 
-- A user account is imported automatically when the user signs in to [!INCLUDE [prod_short](includes/prod_short.md)] the first time.
 
    > [!NOTE]
-   > After a user signs in to [!INCLUDE [prod_short](includes/prod_short.md)] online, you can't delete the user.
 
 - The administrator can import users by choosing the **Update Users from Microsoft 365** action on the **Users* page.
 
-Both approaches have their own advantages, and you can use them simultaneously. Each approach allows administrators to proactively configure [!INCLUDE [prod_short](includes/prod_short.md)] to assign the starting permissions, user groups, and user profiles. Using the **Update Users from Microsoft 365** action gives administrators more control to adjust permissions, user groups, and profiles. It's an ideal approach when you're setting up [!INCLUDE [prod_short](includes/prod_short.md)] the first time, before any users sign in, or when adding a new team of users.
 
 > [!NOTE]
 > After you add users in the Microsoft 365 Admin Center, we recommend that you update the user information in [!INCLUDE[prod_short](includes/prod_short.md)] as soon as possible. Keeping user information current is easy to do, and helps ensure that people can always sign in. For more information, see [To add users or update user information and license assignments in Business Central](#adduser).<br>
@@ -4943,13 +4864,11 @@ Both approaches have their own advantages, and you can use them simultaneously. 
 >
 > However, users who experience this problem aren't actually blocked. They can either use the **Go back home** action, or simply sign in again to resolve the issue.
 
-[!INCLUDE [admin-gdap-users](includes/admin-gdap-users.md)]
 
 For more information, see [Delegated administrator access to Business Central Online](/dynamics365/business-central/dev-itpro/administration/delegated-admin).  
 
 ### <a name="licensespermissions"></a>Configure permissions based on licenses
 
-[!INCLUDE [2022_releasewave1](includes/2022_releasewave1.md)]
 
 Admins can configure permissions sets and user groups for each license.<!--Note to translators: The names in *italics* or capitalized in this section must not be translated.-->  
 
@@ -4994,7 +4913,6 @@ After you add users or change user information in the Microsoft 365 Admin Center
 > [!NOTE]
 > The **Update Users from Microsoft 365** guide doesn't update users that are not assigned a license, such as someone who is a [Dynamics 365 administrator](/entra/identity/role-based-access-control/permissions-reference#dynamics-365-administrator). Those users will update the next time they sign in to the environment.
 
-The next step for newly created users is to assign user groups and permissions. Go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information. If you update a user with a license change, [!INCLUDE [prod_short](includes/prod_short.md)] assigns users to the appropriate user group and updates their permission sets. For more information, see [To manage permissions through user groups](ui-define-granular-permissions.md).  
 
 > [!NOTE]
 > With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. For more information about licensing, go to [Business Central](https://dynamics.microsoft.com/business-central/overview/) website.
@@ -5141,20 +5059,16 @@ If you're new to [!INCLUDE[prod_short](includes/prod_short.md)], select **Produc
 
 ## Company Hub
 
-If you work in multiple [!INCLUDE [prod_short](includes/prod_short.md)] companies, use the **Company Hub** page to keep track of work. For more information, see [Manage Work across Multiple Companies in the Company Hub](company-hub.md).  
 
 ## <a name="inviteaccountant"></a>Inviting a third-party accountant to your [!INCLUDE[prod_short](includes/prod_short.md)]
 
 If a third-party accountant manages your books and financial reporting, your administrator can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. Both the Premium and Essentials [!INCLUDE[prod_short](includes/prod_short.md)] licenses let you procure up to three **External Accountant** licenses per customer tenant. The licenses are free, but you do need to procure them like you would other licenses. To learn more about licensing, download the [Microsoft Dynamics 365 Business Central Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=866544).
 
-After your accountant can access your [!INCLUDE[prod_short](includes/prod_short.md)], they can use the **Accountant** Role Center for easy access to the pages for their work. They can also use the company hub in their own [!INCLUDE [prod_short](includes/prod_short.md)] to manage their work. Learn more in [Manage Work across Multiple Companies in the Company Hub](company-hub.md).  
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=7ba6427f-cdf0-480d-8c98-b51f65437146]
 
-It's easy to invite your external accountant. In [!INCLUDE [prod_short](includes/prod_short.md)], open the **Users** page, and then select the **Invite external accountant** action. [!INCLUDE [prod_short](includes/prod_short.md)] prepares an email for you. Just add your accountant's work email, and send the invitation.  
 
 > [!Note]  
-> This action requires that you set up email in your [!INCLUDE [prod_short](includes/prod_short.md)] to use SMTP. Learn more in [Set Up Email](admin-how-setup-email.md).  
 
 > [!IMPORTANT]  
 > The accountant's email address must be a work address based on Microsoft Entra ID. If the accountant uses another type of email, the invitation can't be sent.
@@ -5355,41 +5269,30 @@ ms.custom: bap-template
 
 # Resources for users
 
-Are you using [!INCLUDE [prod_short](includes/prod_short.md)] and looking for relevant resources? Find everything you need in this article, and remember to bookmark [aka.ms/BCUsers](https://aka.ms/BCUsers).
 
 ## Hot topics right now
 
-Register for the [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event on [aka.ms/BCLE](https://aka.ms/BCLE).
 
 ## Latest release and updates  
 
-- [!INCLUDE [prod_short](includes/prod_short.md)] release plan: [aka.ms/BCReleasePlan](https://aka.ms/BCReleasePlan) 
 - Major updates: [aka.ms/BCUpdates](https://aka.ms/BCUpdates)
 - Minor updates: [aka.ms/BCLastMinorUpdate](https://aka.ms/BCLastMinorUpdate) 
 - Missing a feature? Post or vote for ideas on: [aka.ms/BCIdeas](https://aka.ms/BCIdeas) 
-- Where is [!INCLUDE [prod_short](includes/prod_short.md)] available? [aka.ms/BCCountries](https://aka.ms/BCCountries)
-- Read the capability guide for [!INCLUDE [prod_short](includes/prod_short.md)]: [aka.ms/BCcapabilities](https://aka.ms/BCcapabilities)
 - Still on-premises? Learn more at [Software Lifecycle Policy and Dynamics 365 Business Central on-premises Updates](/dynamics365/business-central/dev-itpro/terms/lifecycle-policy-on-premises)
 - Alert Microsoft about an upcoming regulatory feature: [aka.ms/BCAlerts](https://aka.ms/BCAlerts)
 - Optional features that are now mandatory: [aka.ms/BCFeatureMgmt](https://aka.ms/BCFeatureMgmt)
 
 ## Stay up to date on what's new
 
-- Watch the [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event sessions: [aka.ms/BCLE](https://aka.ms/BCLE).
 
 ## Social and blogs
 
 - Stay tuned about what’s going on in the #MSDyn365BC community: [twitter.com/MSDYN365BC](https://twitter.com/MSDYN365BC) (Use #BCALHelp on X, formerly known as Twitter, for quick hints on how to do things) 
 - Follow us on LinkedIn: [aka.ms/BCLinkedIn](https://aka.ms/BCLinkedIn)
-- Be a part of the community for [!INCLUDE [prod_short](includes/prod_short.md)]: [community.dynamics.com/forums/thread/?partialUrl=business](https://community.dynamics.com/forums/thread/?partialUrl=business) 
 - Visit our blog for IT professionals and decision makers: [cloudblogs.microsoft.com/dynamics365/it/product/business-central](https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/product/dynamics-365-business-central/)
 
 ## Customer onboarding and resources
 
-- Discover all [!INCLUDE [prod_short](includes/prod_short.md)] apps on AppSource: [aka.ms/BCAppSource](https://appsource.microsoft.com/marketplace/apps?page=1&product=dynamics-365-business-central)
-- Get [!INCLUDE [prod_short](includes/prod_short.md)] on your mobile devices: [aka.ms/BusinessCentralApp](https://aka.ms/BusinessCentralApp)
-- Get the [!INCLUDE [prod_short](includes/prod_short.md)] installable app on your desktop: [aka.ms/BCPWA](https://aka.ms/BCPWA)
-- Learn about onboarding experiences in [!INCLUDE [prod_short](includes/prod_short.md)]: [aka.ms/BCOnboarding](https://aka.ms/bconboarding)
 - Find productivity tips: [aka.ms/BCProductivity](https://aka.ms/BCProductivity) 
 - Learn about keyboard shortcuts: [aka.ms/BCKeys](https://aka.ms/BCKeys)
 
@@ -5397,17 +5300,12 @@ Register for the [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event on
 
 - Get started with reporting: [aka.ms/BCReporting](https://aka.ms/BCReporting)
 - Find sample Excel layouts: [aka.ms/BCExcelSamples](https://aka.ms/BCExcelSamples)
-- Explore [!INCLUDE [prod_short](includes/prod_short.md)] and Power BI: [aka.ms/BCPBI](https://aka.ms/BCPBI)
 
 ## Power Platform
 
-- [!INCLUDE [prod_short](includes/prod_short.md)] and Power BI: [aka.ms/BCPBI](https://aka.ms/BCPBI)
-- [!INCLUDE [prod_short](includes/prod_short.md)] and Power Automate: [aka.ms/BCAutomate](https://aka.ms/BCAutomate) 
-- [!INCLUDE [prod_short](includes/prod_short.md)] and Power Apps: [aka.ms/BCPApps](https://aka.ms/BCPApps)
 
 ## Migrating from on-premises to online
 
-- Discover assets for transitioning Dynamics GP, Dynamics NAV, Dynamics SL, [!INCLUDE [prod_short](includes/prod_short.md)] on-premises customers to [!INCLUDE [prod_short](includes/prod_short.md)] online: [aka.ms/BCMigrations](https://aka.ms/BCMigrations)  
 - Use migration tools: [Migrate Data](/dynamics365/business-central/dev-itpro/administration/migrate-data) 
 
 ## Telemetry and performance
@@ -5419,7 +5317,6 @@ Register for the [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event on
 ## Security, privacy, and compliance
 
 - Security and privacy documentation: [aka.ms/BCSecurity](https://aka.ms/BCSecurity) 
-- Security in [!INCLUDE [prod_short](includes/prod_short.md)]: [aka.ms/BCSecurity](https://aka.ms/BCSecurity)
 - Databases and backups: [aka.ms/bcbackups](https://aka.ms/BCBackups)
 - Compliance overview: [aka.ms/BCCompliance](https://aka.ms/BCCompliance)
 - Application compliance: [aka.ms/BCAppCompliance](https://aka.ms/BCAppCompliance)
@@ -5436,7 +5333,6 @@ Register for the [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event on
 
 ## Events for customers
 
-- [!INCLUDE [prod_short](includes/prod_short.md)] Launch Event: [aka.ms/BCLE](https://aka.ms/BCLE)
 - [DynamicsMinds](https://www.dynamicsminds.com/)
 - [UG Summit](https://www.summitna.com/)
 - [DynamicsCon](https://dynamicscon.com/)
@@ -5464,21 +5360,17 @@ ms.search.form: 30, 31, 5716_Primary
 
 # Suggest substitute items with Copilot
 
-[!INCLUDE [preview-banner](includes/preview-banner.md)]
 
 This article explains how to find and assign substitute items faster by letting Copilot suggest the items to add.
 
-[!INCLUDE [production-ready-preview-dynamics365](includes/production-ready-preview-dynamics365.md)]
 
 ## About item substitution suggestions
 
 To ensure they can fulfill orders quickly, businesses often assign similar items to each other so they can use them as substitutes. For example, substitutes are good to have when the item that was originally requested is out of stock. Finding and assigning the right items to use as substitutes can be time consuming, and that's where Copilot can help. The suggest item substitutions capability for Copilot can speed up the process of finding similar items.
 
-Information about products is stored in multiple places in [!INCLUDE [prod_short](includes/prod_short.md)]. For example, item numbers and descriptions are stored in the Item table, multiple barcodes are stored in the Item Reference table, and item properties are stored in the Item Attributes table. Copilot uses a large language model combined with embedded search to comb through this information and suggest items that might be good substitutes. While you might prompt for *Red bicycle*, the actual product might be *Crimson Tourer**, where *Bicycle* is an item category and *Red* is an attribute.
 
 ## Available languages
 
-[!INCLUDE [copilot-geo-and-language-availability](includes/copilot-geo-and-language-availability.md)]
 
 ## Prerequisites
 
@@ -5551,7 +5443,6 @@ The next step is to design the item flow at the location by specifying bin codes
 2. Select the location where you want to use bins.  
 3. Choose the **Edit** action.  
 4. On the **Warehouse** FastTab, select the **Bin Mandatory** checkbox.  
-5. If you aren't using directed put-away and pick for the location, in the **Default Bin Selection** field, choose the method you want [!INCLUDE [prod_short](includes/prod_short.md)] to use to assign a default bin to an item.  
 6. Open the card for the location that you want to set up bins for.
 7. On the **Bins** FastTab, select the bins to use as the default for receipts, shipments, inbound, outbound, and open shop floor bins.  
 
@@ -5617,7 +5508,6 @@ The term *demand* refers to any kind of gross demand, such as:
 * An item for a sales order
 * A component for a production order
 
-[!INCLUDE [prod_short](includes/prod_short.md)] also lets you use more technical types of demand, such as negative inventory and purchase returns.
 
 To sort the sources of supply and demand, the planning system organizes them on two timelines called inventory profiles. One profile is for demand events, and the other is for the corresponding supply events. Each supply event represents one entity on an order, such as:
 
@@ -5688,7 +5578,6 @@ The supply plan must be calculated for each combination of the item dimensions, 
 The planning system looks for combinations in the inventory profile. When it finds a new combination, it creates an internal control record that holds the information about the combination. The planning system then inserts the SKU as the control record, or outer loop. As a result, the planning parameters are set according to a combination of variant and location, and the system can proceed to the inner loop. 
 
 > [!NOTE]  
-> You don't have to enter a SKU record when you enter demand and/or supply for a particular combination of variant and location. Therefore, if a SKU doesn't exist for a given combination, [!INCLUDE [prod_short](includes/prod_short.md)] creates a temporary SKU record based on data from the item. If the **Location Mandatory** is toggle is turned on on the **Inventory Setup page**, you must either create a SKU or turn on the **Components at Location** toggle. Learn more at [Planning With or Without Locations](production-planning-with-without-locations.md).  
 
 ### Serial and lot numbers are loaded by specification level  
 
@@ -5817,7 +5706,6 @@ Each event refers to its source type and identification. The rules for balancing
 1. No demand or supply exists for the item => the planning has finished (or should not start).  
 2. Demand exists but there's no supply => supply should be suggested.  
 3. Supply exists but there's no demand for it => supply should be canceled.  
-4. Both supply and demand exist => questions should be asked and answered before [!INCLUDE [prod_short](includes/prod_short.md)] can ensure that the supply can meet the demand.
 
     If the timing of the supply isn't suitable, perhaps the supply can be rescheduled, as follows:  
 
@@ -5934,7 +5822,7 @@ To reduce the load on the database when handling production orders, the planning
 [Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)  
 [Design Details: Supply Planning](design-details-supply-planning.md)
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-manage-sales-opportunities
 ---
@@ -5972,7 +5860,7 @@ The following table describes a sequence of tasks, with links to the topics that
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-costs-pricing
 ---
@@ -6039,7 +5927,7 @@ When you work with service items and service orders, you may need to register ad
 [Service Management](service-service.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-purchase-products-sale
 ---
@@ -6111,7 +5999,7 @@ To create a single purchase invoice for one or more lines on a sales document by
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-post-consumption
 ---
@@ -6148,9 +6036,7 @@ You can also set up [!INCLUDE[prod_short](includes/prod_short.md)] to automatica
 
 3. Choose the **Post** action to post the consumption. The related inventories are reduced.
 
-    [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
 
-[!INCLUDE [production-journals-edit-excel](includes/production-journals-edit-excel.md)]
 
 ## Related information
 
@@ -6230,7 +6116,7 @@ Try the report here: [Bin Contents by Item Tracking](https://businesscentral.dyn
 [Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
 [Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
 [Inventory analytics overview](inventory-analytics-overview.md)  
-[Inventory overview](inventory-manage-inventory.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-track-packages
 ---
@@ -6270,7 +6156,7 @@ The following procedure shows how to track a package from a posted sales shipmen
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-edit-posted-document
 ---
@@ -6380,7 +6266,6 @@ The *Purchase and Sales Quantity* report includes the following KPIs:
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
 
 - Item
 - Item Ledger Entries
@@ -6398,7 +6283,7 @@ Try the report here: [Purchase and Sales Quantity](https://businesscentral.dynam
 [Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
 [Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
 [Inventory analytics overview](inventory-analytics-overview.md)  
-[Inventory overview](inventory-manage-inventory.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-process-sales-returns-orders
 ---
@@ -6843,7 +6728,6 @@ When it is time to send invoices for the completed bookings, you go to the **Boo
 The support for invoicing appointments from Bookings is simpler than the fuller workflow of working with sales quotes, sales orders, and sales invoices. For more information, see [Invoice Sales](sales-how-invoice-sales.md). You can choose to sell your services using [!INCLUDE[prod_short](includes/prod_short.md)] or choose to use Bookings, depending on your business needs.  
 
 > [!NOTE]
-> In May 2022, we discovered an issue in the integration with Bookings. Currently, the sync from Bookings to [!INCLUDE [prod_short](includes/prod_short.md)] requires you to manually associate the invoices with customers in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 ## See Also
 
@@ -6853,7 +6737,7 @@ The support for invoicing appointments from Bookings is simpler than the fuller 
 [Microsoft Bookings](https://products.office.com/business/scheduling-and-booking-app)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-analyze-excel
 ---
@@ -6871,9 +6755,7 @@ ms.reviewer: bholtorf
 # Analyzing financial statements in Microsoft Excel (obsolete)
 
 > [!NOTE]
-> This feature is deprecated and will be removed in a later [!INCLUDE [prod_short](includes/prod_short.md)] release. Learn more in [Deprecated features in the base app](/dynamics365/business-central/dev-itpro/upgrade/deprecated-features-w1). Learn more about alternative finance reporting in [Financial analytics overview](bi.md).
 
-[!INCLUDE [prod_short](includes/prod_short.md)] provides KPIs and get overviews of your company's finances. The following are examples of ways to analyze KPIs and overviews in Excel:
 
 * Open lists in Excel and analyze the data.
 * Export heavy financial statements such as your balance sheet or income statement to Excel, analyze the data, and print the reports.  
@@ -6883,7 +6765,6 @@ ms.reviewer: bholtorf
 
 ## Get the overview and the details in Excel
 
-In the Business Manager and Accountant Role Centers, the **Reports** action lets you choose the financial statements to view in Excel. When you choose a statement, it will be opened in Excel or Excel Online. An add-in connects the data to [!INCLUDE [prod_short](includes/prod_short.md)]. However, you have to sign in with the same account that you use with [!INCLUDE [prod_short](includes/prod_short.md)]. The following table lists the reports and where they're available.  
 
 |Report  |Role Center  |
 |---------|---------|
@@ -6898,19 +6779,14 @@ In the Business Manager and Accountant Role Centers, the **Reports** action lets
 
 Let's say you want to dig deeper into your cash flow. From the Business Manager or Accountant Role Center, you can open the **Statement of Cash Flows** report in Excel, but what actually happens is that we export the relevant data for you and create an Excel workbook based on a predefined template. Depending on your browser, you might be prompted to open or save the workbook.  
 
-In Excel, you see a tab where the data is laid out for you on the first worksheet. All the data that was exported is also present in other worksheets in case you need it. You can print the report right away, or you can modify it until you have the overview and the details that you want. Use the [!INCLUDE [prod_short](includes/prod_short.md)] Excel Add-in to further filter and analyze data.  
 
 ### Understand the Excel templates
 
 The predefined Excel reports are based on the data in the current company. For example, the demonstration company has set up the chart of accounts to list three cash accounts under *Current Assets*: 10100 **Checking account**, 10200 **Saving account**, and 10300 **Petty Cash**. The accounts have the **Account Subcategory** field set to *Cash*, and it's their combined amount that shows up as *Cash* in the **Balance Sheet** Excel report.  
 
-Other sheets in the Excel workbook show the data behind the report. To find out what's behind the groupings in the Excel reports, you might have to filter the lists in [!INCLUDE [prod_short](includes/prod_short.md)].  
 
-## The [!INCLUDE [prod_short](includes/prod_short.md)] Excel add-in
 
-Your [!INCLUDE [prod_short](includes/prod_short.md)] experience includes an add-in for Excel. Depending on your subscription, you're signed in automatically, or you must provide your sign-in details for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Viewing and Editing in Excel From Business Central](across-work-with-excel.md).  
 
-The add-in lets you get fresh data from [!INCLUDE [prod_short](includes/prod_short.md)], and you can push changes back to [!INCLUDE [prod_short](includes/prod_short.md)]. However, the ability to push data back to the database is not available for the financial reports you can view in Excel.  
 
 ## Alternative to obsolete reports
 
@@ -6949,7 +6825,6 @@ A central role, such as the application administrator, must regularly deal with 
 
 In certain situations, you might need to delete invoiced purchase orders. However, you can't delete them unless you fully invoice and received the items in the purchase orders. [!INCLUDE[prod_short](includes/prod_short.md)] helps you out by checking for that.
 
-Businesses usually delete return orders after they're invoiced. When you post an invoice, [!INCLUDE [prod_short](includes/prod_short.md)] transfers it to the **Posted Purchase Credit Memo** page. If you selected the **Return Shipment on Credit Memo** check box on the **Purchases & Payable Setup** page, the invoice is transferred to the **Posted Return Shipment** page. You can delete the documents using the **Delete Invd Purch. Ret. Orders** batch job. Before it deletes documents, the batch job checks whether the purchase return orders are fully shipped and invoiced.  
 
 Blanket purchase orders aren't automatically deleted after you process and invoice all the related purchase orders. Instead, you can delete them with the **Delete Invoiced Blanket Purchase Orders** batch job.  
 
@@ -6959,7 +6834,6 @@ Service orders aren't deleted automatically, however, if the total quantity on t
 
 ## Compress data with date compression
 
-You can compress data in [!INCLUDE [prod_short](includes/prod_short.md)] to save space in the database&mdash;which in [!INCLUDE [prod_short](includes/prod_short.md)] online can even save you money. The compression, based on dates and functions, combines several old entries into one new entry.
 
 You can compress entries that meet all of the following conditions:
 
@@ -7212,7 +7086,6 @@ ms.service: dynamics-365-business-central
 The planning system takes all demand and supply data into account, nets the results, and creates suggestions for balancing supply to meet demand. To learn more, go to [Design Details: Supply Planning](design-details-supply-planning.md).  
 
 > [!TIP]  
-> To understand the fields that this article mentions, read their tooltip in [!INCLUDE [prod_short](includes/prod_short.md)]. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 ## Supply and demand
 
@@ -7335,7 +7208,6 @@ The attention warning displays in two situations:
 
 As described in [Planning](production-planning.md), you can choose between two worksheets for most planning activities, the planning worksheet and the requisition worksheet. Most processes are described based on the planning worksheet, but there are a couple of scenarios where the requisition worksheet is preferred.
 
-[!INCLUDE [edit-in-excel](includes/edit-in-excel.md)]
 
 > [!TIP]
 > When you process lines in a planning worksheet, you can print more than one firm planned orders. The **Prod. Order** option in the **Report Selection - Production Order** page determines which report to print. The default report is **99000762 Prod. Order - Job Card**. If your production orders lack routing lines or you prefer a more compact report, consider switching to the **5500 Prod. Order Comp. and Routing** report.
@@ -7387,15 +7259,12 @@ ms.reviewer: bholtorf
 
 # Project Reports in Business Central
 
-Project reporting in [!INCLUDE [prod_short](includes/prod_short.md)] allows project and business professionals to get insights and statistics about current and past project activities.  
 
 ## Explore project reports with Report Explorer
 
-[!INCLUDE [report-explorer-projects](includes/report-explorer-projects.md)] 
 
 ## Project report overview
 
-[!INCLUDE [project_reports](includes/project-reports-include.md)]
 
 ## See also
 
@@ -7420,18 +7289,14 @@ ms.service: dynamics-365-business-central
 ---
 # Accounts payable analytics
 
-[!INCLUDE [prod_short](includes/prod_short.md)] has built-in reports and analytics that can help you manage your accounts payable. The tools go beyond traditional reporting constraints to help you efficiently design various types of reports, such as Power BI, Data Analysis, or Excel.  
 
 ## Analyze accounts payable with Power BI
 
-The [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] has multiple reports that are relevant in accounts payable.
 
 :::image type="content" source="media/finance/aged-payables-report.png" alt-text="Screenshot of the Aged Payables (Back Dating) report" lightbox="media/finance/aged-payables-report.png":::
 
 | To... | Open in Business Central (CTRL+select) | Learn more |
 | ----- | ---------------------------------------- | ---------- |
-| [!INCLUDE [pbireport-aged-payables-back-dating-include](includes/pbireport-aged-payables-back-dating-include.md)] | [Aged Payables (Back Dating)](https://businesscentral.dynamics.com?page=36994) | [About Aged Payables (Back Dating)](finance-powerbi-aged-payables-back-dating.md) |
-| [!INCLUDE [pbireport-detailed-vendor-ledger-entries-include](includes/pbireport-detailed-vendor-ledger-entries-include.md)] | [Detailed Vendor Ledger Entries](https://businesscentral.dynamics.com?page=36996) | [About Detailed Vendor Ledger Entries](finance-powerbi-detailed-vendor-ledger-entries.md) |
 
 To learn more, go to [Power BI finance app](finance-powerbi-app.md).
 
@@ -7445,11 +7310,9 @@ To learn more, go to [Using data analysis to analyze accounts payable](ad-hoc-an
 
 ## Explore finance reports with Report Explorer
 
-[!INCLUDE [finance_reports_report_explorer](includes/finance-reports-report-explorer-include.md)]
 
 ## Accounts payable report overview
 
-[!INCLUDE [payables_reports](includes/payables-reports-include.md)]
 
 ## Analyze your payment practice
 
@@ -7527,7 +7390,7 @@ From the **Report Settings** page, you can:
 [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-use-statistical-accounts
 ---
@@ -7597,7 +7460,7 @@ On the **Statistical Accounts** page, use the **Statistical Accounts Balance** a
 ## See Also
 
 [Prepare Financial Reporting with Financial Data and Account Categories](bi-how-work-account-schedule.md)  
-[Financial analytics overview](bi.md)  end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-replan-refresh-production-orders
 ---
@@ -7628,7 +7491,6 @@ The **Refresh** action calculates changes to a production order header and doesn
 You can either insert the production order lines manually or use the action that calculates the production order lines from the header.  
 
 > [!NOTE]
-> If you use the **Refresh** action to recalculate production order lines, [!INCLUDE [prod_short](includes/prod_short.md)] deletes the existing production order lines and calculates new lines.
 > Even if the **Lines** option is disabled, non-top-level lines in a Make-to-order environment are deleted. Use the **Replan** action to restore them.
 
 ## To replan a production order
@@ -7805,43 +7667,29 @@ There are a few pieces of information to have ready before you create the connec
 * The URL for the [!INCLUDE[cds_long_md](includes/cds_long_md.md)] environment that you want to connect to. If you use the **Dataverse Connection Setup** assisted setup guide to create the connection we'll find your environments. You can also enter the URL of another environment in your tenant.  
 * The user name and password of an account that has administrator permissions in [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[cds_long_md](includes/cds_long_md.md)].  
 * If you have an on-premises [!INCLUDE[prod_short](includes/prod_short.md)] 2020 release wave 1, version 16.5, read the [Some Known Issues](/dynamics365/business-central/dev-itpro/upgrade/known-issues#wrong-net-assemblies-for-external-connected-services) article. You'll have to complete the described workaround before you can create your connection to [!INCLUDE[cds_long_md](includes/cds_long_md.md)].
-* The local currencies that each company uses. [!INCLUDE [prod_short](includes/prod_short.md)] companies can connect to a [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment that has a base currency that's different than their local currency. To learn more about how to handle multi-currency setups, go to [Allow for different currencies](#allow-for-different-currencies).
 
 > [!IMPORTANT]
 > Your [!INCLUDE[cds_long_md](includes/cds_long_md.md)] environment must not be in Administration mode. Administration mode will cause the connection to fail because the integration user account for the connection does not have administrator permissions. For more information, see [Administration mode](/power-platform/admin/admin-mode).
 
 > [!Note]
 > These steps describe the procedure for [!INCLUDE[prod_short](includes/prod_short.md)] online.
-> If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises and aren't using a Microsoft Entra account to connect to [!INCLUDE [cds_long_md](includes/cds_long_md.md)], you must also specify a user name and password of a user account for the integration. This account is referred to as the "integration user" account. If you're using a Microsoft Entra account, the integration user account is not required or displayed. The integration user will be set up automatically and does not require a license.
 
 ## Link your Business Central and Dataverse environments
 
-Businesses want to keep their data safe and secure within their privacy boundary, and especially when their business management application integrates with other apps. By linking [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] environments, you’ll not only achieve those considerations, but also give your administrators an easier way to create and maintain your integrations with other Dynamics 365 apps.
 
-In the [!INCLUDE [prod_short](includes/prod_short.md)] admin center, you can link your [!INCLUDE [prod_short](includes/prod_short.md)] environment to your [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment. [!INCLUDE [prod_short](includes/prod_short.md)] can use the information from the link to make it easier, and more secure, to integrate with other Dynamics 365 apps, such as Sales and Field Service. For example, the linked [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment URL is available by default on the **Dataverse Connection Setup** page and when you run the **Dataverse Connection Setup** assisted setup guide.
 
 ## Allow for different currencies
 
-[!INCLUDE [prod_short](includes/prod_short.md)] companies can connect to a [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment that has a base currency that's different than their local currency.
 
 > [!NOTE]
-> Synchronizing multiple currencies requires that you're using a unidirectional synchronization, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [cds_long_md](includes/cds_long_md.md)].
 
-To learn more about the base currency in [!INCLUDE [cds_long_md](includes/cds_long_md.md)], go to [Transaction Currency (currency) entity](/powerapps/developer/data-platform/transaction-currency-currency-entity). 
 
-To learn more about currencies in [!INCLUDE [prod_short](includes/prod_short.md)], go to [Currencies in Business Central](finance-currencies.md).
 
 To allow for different currencies, before you connect, be sure that you've specified the following settings:
 
-* The base transaction currency setting in [!INCLUDE [cds_long_md](includes/cds_long_md.md)] has the currency code that's specified on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)].
-* There's at least one exchange rate specified for the currency in [!INCLUDE [prod_short](includes/prod_short.md)] on the **Currency Exchange Rates** page.
 
-When you enable the connection to [!INCLUDE [cds_long_md](includes/cds_long_md.md)], [!INCLUDE [prod_short](includes/prod_short.md)] adds its local currency to the **Currency** entity in [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. The local currency uses the exchange rate from the **Currency Factor** field on the **Currency Exchange Rates** page.
 
-Because currency synchronization is unidirectional, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [cds_long_md](includes/cds_long_md.md)], monetary amounts convert and synchronize as follows:
 
-* If in the [!INCLUDE [cds_long_md](includes/cds_long_md.md)] base currency, amounts convert to the [!INCLUDE [prod_short](includes/prod_short.md)] local currency based on the latest exchange rate synchronized from [!INCLUDE [prod_short](includes/prod_short.md)].
-* If in the [!INCLUDE [prod_short](includes/prod_short.md)] local currency, amounts synchronize with the [!INCLUDE [prod_short](includes/prod_short.md)] local currency in one of the additional, non-base currencies in [!INCLUDE [cds_long_md](includes/cds_long_md.md)].
 
 ## Set up a connection to [!INCLUDE[cds_long_md](includes/cds_long_md.md)]
 
@@ -7914,16 +7762,13 @@ The following video shows the steps to connect [!INCLUDE[prod_short](includes/pr
 
 ## Customize the match-based coupling
 
-Starting in 2021 release wave 2, an administrator can enter criteria to couple records based on matches. You can start the algorithm for matching records from the following places in [!INCLUDE [prod_short](includes/prod_short.md)]:
 
-* List pages that show records that are synchronized with [!INCLUDE [cds_long_md](includes/cds_long_md.md)], such as the Customers and Items pages.  
 
     Select multiple records, and then choose the **Related** action, choose **Dataverse**, choose **Coupling**, and then choose **Match-Based Coupling**.
 
     When you start the match-based coupling process from a master data list, a coupling job is scheduled after you specify the coupling criteria.  
 * The **Dataverse Full Synch. Review** page.  
 
-    When the full synchronization process detects uncoupled records in [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)], a **Select Coupling Criteria** link appears for the integration table.  
 
     You can start the **Run Full Synchronization** process from the **Dataverse Connection Setup** and **Dynamics 365 Connection Setup** pages. You can also start it in the **Set up a connection to Dataverse** assisted setup guide when you complete your setup.  
 
@@ -7936,13 +7781,10 @@ Starting in 2021 release wave 2, an administrator can enter criteria to couple r
 
 In all three cases, the **Select Coupling Criteria** page opens so that you can define the relevant coupling criteria. In this page, customize the coupling with the following tasks:
 
-* Choose the fields to use to match [!INCLUDE [prod_short](includes/prod_short.md)] records with [!INCLUDE [cds_long_md](includes/cds_long_md.md)] entities. You can specify whether the match is case-sensitive.  
 
 * Specify whether to synchronize after you couple records. If records use bidirectional mapping, you can also specify what happens if conflicts are listed in the **Resolve Update Conflicts** page.  
 
-* Prioritize the order in which records are searched by specifying a *match priority* for the relevant mapping fields. [!INCLUDE [prod_short](includes/prod_short.md)] will search for a match in ascending order based on the value in the **Match Priority** field. A blank value in the **Match Priority** field equals priority 0, which is the highest priority. Fields with the 0 priority are considered first.  
 
-* Specify whether to create a new entity instance in [!INCLUDE [cds_long_md](includes/cds_long_md.md)] in case no unique uncoupled match can be found by using the match criteria. To activate this capability, choose the **Create New if Unable to Find a Match** action.  
 
 ### View the results of the coupling job
 
@@ -7964,12 +7806,9 @@ Typically, coupling fails for the following reasons:
 
     Repeat the coupling using different fields.
 
-* A match was found, but the record is already coupled to a record in [!INCLUDE [prod_short](includes/prod_short.md)]  
 
-    Repeat the coupling using different fields, or investigate why that [!INCLUDE [cds_long_md](includes/cds_long_md.md)] entity is coupled to the record in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 > [!TIP]
-> To help you get an overview over the progress of the coupling, the **Coupled to Dataverse** field shows whether a record is coupled to a [!INCLUDE [cds_long_md](includes/cds_long_md.md)] entity. You can use the **Coupled to Dataverse** field to filter the list of records you're synchronizing.
 
 ## Upgrade connections from Business Central online to use certificate-based authentication
 
@@ -8046,25 +7885,18 @@ ms.custom: bap-template
 
 # Integrate with Microsoft Dynamics 365 Field Service
 
-Service organizations require a front-to-back application in which finance, inventory, and procurement are tightly coupled with service delivery. They generate financial data with every transaction. Every work order represents cost and revenue, and every resource generates profit and loss. Customer interactions add entries on the general ledger. The integration between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [field-service-short](includes/field-service-short.md)] streamlines the end-to-end process of managing service operations and ensures a smooth flow of information between the two systems.  
 
-You can easily create and manage work orders in [!INCLUDE [field-service-short](includes/field-service-short.md)], track the progress of service tasks, assign resources, and capture consumption details. When you complete a work order in [!INCLUDE [field-service-short](includes/field-service-short.md)], the integration enables the smooth transfer of data to [!INCLUDE [prod_short](includes/prod_short.md)] for further processing.  
 
-The integration also facilitates the invoicing and fulfillment of work orders in [!INCLUDE [prod_short](includes/prod_short.md)]. You can generate accurate invoices based on the service activities and the consumption recorded in [!INCLUDE [field-service-short](includes/field-service-short.md)].  
 
-By integrating [!INCLUDE [prod_short](includes/prod_short.md)] with [!INCLUDE [field-service-short](includes/field-service-short.md)], you don't have to enter data manually or duplicate efforts. Integration also provides a comprehensive view of service operations and finances, enabling better decision-making and operational efficiency.
 
 ## Prerequisites
 
-Because [!INCLUDE [field-service-short](includes/field-service-short.md)] is built on top of Dynamics 365 Sales, you must [set up a connection to Dataverse](/dynamics365/business-central/admin-how-to-set-up-a-dynamics-crm-connection#to-use-the-dataverse-connection-setup-assisted-setup-guide) and [enable integration to Dynamics 365 Sales](/dynamics365/business-central/admin-prepare-dynamics-365-for-sales-for-integration#connection-settings-in-the-setup-guide).
 
-You must download the following apps from AppSource, and install them in your [!INCLUDE [prod_short](includes/prod_short.md)] environment:
 
 - [Field Service Integration](https://go.microsoft.com/fwlink/?linkid=2277917)
 - [Business Central Virtual Table](https://go.microsoft.com/fwlink/?linkid=2304910)
 
 > [!NOTE]
-> The [!INCLUDE [prod_short](includes/prod_short.md)] Virtual Table app is optional. You only need it if you want to view information about item availability from [!INCLUDE [prod_short](includes/prod_short.md)] in [!INCLUDE [field-service-short](includes/field-service-short.md)]. To learn more, go to [View item availability in Business Central from Field Service](#view-item-availability-in-business-central-from-field-service).
 
 ### Permissions and security roles for user accounts
 
@@ -8072,9 +7904,6 @@ When you install the Integration Solution, permissions for the integration user 
 
 #### Sales
 
-- Dynamics 365 [!INCLUDE [prod_short](includes/prod_short.md)] Integration Administrator
-- Dynamics 365 [!INCLUDE [prod_short](includes/prod_short.md)] Integration User
-- Dynamics 365 [!INCLUDE [prod_short](includes/prod_short.md)] Product Availability User
 
 #### Business Central
 
@@ -8088,12 +7917,9 @@ To use the integrated data, users must have the following security role:
 
 - Business Central Field Service Integration
 
-For example, users must have this role to connect work orders to [!INCLUDE [prod_short](includes/prod_short.md)] for processing.
 
 > [!NOTE]
-> Ensure that users are assigned to the standard security roles and profiles in [!INCLUDE [field-service-short](includes/field-service-short.md)].  
 >
-> To learn more about column security profiles in [!INCLUDE [field-service-short](includes/field-service-short.md)], go to [Field Service security roles](/dynamics365/field-service/users-licenses-permissions#field-service-security-roles).
 >
 > Administrators must add one of the appropriate column security profiles to users in Power Platform. To learn more, go to [Add teams or users to a column security profile to control access](/power-platform/admin/add-teams-users-field-security-profile).
 
@@ -8107,99 +7933,66 @@ For example, users must have this role to connect work orders to [!INCLUDE [prod
 
 On the **Field Service Setting** page, make the following changes:
 
-- On the **Purchase** tab, clear the **Use of Products Out of Stock** field. Otherwise, you might get an "out of stock" warning when you choose a product that's out of stock in [!INCLUDE [field-service-short](includes/field-service-short.md)], but is in stock in [!INCLUDE [prod_short](includes/prod_short.md)].
 - On the **Work Order / Booking** tab, turn off the **Calculate Price** and **Calculate Cost** toggles. In the **Work Order Invoice Creation** field, choose **Never**.
 
 > [!NOTE]
-> Setting up a connection to [!INCLUDE [field-service-short](includes/field-service-short.md)] removes the coupling between resources and products. To make [!INCLUDE [prod_short](includes/prod_short.md)] items available in [!INCLUDE [field-service-short](includes/field-service-short.md)], update the **Field Service Product Type** field to match the **Type** field on the items in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Create a product or service](/dynamics365/field-service/create-product-or-service#create-a-product-or-service).
 
 ## Set up the integration in Business Central
 
-After you have a connection to Dataverse and Sales, you can set up your integration to [!INCLUDE [field-service-short](includes/field-service-short.md)].
 
 1. Download and install the **Field Service Integration** app from [AppSource](https://go.microsoft.com/fwlink/?linkid=2277917). Afterward, on the **Extension Management** page, find the Field Service Integration app, and choose the **Set up** action to run the assisted setup guide.
-2. On the **Assisted Setup** page in [!INCLUDE [prod_short](includes/prod_short.md)], choose **Set up integration to Dynamics 365 Field Service** to run the assisted setup guide.
 
 This section describes the key settings in the guide.
 
 Optionally, if you want to enable technicians to view information about item availability from work orders, choose the **Install Business Central Virtual Table app** link.
 
-To let people post consumption of items and services in [!INCLUDE [field-service-short](includes/field-service-short.md)] work orders, specify the **Project Journal Template** and **Project Journal Batch** to use to post consumption of products and services.
 
-Because services are expressed in duration in [!INCLUDE [field-service-short](includes/field-service-short.md)], specify the **Hours Unit of Measure** to use to convert durations to quantities in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-You can also specify when work order products and service lines synchronize to [!INCLUDE [prod_short](includes/prod_short.md)]. For example, they might synchronize when work order lines are used, or when someone completes a work order. Choose the appropriate option in the **Synchronize work order products/services** field.
 
-After work order products and services synchronize to project journals in [!INCLUDE [prod_short](includes/prod_short.md)], you can choose whether to post the project journals manually. Choose the appropriate option in the **Automatically post project journals lines** field:
 
 - When a work order is complete
 - When work order products or services are used
 
 After you finish the setup, run a full synchronization from the **Dynamics 365 Field Service Integration Setup** page. This action synchronizes table mappings for things like:
 
-- Project tasks for projects with the **Apply Usage Link** set. This synchronization makes [!INCLUDE [prod_short](includes/prod_short.md)] projects available for selection in [!INCLUDE [field-service-short](includes/field-service-short.md)].
 - Resources that aren't blocked, don't have **Use Time Sheet** selected, and do have **Hours** specified as the unit of measure on the **Dynamics 365 Field Service Integration Setup** page.
-- Service items (requires that you're using the Premium experience in [!INCLUDE [prod_short](includes/prod_short.md)]).
 
 ## Integration table mappings for synchronization
 
-The basis of synchronizing data is mapping the tables and fields in [!INCLUDE [prod_short](includes/prod_short.md)] with tables and columns in Dataverse, so they can exchange the data. Mapping happens through integration tables. To learn more about table mappings, go to [Mapping the Tables and Fields to Synchronize](/dynamics365/business-central/admin-how-to-modify-table-mappings-for-synchronization).
 
 The following integration table mappings install if you choose the **Project (default)** integration type.
 
 |Integration table mapping  |Data the mapping synchronizes  |
 |---------|---------|
-|**PJLINE-WORDERPRODUCT** | Maps work order products in [!INCLUDE [field-service-short](includes/field-service-short.md)] to project journal lines in [!INCLUDE [prod_short](includes/prod_short.md)].  |
-|**PJLINE-WORDERSERVICE** |  Maps work order services in [!INCLUDE [field-service-short](includes/field-service-short.md)] to project journal lines in [!INCLUDE [prod_short](includes/prod_short.md)].  |
-|**PROJECTTASK** |  Maps projects and project tasks in [!INCLUDE [prod_short](includes/prod_short.md)] to products in external projects in [!INCLUDE [field-service-short](includes/field-service-short.md)].  |
-|**RESOURCE-BOOKABLERSC**  | Maps resources in [!INCLUDE [prod_short](includes/prod_short.md)] to bookable resources in [!INCLUDE [field-service-short](includes/field-service-short.md)].  |
-|**SVCITEM-CUSTASSET**     | (Premium Experience only) Maps service items in [!INCLUDE [prod_short](includes/prod_short.md)] to customer assets in [!INCLUDE [field-service-short](includes/field-service-short.md)].        |
-|**LOCATIONS**     |  Maps locations in [!INCLUDE [prod_short](includes/prod_short.md)] to warehouses in [!INCLUDE [field-service-short](includes/field-service-short.md)]. <br><br> **Note:** The **LOCATIONS** integration table mapping is available only if you turn on the **Location Mandatory** toggle on the **Inventory Setup** page.      |
 
 In addition to those, the following integration table mappings install if you choose the **Project and Service** integration type.
 
 |Integration table mapping  |Data the mapping synchronizes  |
 |---------|---------|
-|**SRVORDER**| Maps service orders in [!INCLUDE [prod_short](includes/prod_short.md)] to work orders in [!INCLUDE [field-service-short](includes/field-service-short.md)], including the status of the orders. |
-|**SRVORDERITEMLINE**| Maps service item lines in [!INCLUDE [prod_short](includes/prod_short.md)] to work order incidents in [!INCLUDE [field-service-short](includes/field-service-short.md)].|
-|**SRVORDERLINE-ITEM**| Maps items on service order lines in [!INCLUDE [prod_short](includes/prod_short.md)] with work order products in [!INCLUDE [field-service-short](includes/field-service-short.md)]. |
-|**SRVORDERLINE-RESOURCE**| Maps resources on service order lines in [!INCLUDE [prod_short](includes/prod_short.md)] with bookable resource booking in [!INCLUDE [field-service-short](includes/field-service-short.md)].|
-|**SRVORDERLINE-SERVICE**|Maps service lines in [!INCLUDE [prod_short](includes/prod_short.md)] with work order services in [!INCLUDE [field-service-short](includes/field-service-short.md)]. |
-|**SRVORDERTYPE**| Maps service order types in [!INCLUDE [prod_short](includes/prod_short.md)] to work order types in [!INCLUDE [field-service-short](includes/field-service-short.md)].|
-|**SVCITEM-CUSTASSET**|Maps service items in [!INCLUDE [prod_short](includes/prod_short.md)] with customer assets in [!INCLUDE [field-service-short](includes/field-service-short.md)].|
 
 > [!NOTE]
-> The integration also maps fields that show item availability information in [!INCLUDE [prod_short](includes/prod_short.md)] on work orders and products in [!INCLUDE [field-service-short](includes/field-service-short.md)]. However, the mapping happens through a virtual table, and not an integration table. Some setup is required. To learn more about virtual tables and viewing item availability, go to [View item availability in Business Central from Field Service](#view-item-availability-in-business-central-from-field-service).
 
 ### Synchronize location and warehouse data
 
-You can integrate [!INCLUDE [field-service-short](includes/field-service-short.md)] warehouses with locations in [!INCLUDE [prod_short](includes/prod_short.md)]. The integration gives technicians information about the availability of a product or item at a specific location.
 
-The data synchronizes through a unidirectional (from [!INCLUDE [prod_short](includes/prod_short.md)]) integration table mapping between locations in [!INCLUDE [prod_short](includes/prod_short.md)] and warehouses in [!INCLUDE [field-service-short](includes/field-service-short.md)]. To use the integration table mapping, you must turn on the **Location Mandatory** toggle on the **Inventory Setup** page in [!INCLUDE [prod_short](includes/prod_short.md)] .
 
-[!INCLUDE [prod_short](includes/prod_short.md)] synchronizes locations with the following settings on the **Location Card** page:
 
 - The **Use as In-Transit** toggle is turned off.
 - **Project Consump. Whse. Handling** is different from Warehouse Pick (mandatory)
 - **Assm. Consump. Whse. Handling** is different from Warehouse Pick (mandatory)
 
-In [!INCLUDE [prod_short](includes/prod_short.md)], on the **Locations** and **Location Card** page, you can use the **Warehouse** action to open a coupled location in [!INCLUDE [field-service-short](includes/field-service-short.md)], synchronize it, set up and delete couplings, and view synchronization logs.
 
 ### View item availability in Business Central from Field Service
 
-When technicians prepare work orders, it's helpful that they can be sure that the items they need to do the work are available. This section describes how to let people view item availability information from [!INCLUDE [prod_short](includes/prod_short.md)] in [!INCLUDE [field-service-short](includes/field-service-short.md)].
 
 The first thing to do is to install the [Business Central Virtual Table](https://go.microsoft.com/fwlink/?linkid=2277917) app from AppSource.
 
-Afterward, on the **Dynamics 365 Field Service Integration Setup** or **Set up integration to Dynamics 365 Field Service** pages in [!INCLUDE [prod_short](includes/prod_short.md)], turn on the **Enable Inventory Availability by Location** toggle. When you enable inventory availability by location, a **dyn365bc_availabilitybylocation_v2_0** virtual table becomes available. You must create a synthetic relation between the following tables:
 
-- The native **Product** and **Work Order Product** tables in [!INCLUDE [field-service-short](includes/field-service-short.md)] and the **Item Availability** virtual table that shows item availability. 
 
 There's an assisted setup guide to help you create the synthetic relation.
 
 To create the synthetic relation, follow these steps:
 
-1. In [!INCLUDE [prod_short](includes/prod_short.md)], on the **Dataverse Connection Setup** page, use the **Synthetic Relations** action
 1. On the **Synthetic Relations** page, choose the **New** action to start the **New Synthetic Relation** assisted setup guide.
 1. In the **Native Dataverse Table** field, choose the :::image type="content" source="media/assist-edit-icon.png" alt-text="The AssistEdit icon."::: button, and then choose **CRM Product**.
 1. In the **Virtual Dataverse Table** field, choose the :::image type="content" source="media/assist-edit-icon.png" alt-text="The AssistEdit icon."::: button, and then choose **Inventory Availability by Location**.
@@ -8210,14 +8003,12 @@ To create the synthetic relation, follow these steps:
 1. In the **Field in the FS Work Order Product table** field, choose **Product Id**.
 1. In the **Field in the Item Availability by Location table** field, choose **itemNo**.
 1. Choose **Finish** to complete the guide.
-1. To make your setup available in [!INCLUDE [field-service-short](includes/field-service-short.md)], in the **Power Apps admin center**, choose the view, and then choose the **Save and Publish** action.
 
 > [!NOTE]
 > It can take a few moments to create the synthetic relations.
 
 To learn more about virtual tables and synthetic relationships, go to [Use virtual tables to get more data](admin-synchronizing-business-central-and-sales.md#use-virtual-tables-to-get-more-data).  
 
-The next thing to do is to create and customize the associated view that people use in [!INCLUDE [field-service-short](includes/field-service-short.md)] to check the inventory of products.
 
 To create the view, follow these steps:
 
@@ -8234,14 +8025,12 @@ To create the view, follow these steps:
 
 ### Integrate service management features
 
-Integrating [!INCLUDE [prod_short](includes/prod_short.md)] with [!INCLUDE [field-service-short](includes/field-service-short.md)] lets you manage service tasks, consumption, and financial transactions to benefit service technicians, service managers, and finance teams. It's a powerful solution for managing work orders and consumption in [!INCLUDE [field-service-short](includes/field-service-short.md)] and efficiently invoicing and fulfilling them in [!INCLUDE [prod_short](includes/prod_short.md)]. The integration is bi-directional, meaning that when you enter or change data in either app, the data updates in the other.
 
 > [!NOTE]
 > When you enable the integration with service management features, you also enable the integration with projects. You can't enable only the service management integration.
 
 #### Set up the integration with service management features
 
-You must have a **Premium** license. When you do, on the **Company Information** page in [!INCLUDE [prod_short](includes/prod_short.md)], set the **User Experience** field to **Premium**.
 
 You can enable the integration in the **Integration Type** field by selecting **Project and Service** in the following places:
 
@@ -8253,28 +8042,17 @@ When the **Integration Type** field is set to **Project and Service**, the follo
 - Creates a solution in Power Apps named **Microsoft Dynamics 365 Business Central Field Service Integration (service)**.
 - Adds integration table mappings for service order types, service documents, service lines, and service item lines. To learn more about the table mappings, go to [Integration table mappings for synchronization](#integration-table-mappings-for-synchronization).
 - Fields in the headers on service orders and work orders transfer information, such as the **Service Account**, **Billing Account**, and **Work Order Type**.
-- **Service Item Lines** and **Work Order Incidents** in [!INCLUDE [field-service-short](includes/field-service-short.md)] transfer information about the customer assets being repaired.
 - **Service Line** fields and **Work Order Products** and **Work Order Services** fields, such as **Qty. to Ship**, **Qty. to Invoice**, and **Qty. to Consume**.
 
-In [!INCLUDE [prod_short](includes/prod_short.md)], make the following settings on the **Service Management Setup** page:
 
-- Turn on the **Service Order Type Mandatory** toggle. This setting is required because [!INCLUDE [field-service-short](includes/field-service-short.md)] requires a work order type.
-- Make sure that the number series you use for service orders is set up to allow manual numbering. On the **No. Series** page, select the **Manual Nos.** checkbox for the number series. Manual numbering lets you create work orders in [!INCLUDE [field-service-short](includes/field-service-short.md)] and synchronize them with service orders. [!INCLUDE [prod_short](includes/prod_short.md)] uses the order number from [!INCLUDE [field-service-short](includes/field-service-short.md)].
 - Turn off the **One Service Item Line/Order** toggle. This setting lets you have more than one work item line.
 - Turn on the **Archive Orders** toggle.
-- Make the **Service Order Type** field on service orders mandatory because the **Work Order Type** is mandatory on [!INCLUDE [field-service-short](includes/field-service-short.md)] work orders.
 
-If you choose **Enable Inventory Availability by Location** when you set up the integration, you can view the allocated product quantity from work orders in [!INCLUDE [field-service-short](includes/field-service-short.md)] as part of the gross requirements in [!INCLUDE [prod_short](includes/prod_short.md)]'s inventory availability calculation. Demand generated by orders in [!INCLUDE [field-service-short](includes/field-service-short.md)] automatically becomes input for planning through synchronized service orders.
 
 As service or work orders progress toward completion, their status changes. The following table shows how the statues align in both apps.
 
-|[!INCLUDE [prod_short](includes/prod_short.md)] status  |[!INCLUDE [field-service-short](includes/field-service-short.md)] status  | Alignment |
 |---------|-----------|---------|
 |Pending  |Unscheduled| Bidirectional per mapping to account for item demand. |
-|Pending  |Scheduled  | [!INCLUDE [field-service-short](includes/field-service-short.md)] to [!INCLUDE [prod_short](includes/prod_short.md)]. Synchronizes the quantity to ship and the quantity to invoice.|
-|In process | In progress | [!INCLUDE [field-service-short](includes/field-service-short.md)] to [!INCLUDE [prod_short](includes/prod_short.md)]. Synchronizes the quantity to ship and the quantity to invoice. |
-|Finished | Completed     | [!INCLUDE [field-service-short](includes/field-service-short.md)] to [!INCLUDE [prod_short](includes/prod_short.md)]. Ready for posting in Business Central. |
-|Finished | Posted        | [!INCLUDE [field-service-short](includes/field-service-short.md)] to [!INCLUDE [prod_short](includes/prod_short.md)]. When fully invoiced or deleted after partial invoicing in [!INCLUDE [prod_short](includes/prod_short.md)].|
 |N/A     | Canceled      | Not synchronized. Manual alignment is needed for canceled work orders. |
 
 ### Upgrade your integration to include service management features
@@ -8287,22 +8065,15 @@ If you set up the integration to only include projects, but decide to add servic
 
 ## Use data in both applications
 
-The following sections describe the features where you can use the data that comes from [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [field-service-short](includes/field-service-short.md)].
 
 ### Field Service
 
-You can [create work orders](/dynamics365/field-service/create-work-order) using the **Service Account** and **Billing Account** from [!INCLUDE [prod_short](includes/prod_short.md)]. On work orders, you must select the **Business Central Project Task** in the **External Project** field. Selecting a project lets you synchronize work order products and services to the appropriate project task in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-You can add inventory and noninventory items as **Work Order Products** on work orders and get the quantity on hand and costs and prices from [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Create a work order from the work order form and record list](/dynamics365/field-service/create-work-order#create-a-work-order-from-the-work-order-form-and-record-list).
 
-You can add items of the type service as **Work Order Services**, and get costs and prices from [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Products and services tab](/dynamics365/field-service/work-order-experience#products-and-services-tab).
 
 > [!NOTE]
-> When a product or service's status on a work order changes from **Estimated** to **Used** in [!INCLUDE [field-service-short](includes/field-service-short.md)], they synchronize to project journal lines in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-You can book a resource and relate the **Bookings** to work order services using a **Bookable Resource** from [!INCLUDE [prod_short](includes/prod_short.md)].
 
-You can use the **Open in Business Central** action in [!INCLUDE [field-service-short](includes/field-service-short.md)] to open a location that's coupled to a warehouse.
 
 Use the **Open in Business Central** action to open a location that's coupled to a warehouse. On the **Products** page, technicians can check how much of particular product is available at a warehouse they specify.
 
@@ -8310,32 +8081,25 @@ From the **Work Order** and **Product** pages, you can view where, and how much,
 
 When you mark a work order product or service as **Used** on a work order with a specific work order type, the lines synchronize to a service order. Consumption is also posted, based on settings on the **Dynamics 365 Field Service Integration Setup** page.
 
-During consumption and invoice posting in [!INCLUDE [prod_short](includes/prod_short.md)], the quantities are updated on the original work order product and work order service lines in [!INCLUDE [field-service-short](includes/field-service-short.md)].
 
 ### Business Central
 
-Depending on your settings on the **Field Service Integration Setup** page, when work orders include products and services, consumption information is transferred and posted using a **Project Journal** in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-The **Quantity To Bill** and **Duration To Bill** values are copied to the **Qty- to Transfer to Invoice** field. Based on those values, you can create and post sales invoices in [!INCLUDE [prod_short](includes/prod_short.md)] to invoice the customer. After the invoice is posted and synchronized to the Dynamics 365 Sales environment, or consumption is processed in [!INCLUDE [prod_short](includes/prod_short.md)], the quantity invoiced and quantity consumed display on the [!INCLUDE [prod_short](includes/prod_short.md)] tab on the **Work Order Product** and **Work Order Service** pages.  
 
-Use the **Project Planning Lines** page to track posting and invoicing of consumption on work orders. From the **Project Planning Lines** page, you can create and post sales invoices in [!INCLUDE [prod_short](includes/prod_short.md)]. Afterward, you can synchronize them with [!INCLUDE [field-service-short](includes/field-service-short.md)] and keep track of the status of the invoices.
 
 > [!NOTE]
-> Work order services with a booking that uses a bookable resource that's coupled to a [!INCLUDE [prod_short](includes/prod_short.md)] resource synchronize to two project journal lines:
 >
 > - One line of type **Budget** for the coupled resource
 > - One line of type **Billable** for the item being serviced
 >
-> The product that's chosen on the work order service must be coupled to an item of the type **Service** in [!INCLUDE [prod_short](includes/prod_short.md)]. Also, the base unit of measure for the item must be set to the **Hours Unit of Measure** that's chosen on the **Dynamics 365 Field Service Integration Setup** page.
 >
 > You can create an invoice for an item of the type **Service** from the billable project planning line, and use the budget project planning line to register cost with the resource.
 
-Use the **Locations in Field Service** action on the **Locations** and **Location Card** pages to open a coupled location in [!INCLUDE [field-service-short](includes/field-service-short.md)], synchronize it, set up and delete couplings, and view synchronization logs. You can view the allocated product quantity from work orders in [!INCLUDE [field-service-short](includes/field-service-short.md)] as part of the gross requirements in Business Central's inventory availability calculation. Demand generated by orders in [!INCLUDE [field-service-short](includes/field-service-short.md)] automatically become an input for planning.
 
 ## Related information
 
 [Integrate with Microsoft Dataverse via data sync](admin-common-data-service.md)  
-[Mapping the Tables and Fields to Synchronize](admin-how-to-modify-table-mappings-for-synchronization.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-views
 ---
@@ -8356,7 +8120,6 @@ When you set a filter on a list and you want to keep the filter for later, you c
 
 If views exist, the **Views** group appears at the top of the filter pane. Views are variations of the list that is preconfigured with filters. You can define and save as many views as you want per list. The views will be available the next time you open the list, from any device or browser.
 
-[!INCLUDE [about-ui-learn](includes/about-ui-learn.md)]
 
 ## To save a view
 
@@ -8410,7 +8173,6 @@ ms.reviewer: bholtorf
 ---
 # External document numbers on purchase documents
 
-[!INCLUDE [ext-doc-no-purch](includes/ext-doc-no-purch.md)]
 
 You can also specify external document numbers on sales documents. For more information, see [External Document Numbers](sales-how-invoice-sales.md#external-document-numbers)
 
@@ -8421,7 +8183,7 @@ You can also specify external document numbers on sales documents. For more info
 [External Document Numbers on Sales Documents](sales-how-invoice-sales.md#external-document-numbers)  
 [General Business Functionality](ui-across-business-areas.md)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-import-payroll-transactions
 ---
@@ -8464,7 +8226,7 @@ To account for salary payments and related transactions, you must import and pos
 [Work with General Journals](ui-work-general-journals.md)    
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-aged-payables-back-dating
 ---
@@ -8536,7 +8298,7 @@ Try the report here: [Aged Payables (Back Dating)](https://businesscentral.dynam
 [Built-in accounts receivable reports](receivables-reports.md)  
 [Built-in accounts payable reports](payables-reports.md)  
 [Financial analytics overview](bi.md)  
-[Finance overview](finance.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-scorecards-goals
 ---
@@ -8575,7 +8337,6 @@ To create a new sustainability goal, follow these steps:
 1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Scorecards**, and then select the related link.
 2. Choose the **Goals** action to create a new sustainability goal for the scorecard.  
 3. Select **New** to start creating a goal.
-4. The **Scorecard No.** is automatically added based on the value from the sustainability scorecard, and you can't edit this field. [!INCLUDE [prod_short](includes/prod_short.md)] also fills in the **Unit of Measure** field based on the **Emission Unit of Measure Code** on the **Sustainability Setup** page.  
 5. Fill in **No.** and **Name** of the new sustainability goal. The **Owner** field is automatically filled in based on the value from the connected **Sustainability Scorecard**.
 6. You can create a sustainability goal for the entire company, a specific country/region, or a facility. To create a specific goal, choose the country or region in the **Country/Region Code** field or the facility in the **Responsibility Center** field.  
 7. Select the **Start Date** and **End Date** fields to set up a dedicated period for tracking current values. This configuration determines the values in the **Current Value for CO2**, **Current Value for CH4**, **Current Value for N2O**, **Current Value for Water Intensity**, and **Current Value for Waste Intensity** fields.  
@@ -8926,7 +8687,7 @@ We recommend the following:
 [Overview](design-details-inventory-costing.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-other
 ---
@@ -8950,7 +8711,6 @@ The list of the extensions by other companies grows each month. So keep an eye o
 
 ## Understanding the risks of installing apps
 
-[!INCLUDE [ui-extensions-risk-install-apps](includes/ui-extensions-risk-install-apps.md)]
 
 ## See also
 
@@ -9464,7 +9224,6 @@ The examples in this article describe how to create the following reports:
 * Example 3 creates an Income Statement report
 
 > [!NOTE]
-> The examples are based on the demonstration data that [!INCLUDE [prod_short](includes/prod_short.md)] provides for its CRONUS demonstration company.
 
 > [!TIP]
 > Formulas are expressed as a row number reference, such as "R" or "CA" (current assets), which adds all accounts with row number "R" or "CA."
@@ -9660,7 +9419,7 @@ The following image shows the structure of the report in this example.
 [Primary capabilities of financial reporting](finance-financial-reporting-capabilities.md)  
 [Walkthrough: Make cash flow forecasts using financial reports](walkthrough-making-cash-flow-forecasts-by-using-account-schedules.md)  
 [Prepare financial reporting with financial data and account categories](bi-how-work-account-schedule.md)  
-[Financial analytics overview](bi.md)  end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-order-agent-setup
 ---
@@ -9677,15 +9436,12 @@ ms.search.form: 4400_Primary, 4410
 ---
 # Set up Sales Order Agent (preview)
 
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
 The Sales Order Agent in Business Central automates processing sales orders from customer email requests. This article explains how to set up, activate, configure the Sales Order Agent, and manage user access.
 
 Learn more about the agent in [Sales Order Agent overview](sales-order-agent.md).
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
-<!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
 
 ## Prerequisites
 
@@ -9828,7 +9584,7 @@ Users can work with agent tasks in the Copilot pane if they have the **Manage Ag
 
 [Sales Order Agent overview](sales-order-agent.md)  
 [FAQ for Sales Order Agent](faqs-sales-order-taker-agent.md)  
-[Configure Copilot and agent capabilities](enable-ai.md)  end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-analytics-overview
 ---
@@ -9904,9 +9660,7 @@ A key performance indicator (KPI) is a measurable value that shows how effective
 
 :::image type="content" source="media/powerbi/sales/sales-overview.png" alt-text="Screenshot of the Sales Overview Power BI report" lightbox="media/powerbi/sales/sales-overview.png":::
 
-These sales KPIs, and more, are available in the Power BI Sales app for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Power BI sales app](sales-powerbi-app.md).
 
-[!INCLUDE [power-bi-sales-app](includes/power-bi-sales-app.md)]
 
 ## Use financial reporting to produce financial statements and KPIs related to sales
 
@@ -9918,7 +9672,6 @@ To learn more about financial reports, go to [Prepare Financial Reports with Fin
 
 ## Finance reporting across business units or legal entities related to sales
 
-Some organizations use [!INCLUDE [prod_short](includes/prod_short.md)] in multiple business units or legal entities. Others use [!INCLUDE [prod_short](includes/prod_short.md)] in subsidiaries that report to parent organizations. [!INCLUDE [prod_short](includes/prod_short.md)] gives accountants tools that help them transfer general ledger entries from two or more companies (subsidiaries) into a consolidated company. Specifically for sales management, you might want to consolidate general ledger entries for your sales accounts to be able to track sales KPIs across business units or legal entities.
 
 To learn more, go to [Company consolidation](finance-consolidated-company-reporting.md).
 
@@ -9944,13 +9697,10 @@ To learn more about how to do ad-hoc analysis on sales data, go to [Ad hoc analy
 
 ## Built-in reports for sales
 
-[!INCLUDE [prod_short](includes/prod_short.md)] includes several built-in reports, tracing functions, and tools to help sales organizations report on their data.
 
-[!INCLUDE [sales_reports_report_explorer](includes/sales-reports-report-explorer-include.md)]
 
 ## On-screen sales analytics
 
-[!INCLUDE [prod_short](includes/prod_short.md)] has several pages that give you sales overviews and tasks to do. Here are some examples to get you started:
 
 - [Open the Sales Quotes list](https://businesscentral.dynamics.com/?page=9300)
 - [Open the Sales Orders list](https://businesscentral.dynamics.com/?page=9305)
@@ -10053,7 +9803,7 @@ ms.reviewer: jswymer
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-reports
 ---
@@ -10081,19 +9831,15 @@ This article describes the built-in reports for fixed assets.
 
 ## Explore fixed assets reports with Report Explorer
 
-[!INCLUDE [fa_reports_report_explorer](includes/fa-reports-report-explorer-include.md)]
 
 ## Fixed assets core reports
 
-[!INCLUDE [fa_reports](includes/fa-reports-include.md)]
 
 ## Fixed assets insurance reports
 
-[!INCLUDE [fa_insurance_reports](includes/fa-insurance-reports-include.md)]
 
 ## Fixed assets maintenance reports
 
-[!INCLUDE [fa_maintenance_reports](includes/fa-maintenance-reports-include.md)]
 
 
 ## See also
@@ -10197,7 +9943,6 @@ After you release an order, the warehouse employee can create an inventory pick.
     * Post the shipment of the source document lines that were picked.
     * If the location uses bins, posting will also create warehouse entries to post the changes to the bin quantity.  
 
-    [!INCLUDE [preview-posting-warehouse](includes/preview-posting-warehouse.md)]
 
 ## Handling assemble-to-order items with inventory picks
 
@@ -10223,7 +9968,6 @@ If a bin code isn't specified on the sales order line, and no assembly output fl
 
 In scenarios where a part of the quantity is assembled and another must be picked, a minimum of two pick lines are created.
 
-* One pick line for the assemble-to-order quantity. [!INCLUDE [prod_short](includes/prod_short.md)] uses the following fields, in this order, to determine the bin code: **Bin Code**, **Asm.-to-Order Shpt. Bin Code**, and then **From-Assembly Bin Code**. If these fields are blank, the warehouse employee must open the **Bin Contents** page and choose the bin where the items are assembled.  
 * The other pick line depends on which bins can fulfill the remaining quantity. If the item is kept in multiple bins, multiple lines will be created. The Take line is based on the quantity in the **Qty. to Ship** field.
 
 > [!NOTE]  
@@ -10271,7 +10015,6 @@ The reservation system interacts with the planning system by creating action mes
  <!--For more detailed information about how the reservation system works, see the _Reservation Entry Table_ white paper on [PartnerSource](https://go.microsoft.com/fwlink/?LinkId=258348).  -->
 <!--
 > [!NOTE]
-> [!INCLUDE [locations-cronus](includes/locations-cronus.md)]
 -->
 
 ## Reservation  
@@ -10571,7 +10314,6 @@ Reconciling transactions in statements from your bank with bank entries in [!INC
   This action is available as part of the bank reconciliation assist (preview) feature, which an AI-powered feature. Learn more in [Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md).
 * Manually, by selecting lines in both panes to link each bank statement line to one or more bank account ledger entries, and then using the **Match Manually** action.
 
-The **Applied** checkbox is selected on lines where entries match. Learn more in [Set Up Rules for Automatic Application of Payments](receivables-how-set-up-payment-application-rules.md). If you enter a statement ending date on the bank reconciliation after you match its lines with entries, [!INCLUDE [prod_short](includes/prod_short.md)] will undo the matches for lines and entries that are after that date.
 
 > [!NOTE]
 > After you enter a date in the **Statement Date** field, the **Bank Acc. Reconciliation** page filters the bank ledger entries to show only entries up to that date. You can only post bank reconciliations with bank ledger entries on or before the statement ending date. The filter ensures that your bank ledger is balanced with your bank statement on the statement ending date, with the difference being the outstanding payments and checks.
@@ -10704,7 +10446,6 @@ The following table describes fields on the Test Report that can help you comple
 |Bank Account Balance     | The sum of the values for the bank statement ending balance, outstanding bank transactions, and outstanding checks. After you handle all differences on matched entries, this balance matches your bank balance. For example, you accounted for all matched entries and the entries you couldn't match for this bank statement. You can post the reconciliation.        |
 
 > [!TIP]
-> If you run the **Test Report** from the **Payment Reconciliation Journal** page, [!INCLUDE [prod_short](includes/prod_short.md)] calculates the value in the **Statement Ending Balance** as follows:
 >
 > * balance last statement + sum of all lines in the payment reconciliation journal
 >
@@ -10744,7 +10485,6 @@ If we print the report for August we get outstanding transactions for our B and 
 >
 > You can enter bank ledger entries on any date and with any posting date, so you don't always have to do it in a strict chronological order.. When you do a bank reconciliation, you reconcile a bank statement to the bank ledger entries you have registered up to the time you post the reconciliation, and with the posting date of the entries. Typically, that means a posting date on or before the statement ending date.
 >
-> When you post a bank reconciliation, [!INCLUDE [prod_short](includes/prod_short.md)] takes a snapshot of the data and uses it to fill in the bank statement report's header. But, the outstanding transactions sections are actual lookups to the bank ledger entries that existed up to the actual date and time you posted the bank reconciliation. The totals in the lines typically match the totals in the header. However, if you import bank ledger entries after you posted the bank reconciliation, but the posting dates are before the statement ending date, the totals in the header might not match the totals in the outstanding transactions sections.
 
 ## Undo a bank account reconciliation
 
@@ -10993,7 +10733,7 @@ Try the report here: [Moving Averages](https://businesscentral.dynamics.com?page
 [Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
 [Built-in purchasing reports](purchase-reports.md)  
 [Purchasing analytics overview](purchasing-analytics-overview.md)  
-[Purchasing overview](purchasing-manage-purchasing.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-financial-reporting-capabilities
 ---
@@ -11013,11 +10753,9 @@ ms.custom: bap-template
 
 # Primary capabilities of financial reporting
 
-This article describes the capabilities that are most widely used for the financial reporting features in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 ## Out of the box financial reporting
 
-To help you get started with financial reporting, [!INCLUDE [prod_short](includes/prod_short.md)] provides account categories, subcategories, and mappings to the company’s chart of accounts for basic financial reporting.
 
 ## Custom financial reporting
 
@@ -11062,7 +10800,7 @@ Financial reporting doesn't require that you know how to code. Finance professio
 [Prepare financial reporting with financial data and account categories](bi-how-work-account-schedule.md)  
 [Design your own financial reports](bi-design-financial-reports.md)  
 [Walkthrough: Create custom financial reports](bi-examples-custom-financial-reports.md)  
-[Financial analytics overview](bi.md)  end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-fulfill-service-contracts
 ---
@@ -11097,7 +10835,7 @@ The following table describes a sequence of tasks, with links to the topics that
 [Create Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-cancel-production-orders-that-have-consumption
 ---
@@ -11115,7 +10853,6 @@ ms.custom: bap-template
 
 # Cancel production orders that have consumption
 
-Even when production doesn't go as planned, it's important to keep your inventory, cost, and financial records accurate. You can revert consumption or output transactions, return unused raw materials, and correct mistakes in your reported operations. For actual scrap occurrences, [!INCLUDE [prod_short](includes/prod_short.md)] provides a process that lets you close orders and write off accumulated WIP.
 
 When you post production transactions by mistake, you probably want to cancel (undo the transactions) and in some cases close the order. To do that, from the **Released Production Order** page, you can open the **Item Ledger entries** or **Capacity Ledger entries** pages and use the **Reverse Production Order Transaction** action.
 
@@ -11288,7 +11025,7 @@ EXIT(DimSet.ID);
  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-setup-projects
 ---
@@ -11328,7 +11065,7 @@ The following table describes a sequence of tasks, with links to the topics that
 [Sales](sales-manage-sales.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-view-archived-workflow-step-instances
 ---
@@ -11472,9 +11209,7 @@ ms.custom: bap-template
 
 Assemble to project helps you improve inventory management by assembling to order only when it's required.
 
-When you choose an assemble-to-order item on a project planning line, [!INCLUDE [prod_short](includes/prod_short.md)] creates an assembly order. The assembly order is based on the project planning line, and its lines are based on the item's assembly bill of materials (BOM). To learn more about assembly BOMs, go to [Work with Assembly BOMs](assembly-how-work-assembly-boms.md). The quantity of components on the assembly BOM is multiplied by the order quantity. The **Assemble-to-Order Lines** page shows details about the linked assembly order lines. The details can help you customize the assembly item. As in sales, you can't directly post linked assembly orders. To learn more about assembly orders, go to [Selling Inventory Items in Assemble-to-Order Flows](assembly-how-to-sell-inventory-items-in-assemble-to-order-flows.md).
 
-Assembly orders are reserved for projects, and [!INCLUDE [prod_short](includes/prod_short.md)] synchronizes item tracking between project planning lines and assembly order.
 
 ## Integrate with warehouse management
 
@@ -11486,7 +11221,6 @@ The following table describes the warehouse configurations that assemble to orde
 |---------|---------|
 |**No warehouse handling**|Use a project journal to post full or partial usage. The output and consumption of components post automatically for the assembly order.         |
 |**Inventory pick**|Use an inventory pick to post full or partial usage. The output and consumption of components post automatically for the assembly order.          |
-|**Warehouse pick**|Create and register warehouse picks for components, and then use a project journal to post usage. [!INCLUDE [prod_short](includes/prod_short.md)] verifies whether the consumed assembly components were picked. The output and consumption of components post automatically for the assembly order.         |
 
 ## Known limitations
 
@@ -11555,7 +11289,7 @@ By storing dimension sets once in the database, database space is preserved and 
 [Design Details: Dimension Set Entries](/dynamics365/business-central/design-details-dimension-set-entries-overview)   
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-create-bank-deposits
 ---
@@ -11575,7 +11309,6 @@ ms.custom: bap-template
 # Create bank deposits
 
 > [!NOTE]
-> The ability to create bank deposits is new in [!INCLUDE [prod_short](includes/prod_short.md)] 2022 release wave 1 for a lot of country/region versions. If you were using [!INCLUDE [prod_short](includes/prod_short.md)] in the United States, Canada, or Mexico before that release, you might be using the earlier capabilities. You can continue, but the new capabilities will replace the old ones in a future release. To start using the new features described in this article, your administrator can go to the **Feature Management** page and turn on **Feature Update: Standardized bank reconciliation and deposits**.  
 
 Use the **Bank Deposits** page to register deposits as a single document that posts one or more entries to a bank account. Typically, bank deposits are used to register cash deposits. The Bank Deposits page is available on the **Cash Management** menu on the Business Manager Role Center, and other Role Centers that deal with cash management.
 
@@ -11631,7 +11364,6 @@ The lines on the bank deposit use the default dimensions you specified in the **
     > You can double-check that you're depositing to the correct account by using the **Account Card** and **Account Ledger Entries** actions to look up the ledger entries for the selected bank account. For example, to check whether similar deposits were made to the account.
 
 5. In the **Total Deposit Amount** field, enter the total amount of the deposit. This total must be the sum of the amounts on all lines.
-6. Fill in the remaining fields as necessary. [!INCLUDE [tooltip-inline-tip_md](../archive/SetupAndAdministration/includes/tooltip-inline-tip_md.md)]
 
     The date in the **Posting Date** field and the dimensions in the **Department Code** and **Customergroup Code** fields are assigned to the lines that you create for the bank deposit. You can change them if needed.
 
@@ -11824,7 +11556,7 @@ Base calendars are assigned to your own company, customers, vendors, locations, 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-general-ledger-entries
 ---
@@ -11885,7 +11617,7 @@ Try the report here: [General Ledger Entries](https://businesscentral.dynamics.c
 [Built-in accounts receivable reports](receivables-reports.md)  
 [Built-in accounts payable reports](payables-reports.md)  
 [Financial analytics overview](bi.md)  
-[Finance overview](finance.md)end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-classifying-data-sensitivity
 ---
@@ -11938,7 +11670,7 @@ For example, the Data Classification Worksheet page lets you do things like:
 ## See also
 
 <!-- [Classifying Data](/dynamics365/business-central/dev-itpro/developer/devenv-classifying-data) -->
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-add-fields-word-report-layout
 ---
@@ -12143,7 +11875,7 @@ The following table describes a sequence of tasks, with links to the topics that
 [General Business Functionality](ui-across-business-areas.md)
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-app-setup
 ---
@@ -12159,33 +11891,23 @@ ms.date: 12/18/2024
 ms.service: dynamics-365-business-central
 ---
 
-# Set up the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)]
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-This article explains how to set up the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-For the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] to show correct KPIs and reports, do two things in [!INCLUDE [prod_short](includes/prod_short.md)]:
 
 1. Set up G/L account categories for your chart of accounts.
-1. Map G/L account categories to corresponding categories used in the [!INCLUDE [prod_short](includes/powerbi-name.md)] Finance semantic model.
 
 ## Prerequisites
 
-Before you configure the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] for [!INCLUDE [prod_short](includes/prod_short.md)], you must:
 
-1. Have a connector (AL) app that contains APIs, setup pages, and embed pages. Connectors are preinstalled with [!INCLUDE [prod_short](includes/prod_short.md)].
-1. Install the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app that contains a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] semantic model and [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for finance.
 1. Run the **Connect to Power BI** assisted setup guide.
 
 To learn more, go to [Install Power BI apps for Business Central](across-powerbi-install-business-central-apps.md).
 
-## Configure date filtering for the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] semantic model
 
-This section describes how to configure date filtering for the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)]. You can configure the app to load data based on the **Start Date** and **End Date**. This filter helps improve performance in your [!INCLUDE [prod_short](includes/prod_short.md)] environment and reduce [!INCLUDE [powerbi-name](includes/powerbi-name.md)] load times by only loading the data you intend to analyze.
 
 > [!NOTE]
-> Configuring date filtering for the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] is optional, and is designed to help manage large datasets.
 
 The **Start Date** and **End Date** filter can apply to the following tables:
 
@@ -12215,15 +11937,12 @@ The following fields are available on the **Finance Report** FastTab:
 
 ## Set up G/L account categories for your chart of accounts
 
-G/L account categories are groups of general ledger accounts. The categories are required for using the [!INCLUDE [prod_short](includes/powerbi-name.md)] Finance app.
 
 For each posting account in your chart of accounts, you must specify an **Account Category** and **Account Subcategory**. You don't need to set up the totaling accounts.
 
 To learn more about how to work with G/L account categories, go to [G/L account categories](./finance-general-ledger.md#account-categories).
 
-## Map G/L account categories to corresponding categories used in the [!INCLUDE [prod_short](includes/powerbi-name.md)] Finance semantic model
 
-The [!INCLUDE [prod_short](includes/powerbi-name.md)] Finance app has default mappings for G/L account categories in [!INCLUDE [prod_short](includes/prod_short.md)] to corresponding values in the [!INCLUDE [prod_short](includes/powerbi-name.md)] Finance semantic model. This mapping enables the finance KPIs and reports to show correct values.
 
 The following sections show the default mappings. You can change the default values of the **Business Central Category** columns to your choice of G/L account categories by choosing the **Power BI Account Categories** action on the **Power BI Connector Setup** setup page or directly on the **Power BI Account Categories** page.
 
@@ -12276,11 +11995,9 @@ Level 3 categories are the subcategories of Level 2 with indentation.
 
 ## Troubleshooting
 
-If you experience issues with the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)], the information in the following sections might help you get unblocked.
 
 ### Getting the "Column Entry No. in Table G/L Entries contains a duplicate value" error?
 
-When you refresh data from your [!INCLUDE [prod_short](includes/prod_short.md)] environment into the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)], a refresh error might happen with the following error message:
 
 ```
 Something went wrong
@@ -12291,7 +12008,6 @@ Data source error: Column '<oii>Entry No.</oii>' in Table '<oii>G/L Entries</oii
 ```
 
 > [!NOTE]
-> If you get this error, you're affected by a bug in the semantic model for the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)].
 
 This error indicates that there are duplicate G/L entries in the Finance fact table in the semantic model. The error displays when we attempt to combine the three sub-queries (Balance Sheet G/L Entries, Income Statement G/L Entries, and Close Income Statement G/L Entries) into the single G/L Entries Fact table.
 
@@ -12299,7 +12015,6 @@ The current Balance Sheet G/L Entries query has a hard-coded filter transformati
 
 ### Getting the "Column ‘G/L Account No.’ in Table ‘G/L Account’ contains a duplicate value" error?
 
-When you refresh data from your [!INCLUDE [prod_short](includes/prod_short.md)] environment into the [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)], a refresh error might happen due to how your **Begin-Total** and **End-Total** accounts are configured in your **Chart of Accounts**.
 
 If you receive this error, review the totaling accounts.
 
@@ -12323,7 +12038,6 @@ The following example shows how to set up the totaling accounts.
 
 1. A **Begin-Total** account of **1300 (Vehicles)** and the **End-Total** account of **1390 (Vehicles, Total)**.
 2. The totaling defined for the **End-Total** is **1300..1390**. Any other combination for your totaling account (such as 1300..1340, 1310..1390, or 1310..1340, etc.) can cause the error.
-3. One **Begin-Total** account can only be used in one **End-Total** account. If you use a **Begin-Total** account in two or more **End-Total** accounts, the [!INCLUDE [power-bi-finance-app-name](includes/power-bi-finance-app-name.md)] can't match it to an **End-Total** account.
 
 ## Related information
 
@@ -12332,7 +12046,7 @@ The following example shows how to set up the totaling accounts.
 [Financial analytics overview](bi.md)  
 [Finance overview](finance.md)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-set-up-workflow-users
 ---
@@ -12354,7 +12068,6 @@ Before you can create approval workflows, you must set up the users who can subm
 
 On the **Workflow User Groups** page, you can specify where a participant engages in an approval workflow by entering a number in the **Sequence No.** field. For example, you can specify that users engage in a sequential order, such as a chain of approvers. You can also specify a flat list of approvers by entering the same number. In the latter case, only one of the approvers must approve a request.
 
-[!INCLUDE [workflow-requestor-approver](includes/workflow-requestor-approver.md)]
 
 ## To set up a workflow user group
 
@@ -12732,7 +12445,6 @@ ms.service: dynamics-365-business-central
 
 If you're using [!INCLUDE[prod_short](includes/prod_short.md)] online, you have full access to scenarios that are based on the intelligent cloud. For example, key performance indicators (KPIs) that are based on machine learning, or when you view your data in Power BI.  
 
-However, if you use [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, you don't have access to the same insights. If you want to benefit from online scenarios, you must migrate to [!INCLUDE [prod_short](includes/prod_short.md)] online. For more information, see [Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data) in the administration content for [!INCLUDE[prod_short](includes/prod_short.md)].  
 
 ## Viewing Insights in [!INCLUDE[prod_short](includes/prod_short.md)] Online
 
@@ -12756,7 +12468,7 @@ The page also connects to Power BI for even more insights. Optionally, connect t
 [Cloud Migration Extensions](ui-extensions-data-replication.md)  
 [Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data)  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-carbon-credit
 ---
@@ -13076,7 +12788,7 @@ When you print the routing sheeting, you can choose to include the elements from
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-by-location
 ---
@@ -13200,7 +12912,6 @@ The planning system helps you avoid having open orders in the past and suggested
 
 Dynamic order tracking and its simultaneous creation of action messages in the planning worksheet isn't a part of the supply planning system. When a demand or supply is created or changed, dynamic order tracking links the demand and the quantities to cover it in real time.  
 
-For example, if you enter or change a sales order, dynamic order tracking instantly searches for supply to cover the demand. The supply could be from inventory or from an expected supply order (such as a purchase order or a production order). When it finds a supply source, [!INCLUDE [prod_short](includes/prod_short.md)] links the demand and supply. You access the link on view-only pages from the document lines. When supply can't be found, the dynamic order tracking system creates action messages in the planning worksheet with supply plan suggestions.  
 
 Dynamic order tracking helps you assess whether to accept supply order suggestions. From the supply side, it shows the demand that created the supply. From the demand side, it identifies the supply that should cover the demand.  
 
@@ -13236,7 +12947,6 @@ The planning system is demand-driven. High-level items should be planned before 
 
 In a manufacturing environment, the demand for a finished, sellable item will result in derived demand for components that comprise the finished item. The bill-of-material structure controls the component structure and can cover several levels of semi-finished items. Planning an item at one level will cause derived demand for components at the next level. This hierarchy will eventually result in derived demand for purchased items. The planning system plans for items in order of their ranking in the total BOM hierarchy. The system starts with finished sellable items at the top level and continues down the product structure to the lower-level items (according to the low-level code).  
 
-The following image shows the sequence in which [!INCLUDE [prod_short](includes/prod_short.md)] suggests supply orders at the top level. It assumes the suggestions were accepted and shows lower-level items as well.
 
 :::image type="content" source="media/nav_app_supply_planning_1_bom_planning.png" alt-text="Planning for bills of material.":::
 
@@ -13255,9 +12965,7 @@ You can also speed up low-level code calculations by turning on the **Optimize l
 
 Companies with more than one location might need to plan for each location individually. For example, an item's safety stock level and its reordering policy might differ from one location to another. You must specify the planning parameters per item and location.  
 
-You can use SKUs to specify individual planning parameters. An SKU can be regarded as an item at a specific location. If you haven't defined a SKU for that location, [!INCLUDE [prod_short](includes/prod_short.md)] will use the parameters set on the item card. [!INCLUDE [prod_short](includes/prod_short.md)] calculates a plan for active locations only, where there's demand or supply for a given item.  
 
-Any item can be handled at any location, but [!INCLUDE [prod_short](includes/prod_short.md)] has a strict approach to the concept of locations. For example, a sales order for an item at one location can't be fulfilled by stock from another location. The quantity on stock must first be transferred to the location specified on the sales order.
 
 :::image type="content" source="media/nav_app_supply_planning_1_sku_planning.png" alt-text="Planning for stock-keeping units.":::
 
@@ -13281,7 +12989,6 @@ All items should be replanned for when the demand or supply pattern has changed 
 
 The planning system monitors such events and assigns the appropriate items for planning.  
 
-For multiple locations, the assignment happens at the item level per location combination. If a sales order has been created at only one location, [!INCLUDE [prod_short](includes/prod_short.md)] assigns the item at that location for planning.  
 
 The reason for selecting items for planning is a matter of system performance. If an item's demand-supply pattern hasn't changed, the planning system won't suggest any actions to take. Without the planning assignment, the system would have to perform the calculations for all items to find out what to plan for. To learn more about the reasons to assign items for planning, go to [Design Details: Planning Assignment Table](design-details-planning-assignment-table.md).  
 
@@ -13298,9 +13005,7 @@ The planning system only plans for the items that you've prepared with appropria
 
 Demand and supply can carry variant codes and location codes that must be respected when the planning system balances demand and supply.  
 
-[!INCLUDE [prod_short](includes/prod_short.md)] treats variant and location codes as item dimensions on a sales order line, inventory ledger entry, and so on. Accordingly, it calculates a plan for each combination of variant and location as if the combination were a separate item number.  
 
-Instead of calculating theoretical combinations of variant and location, [!INCLUDE [prod_short](includes/prod_short.md)] calculates only the combinations that actually exist in the database. To learn more about how the planning system deals with location codes on demand, go to [Design Details: Demand at Blank Location](design-details-balancing-demand-and-supply.md).  
 
 ## Item attributes
 
@@ -13422,7 +13127,6 @@ If the field isn't selected, the **Calculate Plan** batch job will continue unti
 
 It isn't always practical to plan an existing supply order. For example, when production has started or you hire extra people on a specific day to do the project. To indicate whether the planning system can change an order, all supply order lines have a **Planning Flexibility** field with two options: **Unlimited** or **None**. If the field is set to **None**, the planning system won't try to change the supply order line.  
 
-You can manually choose an option in the field, however, in some cases it'll be set automatically by [!INCLUDE [prod_short](includes/prod_short.md)]. The fact that you can manually set planning flexibility is important because it makes it easy to adapt the use of the feature to different workflows and business cases. To learn more about how this field is used, go to [Design Details: Transfers in Planning](design-details-transfers-in-planning.md).  
 
 ## Order planning
 
@@ -13440,12 +13144,10 @@ The intended use of the capacity-constrained resource feature is as follows:
 * To avoid overloading resources
 * To ensure that capacity isn't left unallocated if it could decrease the turn-around time of a production order
 
-When planning with capacity-constrained resources, [!INCLUDE [prod_short](includes/prod_short.md)] ensures that resources aren't loaded above their capacity (critical load). It assigns each operation to the nearest available time slot. If the time slot isn't large enough to complete the operation, it splits the operation into two or more parts in the nearest available time slots.  
 
 > [!NOTE]  
 > In case of operation splitting, the set-up time is only assigned one time because it's assumed that some manual adjustment is done to optimize the schedule.  
 
-You can add dampener time to resources to minimize operation splitting. This time lets [!INCLUDE [prod_short](includes/prod_short.md)] schedule the load on the last possible day by slightly exceeding the critical load percent.  
 
 ## See also
 
