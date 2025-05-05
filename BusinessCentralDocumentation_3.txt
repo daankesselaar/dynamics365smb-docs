@@ -48,7 +48,7 @@ The following table describes how invoice posting policies affect documents.
    > [!Note]
    > The setting doesn't affect posting of general journal lines where you can select **Invoice** in the **Document Type** field.
 
-## See Also
+## Related information
 
 [Invoice Sales](sales-how-invoice-sales.md)  
 [Record Purchases with Purchase Invoices and Orders](purchasing-how-record-purchases.md)  
@@ -113,7 +113,7 @@ Payment journals are general journals that are optimized for making payments. Yo
 9. In the **Applies To Doc. No.** field, select the documents that require a refund.  
 10. After you complete all payment journal lines, choose the **Post/Print** action, choose the **Post and Print** action, and then choose **Yes**.  
   
-## See also
+## Related information
 
 [Make Check Payments](payables-how-work-checks.md)  
 [Make Electronic Payments](finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer.md#exporting-payments-to-a-bank-file)  
@@ -671,7 +671,7 @@ Use the manual method for assets that aren't subject to depreciation, for exampl
 
 If the built-in depreciation methods don't meet your needs, you can define your own depreciation method by using depreciation tables. To learn more about applying a user-defined depreciation method, go to [Set Up User-Defined Depreciation Method](fa-how-setup-user-defined-depreciation-method.md).
 
-## See also
+## Related information
 
 [Fixed Assets overview](fa-manage.md)  
 [Setting Up Fixed Assets](fa-setup.md)  
@@ -776,7 +776,7 @@ The following table shows how the amounts to post to the general ledger are calc
 |Actual Cost|Cost Amount (Actual) – Cost Posted to G/L|  
 |Expected Cost|Cost Amount (Expected) –  Expected Cost Posted to G/L|  
 
-## See also  
+## Related information  
 
 [Design Details: Inventory Costing](design-details-inventory-costing.md)  
 [Design Details: Inventory Posting](design-details-inventory-posting.md)  
@@ -821,7 +821,7 @@ Before you can send and receive electronic documents or import and export bank f
 |Export data for Intrastat reporting in [!INCLUDE[prod_short](includes/prod_short.md)].|[Set Up Intrastat Reporting](finance-how-setup-report-intrastat.md)|
 |View which fields in [!INCLUDE[prod_short](includes/prod_short.md)] are mapped to file elements when exporting payment files by using the AMC Banking 365 Fundamentals extension.|[Field Mapping When Exporting Payment Files Using the AMC Banking 365 Fundamentals extension](across-field-mapping-when-exporting-payment-files-using-bank-data-conversion-service.md)|  
 
-## See Also  
+## Related information  
 [Setting Up Data Exchange](across-set-up-data-exchange.md)  
 [Exchanging Data Electronically](across-data-exchange.md)  
 [Invoice Sales](sales-how-invoice-sales.md)   
@@ -883,7 +883,7 @@ The page contains entries which account for an untracked surplus quantity in ord
 - Order multiple
 - Dampener (% of lot size)
 
-## See Also  
+## Related information  
 [Planning](production-planning.md)   
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Manufacturing](production-manage-manufacturing.md)    
@@ -939,7 +939,7 @@ If the **Strict Expiration Posting** field is selected on the **Item Tracking Co
 <br /><br />
 > If you posted the item to inventory without an expiration date, [!INCLUDE [prod_short](includes/prod_short.md)] populates the serial or lot number as a warehouse pick, but not an inventory pick.
 
-## See also  
+## Related information  
 
 [Pick Items for Warehouse Shipment](warehouse-how-to-pick-items-for-warehouse-shipment.md)   
 [Pick Items with Inventory Picks](warehouse-how-to-pick-items-with-inventory-picks.md)   
@@ -1084,7 +1084,7 @@ For all exchanges of data in XML files, you can prepare the data exchange setup 
 
 [!INCLUDE[prod_short](includes/prod_short.md)] uses the Data Exchange Framework for Intrastat reporting where you can easily create timestamped files in different formats for export. [!INCLUDE[prod_short](includes/prod_short.md)] contains prepared formats for localized countries/regions and for default version. But you can change the out-of-box report or make your own.
 
-## See also
+## Related information
 
 [Exchanging Data Electronically](across-data-exchange.md)  
 [Use XML Schemas to Prepare Data Exchange Definitions](across-how-to-use-xml-schemas-to-prepare-data-exchange-definitions.md)  
@@ -1192,7 +1192,7 @@ When you first install the extension, a sample company helps you get started. Yo
 
 When you install the extension in your [!INCLUDE [prod_short](includes/prod_short.md)], you will be asked if you want to use it now. If you do, then you must sign out and sign in again, because the extension replaces your current Role Center and adds permissions to your user profile.
 
-## See also
+## Related information
 
 [Manage Work across Multiple Companies in the Company Hub](company-hub.md)  
 [Accountant Experiences in Business Central](finance-accounting.md)  
@@ -1299,7 +1299,7 @@ When the Calculate Depreciation batch job calculates depreciations, the batch jo
 
 If you select this field, the Calculate Depreciation batch job uses the calendar year of 365 days instead, where each month is calculated with the same number of days as in the calendar. The only exception is February in leap years, which the batch job will treat as having 28 days and not 29. Because of that, all years, also leap years, are considered to have 365 days.
 
-## See also
+## Related information
 
 [Setting Up Fixed Assets](fa-setup.md)  
 [Fixed Assets](fa-manage.md)  
@@ -1350,7 +1350,7 @@ On the **Workflow User Groups** page, you can specify where a participant engage
    > Typically, sequence numbers are sequential for users in a workflow user group. However, multiple users can have the same sequence number. When that's the case, only one of the users must approve a request before the workflow goes to the next step. For example, if user A and user B are both number two in the sequence, the workflow goes to the step three when when either user A or user B approves the request.
 6. Repeat step 5 to add more workflow users to the workflow user group.  
 
-## See also
+## Related information
 
 [Set Up Approval Users](across-how-to-set-up-approval-users.md)  
 [Setting Up Approval Workflows](across-set-up-workflows.md)  
@@ -1391,7 +1391,7 @@ The following table describes a sequence of tasks, with links to the articles th
 | Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. |[Register Employees](hr-how-register-employees.md) |
 | Record employees' absence and view absence statistics by various filters. |[Manage Employee Absence](hr-how-manage-absence.md) |
 
-## See Also
+## Related information
 
 [Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
@@ -1453,7 +1453,7 @@ On the **Posted Purchase Invoice** page, you can choose the **Correct** button o
 
 If the cancellation is related to a partial invoice posting, then the originating purchase order line is updated to reflect the canceled invoiced quantity. The **Qty. to Invoice** and **Quantity Invoiced** fields on the related purchase order line are reset to the values before the partial posting.
 
-## See also
+## Related information
 
 [Purchasing](purchasing-manage-purchasing.md)  
 [Record Purchases](purchasing-how-record-purchases.md)  
@@ -1494,7 +1494,7 @@ After you use the **Close Income Statement** batch job to generate the year-end 
 > [!NOTE]  
 > If an error is detected, an error message is displayed. If the posting is successful, the posted entries are removed from the journal. After posting is complete, an entry is posted to each income statement account so that its balance becomes zero and the year's result is transferred to the balance sheet.
 
-## See also
+## Related information
 
 [Close Accounting Periods](year-close-account-periods.md)    
 [Closing Books](year-close-books.md)    
@@ -1908,7 +1908,7 @@ Closing the fiscal year is one of the tasks for closing the books. After you clo
 
 Although a fiscal year is closed, you can still post general ledger entries to it. When you do, the entries are marked as posted to a closed fiscal year and the **Prior Year Entry** check box is selected. By default, the check box isn't displayed on the page, but you can add it. The next steps are to close the income statement accounts and transfer the year's results to an account in the balance sheet. Repeat these steps each time you post entries to a closed fiscal year.
 
-## See also
+## Related information
 
 [Closing the Books](year-close-books.md)    
 [Closing Years and Periods](year-close-years-periods.md)    
@@ -1950,7 +1950,7 @@ To learn more, go to [Finding pages and reports with the role explorer](ui-role-
 [!INCLUDE [marketing_reports](includes/marketing-reports-include.md)]
 
 
-## See also
+## Related information
 
 [Relationship management overview](marketing-relationship-management.md)  
 
@@ -2014,7 +2014,7 @@ Try the report here: [Inventory Valuation Overview](https://businesscentral.dyna
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md)  
@@ -2121,7 +2121,7 @@ You can post this increased cost as an item charge in a credit memo or a return 
 
 When you post the sales return order, the restock charge is added to the relevant sales entry amount. In this way, you can maintain accurate inventory valuation.  
 
-## See also
+## Related information
 
 [Sales](sales-manage-sales.md)  
 [Setting Up Sales](sales-setup-sales.md)  
@@ -2333,7 +2333,7 @@ Try the report here: [Project Overview](https://businesscentral.dynamics.com?pag
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Projects app](projects-powerbi-app.md)  
@@ -2371,7 +2371,7 @@ If you want to appreciate or depreciate an item or a specific item ledger entry,
 
 New value entries are now created to reflect the revaluations that you have posted. You can see the new values on the respective item cards.
 
-## See also
+## Related information
 [Design Details: Revaluation](design-details-revaluation.md)    
 [Inventory](inventory-manage-inventory.md)    
 [Sales](sales-manage-sales.md)    
@@ -2482,7 +2482,7 @@ Service orders are not deleted automatically, however, if the total quantity on 
 3. Choose **OK**.  
 
 
-## See Also  
+## Related information  
 [Service Posting](service-service-posting.md)  
 [Post a Service Order](service-how-to-post-service-orders.md)  
 [Setting Up Service Management](service-setup-service.md)  
@@ -2526,7 +2526,7 @@ On the **Workflow** page, you create a workflow by listing the involved steps on
 > [!NOTE]
 > Deleting a workflow requires it to be disabled. To disable a workflow, open it in the **Workflows** page, then turn off the **Enabled** toggle.
 
-## See also
+## Related information
 
 [Create Approval Workflows](across-how-to-create-workflows.md)  
 [Enable Approval Workflows](across-how-to-enable-workflows.md)  
@@ -2708,7 +2708,7 @@ You can enter a currency code on a general journal line and post the line to a g
 
 [!INCLUDE [finance-currencies-example](includes/finance-currencies-example.md)]
 
-## See also
+## Related information
 
 [Update Currency Exchange Rates](finance-how-update-currencies.md)  
 [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md)  
@@ -2783,7 +2783,7 @@ For more information, see [Use Designer](/dynamics365/business-central/dev-itpro
 
 <!-- ![In-client Designer.](./media/across-sandbox/sandbox-inclient-designer.png) -->
 
-## See also
+## Related information
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [[!INCLUDE[prod_long](includes/prod_long.md)] Trials and Subscriptions](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions)  
@@ -2926,7 +2926,7 @@ ms.custom: bap-template
 > [!IMPORTANT]
 > In an import of CAMT bank statements, [!INCLUDE[prod_short](includes/prod_short.md)] expects each transaction to be unique, which means that the **Transaction ID** field that comes from the *Stmt/Ntry/NtryDtls/TxDtls/Refs/EndToEndId* tag in the CAMT file, must be unique within the open bank account reconciliation. If the information is not present, [!INCLUDE[prod_short](includes/prod_short.md)] ignores the payment. If an earlier bank reconciliation on the same bank account was posted with the same transaction ID as on the current import, the current transaction will not automatically reconcile but can still be imported.
 
-## See Also  
+## Related information  
 
 [Setting Up Data Exchange](across-set-up-data-exchange.md)  
 [Exchanging Data Electronically](across-data-exchange.md)  
@@ -2995,7 +2995,7 @@ Try the report here: [Average Production Times](https://businesscentral.dynamics
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Manufacturing app](manufacturing-powerbi-app.md)  
@@ -3030,7 +3030,7 @@ The following table describes a sequence of tasks, with links to the topics that
 |Understand the relationship between the status of a repair, and the effect they have on allocated resources, and vice versa.|[Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md)|  
 |Use statistics to analyze your service processes. | [Viewing Service Statistics](service-service-statistics.md) |
 
-## See Also
+## Related information
 [Fulfilling Service Contracts](service-fulfill-service-contracts.md)  
 [Delivering Service](service-deliver-service.md)  
 [Set Up Pricing and Additional Costs for Services](service-how-setup-service-costs-pricing.md)  
@@ -3179,7 +3179,7 @@ For examples of how you can use the fields on the **Planning** FastTab, see [Set
 
 If you post a transaction for an item, you can't delete the card because the ledger entries might be needed for inventory valuation or auditing. To delete item cards with ledger entries, contact to Microsoft partner to do so through code.  
 
-## See also
+## Related information
 
 [Inventory](inventory-manage-inventory.md)    
 [Set Up Units of Measure](inventory-how-setup-units-of-measure.md)    
@@ -3363,7 +3363,7 @@ On the **Warehouse Put-away** page, you can manage put-aways for a specific ware
 
     The received accessories are now put-away in the items' default bins, and 40 hinges are placed in the assembly department. The received items are now available for picking to internal demand, such as assembly orders, or to external demand, such as sales shipments.  
 
-## See Also  
+## Related information  
  [Put Items Away with Warehouse Put-aways](warehouse-how-to-put-items-away-with-warehouse-put-aways.md)   
  [Move Items in advanced warehouse configurations](warehouse-how-to-move-items-in-advanced-warehousing.md)   
  [Design Details: Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md)   
@@ -3439,7 +3439,7 @@ In this case, you're allowed to post in the date range from September 11 to Sept
 
 Assigning a wider date range where you allow posting on the **Inventory Period** or **General Ledger Setup** pages lets you avoid the conflict that causes the error message. For example, the wider range lets you post the adjustment value entry with a September 10 posting date.
   
-## See also  
+## Related information  
 
 [Design Details: Posting Date on Adjustment Value Entry](design-details-inventory-adjustment-value-entry-posting-date.md)  
 [Design Details: Inventory Costing](design-details-inventory-costing.md)  
@@ -3557,7 +3557,7 @@ Dataflows enable you to ingest, transform, and load data into a Power BI workspa
 
 Using PowerAutomate, you can set up retries for this situation. For more information, see [Automatically retry a dataflow on failure](/power-query/dataflows/automatically-retry-dataflow).
 
-## See also
+## Related information
 
 [Business Central and Power BI](admin-powerbi.md)  
 [Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
@@ -3613,7 +3613,7 @@ You can set up a number of put-away templates and select one of them to govern p
 
 You can create various put-away templates and then apply them as you see fit. The put-away template that you selected for the item or stockkeeping unit, if any is used first. If these fields are not filled in, then the put-away template that you selected for the warehouse on the **Bin Policies** FastTab on the location card is used.  
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Inventory](inventory-manage-inventory.md)                                
@@ -3741,7 +3741,7 @@ The version principle enables you to manage several versions of a routing. The s
 
 7. When you're done setting up the routing version, in the **Status** field, choose **Certified**.
 
-## See also
+## Related information
 
 [Create Production BOMs](production-how-to-create-production-boms.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
@@ -3931,7 +3931,7 @@ Try the report here: [Scheduled Receipt](https://businesscentral.dynamics.com?pa
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Inventory app](inventory-powerbi-app.md)  
@@ -4004,7 +4004,7 @@ Follow the steps in this procedure to assemble an item to stock. To learn about 
 
 After posting succeeds, the assembly item is posted as output to the location code and potential bin code that are defined on the assembly order. For manually created assembly orders, the location may be copied from the **Default Location for Orders** setup field. For assemble-to-order flows, the location code may be copied from the sales order line.  
 
-## See also
+## Related information
 
 [Assembly Management](assembly-assemble-items.md)  
 [Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
@@ -4204,7 +4204,7 @@ When the report request page is open, select the **Help** question mark in the t
 
 Learn more in [Help pane](product-help-and-support.md#help-pane)
 
-## See also
+## Related information
 
 - [Available Reports in [!INCLUDE[prod_short](includes/prod_short.md)]](reports-available-reports.md)  
 - [Use Reports in Daily Work](reports-use-reports.md)  
@@ -4330,7 +4330,7 @@ Base calendars are assigned to your own company, customers, vendors, locations, 
 > [!NOTE]  
 >  Before you can make customized calendar entries, you must first assign a base calendar to the company.  
 
-## See Also
+## Related information
 [Purchasing](purchasing-manage-purchasing.md)  
 [Manufacturing](production-manage-manufacturing.md)    
 [Inventory](inventory-manage-inventory.md)  
@@ -4518,7 +4518,7 @@ For example, add an entry for Spain where you want to get validation for name, s
 
 The next time that you specify a VAT registration number, the service validates the number and any additional data as determined by your validation templates. If the specified values are different from the values that are returned by the service, you will see the details in the **Validation Details** page where you can accept or reset the values.  
 
-## See Also
+## Related information
 
 [Set Up Value-Added Tax](finance-setup-vat.md)  
 [Setting Up Unrealized Value Added Tax](finance-setup-unrealized-vat.md)  
@@ -4687,7 +4687,7 @@ The following table provides a simplified overview of the XML of a custom XML pa
   
 * The language of the label that is displayed when you run the report depends on the language setting of the report object.  
   
-## See Also
+## Related information
 
 [Create and Modify a Custom Report Layout](ui-how-create-custom-report-layout.md)  
 
@@ -4807,7 +4807,7 @@ In general, posting dates are copied from a sales order to the linked assembly o
 You can change the posting date in the assembly order manually. However, it can not be later then posting date in the linked sales order. The system will keep this date unless you update the posting date in the sales order.
 
 
-## See Also  
+## Related information  
  [Design Details: Inventory Costing](design-details-inventory-costing.md)   
  [Design Details: Production Order Posting](design-details-production-order-posting.md)   
  [Design Details: Costing Methods](design-details-costing-methods.md)  
@@ -4999,7 +4999,7 @@ The following table describes a sequence of tasks, with links to the topics that
 |View an item's projected available inventory by different views and see which gross requirements, planned order receipts, and other events influence it over time.|[View the Availability of Items](inventory-how-availability-overview.md)|  
 <!--|Perform selected planning activities, such as changing or adding planning worksheet lines, in a graphical view of the supply plan.|[Modify Planning Suggestions in a Graphical View](production-how-to-modify-planning-suggestions-in-a-graphical-view.md)|-->
 
-## See also
+## Related information
 
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Manufacturing](production-manage-manufacturing.md)  
@@ -5045,7 +5045,7 @@ You can read about how to export data to Excel in the [Exporting Data to Other F
 
 If you want to hide [!INCLUDE[prod_short](includes/prod_short.md)] from your app launcher, you can unpin it. No data is lost, and the step doesn't cancel your subscription.  
 
-## See Also
+## Related information
 
 [Business Central Trial FAQ](trial-faq.md)  
 [Trials and Subscriptions (for admins)](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions)  
@@ -5091,7 +5091,7 @@ You must set up each user who performs warehouse activities as a warehouse emplo
 
 ## See related [Microsoft training](/training/modules/get-started-warehouse-management/)
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Inventory](inventory-manage-inventory.md)  
@@ -5225,7 +5225,7 @@ You can edit the information on vendor cards at any time. However, if you have p
 5. When you have completed the new vendor template, choose **OK**.  
    The vendor template is added to the list of vendor templates, so you can use it to create new vendor cards.
 
-## See also
+## Related information
 
 [Merge Duplicate Records](sales-how-merge-duplicate-records.md)  
 [Create Number Series](ui-create-number-series.md)  
@@ -5349,7 +5349,7 @@ No, use of Copilot is optional. [!INCLUDE [prod_short](includes/prod_short.md)] 
 
 Each time Copilot provides suggestions, you can provide feedback to Microsoft directly from the Copilot window, using the Like and Dislike buttons. Your feedback remains anonymous and we use this data to improve the quality of the service.
 
-## See also
+## Related information
 
 [Configure Copilot and agent capabilities](enable-ai.md)  
 [Responsible AI FAQs for Dynamics 365 Business Central](responsible-ai-overview.md)end of article
@@ -5414,7 +5414,7 @@ Microsoft currently supports the following localizations:
 > [!NOTE]
 > For non-Microsoft localizations, please visit the AppSource.  
 
-## See also
+## Related information
 
 [Financial Management](finance.md)    
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
@@ -5578,7 +5578,7 @@ One way to verify that your data migrated correctly is to look at the following 
 
 You can stop migrating data by choosing **Stop All Migrations**. If you do, all pending migrations are also stopped.
 
-## See also
+## Related information
 
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
@@ -5821,7 +5821,7 @@ If you need to pay the vendor by cash or check, you can post the payment when yo
 >
 > This customization is only required if you do not specify balancing accounts on the payment methods as describe above.
 
-## See also
+## Related information
 
 [Managing Payables](payables-manage-payables.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
@@ -5870,7 +5870,7 @@ As an administrator, you can control access to the full details that are shown i
 
 Users who aren't granted permissions on **System object 5330** can still access the **Page Inspection** pane, but they will only see the **Page** and **Table** fields, which display basic details that they can pass on to their support team.
 
-## See also
+## Related information
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -6017,7 +6017,7 @@ To work with the **Bin Creation Worksheet** page, you must be set up as a wareho
 
 Repeat the process for another set of bins until you create all the bins in your warehouse.  
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)  
 [Inventory](inventory-manage-inventory.md)  
@@ -6055,7 +6055,7 @@ You can set up troubleshooting guidelines that help technicians solve problems w
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, **Service Items**, or **Service Item Groups**, and then choose the related link.  
 2. Choose the relevant entity, and then choose the **Troubleshooting** action.  
 
-## See Also
+## Related information
 [Service Management](service-service.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
@@ -6150,7 +6150,7 @@ To implement the supply plan changes, you must follow the resulting action messa
  |While moving an element, press Esc.|Cancels the move. **Note:**  Does not work if you have released the mouse button.|
 -->
 
-## See also
+## Related information
 
 [Planning](production-planning.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
@@ -6228,7 +6228,7 @@ You can adjust the values of the **VAT Amount** and **Non-Deductible VAT Amount*
 > [!IMPORTANT]
 > You can't use non-deductible VAT on the prepayment invoices.
 
-## See also
+## Related information
 
 [Financial Management](finance.md)
 
@@ -6291,7 +6291,7 @@ To turn PDF and image files into electronic documents that you can convert to in
 
 For more information, see [Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md).  
 
-## See also
+## Related information
 
 [Incoming Documents](across-income-documents.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
@@ -6359,7 +6359,7 @@ Try the report here: [Report name](https://businesscentral.dynamics.com?page=369
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
@@ -6718,7 +6718,7 @@ To reduce the load on the database when handling production orders, the planning
 * Include routing: the planned routing includes calculation of starting and ending dates and times. Include routing is demanding in terms of database accesses. To determine the ending and due dates, it might be necessary to calculate the routing even if the supply event hasn't been closed. For example, if you're doing forward scheduling.  
 * Include BOM explosion: can happen just before the supply event is closed.
 
-## See Also  
+## Related information  
 
 [Design Details: Central Concepts of the Planning System](design-details-central-concepts-of-the-planning-system.md)  
 [Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)  
@@ -6770,7 +6770,7 @@ Project managers want to know how each project is performing and get high-level 
 [!INCLUDE [power-bi-projects-app](includes/power-bi-projects-app.md)]
 
 
-## See also
+## Related information
 
 [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)   
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
@@ -6884,7 +6884,7 @@ The following table describes a sequence of tasks and provides links to the arti
 | Enable global financial reporting to international accounting organizations by using the eXtensible Business Reporting Language (XBRL) standard. | [Create Reports with XBRL](bi-create-reports-with-xbrl.md) |
 | Change the database access intent on reports, pages of the API type, and queries to help reduce load and improve performance. | [Manage Database Access Intent](admin-data-access-intent.md) |
 
-## See also
+## Related information
 
 [Setting Up Finance](finance-setup-finance.md)  
 [Sales](sales-manage-sales.md)  
@@ -7080,7 +7080,7 @@ Try the report here: [Purchases by Purchaser](https://businesscentral.dynamics.c
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Purchasing app](purchases-powerbi-app.md)  
@@ -7136,7 +7136,7 @@ ms.reviewer: jswymer
      If **Notify** is selected, the note will be sent as a notification to the user's **My Notifications** on the Role Center.  -->
 <!--OnPrem
 3.  Choose the **OK** button.  -->
-## See Also
+## Related information
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 
@@ -7205,7 +7205,7 @@ Try the report here: [Sales by Salesperson](https://businesscentral.dynamics.com
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
@@ -7518,7 +7518,7 @@ To import or export financial report column definitions, follow these steps:
 1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Column Definitions**, and then choose the related link.
 1. Choose the row definition, and then choose the **Import Column Definition** or **Export Column Definition** action, depending on what you want to do.
 
-## See also
+## Related information
 <!-- 
 2025w1: add link to administrator article for Financial Report Lifecycle telemetry 
 -->
@@ -7611,7 +7611,7 @@ The following table describes a sequence of tasks, with links to the topics that
 |Enter information about the service items that your service organization is tracking.|[Create Service Items](service-how-to-create-service-items.md)|  
 |Establish a workflow for service when the service items consists of several components. The component list is always connected to a service item, but these components can also be based on bill of materials (BOMs).|[Set Up Service Items and Service Item Components](service-how-setup-service-items.md)|  
   
-## See Also  
+## Related information  
 [Setting Up Service Management](service-setup-service.md)   
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
@@ -7808,7 +7808,7 @@ You can issue other prepayment invoices for the order. To issue another invoice,
 
 You can speed up order and invoice processing by setting up job queue entries that automatically update the status of those documents. When a prepayment invoice is paid, the job queue entries can automatically change the document status from **Pending Prepayment** to **Released**. When you set up the job queue entries, the codeunits you'll need to use are **384 Upd. Pending Prepmt. Sales** and **384 Upd. Pending Prepmt. Purchase**. We recommend that you schedule the entries to run frequently, for example, every minute. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
 
-## See also
+## Related information
 
 [Invoicing Prepayments](finance-invoice-prepayments.md)  
 [Walkthrough: Setting Up and Invoicing Sales Prepayments](walkthrough-setting-up-and-invoicing-sales-prepayments.md)  
@@ -7883,7 +7883,7 @@ To get started with sustainability management, use the following articles.
 | **Integrations** |             |
 | [Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json) | Use this article to learn how to create connected apps that establish a point-to-point connection between Business Central and non-Microsoft sustainability solutions or services using APIs. |
 
-## See also
+## Related information
 
 [Sustainability setup](finance-sustainability-setup.md)    
 [Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md)    
@@ -7918,7 +7918,7 @@ For more information, see [Encrypting Data in Dynamics 365 Business Central](/dy
 > [!Note]
 > You can turn on or turn off encryption only if you are using an on-premises version of [!INCLUDE[prod_short](includes/prod_short.md)]. Encryption is always turned on for online versions, and you cannot turn it off.
 
-## See also  
+## Related information  
 [Administration](admin-setup-and-administration.md)
 
 
@@ -8423,7 +8423,7 @@ This documentation provides detailed technical insight into the concepts and pri
 [Design Details: Posting Interface Structure](design-details-posting-interface-structure.md)  
 [Design Details: Posting Engine Structure](design-details-posting-engine-structure.md)  
 
-## See Also
+## Related information
 
 [Work with General Journals](ui-work-general-journals.md)
 [Design Details: General Journal Post Line (Dynamics NAV)](/dynamics-nav-app/design-details-general-journal-post-line)  
@@ -8546,7 +8546,7 @@ If a vendor has one or more bank accounts and you want to set a preferred option
 2. Open the card for the vendor.
 3. On the **Payments** FastTab, choose the default vendor bank account in the **Preferred Bank Account Code** field.
 
-## See also
+## Related information
 
 [Setting Up Purchasing](purchasing-setup-purchasing.md)  
 [Register New Vendors](purchasing-how-register-new-vendors.md)  
@@ -8604,7 +8604,7 @@ If you don't give it a name, the default name is **All (Copy)**.
 
 As the number of views on a page grows, you might need more control over how views are presented in the filter pane. With the **Personalizing** banner, you can hide unwanted views or reorder your views to get the perfect sequence. To learn more, go to [Personalize Your Workspace](ui-personalization-user.md).
 
-## See also
+## Related information
 
 [List Views FAQ](ui-views-faq.yml)  
 [Analyze list data using data analysis mode](analysis-mode.md)   
@@ -8678,7 +8678,7 @@ To create a single purchase invoice for one or more lines on a sales document by
     A purchase invoice is created that contains one, more than one, or all the lines on the sales invoice.
 7. Proceed to process the purchase invoice, for example, by editing or adding purchase invoice lines. For more information, see [Record Purchases](purchasing-how-record-purchases.md).
 
-## See also
+## Related information
 [Purchasing](purchasing-manage-purchasing.md)  
 [Record Purchases](purchasing-how-record-purchases.md)  
 [Invoice Sales](sales-how-invoice-sales.md)  
@@ -8788,7 +8788,7 @@ After repairing a service item, you can register both the fault code and the res
 
 4. Fill out the line. Choose the combination of fault and resolution codes, and then choose **OK** to copy it to the service item. If an appropriate combination cannot be found, you can create a new combination on the page.  
 
-## See Also  
+## Related information  
 [Set Up Fault Reporting](service-how-setup-fault-reporting.md)
 [Allocation Status and Repair Status](service-allocation-status-and-repair-status.md)  
 [Service Posting](service-service-posting.md)  
@@ -9027,7 +9027,7 @@ After you create the new bank account, you should also create a new bank posting
 
 To get a more condensed view of your cash accounts in financial reporting, use the **Begin-Total** and **End-Total** accounts in your chart of accounts, the **Totaling** rows in financial reports, or G/L account categories. Learn more at [Business Intelligence and Financial Reporting](bi.md) section.
 
-## See also
+## Related information
 
 [Setting Up Banking](bank-setup-banking.md)  
 [Setting Up Posting Groups](finance-posting-groups.md)  
@@ -9084,7 +9084,7 @@ You can use the **General Service Comment Sheet** page to register comments on r
 4. In the **Date** field, enter a date.  
 5. In the **Comment** field, enter a comment. You can enter a maximum of 80 characters. If you need to enter additional text, go to the next line. You can fill in as many lines as necessary.  
   
-## See Also  
+## Related information  
 [Set Up a Loaner Program](service-how-setup-loaner-program.md)   
 
 
@@ -9140,7 +9140,7 @@ Try the report here: [Detailed Vendor Ledger Entries](https://businesscentral.dy
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI finance app](finance-powerbi-app.md)  
@@ -9194,7 +9194,7 @@ Creating and modifying RDLC layouts is an advanced task, which is typically done
 > [!NOTE]
 > Report Builder only recognizes the .rdl file type, not .rdlc. Layout files exported from Business Central are .rdlc file types. So to modify these layout in Report Builder, rename the file type to .rdl.
 
-## See Also
+## Related information
 
 [Managing Report Layouts](ui-manage-report-layouts.md)  
 [Set the Layout Used by a Report](ui-set-report-layout.md)  
@@ -9348,7 +9348,7 @@ The **Payment Terms** table in [!INCLUDE[prod_short](includes/prod_short.md)] ha
 | *NET60*      |                      |                           | 0.         | FALSE                         |                   |
 | ***TRANSFER*** |                      |                           | 0.         | FALSE                         |                   |
 
-## See also
+## Related information
 [Mapping the Tables and Fields to Synchronize](admin-how-to-modify-table-mappings-for-synchronization.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
@@ -9429,7 +9429,7 @@ After the vendor ships the items, you can post the sales order as shipped. You c
 > [!TIP]
 > Don't forget that you need to post the purchase order invoice.
 
-## See also
+## Related information
 
 [Create Special Orders](sales-how-to-create-special-orders.md)  
 [Purchase Items for a Sale](purchasing-how-purchase-products-sale.md)  
@@ -9544,7 +9544,7 @@ The **Assisted Setup** page might contain other entries. When you finish a setup
 
 Based on your migrated data, you can now proceed to create new sales or purchase documents. Use the **Actions** section of your home page to quickly create a new sales quote, sales invoice, sales order, purchase invoice, or payment registration. Check out the [quick start](quick-start-business-central.md) articles to help you take the first steps.  
 
-## See also
+## Related information
 
 [Business Central Quick Starts](quick-start-business-central.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
@@ -9943,7 +9943,7 @@ You can't create a warehouse pick document from scratch. Picks are part of a wor
 
 You can now bring the items to the shipment dock and post the shipment, including the related source document, on the **Warehouse Shipment** page. Learn more at [Ship Items](warehouse-how-ship-items.md).
 
-## See also
+## Related information
 
 - [Warehouse Management Overview](design-details-warehouse-management.md)
 - [Manage Inventory](inventory-manage-inventory.md)  
@@ -9989,7 +9989,7 @@ When you create finance charge terms and reminder terms, for delayed payment pen
 
 When you issue a finance charge memo, the memo shows the finance charges with multiple interest rates for a specific time period. The memo also contains the contact details of the customer, the company issuing the memo, the additional amount, and the total amount. The opening entry on the memo is displayed in bold. The finance charges are calculated with multiple interest rates for a specific time period and are printed after the opening entry of the memo.  
 
-## See Also
+## Related information
 
 [Collect Outstanding Balances](receivables-collect-outstanding-balances.md)  
 [Setting Up Finance](finance-setup-finance.md)
@@ -10052,7 +10052,7 @@ If you don't set up specific service hours for the service contract, the default
 6. If you want the service hours to be valid from a specific date, fill in the **Starting Date** field.  
 7. If you want the service hours to be valid on holidays, select the check box in the **Valid on Holidays** field.  
 
-## See Also  
+## Related information  
 [Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md)  
 [Setting Up Service Management](service-setup-service.md)  
 [Understanding Service Order and Repair Status](service-order-repair-status.md)  
@@ -10234,7 +10234,7 @@ In many countries/regions, the customs and tax authorities establish 8-digit ite
 
 In the **Tariff Numbers** page, add all the codes that you use. You must enter the codes on the item card before you begin to post. When you have set up the codes, enter them in the **Tariff No.** field on the item card. You must also fill in the **Net Weight** field on the item card.
 
-## See also
+## Related information
 
 [Financial Management](finance.md)
 
@@ -10286,7 +10286,7 @@ All common file formats are supported.
 
 The **Import Status** field is updated to show if the picture import was skipped or completed.       
 
-## See Also
+## Related information
 [Register New Items](inventory-how-register-new-items.md)  
 [Create Number Series](ui-create-number-series.md)  
 [Inventory](inventory-manage-inventory.md)  
@@ -10395,7 +10395,7 @@ The following table describes a sequence of tasks, with links to the articles th
 |Set up profile questionnaires that you want to use when entering information about your contacts' profiles.|[Use Profile Questionnaires to Classify Business Contacts](marketing-create-contact-profile-questionnaire.md)|
 |Resolve confusion when two or more records exist for the same contact.|[Merge Duplicate Records](sales-how-merge-duplicate-records.md)|
 
-## See also
+## Related information
 
 [Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
 [Sorting, Searching, and Filtering](ui-enter-criteria-filters.md)  
@@ -10472,7 +10472,7 @@ The following table outlines related tasks.
 |Block items from being entered on sales or purchase lines or from being posted in any transaction.|[Block Items](inventory-how-block-items.md)|
 |Manage business operations in sales offices, purchasing departments, or plant planning offices across multiple locations.|[Work with Responsibility Centers](inventory-responsibility-centers.md)|
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
@@ -10551,7 +10551,7 @@ The following procedure describes how to create a new credit memo using the **Ge
 5. Choose the **Get Prepaid Contract Entries** action.  
 6. After the conversion is complete, VAT and service ledger entries will be correct.  
 
-## See also  
+## Related information  
 
 [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md)  
 [Finance](finance.md)  
@@ -10599,7 +10599,7 @@ To create several SKUs for an item, use the **Create Stockkeeping Unit** batch j
 > If the SKU is supplied through production, the **Standard Cost** field isn't used when invoicing and adjusting the actual cost of the produced item. Instead, [!INCLUDE [prod_short](includes/prod_short.md)] uses the value in the **Standard Cost** field on the item card, and variances are calculated against the cost shares of that item.<br><br>
 > Although you can assign production BOMs and routings to SKUs, the unit cost roll-up and the related calculation of cost shares aren't available on SKUs. To learn more about standard costs, go to [About Calculating Standard Cost](finance-about-calculating-standard-cost.md)
 
-## See also
+## Related information
 
 [Register New Items](inventory-how-register-new-items.md)  
 [Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
@@ -10670,7 +10670,7 @@ No, but you can easily get this information from the Help pane. Just select the 
 
 The bookmark icon isn't displayed in the Tell Me window when personalization is disabled for a user role.
 
-## See Also  
+## Related information  
 
 [Save and Personalize List Views](ui-views.md)  
 [Finding Pages and Information with Tell Me](ui-search.md)  
@@ -10702,7 +10702,7 @@ After a serial or lot number has been added to an item at a warehouse location, 
 
 However, the reservation system does take warehouse activities into consideration when it calculates availability. For example, items that are allocated to picks, or registered as picked, cannot be reserved. For more information, see [Design Details: Warehouse Availability](design-details-availability-in-the-warehouse.md).
 
-## See Also  
+## Related information  
 [Design Details: Item Tracking](design-details-item-tracking.md)  
 [Design Details: Integration with Inventory](design-details-integration-with-inventory.md)  
 [Design Details: Warehouse Availability](design-details-availability-in-the-warehouse.md)  
@@ -10832,7 +10832,7 @@ If a location uses both put-away processing and receive processing and you have 
 
 5. When you have placed all the items in bins as instructed, choose the **Register Put-away** action.  
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Inventory](inventory-manage-inventory.md)  
@@ -10878,7 +10878,7 @@ You specify the currency codes in the **Currencies** list, including extra infor
 
 The exchange rates are the tool to calculate the local currency value (LCY) of each currency transaction. For more information, see [Update Currency Exchange Rates](finance-how-update-currencies.md).  
 
-## See also
+## Related information
 
 [Set Up Currencies](finance-set-up-currencies.md)    
 [Update Currency Exchange Rates](finance-how-update-currencies.md)    
@@ -10966,7 +10966,7 @@ We recommend that you also consider exporting data from the following pages:
 
 For more information, see [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).
 
-## See also
+## Related information
 
 [Canceling Your Subscription for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-cancel.md)  
 [Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
@@ -11061,7 +11061,7 @@ Bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] register banking
    The field is different from the **Bank Account No.** field also available in the **General** FastTab.
 4. Fill in the fields on the **Bank Account Card** page as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## See also
+## Related information
 
 [Set Up the Chart of Accounts](finance-setup-chart-accounts.md)  
 [Set Up Bank Accounts](bank-how-setup-bank-accounts.md)  
@@ -11097,7 +11097,7 @@ Sometimes you must provide a customer a loaner item for use when your customer s
 4. Fill in the **Description**, **Description 2**, and **Serial No.** fields.  
 5. In the **Unit of Measure Code** field, choose the relevant unit of measure.  
   
-## See Also
+## Related information
 [Lend and Receive Loaners](service-how-to-lend-receive-loaners.md)  
 [Setting Up Service Management](service-setup-service.md)  
 [Delivering Service](service-deliver-service.md)  
@@ -11162,7 +11162,7 @@ Try the report here: [Moving Averages](https://businesscentral.dynamics.com?page
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Purchasing app](purchases-powerbi-app.md)  
@@ -11242,7 +11242,7 @@ To improve production efficiency, you track the allocated hours for each work ce
 
 [!INCLUDE [power-bi-manufacturing-app](includes/power-bi-manufacturing-app.md)]
 
-## See also
+## Related information
 
 [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)   
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
@@ -11304,7 +11304,7 @@ From the **Report Settings** page, you can:
 > [!NOTE]
 > The ability to save settings is available only on reports where the [SaveValues property](/dynamics365/business-central/dev-itpro/developer/properties/devenv-savevalues-property) of the report's request page is set to **Yes**. The **SaveValues** property is set by the developer.  
 
-## See Also
+## Related information
 
 [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md)  
 
@@ -11464,7 +11464,7 @@ When you reallocate a service item in an allocation entry that has the status **
   
 A new allocation entry that contains the new resource is created that has the status **Active**.  
   
-## See Also  
+## Related information  
 [Set Up Resource Allocations](service-how-setup-resource-allocation.md)  
 [Allocate Resources](service-how-to-allocate-resources.md)  
 
@@ -11509,7 +11509,7 @@ After you set up your inventory, you can manage various processes related to ite
 |Import multiple item pictures in one go from a zip file where the files are named according to item numbers.|[Import Multiple Item Pictures](inventory-how-import-item-pictures.md)|
 |Specify default reports to be used for different document types.|[Report Selection in Business Central](across-report-selections.md)|
 
-## See also
+## Related information
 
 [Managing Inventory](inventory-manage-inventory.md)  
 [Managing Purchasing](purchasing-manage-purchasing.md)  
@@ -11557,7 +11557,7 @@ The following table describes the insights that this extension provides for each
 |Project Manager| Displays a greeting, and link to product information.|
 |Administrator| Displays a greeting, and link to product information.|
 
-## See also
+## Related information
 
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)
 
@@ -11819,7 +11819,7 @@ This video shows how to specify whether, and when, people can delete G/L account
 
 Want to learn how to set up the chart of accounts in [!INCLUDE [prod_short](includes/prod_short.md)]? Then start on the following learning path [Set up the chart of accounts in Dynamics 365 Business Central](/training/modules/chart-accounts-dynamics-365-business-central).
 
-## See also
+## Related information
 
 [The General Ledger and the Chart of Accounts](finance-general-ledger.md)  
 [Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
@@ -11880,7 +11880,7 @@ The following table provides links to articles that describe how to work with an
 | Purchasing | [Purchasing analytics](purchasing-analytics-overview.md) |
 | Fixed Assets Management | [Fixed assets analytics](fa-analytics-overview.md) |
 
-## See also
+## Related information
 
 [Analytics overview](reports-bi-reporting.md)  
 [Business Central Quick Starts](quick-start-business-central.md)  
@@ -12114,7 +12114,7 @@ Customization allows you to lock (allow editing) or unlock editing (prevent edit
 - You can't customize a page that's in [analysis mode](analysis-mode.md). The **Analyze** switch is deactivated. If you switch to customization mode while the page is in analysis mode, then analyze mode is automatically switched off. 
 - Some pages have multiple page fields that map to the same source table. The **Add field to page** pane shows all of these page fields independently. You can show, hide, or move these fields independently without affecting the others.
 - If a part or group is hidden, you can still identify hidden fields inside the part or group, but you can't add, move or show fields in the part or group until they're made visible. 
-## See also
+## Related information
 
 [Personalize Your Workspace](ui-personalization-user.md)  
 [Manage Profiles](admin-users-profiles-roles.md)  
@@ -12160,7 +12160,7 @@ Value Added Tax (VAT) is an indirect tax on the consumption of goods and service
 | [Multiple VAT registration numbers](finance-how-use-multiple-vat-registrations.md) | Discover how to set up multiple value-added tax (VAT) registration numbers (as an alternative VAT rate) for your customers who operate in different countries. |
 
 
-## See also 
+## Related information 
 [Finance](finance.md)    
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -12212,7 +12212,7 @@ The PayPal Payments Standard and WorldPay Payments Standard extensions are insta
     > [!NOTE]  
     > The **Payment Service** field is available only if you've enabled the payment service.  
 
-## See also
+## Related information
 
 [Setting Up Sales](sales-setup-sales.md)  
 [Sales](sales-manage-sales.md)  
@@ -12315,7 +12315,7 @@ For example, by default, the CURRENCY job queue entry, which synchronizes curren
 
 - Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Errors**, and then choose the related link.
 
-## See also
+## Related information
 
 [Synchronizing Data in Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md)  
 [Manually Synchronize Table Mappings](admin-manual-synchronization-of-table-mappings.md)  
@@ -12394,7 +12394,7 @@ The following process uses a sales order, but the steps are the same for blanket
 >
 > The item is also deleted if you convert the item manually, or make changes such as adding new units of measure or updating prices or cost. However, the item won't be deleted if it's already used in sales or purchase lines, assembly BOMs, or has ledger entries.
 
-## See also
+## Related information
 
 [Register New Items](inventory-how-register-new-items.md)  
 [Create Special Orders](sales-how-to-create-special-orders.md)  
@@ -12432,7 +12432,7 @@ To use electronic banking services to import bank statements and  export payment
 
 [!INCLUDE [local-functionality](includes/local-functionality.md)]
 
-## See Also
+## Related information
 
 [Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
 [Managing Receivables](receivables-manage-receivables.md)  
@@ -12682,7 +12682,7 @@ Learn more at [Enable Picking Items by FEFO](warehouse-picking-by-fefo.md).
 Put-away templates specify a set of prioritized rules that apply when you create put-aways. For example, a put-away template can require you to place items in a bin with bin content that has the same UOM. If a similar bin with enough capacity can't be found, the item must be placed in an empty bin. You assign a put-away template to an item and a location.  
 
 
-## See also
+## Related information
 
 [Inventory and warehouse reports](inventory-WMS-reports.md)   
 [Inventory](inventory-manage-inventory.md)  
@@ -12867,7 +12867,7 @@ If you have set up the automatic cost adjustment to apply to postings that occur
 
 If you have set up the automatic cost adjustment to apply to postings that occur within a day or a week from the current work date, then the automatic cost adjustment does not run, and the cost of the purchase is not forwarded to the sale until you run the **Adjust Cost - Item Entries** batch job.  
 
-## See Also
+## Related information
 
 [Adjust Item Costs](inventory-how-adjust-item-costs.md)  
 [Design Details: Inventory Costing](design-details-inventory-costing.md)  
@@ -12948,7 +12948,7 @@ In both cases, contacts are only synchronized from Outlook if they have the requ
 > [!NOTE]
 > If you delete a contact in Outlook, but keep it in [!INCLUDE[prod_short](includes/prod_short.md)], the contact will be recreated in Outlook the next time you sync. 
 
-## See Also
+## Related information
 
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Finance](finance.md)  
@@ -12989,7 +12989,7 @@ You use the following pages to create and analyze cost budgets. Choose the ![Lig
 |See cost budget registers and cost budget entries.|**Cost Budget Registers** page|  
 |Print cost budget comparisons using various reports.|**Cost Acctg. Balance-Budget** report<br /><br /> **Cost Acctg. Statement-Budget** report<br /><br /> **Cost Budget by Cost Center** report<br /><br /> **Cost Budget by Cost Object** report|  
 
-## See also
+## Related information
 
 [Accounting for Costs](finance-manage-cost-accounting.md)  
 [Create G/L Budgets](finance-how-create-budgets.md)  
@@ -13275,7 +13275,7 @@ The following table provides an overview of tasks that you typically perform to 
 | Print reports that can assist you in creating financial statements. |[Preparing Closing Statements](year-prepare-close-statement.md) |
 | Close accounting periods and fiscal year, transfer income statement balances to balance sheet accounts, and post the year-end closing entry. |[Closing Books](year-close-books.md) |
 
-## See also
+## Related information
 
 [Work with Accounting Periods and Fiscal Years](finance-accounting-periods-and-fiscal-years.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
@@ -13306,7 +13306,7 @@ Administrators and developers can make the database more efficient and ultimatel
 
 **Database Missing Indexes** provides you with a list of potential columns that can be indexed and some useful information about them. This information helps you to make better decisions for the optimal performance of your database and application. For more information about missing indexes and how they help you in achieving performance objectives through [!INCLUDE[prod_short](includes/prod_short.md)], see [Missing Indexes in Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/administration/database-missing-indexes).
 
-## See also
+## Related information
 
 [Clustered and nonclustered indexes described](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)  
 [Optimizing SQL Server Performance with Business Central](/dynamics365/business-central/dev-itpro/administration/optimize-sql-server-performance)  
@@ -13366,7 +13366,7 @@ When you have created your bins, you can create the bin content that you want fo
 
 In this worksheet, you can work with a number of bin content lines for a number of bins and thereby obtain a good overview of what you are putting into various bins in a given zone, aisle, or rack.  
 
-## See also
+## Related information
 
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Inventory](inventory-manage-inventory.md)  
@@ -13682,7 +13682,7 @@ On the **Workflow** page, create a workflow by listing the involved steps on the
 2. Open the workflow that you want to enable.  
 3. On the **Workflow** page, turn on the **Enabled** toggle.  
 
-## See also
+## Related information
 
 [Create Approval Workflows](across-how-to-create-workflows.md)  
 [Use Approval Workflows](across-use-workflows.md)  
@@ -13829,7 +13829,7 @@ To account for salary payments and related transactions, you must import and pos
     When you choose the **OK** button in the assisted setup guide, the **General Journal** page is filled with lines representing the transactions that the payroll file contains and with the relevant accounts prefilled in the **G/L Account** fields according to mappings you made in the guide.
 4. Edit or post the journal lines as for any other general ledger transactions. For more information, see [Post Transactions Directly to the General Ledger](finance-how-post-transactions-directly.md).   
 
-## See also
+## Related information
 
 [Finance](finance.md)    
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)    
@@ -13903,7 +13903,7 @@ The following table provides links to articles that describe typical tasks in pr
 | Post the consumption of materials, resources, and other expenses of project WIP. Monitor its financial value to maintain correct financial statements even though you post project expenses before you invoice the project. |[Monitor Project Progress and Performance](projects-how-monitor-progress-performance.md) |
 | Invoice the customer, either when the project is finished or according to an invoicing schedule. |[Invoice Project](projects-how-invoice-jobs.md) |
 
-## See also
+## Related information
 
 [Setting Up Project Management](projects-setup-projects.md)  
 [Project management analytics overview](projects-analytics-overview.md)  
@@ -14040,7 +14040,7 @@ If you set up background posting with job queues, make it a regular task to moni
 
 As an administrator, you can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to gather and analyze telemetry that you can use to identify problems. For more information, see [Monitoring and Analyzing Telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-overview) in the developer and administration content.  
 
-## See Also
+## Related information
 
 [Posting Documents and Journals](ui-post-documents-journals.md)  
 [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md)  
@@ -14118,7 +14118,7 @@ Additionally, each term in the Finance Charge Terms table is linked to a subtabl
 |%8|Content of the **Currency Code** field on the finance charge memo header|  
 |%9|Content of the **Posting Date** field on the finance charge memo header|  
 
-## See also
+## Related information
 
 [Collect Outstanding Balances](receivables-collect-outstanding-balances.md)  
 [Set Up Reminder Terms and Levels](finance-setup-reminders.md)  
@@ -14200,7 +14200,7 @@ When **Edit in Excel** is used on list pages for tables with many columns, the r
 
 > [!Video https://go.microsoft.com/fwlink/?linkid=2086039]-->
 
-## See also
+## Related information
 
 [Analyze list data using data analysis mode](analysis-mode.md)   
 [Work with Business Central](ui-work-product.md)  
@@ -14365,7 +14365,7 @@ You can change the values in these fields, but if you select the **Applicable Fo
 
 If you specify a value in the **Service Transaction Type Code** field but don’t select the **Applicable For Service Declaration** field, you can post the document, but the line isn't calculated.
 
-## See also
+## Related information
 
 [Set Up Intrastat Reporting](finance-how-setup-report-intrastat.md)
 [Intrastat Reporting in Business Central](finance-how-report-intrastat.md)  
@@ -14421,7 +14421,7 @@ If you want to examine the forecast, in addition to forecast entries, you can al
 2. Choose a cash flow forecast, and then choose the **Cash Flow Worksheet** action.  
 3. On the **Cash Flow Worksheet** page, choose the **Suggest Worksheet Lines** action.  
 
-## See also
+## Related information
 
 [Setting Up Finance](finance-setup-finance.md)    
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)   
@@ -14461,7 +14461,7 @@ The following procedure shows how to track a package from a posted sales shipmen
 4. Make sure that the correct shipping agent and the level of service are correct, and then close the page.
 5. Choose the **Track Package** action to open the shipping agent's package tracking service.
 
-## See also
+## Related information
 
 [Set Up Shipping Agents](sales-how-to-set-up-shipping-agents.md)  
 [Sales](sales-manage-sales.md)  
@@ -14500,7 +14500,7 @@ When you have set up a salesperson on the **Salespeople** page, you can select i
 
 You can use salespeople in various relationship management and marketing work. For example, you can assign tasks to salespeople, so that the tasks are incorporated in sales opportunities that the salesperson are assigned to. For more information, see [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
 
-## See also
+## Related information
 
 [Setting Up Sales](sales-setup-sales.md)  
 [Sales](sales-manage-sales.md)  
@@ -14569,7 +14569,7 @@ Try the report here: [Period-Over-Period](https://businesscentral.dynamics.com?p
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Purchasing app](purchases-powerbi-app.md)  
@@ -14673,7 +14673,7 @@ The following sections describe how to set up time sheets if you don't use the *
 > [!NOTE]  
 > You can't change the ID of the time sheet approver if there are time sheets that haven't been processed and have the status of **Submitted** or **Open**.
 
-## See also
+## Related information
 
 [Use Time Sheets for Projects](projects-how-use-time-sheets.md)  
 [How To Create Time Sheets](projects-how-use-time-sheets.md#create-time-sheets)  
@@ -14758,7 +14758,7 @@ The following procedure describes how to assign activity tasks to opportunities.
 6. On the **Task List** page, select the new task, and then choose the **Assign Activities** action.
 7. On the **Assign Activity** page, fill in the fields as necessary, and then choose the **OK** button.
 
-## See Also
+## Related information
 
 [Processing Sales Opportunities](marketing-processing-sales-opportunities.md)  
 [Sales](sales-manage-sales.md)  
@@ -14828,7 +14828,7 @@ To explore the calculations behind the values on the **Statistics** FastTab, cho
 
 To print the document, choose the **Print** action.
 
-## See also
+## Related information
 
 [Finance reports](finance-reports.md)  
 [Analyzing Financial Statements in Microsoft Excel](finance-analyze-excel.md)  
@@ -14903,7 +14903,7 @@ Try the report here: [Sales by Item](https://businesscentral.dynamics.com?page=3
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
@@ -15263,7 +15263,7 @@ Try the report here: [Inventory Valuation by Item](https://businesscentral.dynam
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md)  
@@ -15444,7 +15444,7 @@ Administrators can use [Azure Application Insights](/azure/azure-monitor/app/app
 
 Telemetry lets administrators set up alerts on job queue issues that send a text message, email, or a message in Teams if something isn't right. To learn more about these alerts, go to [Alert on Telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-alert).
 
-## See also
+## Related information
 
 [Administration](admin-setup-and-administration.md)  
 [Setting Up Business Central](setup.md)  
@@ -15488,7 +15488,7 @@ The following table describes a sequence of tasks, with links to the articles th
 |Create an order, adjust the prepayment amounts, and issue an invoice for prepayment amounts.|[Create Prepayment Invoices](finance-how-to-create-prepayment-invoices.md)|  
 |Issue an additional prepayment invoice, either for additional items or for an additional deposit on the original order, or issue a prepayment credit memo.|[Correct Prepayments](finance-how-to-correct-prepayments.md)|  
 
-## See also
+## Related information
 
 [Walkthrough: Setting Up and Invoicing Sales Prepayments](walkthrough-setting-up-and-invoicing-sales-prepayments.md)  
 [Finance](finance.md)  
@@ -15810,7 +15810,7 @@ To assign exact cost reversing manually, you must choose the **Appl.-from Item E
 
 For more information, see [Design Details: Inventory Costing](design-details-inventory-costing.md).
 
-## See also
+## Related information
 
 [Sales](sales-manage-sales.md)  
 [Setting Up Sales](sales-setup-sales.md)  
@@ -15925,7 +15925,7 @@ For single cost entries, [!INCLUDE[prod_short](includes/prod_short.md)] transfer
 
 In the **Cost Register** table, [!INCLUDE[prod_short](includes/prod_short.md)] creates an entry with the source transfer from general ledger. The entry records the first and last entry numbers of the general ledger entries that are transferred, in addition to the first, and last entry numbers of the cost entries that are created.
 
-## See also
+## Related information
 
  [About Cost Accounting](finance-about-cost-accounting.md)  
  [Setting Up Cost Accounting](finance-set-up-cost-accounting.md)  
@@ -16008,7 +16008,7 @@ To add the sustainability certificate to the item follow the steps:
 3. In the **Sustainability** FastTab, select the certificate in the **Sust. Certificate No.** field. 
 4. Close the page.
 
-## See also
+## Related information
 
 - [Sustainability management overview](finance-manage-sustainability.md)  
 - [Sustainability setup](finance-sustainability-setup.md)    
@@ -16168,7 +16168,7 @@ The following procedure is based on a sales order. The steps are similar for all
 
 The note is now attached to the sales order.
 
-## See also  
+## Related information  
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Incoming Documents](across-income-documents.md)  
@@ -16246,7 +16246,7 @@ To transfer funds between bank accounts that use different currencies, you must 
     > An amount without a sign is a debit, and an amount with a minus sign is a credit.
 10. Post the journal.
 
-## See also
+## Related information
 
 [Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
 [Setting Up Banking](bank-setup-banking.md)  
@@ -16296,7 +16296,7 @@ You can create zones and bins either before or after the conversion. The only bi
 
  For those locations that did not use warehouse management documents before the conversion, you must re-open and release any source documents that were partially received or partially shipped before the conversion.  
 
-## See Also  
+## Related information  
 [Warehouse Management Overview](design-details-warehouse-management.md)
 [Inventory](inventory-manage-inventory.md)  
 [Setting Up Warehouse Management](warehouse-setup-warehouse.md)     
@@ -16410,7 +16410,7 @@ If the source company installs a new extension, the subsidiary must also install
 If the recurring job queue entry is deleted for a table, you can quickly recreate it. On the **Synchronization Tables** page, choose the **Use Default Synchronization Setup** action.
 -->
 
-## See Also
+## Related information
 
 [Get ready to synchronize master data](admin-set-up-data-sync.md)
 end of article
@@ -16477,7 +16477,7 @@ The following table links to information about how to give apps and extensions a
 |--|--|
 |The two main concepts for defining access to features are entitlements and permissions. Entitlements give broad access to objects according to licenses or Microsoft Entra roles. Permissions and permission sets let you fine-tune access to objects. |[Entitlements and Permission Sets Overview](/dynamics365/business-central/dev-itpro/developer/devenv-entitlements-and-permissionsets-overview)|
 
-## See Also
+## Related information
 
 [Security in Business Central](/dynamics365/business-central/dev-itpro/security/security-and-protection)
 end of article
@@ -16518,7 +16518,7 @@ The following procedure describes how to restrict purchase orders from being pos
 4. On the **Workflow Steps** FastTab, choose the **On Condition** field for the first step, then, for the **Document Type** filter, select **Order**.  
 5. Proceed to edit, delete, or add other workflow steps to reflect a business process that begins by restricting unapproved purchase orders from being posted.  
 
-## See also
+## Related information
 
 [Use Approval Workflows](across-use-workflows.md)  
 [Create Approval Workflows](across-how-to-create-workflows.md)  
@@ -16581,7 +16581,7 @@ You can't. If you accidentally delete sample data, ask your admin to create a ne
 
 As an admin, you can remove the Business Central trial subscription in the Microsoft 365 admin center. Learn more in [Removing a subscription](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions#removing-a-subscription).
 
-## See also
+## Related information
 
 [Sign up for a free Dynamics 365 Business Central trial](trial-signup.md)  
 [Frequently Asked Questions about Using Business Central](across-faq.yml)  
@@ -16843,7 +16843,7 @@ You can specify the reports that must be printed at different stages by choosing
 > [!NOTE]
 > The available reports might vary based on the localization for your country/region. The base application doesn't include any layouts.
 
-## See also
+## Related information
 
 [Count, Adjust, and Reclassify Inventory Using Journals](inventory-how-count-adjust-reclassify.md)    
 [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md)    
@@ -17171,7 +17171,7 @@ The following table describes a sequence of tasks within accounts payable, with 
 |Ensure correct inventory valuation by assigning added item costs, such as freight, physical handling, insurance, and transportation that you incur when purchasing.|[Use Item Charges to Account for Additional Trade Costs](payables-how-assign-item-charges.md)|
 |Reimburse employees for personal expenses during business activities by making payment to their bank account.|[Record and Reimburse Employees' Expenses](finance-how-record-reimburse-employee-expenses.md)|
 
-## See also
+## Related information
 [Purchasing](purchasing-manage-purchasing.md)    
 [Managing Receivables](receivables-manage-receivables.md)    
 [Use Item Charges to Account for Additional Trade Costs](payables-how-assign-item-charges.md)    
@@ -17275,7 +17275,7 @@ The information that you enter in a sustainability journal is temporary and you 
 
 To learn more about posting sustainability entries, go to [Record sustainability entries](finance-sustainability-journal.md).
 
-## See also
+## Related information
 
 [Record sustainability entries](finance-sustainability-journal.md)  
 [Built-in sustainability reports](sustainability-reports.md)   
@@ -17400,7 +17400,7 @@ When you have finished your planning work on the **Order Planning** page, for ex
 > [!NOTE]  
 > The supply orders you create may introduce new dependent demand, for example for underlying production orders, and you should therefore choose **Calculate Plan** again to find and resolve this before moving down the list.  
 
-## See Also
+## Related information
 
 <!-- [Walkthrough: Planning Supplies Manually](walkthrough-planning-supplies-manually.md)   -->
 [Planning](production-planning.md)  
@@ -17500,7 +17500,7 @@ You can share one or more records in a list. Just select the <kbd>Ctrl</kbd>+<kb
 
 [Learn more about copy and paste in theFAQ](faq-copy-paste.yml).
 
-## See also
+## Related information
 
 [Business Central and OneDrive Integration](across-onedrive-overview.md)  
 [Managing OneDrive Integration with Business Central](admin-onedrive-integration.md)  
@@ -17575,7 +17575,7 @@ The general content about ad-hoc data analysis is also available in special vers
 
 [!INCLUDE[ad-hoc-analysis-scenarios-table](includes/ad-hoc-analysis-scenarios-table.md)]
 
-## See also
+## Related information
 
 [Analytics overview](reports-bi-reporting.md)   
 
@@ -17617,7 +17617,7 @@ The following articles describe some of the key tasks for analyzing the state of
 * [View Load on Work and Machine Centers](production-how-to-view-the-load-on-work-centers.md)  
 * [View the Availability of Items](inventory-how-availability-overview.md)
 
-## See also
+## Related information
 
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Manufacturing](production-manage-manufacturing.md)  
@@ -17662,7 +17662,7 @@ Codeunit 22, **Item Jnl. – Post Line**, now splits the posting according to th
 
 For more information, see [Design Details: Item Tracking Posting Structure](design-details-item-tracking-posting-structure.md).  
 
-## See Also
+## Related information
 
 [Design Details: Item Tracking](design-details-item-tracking.md)
 
@@ -17824,7 +17824,7 @@ Every now and then you might need to correct a mistake in a payment transaction 
 > [!NOTE]
 > When you unapply and reverse a payment for an entry that had currency exchange rate adjustments associated with it, the reversal posts reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
 
-## See also
+## Related information
 
 [Currencies in Business Central](finance-currencies.md)    
 [Set Up Currencies](finance-set-up-currencies.md)    
@@ -17894,7 +17894,7 @@ Try the report here: [Project Realization](https://businesscentral.dynamics.com?
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
-## See also
+## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Power BI Projects app](projects-powerbi-app.md)  
@@ -17972,7 +17972,7 @@ Many approval workflow steps are about notifying users of an event they must act
    2. Choose whether to receive an email or note notification under the  **Notification Method** field.
    3. Select the **Notification Schedule** to change the frequency and recurrence in which notifications are sent.
 
-## See also
+## Related information
 
 [Set Up Approval Users](across-how-to-set-up-approval-users.md)  
 [Create and Modify Custom Report Layouts](ui-how-create-custom-report-layout.md)  
@@ -18173,7 +18173,7 @@ The following table provides best practices for selecting between the four polic
 |**Fixed Reorder Qty.**|Use for C items.<br /><br /> Combine with reorder-point parameters.<br /><br /> In manufacturing, use for lowest-level components.<br /><br /> Don't use if the item is often reserved.|C items, such as tea cups, are low-value items with high and regular order velocity. The best reordering policy for C items is therefore one that guarantees constant availability by always staying above a reorder point.<br /><br /> If the user reserves a quantity for a distant demand, the planning foundation is disturbed. Even if the projected inventory level is acceptable regarding the reorder point, the quantities might not be available because of the reservation.|  
 |**Maximum Qty.**|Use for C items with high carrying costs or storing limitations.<br /><br /> Combine with one or more order modifiers (Minimum/Maximum Order Quantity or Order Multiple).|C items, such as tea cups, are low-value items with high and regular order velocity. The best reordering policy for C items is therefore one that guarantees constant availability by always staying above a reorder point, but below a maximum inventory quantity.<br /><br /> To modify the suggested order, you might want the order quantity to be decreased to a specified maximum order quantity, increased to a specified minimum order quantity, or rounded up to meet a specified order multiple. **Note:**  If used with a reorder point, then inventory stays between the reorder point and the maximum quantity.|  
 
-## See also
+## Related information
 
  [Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
  [Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)  
@@ -18334,7 +18334,7 @@ For items using the **Standard** costing method, inventory increases are valued 
     |03-01-20|-1|-10.00|**1**|5|  
     |04-01-20|-1|-30.00|**3**|6|  
 
-## See Also
+## Related information
 
 [Design Details: Inventory Costing](design-details-inventory-costing.md)  
 [Design Details: Variance](design-details-variance.md)  
@@ -18425,7 +18425,7 @@ The following table describes the standard payment application rules in [!INCLUD
 | Low              | 4        | No                    | No                             | One Match                      |
 | Low              | 5        | No                    | No                             | Multiple Matches               |
 
-## See also
+## Related information
 [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md)  
 [Managing Receivables](receivables-manage-receivables.md)  
 [Sales](sales-manage-sales.md)  
