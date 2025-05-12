@@ -3,7 +3,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Correct prepayments
 description: You can make a correction to an order after you have posted a prepayment invoice for the order and add new lines to an order after issuing a prepayment.
 author: brentholtorf
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: al
 ms.search.form: 44, 48, 42, 50, 52, 9305, 9307
 ms.date: 07/24/2024
