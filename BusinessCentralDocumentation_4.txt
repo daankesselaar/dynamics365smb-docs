@@ -1,3 +1,344 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-depreciation-methods
+---
+title: Depreciation Methods for Fixed Assets
+description: Learn about the different built-in methods to depreciate or write-down fixed assets.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: write down, depreciate, depreciation
+ms.search.form: 5611, 5629, 5633
+ms.date: 05/19/2025
+ms.custom: bap-template
+ms.service: dynamics-365-business-central
+---
+
+# Depreciation methods for fixed assets
+
+[!INCLUDE [prod_short](includes/prod_short.md)] supports eight different methods of depreciation for fixed assets:
+
+* Straight-Line (SL)
+* Declining-Balance 1 (DB1)
+* Declining-Balance 2 (DB2)
+* DB1/SL
+* DB2/SL
+* Half-Year Convention
+* Manual
+* User-defined depreciation
+
+## Straight-Line depreciation
+
+With Straight-Line depreciation, you deprecate the asset value either with a fixed yearly percentage or with a fixed yearly amount over the depreciation period. When you use the straight-line method, you must specify one of the following options in the fixed asset depreciation book:  
+
+* The depreciation period (years or months) or a depreciation ending date  
+* A fixed yearly percentage  
+* A fixed yearly amount  
+* Depreciation period  
+
+### Depreciation period
+
+If you enter the depreciation period (the number of depreciation years, the number of depreciation months, or the depreciation ending date), the following formula calculates the depreciation amount:  
+
+* Depreciation Amount = ((Book value - Salvage Value) x Number of Depreciation Days) / Remaining Depreciation Days*  
+
+The remaining depreciation days are calculated as the number of depreciation days minus the number of days between the starting date and the last fixed asset entry date.  
+
+Book value can be reduced by posted appreciation, write-down, custom 1, or custom 2 amounts depending on whether the **Include in Depr. Calculation** field is deactivated and whether the **Part of Book Value** field is activated on the **FA Posting Type Setup** page. This calculation ensures that the fixed asset is fully depreciated at the depreciation ending date.  
+
+### Fixed yearly percentage
+
+If you enter a fixed yearly percentage, [!INCLUDE [prod_short](includes/prod_short.md)] uses the following formula to calculate the depreciation amount:  
+
+* Depreciation Amount = (Straight-Line % x Depreciable Basis x Number of Depr. Days) / (100 x 360)*  
+
+### Fixed yearly amount
+
+If you enter a fixed yearly amount, [!INCLUDE [prod_short](includes/prod_short.md)] uses the following formula to calculate the depreciation amount:  
+
+* Depreciation Amount = (Fixed Depreciation Amount x Number of Depreciation Days) / 360*  
+
+### Example - Straight-Line depreciation
+
+A fixed asset has an acquisition cost of LCY 100,000. The estimated life is eight years. The **Calculate Depreciation** batch job is run biannually.  
+
+For this example, the fixed asset ledger entry looks like this:  
+
+| Date | FA Posting Type | Days | Amount | Book Value |
+| ---- | --------------- | ---- | ------ | ---------- |
+| 01/01/20 |Acquisition Cost |(Depreciation starting date) |100,000.00 |100,000.00 |
+| 06/30/20 |Depreciation |180 |-6,250.00 |93,750.00 |
+| 12/31/20 |Depreciation |180 |-6,250.00 |87,500.00 |
+| 06/30/21 |Depreciation |180 |-6,250.00 |81,250.00 |
+| 12/31/21 |Depreciation |180 |-6,250.00 |75,000.00 |
+| ...      |             |    |          |          |
+| 06/30/27 |Depreciation |180 |-6,250.00 |6,250.00  |
+| 12/31/27 |Depreciation |180 |-6,250.00 |0         |
+
+## Declining-Balance 1 depreciation
+
+This depreciation method allocates the largest part of an asset's cost to the early years of its useful lifetime. If you use this method, you must enter a fixed yearly percentage.  
+
+The following formula calculates depreciation amounts:  
+
+* Depreciation Amount = (Declining-Bal. % x Number of Depreciation Days x Depr. Basis) / (100 x 360)*  
+
+The depreciable basis is calculated as the book value at the beginning of the year. The number of depreciation days are the number of days between the posting date and the last depreciation date. [!INCLUDE [prod_short](includes/prod_short.md)] calculates depreciation assuming that any depreciation done in the fiscal year is done with this formula.  
+
+The posted depreciation amount can contain entries with various posting types (write-down, custom1, and custom2) posted since the starting date of the current fiscal year. These posting types are included in the posted depreciation amount if there are check marks in the **Depreciation Type** and the **Part of Book Value** fields on the **FA Posting Type Setup** page.  
+
+### Example 1 - Declining-Balance 1 depreciation
+
+A fixed asset has an acquisition cost of LCY 100,000. The **Declining-Balance %** field is 25. The **Calculate Depreciation** batch job is run biannually.  
+
+The following table shows how the fixed asset ledger entries look.  
+
+| Date | FA Posting Type | Days | Amount | Book Value |
+| ---- | --------------- | ---- | ------ | ---------- |
+| 01/01/20 |Acquisition Costs |(Depreciation starting date) |100,000.00 |100,000.00 |
+| 06/30/20 |Depreciation |180 |-12,500.00 |87,500.00 |
+| 12/31/20 |Depreciation |180 |-12,500.00 |75,000.00 |
+| 06/30/21 |Depreciation |180 |-9,375.00 |65,625.00 |
+| 12/31/21 |Depreciation |180 |-9,375.00 |56,250.00 |
+| 06/30/22 |Depreciation |180 |-7,031.25 |49,218.75 |
+| 12/31/22 |Depreciation |180 |-7,031.25 |42,187.50 |
+| 06/30/23 |Depreciation |180 |-5,273.44 |36,914.06 |
+| 12/31/23 |Depreciation |180 |-5,273.44 |31,640.62 |
+| 06/30/24 |Depreciation |180 |-3,955.08 |27,685.54 |
+| 12/31/24 |Depreciation |180 |-3,955.08 |23,730.46 |
+| ...      |             |    |          |          |
+
+Calculation method:  
+
+* Year 1: *25% of 100,000 = 25,000 = 12,500 + 12,500*
+* Year 2: *25% of 75,000 = 18,750 = 9,375 + 9,375*
+* Year 3: *25% of 56,250 = 14,062.50 = 7,031.25 + 7,031.25*
+* ...
+
+The calculation continues until the book value equals the final rounding amount or the salvage value that you entered.  
+
+### Example 2 - Declining-Balance 1 depreciation
+
+An asset's book value is 100,000 on 12/31/2022. You post a depreciation of 1,778 on 2/2/23, which is the expected (proportional) amount of the year's depreciation at 32 days. If you run depreciation on 6/30/2023 [!INCLUDE [prod_short](includes/prod_short.md)] will suggest 8,222, because there are 148 days from 2/2/2023 until 6/30/2023. The expected remaining depreciation for 6/30/2023 is calculated using the following formula:
+
+* *148/360 x 0.20 x 100,000 = 8,222*
+
+### Example 3 - Declining-Balance 1 depreciation
+
+If you post an amount that doesn't align with the Declining Balance 1 depreciation method, for example, 5,000, [!INCLUDE [prod_short](includes/prod_short.md)] suggests the remainder of the expected amount.
+
+An asset's book value is 100,000 on 12/31/2022. You post a depreciation of 5,000 on 2/2/2023, which is more than the expected (proportional) amount on 2/2/2023 at 32 days. If you run depreciation on 6/30/2023, [!INCLUDE [prod_short](includes/prod_short.md)] will suggest 8,222, because there are 148 days from 2/2/2023 until 6/30/2023. The expected remaining depreciation for 6/30/2023 is calculated using the following formula:
+
+* *148/360 x 0.20 x 100,000 = 8,222*
+
+### Example 4 - Declining-Balance 1 depreciation
+
+An asset's book value is 100,000 on 12/31/2023. You post a depreciation of 95,000 on 2/2/2023, which exceeds the allowed depreciation amount for the year. If you run depreciation on 6/30/2023, [!INCLUDE [prod_short](includes/prod_short.md)] will suggest 5000, because there are 148 days from 2/2/2023 until 6/30/2023. The expected remaining depreciation for 6/30/2023 is calculated using the following formula: 
+
+* *148/360 x 0.20 x 100,000 = 8,222*
+
+However, the remaining book value is only 5,000, so [!INCLUDE [prod_short](includes/prod_short.md)] suggests 5,000 because a book value can't be negative.
+
+## Declining-Balance 2 depreciation
+
+The Declining-Balance 1 and Declining-Balance 2 methods calculate the same total depreciation amount for each year. However, if you run the **Calculate Depreciation** batch job more than once a year, the Declining-Balance 1 method results in equal depreciation amounts for each depreciation period. The Declining-Balance 2 method, on the other hand, results in depreciation amounts that decline for each period.  
+
+### Example - Declining-Balance 2 depreciation
+
+A fixed asset has an acquisition cost of LCY 100,000. The **Declining-Balance %** field is 25. The **Calculate Depreciation** batch job is run biannually. The fixed asset ledger entries look like this:  
+
+| Date     | FA Posting Type  | Days                       | Amount    | Book Value |
+| -------- | ---------------- | -------------------------  | --------- | ---------- |
+| 01/01/20 |Acquisition Costs |(Depreciation starting date)|100,000.00 |100,000.00 |
+| 06/30/20 |Depreciation      |180                         |-13,397.46 | 86,602.54 |
+| 12/31/20 |Depreciation      |180                         |-11,602.54 | 75,000.00 |
+| 06/30/21 |Depreciation      |180                         |-10,048.09 | 64,951.91 |
+| 12/31/21 |Depreciation      |180                         |-8,701.91  | 56,250.00 |
+| ...      |                  |                            |           |           |
+
+Calculation Method:  
+
+* *BV* = Book value  
+* *ND* = Number of depreciation days  
+* *DBP* = Declining-balance percent  
+* *P* = *DBP*/100  
+* *D* = *ND*/360  
+
+The formula to calculate the depreciation amounts is:  
+
+* *DA* = *BV* x (1 – (1 –P)<sup>D</sup>)
+
+The depreciation values are:  
+
+| Date     | Calculation                                                |
+| -------- | -----------                                                |
+| 06/30/20 |DA = 100,000.00 x (1 -(1 - 0.25)<sup>0.5</sup>) = 13,397.46 |
+| 12/31/20 |DA = 86,602.54 x (1 - (1 - 0.25)<sup>0.5</sup>) = 11,602.54 |
+| 06/30/21 |DA = 75,000.00 x (1 - (1 - 0.25)<sup>0.5</sup>) = 10,048.09 |
+| 12/31/21 |DA = 64,951.91 x (1 - (1 - 0.25)<sup>0.5</sup>) = 8,701.91  |
+| ...      |                                                            |
+
+## DB1/SL depreciation
+
+DB1/SL is an abbreviated combination of Declining-Balance 1 and Straight-Line. The calculation continues until the book value equals the final rounding amount, or the salvage value that you entered.  
+
+The **Calculate Depreciation** batch job calculates a straight-line amount and a declining balance amount, but only the greater of the two amounts are transferred to the journal.  
+
+You can use various percentages to calculate declining-balance.  
+
+If you use this method, you must enter the estimated useful lifetime and a declining balance percentage on the **FA Depreciation Books** page.  
+
+> [!NOTE]
+> If you use any of the declining balance depreciation methods, and you want to run depreciation for multiple years, you must run each year's depreciation separately. If you run depreciation for the whole period from acquisition date to the end of the last fiscal year or last accounting period, it's likely that the results are incorrect. For example, if you imported legacy data and you use the actual acquisition dates for your assets and want to catch up on accumulated depreciation. For declining balance methods, [!INCLUDE [prod_short](includes/prod_short.md)] calculates the allowed depreciation per year, starting with the registered book value for each year. It can't do a multi-year depreciation in one step.
+>
+> The **Fixed asset - Projected Value** report can project depreciations for multi-year periods, which might be confusing compared to the results you get if you run depreciations for multiple years using one of the declining balance methods. 
+
+### Example - DB1-SL depreciation
+
+A fixed asset has an acquisition cost of LCY 100,000. On the **FA Depreciation Books** page, the **Declining-Balance %** field contains 25 and the **No. of Depreciation Years** field contains **8**. The **Calculate Depreciation** batch job is run biannually.  
+
+The fixed asset ledger entries look like this:  
+
+| Date | FA Posting Type | Days | Amount | Book Value |
+| --- | --- | --- | --- | --- |
+| 01/01/20 |Acquisition Costs |(Depreciation starting date) |100,000.00 |100,000.00 |
+| 06/30/20 |Depreciation |180 |-12,500.00 |87,500.00 |
+| 12/31/20 |Depreciation |180 |-12,500.00 |75,000.00 |
+| 06/30/21 |Depreciation |180 |-9,375.00 |65,625.00 |
+| 12/31/21 |Depreciation |180 |-9,375.00 |56,250.00 |
+| 06/30/22 |Depreciation |180 |-7,031.25 |49,218.75 |
+| 12/31/22 |Depreciation |180 |-7,031.25 |42,187.50 |
+| 06/30/23 |Depreciation |180 |-5,273.44 |36,914.06 |
+| 12/31/23 |Depreciation |180 |-5,273.44 |31,640.62 |
+| 06/30/24 |Depreciation |180 |-3,955.08 |27,685.54 |
+| 12/31/24 |Depreciation |180 |-3,955.08 |23,730.46 |
+| 06/30/25 |Depreciation |180 |-3,955.08 |19,775.38 SL |
+| 12/31/25 |Depreciation |180 |-3,955.08 |15,820.30 SL |
+| 06/30/26 |Depreciation |180 |-3,955.08 |11,865.22 SL |
+| 12/31/26 |Depreciation |180 |-3,955.07 |7,910.15 SL |
+| 06/30/27 |Depreciation |180 |-3,955.08 |3,955.07 SL |
+| 12/31/27 |Depreciation |180 |-3,955.07 |0.00 SL |
+
+`SL` after the book value means that the straight-line method was used.  
+
+Calculation method:  
+
+* Year 1 (2020):  
+
+    *Declining-balance amount: 25% of 100,000 = 25,000 = 12,500 + 12,500*  
+
+    *Straight-line amount = 100,000 / 8 = 12,500 = 6,250 + 6,250*  
+
+    The declining-balance amount is used because it's the greater amount.  
+* ...
+* Year 5 (2025):  
+
+    *Declining-balance amount: 25% of 23,730.46 = 4,943.85= 2,471.92 + 2,471.92*  
+
+    *Straight-line amount = 23,730.46/3 = 7,910.15 = 3,995.07 + 3,995.08*  
+
+    The straight-line amount is used because it's the greater amount.  
+
+## Half-Year Convention depreciation
+
+The Half-Year Convention method is only applied if you turn on the **Use Half-Year Convention** toggle for the fixed asset on the **Fixed Asset Card** page.  
+
+You can use this depreciation method with the following depreciation methods:  
+
+* Straight-Line  
+* Declining-Balance 1  
+* DB1/SL  
+
+When you apply the Half-Year Convention method, a fixed asset has six months of depreciation in the first fiscal year, regardless of the contents of the **Depreciation Starting Date** field.  
+
+> [!NOTE]  
+> The estimated life of the fixed asset that is remaining after the first fiscal year always contains a half-year using the Half-Year Convention Method. Thus, for the Half-Year Convention method to be applied correctly, the **Depreciation Ending Date** field on the **FA Depreciation Book** page must always contain a date which is exactly six months before the final date of the fiscal year in which the fixed asset fully depreciates.  
+
+### Example - Half-Year Convention depreciation
+
+A fixed asset has an acquisition cost of LCY 100,000. The **Depreciation Starting Date** is 03/01/20. The estimated life is five years, so the **Depreciation Ending Date** must be 06/30/25. The **Calculate Depreciation** batch job is run annually. This example is based on a calendar fiscal year.  
+
+The fixed asset ledger entries look like this:  
+
+| Date | FA Posting Type | Days | Amount | Book Value |
+| --- | --- | --- | --- | --- |
+| 03/01/20 |Acquisition Cost |(Depreciation starting date) |100,000.00 |100,000.00 |
+| 12/31/20 |Depreciation |270 |-10,000.00 |90,000.00 |
+| 12/31/21 |Depreciation |360 |-20,000.00 |70,000.00 |
+| 12/31/22 |Depreciation |360 |-20,000.00 |50,000.00 |
+| 12/31/23 |Depreciation |360 |-20,000.00 |30,000.00 |
+| 12/31/24 |Depreciation |360 |-20,000.00 |10,000.00 |
+| 12/31/25 |Depreciation |180 |-10,000.00 |0.00 |
+
+## Example - DB1/SL depreciation using Half-Year Convention
+
+A fixed asset has an acquisition cost of LCY 100,000. The **Depreciation Starting Date** is 11/01/20. The estimated life is five years, so the **Depreciation Ending Date** must be 06/30/25. On the **FA Depreciation Books** page, the **Declining-Balance %** field contains 40. The **Calculate Depreciation** batch job is run annually. This example is based on a calendar fiscal year.  
+
+The fixed asset ledger entries look like this:  
+
+| Date | FA Posting Type | Days | Amount | Book Value |
+| --- | --- | --- | --- | --- |
+| 11/01/20 |Acquisition Cost |(Depreciation starting date) |100,000.00 |100,000.00 |
+| 12/31/20 |Depreciation |60 |-20,000.00 |80,000.00 |
+| 12/31/21 |Depreciation |360 |-32,000.00 |48,000.00 |
+| 12/31/22 |Depreciation |360 |-19,200.00 |28,800.00 |
+| 12/31/23 |Depreciation |360 |-11,520.00 |17,280.00 |
+| 12/31/24 |Depreciation |360 |-11,520.00 |5,760.00 SL |
+| 12/31/25 |Depreciation |180 |-5,760.00 |0.00 SL |
+
+`SL` after the book value means that the straight-line method was used.  
+
+Calculation method:  
+
+* Year 1:  
+
+    *Declining-balance amount = Full year amount = 40% of 100,000 = 40,000.* Thus, for half a year 40,000 / 2 = 20,000  
+
+    *Straight-line amount = Full year amount = 100,000 / 5 = 20,000.* Thus, for half a year = 20,000 / 2 = 10,000  
+
+    The declining-balance amount is used because it's the greater amount.  
+* ...
+* Year 5 (2024):  
+
+    *Declining-balance amount = 40% of 17,280.00 = 6,912.00*  
+
+    *Straight-line amount = 28,800 / 1.5 = 11,520.00*  
+
+    The straight-line amount is used because it's the greater amount.  
+
+## Duplicate entries to other depreciation books
+
+If you have three depreciation books, B1, B2 and B3, and you want to duplicate entries from B1 to B2 and B3, you can turn on the **Part of Duplication List** toggle on the depreciation book cards for B2 and B3. For example, this setting can be useful in the following situations:
+
+* Depreciation book B1 integrates with the general ledger and uses the fixed asset G/L journal.
+* Depreciation books B2 and B3 don't integrate with the general ledger and use the fixed asset journal.  
+
+When you make an entry in B1 in the fixed asset G/L journal, and turn on the **Part of Duplication List** toggle, [!INCLUDE [prod_short](includes/prod_short.md)] duplicates the entry in book B2 and B3 in the fixed asset journal when you post the entry.  
+
+> [!NOTE]  
+> You can't duplicate in the same journal and journal batch as you're duplicating from. If you post entries in the fixed asset G/L journal, you can duplicate them in the fixed asset journal or in the fixed asset G/L journal using another batch.  
+
+> [!NOTE]  
+> You can't use the same number series in the fixed asset G/L journal and the fixed asset journal. When you post entries in the fixed asset G/L journal, you must leave the **Document No.** field empty. If you enter a number in the field, the number is duplicated in the fixed asset journal. You must manually change the document number before you can post the journal.  
+
+## Manual depreciation
+
+Use the manual method for assets that aren't subject to depreciation, for example, land. You must enter depreciation in the fixed asset G/L journal. The **Calculate Depreciation** batch job omits fixed assets that use the manual depreciation method.
+
+## User-defined depreciation
+
+If the built-in depreciation methods don't meet your needs, you can define your own depreciation method by using depreciation tables. To learn more about applying a user-defined depreciation method, go to [Set Up User-Defined Depreciation Method](fa-how-setup-user-defined-depreciation-method.md).
+
+## Related information
+
+[Fixed Assets overview](fa-manage.md)  
+[Setting Up Fixed Assets](fa-setup.md)  
+[Finance](finance.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/suggest-number-series-copilot
 ---
 title: Suggest number series with Copilot (preview)
@@ -1474,7 +1815,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-setup-chart-accounts
 ---
-title: Set up or change the Chart of Accounts
+title: Set up or change the chart of accounts
 description: Learn about setting up your chart of accounts (COA) with the ledger accounts that store your financial data.
 author: brentholtorf
 ms.author: bholtorf
@@ -1482,11 +1823,11 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: COA, cha of acc
 ms.search.form: 16_Primary, 17, 18, 118, 386, 391
-ms.date: 04/23/2024
+ms.date: 05/19/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
-# Set up or change the Chart of Accounts
+# Set up or change the chart of accounts
 
 The chart of accounts (COA) shows the ledger accounts that store your financial data. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard COA that is ready to support your business. You can, however, change the default accounts, and you can add new accounts.
 <br><br>  
@@ -1502,7 +1843,7 @@ If necessary, you can use more than one line for a general ledger account name. 
 For accounts of the **Total** account type, you must fill in the **Totaling** field. For **End-Total** accounts, this field is filled in automatically by the Indent function. After you set up the accounts, choose the **Process** action, then choose **Indent Chart of Accounts**.  
 
 > [!IMPORTANT]
-> If you have entered definitions in the **Totaling** fields for **End-Total** accounts before executing the indent function, you must enter them again because the function overwrites the values in all **End-Total** fields.
+> If you entered definitions in the **Totaling** fields for **End-Total** accounts before using the indent function, you must enter them again because the function overwrites the values in all **End-Total** fields.
 
 ## Delete accounts
 
@@ -4465,7 +4806,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords:
-ms.date: 03/27/2024
+ms.date: 05/19/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -4490,7 +4831,7 @@ Another way to quickly create a workflow is to import it, for example, if you ex
 2. Choose the **New Workflow from Template** action. The **Workflow Templates** page opens.  
 3. Select a workflow template, then choose **OK**.  
 
-   The **Workflow** page opens for a new workflow containing all the information of the selected template. The value in the **Code** field is extended with, for example, "-01" to indicate this is the first workflow created from the workflow template.  
+   The **Workflow** page opens for a new workflow containing all the information of the selected template. The value in the **Code** field is extended with, for example, "-01" to indicate that this is the first workflow created from the workflow template.  
 4. To customize the workflow, edit the workflow steps or add new steps. Learn more at [Create Workflows](across-how-to-create-workflows.md).  
 
 ## Related information
@@ -5048,6 +5389,22 @@ The Planning Line Total Price (LCY) measure calculates the total price of all pr
 
 **Data Sources**
 - Job Ledger Entry
+
+<!--### Project Task Starting Date
+
+**Formula**  
+The Project Task Starting Date column calculates the earliest planning date for a project task, helping to identify when the task is scheduled to begin.
+
+**Data Sources**
+- Job Planning Line
+
+### Project Task Ending Date
+
+**Formula**  
+The Project Task Ending Date column calculates the latest planning date for a project task, helping to identify when the task is scheduled to end.
+
+**Data Sources**
+- Job Planning Line -->
 
 ## Purchase Measures
 - [Amount on PO](#amount-on-po)
@@ -7802,16 +8159,16 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-invoice-sales
 ---
 title: Invoice sales
-description: Describes how to create a bill of sale, or a sales invoice or sales order, to record your agreement with a customer to sell products under specific terms.
+description: Learn how to create a sales invoice or sales order to record a sale to a customer.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: bill, sale, invoice, order
 ms.search.form: 43, 48, 9301
-ms.date: 03/21/2024
+ms.date: 05/19/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 # Invoice sales
 
@@ -7856,7 +8213,7 @@ You can fill customer fields on the sales invoice in one of two ways, depending 
 
 4. On the **Lines** FastTab, in the **Type** field, select the type of product, charge, or transaction you post for the customer on the sales line.
    > [!TIP]
-   > If you've set up recurring sales lines for the customer, such as a monthly replenishment order, you can reflect that in the order by choosing the **Get Recurring Sales Lines** action.
+   > If you set up recurring sales lines for the customer, such as a monthly replenishment order, you can reflect that in the order by choosing the **Get Recurring Sales Lines** action.
 5. In the **No.** field, select a record to post according to the value in the **Type** field.
 
     You leave the **No.** field blank in the following cases:
@@ -7874,13 +8231,13 @@ You can fill customer fields on the sales invoice in one of two ways, depending 
     The price and line amounts are with or without sales tax, depending on what you selected in the **Prices Including Tax** field on the customer card.  
 7. If you want to give a discount, enter a percentage in the **Line Discount %** field. The value in the **Line Amount** field updates accordingly.  
 
-    If special item prices are set up on the **Sales Prices and Sales Line Discounts** FastTab on the customer or item card, and upon meeting the price criteria, the price and amount on the sales line is automatically updated. Learn more at [Record Sales Price, Discount, and Payment Agreements](sales-how-record-sales-price-discount-payment-agreements.md).  
+    If special item prices are set up on the **Sales Prices and Sales Line Discounts** FastTab on the customer or item card, upon meeting the price criteria the price and amount on the sales line automatically update. Learn more at [Record Sales Price, Discount, and Payment Agreements](sales-how-record-sales-price-discount-payment-agreements.md).  
 8. Repeat steps 4 through 7 for every product or charge that you want to invoice the customer for.
 
     The totals fields under the lines are automatically updated, as you create or modify lines, to display the amounts posted to the ledgers.
 
     > [!NOTE]
-    > In very rare cases, the posted amounts may deviate from what is displayed in the totals fields. This is typically due to rounding calculations in relation to VAT or sales tax.<br /><br />To verify the amounts you’ll post, use the **Customer Statistics** FactBox. Also, when you choose the **Release** action, the values in the totals fields will update to include rounding calculations.
+    > In rare cases, the posted amounts might differ from what displays in the totals fields. The difference is typically due to rounding calculations for VAT or sales tax.<br /><br />To verify the amounts before you post, use the **Customer Statistics** FactBox. Also, when you choose the **Release** action, the values in the totals fields update to include rounding calculations.
 
 9. In the **Inv. Discount Amount Excl. Tax** field, enter an amount that should be deducted from the value shown in the **Total Incl. Tax** field.
 
@@ -7900,7 +8257,7 @@ The related item and customer ledger entries are now created in your system, and
 
 [!INCLUDE [posted-invoices](includes/posted-invoices.md)]
 
-You can easily correct or cancel a posted sales invoice before the final payment. This is useful if you want to correct a typing mistake or if the customer requests a change early in the order process. Learn more at [Correct or Cancel Unpaid Sales Invoices](sales-how-correct-cancel-sales-invoice.md). If the posted sales invoice is paid, then you must create a sales credit memo to reverse the sale. Learn more at [Process Sales Returns or Cancellations](sales-how-process-sales-returns-cancellations.md).  
+You can easily correct or cancel a posted sales invoice before the final payment. For example, you might want to correct a typing mistake, or the customer requests a change. Learn more at [Correct or Cancel Unpaid Sales Invoices](sales-how-correct-cancel-sales-invoice.md). If the posted sales invoice is paid, you must create a sales credit memo to reverse the sale. Learn more at [Process Sales Returns or Cancellations](sales-how-process-sales-returns-cancellations.md).  
 
 [Open the **Posted Sales Invoices** list](https://businesscentral.dynamics.com/?page=143) in [!INCLUDE [prod_short](includes/prod_short.md)].
 
@@ -7910,9 +8267,9 @@ Depending on your business needs, you can get paid and register a payment in dif
 
 You can process the payments straight from the customer card. Use the **Register Customer Payments** action to get an overview of unpaid invoices for that customer. Then, mark the invoice as paid partially or in full. This payment reconciliation processes your customer payments by matching amounts received in your bank account with the related unpaid sales invoices, and then posts the payments. Learn more in the [To reconcile payments individually](receivables-how-reconcile-customer-payments-list-unpaid-sales-documents.md#to-register-customer-payments-individually) section.  
 
-In business environments where the customer pays some time after delivery. According to the payment terms, a posted sales invoice remains open (unpaid) until the Accounts Receivable department verifies the payment, and applies it to the posted sales invoice. This can be done manually or automatically. Learn more at [Reconcile Customer Payments with the Cash Receipt Journal or from Customer Ledger Entries](receivables-how-apply-sales-transactions-manually.md) and [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).  
+In business environments where the customer pays after delivery. According to the payment terms, a posted sales invoice remains open (unpaid) until someone verifies the payment and applies it to the posted sales invoice. You can apply payments manually or automatically. Learn more at [Reconcile Customer Payments with the Cash Receipt Journal or from Customer Ledger Entries](receivables-how-apply-sales-transactions-manually.md) and [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).  
 
-In business environments where the customer pays immediately, such as via PayPal or cash, payment is recorded immediately when you post the sales invoice, which means the posted sales invoice is closed as fully applied. You select the relevant method in the **Payment Method Code** field on the sales order. For electronic payments, such as PayPal, you must also fill in the **Payment Service** field. Learn more at [Enable Customer Payments Through Payment Services](sales-how-enable-payment-service-extensions.md).
+In business environments where customers pay immediately, such as via PayPal or cash, payment is recorded immediately when you post the sales invoice. Also, the posted sales invoice is closed as fully applied. You select the relevant method in the **Payment Method Code** field on the sales order. For electronic payments, such as PayPal, you must also fill in the **Payment Service** field. Learn more at [Enable Customer Payments Through Payment Services](sales-how-enable-payment-service-extensions.md).
 
 You can even create directly paid invoices for unregistered customers by setting up a "cash customer" card for them, which you point to on the sales invoice. Learn more at [Set Up Cash Customers](finance-how-to-set-up-cash-customers.md).  
 
@@ -8549,7 +8906,7 @@ ms.topic: overview
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
 ms.search.form: 6316, 6317
 ms.reviewer: jswymer
-ms.date: 04/24/2024
+ms.date: 05/19/2025
 ms.author: jswymer
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
@@ -9257,24 +9614,24 @@ title: Record purchases with purchase invoices
 description: Describes how to purchase inventory, noninventory items, or resources by creating and posting purchase invoices or orders.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: procurement
 ms.search.form: 50 ,51, 53, 56, 146, 147, 9307, 9309, 9306, 9308, 9310
-ms.date: 03/21/2024
+ms.date: 05/19/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 # Record purchases with purchase invoices and orders
 
-You create a purchase invoice or purchase order to record the cost of purchases and to track accounts payable. Purchase invoices and purchase orders are also used to dynamically update inventory levels, meaning you can minimize inventory costs and provide better customer service. The purchasing costs, including service expenses, and inventory values that result from posting purchase invoices or orders, contribute to profit figures and financial key performance indicators (KPIs) in your Role Center.
+You create a purchase invoice or purchase order to record the cost of purchases and to track accounts payable. Purchase invoices and purchase orders are also used to dynamically update inventory levels, meaning you can minimize inventory costs and provide better customer service. The purchasing costs, including service expenses, and inventory values that result from posting purchase invoices or orders contribute to profit figures and financial key performance indicators (KPIs).
 
 ## Record purchases with purchase invoices
 
 When you receive the inventory items or the purchased service is complete, post the purchase invoice to update inventory and financial records and to activate payment to the vendor according to the payment terms. [Making Payments](payables-make-payments.md).
 
 > [!CAUTION]  
-> Do not post a purchase invoice for physical items until you receive the items and know the final cost of the purchase, including any additional charges. Otherwise, your inventory value and profit figures may be skewed.
+> Don't post a purchase invoice for physical items until you receive the items and know the final cost of the purchase, including any extra charges. Otherwise, your inventory value and profit figures might be skewed.
 
 ### Create and post a purchase invoice
 
@@ -9295,9 +9652,9 @@ The following steps describe how to create a purchase invoice. The steps for cre
     You're now ready to fill in the purchase invoice lines with items or resources purchased from the vendor.
 
     > [!NOTE]  
-    > If you have set up recurring purchase lines for the vendor, such as a monthly replenishment order, then you can insert these lines on the invoice by choosing the **Get Recurring Purchase Lines** action.
+    > If you set up recurring purchase lines for the vendor, such as a monthly replenishment order, you can add these lines on the invoice by choosing the **Get Recurring Purchase Lines** action.
 4. On the **Lines** FastTab, in the **Item No.** field, enter the number of an inventory item or a service.
-5. In the **Quantity** field, enter the number of items to be purchased.
+5. In the **Quantity** field, enter the number of items to purchase.
 
     The **Line Amount** field is updated to show the value in the **Direct Unit Cost** field multiplied by the value in the **Quantity** field.
 
@@ -9308,15 +9665,15 @@ The following steps describe how to create a purchase invoice. The steps for cre
 6. In the **Inv. Discount Amount** field, enter an amount that should be deducted from the value shown in the **Total Incl. Tax** field at the bottom of the invoice.
 
     > [!NOTE]  
-    > If you have set up invoice discounts for the vendor, then the specified percentage value is automatically inserted in the **Vendor Invoice Discount %** field if the criteria are met. The related amount is inserted in the **Inv. Discount Amount** field.
+    > If you set up invoice discounts for the vendor, the percentage value is automatically inserted in the **Vendor Invoice Discount %** field if the criteria are met. The related amount is inserted in the **Inv. Discount Amount** field.
 7. When you receive the purchased items or services, choose **Post**.
 
 The purchase is now reflected in inventory, resource ledgers, and financial records, and the vendor payment is activated. The purchase invoice is removed from the list of purchase invoices and replaced with a new document in the list of posted purchase invoices. For more information on what happens when you post purchase documents, see [Posting Purchases](purchasing-how-record-purchases.md#posting-purchases).
 
 > [!NOTE]
-> In rare cases, the posted amounts may deviate from what is displayed in the totals fields. This is typically due to rounding calculations in relation to value-added tax (VAT) or sales tax.
+> In rare cases, the posted amounts might differ from what is displayed in the totals fields. Typically, the difference is due to rounding calculations for value-added tax (VAT) or sales tax.
 >
-> To check the amounts that will actually be posted, go to the **Statistics** page, which takes the rounding calculations into account. Also, if you choose the **Release** action, the totals fields will be updated to include rounding calculations.
+> To check the amounts before you post, go to the **Statistics** page, which takes the rounding calculations into account. Also, if you choose the **Release** action, the totals fields update to include rounding calculations.
 
 ## Posted invoices
 
@@ -9333,7 +9690,7 @@ The lines on a purchase invoice can be of the **Resource** or **Item** type. Ite
 > [!NOTE]
 > With the **Resource** purchase line type, you can also purchase external resources, for example, to invoice a vendor for work delivered. Learn more at [Set Up Resources](projects-how-setup-resources.md).
 >
-> To use a purchased resource, you may need to set the resource's capacity and manually assign it to a project. Purchasing a resource creates a resource ledger entry; however, resource ledger entries are not tracked for quantity and value as, for example, items are. If quantity and value tracking is required, then consider using other line item types.
+> To use a purchased resource, you might need to set the resource's capacity, and manually assign it to a project. Purchasing a resource creates a resource ledger entry; however, resource ledger entries aren't tracked for quantity and value as, for example, items are. If quantity and value tracking is required, then consider using other line item types.
 
 ## When to use purchase orders
 
@@ -9354,13 +9711,13 @@ The following steps describe how to receive items with a purchase order.
 3. In the **Qty. to Receive** field, enter the received quantity.
 
    > [!NOTE]
-   > If the received quantity is more than the quantity on the purchase order, and the vendor has been set up to allow over-receipts, use the **Over-Receive** field to handle the excess quantity. Learn more in the [To receive more items than you ordered](purchasing-how-record-purchases.md#receive-more-items-than-you-ordered) section.
+   > If the received quantity is more than the quantity on the purchase order, and the vendor is set up to allow over-receipts, use the **Over-Receive** field to handle the excess quantity. Learn more in the [To receive more items than you ordered](purchasing-how-record-purchases.md#receive-more-items-than-you-ordered) section.
 4. Choose the **Post** action.
 
   The value in the **Qty. Received** field is updated. If this receipt is partial, the value is lower than the value in the **Quantity** field.
 
 > [!NOTE]
-> If you use a warehouse handling, you can't use the **Post** action on the purchase order to register receipt. That's because a warehouse employee has already posted the purchase order quantity as received. Learn more at [Design Details - Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md).
+> If you use warehouse handling, you can't use the **Post** action on the purchase order to register the receipt. A warehouse employee already posted the purchase order quantity as received. Learn more at [Design Details - Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md).
 
 ## Receive more items than you ordered
 
@@ -9404,7 +9761,7 @@ When you handle an over-receipt, you can increase the value in the **Qty. to Rec
 2. Post the receipt as you would any other receipt.
 
 > [!NOTE]
-> [!INCLUDE[prod_short](includes/prod_short.md)] does not automatically handle financial aspects of over-receipts. You must manually handle this in agreement with the vendor, for example, by the vendor forwarding a new or updated invoice.
+> [!INCLUDE[prod_short](includes/prod_short.md)] doesn't automatically handle financial aspects of over-receipts. You must manually handle over-receipts in agreement with the vendor, for example, by the vendor forwarding a new or updated invoice.
 
 ## External document number
 
@@ -9434,9 +9791,8 @@ In addition, purchase documents are always recorded in the **Purch. Recpt. Heade
 
 You can always review various ledger entries that are created as a result of postings. Choose **Preview Posting** to validate document and inspect expected ledger entries.
 
-
 > [!IMPORTANT]  
-> When you post a purchase order for items, you can create both a receipt and an invoice. These can be done simultaneously or independently. You can also create a partial receipt and a partial invoice by completing the **Qty. to Receive** and **Qty. to Invoice** fields on the individual purchase order lines before you post. Note that you cannot create a purchase invoice from a purchase order for products or services that have not been received. That is, before you can invoice, you must have recorded a receipt, or you must choose to receive and invoice at the same time.
+> When you post a purchase order for items, you can create both a receipt and an invoice simultaneously or independently. You can also create a partial receipt and a partial invoice by completing the **Qty. to Receive** and **Qty. to Invoice** fields on the individual purchase order lines before you post. You can't create a purchase invoice from a purchase order for products or services that aren't received. That is, before you can invoice, you must record a receipt, or you must choose to receive and invoice at the same time.
 
 You can either post or post and print. If you choose to post and print, a report is printed when the order is posted. You can also choose the **Post Batch** action to post several orders at the same time. Learn more at [Post Multiple Documents at the Same Time](ui-batch-posting.md).
 
@@ -18576,14 +18932,14 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords:
-ms.date: 04/26/2024
+ms.date: 05/19/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 # Service Management
 
 > [!NOTE]
-> The functionality described in this topic and sub topics is only visible in the user interface if you have the **Premium** experience. For more information, see [Change Which Features are Displayed](ui-experiences.md).
+> The functionality described in this article and related articles is only available if you have the **Premium** experience. To learn more, go to [Change Which Features are Displayed](ui-experiences.md).
 
 Providing ongoing service to customers is an important part of any business and one that can be a source of customer satisfaction and loyalty, in addition to revenue. However, managing and tracking service isn't always easy, and [!INCLUDE[prod_short](includes/prod_short.md)] provides a set of tools to help. These tools are designed to support repair shops and field service operations, and support typical scenarios for those businesses:
 
@@ -18597,7 +18953,7 @@ In addition, you can standardize coding, set up contracts, implement a discounti
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-|**To**|**See**|  
+|To...| Go to ...|  
 |------------|-------------|  
 |Set up Service Management, including fault codes, policies, default documents, and templates.|[Setting Up Service Management](service-setup-service.md)|  
 |Manage service pricing, create service items, and understand how to monitor progress.|[Planning Service](service-plan-service.md)|  
@@ -20300,48 +20656,6 @@ You can use the **Print Label** action to print 1D and 2D barcodes from the page
 [Inventory](inventory-manage-inventory.md)  
 [Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
 [Warehouse Management Overview](design-details-warehouse-management.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-customizing-overview
----
-title: Customizing Business Central
-description: Read about the different ways of customizing Business Central to improve access to functionality and features you need most as suits your daily work.
-author: brentholtorf
-ms.topic: overview
-ms.devlang: al
-ms.search.keywords: personalize, add-in, extend, customize
-ms.search.form: 2500, 2502
-ms.date: 06/23/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Customize Business Central
-
-There are different ways to customize the application to give you and your colleagues access to the features, functionality, and data that you need most, in a manner that bests suits your daily work. Those who see the changes will depend on what you do, as described in this table.
-
-> [!NOTE]
-> In addition to what administrators can customize, users can personalize their pages by adding, moving, or removing fields, freeze panes, parts, and more. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
-
-| What you can do    |  Description  |  Who sees the changes  |  More information  |
-|-----|---------------|---------|-------|
-|Change users' workspace by customizing their assigned role.|Change the user interface for a profile (role) so that all users of that role see a customized workspace. Control and manage users' personalization by disabling the ability to personalize pages and clearing any page personalization.|All users in a specific company.|[Customize Pages for Profiles](ui-personalization-manage.md)|
-|Change which UI elements are visible.|The **Experience** setting determines how much of the functionality is displayed in the user interface. Choose between Essential and Premium.|All users in a specific company.|[Change Which Features are Displayed](ui-experiences.md)|
-|Enable colors on Role Centers to signal importance.|Set up Cues that appear on users' Role Centers to include an indicator that changes color based on the values in the Cues.|All users in a specific company.|[Set Up a Colored Indicator on Cues](admin-how-set-up-colored-indicator-on-cues.md)|
-|Install an app|Install apps that add functionality, change behavior, provide access to new online services, and more. For example, Microsoft provides an app that provides integration with PayPal Payments Standard.|All users in all companies.|[Customizing with Apps](ui-extensions.md)|
-
-> [!NOTE]
-> All feature descriptions in user documentation for [!INCLUDE[prod_short](includes/prod_short.md)] assume the **Premium** experience, meaning the descriptions cover the full scope of UI elements. Therefore, users with the **Essential** experience may in some topics read about functionality and UI elements that are not visible in their user interface. For more information, see [Change Which Features are Displayed](ui-experiences.md).
-
-## Related information
-
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

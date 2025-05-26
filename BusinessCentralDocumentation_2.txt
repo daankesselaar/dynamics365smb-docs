@@ -1,3 +1,178 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/receivables-how-apply-sales-transactions-manually
+---
+title: Reconcile customer payments with the cash receipt journal or from customer ledger entries
+description: Apply customer cash receipts or refunds to one or more open customer ledger entries.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: payment process, cash receipt
+ms.search.form: 25, 255
+ms.date: 06/21/2024
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Reconcile customer payments with a cash receipt journal or from customer ledger entries
+
+When you receive a cash payment from a customer or give a cash refund, you can apply the payment or refund to close open debits or credits. You can specify the amount to apply. For example, you can apply partial payments to customer ledger entries. Closing customer ledger entries keeps customer statistics, account statements, finance charges, and so on, up-to-date.
+
+> [!TIP]  
+> On the **Customer Ledger Entries** page, red font means that the related payment is past its due date. If overdue payments are becoming a problem, we can help you reduce their frequency. You can enable the **Late Payment Prediction Setup** extension, which uses a predictive model that we built in Azure Machine Learning to predict the timing of payments. These predictions help you reduce outstanding receivables and fine-tune your collections strategy. For example, if a payment is predicted to be late, you can adjust the terms of payment or the payment method for the customer. For more information, see [Late Payment Predictions](ui-extensions-late-payment-prediction.md).  
+
+You can apply customer ledger entries in several ways:
+
+* Enter information on the following pages:
+   * The **Payment Reconciliation Journals** page. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
+   * The **Payment Registration Setup** page. For more information, see [Reconcile Customer Payments from a List of Unpaid Sales Documents](receivables-how-reconcile-customer-payments-list-unpaid-sales-documents.md).
+   * The **Cash Receipt Journals** page. For more information, see [To fill and post a cash receipt journal](#to-fill-and-post-a-cash-receipt-journal).
+* By filling in the **Applies-to Doc. No.** field on sales credit memo documents. For more information, see [To apply a credit memo to a single customer ledger entry](#to-apply-a-credit-memo-to-a-single-customer-ledger-entry).
+* By using the **Set Applies-to ID** action on a customer ledger entry. For more information, see [To apply a payment to a single customer ledger entry](#to-apply-a-payment-to-a-single-customer-ledger-entry).
+* By using the **Apply Entries** action on the **Bank Deposit** page, and then entering the invoice number in the **Applies-to ID** field. For more information, see [Create Bank Deposits](bank-create-bank-deposits.md).
+
+> [!NOTE]  
+> If the **Application Method** field on the customer card contains **Apply to Oldest**, payments are applied to the oldest open credit entry, unless you manually specify an entry. If the application method is **Manual**, you always apply entries manually.
+
+## To fill and post a cash receipt journal
+
+A cash receipt journal is a type of general journal. You can use it to post transactions to general ledger, bank, customer, vendor, and fixed assets accounts. You can apply the payment to one or more debit entries when you post the payment. You can also apply from the posted entries later.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Receipt Journals**, and then choose the related link.
+2. Choose the **Edit Journal** action.
+3. Select the relevant batch in the **Batch Name** field.
+4. Fill in the **Posting Date** field.  
+5. In the **Document Type** field, select **Payment**.
+
+    The **Document No.** field is filled by the number series assigned to the batch.  
+6. Use the **External Document No.** field to store an identifier, such as the customer's check number.
+
+   > [!NOTE]
+   > By default, the External Document No. field is hidden. If it is, and you want to use it, you can use personalization to add it. For more information, see [Personalize your workspace](ui-personalization-user.md).
+
+7. In the **Account Type** field, select **Customer**.
+8. In the **Account No.** field, select the customer.
+9. To post the application at the same time as you post the journal, fill in the following fields:
+   1. In the **Bal. Account Type** field, select **G/L Account** for cash payments, and **Bank Account** for other payments.
+   2. In the **Bal. Account No.** field, select the cash account for cash payments, or the relevant bank account for other payments.
+10. Post the journal.
+
+## To apply a payment to a single customer ledger entry
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Receipt Journal**, and choose the related link.
+2. Choose the **Edit Journal** action.
+3. On the first journal line, enter the relevant information about the entry to be applied.
+4. In the **Document Type** field, enter **Payment**.
+5. In the **Account Type** field, enter **Customer**.
+6. In the **Bal. Account Type** field, enter **Bank Account**.
+7. In the **Applies-to Doc. No.** field, choose the field to open the **Apply Customer Entries** page.
+8. On the **Apply Customer Entries** page, select the entry to apply the payment to.
+9. In the **Amount to Apply** field, enter the amount you want to apply to the entry. If you don't enter an amount, the maximum amount is applied.
+
+    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+10. Choose the **OK** button. The **Cash Receipt Journal** page now shows the entry in the **Applies-to Doc. Type** and **Applies-to Doc. No.** fields.
+11. Post the cash receipt journal.
+
+## To apply a payment to multiple customer ledger entries
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Receipt Journal**, and then choose the related link.
+2. Choose the **Edit Journal** action.
+3. On the first journal line, enter the relevant information about the entry to be applied.
+4. In the **Document Type** field, enter **Payment**.
+5. In the **Account Type** field, enter **Customer**.
+6. In the **Bal. Account Type** field, enter **Bank Account**.
+7. In the **Amount** field, enter the full payment as a negative amount.
+8. To apply the payment to multiple customer ledger entries when posting, choose the **Apply Entries** action.  
+9. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID** action.  
+10. On each line, in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.
+
+    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+11. Choose the **OK** button.
+12. Post the cash receipt journal.
+
+## To apply a credit memo to a single customer ledger entry
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Credit Memos**, and then choose the related link.
+2. Open the relevant sales credit memo.
+3. To apply the credit memo to a single customer ledger entry when posting, in the **Applies-to Doc. No.** field, select the entry to which you want to apply the payment.
+4. On the line in the **Amount to Apply** field, enter the amount you want to apply to the entry.  
+
+    If you don't enter an amount, application automatically applies the maximum amount. At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+5. Choose the **OK** button. The **Sales Credit Memo** page now shows the entry you selected in the **Applies-to Doc. Type** and **Applies-to Doc. No.** fields. And the amount of the credit memo to be posted, adjusted for any possible payment discounts.
+6. Post the credit memo.
+
+## To apply a credit memo to multiple customer ledger entries
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Credit Memos**, and then choose the related link.
+2. Open the relevant sales credit memo.
+3. To apply the credit memo to multiple customer ledger entries when posting, choose the **Apply Entries** action.
+4. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID** action.
+5. On each line, in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.  
+
+    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+6. Choose the **OK** button. The **Sales Credit Memo** page now shows the amount of the credit memo to be posted, adjusted for any possible payment discounts.
+7. Post the credit memo.
+
+## To apply posted customer ledger entries
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+2. Open the customer card for the customer with entries that you want to apply.
+3. Choose the **Ledger Entries** action from the **Related** tab, and then select the line with the entry that is the applying entry.
+4. Choose the **Apply Entries** action. The **Apply Customer Entries** page opens showing the open entries for the customer.
+5. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID.** action.
+6. For each line in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.  
+
+    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field.  
+7. Choose the **Post Application** action. The **Post Application** page appears with the document number of the applying entry and the posting date of the entry with the most recent posting date.  
+8. Choose the **OK** button to post the application.
+
+    If the posted application resulted in closed customer ledger entries, the **Open** field is cleared for these ledger entries.  
+9. To see the ledger entries, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link. Browse to the card for the relevant customer to see the ledger entries.  
+
+On the ledger entry list, on the line that contains the ledger entry that was fully applied to, you can see that the **Open** check box isn't selected.  
+
+> [!NOTE]  
+> After you select an entry on the **Apply Customer Entries** page, or several entries by setting the **Applies-to ID**, the **Applied Amount** field on the journal line will contain the sum of the remaining amounts for the posted entries you've selected, unless the field contains something already. If you select **Apply to Oldest** in the **Application Method** field on the customer card, the application occurs automatically.
+
+## To apply customer ledger entries in different currencies to one another
+
+If you sell to a customer in one currency and receive payment in another currency, you can still apply the invoice to the payment.  
+
+Here's an example. You apply Entry A in one currency to Entry B in another currency. The posting date on Entry A is used to find the exchange rate to use to convert amounts on Entry B. The exchange rate is found on the **Currency Exchange Rates** page.  
+
+Applying customer ledger entries in different currencies must be enabled. For more information, see [Enable Application of Ledger Entries in Different Currencies](finance-how-enable-application-ledger-entries-different-currencies.md).  
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Receipts Journal**, and then choose the related link.
+2. Open the journal you want, and fill in the first empty journal line using a currency code.
+3. Choose the **Apply Entries** action.
+4. Select the line with the entry you want to apply to the entry in the cash receipt journal, choose the **Set Applies-to ID** action, and then select the entry you want to apply to.
+5. Choose the **OK** button to return to the cash receipt journal.
+6. Post the sales journal.  
+
+> [!IMPORTANT]  
+>   When you apply entries in different currencies, the entries are converted to USD. Although the exchange rates for the two currencies are fixed, for example between USD and EUR, there may be a small residual amount when they are converted to USD. These small residual amounts are posted as gains and losses to the account specified in the **Realized Gains Account** or **Realized Losses Account** fields on the **Currencies** page. The **Amount (USD)** field is also adjusted on the vendor ledger entries.  
+
+## To correct an application of customer entries
+When you correct an application, correcting entries are created and posted for all entries. The correcting entries are the same as the originals but have an opposite sign in the **Amount** field. The correcting entries include all general ledger entries derived from the application. For example, the payment discount and currency gains/losses. The entries that the application closed are reopened.  
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+2. Open the relevant customer card.
+3. Choose the **Ledger Entries** action.
+4. Select the relevant ledger entry, and then choose the **Unapply Entries** action.
+5. Alternatively, choose the **Detailed Ledger Entry** action.
+6. Select the application entry, and then choose the **Unapply Entries** action.
+7. Fill in the fields in the header, and then choose the **Unapply** action.  
+
+> [!IMPORTANT]  
+>   If an entry has been applied by more than one application entry, you must unapply the latest application entry first.  
+
+## Related information
+[Managing Receivables](receivables-manage-receivables.md)  
+[Sales](sales-manage-sales.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-nondeductible-vat
 ---
 title: Design details - Non-deductible VAT
@@ -1129,7 +1304,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 05/19/2025
 ms.custom: bap-template
 ---
 
@@ -1156,10 +1331,10 @@ You can configure warehouse features in various ways. It's important to choose o
 |Complexity Level|Description|Settings|Bin Code|Example of Inbound Flow|Example of Outbound Flow|Example of Internal Flow|  
 |---|----------------|----------|---------|------------------|------------------|------------------|
 |No dedicated warehouse activity.|Posting from orders and journals.||Optional. Controlled by the **Bin Code is Mandatory** toggle.|Purchase order|Sales order| Production order -> Consumption journal|  
-|Basic|Consolidated receive/ship posting for multiple orders.|**Require Receipt**<br>**Require Ship**.|Optional. Controlled by the Bin Code is Mandatory toggle|Purchase Order(s) -> Warehouse Receipt|Sales Order -> Warehouse Shipment|Same as above.|
-|Basic|Order-by-order.|Purchase, Sales, Service & Transfer: Require Put-away or Require Pick. </br><br/> Production, Assembly, Projects: Inventory Pick, Inventory Movement, Inventory Put-Away </br></br>**NOTE**: You can still post receipts, shipments, consumption, output directly from the source documents at locations where you activated these settings.|Optional. Controlled by the **Bin Code is Mandatory** toggle.|Purchase Order -> Inventory Put-away|Sales Order -> Inventory Pick|Production Order -> Inventory Pick|
-|Advanced|Consolidated receive/ship posting for multiple orders.<br /><br />Consolidated pick/put-away activities for multiple source documents.|Purchase, Sales, Service & Transfer: Require Receive + Require Put-away,</br> Require Ship + Require Pick</br></br> Production, Assembly, Projects: Warehouse Pick |Optional. Controlled by the Bin Code is Mandatory toggle|Purchase Order(s) -> Warehouse Receipt -> Warehouse Put-away|Sales Order(s) -> Warehouse Shipment(s) -> Pick Worksheet -> Warehouse Pick(s)| Production order -> Pick Worksheet -> Warehouse Pick(s) -> Consumption journal|
-|Advanced|Same as above + Directed pick/put-away activities|Directed Pick and Put-away (dependent toggles are enabled automatically)|Mandatory|Same as above.|Same as above.| Production order -> Pick Worksheet -> Warehouse Pick(s) Consumption journal|
+|Basic|Consolidated receive/ship posting for multiple orders.|**Require Receipt**<br>**Require Ship**.|Optional. Controlled by the Bin Code is Mandatory toggle|Purchase Orders -> Warehouse Receipt|Sales Order -> Warehouse Shipment|Same as above.|
+|Basic|Order-by-order.|Purchase, Sales, Service & Transfer: Require Put-away or Require Pick. </br><br/> Production, Assembly, Projects: Inventory Picks, Inventory Movement, Inventory Put-Away </br></br>**NOTE**: You can still post receipts, shipments, consumption, output directly from the source documents at locations where you activated these settings.|Optional. Controlled by the **Bin Code is Mandatory** toggle.|Purchase Order -> Inventory Put-away|Sales Order -> Inventory Pick|Production Order -> Inventory Pick|
+|Advanced|Consolidated receive/ship posting for multiple orders.<br /><br />Consolidated pick/put-away activities for multiple source documents.|Purchase, Sales, Service & Transfer: Require Receive + Require Put-away,</br> Require Ship + Require Pick</br></br> Production, Assembly, Projects: Warehouse Picks |Optional. Controlled by the Bin Code is Mandatory toggle|Purchase Orders -> Warehouse Receipt -> Warehouse Put-away|Sales Orders -> Warehouse Shipments -> Pick Worksheet -> Warehouse Picks| Production order -> Pick Worksheet -> Warehouse Picks -> Consumption journal|
+|Advanced|Same as above + Directed pick/put-away activities|Directed Pick and Put-away (dependent toggles are enabled automatically)|Mandatory|Same as above.|Same as above.| Production order -> Pick Worksheet -> Warehouse Picks Consumption journal|
 
 Complexity increases with the size of your organization and how many departments and people are involved. A process can be simple, for example, when the same person creates and posts a sales document. Processes can also be more complex, and involve several steps and people. The following steps are an example of a more complex process:
 
@@ -1167,7 +1342,7 @@ Complexity increases with the size of your organization and how many departments
 1. A warehouse manager creates pick instructions.
 1. A warehouse employee finishes the flow by posting the warehouse shipment.
 
-The level of complexity is also affected by the types of documents you use in your warehouse activities. For example, you can use warehouse receipt and warehouse put-away documents for your inbound flow, but use inventory pick documents for your outbound flow.
+The types of documents you use in your warehouse activities also affect the level of complexity. For example, you can use warehouse receipt and warehouse put-away documents for your inbound flow, but use inventory pick documents for your outbound flow.
 
 Another factor that impacts complexity is how your physical warehouse is represented in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more at [Modeling the physical warehouse](#modeling-the-physical-warehouse).
 
@@ -1229,7 +1404,7 @@ We use the terms "basic" and "advanced" to differentiate between levels of compl
 The following documents are used in basic warehouse flows.
 
 * Inventory Put-away
-* Inventory Pick
+* Inventory Picks
 * Inventory Movement
 * Item Journal
 * Item Reclassification Journal
@@ -1242,10 +1417,10 @@ The following documents are used in advanced warehouse flows.
 * Put-away Worksheet
 * Warehouse Put-away
 * Pick Worksheet
-* Warehouse Pick
+* Warehouse Picks
 * Movement Worksheet
 * Warehouse Movement
-* Internal Warehouse Pick
+* Internal Warehouse Picks
 * Internal Warehouse Put-away
 * Bin Creation Worksheet
 * Bin Content Creation Worksheet
@@ -1264,12 +1439,12 @@ Bin contents can be **Fixed**, **Dedicated**, or **Default** to define how to us
 
 A fixed bin holds items that are assigned to the bin code. The fixed bin property ensures that even if the bin is emptied, the bin content doesn't disappear. You can select the bin again as soon as its contents are replenished.  
 
-A dedicated bin holds bin content that can only be picked for the dedicated resource that uses the bin. For example, a machine center. Other non-pick content, such as outbound quantities on a shipment posting, can be consumed from a dedicated bin. Only bin content considered by the **Create Pick** algorithm is protected in a dedicated bin.  
+A dedicated bin holds bin content that can only be picked for the dedicated resource that uses the bin. For example, a machine center. Other nonpick content, such as outbound quantities on a shipment posting, can be consumed from a dedicated bin. Only bin content considered by the **Create Pick** algorithm is protected in a dedicated bin.  
 
 [!INCLUDE [prod_short](includes/prod_short.md)] uses the **Default** bin property to suggest bins for warehouse activities. At locations that use directed put-away and pick, the default bin property isn't used. At locations where bins are required, the property specifies where to place items in inbound flows. In outbound flows, the property specifies where to take items from.  
 
 > [!NOTE]  
-> If outbound items are placed in several bins, items are taken from the non-default bins first, to empty that bin content, and the remaining items are taken from the default bin.  
+> If outbound items are in several bins, items are taken from the nondefault bins to empty that bin content first. The remaining items are taken from the default bin.  
 
 You can have one default bin per item per location.  
 
@@ -1288,7 +1463,7 @@ The following types of bins are available:
 |PUTPICK|Items in bins that are suggested for both put-aways and picks. Bins of this type probably have different bin rankings. Set up your bulk storage bins with lower bin rankings than ordinary pick bins or bins in your forward picking area.|  
 |QC|This bin is used for inventory adjustments if you specify this bin on the location card in the **Adjustment Bin Code** field. You can also set up bins of this type for defective items and items being inspected. You can move items to this type of bin if you want to make them inaccessible to the usual item flow. **Note:**  Unlike all other bin types, the **QC** bin type has none of the item handling checkboxes selected by default. Content you place in a QC bin is excluded from item flows.|  
 
-You can operate your warehouse with all of the eight possible bin types, or you can choose to operate with just the RECEIVE, PUTPICK, SHIP and QC bin types. These four bin types enable suggestions to be made that support the flow of items and allow you to record inventory discrepancies.
+You can operate your warehouse with all of the eight possible bin types, or you can choose to operate with just the RECEIVE, PUTPICK, SHIP, and QC bin types. These four bin types enable suggestions to be made that support the flow of items and allow you to record inventory discrepancies.
 With the exceptions of the PICK, PUTPICK, and PUTAWAY types of bins, the bin type defines the activity allowed for a bin. For example, you can only use a RECEIVE type of bin to receive items or pick items from.  
 
 > [!NOTE]  
@@ -1345,13 +1520,13 @@ In inbound flows, the class code is only highlighted on inbound lines where the 
 
 A location is a physical structure or place where inventory is received, stored, and shipped. A location can be a warehouse, service car, showroom, plant, or an area in a plant. Inventory is often organized in bins and zones.
 
-#### First expired first out
+#### First expired first out (FEFO)
 
 If you select the **Pick According to FEFO** checkbox on the **Bin Policies** FastTab on the **Location Card** page, item-tracked items are picked at the location according to their expiration date. Items with the earliest expiration dates are picked first.  
 
 Warehouse activities in all pick and movement documents are sorted according to FEFO, unless the items have serial or lot numbers assigned. If some, but not all, of the quantity on the line has serial or lot numbers assigned, the remaining quantity is sorted according to FEFO.  
 
-When picking by FEFO, items that expire first are gathered in a temporary item tracking list based on the expiration date. If two items have the same expiration date, the item with the lowest lot or serial number is picked first. If the lot or serial numbers are the same, the item that was registered first is selected first. Standard criteria for selecting items in pick bins, such as Bin Ranking and Break Bulk, are applied to the temporary FEFO item tracking list.  
+When using FEFO, items that expire first are gathered in a temporary item tracking list based on the expiration date. If two items have the same expiration date, the item with the lowest lot or serial number is picked first. If the lot or serial numbers are the same, the item that was registered first is selected first. Standard criteria for selecting items in pick bins, such as Bin Ranking and Break Bulk, are applied to the temporary FEFO item tracking list.  
 
 Learn more at [Enable Picking Items by FEFO](warehouse-picking-by-fefo.md).
 
@@ -5078,7 +5253,7 @@ The general flow is illustrated in the figure, which is followed by more details
 
 ## Billing for use
 
-The Sales Order Agent uses Microaoft Copilot Studio messages for AI interactions, which incur charges based on interaction complexity. Before using the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
+The Sales Order Agent uses Microsoft Copilot Studio messages for AI interactions, which incur charges based on interaction complexity. Before using the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
 ## Next steps
 
@@ -9309,7 +9484,7 @@ description: Learn how to set up the connection to Power BI. With Power BI repor
 author: jswymer
 ms.topic: get-started
 ms.search.keywords: Power BI, setup, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 01/28/2024
+ms.date: 05/16/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -19972,75 +20147,6 @@ The **Production Journal** page lets you do the same tasks as the **Output Journ
 [Planning](production-planning.md)  
 [Inventory](inventory-manage-inventory.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-daily-sales
----
-title: Daily Sales (Power BI report)
-description: The *Daily Sales* report provides a clear picture of your organization's sales activities over specific days. 
-author: kennieNP
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 36999_Primary
-ms.date: 10/26/2024
-ms.service: dynamics-365-business-central
----
-
-# Daily Sales (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Daily Sales** report gives a clear picture of your organization's sales activities over specific days. The report can showcase which days have a higher volume of sales. You can also view variations across different years, quarters, or months to identify trends over time.
-
-:::image type="content" source="media/powerbi/sales/sales-daily-sales.png" alt-text="Screenshot of the Daily Sales Power BI report" lightbox="media/powerbi/sales/sales-daily-sales.png":::
-
-## Use the report
-
-This report helps executives and managers track daily sales metrics.
-
-Executives can use the report to identify high performing days and ensure you're staying on track on a daily basis. For example, this analysis can help you make informed decisions in regards to staffing allocations per day.
-
-As a sales manager, this report helps you identify which days are high performing and compare them against your sales people.
-
-## Key performance indicators
-
-The report includes the following key performance indicators (KPI) and measures:
-
-- [**Sales Quantity**](sales-powerbi-sales-kpis.md#sales-quantity)
-- [**Sales Amount**](sales-powerbi-sales-kpis.md#sales-amount)
-- [**Cost Amount**](sales-powerbi-sales-kpis.md#cost-amount)
-- [**Gross Profit**](sales-powerbi-sales-kpis.md#gross-profit)
-- [**Gross Profit Margin**](sales-powerbi-sales-kpis.md#gross-profit-margin)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Value Entry
-- Sales Line
-- Item
-
-## Try the report
-
-Try the report here: [Report name](https://businesscentral.dynamics.com?page=36999)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
-[Built-in sales reports](sales-reports.md)  
-[Sales analytics overview](sales-analytics-overview.md)  
-[Sales overview](sales-manage-sales.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
