@@ -1,3 +1,92 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-drop-shipment
+---
+title: Make drop shipments
+description: Describes how to create a sales order linked to a purchase order to enable shipment directly from the vendor to the customer.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: direct shipment
+ms.date: 06/10/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Make drop shipments
+
+A drop shipment is the shipment of items from one of your vendors directly to one of your customers.
+
+When a sales order is marked for drop shipment, and you create a purchase order specifying the customer in the **Ship-to** field, **Customer Address**, you can link the two documents to instruct the vendor to ship directly to the customer.
+<br><br>  
+  
+> [!Video https://learn-video.azurefd.net/vod/player?id=58c81aa9-7190-476a-9fd9-75a9841549f7]
+
+## To create a sales order for drop shipment
+
+To prepare a drop shipment, you create a sales order for an item and indicate on the sales line that the sale requires drop shipment.
+
+1. Create a sales order for an item. Learn more at [Sell Products](sales-how-sell-products.md).
+2. On the sales order line for the drop shipment, select the **Drop Shipment** checkbox. Alternatively, in the **Purchasing Code** field, select a purchasing code that has the **Drop Shipment** field selected.
+
+> [!TIP]
+> By default, the Drop Shipment checkbox and Purchasing Code field aren't available on the lines. If they aren't, you can add them by personalizing the section of page that contains the lines. Learn more at [Personalize Your Workspace](ui-personalization-user.md).
+
+## To create the purchase order for drop shipment
+
+To prepare a drop shipment, you indicate on the purchase order that it must be shipped to your customer, not to yourself.
+
+1. Create a purchase order. Don't fill any fields on the lines. Learn more at [Record Purchases](purchasing-how-record-purchases.md).
+2. In the **Ship-to** field, select **Customer Address**.
+3. In the **Customer** field, select the customer that you're selling to.
+4. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
+5. On the **Sales List** page, select the sales order that you prepared in [To create a sales order for drop shipment](#to-create-a-sales-order-for-drop-shipment).
+6. Choose the **OK** button.
+
+The line information from the sales order is inserted on the purchase order line(s).
+
+You can now tell your vendor to ship the items directly to the customer. For example, you might send them the order by email.
+
+If your vendor provides additional information, such as a tracking number, you can add that information as a comment on a purchase order line. To add a comment on a line, in the **Type** field, choose **Comment**, and then enter the information in the **Description** field.  
+
+## To create multiple purchase orders for drop shipments
+
+You can also use the requisition worksheet to create purchase orders. The advantage of using the requisition worksheet is that it can create purchase orders for all outstanding drop shipments. That means you won't have to create each order individually.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Requisition Worksheets**, and then choose the related link.
+2. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
+3. If needed, enter filter criteria for the orders you wan to get, and then choose the **OK** button.
+4. Review the purchase order lines, and in the **Vendor No.** field, select the vendor that supplies the goods.
+5. Choose the **Carry Out Action Message** action to convert the lines to a purchase order.
+
+## To view the linked purchase order from the sales order
+
+Select the drop-shipment sales order line, choose the **Order** action, choose the **Drop Shipment** action, and then choose the **Purchase Order** action.
+
+## To post a drop shipment
+
+After the vendor ships the items, you can post the sales order as shipped. You can also post the purchase order, but only with the **Receive** option until the sales order has been invoiced.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.
+2. Open the sales order.
+3. In the **Qty. to Ship** field, specify how many of the order quantity to ship, the full or a partial order quantity.
+4. Choose the **Post** or **Post and Send** action.
+5. Choose either the **Ship** option to invoice later, or the **Ship and Invoice** option to invoice immediately.
+
+> [!TIP]
+> Remember to post the purchase order invoice.
+
+## Related information
+
+[Create Special Orders](sales-how-to-create-special-orders.md)  
+[Purchase Items for a Sale](purchasing-how-purchase-products-sale.md)  
+[Sell Products](sales-how-sell-products.md)  
+[Record Purchases](purchasing-how-record-purchases.md)  
+[Sales](sales-manage-sales.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-general
 ---
 title: Set Up General Fixed Assets (FA) Information
@@ -1354,6 +1443,11 @@ With [!INCLUDE[prod_short](includes/prod_short.md)], users get a free Power BI l
 |Power BI Pro|![yet another checkmark.](media/check.png) |![it's a checkmark](media/check.png)|![again a checkmark](media/check.png)|(extensive)|![last checkmark](media/check.png)|
 
 You can't use a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] free license for the [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] Apps. To learn more, go to [Prerequisites for installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md#prerequisites)
+
+> [!NOTE]
+> [!INCLUDE[about_bc_licensing_for_powerbi](includes/about_bc_licensing_for_powerbi.md)]
+>
+> [!INCLUDE[about_licensing](includes/about_licensing.md)]
 
 To learn more about [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licensing in general, go to [Licensing the Power BI service for users in your organization](/power-bi/admin/service-admin-licensing-organization) or [Sign up for the Power BI service as an individual](/power-bi/fundamentals/service-self-service-signup-for-power-bi).
 
@@ -3118,19 +3212,19 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords:
 ms.search.forms: 498, 497
-ms.date: 05/14/2024
+ms.date: 06/10/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
 
 # Reserve items
 
-You can reserve items for sales orders, purchase orders, service orders, assembly orders, transfer orders, and production orders. You can also reserve items in inventory or inbound on open document or journal lines. You do this on the **Reservation** page.
+You can reserve items for sales orders, purchase orders, service orders, assembly orders, transfer orders, and production orders. You can also reserve items in inventory or inbound on open document or journal lines.
 
-Each line you open to reserve items on the **Reservation** page displays information about one type of line (sales, purchase, or journal) or inventory entry. The lines describe how many items are available to be reserved from each type of line or entry.
+Each line you open to reserve items displays information about one type of line (sales, purchase, or journal) or inventory entry. The lines describe how many items are available to be reserved from each type of line or entry.
 
 > [!TIP]
-> Based on the quantities you’ve reserved in inventory, [!INCLUDE [prod_short](includes/prod_short.md)] displays a status on the documents so that you’re quickly aware of the next step. For example, to indicate that you can ship a sales order or start to work on a project, assembly, or production order. The status also helps reduce the risk of accidental partial shipments or hold-ups due to missing stock for production and assembly orders.
+> Based on the quantities you reserve in inventory, [!INCLUDE [prod_short](includes/prod_short.md)] displays a status on the documents so that you’re quickly aware of the next step. For example, to indicate that you can ship a sales order or start to work on a project, assembly, or production order. The status also helps reduce the risk of accidental partial shipments or hold-ups due to missing stock for production and assembly orders.
 >
 > The **Reserved from stock** field can help you understand whether you can ship or pick for a specific order or order line. For lines, the Reserved from stock field is available on FactBoxes. To access the information for the entire order, the field is on the **Statistics** page.
 
@@ -3144,18 +3238,18 @@ The following procedure describes how to reserve items from a sales order. The s
 4. Select the line you want to reserve the items from.  
 5. Choose one of the following actions.  
 
-    |**Function**|**Description**|
+    |**Action**|**Description**|
     |------------------|---------------------|  
-    |**Auto Reserve**|To automatically reserve items on the **Reservation** page.|  
-    |**Reserve from Current Line**|To reserve the items from the document on the line you have selected.|  
-    |**Cancel Reservation from Current Line**|To cancel reservation of the items in the document on the line you've selected.|
+    |**Auto Reserve**|Automatically reserve items on the **Reservation** page.|  
+    |**Reserve from Current Line**|Reserve the items on the selected line.|  
+    |**Cancel Reservation from Current Line**|Cancel reservation of the items on the selected line.|
 
 > [!NOTE]  
-> If item tracking lines exist for the sales order, the reservation system will take you through special steps. Learn more in the [To reserve a specific serial or lot number](inventory-how-to-reserve-items.md#reserve-a-specific-serial-or-lot-number) section.  
+> If there are item tracking lines for the sales order, the reservation system takes you through a few special steps. Learn more at [To reserve a specific serial or lot number](inventory-how-to-reserve-items.md#reserve-a-specific-serial-or-lot-number).  
 
 ## Reserve an item for a production order line
 
-You can reserve items for production orders. You have to distinguish between production order lines, meaning the parent item, and production order components.
+You can reserve items for production orders. You must distinguish between production order lines, meaning the parent item, and production order components.
 
 In the following procedure, a firm planned production order is used.
 
@@ -3188,7 +3282,7 @@ The quantity you entered in the firm planned production component line is now re
 Use the **Reservation Worksheet** page to reserve and allocate incoming goods in bulk. For example, bulk reservations can help ensure that quantities are available for your sales and production orders. You can have multiple batches for different purposes. For example, you might allocate production orders on a weekly basis but reserve daily for sales.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Reservation Worksheet**, then choose the related link.  
-2. Choose the **Get Demand** action. The **Get Demand to Reserve** page opens.
+1. Choose the **Get Demand** action. The **Get Demand to Reserve** page opens.
 1. On the **Get Demand to Reserve** page, specify the kind of demand you want to reserve from available inventory.
 1. Fill in the filters as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 1. Optional: To allocate the items right away, choose the **Allocate** action.
@@ -3197,16 +3291,16 @@ Use the **Reservation Worksheet** page to reserve and allocate incoming goods in
    |Allocation policy  |Description  |
    |---------|---------|
    |Basic (No Conflicts)     | Allocates stock to a demand if there are no conflicts and the demand can be fully covered. For example, you have sales order A with a quantity of 10, and a job with a quantity of 7. If you have 20 in stock, both demands receive full quantity. If your stock is 12, no stock is allocated. You must manually allocate the quantity.        |
-   |Equally    | Distributes available stock to demand equally. For example, you have a sales order with a quantity of 10, and a job with a quantity of 7. If your stock level is 20, then both demands will receive full quantity. If your stock is 12, then both demands will get 6.        |
-   |By Customer Priority|Distribution based on the **Priority** field on the **Customer Card** page. In cases of low inventory quantities, Business Central supplies higher-priority customers first.|
+   |Equally    | Distributes available stock to demand equally. For example, you have a sales order with a quantity of 10, and a job with a quantity of 7. If your stock level is 20, then both demands receive full quantity. If your stock is 12, both demands get 6.        |
+   |By Customer Priority|Distribution based on the **Priority** field on the **Customer Card** page. In cases of low inventory quantities, [!INCLUDE [prod_short](includes/prod_short.md)] supplies higher-priority customers first.|
 
-6. To reserve all lines where **Accept** is turned on, choose the **Make reservation** action.
-    
+1. To reserve all lines where **Accept** is turned on, choose the **Make reservation** action.
+
 ## Change a reservation
 
 You can change an item reservation.
 
-1. From the document line you made the reservation from, on the **Lines** FastTab, choose the **Reserve** action.  
+1. On the document line you made the reservation from, on the **Lines** FastTab, choose the **Reserve** action.  
 2. On the **Reservation** page, choose the **Reservation Entries** action.
 3. On the **Reservation Entries** page, update the **Quantity** field on the line you want to change.
 4. Confirm the subsequent message by choosing the **OK** button.
@@ -3224,12 +3318,12 @@ You can cancel an item reservation.
 
 From outbound documents for item-tracked items, such as sales orders or production component lists, you can reserve specific serial or lot numbers. For example, reserving specific serial or lot numbers can be useful in the following situations:
 
-* If you need production components from a specific lot to ensure consistency with earlier production batches.
-* Because a customer has requested a specific serial number. 
+* You need production components from a specific lot to ensure consistency with earlier production batches.
+* Because a customer requested a specific serial number.
 
 Learn more at [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
 
-This practice is referred to as a specific reservation, because you reserve from the quantity of item X that belongs to lot X. In contrast, if you reserve only from quantities of item X, then it's simply a normal, non-specific, reservation. Learn more at [Design Details - Item Tracking and Reservations](design-details-item-tracking-and-reservations.md).
+This practice is referred to as a specific reservation, because you reserve from the quantity of item X that belongs to lot X. In contrast, if you reserve only from quantities of item X, then it's simply a normal, nonspecific, reservation. Learn more at [Design Details - Item Tracking and Reservations](design-details-item-tracking-and-reservations.md).
 
 The following procedure is based on a sales order.
 
@@ -3238,8 +3332,8 @@ The following procedure is based on a sales order.
 3. Assign serial and lot numbers to the sales order line. Learn more at [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
 4. On the sales order line, choose the **Reserve** action.  
 5. Choose the **Yes** button to reserve specific serial or lot numbers.  
-6. On the **Item Tracking List** page, select the serial and lot number combination you have assigned.  
-7. Choose the **OK** button to open the **Reservation** page showing only supply with the specified item tracking number. If there are any non-specific reservations on any of the item tracking numbers you've specified for this line, you're informed of the quantity that has already been reserved.  
+6. On the **Item Tracking List** page, select the serial and lot number combination you assigned.  
+7. Choose the **OK** button to open the **Reservation** page showing only supply with the specified item tracking number. If the line has nonspecific reservations on any of the item tracking numbers, you're informed of the quantity that is already reserved.  
 8. Choose either the **Auto Reserve** or the **Reserve from Current Line** action to create the reservation of the specific item tracking numbers.
 
 ## Related information
@@ -3454,7 +3548,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 06/10/2025
 ms.custom: bap-template
 ms.search.form: 7214_Primary
 ms.service: dynamics-365-business-central
@@ -3462,7 +3556,7 @@ ms.service: dynamics-365-business-central
 
 # Integrate with Microsoft Dataverse via data sync
 
-Business apps often use data from more than one source. [!INCLUDE[prod_short](includes/cds_long_md.md)] combines data into a single set of logic that makes it easier to connect [!INCLUDE[prod_short](includes/prod_short.md)] to other Dynamics 365 applications. For example, [!INCLUDE[crm_md](includes/crm_md.md)] or your own application built on [!INCLUDE[prod_short](includes/cds_long_md.md)]. To learn more about [!INCLUDE[prod_short](includes/cds_long_md.md)], go to [What is Dataverse?](/powerapps/maker/common-data-service/data-platform-intro).
+Business apps often use data from more than one source. [!INCLUDE[prod_short](includes/cds_long_md.md)] combines data into a single set of logic that makes it easier to connect [!INCLUDE[prod_short](includes/prod_short.md)] to other Dynamics 365 applications. For example, [!INCLUDE[crm_md](includes/crm_md.md)] or your own application built on [!INCLUDE[prod_short](includes/cds_long_md.md)]. To learn more about [!INCLUDE[prod_short](includes/cds_long_md.md)], go to [What is Dataverse?](/power-apps/maker/data-platform/data-platform-intro).
 
 The following steps provide an overview of the steps to integrate [!INCLUDE[prod_short](includes/cds_long_md.md)] with [!INCLUDE[prod_short](includes/prod_short.md)].
 
@@ -3471,9 +3565,9 @@ The following steps provide an overview of the steps to integrate [!INCLUDE[prod
 
 1. Assign licenses for [!INCLUDE[prod_short](includes/cds_long_md.md)] to the [!INCLUDE[prod_short](includes/prod_short.md)] users who will use the integrated apps.
 
-2. Set up a connection to [!INCLUDE[prod_short](includes/cds_long_md.md)]. For more information, see [Connect to Dataverse](admin-how-to-set-up-a-dynamics-crm-connection.md).  
+2. Set up a connection to [!INCLUDE[prod_short](includes/cds_long_md.md)]. To learn more, go to [Connect to Dataverse](admin-how-to-set-up-a-dynamics-crm-connection.md).  
 
-3. Synchronize data between the apps. For more information, see [Synchronizing Business Central and Dataverse](admin-synchronizing-business-central-and-sales.md). 
+3. Synchronize data between the apps. To learn more, go to [Synchronizing Business Central and Dataverse](admin-synchronizing-business-central-and-sales.md).
 
 ## Get started with [!INCLUDE[prod_short](includes/cds_long_md.md)]
 
@@ -3489,14 +3583,14 @@ You can synchronize data either to or from one Dynamics 365 business app to anot
 
 ## About the Business Central Base Integration Solution
 
-The Base Integration Solution is a key component of the integration. The solution adds the required roles and access levels to the user accounts for the integration, and it creates tables needed to map [!INCLUDE[prod_short](includes/prod_short.md)] company to business unit in [!INCLUDE[prod_short](includes/cds_long_md.md)]. 
+The Base Integration Solution is a key component of the integration. The solution adds the required roles and access levels to the user accounts for the integration, and it creates tables needed to map [!INCLUDE[prod_short](includes/prod_short.md)] company to business unit in [!INCLUDE[prod_short](includes/cds_long_md.md)].
 
 By default, the **Set up [!INCLUDE[prod_short](includes/cds_long_md.md)] connection** assisted setup guide imports the solution. To do that, the setup guide uses an administrator user account that you specify. This account must be a valid user in [!INCLUDE[prod_short](includes/cds_long_md.md)] with the **System Administrator** security role.  
 
 To learn more about user accounts, go to the following articles:
 
-* [Setting Up User Accounts for Integrating with [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md) 
-* [Create users in Microsoft Dynamics 365 (online) and assign security roles](/dynamics365/customer-engagement/admin/create-users-assign-online-security-roles). 
+* [Setting Up User Accounts for Integrating with [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md)
+* [Create users in Microsoft Dynamics 365 (online) and assign security roles](/dynamics365/customer-engagement/admin/create-users-assign-online-security-roles)
 
 The administrator account is used only one time during the setup for the configuration changes that the Base Integration Solution makes in [!INCLUDE[prod_short](includes/cds_long_md.md)]. After the solution imports, the account is no longer needed. Integration will continue to use the user account that is automatically created specifically for the integration.
 
@@ -3512,7 +3606,7 @@ You can connect to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment
 
 To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[prod_short](includes/cds_long_md.md)] has the currency that set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
 
-Here's an example. You're connecting [!INCLUDE[prod_short](includes/cds_long_md.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate. 
+Here's an example. You're connecting [!INCLUDE[prod_short](includes/cds_long_md.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
 
 When you enable the connection to [!INCLUDE[prod_short](includes/cds_long_md.md)], [!INCLUDE [prod_short](includes/prod_short.md)] adds its local currency to the **Currency** entity in [!INCLUDE[prod_short](includes/cds_long_md.md)] with the exchange rate from the **Currency Factor** field on the **Currency Exchange Rates** page.
 
@@ -3531,7 +3625,6 @@ You can safely copy companies that integrate with [!INCLUDE[prod_short](includes
 
 [Data Ownership Models](admin-cds-company-concept.md)  
 <!--needs to be removed as this is moved to dev-itpro docs[Walkthrough: Customizing an Integration with Dataverse](\dynamics365\business-central\dev-itpro\administration\administration-custom-cds-integration) -->
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -5489,9 +5582,9 @@ There are a few tasks that must be done before you can start using [!INCLUDE[pow
 
 | To...  | User |Administrator|Report creator| Learn more... |
 |--------|:----:|:-----------:|:------------:|---------------|
-|Get a [!INCLUDE[powerbi-name](includes/powerbi-name.md)] account|![Checkmark](media/check.png)|![Checkmark](media/check.png)|![Checkmark](media/check.png)|Go to [https://powerbi.microsoft.com](https://powerbi.microsoft.com). To sign up for an account, use your work email address and password. <br /><br/>Sign-up requires that you have a license, but in most cases you should already have a free license. To learn more, go to [[!INCLUDE[powerbi-name](includes/powerbi-name.md)] Licensing](admin-powerbi-setup.md#license). |
+|Get a [!INCLUDE[powerbi-name](includes/powerbi-name.md)] account|![Checkmark](media/check.png)|![Checkmark](media/check.png)|![Checkmark](media/check.png)|Go to [https://powerbi.microsoft.com](https://powerbi.microsoft.com). To sign up for an account, use your work email address and password. <br /><br/>Sign-up requires that you have a license, but in most cases you should already have a free license. To learn more, go to [Power BI Licensing](admin-powerbi-setup.md#license). |
 |Use built-in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)] | ![Checkmark](media/check.png) | | | Get started here: [Power BI apps/reports by functional area](across-powerbi-apps-by-functional-area.md) |
-|Enable [!INCLUDE[powerbi-name](includes/powerbi-name.md)] integration for [!INCLUDE [prod_short](includes/prod_short.md)] | | ![Checkmark](media/check.png) | | [Enabling [!INCLUDE[powerbi-name](includes/powerbi-name.md)] Integration](admin-powerbi-setup.md) |
+|Enable [!INCLUDE[powerbi-name](includes/powerbi-name.md)] integration for [!INCLUDE [prod_short](includes/prod_short.md)] | | ![Checkmark](media/check.png) | | [Enabling Power BI Integration](admin-powerbi-setup.md) |
 | Install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)] | | ![Checkmark](media/check.png) | | [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md) <br><br> [Power BI apps FAQ](across-powerbi-apps-faq.md) |
 |Get [!INCLUDE[powerbi-desktop-name](includes/powerbi-desktop-name.md)] |||![Checkmark](media/check.png)|To download, go to [[!INCLUDE[powerbi-desktop-name](includes/powerbi-desktop-name.md)]](https://powerbi.microsoft.com/desktop/). For more information, see [Get [!INCLUDE[powerbi-desktop-name](includes/powerbi-desktop-name.md)]](/power-bi/fundamentals/desktop-get-the-desktop). |
 |Expose Business Central data to [!INCLUDE[powerbi-name](includes/powerbi-name.md)]||![Checkmark](media/check.png)|![Checkmark](media/check.png)|[Expose data through API pages or OData web services](admin-powerbi-setup.md#exposedata) |
@@ -7020,68 +7113,71 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-synchronize-outlook-contacts
 ---
-title: Share contacts between Business Central and Outlook
+title: Synchronize Contacts in Business Central with Contacts in Microsoft Outlook
 description: This service has deep integration with Microsoft 365 so you can share contacts between Outlook and Business Central.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: contacts, Microsoft 365
 ms.search.form: 6700, 5320, 5300, 5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308, 5309, 5310, 5311 
-ms.date: 03/17/2023
+ms.date: 05/21/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Synchronize Contacts in Business Central with Contacts in Microsoft Outlook
+# Synchronize contacts in Business Central with contacts in Microsoft Outlook
 
 You can set up contact synchronization so that your contacts in [!INCLUDE[prod_short](includes/prod_short.md)] have the same information as your contacts in Microsoft Outlook. For example, if you're a sales person, you might work in Outlook and [!INCLUDE[prod_short](includes/prod_short.md)] at the same time. If the contacts are the same in both places, your work is more straightforward.  
 
-By default, the contacts you're syncing are kept in a **Business Central** folder in your Favorites on the Folder Pane in Outlook. The Business Central folder can make it easier to identify which contacts you're syncing. You can set filters to sync only specific contacts from [!INCLUDE[prod_short](includes/prod_short.md)] to Outlook. After you've set up synchronization, you can synchronize manually or automate the process to synchronize on a scheduled basis.  
+By default, the contacts you're syncing are kept in a **Business Central** folder in your Favorites on the Folder Pane in Outlook. The Business Central folder can make it easier to identify which contacts you're syncing. You can set filters to sync only specific contacts from [!INCLUDE[prod_short](includes/prod_short.md)] to Outlook. After you set up synchronization, you can synchronize manually or automate the process to synchronize on a scheduled basis.  
 
 ## Prerequisites
 
-- You user profile in [!INCLUDE[prod_short](includes/prod_short.md)] must specify your Microsoft 365 email account.
+- Your user account in [!INCLUDE[prod_short](includes/prod_short.md)] must specify your Microsoft 365 email account.
 
-  You can check this setting in the **Microsoft 365 Authentication** section of your user profile in the **Users** list.
-- With [!INCLUDE[prod_short](includes/prod_short.md)], you've set up contact synchronization as described in [Set Up Contact Synchronization with Outlook for Business Central On-premises](admin-contact-sync-setup-onprem.md)
+  You can check this setting in the **Microsoft 365** section of your **User Card**, which you open from the **Users** list.
+- With [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you set up contact synchronization as described in [Set Up contact synchronization with Outlook for Business Central on-premises](admin-contact-sync-setup-onprem.md).
 
-## Set Up Synchronization
+## Set up synchronization
 
 You set up how you want to synchronize contacts with Outlook on the **Exchange Sync. Setup** page in [!INCLUDE[prod_short](includes/prod_short.md)]. 
 
-On the **Exchange Sync. Setup** page, you can validate that the connection to Exchange is working and then set up contact synchronization. From the **Exchange Sync. Setup** page, you can open the **Contact Sync. Setup** page and start the synchronization. Optionally, set a filter to specify which contacts to synchronize. For example, you can filter on name, type, company, and so on. You can also change the default name of the folder in Outlook that the contacts will synchronize to.  
+On the **Exchange Sync. Setup** page, you can validate that the connection to Exchange is working and then set up contact synchronization. From the **Exchange Sync. Setup** page, you can open the **Contact Sync. Setup** page and start the synchronization. Optionally, set a filter to specify which contacts to synchronize. For example, you can filter on name, type, company, and so on. You can also change the default name of the folder in Outlook that the contacts synchronize to.  
 
 Each of your coworkers can also set up their own Exchange synchronization and set their own filters on which contacts to synchronize.  
 
-After you set up synchronization, you can sync changes to the contact manually, or you can automate the process by setting up a job queue entry. For more information about automation, see the next section in this article.
+After you set up synchronization, sync changes manually. Business Central versions 2023 release wave 2 and earlier support automated synchronization. Learn more about automation in the next section of this article.
 
-### Automate synchronization
+## Synchronize contacts
 
-You can create a job queue entry that will synchronize contacts according to a schedule that you define. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md). 
+To sync contacts, select one of these actions on the **Exchange Sync. Setup** page:
 
-The following table lists the settings on the **Job Queue Entry Card** page that are for synchronizing contacts:
+- **Sync with Microsoft 365**
 
-|Field|Setting for Contact Sync|
-|-----|-----|
-|Object Type to Run|Codeunit|
-|Object ID to Run|6700|
+  Synchronize all changes from [!INCLUDE[prod_short](includes/prod_short.md)] to Microsoft 365 that were made after the last synchronization, based on the last modified date. Also, new contacts from Microsoft 365 are synchronized to [!INCLUDE[prod_short](includes/prod_short.md)]. Typically, this action is faster than a full sync. 
 
-## Synchronize Contacts
-
-If you're used to working with contacts in [!INCLUDE[prod_short](includes/prod_short.md)], you'll find it easy to sync manually from the **Contacts** list whenever it suits you. You can synchronize contacts in two ways:
-
-* **Sync with Microsoft 365**
-
-  Synchronize all changes from [!INCLUDE[prod_short](includes/prod_short.md)] to Microsoft 365 that were made after the last synchronization, based on the last modified date. Also, new contacts from Microsoft 365 will be synchronized to [!INCLUDE[prod_short](includes/prod_short.md)]. Typically, this action is faster than a full sync. 
-
-* **Full Sync with Microsoft 365**
+- **Full Sync with Microsoft 365**
 
   Synchronize all contacts in both directions, regardless of the last sync date and last modified date.  
 
-In both cases, contacts are only synchronized from Outlook if they have the required fields filled in. The required fields to synchronize to Microsoft 365 are **Name**, **Email address** and the contact must be of the type **Person**. [!INCLUDE[prod_short](includes/prod_short.md)] is the source of the contact information, so the [!INCLUDE[prod_short](includes/prod_short.md)] contact information will be saved if there are duplicates.  
+In both cases, contacts are only synchronized from Outlook if they have the required fields filled in. The required fields to synchronize to Microsoft 365 are **Name**, **Email address** and the contact must be of the type **Person**. [!INCLUDE[prod_short](includes/prod_short.md)] is the source of the contact information, so the [!INCLUDE[prod_short](includes/prod_short.md)] contact information is saved if there are duplicates.  
 
 > [!NOTE]
-> If you delete a contact in Outlook, but keep it in [!INCLUDE[prod_short](includes/prod_short.md)], the contact will be recreated in Outlook the next time you sync. 
+> If you delete a contact in Outlook, but keep it in [!INCLUDE[prod_short](includes/prod_short.md)], the contact will be recreated in Outlook the next time you sync.
+
+### Automate synchronization (background synchronization)
+
+> [!IMPORTANT]
+> Starting in 2024 release wave 1 (version 24), you can't turn on background synchronization anymore. If it's currently on, it works as expected. If you turn it off, you can't turn it on again.
+
+To automate sync, if the **Enable Background Synchronization** toggle is on, create a job queue entry to sync contacts on a schedule you set. Learn more in [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+The following table lists the settings on the **Job Queue Entry Card** page for syncing contacts:
+
+|Field|Setting for contact sync|
+|-----|-----|
+|Object Type to Run|Codeunit|
+|Object ID to Run|6700|
 
 ## Related information
 
@@ -7670,14 +7766,13 @@ title: Set Up Reminder Terms and Levels
 description: Set up Business Central so you can send reminders about payments due and add charges, or fees because of the delay.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: payment due, debt, overdue, fee, charge, reminder
 ms.search.form: 431, 432, 436, 478
-ms.date: 03/12/2024
+ms.date: 06/10/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 # Set up reminder terms and levels
 
@@ -7691,7 +7786,7 @@ You can use reminders to inform customers about overdue amounts and to request p
 If customers have overdue payments, you must decide when and how to send a reminder. In addition, you might want to debit their accounts for interest or fees. You can set up any number of reminder terms.  
 
 > [!NOTE]
-> If you want to calculate interest on overdue payments, you can do so when you create reminders. If, however, you just want to calculate interest and inform your customers about this without sending a reminder, use a [finance charge memo](finance-setup-finance-charges.md). For more information, see [Reminders](receivables-collect-outstanding-balances.md#reminders) or [Finance Charges](receivables-collect-outstanding-balances.md#finance-charges).
+> If you want to calculate interest on overdue payments, you can do so when you create reminders. If, however, you just want to calculate interest and inform your customers about this without sending a reminder, use a [finance charge memo](finance-setup-finance-charges.md). To learn more, go to [Reminders](receivables-collect-outstanding-balances.md#reminders) or [Finance Charges](receivables-collect-outstanding-balances.md#finance-charges).
 
 ### Set up attachment and email body texts for communications
 
@@ -7770,11 +7865,11 @@ If you create more reminders than you define levels for, the conditions for the 
     For example, if you write **You owe %9 %7 due on %2.**, the reminder contains the following text: **You owe USD 1.200,50 due on 02-02-2024.**.
 
     > [!NOTE]
-    > [!INCLUDE [prod_short](includes/prod_short.md)] calculates the due date according to the date formula that you enter. For more information, see [Use Date Formulas](ui-enter-date-ranges.md#use-date-formulas).
+    > [!INCLUDE [prod_short](includes/prod_short.md)] calculates the due date according to the date formula that you enter. To learn more, go to [Use Date Formulas](ui-enter-date-ranges.md#use-date-formulas).
 
 8. To specify the language for an email message, choose the **Add text for language** action. The **Language Code** field updates to show your selection. On the **Email Text** FastTab, enter the content of the message in the selected language.
 
-After you set up the reminder terms, you can assign them to customers on Customer Card pages. For more information, see [Register New Customers](sales-how-register-new-customers.md).  
+After you set up the reminder terms, you can assign them to customers on Customer Card pages. To learn more, go to [Register New Customers](sales-how-register-new-customers.md).  
 
 ## Related information
 
@@ -7937,9 +8032,9 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Keyboard shortcuts
 description: View a list of key combinations (keyboard shortcuts) that you can use to work efficiently with your data.
 author: jswymer
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: accessibility, shortcuts, keyboarding, keys
-ms.date: 04/03/2025
+ms.date: 05/28/2025
 ms.author: jswymer
 ms.review: jswymer
 ms.service: dynamics-365-business-central
@@ -8122,7 +8217,8 @@ These shortcuts apply to fields on card and document pages when the Autofill fie
 
 | Select these keys<br>(these keys in macOS) | To do this |
 |---|---|
-| <kbd>Alt</kbd>+<kbd>I</kbd> |On a selected field that shows the ![Suggest a value for this field and related fields](media/copilot-star-unfilled.png) icon, ask Copilot to suggest a value for the field and other editable fields in the FastTab.<br><br>On a selected field that includes a suggestion, show details about the suggestion. The shortcut does the same as selecting the ![Show details for a suggestion](media/autofill-info.png) icon.|
+| <kbd>Alt</kbd>+<kbd>I</kbd> |On a selected field that shows the ![Suggest a value for this field and related fields](media/copilot-star-unfilled.png) icon, ask Copilot to suggest a value for the field and other editable fields in the FastTab.|
+| <kbd>Alt</kbd>+<kbd>Up arrow</kbd> |On a selected field that includes a suggestion, show details about the suggestion. The shortcut does the same as selecting the ![Show details for a suggestion](media/autofill-info.png) icon.|
 |<kbd>Backspace</kbd>, <kbd>Delete</kbd>, or <kbd>Escape</kbd>|Discard the suggestion on a selected field to return to the value.|
 |<kbd>F2</kbd>|Edit a suggestion for a selected field.|
 
@@ -11206,12 +11302,9 @@ title: Set up information for contacts
 description: Outlines the tasks to specify information and codes, for example, about industry groups and business relationships, before you set up contacts.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: relationship, prospect
-ms.date: 11/03/2024
+ms.date: 06/13/2025
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 # Set up information for contacts
@@ -11351,7 +11444,7 @@ After you assign business relations to your contacts, you can use this informati
 
 Some information about contact companies is the same for their contact persons. For example, the address details. On the **Inheritance** FastTab on the **Marketing Setup** page, you can specify which fields on the contact card for a company is copied to the contact card for a person each time you create a contact person for the contact company.
 
-When you change the value in one of these fields on the contact company card, the same fields on the contact person card update. The exception is if you manually changed the field on the contact person card.
+When you change the value in one of these fields on the contact company, the same fields update on the contact person. The exception is if you manually change the field on the contact person.
 
 To learn more, go to [Create Contacts](marketing-create-contact-companies.md).
 
@@ -11362,7 +11455,7 @@ You can use the **Defaults** FastTab on the **Marketing Setup** page to specify 
 > [!NOTE]
 > You can also enter a default sales cycle code that application automatically assigns to each new opportunity you create.
 
-The settings for inheritance overwrite the default values you set up. For example, if you have set up English as the default language, but the contact company's language is German, [!INCLUDE [prod_short](includes/prod_short.md)] assigns German as the language code for the contact persons for that company.
+The settings for inheritance overwrite the default values you set up. For example, if you specify English as the default language, but the contact company's language is German, [!INCLUDE [prod_short](includes/prod_short.md)] assigns German as the language code for the contact persons for that company.
 
 ## Synchronize contacts with customers, vendors, and bank accounts
 
@@ -11372,9 +11465,19 @@ To learn more, go to [Synchronizing contacts with customers, vendors, and bank a
 
 ## Search for duplicate contacts
 
-[!INCLUDE [prod_short](includes/prod_short.md)] can automatically search for duplicates each time you create a contact. Or, you can search manually after you create a contact. [!INCLUDE [prod_short](includes/prod_short.md)] can update the search strings automatically each time you change a contact's information or create a contact. You can specify the **Search Hit %**, that is, the percentage of identical strings that two contacts must have to consider them as duplicates. You enter the percentage on the **Duplicates** FastTab on the **Marketing Setup** page.
+When you create a contact, [!INCLUDE [prod_short](includes/prod_short.md)] can automatically search for duplicates. Avoiding duplicate contacts can help ensure that you interact with the right person for the right company.
 
-When you find a duplicate contact, you can use the **Merge Duplicate** page to merge it with a contact record that you want to keep. To learn more, go to [Merge Duplicate Records](sales-how-merge-duplicate-records.md).
+You can specify the percentage of identical data that two contacts must have in order to consider them duplicates. You can also just use the default percentage, which is 60. You specify the percentage on the **Marketing Setup** page by entering a percentage value in the **Search Hit %** field on the **Duplicates** FastTab.
+
+For automatic searches, when you create a contact that already has a business relation to a company, [!INCLUDE [prod_short](includes/prod_short.md)] displays a message to inform you.
+
+To manually search for duplicates, follow these steps:
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Duplicate Contacts**, and then choose the related link.
+2. Choose the **Generate Duplicate Search String** action.
+3. On the **Generate Duplicate Search String** page, enter filter criteria that determine the match, and then choose **OK**.
+
+When you find a duplicate contact, you can use the **Merge Contacts** action to merge it with a contact record that you want to keep. To learn more, go to [Merge Duplicate Records](sales-how-merge-duplicate-records.md). That article describes the process from the Customer Card page, but the steps are the same for contacts.
 
 ## Related information
 
@@ -17465,93 +17568,6 @@ Microsoft currently supports the following localizations:
 
 [Financial Management](finance.md)    
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-browser-settings
----
-title: Setting up your browser
-description: Describes how to set up browsers to work with Business Central and products that integrate with it.
-author: jswymer
-ms.topic: get-started
-ms.devlang: al
-ms.search.keywords: Teams, web client, troubleshooting, errors
-ms.date: 12/04/2023
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
----
-# Setting up and troubleshooting your browser to work with Business Central Web Client
-
-This article explains how to set up your browser so that the [!INCLUDE[web_client](includes/web_client.md)] and all its features work properly. Read this article if you're having problems opening the [!INCLUDE[web_client](includes/web_client.md)], your browser's settings can be the cause of some problems.
-
-The article provides details for setting up Microsoft Edge, but the requirements for JavaScript, cookies, and pop-ups are the same for all supported browsers. For other browsers, refer to the instructions provided by the manufacturer.  
-
-## Use a supported browser
-
-Make sure to use a one of the supported browsers. See [Minimum Requirements for Using Business Central](product-requirements.md#browsers).
-
-We recommend that you use a stable channel version of a web browser as it's the most reliable and stable version that has undergone extensive testing and bug fixing. This ensures that you have the best experience and are less likely to encounter any issues while using the web client.  
-
-## Allow JavaScript from Business Central
-
-*Problem:*
-
-If the browser doesn't allow JavaScript, you see **NotSupported/DisabledJavaScript** in the address bar and an **HTTP Error 404.0 - Not Found** message when you try to open [!INCLUDE[prod_short](includes/prod_short.md)], and the 
-
-<!-- http://localhost:8080/NotSupported/DisabledJavaScript HTTP Error 404.0 - Not Found
-The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. -->
-
-*Fix:*
-
-1. In Microsoft Edge, go to **Settings** > **Cookies and site permissions** > **JavaScript**.
-2. Do one of the following steps. Choose the step that your organization recommends:
-
-    - Move the **Allowed** toggle to the left (Off). Then, select **Add** and type the address (URL) for [!INCLUDE[prod_short](includes/prod_short.md)] in the **Site** box. Select **Add** when done.
-    - Move the **Allowed** toggle to the right (On).
-
-## Allow cookies from Business Central
-
-*Problem:*
-
-If the browser doesn't allow cookies, you get the following error:
-
-**Sorry, the page could not be found. Please check the address and try again.** 
-
-*Fix:*
-
-1. In Microsoft Edge, go to **Settings** > **Cookies and site permissions** > **Cookies and site data**.
-2. Move the **Allow sites to save and read cookie data** toggle to the right (On).  
-
-## <a name="popup"></a>Allow pop-ups from Business Central
-
-[!INCLUDE[prod_short](includes/prod_short.md)] integrates with several products. In some cases, like with Microsoft Teams, [!INCLUDE[prod_short](includes/prod_short.md)] opens, or "pop-ups," within the product. This capability requires that your browser allows pop-ups from [!INCLUDE[prod_short](includes/prod_short.md)].
-
-*Problem:*
-
-If pop-ups for [!INCLUDE[prod_short](includes/prod_short.md)] are being blocked, you get a message similar to the following message:
-
-**Something went wrong. Your browser may be blocking pop-ups needed by Business Central.**
-
-<!--
-Something went wrong
-Your browser may be blocking pop-ups needed by Business Central.
-
-Change your browser settings to allow pop-ups or allow this for trusted domains, then try again.
-If these settings are managed for your organization, you should contact your administrator for assistance.
-
-Try again
--->
-*Fix:*
-
-1. In Microsoft Edge, go to **Settings** > **Cookies and site permissions** > **Pop-ups and redirects**.
-2. Move the **Blocked** toggle to the right (On).
-3. Select **Add**. In the **Site** box, type `https://businesscentral.dynamics.com`, then select **Add**.
-
-## Related information
-
-[Troubleshooting Teams](admin-teams-troubleshooting.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

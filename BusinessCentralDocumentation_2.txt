@@ -1573,7 +1573,7 @@ description: Learn about setting up your chart of accounts (COA) with the ledger
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: how-to
 ms.search.keywords: COA, cha of acc
 ms.search.form: 16_Primary, 17, 18, 118, 386, 391
 ms.date: 05/19/2025
@@ -1589,7 +1589,7 @@ The chart of accounts (COA) shows the ledger accounts that store your financial 
 
 ## Add or change accounts
 
-From the COA, you can open each general ledger (G/L) account and add or change settings. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)] 
+From the COA, you can open each general ledger (G/L) account and add or change settings. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
 If necessary, you can use more than one line for a general ledger account name. On the **G/L Account Card** page, in the **Account** group, choose **Extended Texts**, and then fill in one or more lines with the account name and copied text.  
 
@@ -1883,7 +1883,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
-ms.date: 04/26/2024
+ms.date: 06/10/2025
 ms.custom: bap-template
 ms.search.keywords: kit, kitting
 ms.search.form: 900, 901, 902, 903, 904, 907, 910, 916, 920, 921, 922, 923, 940, 941, 942, 930, 931, 932, 914, 915, 905
@@ -1916,7 +1916,7 @@ To learn more about assemble-to-order items and inventory picks, go to [Handling
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-|**To**|**See**|  
+|To...|Go to...|  
 |------------|-------------|  
 |Learn about assembling items for sales orders and storage.|[Understanding Assemble to Order and Assemble to Stock](assembly-assemble-to-order-or-assemble-to-stock.md)|
 |Use location cards and your inventory setup to define how items flow to and from assembly.|[Set Up Basic Warehouses with Operations Areas](warehouse-how-to-set-up-basic-warehouses-with-operations-areas.md)|
@@ -1931,10 +1931,9 @@ The following table describes a sequence of tasks, with links to the articles th
 |Learn how to work with assembly BOMs and how they differ from production BOMs.|[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)|
 |Learn about posting assembly consumption and output, and how [!INCLUDE [prod_short](includes/prod_short.md)] distributes item and resource costs to the general ledger.|[Design Details: Assembly Order Posting](design-details-assembly-order-posting.md)|  
 
-
 ## Related information
 
-[Assembly report overview](assembly-reports.md)   
+[Assembly report overview](assembly-reports.md)  
 [Work with Bills of Material](inventory-how-work-BOMs.md)  
 [Inventory](inventory-manage-inventory.md)  
 [Warehouse Management Overview](design-details-warehouse-management.md)
@@ -2023,7 +2022,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 05/24/2024
+ms.date: 06/10/2025
 ms.custom: bap-template
 ---
 # Count, adjust, and reclassify inventory using journals
@@ -2034,7 +2033,7 @@ To count some items more often than others, perhaps because of their value, use 
 
 To adjust quantities after a physical count or other purposes, use an item journal to change the inventory ledger entries without posting transactions. You can also adjust the quantity for a single item on an item card.
 
-To change attributes on item ledger entries, use an item reclassification journal. Typical attributes to reclassify include dimensions and sales campaign codes. You can also use reclassification journals for transfers by reclassifying bin and location codes. Special steps apply when you want to reclassify serial or lot numbers and their expiration dates. For more information, see [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
+To change attributes on item ledger entries, use an item reclassification journal. Typical attributes to reclassify include dimensions and sales campaign codes. You can also use reclassification journals for transfers by reclassifying bin and location codes. Special steps apply when you want to reclassify serial or lot numbers and their expiration dates. Learn more at [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
 
 > [!NOTE]
 > In multi-step processes, items are registered in bins as warehouse entries, not as item ledger entries. Therefore, you do counting, adjusting, and reclassifying in warehouse journals that support bins. Then you synchronize the new or changed warehouse entries with their related item ledger entries to reflect the changes in inventory quantities and values.
@@ -2046,7 +2045,8 @@ To change attributes on item ledger entries, use an item reclassification journa
 To check whether the quantity registered is the same as the physical quantity in stock, count your physical inventory. That is, count the actual items on hand. Typically, counts happen at the end of a fiscal year, but some businesses count items more often. If there are differences, post the actual quantities to the item accounts before you do inventory valuation.
 
 > [!NOTE]
-> This procedure describes how to do a physical inventory using a journal on the **Phys. Inventory Journal** page. You can use documents on the **Physical Inventory Order** and **Physical Inventory Recording** pages. These documents offer more control and support for distributing the counting work to multiple employees. Learn more at [Count Inventory Using Documents](inventory-how-count-inventory-with-documents.md).<br /><br />
+> This procedure describes how to do a physical inventory using a journal on the **Phys. Inventory Journal** page. You can use documents on the **Physical Inventory Order** and **Physical Inventory Recording** pages. These documents offer more control and support for distributing the counting work to multiple employees. Learn more at [Count Inventory Using Documents](inventory-how-count-inventory-with-documents.md).
+>
 > Note that you can't use the document-based functionality to count items in bins or warehouse entries.
 
 The counting process also involves the following tasks:
@@ -2055,7 +2055,7 @@ The counting process also involves the following tasks:
 - Print the report you want to use for the count.
 - Enter and post the actual quantities.
 
-Depending on your warehouse setup, count physical inventory in one of the following ways. For more information, see [Setting Up Warehouse Management](warehouse-setup-warehouse.md).  
+Depending on your warehouse setup, count physical inventory in one of the following ways. Learn more at [Setting Up Warehouse Management](warehouse-setup-warehouse.md).  
 
 - If your location doesn't use directed put-away and pick, use the **Phys. Inventory Journal** page. The procedure is similar to physical inventory without cycle counting.  
 - If your location uses directed put-away and picks, use the **Warehouse Physical Inventory Journal** page. Then use the **Item Journals** page to run the **Calculate Warehouse Adjustment** action. <!--We should say what to do on each of these pages.-->
@@ -2096,11 +2096,10 @@ Warehouse employees can now count inventory and record any differences on the pr
 
 3. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.
 4. To verify the count, open the **Item Card** page for the item, and choose the **Phys. Inventory Ledger Entries** action from **Item**
-1. .
 
 ### To calculate the expected inventory in advanced warehouse configurations
 
-Synchronize item ledger and warehouse <!--warehouse what?--> before you count physical inventory. Otherwise, what you post to the physical inventory journal and item ledger is the physical inventory results combined with other warehouse adjustments for the items. Learn more at [Synchronize quantities in the item ledger and warehouse](inventory-how-count-adjust-reclassify.md#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).
+Synchronize item ledger and warehouse data before you count physical inventory. Otherwise, what you post to the physical inventory journal and item ledger is the physical inventory results combined with other warehouse adjustments for the items. Learn more at [Synchronize quantities in the item ledger and warehouse](inventory-how-count-adjust-reclassify.md#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Physical Inventory Journal**, and choose the related link.  
 2. Choose the **Calculate Inventory** action to open the **Whse. Calculate Inventory** page.  
@@ -2122,7 +2121,7 @@ Synchronize item ledger and warehouse <!--warehouse what?--> before you count ph
     When you register the journal, [!INCLUDE [prod_short](includes/prod_short.md)] creates two warehouse entries in the warehouse register for every line that was counted and registered:  
 
     - If the calculated and the actual quantities differ, a negative or positive quantity is registered for the bin, and a balancing quantity is posted to the location's adjustment bin.  
-    - If the calculated quantity equals the physical quantity, [!INCLUDE [prod_short](includes/prod_short.md)] registers **0** for both the bin and the adjustment bin. 
+    - If the calculated quantity equals the physical quantity, [!INCLUDE [prod_short](includes/prod_short.md)] registers **0** for both the bin and the adjustment bin.
 
 When you register physical inventory, you don't post to the item, physical inventory, or the value ledgers. However, the records are available for reconciliation when needed. To keep quantities accurate, after you count items in all bins, post the results.<!--physical inventory journal--> Learn more at [Synchronize quantities in the item ledger and warehouse](inventory-how-count-adjust-reclassify.md#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).
 
@@ -2133,7 +2132,7 @@ You can count items as often as you'd like. For example, because they're more va
 Depending on your warehouse setup, you can do cycle counting in the following ways. Learn more at [Setting Up Warehouse Management](warehouse-setup-warehouse.md).  
 
 - If your location doesn't use directed put-away and picks, use the **Physical Inventory Journal** page. The steps are similar to counting physical inventory without cycle counting.  
-- If your location uses directed put-away and picks, use the **Warehouse Physical Inventory Journal** page. Then use the **Item Journals** page to run the **Calculate Warehouse Adjustment** action. <!--we should say what to do on each of these pages-->  
+- If your location uses directed put-away and picks, use the **Warehouse Physical Inventory Journal** page. Then use the **Item Journals** page to run the **Calculate Warehouse Adjustment** action.  
 
 ### To set up counting periods
 
@@ -2179,20 +2178,18 @@ After you do a physical count of an item, use the **Adjust Inventory** action to
 3. In the **New Inventory** field for the location, enter the result of the count.
 4. Choose the **OK** button.
 
-<!-- I don't see a "Quantity on Hand" field on the Item Card page. Should this point to the options for viewing availability?
-
-The item’s inventory is adjusted. The new quantity is shown in the **Quantity on Hand** field on the **Item Card** page.-->
+The item’s inventory is adjusted. The new quantity is shown in the **Quantity on Hand** field on the **Item Card** page.
 
 You can also use the **Adjust Inventory** action as an easy way to add purchased items to inventory if you don't use purchase invoices or orders to record your purchases. Learn more at [Record Purchases](purchasing-how-record-purchases.md).
 
 > [!NOTE]  
-> After you adjust inventory, update its current value. For more information, see [Revalue Inventory](inventory-how-revalue-inventory.md).
+> After you adjust inventory, update its current value. Learn more at [Revalue Inventory](inventory-how-revalue-inventory.md).
 
 ### To adjust the quantities of multiple items in basic warehouse configurations
 
 On the **Item Journals** page, you can post item transactions directly to adjust inventory for purchases, sales, and positive or negative changes without using documents.
 
-If you often use the item journal to post the same or similar journal lines, for example, for material consumption, the **Standard Item Journal** page can make this recurring work easier. For more information, see [Work with Standard Journals](ui-work-general-journals.md#work-with-standard-journals).
+If you often use the item journal to post the same or similar journal lines, for example, for material consumption, the **Standard Item Journal** page can make this recurring work easier. Learn more at [Work with Standard Journals](ui-work-general-journals.md#work-with-standard-journals).
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Item Journals**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
@@ -2230,7 +2227,6 @@ Post the adjustment bin records in the item ledger for the defined periods. Some
 [Sales](sales-manage-sales.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -2736,7 +2732,7 @@ ms.topic: concept-article
 ms.service: dynamics-365-business-central
 ms.search.keywords: customized report, document layout, logo, personalize
 ms.search.form: 9650, 9652
-ms.date: 12/04/2023
+ms.date: 06/10/2025
 ms.author: jswymer
 ms.reviewer: jswymer
 ---
@@ -3030,7 +3026,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 663,
-ms.date: 05/29/2024
+ms.date: 06/10/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -3573,29 +3569,29 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: undo, credit memo, return
-ms.date: 03/05/2024
+ms.date: 06/10/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 # Correct or cancel unpaid sales invoices
 
-You can correct or cancel an unpaid posted sales invoice, provided that it hasn't been fully shipped. This is useful if you make a mistake or if the customer requests a change before the shipment is complete. In all other scenarios, we recommend that you create a corrective sales credit memo directly. For more information, see [To create a sales credit memo from a posted sales invoice](sales-how-process-sales-returns-cancellations.md#to-create-a-sales-credit-memo-from-a-posted-sales-invoice).  
+You can correct or cancel an unpaid posted sales invoice if it isn't fully shipped. For example, if you make a mistake or if the customer requests a change before the shipment is complete. In all other scenarios, we recommend that you create a corrective sales credit memo. Learn more at [To create a sales credit memo from a posted sales invoice](sales-how-process-sales-returns-cancellations.md#to-create-a-sales-credit-memo-from-a-posted-sales-invoice).  
 
 > [!NOTE]  
-> After a posted sales invoice has been partially or fully paid, you cannot correct or cancel it from the posted sales invoice itself. Instead, you must manually create a sales credit memo to void the sale and reimburse the customer, optionally managed with a sales return order. For more information, see [Process Sales Returns or Cancellations](sales-how-process-sales-returns-cancellations.md).
+> After a posted sales invoice is partially or fully paid, you can't correct or cancel it from the posted sales invoice itself. Instead, you must manually create a sales credit memo to void the sale and reimburse the customer, optionally managed with a sales return order. Learn more at [Process Sales Returns or Cancellations](sales-how-process-sales-returns-cancellations.md).
 
-The difference between canceling or correcting a posted sales invoice that isn't paid or shipped is described in the following table.
+The following table describes the difference between canceling or correcting a posted sales invoice that isn't paid or shipped.
 
 | Action | Description |
 | --- | --- |
 | **Cancel** |The posted sales invoice is canceled. A corrective sales credit memo is automatically created and posted to void the initial posted sales invoice. On the initial posted sales invoice, the **Canceled** and **Paid** checkboxes are selected. |
 | **Correct** |The posted sales invoice is canceled. A new sales invoice with the same information is created, unless the posted sales order was posted from a sales order. In that case, we suggest you cancel the posted sales invoice instead and then make the correction and continue the sales process from the original sales order. <br/><br/>The new sales invoice has a different number than the initial sales invoice. A corrective sales credit memo is automatically created and posted to void the initial posted sales invoice. On the initial posted sales invoice, the **Canceled** and **Paid** checkboxes are selected. |
-|**Create Corrective Credit Memo**|A new sales credit memo is created with the same information. You can adjust the new sales credit memo before posting, and it will be applied to the original invoice when you post it. |
+|**Create Corrective Credit Memo**|A new sales credit memo is created with the same information. You can adjust the new sales credit memo before posting, and it applies to the original invoice when you post it. |
 
-When you correct or cancel a posted sales invoice, the corrective sales credit memo is applied to all general ledger and inventory ledger entries that were created when the initial sales invoice was posted. This reverses the posted sales invoice in your financial records and leaves the corrective posted sales credit memo for your audit trail.  
+The sales credit memo applies to all general ledger and inventory ledger entries that were created when you posted the initial sales invoice. This application reverses the posted sales invoice in your financial records and leaves the corrective posted sales credit memo for your audit trail.  
 
 > [!TIP]
-> If you have posted a prepayment invoice for a sales invoice that you then correct or cancel, you must correct or cancel the prepayment as well. For more information, see [Correct Prepayments](finance-how-to-correct-prepayments.md).
+> If you posted a prepayment invoice for a sales invoice that you correct or cancel, you must correct or cancel the prepayment as well. Learn more at [Correct Prepayments](finance-how-to-correct-prepayments.md).
 
 ## To cancel a posted sales invoice
 
@@ -3603,15 +3599,15 @@ When you correct or cancel a posted sales invoice, the corrective sales credit m
 2. Select the posted sales invoice that you want to cancel.
 
     > [!NOTE]  
-    > If the **Canceled** checkbox is selected, then you cannot cancel the posted sales invoice because it has already been canceled or corrected.
+    > If the **Canceled** field is set to **Yes**, the posted sales invoice is already corrected or canceled.
 3. On the **Posted Sales Invoice** page, choose the **Cancel** action.
 
-    A sales credit memo is automatically created and posted to void the initial posted sales invoice. The **Canceled** field on the initial posted sales invoice is changed to **Yes**.
+    A sales credit memo is automatically created and posted to void the initial posted sales invoice. The **Canceled** field on the initial posted sales invoice is set to **Yes**.
 4. Choose **Show Corrective Credit Memo** to view the posted sales credit memo that voids the initial posted sales invoice.
 
 ### Partial invoice posting also supported
 
-If the cancellation is related to a partial invoice posting, then the originating sales order line is updated to reflect the canceled invoiced quantity. The **Qty. to Invoice** and **Qty. Invoiced** fields on the related sales order line are reset to the values before the partial posting.
+If the cancellation is related to a partial invoice posting, the originating sales order line is updated to reflect the canceled invoiced quantity. The **Qty. to Invoice** and **Qty. Invoiced** fields on the related sales order line reset to the values before the partial posting.
 
 ## To correct a posted sales invoice
 
@@ -3619,11 +3615,11 @@ If the cancellation is related to a partial invoice posting, then the originatin
 2. Select the posted sales invoice that you want to correct.
 
     > [!NOTE]  
-    >   If the **Canceled** checkbox is selected, you can't correct the posted sales invoice because it has already been corrected or canceled.
+    > If the **Canceled** field is set to **Yes**, the posted sales invoice is already corrected or canceled.
 3. On the **Posted Sales Invoice** page, choose the **Correct** action.  
 
     > [!NOTE]
-    > If the sales invoice was posted from a sales order, we recommend that you *cancel* this sales invoice and then process the correction from the original sales order. If the original sales order has been deleted, such as if it has been fully shipped, you can create a new sales order by using the **Copy Document** action. For more information, see [To create a sales credit memo by copying a posted sales invoice](sales-how-process-sales-returns-cancellations.md#to-create-a-sales-credit-memo-by-copying-a-posted-sales-invoice).
+    > If the sales invoice was posted from a sales order, we recommend that you *cancel* this sales invoice and then process the correction from the original sales order. If the original sales order was deleted, such as if it was fully shipped, you can create a new sales order by using the **Copy Document** action. Learn more at [To create a sales credit memo by copying a posted sales invoice](sales-how-process-sales-returns-cancellations.md#to-create-a-sales-credit-memo-by-copying-a-posted-sales-invoice).
 4. A new sales invoice with the same information is created where you can make the correction. The **Canceled** field on the initial posted sales invoice is changed to **Yes**.
 
     A sales credit memo is automatically created and posted to void the initial posted sales invoice.
@@ -3635,7 +3631,6 @@ If the cancellation is related to a partial invoice posting, then the originatin
 [Setting Up Sales](sales-setup-sales.md)  
 [Send Documents by Email](ui-how-send-documents-email.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4090,6 +4085,77 @@ The following table describes the standard payment application rules in [!INCLUD
 [Sales](sales-manage-sales.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/powerbi-back-links
+---
+title: Use back links to explore aggregated data in visuals  
+description: When you're analyzing a visual in Power BI, back links let you go to the data behind the graphic.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: overview
+ms.service: dynamics-365-business-central
+ms.search.keywords: privacy, trial, Microsoft services
+ms.date: 06/11/2025
+ms.custom: bap-template
+---
+
+# Use back links to explore the data behind visuals
+
+Back links make it easy to go from the aggregated data in reports in Power BI to the transactional data or source documents behind it in [!INCLUDE [prod_short](includes/prod_short.md)]. The connection between the visuals and the backstory lets you quickly validate, audit, and reconcile figures.
+
+## Where you can expect to find back links
+
+Back links are added to tables and matrices that display aggregated values or detail entries in Power BI. Some examples include:
+
+- [**Daily Sales by Date**](sales-powerbi-daily-sales.md): Quickly go to detailed sales transactions for a specific day.
+- [**Income Statement by Month**](finance-powerbi-income-statement.md): View the underlying G/L entries for monthly financial summaries.
+- [**Moving Annual Total Details**](purchases-powerbi-moving-annual-total.md): Drill down to transaction-level details for moving annual totals.
+
+## How back links work
+
+Back links use custom Data Analysis Expressions (DAX) measures to dynamically generate web URLs that link to the [!INCLUDE [prod_short](includes/prod_short.md)] instance connected to the Power BI report.
+
+The DAX measure retrieves and concatenates the **Tenant ID**, **Environment Name**, and **Company Name** from the report parameters and queries.
+
+The filter context in Power BI, such as the **Date** filter, and other key fields construct the URL. The URL filters the relevant transactions or documents in [!INCLUDE [prod_short](includes/prod_short.md)] that correspond to the data displayed in the Power BI report.
+
+## Example
+
+This example uses the [**Income Statement by Month**](finance-powerbi-income-statement.md) matrix in the Power BI Finance App to illustrate the advantages that back links provide.
+
+The **Income Statement by Month** matrix in Power BI shows aggregated financial figures by G/L accounts and months.
+
+Without back links, you typically need to:
+
+1. Drill through the numbers in Power BI.
+2. Manually note the entry numbers.
+3. Reconcile and locate the entries in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+However, with back links:
+
+- Links are added to both Level 1 accounts and sublevel accounts in the matrix.
+- Clicking a back link takes you to the detailed entries in [!INCLUDE [prod_short](includes/prod_short.md)] that make up the aggregated figure.
+- If a **Date Filter** is applied in Power BI, the URL includes it to filter the transactions in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+For example, to show the transactions that make up the figure of the "5460 Cost of Capacities" account for January 2021, the URL displays the filtered G/L entries in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+:::image type="content" source="media/powerbi-back-links-income-statement-by-month.png" alt-text="Screenshot of the Income Statement by Month Power BI report with back links." lightbox="media/powerbi-back-links-income-statement-by-month.png":::
+
+:::image type="content" source="media/powerbi-back-links-filtered-gl-entries.png" alt-text="Screenshot of the General Ledger Entries that make up the aggregated figure in Power BI" lightbox="media/powerbi-back-links-filtered-gl-entries.png":::
+
+## Limitations
+
+Currently, back links don't consider all visual and page filters applied in the Power BI report. The URL includes only **Date Filters**.
+
+## Related information
+
+[Install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)]](across-powerbi-install-business-central-apps.md)  
+[Power BI apps/reports for functional areas](across-powerbi-apps-by-functional-area.md)  
+[Frequently asked questions about the Power BI apps in Business Central](across-powerbi-apps-faq.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4794,11 +4860,11 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-service
 ---
 title: Service Management
-description: Learn to use features in Business Central designed manage and track services to support repair shop and field service operations.
+description: Learn to use features in Business Central designed to support service operations.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: get-started
 ms.search.keywords:
 ms.date: 05/19/2025
 ms.service: dynamics-365-business-central
@@ -4809,7 +4875,7 @@ ms.custom: bap-template
 > [!NOTE]
 > The functionality described in this article and related articles is only available if you have the **Premium** experience. To learn more, go to [Change Which Features are Displayed](ui-experiences.md).
 
-Providing ongoing service to customers is an important part of any business and one that can be a source of customer satisfaction and loyalty, in addition to revenue. However, managing and tracking service isn't always easy, and [!INCLUDE[prod_short](includes/prod_short.md)] provides a set of tools to help. These tools are designed to support repair shops and field service operations, and support typical scenarios for those businesses:
+Providing ongoing service to customers is an important part of any business and one that can be a source of customer satisfaction and loyalty, in addition to revenue. However, managing and tracking service isn't always easy, so [!INCLUDE[prod_short](includes/prod_short.md)] provides a set of tools to help. These tools are designed to support repair shops and field service operations, and support typical scenarios for those businesses:
 
 * Schedule service calls.
 * Manage service orders.  
@@ -6634,13 +6700,13 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: reject, delegate, request
 ms.search.form: 654, 662, 1500, 
-ms.date: 05/07/2024
+ms.date: 06/10/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 # How to use approval workflows
 
-When a record, such as a purchase document or a customer card, needs to be approved by someone in your organization, you send an approval request as part of a workflow. Based on how the workflow is set up, the appropriate approver is then notified that the record requires their approval.
+When someone must approve a record, such as a new purchase document or customer, you can send an approval request as part of a workflow. Based on how you set up the workflow, the appropriate approver is notified that the record requires their approval.
 
 You set up approval workflows on the **Workflow** page. You must also set up approval users, including any relevant amount limits, on the **Approval User Setup** page. Learn more at [Set Up Approval Workflows](across-set-up-workflows.md).  
 
@@ -6650,44 +6716,44 @@ Core approval workflows for purchases documents, sales documents, payment journa
 
 ## Request a record approval
 
-The following task is performed by an approval user.
+An approval user does the following task.
 
 1. On the page that presents the record, choose the **Send Approval Request** action.
 2. To see all your approval requests, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Approval Request Entries**, then choose the related link.  
 
-The status of the approval entry is updated from **Created** to **Open**. The status of the record, such as a purchase invoice, is updated from **Open** to **Pending Approval** and remains locked for processing until all approvers have approved the record.
+The status of the approval entry is updated from **Created** to **Open**. The status of the record, such as a purchase invoice, is updated from **Open** to **Pending Approval** and remains locked for processing until all approvers approve the record.
 
-When all required approvers have approved the record, the status changes to **Released**. You can then continue working with the record.
+After all required approvers approve the record, the status changes to **Released**. You can then continue working with the record.
 
 ## Cancel approval requests
 
-The following task is performed by an approval user with approver rights.
+An approval user with approver rights can cancel approval requests.
 
-A customer may want to change an order after it's been submitted for approval. In this case, you can cancel the approval process, make the necessary changes to the order, then request approval again.
+A customer might want to change an order after it's submitted for approval. In this case, you can cancel the approval process, make the necessary changes to the order, and request approval again.
 
 - On the page displaying the record, choose the **Cancel Approval Request** action.
 
-When the approval request has been canceled, the status of the related approval entry is changed to **Canceled**. The status of the record is updated from **Pending Approval** to **Open**. At this point, the approval process can start again.
+When an approval request was canceled, the status of the related approval entry changes to **Canceled**. The status of the record updates from **Pending Approval** to **Open**. At this point, the approval process can restart.
 
 ## Approve or reject approval requests
 
-The following task is performed by an approval user with approver rights.
+An approval user with approver rights can approve or reject approval requests.
 
 You can process approval requests on the **Requests to Approve** page, including approving multiple requests at a time. Alternatively, you can approve individual records by choosing the link in the notification that you receive.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Requests to Approve**, and then choose the related link.
-2. Select one or more lines of the record(s) you want to approve or reject.
+2. Select one or more lines of the records you want to approve or reject.
 3. Choose the **Approve**, **Reject**, or **Delegate** actions.
 
-When a record has been approved or rejected, the approval status in the **Status** field changes to **Approved** or **Rejected**, respectively.
+When a record is approved or rejected, the approval status in the **Status** field changes to **Approved** or **Rejected**, respectively.
 
-If an approver hierarchy is set up, the record status is **Pending Approval** until all requested approvers have approved the record. Then the record status changes to **Released**.
+If an approver hierarchy is set up, the record status is **Pending Approval** until all requested approvers approve the record. Then the record status changes to **Released**.
 
-At the same time, the approval status changes from **Created** to **Open** as soon as an approval request for the record is created. If the request is rejected, the approval status changes to **Rejected**. The status remains **Open** or **Rejected** until all approvers have approved the request.
+At the same time, the approval status changes from **Created** to **Open** as soon as an approval request for the record is created. If the request is rejected, the approval status changes to **Rejected**. The status remains **Open** or **Rejected** until all approvers approve the request.
 
 ## Delegate approval requests
 
-The following task is performed by an approval user with approver rights.
+An approval user with approver rights can delegate approval requests.
 
 To prevent records from piling up or otherwise blocking the workflow, the approver and the approval administrator can delegate an approval request to a substitute approver. The substitute can either be a designated substitute, the direct approver, or the approval administrator, in that order of priority. You typically use this feature if an approver is unavailable or unable to approve requests before the due date.
 
@@ -6698,11 +6764,9 @@ A notification to approve the request is sent to the substitute approver.
 
 ## Manage overdue approval requests
 
-The following task is performed by an approval user with approver rights.
+An approval user with approver rights can remind approval workflow users of overdue approval requests. Use the **Send Overdue Approval Notifications** action to do so.
 
-At regular intervals you'll need to remind approval workflow users of overdue approval requests; you'll use the **Send Overdue Approval Notifications** function to do so.
-
-The **Send Overdue Approval Notifications** function checks for all open approval requests currently overdue. Each approver with at least one overdue approval entry receives a notification with the list of all their overdue approval requests. The notification is also sent to their approver and all the requesters of the overdue approvals. This last step helps if the overdue approval entry must be delegated to a substitute.
+The **Send Overdue Approval Notifications** action checks for all open approval requests currently overdue. Each approver with at least one overdue approval entry receives a notification with the list of all their overdue approval requests. The notification is also sent to their approver and all the requesters of the overdue approvals. This last step helps if the overdue approval entry must be delegated to a substitute.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Overdue Approval Requests**, and then choose the related link.
 2. On the **Overdue Approval Requests** page, choose the **Send Overdue Approval Notifications** action.
@@ -7750,12 +7814,12 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-depreciation-methods
 ---
-title: Depreciation Methods for Fixed Assets
+title: Depreciation methods for fixed assets
 description: Learn about the different built-in methods to depreciate or write-down fixed assets.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: write down, depreciate, depreciation
 ms.search.form: 5611, 5629, 5633
 ms.date: 05/19/2025
@@ -8646,14 +8710,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-WMS-reports
 ---
 title: Inventory and warehouse reports and analytics
-description: See which inventory and warehouse reports and analytics are available in the standard version of Business Central so that you can keep track of your business.
+description: Explore the inventory and warehouse reports and analytics that are available in the standard version of Business Central.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: reporting
 ms.search.form: Report_704, Report_707, Report_711, Report_713, Report_716, Report_813, Report_1001, Report_5806, Report_5807, Report_5808, Report_5809, Report_7150, Report_7151, Report_7313, Report_7319, Report_7320
-ms.date: 08/15/2024
+ms.date: 06/12/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -13452,21 +13516,21 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-work-item-tracking
 ---
 title: Track items with serial, lot, and package numbers
-description: You can add serial numbers, lot numbers, and package numbers to any outbound or inbound document, and its posted item tracking entries are displayed in the related item ledger entries.
+description: You can add serial numbers, lot numbers, and package numbers to outbound or inbound document. The posted item tracking entries display on their item ledger entries.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.forms: 6503, 6515, 6513, 6512, 6502, 6506, 6501, 6510, 6507, 6500, 6505, 6508, 9126, 6526, 6516, 6511, 6504, 6509, 163, 6550, 
-ms.date: 05/16/2024
+ms.date: 06/10/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
 # Track items with serial, lot, and package numbers
 
-You can assign serial numbers, lot numbers, and package numbers to any outbound or inbound document, and its posted item tracking entries display on the related item ledger entries. You track items on the **Item Tracking Lines** page, which you can open from inbound or outbound documents.
+You can assign serial numbers, lot numbers, and package numbers to outbound and inbound documents. The posted item tracking entries display on the related item ledger entries. You track items on the **Item Tracking Lines** page, which you can open from inbound or outbound documents.
 
-The quantity fields at the top of the **Item Tracking Lines** page display the quantities and sums of item tracking numbers that are defined on the lines. The quantities must correspond to those on the document lines, which is indicated by *0* in the **Undefined** fields.
+The quantity fields at the top of the **Item Tracking Lines** page display the quantities and sums of item tracking numbers that are defined on the lines. The quantities must correspond to the quantities on the document lines, which is indicated by *0* in the **Undefined** fields.
 
 [!INCLUDE [prod_short](includes/prod_short.md)] updates the availability information on the **Item Tracking Lines** page when you open the page. It doesn't update the information while you have the page open, even if changes occur in inventory or on other documents during that time.
 
@@ -13479,8 +13543,8 @@ When you work with serial, lot, and package numbers, [!INCLUDE[prod_short](inclu
 
 On the **Item Tracking Lines** page, a warning icon might display in the **Availability, Lot No.** or **Availability, Serial No.** field for the following reasons:
 
-* If some or all of the quantity you've selected is already used in other documents.
-* If the lot or serial number isn't available.
+* Some or all of the quantity you selected is already used in other documents.
+* The lot or serial number isn't available.
 
 The **Lot No./Serial No.-List**, **Lot No./Serial No.-Availability**, and the **Item Tracking - Select Entries** pages show the quantity of an item that's in use. The following table lists the relevant fields.
 
@@ -13489,10 +13553,10 @@ The **Lot No./Serial No.-List**, **Lot No./Serial No.-Availability**, and the **
 |**Total Quantity**|The total number of an item currently in inventory.|
 |**Total Requested Quantity**|The total number of items that are requested in this and other documents.|
 |**Current Pending Quantity**|The number of items that are requested on the current document but that isn't posted.|
-|**Current Requested Quantity**|The number of items that are requested that will be used on the current document|
-|**Total Available Quantity**|The total number of items in inventory, minus the quantity of the item that's requested on this and other documents (total requested quantity), and minus the quantity that's requested but not yet posted on this document (current pending quantity).|
+|**Current Requested Quantity**|The number of requested items that the current document will use.|
+|**Total Available Quantity**|The total number of items in inventory, minus the quantity of the requested item on this and other documents (total requested quantity), minus the requested quantity that isn't yet posted on this document (current pending quantity).|
 
-If you work on the **Item Tracking Lines** page for a long time, or if there's a lot of activities with the item you're working with, you can choose the **Refresh Availability** action. Also, the availability of the item is automatically rechecked when you close the page to confirm that there aren't availability problems.
+If you work on the **Item Tracking Lines** page for a long time, or if its a popular item involved in many activities, you can choose the **Refresh Availability** action. Also, the availability of the item is automatically rechecked when you close the page to confirm that there aren't availability problems.
 
 ## To assign serial or lot numbers during an inbound transaction
 
@@ -13511,7 +13575,7 @@ The tracking numbers automatically transfer to all outbound warehouse activities
    * Manually, by assigning a specific number to each item unit.  
 
 4. To assign automatically, choose the **Create Customized SN** action.  
-5. In the **Customized SN** field, enter the starting number of a descriptive serial number series. For example **S/N-Vend0001**.  
+5. In the **Customized SN** field, enter the starting number of a descriptive serial number series. For example, **S/N-Vend0001**.  
 6. In the **Increment** field, enter 1 to define that each sequential number increases by one.  
 
     The **Quantity to Create** field contains the line quantity by default, but you can modify it.  
@@ -13521,7 +13585,7 @@ The tracking numbers automatically transfer to all outbound warehouse activities
 
 [!INCLUDE [prod_short](includes/prod_short.md)] creates a lot number with individual serial numbers according to the item quantity on the document line. The number is prefixed with the value you entered in the **Customized SN** field. For example, starting from **S/N-Vend0001**.  
 
-The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to those on the document lines, which is indicated by **0** in the **Undefined** field.  
+The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to the quantities on the document lines, which is indicated by **0** in the **Undefined** field.  
 
 When you post the document, the item tracking entries transfer to the item ledger entries.
 
@@ -13557,12 +13621,12 @@ You can't change the **Serial No.** and **Lot No.** fields. However, you can del
 
 Outbound handling of serial or lot numbers is a frequent task in different warehouse processes. There are two ways to add serial and lot numbers to outbound transactions:  
 
-* Select from existing serial or lot numbers. This applies when item tracking numbers are already assigned in an inbound transaction.
-* Assign new serial or lot numbers for outbound transactions. This applies when item tracking numbers aren't assigned to items until they're sold and ready to ship.
+* Select from existing serial or lot numbers. This selection applies when item tracking numbers are already assigned in an inbound transaction.
+* Assign new serial or lot numbers for outbound transactions. This assignment applies when item tracking numbers aren't assigned to items until they're sold and ready to ship.
 
 ### To select from existing serial or lot numbers  
 
-When you work with items that require item tracking, and you're creating outbound transactions, you'll typically need to select lot or serial numbers that already exist.
+When you work with items that require item tracking, and you're creating outbound transactions, you'll typically from select existing lot or serial numbers.
 
 1. From any outbound document, select the line that you want to select serial or lot numbers for.  
 2. On the **Lines** FastTab, choose the **Line** action, then **Related Information**, and then select **Item Tracking Lines**.  
@@ -13575,13 +13639,13 @@ When you work with items that require item tracking, and you're creating outboun
 4. In the **Selected Quantity** field, enter the quantity of each lot or serial number to use.
 5. Choose the **OK** button. The item tracking information transfers to the **Item Tracking Lines** page.  
 
-The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to those of the document line, which is indicated by **0** in the **Undefined** field.  
+The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to the quantities on the document line, which is indicated by **0** in the **Undefined** field.  
 
 When you post the document line, the item tracking information transfers to the associated item ledger entries.
 
 ### To assign new serial or lot numbers  
 
-This process applies when items don't have serial or lot numbers while they're in inventory. Instead, you assign item tracking numbers when the items are sold and ready to be shipped. In this case, you'll typically assign numbers from a predefined number series.
+This process applies when items don't have serial or lot numbers while they're in inventory. Instead, you assign item tracking numbers when the items are sold and ready to be shipped. In this case, you typically assign numbers from a predefined number series.
 
 1. Select the relevant document, for example a sales invoice or sales order, and on the **Lines** FastTab, choose the **Line** action, then **Related Information**, and then choose the **Item Tracking Lines** action.  
 
@@ -13596,7 +13660,7 @@ This process applies when items don't have serial or lot numbers while they're i
 3. Select the **Create New Lot No.** field to organize the new serial numbers in a distinct lot.  
 4. Choose the **OK** button to create a lot number and new individual serial numbers according to the quantity to handle on the related document line.  
 
-The quantity fields at the top dynamically display the quantities and sums of the item tracking numbers that you define on the page. The quantities must correspond to those of the document line, which is indicated by **0** in the **Undefined** field.  
+The quantity fields at the top dynamically display the quantities and sums of the item tracking numbers that you define on the page. The quantities must correspond to the quantities on the document line, which is indicated by **0** in the **Undefined** field.  
 
 When the document is posted, the item tracking entries transfer to the item ledger entries.
 
@@ -13606,7 +13670,7 @@ Some companies define specific serial or lot numbers on source document, such as
 
 ## To handle serial and lot numbers on transfer orders
 
-Procedures for handling serial and lot numbers that are being transferred between different locations are similar to those applied when items are sold and purchased.  
+Procedures for handling serial and lot numbers that you transfer between different locations are similar to when you sell or purchase items.  
 
 However, transfer orders are unique in that shipment and receipt are both done from the same transfer line and use the same instance of the **Item Tracking Lines** page. Item tracking numbers that shipped from one location must be received unchanged at the other location.
 
@@ -13614,13 +13678,13 @@ However, transfer orders are unique in that shipment and receipt are both done f
 2. Open the transfer order you want to process. On the **Lines** FastTab, choose the **Line** action, choose the **Item Tracking Lines** action, and then choose the **Shipment** action.  
 3. On the **Item Tracking Lines** page, assign or select serial or lot numbers as for any other outbound item transaction.  
 
-    When you handle serial and lot numbers for transfer items, numbers are typically already assigned numbers. Therefore, you'll often choose from existing serial or lot numbers.  
+    When you handle serial and lot numbers for transfer items, numbers are often already assigned numbers. Therefore, you typically choose from existing serial or lot numbers.  
 
 4. Post the transfer order, first ship and then receive, to record that the items are transferred and carry their item tracking entries.  
 
 During the transfer, you can't change values on the **Item Tracking Lines** page.  
 
-## To record additional serial or lot number information
+## To record extra serial or lot number information
 
 If you need to link special information to an item tracking number, for example, for quality assurance, you can do so on a serial or lot number information card.
 
@@ -13651,7 +13715,7 @@ You can't change the serial or lot numbers or quantities. To do that, you must r
 
 ## To reclassify serial or lot numbers
 
-Reclassifying item tracking for an item means changing a lot or serial number to a new lot or serial number, or changing the expiration date to a new expiration date. If you use lots, you can also merge multiple lots into one. Use an item reclassification journal to do these tasks.
+Reclassifying item tracking for an item means to change a lot or serial number to a new lot or serial number, or changing the expiration date to a new expiration date. If you use lots, you can also merge multiple lots into one. Use an item reclassification journal to do these tasks.
 
 > [!NOTE]
 > [!INCLUDE [prod_short](includes/prod_short.md)] verifies that each line has a unique combination of serial, lot, and/or package numbers. If you want to split a lot, package, or a lot and package into several lots or packages, you must use multiple journal lines.
@@ -13669,9 +13733,9 @@ Reclassifying item tracking for an item means changing a lot or serial number to
 
     > [!IMPORTANT]  
     > * If you're reclassifying a lot to the same lot number but with a different expiration date, you must reclassify the entire lot using one item reclassification journal line.
-    > * If you're reclassifying more than one lot to one new lot number, meaning that you are merging more than one lot into one new lot, you must enter the same new expiration date for all the lots. 
-    > * If you're reclassifying one existing lot to a second existing lot that has a different expiration date, you must use the expiration date from the second lot. 
-    > * If you leave the **New Expiration Date** field blank, the lot or serial number will be reclassified with a blank expiration date.  
+    > * If you're reclassifying more than one lot to one new lot number, meaning you're merging several lots into one new lot, you must give all lots the the same new expiration date.
+    > * If you're reclassifying one existing lot to a second existing lot that has a different expiration date, you must use the expiration date from the second lot.
+    > * If you leave the **New Expiration Date** field blank, the lot or serial number is reclassified with a blank expiration date.  
 
 7. If you have existing information on the old serial or lot number, you can copy it to the new serial or lot number.  
 
@@ -15074,9 +15138,9 @@ description: Set up workflows, workflow users and approval users to connect busi
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: overview
 ms.search.keywords:
-ms.date: 12/09/2024
+ms.date: 06/12/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -15092,7 +15156,7 @@ On the **Workflow** page, you create a workflow by listing the involved steps on
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-|**To**|**See**|  
+|To...|Go to...|  
 |------------|-------------|  
 |Set up workflow users and user groups.|[Set Up Workflow Users](across-how-to-set-up-workflow-users.md)|  
 |Set up workflow users who take part in approval workflows.|[Set Up Approval Users](across-how-to-set-up-approval-users.md)|  
@@ -15129,9 +15193,9 @@ description: This topic describes how the costing method affects how actual and 
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 05/29/2024
+ms.date: 06/12/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -15140,7 +15204,7 @@ ms.custom: bap-template
 The costing method determines whether an actual or a budgeted value is capitalized and used in the cost calculation. Together with the posting date and sequence, the costing method also influences how the cost flow is recorded.
 
 > [!NOTE]
-> You cannot change an item's costing method if item ledger entries exist for the item. For more information, see [Design Details: Change the Costing Method for Items](design-details-changing-costing-methods.md).
+> You can't change an item's costing method if item ledger entries exist for the item. Learn more at [Design Details: Change the Costing Method for Items](design-details-changing-costing-methods.md).
 
 The following methods are supported in [!INCLUDE[prod_short](includes/prod_short.md)]:  
 
@@ -15236,7 +15300,7 @@ For items using the **Standard** costing method, inventory increases are valued 
 
 - **Average**  
 
-    For items using the **Average** costing method, inventory decreases are valued by calculating a weighted average of the remaining inventory on the last day of the average cost period in which the inventory decrease was posted. For more information, see [Design Details: Average Cost](design-details-average-cost.md).  
+    For items using the **Average** costing method, inventory decreases are valued by calculating a weighted average of the remaining inventory on the last day of the average cost period in which the inventory decrease was posted. Learn more at [Design Details: Average Cost](design-details-average-cost.md).  
 
      The following table shows how inventory decreases are valued for the **Average** costing method.  
 
@@ -19000,7 +19064,7 @@ ms.search.keywords: reporting
 ms.search.form: 37106_Primary
 ms.date: 04/29/2025
 ms.service: dynamics-365-business-central
-ROBOTS: NOINDEX
+
 ---
 
 # Project Timeline (Power BI Report)
@@ -22130,96 +22194,6 @@ This mistake often happens when entering an opening balance for a bank account. 
 [Setting Up Banking](bank-setup-banking.md)  
 [Set Up Rules for Automatic Application of Payments](receivables-how-set-up-payment-application-rules.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-drop-shipment
----
-title: Make drop shipments
-description: Describes how to create a sales order linked to a purchase order to enable shipment directly from the vendor to the customer.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: direct shipment
-ms.date: 05/28/2024
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Make drop shipments
-
-A drop shipment is the shipment of items from one of your vendors directly to one of your customers.
-
-When a sales order is marked for drop shipment, and you create a purchase order specifying the customer in the **Ship-to** field, **Customer Address**, you can link the two documents to instruct the vendor to ship directly to the customer.
-<br><br>  
-  
-> [!Video https://learn-video.azurefd.net/vod/player?id=58c81aa9-7190-476a-9fd9-75a9841549f7]
-
-## To create a sales order for drop shipment
-
-To prepare a drop shipment, you create a sales order for an item and indicate on the sales line that the sale requires drop shipment.
-
-1. Create a sales order for an item. For more information, see [Sell Products](sales-how-sell-products.md).
-2. On the sales order line for the drop shipment, select the **Drop Shipment** checkbox. Alternatively, in the **Purchasing Code** field, select a purchasing code that has the **Drop Shipment** field selected.
-
-> [!TIP]
-> By default, the Drop Shipment checkbox and Purchasing Code field aren't available on the lines. If they aren't, you can add them by personalizing the section of page that contains the lines. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
-
-## To create the purchase order for drop shipment
-
-To prepare a drop shipment, you indicate on the purchase order that it must be shipped to your customer, not to yourself.
-
-1. Create a purchase order. Don't fill any fields on the lines. For more information, see [Record Purchases](purchasing-how-record-purchases.md).
-2. In the **Ship-to** field, select **Customer Address**.
-3. In the **Customer** field, select the customer that you're selling to.
-4. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
-5. On the **Sales List** page, select the sales order that you prepared in [To create a sales order for drop shipment](#to-create-a-sales-order-for-drop-shipment).
-6. Choose the **OK** button.
-
-The line information from the sales order is inserted on the purchase order line(s).
-
-You can now tell your vendor to ship the items directly to the customer. For example, you might send them the order by email.
-
-If your vendor provides additional information, such as a tracking number, you can add that information as a comment on a purchase order line. To add a comment on a line, in the **Type** field, choose **Comment**, and then enter the information in the **Description** field.  
-
-## To create multiple purchase orders for drop shipments
-
-You can also use the requisition worksheet to create purchase orders. The advantage of using the requisition worksheet is that it can create purchase orders for all outstanding drop shipments. That means you won't have to create each order individually.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Requisition Worksheets**, and then choose the related link.
-2. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
-3. If needed, enter filter criteria for the orders you wan to get, and then choose the **OK** button.
-4. Review the purchase order lines, and in the **Vendor No.** field, select the vendor that supplies the goods.
-5. Choose the **Carry Out Action Message** action to convert the lines to a purchase order.
-
-## To view the linked purchase order from the sales order
-
-Select the drop-shipment sales order line, choose the **Order** action, choose the **Drop Shipment** action, and then choose the **Purchase Order** action.
-
-## To post a drop shipment
-
-After the vendor ships the items, you can post the sales order as shipped. You can also post the purchase order, but only with the **Receive** option until the sales order has been invoiced.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.
-2. Open the sales order that you created in [To create a sales order for drop shipment](#to-create-a-sales-order-for-drop-shipment).
-3. In the **Qty. to Ship** field, specify how many of the order quantity to ship, the full or a partial order quantity.
-4. Choose the **Post** or **Post and Send** action.
-5. Choose either the **Ship** option to invoice later, or the **Ship and Invoice** option to invoice immediately.
-
-> [!TIP]
-> Don't forget that you need to post the purchase order invoice.
-
-## Related information
-
-[Create Special Orders](sales-how-to-create-special-orders.md)  
-[Purchase Items for a Sale](purchasing-how-purchase-products-sale.md)  
-[Sell Products](sales-how-sell-products.md)  
-[Record Purchases](purchasing-how-record-purchases.md)  
-[Sales](sales-manage-sales.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
