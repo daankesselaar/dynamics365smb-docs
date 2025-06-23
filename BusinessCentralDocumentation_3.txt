@@ -4631,9 +4631,9 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: multiple currencies, adjust exchange rates, FX rates
 ms.search.form: 5, 118
-ms.date: 08/12/2024
+ms.date: 06/16/2025
 ms.custom: bap-template
-ms.service: dynamics-365-business-central
+
 ---
 
 # Update currency exchange rates
@@ -4643,11 +4643,11 @@ If you trade in different currencies, you need to keep track of the changes in c
 ## Currencies
 
 > [!TIP]  
-> In [!INCLUDE[prod_short](includes/prod_short.md)], you can find real-time information about foreign exchange (FX) rates or historical rates under the term currency. For more information, see [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
+> In [!INCLUDE[prod_short](includes/prod_short.md)], you can find real-time information about foreign exchange (FX) rates or historical rates under the term currency. To learn more, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
 
 [!INCLUDE [finance-currencies-def](includes/finance-currencies-def.md)]
 
-You can specify the currency codes in the **Currencies** list, including extra information and settings that are necessary for each currency code. For more information, see [Currencies](finance-set-up-currencies.md#curr)
+You can specify the currency codes in the **Currencies** list, including extra information and settings that are necessary for each currency code. To learn more, go to [Currencies](finance-set-up-currencies.md#curr)
 
 ### Example of a receivable currency transaction
 
@@ -4668,7 +4668,7 @@ The exchange rates are the tool to calculate the local currency value (LCY) of e
 |**Relational Adjmt Exch. Rate Amt**|The rate for the currency code selected on the line for the use of the **Adjust Exchange Rates** batch job.|  
 |**Fix Exchange Rate Amount**|Specifies if the currency's exchange rate can be changed on invoices and journal lines.|  
 
-In general, the values of the **Exchange Rate Amount** and **Relational Exchange Rate Amount** fields are used as the default currency rate on all new receivables and payables documents that are created going forward. The document is assigned the currency rate according to the current working date.  
+In general, the values of the **Exchange Rate Amount** and **Relational Exchange Rate Amount** fields are used as the default currency rate on all new receivables and payables documents that are created going forward. The currency rate is assigned to the document according to the current working date.  
 
 > [!Note]
 > The actual currency rate is calculated using this formula:
@@ -4689,7 +4689,7 @@ Because exchange rates fluctuate constantly, you need to adjust other currency e
 You can use the **Adjust Exchange Rates** batch job to manually adjust the exchange rates for posted customer, vendor, and bank account entries. The batch job can also update other reporting currency amounts on G/L entries.  
 
 > [!TIP]
-> You can use a service to update exchange rates automatically. For more information, see [To set up a currency exchange rate service](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service). However, this doesn't adjust exchange rates on already posted transactions. To update exchange rates on posted entries, use the **Adjust Exchange Rates** batch job.
+> You can use a service to update exchange rates automatically. To learn more, go to [To set up a currency exchange rate service](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service). However, this doesn't adjust exchange rates on already posted transactions. To update exchange rates on posted entries, use the **Exchange Rates Adjustment** batch job.
 
 You can also specify how the adjustment handles dimensions for unrealized gains and losses postings by choosing one of the following options in the **Dimension Posting** field:  
 
@@ -4698,10 +4698,13 @@ You can also specify how the adjustment handles dimensions for unrealized gains 
 * **G/L Account Dimensions**: Transfer dimension values from the unrealized gains and losses G/L account's dimension settings source entry to G/L entries.
 
 > [!NOTE]
-> To use the preview capability, you need to turn on the **Feature Update: Enable use of new extensible exchange rate adjustment, including posting review** feature on the **[Feature Management](https://businesscentral.dynamics.com/?page=2610)** page.
+> This capability isn't available in the Swiss version right now, but it's coming soon. We're working on it.
 
 > [!NOTE]
-> This capability isn't available in the Swiss version right now, but it's coming soon. We're working on it.
+> [!INCLUDE [prod_short](includes/prod_short.md)] doesn't consider dimensions for individual entries when you adjust exchange rates for additional reporting currencies. Dimensions aren't copied to the G/L entries if you set up the **Exchange Rate Adjustment** batch job with:
+>
+> * The **Adjust G/L Accounts for Add.-Reporting Currency** toggle turned on.
+> * **Source Entry Dimensions** selected in the **Dimension Posting** field.
 
 ## Preview the effect of an adjustment
 
@@ -4726,7 +4729,7 @@ For bank accounts, the batch job adjusts the currency by using the exchange rate
 
 #### Dimensions on bank account entries
 
-The adjustment entries for the bank account's general ledger account and the gain/loss account are assigned the bank account's default dimensions.
+The bank account's default dimensions are assigned to the adjustment entries for the bank account's general ledger account and the gain/loss account.
 
 ### Effect on G/L accounts
 
@@ -4734,10 +4737,10 @@ If you post in another reporting currency, the batch job can create new general 
 
 #### Dimensions on G/L account entries
 
-The adjustment entries are assigned the default dimensions from the accounts they're posted to.
+Adjustment entries are assigned the default dimensions from the accounts they posted to.
 
 > [!Important]
-> Before you can use the batch job, you need to enter the adjustment exchange rates that are used to adjust the foreign currency balances. You do so on the **Currency Exchange Rates** page.<br><br>  
+> Before you can use the batch job, enter the adjustment exchange rates that are used to adjust the foreign currency balances. You do so on the **Currency Exchange Rates** page.<br><br>  
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=e871f958-fe42-4cf3-bb8a-e97f4c7658de]
 
@@ -4746,7 +4749,7 @@ The adjustment entries are assigned the default dimensions from the accounts the
 You can use an external service to keep your currency exchange rates up to date.
 
 > [!NOTE]
-> Most exchange rate services provide data that is compatible with the import process in [!INCLUDE[prod_short](includes/prod_short.md)]. However, sometimes the data is formatted differently and you need to customize your import process. You can use the data exchange framework to do that by adding your own codeunit. You'll probably need some help from a developer to do that. For more information, see [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
+> Most exchange rate services provide data that is compatible with the import process in [!INCLUDE[prod_short](includes/prod_short.md)]. However, sometimes the data is formatted differently and you need to customize your import process. You can use the data exchange framework to do that by adding your own codeunit. You might need some help from a developer to do that. To learn more, go to [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
 
 1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Currency Exchange Rate Services**, and then select the related link.
 2. Select the **New** action.
@@ -4771,17 +4774,17 @@ Follow the steps given to update the currency exchange rates through a service:
 
 ## Correct mistakes
 
-Every now and then you might need to correct a mistake in a payment transaction that's associated with adjustments to foreign currency gains and losses. You can use the **Reverse transaction** action on the **Bank Account Ledger Entries**, **Customer Ledger Entries**, and **Vendor Ledger Entries** pages to unapply and reverse the payment transaction.
+Every now and then, you might need to correct a mistake in a payment transaction for adjustments to foreign currency gains and losses. You can use the **Reverse transaction** action on the **Bank Account Ledger Entries**, **Customer Ledger Entries**, and **Vendor Ledger Entries** pages to unapply and reverse the payment transaction.
 
 > [!NOTE]
-> When you unapply and reverse a payment for an entry that had currency exchange rate adjustments associated with it, the reversal posts reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
+> When you unapply and reverse a payment for an entry that had exchange rate adjustments, the reversal posts reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
 
 ## Related information
 
-[Currencies in Business Central](finance-currencies.md)    
-[Set Up Currencies](finance-set-up-currencies.md)    
-[Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md)    
-[Closing Years and Periods](year-close-years-periods.md)    
+[Currencies in Business Central](finance-currencies.md)  
+[Set Up Currencies](finance-set-up-currencies.md)  
+[Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md)  
+[Closing Years and Periods](year-close-years-periods.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -6444,22 +6447,22 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: contact, prospect, client
 ms.search.forms: 9076, 9026
-ms.date: 06/06/2024
+ms.date: 06/17/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 
 ---
 # Managing relationships
 
-The relationship management features of [!INCLUDE[prod_short](includes/prod_short.md)] help you manage and support your sales efforts. With these features, you have access to complete and accurate information so you can focus your interactions on preferred customer/contact segments.
+The relationship management features of [!INCLUDE[prod_short](includes/prod_short.md)] help you manage and support your sales efforts. With these features, you have access to complete and accurate information so you can focus your interactions with customer and contact segments.
 
 Good sales and marketing practices are all about how to make the best decisions at the right time. [!INCLUDE[prod_short](includes/prod_short.md)] provides a precise and timely overview of your contact information so that you can serve your prospective customers more efficiently and increase customer satisfaction.
 
 The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-| To | See |
+| To... | Go to... |
 | --- | --- |
 |Define default settings for the use of contacts and interactions and set up number series.|[Setting Up Relationship Management](marketing-setup-marketing.md)|
 |Define the external entities that you have business relations with. For example, customers, prospective customers, vendors, lawyers, and consultants, either as Person type or Company type.|[Managing Contacts](marketing-contacts.md)|
@@ -6470,6 +6473,9 @@ The following table describes a sequence of tasks, with links to the articles th
 |Create marketing plans to identify, attract, and retain customers.|[Managing Marketing Campaigns](marketing-campaigns.md)|
 |Use Dynamics 365 Sales for customer engagement and enjoy seamless integration in the lead-to-cash process. Use [!INCLUDE [prod_short](includes/prod_short.md)] for backend activities such as processing orders, managing inventory, and doing your finances.|[Integrating with Dynamics 365 Sales](marketing-integrate-dynamicscrm.md)|
 
+## Related information
+
+[Relationship management reports in Business Central](marketing-reports.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11558,7 +11564,7 @@ ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.keywords: print check, vendor payment, creditor, debt, balance due, AP
 ms.search.form: 254, 256, 1190, 1191, 1227, 1228, 1229
-ms.date: 07/15/2024
+ms.date: 06/15/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -11572,11 +11578,11 @@ From the payment journal, you can print computer checks or record when checks ar
 
 After you post payments, you can export them to a bank file you can upload to your bank for processing.
 
-After the payments are made at your bank, you must apply them to their related open vendor or employee ledger entries. You can apply them manually or by importing a bank statement file and applying the payments automatically. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
+After the payments are made at your bank, you must apply them to their related open vendor or employee ledger entries. You can apply them manually or by importing a bank statement file and applying the payments automatically. To learn more, go to [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
+| To... | Go to... |
 | --- | --- |
 |Understand basic functions of the **Payment Journal** page, which is a based on the general journal, to prepare to post payments to vendors or employees.|[Work with General Journals](ui-work-general-journals.md)|
 |Post payments to vendors or employees and refunds to customers, and optionally apply the payments to the related unpaid invoices/credit memos to close them as paid.|[Record Payments and Refunds](payables-how-post-payments-refunds.md)|
@@ -11592,7 +11598,6 @@ The following table describes a sequence of tasks, with links to the articles th
 [Purchasing](purchasing-manage-purchasing.md)  
 [Managing Receivables](receivables-manage-receivables.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -12228,27 +12233,25 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-install-uninstall
 ---
-title: Install and Uninstall Apps
+title: Install and uninstall apps
 description: Learn how you can install and uninstall apps and extensions in Business Central.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: solsen
 ms.topic: install-set-up-deploy
-ms.date: 06/26/2024
+ms.date: 06/17/2025
 ms.custom: bap-template
 ms.search.keywords: app, add-in, manifest, customize, install, uninstall
 ms.search.form: 2500, 2514, 20350
 ms.service: dynamics-365-business-central
 ---
 
-# Install and Uninstall Extensions (Apps) in Business Central
+# Install and uninstall extensions (apps) in Business Central
 
-You can change [!INCLUDE[prod_short](includes/prod_short.md)] by installing apps that, for example, add functionality, change behavior, or give you access to new online services. For more information, see [Customizing Business Central Using Extensions](ui-extensions.md).
+You can change [!INCLUDE[prod_short](includes/prod_short.md)] by installing apps that, for example, add functionality, change behavior, or give you access to new online services. To learn more, go to [Customizing Business Central Using Extensions](ui-extensions.md).
 
 > [!NOTE]
-> To install or uninstall apps from AppSource or add per-tenant apps, you must have the right permissions. You must either be a member of the D365 Extension MGT user group or you must have the EXTEND. MGT. - ADMIN permission set. If you're an administrator, you can assign user groups and permissions to other users in your company. To learn more about user groups and permissions, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
->
-> To use the functionality that is provided by an extension, such as opening pages, running reports, selecting actions, and so on, you must be assigned the permission sets that are installed as part of the extension.
+> To install or uninstall apps from AppSource or add per-tenant apps, you must have the right permissions. You must either be a member of the **D365 Extension MGT** user group, or you must have the **EXTEND. MGT. - ADMIN** permission set. If you're an administrator, you can assign user groups and permissions to other users in your company. To learn more about user groups and permissions, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
 
 To use an extension, you must be assigned the permission sets that come with it.
 
@@ -12261,11 +12264,11 @@ You can get new apps from the marketplace at [AppSource.microsoft.com](https://g
 > [!NOTE]  
 > Sign in to [AppSource.microsoft.com](https://appsource.microsoft.com/) using the email account that you use for [!INCLUDE[prod_short](includes/prod_short.md)]. Use the same email account for other services and products for a smooth experience.  
 
-You can also get to AppSource from [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Extension Management** page, you can see the apps that are currently installed, and you can open the **Microsoft AppSource Apps** page that shows the [!INCLUDE[prod_short](includes/prod_short.md)] apps that are currently available in AppSource. If you choose the **View AppSource** action, you're taken to [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). For more information, see [Manage AppSource apps](admin-manage-appsource-apps.md).  
+You can also get to AppSource from [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Extension Management** page, you can see the apps that are currently installed, and you can open the **Microsoft AppSource Apps** page that shows the [!INCLUDE[prod_short](includes/prod_short.md)] apps that are currently available in AppSource. If you choose the **View AppSource** action, you're taken to [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). To learn more, go to [Manage AppSource apps](admin-manage-appsource-apps.md).  
 
-Choose an app to learn about what it does, and you can access Help for the app to learn more. When you choose to get an app, you must agree to its terms of use. If you get the app from the AppSource website, you'll be signed in to [!INCLUDE[prod_short](includes/prod_short.md)] to complete the installation.  
+Choose an app to learn about what it does, and you can access Help for the app to learn more. When you choose to get an app, you must agree to its terms of use. If you get the app from the AppSource website, you're signed in to [!INCLUDE[prod_short](includes/prod_short.md)] to complete the installation.  
 
-After you install an app, you might have to set it up. Some apps require that you provide some information before you can use them. For example, after you install the **PayPal Payments Standard** app, you must specify the email or the Merchant account ID for your PayPal account. To set up an app, or to find out what information you'll need, on the **Installed Extensions** page, choose the **Set up** action.  
+After you install an app, you might have to set it up. Some apps require that you provide some information before you can use them. For example, after you install the **PayPal Payments Standard** app, you must specify the email or the Merchant account ID for your PayPal account. To set up an app, or to find out what information you need, on the **Installed Extensions** page, choose the **Set up** action.  
 
 Other apps simply add fields to an existing page, or they add a new page, for example.
 
@@ -12301,28 +12304,28 @@ Microsoft provides the following apps:
 
 ## Set up an app
 
-After you install an app, you might have to set it up. For example, for the **PayPal Payments Standard for [!INCLUDE[prod_short](includes/prod_short.md)]** app you must specify the PayPal account to use. If that's the case, when installation completes [!INCLUDE[prod_short](includes/prod_short.md)] will ask whether you want to set up the app right away. Setups can be required for the app to work, or optional.
+After you install an app, you might have to set it up. For example, for the **PayPal Payments Standard for [!INCLUDE[prod_short](includes/prod_short.md)]** app you must specify the PayPal account to use. If that's the case, when installation completes [!INCLUDE[prod_short](includes/prod_short.md)] asks whether you want to set up the app right away. Setups can be required for the app to work, or optional.
 
-If you choose to set up your app right away, and it has a required setup, [!INCLUDE[prod_short](includes/prod_short.md)] will open the required setup. The setup can be either a page where you enter information, or an assisted setup guide that helps you through the steps. If you don't complete the setup in one go, you can use the **Setups for _name of app_** page, which lists all setups for the app. Required setups indicated by **bold letters**.
+If you choose to set up your app right away, and it has a required setup, [!INCLUDE[prod_short](includes/prod_short.md)] opens the required setup. The setup can be either a page where you enter information, or an assisted setup guide that helps you through the steps. If you don't complete the setup in one go, you can use the **Setups for _name of app_** page, which lists all setups for the app. Required setups indicated by **bold letters**.
 
 ## Upload a per-tenant extension (PTE)
 
-You upload a PTE by using the **Extension Management** page. On the **Extension Management** page, go to **Manage**, then choose **Upload Extension**. On the **Upload and Deploy Extension** page, specify the .app file to upload. To proceed, choose the **Accept** button, and then the **Deploy** button, which will start the process of deploying the PTE.
+You upload a PTE by using the **Extension Management** page. On the **Extension Management** page, go to **Manage**, then choose **Upload Extension**. On the **Upload and Deploy Extension** page, specify the .app file to upload. To proceed, choose the **Accept** button, and then the **Deploy** action to  start deploying the PTE.
 
-If the PTE contains breaking schema changes, it's possible to *force* an upload of it. To do that, in **Schema Sync Mode** choose the **Force** option. You'll get a confirmation dialog to accept before proceeding.  
+If the PTE contains breaking schema changes, it's possible to *force* an upload of it. To do that, in **Schema Sync Mode** choose the **Force** option, and then confirm that you want to proceed. 
 
 ## Uninstall an app
 
 You uninstall an app by using the **Extension Management** page. To uninstall an app, select it on the page, then select the **Uninstall** action. If you uninstall an app, and you then change your mind, you can install the app again.
 
-By default, when you uninstall an app that you've been using your data isn't deleted. If you're sure you won't install the app again, and you can delete the data when you uninstall it. To delete data when you uninstall an app, turn on the **Delete Extension Data** toggle. You'll get a confirmation dialog, and you must choose **Yes** to turn it on. After the **Delete Extension Data** switch is turned on, you can uninstall the app, and you'll be asked to reconfirm that you want to uninstall the app and delete the data.
+By default, when you uninstall an app that you've been using your data isn't deleted. If you're sure you won't reinstall the app, you can delete the data when you uninstall it. To delete data when you uninstall an app, turn on the **Delete Extension Data** toggle and then confirm your action. Afterward, you can uninstall the app. Reconfirm that you want to uninstall the app and delete the data.
 
 > [!IMPORTANT]  
-> * There might be apps that require or depend on the app that you want to uninstall. These apps are referred to as *dependents*. You can't uninstall an app unless you also uninstall its dependents. When you uninstall an app that has dependents, a dialog lists the dependents. To continue, you'll have to select **Yes** to uninstall the app and its dependents.
-> * If you turn on the **Delete Extension Data** toggle, uninstalling the app will delete all data for the app *plus* data for all dependent apps. The action can't be undone.
+> * There might be apps that require or depend on the app that you want to uninstall. These apps are referred to as *dependents*. You can't uninstall an app unless you also uninstall its dependents. When you uninstall an app that has dependents, a dialog lists the dependents. To continue, select **Yes** to uninstall the app and its dependents.
+> * If you turn on the **Delete Extension Data** toggle, uninstalling the app deletes all data for the app *plus* data for all dependent apps. The action can't be undone.
 > * Some apps are required and you can't delete them on the **Extension Management** page.  
 
-If you want to keep the data for an uninstalled app, you can delete the data later. The **Delete Orphaned Extension Data** page lists the apps that you still have data for. To delete the data, choose the app, and then choose **Delete Data**. 
+If you want to keep the data for an uninstalled app, you can delete the data later. The **Delete Orphaned Extension Data** page lists the apps that you still have data for. To delete the data, choose the app, and then choose **Delete Data**.
 
 ## Related information
 
@@ -12337,7 +12340,6 @@ If you want to keep the data for an uninstalled app, you can delete the data lat
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13373,7 +13375,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: payment process, cash receipt
 ms.search.form: 25, 255
-ms.date: 06/21/2024
+ms.date: 06/17/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -13382,17 +13384,17 @@ ms.custom: bap-template
 When you receive a cash payment from a customer or give a cash refund, you can apply the payment or refund to close open debits or credits. You can specify the amount to apply. For example, you can apply partial payments to customer ledger entries. Closing customer ledger entries keeps customer statistics, account statements, finance charges, and so on, up-to-date.
 
 > [!TIP]  
-> On the **Customer Ledger Entries** page, red font means that the related payment is past its due date. If overdue payments are becoming a problem, we can help you reduce their frequency. You can enable the **Late Payment Prediction Setup** extension, which uses a predictive model that we built in Azure Machine Learning to predict the timing of payments. These predictions help you reduce outstanding receivables and fine-tune your collections strategy. For example, if a payment is predicted to be late, you can adjust the terms of payment or the payment method for the customer. For more information, see [Late Payment Predictions](ui-extensions-late-payment-prediction.md).  
+> On the **Customer Ledger Entries** page, red font means that the related payment is past its due date. If overdue payments are becoming a problem, we can help you reduce their frequency. You can enable the **Late Payment Prediction Setup** extension, which uses a predictive model that we built in Azure Machine Learning to predict the timing of payments. These predictions help you reduce outstanding receivables and fine-tune your collections strategy. For example, if a payment is predicted to be late, you can adjust the terms of payment or the payment method for the customer. To learn more, go to [Late Payment Predictions](ui-extensions-late-payment-prediction.md).  
 
 You can apply customer ledger entries in several ways:
 
 * Enter information on the following pages:
-   * The **Payment Reconciliation Journals** page. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
-   * The **Payment Registration Setup** page. For more information, see [Reconcile Customer Payments from a List of Unpaid Sales Documents](receivables-how-reconcile-customer-payments-list-unpaid-sales-documents.md).
-   * The **Cash Receipt Journals** page. For more information, see [To fill and post a cash receipt journal](#to-fill-and-post-a-cash-receipt-journal).
-* By filling in the **Applies-to Doc. No.** field on sales credit memo documents. For more information, see [To apply a credit memo to a single customer ledger entry](#to-apply-a-credit-memo-to-a-single-customer-ledger-entry).
-* By using the **Set Applies-to ID** action on a customer ledger entry. For more information, see [To apply a payment to a single customer ledger entry](#to-apply-a-payment-to-a-single-customer-ledger-entry).
-* By using the **Apply Entries** action on the **Bank Deposit** page, and then entering the invoice number in the **Applies-to ID** field. For more information, see [Create Bank Deposits](bank-create-bank-deposits.md).
+   * The **Payment Reconciliation Journals** page. To learn more, go to [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
+   * The **Payment Registration Setup** page. To learn more, go to [Reconcile Customer Payments from a List of Unpaid Sales Documents](receivables-how-reconcile-customer-payments-list-unpaid-sales-documents.md).
+   * The **Cash Receipt Journals** page. To learn more, go to [To fill and post a cash receipt journal](#to-fill-and-post-a-cash-receipt-journal).
+* By filling in the **Applies-to Doc. No.** field on sales credit memo documents. To learn more, go to [To apply a credit memo to a single customer ledger entry](#to-apply-a-credit-memo-to-a-single-customer-ledger-entry).
+* By using the **Set Applies-to ID** action on a customer ledger entry. To learn more, go to [To apply a payment to a single customer ledger entry](#to-apply-a-payment-to-a-single-customer-ledger-entry).
+* By using the **Apply Entries** action on the **Bank Deposit** page, and then entering the invoice number in the **Applies-to ID** field. To learn more, go to [Create Bank Deposits](bank-create-bank-deposits.md).
 
 > [!NOTE]  
 > If the **Application Method** field on the customer card contains **Apply to Oldest**, payments are applied to the oldest open credit entry, unless you manually specify an entry. If the application method is **Manual**, you always apply entries manually.
@@ -13411,7 +13413,7 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 6. Use the **External Document No.** field to store an identifier, such as the customer's check number.
 
    > [!NOTE]
-   > By default, the External Document No. field is hidden. If it is, and you want to use it, you can use personalization to add it. For more information, see [Personalize your workspace](ui-personalization-user.md).
+   > By default, the External Document No. field is hidden. If it is, and you want to use it, you can use personalization to add it. To learn more, go to [Personalize your workspace](ui-personalization-user.md).
 
 7. In the **Account Type** field, select **Customer**.
 8. In the **Account No.** field, select the customer.
@@ -13432,7 +13434,7 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 8. On the **Apply Customer Entries** page, select the entry to apply the payment to.
 9. In the **Amount to Apply** field, enter the amount you want to apply to the entry. If you don't enter an amount, the maximum amount is applied.
 
-    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+    The **Apply Customer Entries** page shows the specific amount in the **Applied Amount** field, and whether the application balances.  
 10. Choose the **OK** button. The **Cash Receipt Journal** page now shows the entry in the **Applies-to Doc. Type** and **Applies-to Doc. No.** fields.
 11. Post the cash receipt journal.
 
@@ -13449,7 +13451,7 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 9. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID** action.  
 10. On each line, in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.
 
-    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+    The **Apply Customer Entries** page shows the specific amount in the **Applied Amount** field, and whether the application balances.  
 11. Choose the **OK** button.
 12. Post the cash receipt journal.
 
@@ -13460,7 +13462,7 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 3. To apply the credit memo to a single customer ledger entry when posting, in the **Applies-to Doc. No.** field, select the entry to which you want to apply the payment.
 4. On the line in the **Amount to Apply** field, enter the amount you want to apply to the entry.  
 
-    If you don't enter an amount, application automatically applies the maximum amount. At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+    If you don't enter an amount, application automatically applies the maximum amount. The **Apply Customer Entries** page shows the specific amount in the **Applied Amount** field, and whether the application balances.  
 5. Choose the **OK** button. The **Sales Credit Memo** page now shows the entry you selected in the **Applies-to Doc. Type** and **Applies-to Doc. No.** fields. And the amount of the credit memo to be posted, adjusted for any possible payment discounts.
 6. Post the credit memo.
 
@@ -13472,7 +13474,7 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 4. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID** action.
 5. On each line, in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.  
 
-    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field and also whether the application balances.  
+    The **Apply Customer Entries** page shows the specific amount in the **Applied Amount** field, and whether the application balances.  
 6. Choose the **OK** button. The **Sales Credit Memo** page now shows the amount of the credit memo to be posted, adjusted for any possible payment discounts.
 7. Post the credit memo.
 
@@ -13485,17 +13487,17 @@ A cash receipt journal is a type of general journal. You can use it to post tran
 5. Select the lines with the entries that you want the applying entry to be applied to, and then choose the **Set Applies-to ID.** action.
 6. For each line in the **Amount to Apply** field, enter the amount you want to apply to the individual entry. If you don't enter an amount, the maximum amount is applied.  
 
-    At the bottom of the **Apply Customer Entries** page, you can see the specific amount in the **Applied Amount** field.  
+    The **Apply Customer Entries** page shows the specific amount in the **Applied Amount** field.  
 7. Choose the **Post Application** action. The **Post Application** page appears with the document number of the applying entry and the posting date of the entry with the most recent posting date.  
 8. Choose the **OK** button to post the application.
 
     If the posted application resulted in closed customer ledger entries, the **Open** field is cleared for these ledger entries.  
-9. To see the ledger entries, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link. Browse to the card for the relevant customer to see the ledger entries.  
+9. To access the ledger entries, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link. Browse to the card for the customer to access the ledger entries.  
 
-On the ledger entry list, on the line that contains the ledger entry that was fully applied to, you can see that the **Open** check box isn't selected.  
+On the ledger entry list, on the line that contains the ledger entry that was fully applied to, notice that the **Open** checkbox isn't selected.  
 
 > [!NOTE]  
-> After you select an entry on the **Apply Customer Entries** page, or several entries by setting the **Applies-to ID**, the **Applied Amount** field on the journal line will contain the sum of the remaining amounts for the posted entries you've selected, unless the field contains something already. If you select **Apply to Oldest** in the **Application Method** field on the customer card, the application occurs automatically.
+> After you select an entry on the **Apply Customer Entries** page, or several entries by setting the **Applies-to ID**, the **Applied Amount** field on the journal line contains the sum of the remaining amounts for the posted entries you selected, unless the field contains something already. If you select **Apply to Oldest** in the **Application Method** field on the customer card, the application occurs automatically.
 
 ## To apply customer ledger entries in different currencies to one another
 
@@ -13503,7 +13505,7 @@ If you sell to a customer in one currency and receive payment in another currenc
 
 Here's an example. You apply Entry A in one currency to Entry B in another currency. The posting date on Entry A is used to find the exchange rate to use to convert amounts on Entry B. The exchange rate is found on the **Currency Exchange Rates** page.  
 
-Applying customer ledger entries in different currencies must be enabled. For more information, see [Enable Application of Ledger Entries in Different Currencies](finance-how-enable-application-ledger-entries-different-currencies.md).  
+Applying customer ledger entries in different currencies must be enabled. To learn more, go to [Enable Application of Ledger Entries in Different Currencies](finance-how-enable-application-ledger-entries-different-currencies.md).  
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Receipts Journal**, and then choose the related link.
 2. Open the journal you want, and fill in the first empty journal line using a currency code.
@@ -13513,9 +13515,10 @@ Applying customer ledger entries in different currencies must be enabled. For mo
 6. Post the sales journal.  
 
 > [!IMPORTANT]  
->   When you apply entries in different currencies, the entries are converted to USD. Although the exchange rates for the two currencies are fixed, for example between USD and EUR, there may be a small residual amount when they are converted to USD. These small residual amounts are posted as gains and losses to the account specified in the **Realized Gains Account** or **Realized Losses Account** fields on the **Currencies** page. The **Amount (USD)** field is also adjusted on the vendor ledger entries.  
+> When you apply entries in different currencies, the entries are converted to USD. Although the exchange rates for the two currencies are fixed, for example between USD and EUR, there might be a small residual amount when they convert to USD. These small residual amounts are posted as gains and losses to the account specified in the **Realized Gains Account** or **Realized Losses Account** fields on the **Currencies** page. The **Amount (USD)** field is also adjusted on the vendor ledger entries.  
 
 ## To correct an application of customer entries
+
 When you correct an application, correcting entries are created and posted for all entries. The correcting entries are the same as the originals but have an opposite sign in the **Amount** field. The correcting entries include all general ledger entries derived from the application. For example, the payment discount and currency gains/losses. The entries that the application closed are reopened.  
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
@@ -13527,13 +13530,13 @@ When you correct an application, correcting entries are created and posted for a
 7. Fill in the fields in the header, and then choose the **Unapply** action.  
 
 > [!IMPORTANT]  
->   If an entry has been applied by more than one application entry, you must unapply the latest application entry first.  
+> If an entry was applied by more than one application entry, unapply the latest application entry first.  
 
 ## Related information
+
 [Managing Receivables](receivables-manage-receivables.md)  
 [Sales](sales-manage-sales.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -14433,24 +14436,24 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: overview
-ms.devlang: al
 ms.search.keywords: vendor payment, creditor, debt, balance due, AP
 ms.search.form: 161, 254, 256, 347, 574, 599, 9002
-ms.date: 07/12/2024
+ms.date: 06/17/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Managing payables
 
 A large part of managing accounts payable is paying your vendors, or reimbursing your employees for expenses. You can use functions to add payments lines for purchase invoices that are due on the **Payment Journal** page. To send transactions to your bank, you can export multiple payment journal lines to a file, and then upload the file to your bank. You can also make payments by check, including transmitting checks as electronic payments.
 
-Another typical task is to apply outgoing payments to their related vendor or employee ledger entries in order to close purchase invoices, purchase credit memos, or employee accounts as paid. You can do this on the **Payment Reconciliation Journal** page by importing a bank statement file to register the payments. The payments are applied to open vendor, customer, or employee ledger entries by matching payment text and entry information. There are various ways to review and change the matches before you post the journal. You can choose to close any open bank account ledger entries related to the applied ledger entries when you post the journal. The bank account is automatically reconciled when all payments are applied.
+Another typical task is to apply outgoing payments to their related vendor or employee ledger entries in order to close purchase invoices, purchase credit memos, or employee accounts as paid. You apply outgoing payments to entries on the **Payment Reconciliation Journal** page by importing a bank statement file to register the payments. The payments are applied to open vendor, customer, or employee ledger entries by matching payment text and entry information. There are various ways to review and change the matches before you post the journal. You can choose to close any open bank account ledger entries related to the applied ledger entries when you post the journal. The bank account is automatically reconciled when all payments are applied.
 
 Alternatively, you can apply outgoing payments manually on the **Payment Journal** page or from the related vendor or employee ledger entries.
 
 The following table describes a sequence of tasks within accounts payable, with links to the articles that describe them.
 
-| To | See |
+| To... | Go to... |
 | --- | --- |
 | Analyze accounts payable data with Power BI, Data analysis, or Excel. | [Built-in accounts payable reports](payables-reports.md) |
 | Generate due vendor payments or employee reimbursements, prepare check payments, and export payments to a bank file when posting. |[Making Payments](payables-make-payments.md) |
@@ -14460,14 +14463,14 @@ The following table describes a sequence of tasks within accounts payable, with 
 |Reimburse employees for personal expenses during business activities by making payment to their bank account.|[Record and Reimburse Employees' Expenses](finance-how-record-reimburse-employee-expenses.md)|
 
 ## Related information
-[Purchasing](purchasing-manage-purchasing.md)    
-[Managing Receivables](receivables-manage-receivables.md)    
-[Use Item Charges to Account for Additional Trade Costs](payables-how-assign-item-charges.md)    
-[General Business Functionality](ui-across-business-areas.md)    
+
+[Purchasing](purchasing-manage-purchasing.md)  
+[Managing Receivables](receivables-manage-receivables.md)  
+[Use Item Charges to Account for Additional Trade Costs](payables-how-assign-item-charges.md)  
+[General Business Functionality](ui-across-business-areas.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

@@ -3640,17 +3640,17 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Assign item charges to sales and purchases
 description: Assign item charges when you need inventory items to carry added costs, such as freight and physical handling.
 author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: transportation, added cost, landed cost
 ms.search.form: 5709, 5800, 5805, 5814
-ms.date: 07/19/2024
-ms.author: bholtorf
+ms.date: 06/17/2025
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
-# Use item charges to account for additional trade costs
+# Use item charges to account for extra trade costs
 
 To ensure correct valuation, your inventory items must carry any added costs, such as freight, physical handling, insurance, and transportation that you incur when purchasing or selling the items. For purchases, the landed cost of a purchased item consists of the vendor's purchase price and all other direct item charges that can be assigned to individual receipts or return shipments. For sales, knowing the cost of shipping sold items can be as vital to your company as knowing the landed cost of purchased items.
 
@@ -3664,7 +3664,7 @@ Before you can assign item charges, you must set up item charge numbers for the 
 
 For both purchase and sales documents, you can assign an item charge in two ways:
 
-* On the document that lists the items that the item charge relates to. Typically, you do this for documents that aren't yet fully posted.
+* On the document that lists the items that the item charge relates to. Typically, you use this method for documents that aren't yet fully posted.
 * On a separate invoice by linking the item charge to a posted receipt or shipment where the items that the item charge relates to are listed.
 
 > [!NOTE]  
@@ -3717,7 +3717,7 @@ If you received an invoice for the item charge after you posted the original pur
 3. On the **Purch. Receipt Lines** page, select the posted purchase receipt for the item that you want to assign the item charge to, and then choose the **OK** button.
 4. Choose the **Suggest Item Charge Assignment** action.
 
-The item charge on the separate purchase invoice is now assigned to the item on the posted purchase receipt, thereby updating the item's inventory value with the cost of the item charge.
+The item charge on the separate purchase invoice is now assigned to the item on the posted purchase receipt. The item's inventory value updates with the cost of the item charge.
 
 ## Handle item charges for partial receipts
 
@@ -5005,7 +5005,7 @@ Intrastat reporting is based on basic EU regulations that apply to all countries
 > [!NOTE]  
 > Intrastat information doesn't apply to the movement of services between countries/regions, but only goods (Items and Fixed Assets). If the local government requires registering the movement of services between countries/regions, it can be done using the **Service Declaration** feature.
 >
-> This features is available as an app at [AppSource](https://go.microsoft.com/fwlink/?linkid=2081646). ATo use this feature, you must first install it on the **Extension Management** page. Learn more about this functionality [here](finance-how-setup-use-service-declaration.md).  
+> This feature is available as an app on [AppSource](https://go.microsoft.com/fwlink/?linkid=2081646). To use this feature, you must first install it on the **Extension Management** page. To learn more about this feature, go to [The Service Declaration Extension](finance-how-setup-use-service-declaration.md).  
 
 > [!IMPORTANT]  
 > This article describes the new Intrastat experience available in [!INCLUDE[prod_short](includes/prod_short.md)] starting in the 2022 release wave 2, which includes extended features. If you haven't upgraded your solution, read the previous version's Intrastat setup and usage article at [Set Up and Report Intrastat](finance-how-setup-report-intrastat-v20.md).
@@ -5030,7 +5030,7 @@ Before you can use Intrastat reports, there are several configurations that must
 
 Use the **Intrastat Reporting Setup** page to enable and set the default behavior for Intrastat reporting. You can specify whether you need to report Intrastat from shipments (dispatches), receipts (arrivals), or both, depending on thresholds set by your local authorities. You can also set default transaction types for the regular and return documents that are used for transaction reporting.
 
-Follow the steps to set up Intrastat reporting.
+Follow these steps to set up Intrastat reporting.
 
 1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intrastat Report Setup**, and then select the related link.
 2. On the **General** FastTab, select or enter field information as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] The following table describes some of the key fields.
@@ -5074,6 +5074,14 @@ Follow the steps to set up Intrastat reporting.
    | **Data Exch. Def. Code – Shipment** | Specifies the data exchange definition code to generate the Intrastat file for shipped goods. This field is available only if the **Split Receipts/Shipments Files** field is set to **Yes**. |
 
 6. On the **Numbering** FastTab, enter a value in the **Intrastat Nos** field.
+7. On the **Mandatory Fields** FastTab, turn on any of the following toggles to require people to fill in important fields on sales, purchase, and transfer documents. Making these fields mandatory helps ensure that your Intrastat reports are complete and accurate. Verification happens when you post the documents.
+
+   |Toggle  |Field made mandatory  |Documents  |
+   |---------|---------|---------|
+   |**Transaction Type Mandatory**     |     **Transaction Type**    |    Sales, purchase, and transfer     |
+   |**Transaction Spec. Mandatory**     |  **Transaction Specification**       |  Sales, and transfer       |
+   |**Transport Method Mandatory**     |   **Transport Method**      |  Sales, and transfer       |
+   |**Shipment Method Mandatory**     |  **Shipment Method**, **Code**       | * **Shipment Method** or **Shipment Method Code** fields on purchase and transfers.</br>* **Code** field under **Shipment Method** on sales.         |
 
 ### Set up a reporting file
 
@@ -5136,7 +5144,7 @@ If you want to change how Intrastat works, and the default configuration isn't e
    3. In the **Validate Codeunit ID** field, specify the new codeunits for validating results inside Intrastat report lines.
 
 > [!IMPORTANT]
-> This line must be empty if you use the standard codeunits. You should only create a line and configure it if you have developed custom codeunits.
+> This line must be empty if you use the standard codeunits. You should only create a line and configure it if you have custom codeunits.
 
 ## Other Intrastat configurations
 
@@ -5157,7 +5165,7 @@ In addition to **Intrastat Report Setup**, **Data Exchange Definitions**, and **
 | **Countries/Regions** | On the **Countries/Regions** page, add **EU Country/Region Code** and **Intrastat Code** information to specify a code for the country/region that you're trading with. This information is used in Intrastat reporting. |
 | **Tariff Numbers** | In many countries/regions, the customs and tax authorities establish eight-digit codes for various items. To enable item entries to contain the necessary information when the program imports them to the Intrastat journal line, enter the item code on the **Tariff Numbers** page. Find the codes for the items that your company deals with, and enter them on the **Tariff Numbers** page. |
 | **Transport Methods** | There are seven, one-digit codes for Intrastat transport methods: **1** for sea, **2** for rail, **3** for road, **4** for air, **5** for the post, **7** for fixed installations, and **9** for own propulsion (for example, transporting a car by driving it). [!INCLUDE[prod_short](includes/prod_short.md)] doesn't require these specific codes. However, we recommend that the descriptions provide a similar meaning. |
-| **Transaction Types** | Countries and regions have different codes for types of Intrastat transactions. For example, for ordinary purchases and sales, exchange of returned goods, and exchange of non-returned goods. Set up all the codes that apply to your country/region. These codes are then used on the **Foreign Trade** FastTab on sales and purchase documents and when you process returns. |
+| **Transaction Types** | Countries and regions have different codes for types of Intrastat transactions. For example, for ordinary purchases and sales, exchange of returned goods, and exchange of nonreturned goods. Set up all the codes that apply to your country/region. These codes are then used on the **Foreign Trade** FastTab on sales and purchase documents and when you process returns. |
 | **Transaction Specifications** | Set up codes to supplement the transaction type descriptions. |
   
 > [!NOTE]
@@ -5275,7 +5283,7 @@ The sections that follow describe how to set up the transfer.
 
 ### Intrastat report
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intrastat Report Setup**, and then select the related link. 
+1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intrastat Report Setup**, and then select the related link.
 2. In the **Intrastat Report Setup** in the **Default Country Code for Item Tracking** field, choose the **Purchase Headers** option.  
 
 ### Item  
@@ -5294,7 +5302,7 @@ After you select an item that has item tracking enabled on the purchase line, fo
 
 1. On the **Lines** FastTab, choose **Line**, and run the **Item Tracking Lines** action.
 2. On the **Item Tracking Lines** page after adding **Serial No.** or **Lot No.**, and entering value in **Quantity (Base)** field, choose one of the following options:  
-   1. The **Lot No. Information Card** action if you're using lots.   
+   1. The **Lot No. Information Card** action if you're using lots.
    2. The **Serial No. Information Card** action if you're using serial numbers.  
 3. You can choose **New** (**+**) to create new lot or serial numbers on the **Lot No. Information Card** or **Serial No. Information Card** pages. 
 4. The **Country/Region Code** is populated with the **Country/Region Code** from the purchase document. You can change it if you want.
@@ -5355,7 +5363,7 @@ A new Intrastat report experience for Italy is available starting in February 20
 
 ### Sweden
 
-Intrastat reporting in Sweden requires two different files for receipts and shipments. To verify that your setup is correct, follow the steps.
+Intrastat reporting in Sweden requires two different files for receipts and shipments. To verify that your setup is correct, follow these steps.
 
 1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intrastat Report Setup**, and then select the related link.  
 2. On the **Reporting** FastTab, verify that **Split Receipts/Shipments Files** is selected. If it is, two separate **Data Exch. Def. Code** values are configured.
@@ -10422,26 +10430,28 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-multi-site-organizations
 ---
-title: Business Central for Multi-Site and International Organizations | Microsoft Docs
+title: Business Central for multi-site and international organizations
 description: Business Central provides capabilities that support a hub-and-spoke business model.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: hub-and-spoke, multi-site, headquarter, sites
-ms.date: 10/01/2020
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: hub-and-spoke, multi-site, headquarter, sites
+ms.date: 06/17/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
 ---
 
-# Business Central for Multi-Site and International Organizations
+# Business Central for multi-site and international organizations
+
 Organizations that have multiple sites often use a hub-and-spoke business model where a parent company, or headquarters, manages the overall operations of the business while each site functions as a single, standalone entity. Sites are often geographically distributed and have different needs for sharing information with the headquarter company. Additionally, sites typically don't need the same level of complexity, and often lack the resources to maintain a large system.
 
 [!INCLUDE[prod_short](includes/prod_short.md)] gives small and mid-sized businesses a business management solution that's easy-to-use and maintain at a low cost of ownership.
 
 This article introduces some of the ways in which [!INCLUDE[prod_short](includes/prod_short.md)] supports a hub-and-spoke business model.
 
-## Integrating the Headquarter Company and the Sites
+## Integrating the headquarter company and the sites
 
 [!INCLUDE[prod_short](includes/prod_short.md)] can integrate with the headquarter company's accounting system while meeting the varying needs of different sites, regardless of size, location, or type of business.
 
@@ -10467,15 +10477,14 @@ A network of more than 4,000 Microsoft partners world-wide provides local expert
 | Access multiple companies from a single page. | Get quick access to any Business Central company in your organization. | [Company Hub](ui-extensions-company-hub.md) |
 | Handle multiple languages and currencies. | Support for multiple languages and currencies helps meet local needs. | [Multi-language capabilities](about-locale-language.md)<br></br>[Multi-currency capabilities](finance-how-setup-additional-currencies.md) |
 
+## Consolidate financial data
 
-## Consolidate Financial Data
-
-A core facet of the hub-and-spoke business model is the ability for the headquarter company and sites to exchange financial data, even when the headquarter company and sites use different systems, accounting structures, languages, and currencies.
+A core facet of the hub-and-spoke business model is the ability for the headquarter company and sites to exchange financial data. This requirement must be met, even when the headquarter company and sites use different systems, accounting structures, languages, and currencies.
 
 | **Business requirement** | **How Business Central supports it** | **Learn more** |
 |-------------------------|-------------------------|-------------------------|
 | Consolidate financial data from sites. | Consolidate financial statements for sites, regardless of whether they're running Business Central or another application, into a single business entity (company). | [Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md) |
-| Integrate accounting structures. | Transfer consolidation data from different accounting structures to your own. Built-in file format for F&O (Available with Wave 2, 2020) | [Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)<br></br>[Prepare general ledger accounts for consolidation](finance-consolidated-company-reporting-setup.md#glacc) |
+| Integrate accounting structures. | Transfer consolidation data from different accounting structures to your own. | [Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)<br></br>[Prepare general ledger accounts for consolidation](finance-consolidated-company-reporting-setup.md#glacc) |
 | Transact in multiple currencies. | Help ensure that financial statements in different currencies are accurate and use correct exchange rates. | [Update Currency Exchange Rates](finance-how-update-currencies.md) |
 
 ## Share Business Insight with Integrated Analytics
@@ -10487,12 +10496,12 @@ Align the organization with your business goals by providing a common understand
 | Share insights with sites without extensive IT support. | Create KPIs and business intelligence dashboards in Power BI based on your data. | [Connect to Power BI from Business Central on-premises](across-working-with-business-central-in-powerbi.md) |
 | Develop custom financial reports. | Generate parameter-based financial reports. | [Business Intelligence](bi.md) |
 | Align on the facts. | Generate, view, and share reports with internal and external stakeholders. | [Financial Reports](finance-reports.md) |
-| Analyze data in Excel. | Fact-find, troubleshoot, and do ad hoc analyses in Microsoft Excel. | [Analyze Financial Statements in Excel](finance-analyze-excel.md) |
+| Analyze data in Excel. | Fact-find, troubleshoot, and do unplanned analyses in Microsoft Excel. | [Analyze Financial Statements in Excel](finance-analyze-excel.md) |
 
 
 ## Exchange Data Using APIs and XMLports
 
-APIs and XMLports simplify the process of connecting instances of [!INCLUDE[prod_short](includes/prod_short.md)], including those that have been customized for each site.
+APIs and XMLports simplify the process of connecting instances of [!INCLUDE[prod_short](includes/prod_short.md)], including instances that are customized for each site.
 
 | **Business requirement** | **How Business Central supports it** | **Learn more** |
 |-------------------------|-------------------------|-------------------------|
@@ -10500,12 +10509,11 @@ APIs and XMLports simplify the process of connecting instances of [!INCLUDE[prod
 | Versioning and security. | APIs use ODataV4, which provides versioning, and webhooks and change tracking. | [Security and protection](/dynamics365/business-central/dev-itpro/security/security-and-protection) |
 | Post and import XML documents. | Codeunits can be exposed as unbound actions to support posting and ingestion of XML documents. For processing XML documents, XMLports can be applied. Unbound actions are also capable of generating an XML or JSON document. | [XMLport Objects](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-object) |
 | Make maintenance easier through electronic data exchange. | An electronic data exchange solution can be added to serve as an integration layer between the headquarter company and sites. | [Data Exchange Framework](across-about-the-data-exchange-framework.md) |
-| Exchange data between different systems. | Use XMLports to create XML documents, which can then be exchanged between a headquarter company that uses one system and sites that use Business Central. | [XMLport Overview](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-overview) |
-| Orchestrate complex data exchanges. | Use a combination of XMLports with Business Central and Microsoft BizTalk Server to meet unique needs at your sites.</br>For complex needs, use an electronic data exchange solution based on BizTalk Server and Commerce Gateway in Business Central in combination with the XMLports. | [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md) |
-| Connect to 3<sup>rd</sup> party solutions and services. | APIs establish a point-to-point connection between Business Central and 3<sup>rd</sup> party solutions and services. | [API v2.0](/dynamics-nav/api-reference/v2.0/) |
+| Exchange data between different systems. | Use XMLports to create XML documents, which can then be exchanged between a headquarter company that uses one system and sites that use [!INCLUDE [prod_short](includes/prod_short.md)]. | [XMLport Overview](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-overview) |
+| Orchestrate complex data exchanges. | Use a combination of XMLports with [!INCLUDE [prod_short](includes/prod_short.md)] and Microsoft BizTalk Server to meet unique needs at your sites.</br></br> For complex needs, use an electronic data exchange solution based on BizTalk Server and Commerce Gateway in [!INCLUDE [prod_short](includes/prod_short.md)] in combination with the XMLports. | [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md) |
+| Connect to non-Microsoft solutions and services. | APIs establish a point-to-point connection between [!INCLUDE [prod_short](includes/prod_short.md)] and non-Microsoft solutions and services. | [API v2.0](/dynamics-nav/api-reference/v2.0/) |
 
-
-## Promote an Efficient Intercompany Supply Chain
+## Promote an efficient intercompany supply chain
 
 Sites often need access to the supply chain, and the ability to manage certain aspects of it. For example, sites might use the same vendor, but manage their assets and physical locations separately.
 
@@ -10522,10 +10530,11 @@ The headquarter company must be able to react quickly to business changes at eac
 
 | **Business requirement** | **How Business Central supports it** | **Learn more** |
 |-------------------------|-------------------------|-------------------------|
-| Automatically generate email alerts. | Set up alerts in Power Automate that will generate emails to inform you of critical business conditions at sites or supply chain partners. | [Business Central and Power BI](admin-powerbi.md) |
+| Automatically generate email alerts. | Set up alerts in Power Automate that generate emails to inform you of critical business conditions at sites or supply chain partners. | [Business Central and Power BI](admin-powerbi.md) |
 | Use standard or custom alerts. | Use 12 different templates included for Business Central or set up your own alerts to suit your business. | [Use Business Central in an Automated Workflow](across-how-use-financials-data-source-flow.md) |
 
 ## Related information
+
 [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
