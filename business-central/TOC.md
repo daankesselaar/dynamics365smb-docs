@@ -286,25 +286,48 @@ ms.service: dynamics-365-business-central
 ##### [Analyze your payment practices](ui-payment-practices.md)
 
 #### Built-in finance reports
-
+##### [Finance report overview](finance-reports.md)
 ##### Key finance reports
-
-###### [Key finance report overview](finance-reports.md)
+###### [Chart of Accounts](reports/report-1.md)
+###### [G/L Register](reports/report-3.md)
 ###### [Detail Trial Balance](reports/report-4.md)
+###### [Receivables-Payables](reports/report-5.md)
 ###### [Trial Balance Excel](reports/report-4405.md)
 ###### [Trial Balance (legacy)](reports/report-6.md) 
 ###### [Trial Balance/Previous Year](reports/report-7.md) 
 ###### [Trial Balance/Budget Excel](reports/report-4406.md)
 ###### [Trial Balance/Budget (legacy)](reports/report-9.md)
+###### [Trial Balance by Period](reports/report-38.md)
 ###### [Closing Trial Balance](reports/report-10.md)
-###### [Consolidated Trial Balance Excel](reports/report-4410.md)
+###### [Fiscal Year Balance](reports/report-36.md)
+###### [Balance Comp. - Prev. Year](reports/report-37.md)
+###### [Foreign Currency Balance](reports/report-503.md)
 ###### [Financial Report](reports/report-25.md)
 ###### [Dimensions - Total](reports/report-27.md)
 ###### [Dimensions - Detail](reports/report-28.md)
+###### [Dimension Check Value Posting](reports/report-30.md)
 ###### [Reconcile Cust. and Vend. Accs](reports/report-33.md)
-###### [Trial Balance by Period](reports/report-38.md)
+##### Deferral reports
+###### [G/L Deferral Summary](reports/report-1700.md)
+###### [Sales Deferral Summary](reports/report-1701.md)
+###### [Purchasing Deferral Summary](reports/report-1702.md)
+##### Consolidation and intercompany reports
+###### [Consolidated Trial Balance Excel](reports/report-4410.md)
+###### [Consolidated Trial Balance](reports/report-17.md)
+###### [Consolidated Trial Balance (4)](reports/report-18.md)
+###### [Intercompany Transactions](reports/report-512.md) 
+###### [G/L Consolidation Eliminations (for IC)](reports/report-16.md)
+##### Cost accounting reports
+###### [Cost Acctg. Stmt. per Period](reports/report-1123.md)
+###### [Cost Types Details](reports/report-1125.md)
+###### [Cost Acctg. Statement](reports/report-1126.md)
+###### [Cost Acctg. Analysis](reports/report-1127.md)
+###### [Cost Acctg. Journal](reports/report-1128.md)
+###### [Cost Allocations](reports/report-1129.md)
+###### [Cost Acctg. Statement/Budget](reports/report-1133.md)
+###### [Cost Acctg. Balance/Budget](reports/report-1138.md)
 
-##### [Built-in fixed assets reports](fa-reports.md)
+##### [Fixed assets reports](fa-reports.md)
 
 ##### Accounts payable analytics
 
@@ -418,6 +441,8 @@ ms.service: dynamics-365-business-central
 #### [Define and allocate costs](finance-define-and-allocate-costs.md)
 #### [Create cost budgets](finance-create-cost-budgets.md)
 #### [Deleting cost budget entries](finance-how-to-delete-cost-budget-entries.md)
+#### [Cost accounting reports](finance-cost-accounting-reports.md)
+
 
 ### Manage inventory costs
 #### [Inventory cost overview](finance-manage-inventory-costs.md)
@@ -2349,6 +2374,7 @@ ms.service: dynamics-365-business-central
 #### [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)
 #### [Power BI apps/reports by functional area](across-powerbi-apps-by-functional-area.md)
 #### [Use back links to explore the data behind visuals](powerbi-back-links.md)
+#### [Multi-language Power BI apps for Business Central](across-powerbi-business-central-apps-multi-language.md)
 #### [Power BI apps FAQ](across-powerbi-apps-faq.md)
 ### [Using Financial Reporting](bi-how-work-account-schedule.md)
 
