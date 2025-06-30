@@ -618,7 +618,7 @@ description: Describes the chart of accounts, how to set it up, and how to use i
 author: kennienp
 ms.topic: concept-article
 ms.search.keywords: analysis, history, track
-ms.search.form: 18, 20, 37, 65, 99, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
+ms.search.form: Report_1, 18, 20, 37, 65, 99, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
 ms.date: 02/06/2025
 ms.author: bholtorf
 ms.reviewer: bholtorf
@@ -10416,14 +10416,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-access-with-m365-license
 ---
-title: Business Central Access with Microsoft 365 licenses
-description: Learn how users can get access to Business Central data, for example in Microsoft Teams chats and channels, with only a Microsoft 365 license, but no Business Central license.
+title: Business Central Access with Microsoft 365 Licenses
+description: Discover how users can view Business Central data in Microsoft Teams with only a Microsoft 365 license. Learn setup steps and requirements.
 author: mikebc
 ms.author: mikebc 
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: overview
-ms.date: 08/12/2024
+ms.date: 06/20/2026
 ms.custom: bap-template
 ms.search.keywords: License, access, Microsoft 365, collaborate, collaboration, Teams, Microsoft Teams
 ms.search.form: 1978
@@ -10431,9 +10431,10 @@ ms.search.form: 1978
 
 # Business Central access with Microsoft 365 licenses
 
-[!INCLUDE[prod_short](includes/prod_short.md)] users are assigned a Dynamics 365 Business Central license that allows them to view, modify and act on their business data from any user interface. For all other employees across the organization that only need to occasionally view data, Business Central offers access through Microsoft 365.  
+Users with a Business Central license can view, modify, and act on their business data from any user interface. For other employees across your organization that only need to occasionally view data, Business Central offers access through Microsoft 365.  
 
-When an organization has both a Dynamics 365 Business Central and Microsoft 365 subscription, administrators can configure environments to enable access with Microsoft 365 licenses, and choose exactly which tables and other objects this category of user will have access to. When configured, employees that have a Microsoft 365 license but no [!INCLUDE [prod_short](includes/prod_short.md)] license can view [!INCLUDE [prod_short](includes/prod_short.md)] records that are shared with them in Microsoft Teams chat and channels.
+If your organization has both a Business Central and a Microsoft 365 subscription, admins set up environments so users sign in with Microsoft 365 licenses but can access only specific tables and other objects. When configured, employees that have a Microsoft 365 license but no [!INCLUDE [prod_short](includes/prod_short.md)] license can view [!INCLUDE [prod_short](includes/prod_short.md)] records that are shared with them in Microsoft Teams chat and channels.
+
 
 ## Why enable access with Microsoft 365 licenses  
 
@@ -10445,13 +10446,17 @@ When an organization has both a Dynamics 365 Business Central and Microsoft 365 
 
 - Increase team performance so that people can make data-driven decisions that are inclusive of everyone in the group, even if they don’t work in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-- Meet licensing budget targets by assigning licenses that progressively match employee needs, with Microsoft 365 licenses for read-only access, Dynamics 365 Business Central Team Member licenses for limited write access, and Dynamics 365 Business Central Essentials or Premium for full write access.
+- Meet licensing budget targets by assigning licenses that match employee needs:
+
+  - Microsoft 365 licenses for read-only access
+  - Dynamics 365 Business Central Team Member licenses for limited write access
+  - Dynamics 365 Business Central Essentials or Premium licenses for full write access.
 
 - Improve data security by reducing the need for pasting screen snippets of business data outside of data governance boundaries.
 
 ## Use rights
 
-When a person accesses [!INCLUDE [prod_short](includes/prod_short.md)] with a Microsoft 365 license, the license entitles the user to read (but not write) [!INCLUDE [prod_short](includes/prod_short.md)] data through a simplified user interface in Microsoft Teams. This section explains these use rights and limitations that help you plan how to configure and make the most out of this capability. For more information on this license type compared to other [!INCLUDE [prod_short](includes/prod_short.md)] licenses, consult the [Dynamics 365 licensing guide](https://go.microsoft.com/fwlink/?LinkId=866544).
+When a person accesses [!INCLUDE [prod_short](includes/prod_short.md)] with a Microsoft 365 license, the license entitles the user to read (but not write) [!INCLUDE [prod_short](includes/prod_short.md)] data through a simplified user interface in Microsoft Teams. This section explains these use rights and limitations that help you plan how to configure and make the most out of this capability. Learn more about this license type compared to other [!INCLUDE [prod_short](includes/prod_short.md)] licenses in the [Dynamics 365 licensing guide](https://go.microsoft.com/fwlink/?LinkId=866544).
  
 ### Client access
 
@@ -10468,7 +10473,7 @@ Users are entitled to access [!INCLUDE [prod_short](includes/prod_short.md)] dat
 
 ### Data access
 
-Users are entitled to read table data but can't modify, create or delete records. The [!INCLUDE [prod_short](includes/prod_short.md)] platform automatically prevents writing to any data tables.  
+Users are entitled to read table data but can't modify, create, or delete records. The [!INCLUDE [prod_short](includes/prod_short.md)] platform automatically prevents writing to any data tables.  
 
 ### Use of objects
 
@@ -10476,7 +10481,7 @@ Access with Microsoft 365 licenses doesn't restrict which Business Central objec
 
 ## Simplified user interface
 
-Users are entitled to a reduced set of features and functions provided by [!INCLUDE [prod_short](includes/prod_short.md)] in Microsoft Teams. The tables below indicate noteworthy features. This isn't an exhaustive list and is subject to change.
+Users are entitled to a reduced set of features and functions provided by [!INCLUDE [prod_short](includes/prod_short.md)] in Microsoft Teams. The following tables indicate noteworthy features. This list isn't exhaustive and is subject to change.
 
 Features of the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams:
 
@@ -10510,7 +10515,7 @@ Functions of the [!INCLUDE [prod_short](includes/prod_short.md)] client embedded
 
 ## Minimum requirements
 
-This section describes the minimum requirements that must be met for your organization to enable access with Microsoft 365 licenses, and for individual Microsoft Teams users to access [!INCLUDE [prod_short](includes/prod_short.md)] data without a [!INCLUDE [prod_short](includes/prod_short.md)] license.
+This section explains the minimum requirements for your organization to use Microsoft 365 licenses, and for individual Microsoft Teams users to use [!INCLUDE [prod_short](includes/prod_short.md)] data without a [!INCLUDE [prod_short](includes/prod_short.md)] license.
 
 ### Requirements to enable access
 
@@ -10520,7 +10525,7 @@ This section describes the minimum requirements that must be met for your organi
 
 - Data must be accessed using the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams. Users must have the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams installed and must use one of the supported Teams clients. Get a list of Teams clients supported by [!INCLUDE [prod_short](includes/prod_short.md)] in [Minimum Requirements for Using Business Central](product-requirements.md#teams).
 
-- Users must be internal to the organization, meaning that a user identity originates from the same home tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and where access is enabled. External identities aren't supported. [!INCLUDE [prod_short](includes/prod_short.md)] automatically prevents access to guests.
+- Users must be internal to the organization. A user identity originates from the same home tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and access is enabled. External identities aren't supported. [!INCLUDE [prod_short](includes/prod_short.md)] automatically prevents access to guests.
 
 - Users must be assigned a Microsoft 365 license from one of the following plans.
   
@@ -10553,13 +10558,13 @@ This section describes the minimum requirements that must be met for your organi
   |-|-|
   |Microsoft Teams|57ff2da0-773e-42df-b2af-ffb7a2317929 |
 
-- The organization must have at least one other user that is assigned a Dynamics 365 Business Central license.
+- The organization must have at least one other user with a Dynamics 365 Business Central license.
 
 ## Next steps
 
 - Get an understanding of the user access flow to help plan your approach and configuration of Business Central to match the business needs. Learn more in [User Access Flow](admin-access-with-m365-license-flow.md).
-- Set up your environment and users for access with with Microsoft 365 licenses. Learn more in [Set Up Access with Microsoft 365 Licenses ](admin-access-with-m365-license-setup.md).
-- For troubleshooting tips, visit [Business Central troubleshooting](/troubleshoot/dynamics-365/business-central/welcome-business-central).
+- Set up your environment and users for access with Microsoft 365 licenses. Learn more in [Set Up Access with Microsoft 365 Licenses ](admin-access-with-m365-license-setup.md).
+- Get troubleshooting tips if you run into problems. Learn more in [Business Central troubleshooting](/troubleshoot/dynamics-365/business-central/welcome-business-central).
 
 ## Related information
 
@@ -13744,6 +13749,44 @@ As an administrator, you can use [Application Insights](/azure/azure-monitor/app
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-cost-accounting-reports
+---
+title: Built-in cost accounting reports in Business Central
+description: Explore the built-in cost accounting reports in the standard version of Business Central.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: Report_1123, Report_1125, Report_1126, Report_1127, Report_1128, Report_1129, Report_1133, Report_1138, Report_4405, Report_1700, Report_1701, Report_1702, Report_10007, Report_10008
+ms.date: 06/23/2025
+ms.custom: bap-template
+ms.service: dynamics-365-business-central
+---
+
+# Built-in cost accounting reports in Business Central
+
+[!INCLUDE [prod_short](includes/prod_short.md)] includes several built-in reports, tracing functions, and tools to help auditors or controllers who are responsible for reporting to the finance department.
+
+## Explore finance reports with Report Explorer
+
+[!INCLUDE [finance_reports_report_explorer](includes/finance-reports-report-explorer-include.md)]
+
+## Cost accounting reports
+
+[!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
+
+[!INCLUDE [finance_reports_cost_accounting](includes/finance-reports-cost-accounting-include.md)]
+
+
+## Related information
+
+[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+[Power BI finance app](finance-powerbi-app.md)  
+[Financial analytics](bi.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-planning
 ---
@@ -20809,72 +20852,4 @@ After you post a transfer order, you can find entries related to the transfer on
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-setup-auditing
----
-title: Audit changes to your setup
-description: Learn how to track the changes people make to your setup.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 02/06/2025
-ms.custom: bap-template
-ms.search.keywords: auditing
-ms.search.form: 103, 108, 488
-ms.service: dynamics-365-business-central
----
-
-# Audit changes to your setup
-
-[!INCLUDE[prod_short](includes/prod_short.md)] allows you to configure your system in many ways. This article explains ways to monitor changes to your setup for financial auditing.
-
-## Set up the Change Log to capture changes
-
-You can use the Change Log feature to capture changes to your setup. For example, you can find out what changed, who changed it, and when the change was made.
-
-To use the Change Log to monitor your setup, you must specify the tables you want it to monitor. The following table lists some examples of finance setup tables where you might want to setup change tracking. To learn more about the Change Log, go to [Log changes](across-log-changes.md).
-
-| If you want to audit changes to... | Table | Table ID | Learn more... |
-| ---------------------------------- | ----- | -------- | ------------- |
-| Financial Reporting  | Report Definition | 88  | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
-| Financial Reporting  | Row Definition    | 84  | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
-| Financial Reporting  | Column Definition | 333 | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
-| General ledger (G/L) | G/L Account       | 15 | [Audit changes to G/L accounts setup](finance-chart-of-accounts.md#audit-changes-to-gl-accounts-setup) |
-| General ledger (G/L) | G/L Account Category | 570 | [Audit changes to account categories](bi-account-categories.md#audit-changes-to-account-categories) |
-| Payment methods      | Payment Method    | 289 | [Audit changes to payment methods](finance-payment-methods.md#audit-changes-to-payment-methods) |
-| Payment terms        | Payment Terms     | 3 | [Audit changes to payment terms](finance-payment-terms.md#audit-changes-to-payment-terms ) |
-| Posting groups       | Gen. Product Posting Group | 251 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
-| Posting groups       | Customer Posting Group | 92 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
-| Posting groups       | Inventory Posting Group | 94 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
-| Posting groups       | FA Posting Group | 5606 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
-| Posting groups       | Vendor Posting Group | 93 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
-
-
-To learn more about setting up the finance area, go to [Setting Up Finance](finance-setup-finance.md).
-
-> [!TIP]
-> If you want to track changes to data that isn't shown in the table, you can use the page inspection tool on the page that shows the data to find the corresponding table name and ID. To learn more, go to [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages?tabs=table) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)].
-
-## Get notified when system setup change
-
-To add an extra layer of security to your setup, you can monitor changes to fields and get an email when someone changes a value. To learn more, go to [Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields).
-
-## Analyze changes to your setup
-
-You can use the Data Analysis feature to answer questions such as:
-
-- Which definition changed?
-- Who changed it, and when?
-
-:::image type="content" source=" media/data-analysis-change-log-entries-Who-changed-What-data-When.png" alt-text="Example of how to do data analysis on the Change Log Entries page (Who changed What data When)." lightbox="media/data-analysis-change-log-entries-Who-changed-What-data-When.png":::
-
-To learn more, go to [Analyze data in the Change Log](across-log-changes.md#analyze-data-in-the-change-log).
-
-## Related information
-
-[Log changes](across-log-changes.md)  
-[Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 

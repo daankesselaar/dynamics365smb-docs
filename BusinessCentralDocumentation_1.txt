@@ -3016,7 +3016,7 @@ You must have [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licenses for t
 
 The use of free license alternative for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] allows you to embed your own reports. Anything in the free [!INCLUDE [powerbi-name](includes/powerbi-name.md)] license must be present in your personal [!INCLUDE [powerbi-name](includes/powerbi-name.md)] workspace. So, the free license alternative does not work with the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps.
 
-## What [!INCLUDE[prod_short](includes/prod_short.md)] licenses do I need?
+## What Business Central licenses do I need?
 
 [!INCLUDE[about_bc_licensing_for_powerbi](includes/about_bc_licensing_for_powerbi.md)]
 
@@ -3054,9 +3054,22 @@ To learn more, go to [Connect the Power BI semantic models to Business Central](
 
 To learn more, go to [Updating a Power BI app](across-powerbi-install-business-central-apps.md#updating-a-power-bi-app).
 
+## Are the apps available in multiple languages?
+
+Yes, all apps are multi-language for many of the languages that [!INCLUDE[prod_short](includes/prod_short.md)] supports. To learn more, go to [Multi-language Power BI apps for Business Central](across-powerbi-business-central-apps-multi-language.md).
+
 ## Can I get a copy of the source code (.pbix files) for the apps?
 
-No. At the moment, the source code (.pbix files) for the apps isn't available. However, its availability might change in a later release.
+As of version 26.2, the source code (.pbix files) for the following apps is available:
+
+- Finance
+- Inventory
+- Inventory Valuation
+- Manufacturing
+- Subscription Billing
+- Sustainability
+
+You can download the .pbix file by installing the app from AppSource and then download the source code from the installed app.
 
 ## Are the apps available for on-premises installations?
 
@@ -9235,7 +9248,7 @@ ms.topic: overview
 ms.collection:
   - bap-ai-copilot
   - get-started
-ms.date: 04/01/2025
+ms.date: 06/20/2025
 ms.custom: bap-template
 ---
 
@@ -9331,11 +9344,16 @@ Currently, because of technical limitations, we can't offer Copilot to customers
 
 [Configure Copilot and agent capabilities](enable-ai.md)  
 [Analyze data in lists with Copilot](analysis-assist.md)  
+[Autofill with Copilot](autofill-fields-with-copilot.md)  
 [Chat with Copilot](chat-with-copilot.md)  
 [Create marketing text with Copilot](item-marketing-text.md)  
+[Find item substitutions with Copilot](suggest-item-substitutions-copilot.md)  
 [Map e-documents to purchase order lines with Copilot](map-edocuments-with-copilot.md)  
 [Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md)  
-[Suggest lines on sales orders with Copilot](sales-suggest-sales-lines-with-copilot.md)
+[Sales Order Agent](sales-order-agent.md.md)  
+[Suggest lines on sales orders with Copilot](sales-suggest-sales-lines-with-copilot.md)  
+[Suggest number series with Copilot](suggest-number-series-copilot.md)  
+[Summarize with Copilot](summarize-with-copilot.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-how-work-account-schedule
@@ -10721,7 +10739,7 @@ ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.devlang: al
 ms.search.keywords: postpone
-ms.search.form: 20, 116_Primary
+ms.search.form: Report_3, 20, 116_Primary
 ms.date: 02/12/2025
 ms.service: dynamics-365-business-central
 ---
@@ -14714,8 +14732,10 @@ ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection: get-started
-ms.date: 04/14/2025
+ms.date: 06/19/2025
 ms.custom: bap-template
+ms.collection:
+  - bap-ai-copilot
 ---
 
 # Summarize records with Copilot (preview)
@@ -20923,7 +20943,7 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: finace, reporting, business intelligence, BI
-ms.search.form: 
+ms.search.form: 108_Primary
 ms.date: 09/11/2024
 ms.service: dynamics-365-business-central
 ms.custom: bap-template

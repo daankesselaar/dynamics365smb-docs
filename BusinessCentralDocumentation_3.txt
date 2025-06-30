@@ -1,3 +1,71 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-setup-auditing
+---
+title: Audit changes to your setup
+description: Learn how to track the changes people make to your setup.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 02/06/2025
+ms.custom: bap-template
+ms.search.keywords: auditing
+ms.search.form: 103, 108, 488
+ms.service: dynamics-365-business-central
+---
+
+# Audit changes to your setup
+
+[!INCLUDE[prod_short](includes/prod_short.md)] allows you to configure your system in many ways. This article explains ways to monitor changes to your setup for financial auditing.
+
+## Set up the Change Log to capture changes
+
+You can use the Change Log feature to capture changes to your setup. For example, you can find out what changed, who changed it, and when the change was made.
+
+To use the Change Log to monitor your setup, you must specify the tables you want it to monitor. The following table lists some examples of finance setup tables where you might want to setup change tracking. To learn more about the Change Log, go to [Log changes](across-log-changes.md).
+
+| If you want to audit changes to... | Table | Table ID | Learn more... |
+| ---------------------------------- | ----- | -------- | ------------- |
+| Financial Reporting  | Report Definition | 88  | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
+| Financial Reporting  | Row Definition    | 84  | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
+| Financial Reporting  | Column Definition | 333 | [Audit changes to financial reporting](finance-financial-reporting-auditing.md) |
+| General ledger (G/L) | G/L Account       | 15 | [Audit changes to G/L accounts setup](finance-chart-of-accounts.md#audit-changes-to-gl-accounts-setup) |
+| General ledger (G/L) | G/L Account Category | 570 | [Audit changes to account categories](bi-account-categories.md#audit-changes-to-account-categories) |
+| Payment methods      | Payment Method    | 289 | [Audit changes to payment methods](finance-payment-methods.md#audit-changes-to-payment-methods) |
+| Payment terms        | Payment Terms     | 3 | [Audit changes to payment terms](finance-payment-terms.md#audit-changes-to-payment-terms ) |
+| Posting groups       | Gen. Product Posting Group | 251 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
+| Posting groups       | Customer Posting Group | 92 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
+| Posting groups       | Inventory Posting Group | 94 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
+| Posting groups       | FA Posting Group | 5606 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
+| Posting groups       | Vendor Posting Group | 93 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
+
+
+To learn more about setting up the finance area, go to [Setting Up Finance](finance-setup-finance.md).
+
+> [!TIP]
+> If you want to track changes to data that isn't shown in the table, you can use the page inspection tool on the page that shows the data to find the corresponding table name and ID. To learn more, go to [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages?tabs=table) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)].
+
+## Get notified when system setup change
+
+To add an extra layer of security to your setup, you can monitor changes to fields and get an email when someone changes a value. To learn more, go to [Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields).
+
+## Analyze changes to your setup
+
+You can use the Data Analysis feature to answer questions such as:
+
+- Which definition changed?
+- Who changed it, and when?
+
+:::image type="content" source=" media/data-analysis-change-log-entries-Who-changed-What-data-When.png" alt-text="Example of how to do data analysis on the Change Log Entries page (Who changed What data When)." lightbox="media/data-analysis-change-log-entries-Who-changed-What-data-When.png":::
+
+To learn more, go to [Analyze data in the Change Log](across-log-changes.md#analyze-data-in-the-change-log).
+
+## Related information
+
+[Log changes](across-log-changes.md)  
+[Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-date-calculation-for-purchases
 ---
 title: Calculate Dates for purchases
@@ -8026,14 +8094,14 @@ description: Learn about capabilities and work scenarios in Business Central tha
 author: jswymer
 ms.topic: landing-page
 ms.devlang: al
-ms.date: 01/03/2025
+ms.date: 06/20/2025
 ms.author: jswymer
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 
-# Welcome to [!INCLUDE[prod_long](includes/prod_long.md)]
+# Welcome to Microsoft Dynamics 365 Business Central
 
 [!INCLUDE[prod_short](includes/prod_short.md)] is a business management solution for small and mid-sized organizations that automates and streamlines business processes and helps you manage your business. Highly adaptable and rich with features, [!INCLUDE[prod_short](includes/prod_short.md)] enables companies to manage their business, including finance, manufacturing, sales, shipping, project management, services, and more. Companies can easily add functionality that is relevant to the region of operation, and that is customized to support even highly specialized industries. [!INCLUDE[prod_short](includes/prod_short.md)] is fast to implement, easy to configure, and simplicity guides innovations in product design, development, implementation, and usability.  
 
@@ -8063,7 +8131,7 @@ Maybe start with a short tour of some of the key capabilities for managing finan
 
 To learn more, go to [Business functionality supported by Business Central](across-business-functionality.md).
 
-## Copilot and AI
+## Copilot and agents
 
 With Copilot in [!INCLUDE [prod_short](includes/prod_short.md)], small and medium-sized organizations empower their employees through intuitive AI tools that boost creativity and save time.
 
@@ -8072,16 +8140,20 @@ With Copilot in [!INCLUDE [prod_short](includes/prod_short.md)], small and mediu
 | To... | Learn more here... |
 | ----- | ------------------ |
 | Calculate, summarize, and analyze data by expressing what you want in natural language. For example, "sort on quantity from smallest to largest" or "show average cost per category." | [Analyze data in lists with Analysis Assist Copilot](analysis-assist.md) |
+| Autofill fields in your documents and records using AI-powered suggestions. | [Autofill with Copilot](autofill-fields-with-copilot.md)  |
 | Help you reconcile bank accounts | [Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md) |
 | Get answers about your company data and to get assistance with tasks and subject matters related to [!INCLUDE [prod_short](includes/prod_short.md)]. | [Chat with Copilot](chat-with-copilot.md) |
 | Automate how you receive and process vendor invoices. | [Map e-documents to purchase order lines with Copilot](map-edocuments-with-copilot.md) |
 | Get assistance with authoring marketing text (product descriptions) for the items you sell in your online shops. | [Marketing text suggestions with Copilot](ai-overview.md) |
 | Create sales documents faster by letting Copilot suggest items to add to lines on sales documents. | [Suggest lines on sales documents with Copilot](sales-suggest-sales-lines-with-copilot.md) |
-| Automate the process of creating sales orders.| [Sales Order Agent](sales-order-agent.md ) |
+| Automate the process of creating sales orders. | [Sales Order Agent](sales-order-agent.md) |
+| Get suggestions for lines to add on sales orders with Copilot. | [Suggest lines on sales orders with Copilot](sales-suggest-sales-lines-with-copilot.md) |
+| Get suggestions for number series to use in your documents. | [Suggest number series with Copilot](suggest-number-series-copilot.md) |
 | Find and assign substitute items faster. | [Suggest substitute items with Copilot](suggest-item-substitutions-copilot.md) |
+| Summarize data and content in your records using Copilot. | [Summarize with Copilot](summarize-with-copilot.md) |
 
 To learn more, go to [About Copilot in Business Central](copilot-overview.md).
-
+ 
 ## Analytics
 
 Empower any role in your organization with the insights they need to make decisions based on data. Use financial reporting and KPIs in your leadership team, create overview reports for middle management, and operational reports for staff. Group and pivot data from any list to do ad-hoc analyses. Export and analyze your data in Excel, if that app is your tool of choice. Each area in the application comes with standard, easy to use tools for data analysis.
@@ -13556,6 +13628,7 @@ Cost accounting is used to help you understand the costs of running a business. 
 |Allocate costs.|[Defining and Allocating Costs](finance-define-and-allocate-costs.md)|  
 |Learn the processes in creating cost budgets.|[Creating Cost Budgets](finance-create-cost-budgets.md)|
 |Cancel cost budget entries from the cost budget register.|[Deleting Cost Budget Entries](finance-how-to-delete-cost-budget-entries.md)|
+|Analyze your cost accounting data.| [Cost accounting reports](finance-cost-accounting-reports.md) |
 
 ## Related information  
 [Finance](finance.md)  
@@ -13952,6 +14025,16 @@ ms.service: dynamics-365-business-central
 ## Financial reports
 
 [!INCLUDE [finance_reports](includes/finance-reports-include.md)]
+
+
+[!INCLUDE [finance_reports_deferrals](includes/finance-reports-deferrals-include.md)]
+
+
+[!INCLUDE [finance_reports_consolidation](includes/finance-reports-consolidation-include.md)]
+
+
+[!INCLUDE [finance_reports_cost_accounting](includes/finance-reports-cost-accounting-include.md)]
+
 
 To learn more, go to [Financial Reports and Analytics in Business Central](finance-reports.md).
 
@@ -21013,70 +21096,6 @@ Campaigns are conducted by salespeople, and you must create activities to repres
 [Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
 [Work with Business Central](ui-work-product.md)  
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/payables-reports
----
-title: Accounts payables analytics
-description: See which analytics options are available in Business Central so that you can keep track of your accounts payable.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 347, Report_33, Report_301, Report_304, Report_305, Report_312, Report_317, Report_319, Report_321, Report_322, Report_329
-ms.date: 07/15/2024
-ms.service: dynamics-365-business-central
----
-# Accounts payable analytics
-
-[!INCLUDE [prod_short](includes/prod_short.md)] has built-in reports and analytics that can help you manage your accounts payable. The tools go beyond traditional reporting constraints to help you efficiently design various types of reports, such as Power BI, Data Analysis, or Excel.  
-
-## Analyze accounts payable with Power BI
-
-The [!INCLUDE [powerbi-finance-app-name](includes/power-bi-finance-app-name.md)] has multiple reports that are relevant in accounts payable.
-
-:::image type="content" source="media/finance/aged-payables-report.png" alt-text="Screenshot of the Aged Payables (Back Dating) report" lightbox="media/finance/aged-payables-report.png":::
-
-| To... | Open in Business Central (CTRL+select) | Learn more |
-| ----- | ---------------------------------------- | ---------- |
-| [!INCLUDE [pbireport-aged-payables-back-dating-include](includes/pbireport-aged-payables-back-dating-include.md)] | [Aged Payables (Back Dating)](https://businesscentral.dynamics.com?page=36994) | [About Aged Payables (Back Dating)](finance-powerbi-aged-payables-back-dating.md) |
-| [!INCLUDE [pbireport-detailed-vendor-ledger-entries-include](includes/pbireport-detailed-vendor-ledger-entries-include.md)] | [Detailed Vendor Ledger Entries](https://businesscentral.dynamics.com?page=36996) | [About Detailed Vendor Ledger Entries](finance-powerbi-detailed-vendor-ledger-entries.md) |
-
-To learn more, go to [Power BI finance app](finance-powerbi-app.md).
-
-## Analyze accounts payable with Data Analysis
-
-You can use Data Analysis on the **Vendor Ledger Entries** page to see what you owe your vendors, possibly broken down into time intervals for when amounts are due. 
-
-:::image type="content" source="media/data-analysis-vendor-ledger-entries.png" alt-text="Example of how to do data analysis on the Vendor Ledger Entries page." lightbox="media/data-analysis-vendor-ledger-entries.png":::
-
-To learn more, go to [Using data analysis to analyze accounts payable](ad-hoc-analysis-finance.md#example-finance-accounts-payable).
-
-## Explore finance reports with Report Explorer
-
-[!INCLUDE [finance_reports_report_explorer](includes/finance-reports-report-explorer-include.md)]
-
-## Accounts payable report overview
-
-[!INCLUDE [payables_reports](includes/payables-reports-include.md)]
-
-## Analyze your payment practice
-
-You can use the [Payment Practice](https://businesscentral.dynamics.com?page=687) page to show how quickly you pay your vendors. You can base the report on a specific period, or by the size of the vendor company in terms of its number of employees. Some countries require this report. 
-
-For more information, go to the [Payment practices page](ui-payment-practices.md).
-
-
-## Related information
-
-[Power BI finance app](finance-powerbi-app.md)  
-[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Payment practices page](ui-payment-practices.md)  
-[Purchasing analytics](purchasing-analytics-overview.md)  
-[Financial analytics](bi.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
