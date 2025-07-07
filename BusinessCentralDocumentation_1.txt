@@ -801,11 +801,13 @@ Before you start using e-documents, update your **Company Information** page by 
 
     | Field name | Description |
     |---|---|
-    | SWIFT Code | Specify the SWIFT code (international bank identifier code) of your primary bank. |
-    | Bank Branch No. | Specify the bank's four-digit branch number. |
-    | VAT Registration No. | Specify the company's value-added tax (VAT) registration number. |
+    | SWIFT Code | Specifies the SWIFT code (international bank identifier code) of your primary bank. |
+    | Bank Branch No. | Specifies the bank's four-digit branch number. |
+    | VAT Registration No. | Specifies the company's value-added tax (VAT) registration number. |
+    | GLN | Specifies your company in connection with electronic document exchange. |
+    | Use GLN in Electronic Document | Specifies whether the GLN is used in electronic documents as a party identification number. |
 
-3. Close the page.
+4. Close the page.
 
 ## Set up customers to receive e-documents
 
@@ -829,6 +831,7 @@ The following list of access point providers are covered by default:
 
 - Avalara
 - B2BRouter
+- Continia
 - Logiq
 - Pagero
 - SignUp
@@ -3747,55 +3750,55 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-production-order-posting
 ---
-title: Design Details - Production Order Posting | Microsoft Docs
-description: Similar to assembly order posting, the consumed components and the used machine time are converted and output as the produced item when the production order is finished.
+title: Design details production order posting
+description: Similar to assembly order posting, the consumed components and the used machine time convert and output as the produced item when you finish the production order.
 author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.date: 06/08/2021
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords:
+ms.date: 07/01/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
 ---
-# Design Details: Production Order Posting
-Similar to assembly order posting, the consumed components and the used machine time are converted and output as the produced item when the production order is finished. For more information, see [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md). However, the cost flow for assembly orders is less complex, especially because assembly cost posting only occurs once and therefore does not generate work-in-process inventory.
+# Design details: production order posting
 
+Similar to assembly order posting, the consumed components and the used machine time are converted and output as the produced item when the production order is finished. To learn more, go to [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md). However, the cost flow for assembly orders is less complex because assembly cost posts only one time and doesn't generate work-in-process inventory. Also, the cost of assembled goods doesn't include the cost of noninventory items.
 
-Transactions that occur during the manufacturing process can be tracked through the following stages:  
+You can track transactions that occur during the manufacturing process through the following stages:  
 
-1.  Purchase of materials and other manufacturing inputs.  
-2.  Conversion into work in process.  
-3.  Conversion into finished goods inventory.  
-4.  Sale of finished goods.  
+1. Purchase of materials and other manufacturing inputs.  
+2. Conversion into work in process.  
+3. Conversion into finished goods inventory.  
+4. Sale of finished goods.  
 
-Therefore, apart from regular inventory accounts, a manufacturing company must establish three separate inventory accounts to record transactions at various stages of production.  
+Therefore, apart from regular inventory accounts, a manufacturing company must establish three separate inventory accounts to record transactions at various stages of production. The following table describes the accounts
 
-|Inventory Account|Description|  
+|Inventory account|Description|  
 |-----------------------|---------------------------------------|  
-|**Raw Materials account**|Includes the cost of raw materials that are purchased but not yet transferred to production. The balance in the Raw Materials account indicates the cost of raw materials on hand.<br /><br /> When raw materials move into the production department, the cost of the materials is transferred from the Raw Materials account to the WIP account.|  
-|**Work in Process (WIP) account**|Accumulates the costs that are incurred during production in the accounting period. The WIP account is debited for the cost of raw materials that are transferred from the raw materials warehouse, the cost of direct labor performed, and the manufacturing overhead costs that are incurred.<br /><br /> The WIP account is credited for the total manufacturing cost of units that are completed in the factory and transferred to the finished goods warehouse.|  
+|**Raw Materials account**|Includes the cost of raw materials that are purchased but not yet transferred to production. The balance in the Raw Materials account indicates the cost of raw materials on hand.<br /><br /> When raw materials move into the production department, the cost of the materials is transferred from the account for raw materials to the account for work in process.|  
+|**Work in Process (WIP) account**|Accumulates the costs that are incurred during production in the accounting period. The WIP account is debited for the cost of raw materials that transfer from:<br /><br />* The raw materials warehouse.<br />* The cost of direct labor performed.<br />* The manufacturing overhead costs that are incurred.<br /><br />The WIP account is credited for the total manufacturing cost of units that are completed in the factory and transferred to the finished goods warehouse.|  
 |**Finished Goods account**|This account includes the total manufacturing cost of units that are completed but not yet sold. At the time of sale, the cost of units sold is transferred from the Finished Goods account to the Cost of Goods Sold account.|  
 
 The inventory value is calculated by tracking the costs of all increases and decreases, as expressed by the following equation:  
 
 * inventory value = beginning balance of inventory + value of all increases - value of all decreases  
 
-Depending on the type of inventory, increases and decreases are represented by different transactions.  
+Depending on the type of inventory, different transactions can represent increases and decreases.  
 
 ||Increases|Decreases|  
 |-|---------------|---------------|  
 |**Raw material inventory**|-   Net purchases of material<br />-   Output of subassemblies<br />-   Negative consumption|Material consumption|  
 |**WIP inventory**|-   Material consumption<br />-   Capacity consumption<br />-   Manufacturing overhead|Output of end items (cost of goods manufactured)|  
 |**Finished goods inventory**|Output of end items (cost of goods manufactured)|-   Sales (cost of goods sold)<br />-   Negative output|  
-|**Raw material inventory**|-   Net purchases of material<br />-   Output of subassemblies<br />-   Negative consumption|Material consumption|  
 
-The values of increases and decreases are recorded in the different types of manufactured inventory in the same way as for purchased inventory. Every time a transaction of inventory increase or decrease takes place, an item ledger entry and a corresponding general ledger entry are created for the amount. For more information, see [Design Details: Inventory Posting](design-details-inventory-posting.md).  
+The values of increases and decreases are recorded in the different types of manufactured inventory in the same way as for purchased inventory. Every time an increase or decrease in inventory happens, an item ledger entry and a corresponding general ledger entry are created for the amount. To learn more, go to [Design Details: Inventory Posting](design-details-inventory-posting.md).  
 
-Although values of transactions that are related to purchased goods are posted only as item ledger entries with related value entries, transactions that are related to produced items are posted as capacity ledger entries with related value entries, in addition to the item ledger entries.  
+The values of transactions for purchased goods post only as item ledger entries with related value entries. Transactions for produced items post as capacity ledger entries with related value entries in addition to the item ledger entries.  
 
-## Posting Structure  
+## Posting structure  
+
 Posting production orders to WIP inventory involves output, consumption, and capacity.  
 
 The following diagram shows the involved posting routines in codeunit 22.  
@@ -3812,48 +3815,50 @@ The item ledger entry describes the material consumption or output in terms of q
 
 A value entry that describes WIP inventory value can be associated with one of the following combinations of cost objects:  
 
--   A production order line, a work or machine center, and a capacity ledger entry.  
--   A production order line, an item, and an item ledger entry.  
--   Only a production order line  
+- A production order line, a work or machine center, and a capacity ledger entry.  
+- A production order line, an item, and an item ledger entry.  
+- Only a production order line  
 
 For more information about how costs from production and assembly are posted to the general ledger, see [Design Details: Inventory Posting](design-details-inventory-posting.md).  
 
-## Capacity Posting  
+## Capacity posting
+
 Posting output from the last production order routing line results in a capacity ledger entry for the end item, in addition to its inventory increase.  
 
- The capacity ledger entry is a record of the time that was spent to produce the item. The related value entry describes the increase of the WIP inventory value, which is the value of the conversion cost. For more information, see “From the Capacity Ledger” in [Design Details: Accounts in the General Ledger](design-details-accounts-in-the-general-ledger.md).  
+The capacity ledger entry is a record of the time that was spent to produce the item. The related value entry describes the increase of the WIP inventory value, which is the value of the conversion cost. To learn more, go to [From the Capacity Ledger](design-details-accounts-in-the-general-ledger.md#from-the-capacity-ledger).
 
-## Production Order Costing  
- To control inventory and production costs, a manufacturing company must measure the cost of production orders, because the predetermined standard cost of each produced item is capitalized in the balance sheet. For information about why produced items use the Standard costing method, see [Design Details: Costing Methods](design-details-costing-methods.md).  
+## Production order costing  
+
+To control inventory and production costs, a manufacturing company must measure the cost of production orders because the predetermined standard cost of each produced item is capitalized in the balance sheet. To learn more about why produced items use the Standard costing method, go to [Design Details: Costing Methods](design-details-costing-methods.md).  
 
 > [!NOTE]  
->  In environments that do not use the Standard costing method, the actual rather than the standard cost of produced items is capitalized on the balance sheet.  
+> In environments that don't use the Standard costing method, the actual rather than the standard cost of produced items is capitalized on the balance sheet.  
 
 The actual cost of a production order consists of the following cost components:  
 
--   Actual material cost  
--   Actual capacity cost or subcontractor cost  
--   Manufacturing overhead  
+- Actual material cost or material non-inventory cost  
+- Actual capacity cost or subcontractor cost  
+- Manufacturing overhead  
 
 These actual costs are posted to the production order and compared to the standard cost to calculate variances. Variances are calculated for each of the item cost components: raw materials, capacity, subcontractor, capacity overhead, and manufacturing overhead. The variances can be analyzed to determine problems, such as excessive waste in processing.  
 
 In standard-cost environments, the costing of a production order is based on the following mechanism:  
 
-1.  When the last routing operation is posted, the production order cost is posted to the item ledger and set to the expected cost.  
+1. When the last routing operation is posted, the production order cost is posted to the item ledger and set to the expected cost.  
 
-    This cost equals the output quantity that is posted in the output journal multiplied by the standard cost that is copied from the item card. The cost is treated as expected cost until the production order is finished. For more information, see [Design Details: Expected Cost Posting](design-details-expected-cost-posting.md).  
+    This cost equals the output quantity that is posted in the output journal multiplied by the standard cost that is copied from the item card. The cost is treated as expected cost until the production order is finished. To learn more, go to [Design Details: Expected Cost Posting](design-details-expected-cost-posting.md).  
 
     > [!NOTE]  
-    >  This differs from assembly order posting, which always posts actual costs. For more information, see [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md).  
-2.  When the production order is set to **Finished**, the order is invoiced by running the **Adjust Cost-Item Entries** batch job. As a result, the total cost of the order is calculated based on the standard cost of the consumed materials and capacity. The variances between the calculated standard costs and the actual production costs are calculated and posted.  
+    > This way of posting differs from assembly order posting, which always posts actual costs. To learn more, go to [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md).  
+2. When the production order is set to **Finished**, you invoice the order by running the **Adjust Cost-Item Entries** batch job. As a result, the total cost of the order is calculated based on the standard cost of the consumed materials and capacity. The variances between the calculated standard costs and the actual production costs are calculated and posted.  
 
 ## Related information  
- [Design Details: Inventory Costing](design-details-inventory-costing.md)   
- [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md)  
- [Managing Inventory Costs](finance-manage-inventory-costs.md)
- [Finance](finance.md)  
- [Work with Business Central](ui-work-product.md)
 
+[Design Details: Inventory Costing](design-details-inventory-costing.md)  
+[Design Details: Assembly Order Posting](design-details-assembly-order-posting.md)  
+[Managing Inventory Costs](finance-manage-inventory-costs.md)  
+[Finance](finance.md)  
+[Work with Business Central](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4454,10 +4459,10 @@ author: jswymer
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: business intelligence, KPI, Odata, Power App, SOAP, analysis
-ms.date: 10/23/2024
+ms.date: 07/03/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: solsen
 ---
 
 # Building [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for displaying [!INCLUDE [prod_long](includes/prod_long.md)] data
@@ -4604,18 +4609,11 @@ To set up a query to load data for multiple companies, follow these steps:
 1. Take the PowerQuery query that loads data for a single company. Convert it to a custom Power Query function that takes the company ID (or maybe the environment name) as parameters. To learn more, go to [Using custom Power Query functions](/power-query/custom-function).
 1. Now use the new custom function in a PowerQuery query, where you map the function over a list of companies and then merge the datasets using the [Table.Combine](/powerquery-m/table-combine) Power Query function.
 
-## <a name="advancedopts"></a>Advanced: Customize language, timeout, database replica, or page size for your Business Central data source
+## Customize the Power Query code that connects to your [!INCLUDE [prod_short](includes/prod_short.md)] data source
 
-The [!INCLUDE [powerbi-connector-name](includes/powerbi-connector-name.md)] supports several advanced properties for connecting to a Business Central data source that you can set in your Power Query queries. The following table describes the parameters.
+In most cases, using the navigation experience in the Power BI Desktop user interface is enough to get you started with building reports based on [!INCLUDE [prod_short](includes/prod_short.md)] data. However, more complex scenario might require you to manually edit the Power Query code responsible to get your data.
 
-|Parameter|Description|Default|Learn more at|
-|-|-|-|-|
-|AcceptLanguage|This parameter allows you to specify preferred languages for responses, ensuring users receive messages and translatable strings in their desired language. It sets the language in which the Business Central API session runs. It influences the language of error messages, formatted values in AL, and other values that depend on language or culture.<br><br>Setting this parameter improves user satisfaction and makes the data more accessible and relevant.|*not specified*|[Use locale values in multiple-language Power BI reports](/power-bi/guidance/multiple-language-locale#load-a-report-in-power-bi).|
-|ODataMaxPageSize|This parameter limits the number of entities per results page, which allows for more flexibility when connecting to large datasets or using complex queries. It sets the maximum number of records to return for each page when calling an API. For example, if your table **Customers** has 13,000 records and ODataMaxPageSize is set to 5000, Power BI makes 3 API calls to get your customers. The first call gets 5,000 records, the next one gets 5000 more, and the last call gets the remaining 3000. This option can't be higher than the maximum page size enforced by Business Central, which is 20000.<br><br>Setting this parameter ensures efficient and responsive data retrieval, leading to faster insights and decision-making. You can't exceed the maximum page size defined on the service.|5000|[ODataPreferenceHeader.MaxPageSize Property](/dotnet/api/microsoft.odata.odatapreferenceheader.maxpagesize)|
-|Timeout|This parameter defines the maximum duration for a request before cancellation. It sets the timeout for each single API call to Business Central. Its value can't exceed the timeout enforced on the Business Central service, which is currentæy 10 minutes (00:10:00).<br><br>Setting this parameter helps manage system resources effectively and prevents long-running queries from impacting overall system performance. Users experience minimal delays and interruptions, ensuring a smoother workflow. |00:08:00|[OData.Feed](/powerquery-m/odata-feed)|
-|UseReadOnlyReplica|This parameter determines whether requests target the primary database or a read-only replica. Offloading read operations from the primary database can significantly boost performance.<br><br> Setting this property leads to faster data retrieval and improved system stability, especially during peak usage times.|true||
-
-### Configure the advanced parameters
+To do that, follow these steps:
 
 1. Start [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)].
 2. Complete the step that suits your scenario:
@@ -4636,16 +4634,69 @@ The [!INCLUDE [powerbi-connector-name](includes/powerbi-connector-name.md)] supp
    ---
 
 3. In **Power Query Editor**, select **Advanced Editor** from the ribbon.
-4. In **Advanced Editor**, locate the line that starts with `Source =`:
+
+This will display the Power Query code that the system autogenerated when you made your selections in the navigator. For example, let's assume you selected the [!INCLUDE [prod_short](includes/prod_short.md)] environment named **Production**, the company called **CRONUS USA, Inc.**, the API folder called **Standard APIs v2.0**, and the table called **customers**. Navigating to the Advanced Editor would show a query similar to this one:
+
+```powerquery
+let
+  Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+  PRODUCTION = Source{[Name="PRODUCTION"]}[Data],
+  #"CRONUS USA, Inc." = PRODUCTION{[Name="CRONUS USA, Inc."]}[Data],
+  v2.0 = #"CRONUS USA, Inc."{[Name="v2.0"]}[Data],
+  customers_table = v2.0{[Name="customers",Signature="table"]}[Data]
+in
+  customers_table
+```
+
+You can now manually edit this query to make the changes that suite your needs.
+
+### The function `Dynamics365BusinessCentral.ApiContentsWithOptions`
+
+In the query above, the function `Dynamics365BusinessCentral.ApiContentsWithOptions` is responsible for connecting to [!INCLUDE [prod_short](includes/prod_short.md)] and retrieve the data. This function has 4 optional parameters, that aren't provided in the default query.
+
+Here's a break down of the different parameters:
+
+|Parameter|Examples|Description|
+|-|-|-|
+|Environment|`"Production"`|This parameter allows you to specify the [!INCLUDE [prod_short](includes/prod_short.md)] environment to connect to. If not specified, the function returns a list of all environments, and you need to select the appropriate environment in the subsequent steps of your Power Query code|
+|Company|`"CRONUS USA, Inc."`|This parameter allows you to specify the [!INCLUDE [prod_short](includes/prod_short.md)] company to connect to, inside your selected environment. This parameter is ignored if the **Environment** parameter isn't specified. If not specified, the function returns a list of all companies in your selected environent (or environments), and you need to select the appropriate company in the subsequent steps of your Power Query code|
+|API category (or API route)|`"microsoft/runtime/beta"`, `"v2.0"`|This parameter allows you to specify the API route connect to in [!INCLUDE [prod_short](includes/prod_short.md)], inside your selected environment and company. This parameter is ignored if the **Environment** and **Company** parameters aren't specified. If not specified, the function returns a list of all API categories (also called API routes) in your selected environment/environments and company/companies, and you need to select the appropriate API category in the subsequent steps of your Power Query code|
+|Advanced Options||This parameter allows you to specify some advanced options to connect to your [!INCLUDE [prod_short](includes/prod_short.md)] data source. Notice that in the vast majority of cases, the default values are optimized and don't need to be changed. For more information about these parameters, consult the following section.|
+
+For example, the query shown above in this section is completely equivalent to the following query:
+
+   ```powerquery
+    let
+      Source = Dynamics365BusinessCentral.ApiContentsWithOptions("PRODUCTION", "CRONUS USA, Inc.", "v2.0", null),
+      customers_table = Source{[Name="customers",Signature="table"]}[Data]
+    in
+      customers_table
+  ```
+
+### Advanced: Customize language, timeout, database replica, or page size for your Business Central data source
+
+The [!INCLUDE [powerbi-connector-name](includes/powerbi-connector-name.md)] supports several advanced properties for connecting to a [!INCLUDE [prod_short](includes/prod_short.md)] data source that you can set in your Power Query queries. The following table describes the parameters.
+
+|Advanced Option|Description|Default|Learn more at|
+|-|-|-|-|
+|AcceptLanguage|This parameter allows you to specify preferred languages for responses, ensuring users receive messages and translatable strings in their desired language. It sets the language in which the [!INCLUDE [prod_short](includes/prod_short.md)] API session runs. It influences the language of error messages, formatted values in AL, and other values that depend on language or culture.<br><br>Setting this parameter improves user satisfaction and makes the data more accessible and relevant.|*not specified*|[Use locale values in multiple-language Power BI reports](/power-bi/guidance/multiple-language-locale#load-a-report-in-power-bi).|
+|ODataMaxPageSize|This parameter limits the number of entities per results page, which allows for more flexibility when connecting to large datasets or using complex queries. It sets the maximum number of records to return for each page when calling an API. For example, if your table **Customers** has 13,000 records and ODataMaxPageSize is set to 5000, Power BI makes 3 API calls to get your customers. The first call gets 5,000 records, the next one gets 5000 more, and the last call gets the remaining 3000. This option can't be higher than the maximum page size enforced by Business Central, which is 20000.<br><br>Setting this parameter ensures efficient and responsive data retrieval, leading to faster insights and decision-making. You can't exceed the maximum page size defined on the service.|5000|[ODataPreferenceHeader.MaxPageSize Property](/dotnet/api/microsoft.odata.odatapreferenceheader.maxpagesize)|
+|Timeout|This parameter defines the maximum duration for a request before cancellation. It sets the timeout for each single API call to Business Central. Its value can't exceed the timeout enforced on the Business Central service, which is currentæy 10 minutes (00:10:00).<br><br>Setting this parameter helps manage system resources effectively and prevents long-running queries from impacting overall system performance. Users experience minimal delays and interruptions, ensuring a smoother workflow. |00:08:00|[OData.Feed](/powerquery-m/odata-feed)|
+|UseReadOnlyReplica|This parameter determines whether requests target the primary database or a read-only replica. Offloading read operations from the primary database can significantly boost performance.<br><br> Setting this property leads to faster data retrieval and improved system stability, especially during peak usage times.|true||
+
+### Configure the advanced options
+
+1. Follow the steps to view the Power Query code from Power BI Advanced Editor
+1. In **Advanced Editor**, locate the line that starts with `Source =`:
 
    ```powerquery
    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
    ```
 
-5. In the line, replace the fourth parameter of `Dynamics365BusinessCentral.ApiContentsWithOptions` with a comma separated list of properties and values you want to set, for example:
+1. In the line, replace the fourth parameter of `Dynamics365BusinessCentral.ApiContentsWithOptions` with a Power Query record of properties and values you want to set, for example:
 
    ```powerquery
-   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, [UseReadOnlyReplica = true, Timeout = Duration.From("00:07:00"), ODataMaxPageSize = 10000, AcceptLanguage = "it-it"])
+   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, [UseReadOnlyReplica = true, Timeout = Duration.From("00:07:00"), ODataMaxPageSize = 10000, AcceptLanguage = "it-it"])
    ```
 
 6. Select **Done** to close **Advanced Editor**.
@@ -4672,7 +4723,7 @@ By default, reports that use [!INCLUDE [prod_short](includes/prod_short.md)] dat
 
 `Dynamics365BusinessCentral: Request failed: The remote server returned an error: (400) Bad Request. (Can't insert a record. Current connection intent is Read-Only. CorrelationId: [...])".`
 
-If you're using a custom API, we recommend you rework the AL code to make sure it doesn't make database modifications when it's just reading data. But in case your scenario requires it, you can [configure the connector to use a read-write connection instead](#advancedopts).
+If you're using a custom API, we recommend you rework the AL code to make sure it doesn't make database modifications when it's just reading data. But in case your scenario requires it, you can [configure the connector to use a read-write connection instead](#advanced-customize-language-timeout-database-replica-or-page-size-for-your-business-central-data-source).
 
 ## Related information
 
@@ -6809,10 +6860,10 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: About calculating standard cost
 description: A standard cost system determines inventory unit cost based on reasonable historical or expected cost.
 author: brentholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.form: 5841,
 ms.author: bholtorf
-ms.date: 02/25/2025
+ms.date: 07/01/2025
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ms.custom: bap-template
@@ -6822,24 +6873,24 @@ ms.custom: bap-template
 
 Many manufacturing companies select a valuation base of standard cost. This choice also applies to companies that do light manufacturing, such as assembly and kitting. A standard cost system determines inventory unit cost based on some reasonable historical or expected cost. Studies of past and estimated future cost data can provide the basis for standard costs. These costs are frozen until a decision is made to change them. The actual cost to produce a product can differ from the estimated standard costs. For management control, the actual cost is compared to the standard cost for a specific item and differences, or *variances*, are identified and analyzed.  
 
-Standard costs can be maintained for items that are replenished through purchase, assembly, and production. For each replenishment method, standard costs can consist of the following elements.  
+Standard costs can be maintained for items that are replenished through purchase, assembly, and production. For each replenishment method, standard costs can consist of the elements listed in the following table.  
 
-|Replenishment System|Standard Cost Elements|  
+|Replenishment system|Standard cost elements|  
 |--------------------------|----------------------------|  
-|**Purchase**|Direct material cost and overhead material cost if it's required.|  
+|**Purchase**|Direct material cost and overhead material cost if necessary.|  
 |**Assembly**|Direct material cost, direct or fixed labor cost, and overhead cost.|  
-|**Prod. Order**|Direct material cost, labor cost, subcontractor cost, and overhead cost.|  
+|**Prod. Order**|Direct material cost, material noninventory cost, labor cost, subcontractor cost, and overhead cost.|  
 
 ## Set up standard costs
 
-Because the standard cost of a produced or assembled item can consist of multiple cost elements, including material, capacity (labor) and direct and overhead subcontractor costs, standard costs must be established for each of these elements.  
+Because the standard cost of a produced or assembled item can consist of multiple cost elements, including material, capacity (labor) and direct and overhead subcontractor costs, you must establish standard costs for each of these elements.  
 
-The accounting task for an item-processing company using standard costing is to:  
+The accounting tasks for an item-processing company using standard costing are to:  
 
 - Estimate a standard cost of the finished item and set it up on the item card.  
 - Record and allocate the actual cost of the key cost elements and to account for variances.  
 
-To determine the direct cost of a finished item, all component costs must be totaled. An assembled or produced item can include subassemblies, which also consist of multiple components.  
+To determine the direct cost of a finished item, total all component costs. An assembled or produced item can include subassemblies that also consist of multiple components.  
 
 The following key cost elements make up the total direct cost of a finished processed item:  
 
@@ -6852,18 +6903,18 @@ The following key cost elements make up the total direct cost of a finished proc
 Material costs are costs that are associated with subassemblies and purchased raw material. Material unit cost can consist of direct and indirect cost elements.  
 
 - Direct material cost represents an invoiced amount for purchased raw materials or the processing cost of a subassembly.  
-- Indirect material cost, or *overhead*, can represent elements such as inventory carrying costs for the finished item after it's produced.  
+- Indirect material cost, or *overhead*, can represent elements such as inventory carrying costs for the finished item.  
 
-The setup of the material cost for purchased items that affect direct and indirect cost depends on the costing method that you have selected for the specified item. You set up cost information for either costing method on the item card. For more information, see [Register New Items](inventory-how-register-new-items.md).
+The setup of the material cost for purchased items that affect direct and indirect cost depends on the costing method that you selected for the specified item. You set up cost information for either costing method on the item card. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
 
-The cost of scrap (production only) is another factor to consider when you calculate the total material cost. When a certain amount of raw material is scrapped when you assemble or produce an item, it generally causes an increase in the quantity of components that are required to produce this item. This increases the material cost of the components that are consumed when producing a parent item. You set up scrap cost for materials on either the production BOM or routing.  
+The cost of scrap (production only) is another factor to consider when you calculate the total material cost. Scrapping raw materials when you assemble or produce an item often causes an increase in the quantity of components that are required to produce the item. In turn, this increases the material cost of the components that you consume when you produce a parent item. You set up scrap cost for materials on either the production BOM or routing.  
 
 The material cost of a produced item can be represented in two ways that correspond to the following cost calculation bases.  
 
 |Cost Calculation Basis|Material Cost Calculation|  
 |----------------------------|-------------------------------|  
-|Single level|Produced item is equal to the total cost of all purchased or subassembled items on that item's production BOM.|  
-|Rolled-up level or multilevel|Produced item is the sum of the material cost for all subassemblies on that item's BOM and the cost of all purchased items on that item's production BOM.|  
+|Single level|The produced item is equal to the total cost of all purchased or subassembled items on that item's production BOM.|  
+|Rolled-up level or multilevel|The produced item is the sum of:<br /><br />* The material cost for all subassemblies on the item's BOM. <br />* The cost of all purchased items on the item's production BOM.|  
 
 ### Capacity costs
 
@@ -6884,11 +6935,11 @@ To calculate standard capacity cost, you have to establish the standard time rat
 You set up the rates for each time type for each machine or work center on an individual routing.  
 
 > [!NOTE]  
->  While run time rates apply for each item unit that is produced, the setup time rates apply for each lot. Therefore, you must prorate the routing setup time for each operation over the lot size. You specify the lot size in the corresponding field on the **Replenishment** FastTab of the **Item Card** page.  
+> While run time rates apply for each item unit that is produced, the setup time rates apply for each lot. Therefore, you must prorate the routing setup time for each operation over the lot size. You specify the lot size in the corresponding field on the **Replenishment** FastTab of the **Item Card** page.  
 
-To specify setup time on the routing for planning but not include this expense in the standard cost calculation, clear the **Cost Incl. Setup** field on the **Manufacturing Setup** page.  
+To specify setup time on the routing for planning but exclude this expense in the standard cost calculation, clear the **Cost Incl. Setup** field on the **Manufacturing Setup** page.  
 
-On a single-level basis, this is the labor cost that is required to produce the finished production item and is specified on the production item's routing. On a multi-level basis, this is the capacity cost that is specified for each individually produced item that is included in the parent item's BOM.  
+On a single-level basis, this value is the labor cost that is required to produce the finished production item and is specified on the production item's routing. On a multi-level basis, this value is the capacity cost that is specified for each individually produced item that is included in the parent item's BOM.  
 
 ### Subcontractor costs
 
@@ -6898,13 +6949,15 @@ Because subcontracting is an outsourced capacity, you set up the cost of both di
 
 ## Populate standard cost
 
-You can set standard cost manually or you can calculate the item's standard cost from the **Item card** page. Choose the **Production** group, then choose the **Calc. Production Std Cost** action to update cost of production items or choose the **Assembly** group, then choose the **Calc. Assembly Std. Cost** action to update cost of assembly item. The actions will consolidate and roll up the component and capacity costs to calculate the total assembly or manufacturing cost of the items. 
+You can set standard cost manually or you can calculate the item's standard cost from the **Item card** page. Choose the **Production** group, then choose the **Calc. Production Std Cost** action to update cost of production items or choose the **Assembly** group, then choose the **Calc. Assembly Std. Cost** action to update cost of assembly item. The actions consolidate and roll up the component and capacity costs to calculate the total assembly or manufacturing cost of the items.
 
-To calculate the unit cost of an assembly or production BOM, the parent item and its component items must use the Standard costing method. Any resources in the BOM are rolled up if they have a unit cost that is defined on the item, resource. workcenter card. Not cost defined on stockkeeping unit (SKU). 
+To calculate the unit cost of an assembly or production BOM, the parent item and its component items must use the Standard costing method. Resources in the BOM roll-up if they have a unit cost defined on the item, resource, or workcenter. Resources don't use cost defined on stockkeeping unit (SKU).
 
-If you have open entries, after implementing the changes to **Standard Cost** field on the item card, remember to perform inventory revaluation. For more information, see [Revalue Inventory](inventory-how-revalue-inventory.md).
+You can define a production BOM or routing in the SKU, which can be useful if the SKU represents a variant that requires a different set of components or different location. For example, where different production equipment is available. These changes might affect standard cost. You can use the **Calc. Production Std. Cost** action on the **Stockkeeping Unit Card** page to calculate standard cost. Subassemblies use information from items, and not the cost defined on stockkeeping unit. To enable this feature, go to the **Manufacturing Setup** page and turn on the **Load SKU Cost on Manufacturing** toggle.
 
-## Updating standard costs with Standard Cost Worksheet
+If you have open entries, after you make a change in the **Standard Cost** field on the item, remember to revaluate inventory. To learn more, go to [Revalue Inventory](inventory-how-revalue-inventory.md).
+
+## Updating standard costs with the Standard Cost Worksheet
 
 The **Standard Cost Worksheet** is intended as a tool for purchasers, production or assembly managers, and internal controllers when they have to review and update standard costs.
 
@@ -6922,7 +6975,10 @@ Production or assembly managers use the [**Suggest Work/Mach Ctr Std Cost**](#su
 
 Internal controllers use the [**Copy Standard Cost Worksheet**](#copy-standard-cost-worksheet) batch job to consolidate the worksheets into one worksheet. Use the [**Roll Up Standard Cost**](#roll-up-standard-cost) batch job to make a roll-up of the costs from the purchaser and the production or assembly manager. The roll-up determines the standard costs of manufactured and assembled items. Controllers can preview cost changes before and after the roll-up to identify unacceptable deviations. When the updates are acceptable, the controller implements the changes to take effect on a given date.
 
-Use the [**Implement Standard Cost Change**](#implement-standard-cost-change) batch job to implement the standard cost changes, which updates the standard costs on the item cards of the items that are included in the worksheet. It also creates revaluation journal lines so that you can update the items in stock with the new standard cost.
+Use the [**Implement Standard Cost Change**](#implement-standard-cost-change) batch job to implement the standard cost changes. The batch job updates the standard costs of the items that are included in the worksheet. It also creates revaluation journal lines so that you can update the items in stock with the new standard cost.
+
+> [!NOTE]
+> Standard cost worksheets don't support stockkeeping units.
 
 ### To update standard costs
 
@@ -6936,11 +6992,11 @@ Use the [**Implement Standard Cost Change**](#implement-standard-cost-change) ba
     5. Run the **Roll Up Standard Cost** batch job.
     6. Review the results and make changes as necessary.
     7. Run the **Implement Standard Cost Changes** batch job.  
-4. Review and post the **Revaluation Journal** page, which has been populated with entries from the previous steps in this process.  
+4. Review and post the **Revaluation Journal** page, which was populated with entries from the previous steps in this process.  
 
-### Suggest Item Standard Cost
+### Suggest item standard cost
 
-Creates suggestions for changing the costs and cost shares of standard costs on item cards. When the batch job has completed, you can see the result in the **Standard Cost Worksheet** page.
+Creates suggestions for changing the costs and cost shares of standard costs on item cards. When the batch job completes, the results are available in the **Standard Cost Worksheet** page.
 
 > [!NOTE]  
 > This batch job is intended for purchased items only. If you want to update an item with a production BOM or assembly BOM, then you must first fill in the worksheet with all the components and then run the **Roll Up Standard Cost** batch job.
@@ -6957,13 +7013,20 @@ This batch job only creates suggestions. It doesn't implement the suggested chan
 
 ### Suggest Work/Mach Ctr Std Cost
 
-Creates suggestions for changing the costs and cost shares of standard costs on work center, machine center, or resource cards. When the batch job has completed, you can see the result in the **Standard Cost Worksheet** page.
+Creates suggestions for changing the costs and cost shares of standard costs on work center, machine center, or resource cards. When the batch job completes, the results are available on the **Standard Cost Worksheet** page.
 
 This batch job only creates suggestions. It doesn't implement the suggested changes. If you're satisfied with the suggestions and want to implement them,  then select **Implement Standard Cost Changes** in the **Standard Cost Worksheet** page.
 
-When you have run the batch job and want to see the impact on your production or assembly departments, then you run the **Roll Up Standard Cost** batch job to update standard costs on work centers, machine centers, assembly resources, production BOMs, and assembly BOMs.
+After you run the batch job and want to review the effect on your production or assembly departments, run the **Roll Up Standard Cost** batch job to update standard costs on:
+
+- Work centers
+- Machine centers
+- Assembly resources
+- Production BOMs
+- Assembly BOMs
 
 #### Options
+
 **Standard Cost**: Enter the adjustment factor you want to use to update the standard cost. You can also select a rounding method for the new standard cost. You have to fill in the field using a decimal for the percentage increase, for example 1.1.
 
 **Indirect Cost %**: Enter the adjustment factor you want to use to update the indirect cost %. You can also select a rounding method for the new indirect cost %. You have to fill in the field using a decimal for the percentage increase, for example 1.1.
@@ -6974,13 +7037,13 @@ When you have run the batch job and want to see the impact on your production or
 
 Copies standard cost worksheets from several sources into the **Standard Cost Worksheet** page.
 
-You can only copy one worksheet at a time. The lines from the copied worksheets will be placed below each other in the consolidated worksheet. Item lines are listed first, then work/machine center lines are listed, and resource lines are listed last.
+You can only copy one worksheet at a time. The lines from the copied worksheets are placed below each other in the consolidated worksheet. Item lines are listed first, then work/machine center lines are listed, and resource lines are listed last.
 
 ### Roll up standard cost
 
-Rolls up the standard costs of assembled and manufactured items. These are influenced by the change in standard costs of components suggested by the **Suggest Item Standard Cost** batch job. In addition, they're influenced by the change in standard cost of production capacity and assembly resources suggested by the **Suggest Work/Mach Ctr Std Cost** batch job.
+Rolls up the standard costs of assembled and manufactured items. These values are influenced by the change in standard costs of components suggested by the **Suggest Item Standard Cost** batch job. In addition, they're influenced by the change in standard cost of production capacity and assembly resources suggested by the **Suggest Work/Mach Ctr Std Cost** batch job.
 
-Once you have run either or both of these batch jobs and you do the roll-up, then all changes to the standard costs in the worksheet are introduced in the associated production or assembly BOMs, and the costs are applied at each BOM level.
+After you run either or both of these batch jobs and you do the roll-up, changes to the standard costs in the worksheet apply to the related production or assembly BOMs. The costs are applied at each BOM level.
 
 > [!NOTE] 
 > This function only rolls up the standard cost on the item cards, not on the SKU cards.
@@ -7007,7 +7070,7 @@ Updates the changes in the standard cost in the **Item** table with the ones in 
 
 Select **OK** to start the batch job. If you don't want to run the batch job now, select **Cancel** to close the window.
 
-Review and post the **Revaluation Journal** page, which has been populated with entries from the previous steps in this process.
+Review and post the **Revaluation Journal** page, which was populated with entries from the previous steps in this process.
 
 ## Related information
 
@@ -14746,6 +14809,10 @@ Use Copilot to get a quick summary of a record, such as a customer, item, or sal
 
 [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
+## How Copilot summarizes your data
+
+Copilot uses fields from the record, information from FactBoxes, and fields from related statistics pages to create a summary. It works on your behalf and can only access data that you can access in Business Central. For example, if you personalize the page to hide a field, Copilot doesn't include that field in the summary. If security controls remove access to specific fields, Copilot doesn't include those fields in summaries.
+
 ## Prerequisites
 
 The **Summarize** capability is active, and you have the required permissions to use it. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
@@ -14785,6 +14852,17 @@ This feature is available on most card and document pages, like a **Customer car
    - Regenerate the summary
 
      Select the **Regenerate summary** icon to generate a new summary, updated with changes to the record and related data. The same summary appears for a few minutes before a new one is automatically generated, but you can request a summary from the latest data at any time.
+
+## Share the summary  
+
+You can easily share any summary with your coworkers by using the **Copy summary** button, then pasting into your favorite app such as Microsoft Teams chats, Outlook emails, or in your project OneNote. Pasting a summary includes the summary bullet points and a link to the source page in Business Central that you can navigate to the full information.
+
+- To copy the summary from the FactBox, select <kbd>...</kbd> **Show more options for FactBox pane** > **Summary** at the bottom of the FactBox, and then select **Copy summary**. The summary is now copied to your clipboard. You can also select or set focus to the FactBox using your keyboard and use the <kbd>Ctrl</kbd>+<kbd>C</kbd> shortcut, then switch apps and use <kbd>Ctrl</kbd>+<kbd>V</kbd> shortcut to paste.
+
+- To copy the summary from the Copilot pane, hover over the summary message and select **Copy**. The summary is now copied to your clipboard. You can also select or set focus to the summary message and use the <kbd>Ctrl</kbd>+<kbd>C</kbd> shortcut, then switch apps and use <kbd>Ctrl</kbd>+<kbd>V</kbd> shortcut to paste.
+
+> [!NOTE]
+> Summaries are intended for use within your organization and might contain sensitive information. Review the summary carefully before sharing outside of your organization.
 
 ## Show or hide the summary
 
@@ -19187,7 +19265,7 @@ ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.keywords: projects
 ms.search.form: 89, 200, 289, 290, 376, 462, 463, 1029, 1615, 8904, 9014, 9015, 37033, 37034, 37035, 37036, 37037, 37038, 37039
-ms.date: 11/27/2024
+ms.date: 07/01/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -19202,9 +19280,9 @@ ms.custom: bap-template
 
 Project managers have a good overview of their projects, including the employees, machinery, and other resources they involve.
 
-## Get started with projects
+<!-- ## Get started with projects
 
-Project management can be complicated. For help with getting started with project management in [!INCLUDE[prod_short](includes/prod_short.md)], go to [Video: How to create a project in Dynamics 365 Business Central](https://www.youtube.com/watch?v=VqaPWr7BWmw) on the [!INCLUDE[prod_short](includes/prod_short.md)] YouTube channel.  
+Project management can be complicated. For help with getting started with project management in [!INCLUDE[prod_short](includes/prod_short.md)], go to [Video: How to create a project in Dynamics 365 Business Central](https://www.youtube.com/watch?v=VqaPWr7BWmw) on the [!INCLUDE[prod_short](includes/prod_short.md)] YouTube channel.  -->
 
 ## Set up projects
 
@@ -22933,7 +23011,7 @@ ms.topic: article
 ms.devlang: al
 ms.search.keywords: E-Documents, E-Document framework, UBL, Peppol, German version
 ms.search.form: 
-ms.date: 03/10/2025
+ms.date: 06/30/2025
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -22950,16 +23028,16 @@ Learn more in [Set up e-documents](../../finance-how-setup-edocuments.md), which
 ### Set up local formats  
 
 > [!NOTE]
-> Currently, the E-Document framework for the German localization supports the XRechnung (UBL) and Peppol BIS 3 formats. The ZUGFeRD format isn't supported yet.
+> Starting with version 26.3, the E-Document framework for the German localization supports all formats available in Germany: XRechnung (UBL only), Peppol BIS 3, and ZUGFeRD.  
 
-To set up the format for the E-Document service, follow these steps:  
+To set up the format for the E-Document service, perform the following steps:  
 
-1. Select the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **E-Document Services**, and then select the related link. The **E-Document Services** page displays.
-1. On the **General** FastTab, select **New**. In the **Document Format** field, choose **PEPPOL BIS 3.0** or **XRechnung**.  
+1. Choose the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **E-Document Services**, and then select the related link. The **E-Document Services** page displays.
+1. On the **General** FastTab, select **New**. In the **Document Format** field, choose **PEPPOL BIS 3.0 DE**, **XRechnung** or **ZUGFeRD**.  
 1. Configure the fields as described in [Set up e-documents](../../finance-how-setup-edocuments.md).
 1. Close the page.
 
-### Use buying reference on the E-invoice
+### Use buyer reference on the E-invoice
 
 When you configure e-invoices in the sales process, make sure to display your buyer reference on the invoice. Follow these steps to set up how you use buyer references:  
 
@@ -22972,10 +23050,20 @@ When you configure e-invoices in the sales process, make sure to display your bu
 
 ## Work with E-invoices
 
-Learn more in [Use e-documents in the purchases process](../../finance-how-use-edocuments.md), which provides information about the E-Documents framework in purchase processes.  
+### Purchase process
+
+Learn more in [Use e-documents in the purchase process](../../finance-how-use-edocuments-purchase.md), which provides information about the E-Documents framework in purchase processes.
+
+To receive all three supported file formats, you must create a separate E-Document Service for each format and specify the desired format in the **Document Format** field. The process of receiving and creating e-documents is fully automated and requires no manual intervention. This includes ZUGFeRD, which is a PDF/A format—Business Central automatically extracts the embedded XML file and processes it as a new e-document.
 
 > [!NOTE]
-> E-invoicing in purchase processes is available starting with version 25.2, and its enablement in sales starts from version 25.3.  
+> Automated e-document creation doesn't imply automatic creation of purchase invoices. To enable this process, proper configuration is required, or, in the case of purchase orders, you must use purchase order matching.
+
+### Sales process
+
+Learn more in [Use e-documents in the sales process](../../finance-how-use-edocuments.md), which provides information about the E-Documents framework in sales processes.
+
+Because there are three available file formats, you must decide whether to use one or multiple formats based on your sales process. You can define different workflows and specify the file format for each. Each **Document Sending Profile** supports only one file format, so you can't assign multiple formats to a single customer.
 
 ## Related information
 
@@ -23056,7 +23144,7 @@ author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: German version, local functionality
-ms.date: 03/10/2025
+ms.date: 06/30/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -23082,7 +23170,7 @@ The following articles describe local functionality that is unique to the German
   - [Print Vendor Payments List Reports](how-to-print-vendor-payments-list-reports.md) **Available Now**
 
 - Core Finance
-  - [German Electronic Invoicing](germany-einvoicing.md) **Available Now**
+  - [German Electronic Invoicing (xRechnung, ZUGFeRD, Peppol)](germany-einvoicing.md) **Available Now**
   - [Export and Print Intrastat Reports](how-to-export-and-print-intrastat-reports.md) **Available Now**
   - [Post a Negative Entry](how-to-post-a-negative-entry.md) **Available Now**
   - [Process for Digital Audits](process-for-digital-audits.md) **Available Now**
@@ -23109,8 +23197,6 @@ The following articles describe local functionality that is unique to the German
 
 ## Future legislation requirements being investigated
 
-- Adding ZUGFeRD e-invoicing format **Planned for July 2025**
-- Peppol BIS# DE format with included Buyer Reference **Planned for July 2025**
 - GDPdU/GoDB update - based on Audit Files Export **Planned for 2026 release wave 2**
 - Electronically supported tax audit (euBP) **Planned for 2026 release wave 2**
 
