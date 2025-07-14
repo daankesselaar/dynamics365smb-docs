@@ -1,3 +1,1172 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-opportunity-overview
+---
+title: Opportunity Overview (Power BI report)
+description: The Opportunity Overview report provides a comprehensive view of sales opportunities, including the number of opportunities, estimated values, sales cycle, and a breakdown of potential value by location.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37103_Primary
+ms.date: 05/20/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Opportunity Overview (Power BI Report)
+
+[!INCLUDE[applies-to-2025w1](includes/applies-to-2025w1.md)]
+
+The **Opportunity Overview** report provides a comprehensive view of sales opportunities, including the number of opportunities, estimated values, sales cycle, and a breakdown of potential value by location. This report gives key insights into opportunity progression, prospect demographics, and the performance of closed opportunities.
+
+:::image type="content" source="media/powerbi/sales/sales-opportunity-overview.png" alt-text="Screenshot of the Opportunity Overview report" lightbox="media/powerbi/sales/sales-opportunity-overview.png":::
+
+## Use the report
+
+Management and sales teams use this report to track ongoing opportunities and the value they're expected to generate.
+
+As a sales manager, you want to oversee the opportunity pipeline and monitor the performance of salespeople. Using this report, you can review the value by location and sales cycle stage, and identify demographics to focus on. This can help you grow future sales and inform you on where to invest in new marketing campaigns. Additionally, you can analyze key metrics for each salesperson to provide support.
+
+For example, by reviewing the [Win/Loss %](sales-powerbi-sales-kpis.md#win-loss-percent), you might identify a salesperson who is underperforming. Using this information, you invest in further training and mentorship to improve their opportunity outcomes and overall profitability.
+
+As a salesperson, the **Opportunity Overview** helps you to monitor your sales performance and manage opportunity progress. Using the sales cycle and location information, you're encouraged to nurture a diverse portfolio of prospects. Meanwhile, insights from the sales cycle stage  motivate you to take action on tasks and advance opportunities.
+
+For example, you might identify an opportunity in the initial stage that has high estimated value. With this knowledge, you decide to prioritize the opportunity and re-engage with the contact to reinforce the client relationship and progress the opportunity.
+
+## Key Performance Indicators (KPIs)
+
+The report includes the following key performance indicators (KPIs) and measures:
+
+- [Calculated Current Value](sales-powerbi-sales-kpis.md#calculated-current-value)
+- [Estimated Value](sales-powerbi-sales-kpis.md#estimated-value)
+- [No. of Opportunities](sales-powerbi-sales-kpis.md#no-of-opportunities)
+- [Opportunity Sales Quote Amount](sales-powerbi-sales-kpis.md#opportunity-sales-quote-amount)
+- [Win/Loss %](sales-powerbi-sales-kpis.md#win-loss-percent)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Contact
+- Opportunities
+- Opportunity Entries
+- Sales Line
+
+## Try the report
+
+Try the report here: [Opportunity Overview](https://businesscentral.dynamics.com?page=37103)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad-hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-kpis
+---
+title: Sustainability KPIs and measures (Power BI)
+description: Get an overview of all the KPIs and measures in the semantic model for the Sustainability Power BI app.
+author: altotovi
+ms.author: altotovi
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 
+ms.date: 05/26/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Power BI Sustainability app KPIs and measures
+
+[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
+
+This article provides a list of the key performance indicators (KPIs) that are included in the semantic model for the Power BI Sustainability report. Explore the list of KPIs to learn more about how they can help you achieve your business goals.
+
+Each KPI is described, including how they're calculated and what data the calculations use.
+
+## Emission Fees Table
+
+**Emissions Fees Measures**
+
+- [CH4 Carbon Equivalent](#ch4-carbon-equivalent)
+- [CO2 Carbon Equivalent](#co2-carbon-equivalent)
+- [N2O Carbon Equivalent](#n2o-carbon-equivalent)
+- [CO2e Target](#co2e-target)
+
+### CH4 Carbon Equivalent
+
+**Formula**  
+
+A sum of the **Carbon Equivalent Factor** where the **Emission Type** is **CH4**.
+
+**Data Sources**
+
+- Emissions Fees
+
+### CO2 Carbon Equivalent
+
+**Formula**  
+
+A sum of the **Carbon Equivalent Factor** where the **Emission Type** is **CO2**.
+
+**Data Sources**
+
+- Emissions Fees
+
+### N2O Carbon Equivalent
+
+**Formula**  
+
+A sum of the **Carbon Equivalent Factor** where the **Emission Type** is **N2O**.
+
+**Data Sources**
+
+- Emissions Fees
+
+### CO2e Target
+
+**Formula**  
+
+A calculation of all carbon equivalent factors and their targets shown as one figure.
+
+**Data Sources**
+
+- Emissions Fees
+- Sustainability Goals
+
+## Employee Absences Table
+
+**Employee Absences Measures**
+
+- [Employee Absences](#employee-absences)
+- [Employee Absences (%)](#employee-absences-)
+
+### Employee Absences
+
+**Formula**  
+
+A sum of **Employee Absences Quantity**.
+
+**Data Sources**
+
+- Employee Absence
+
+### Employee Absences (%)
+
+**Formula**  
+
+A calculation of the [Employee Absences](#employee-absences) multiplied by [Active Employees](#active-employees) and divided by **Working Days** to calculate the percentage of **Absence Hours**.
+
+**Data Sources**
+
+- Employees
+- Employee Absence
+
+## Employee Ledger Entries Table
+
+**Employee Ledger Entries Measures**
+
+- [Employee Amount](#employee-amount)
+
+### Employee Amount
+
+**Formula**  
+
+Sum of the **Amount** field from **Employee Ledger Entries**.
+
+**Data Sources**
+
+- Employee Ledger Entries
+
+## Employee Qualifications Table
+
+**Employee Qualifications Measures**
+
+- [Employee Qualifications](#employee-qualifications)
+
+### Employee Qualifications
+
+**Formula**  
+
+A count of the different qualifications per employee.
+
+**Data Sources**
+
+- Employee Qualifications
+
+## Employee Table
+
+**Employee Measures**
+
+- [Active Employees](#active-employees)
+- [Age](#age)
+- [Age Distribution](#age-distribution)
+- [Female Employees (%)](#female-employees-)
+- [Male Employees (%)](#male-employees-)
+- [No. of Employees](#no-of-employees)
+- [No. of Female Employees](#no-of-female-employees)
+- [No. of Male Employees](#no-of-male-employees)
+- [No. of Other Employees](#no-of-other-employees)
+- [Other Employees (%)](#other-employees-)
+
+### Active Employees
+
+**Formula**  
+
+A filter on the [No. of Employees](#no-of-employees) where the **Status** of the **Employee** is **Active**.
+
+**Data Sources**
+
+- Employee
+
+### Age
+
+**Formula**  
+
+A calculated column for the **Employee** to determine the age of the employee based on their date of birth.
+
+**Data Sources**
+
+- Employee
+
+### Age Distribution
+
+**Formula**  
+
+A calculated column to group employees into one of three different age distributions.
+
+[!NOTE]
+> The age distribution is defined directly in Power BI. The grouping is under 30, between 30 and 50, and then over 50. You can't change the distributions.
+
+**Data Sources**
+
+- Employee
+
+### Female Employees (%)
+
+**Formula**  
+
+The **No. of Female Employees** divided by the **No. of Employees**.
+
+[No. of Female Employees](#no-of-female-employees) / [No. of Employees](#no-of-employees)
+
+**Data Sources**
+
+- Employee
+
+### Male Employees (%)
+
+**Formula**  
+
+The **No. of Male Employees** divided by the **No. of Employees**.
+
+[No. of Male Employees](#no-of-male-employees) / [No. of Employees](#no-of-employees)
+
+**Data Sources**
+
+- Employee
+
+### No. of Employees
+
+**Formula**  
+
+A count of Employees.
+
+**Data Sources**
+
+- Employee
+
+### No. of Female Employees
+
+**Formula**  
+
+A filter on the [No. of Employees](#no-of-employees) where the **Employee Gender** is **Female**.
+
+**Data Sources**
+
+- Employee
+
+### No. of Male Employees
+
+**Formula**  
+
+A filter on the [No. of Employees](#no-of-employees) where the **Employee Gender** is **Male**.
+
+**Data Sources**
+
+- Employee
+
+### No. of Other Employees
+
+**Formula**  
+
+A filter on the [No. of Employees](#no-of-employees) where the **Employee Gender** is not **Male** or **Female**.
+
+**Data Sources**
+
+- Employee
+
+### Other Employees (%)
+
+**Formula**  
+
+The **No. of Other Employees** divided by the **No. of Employees**.
+
+[No. of Other Employees](#no-of-other-employees) / [No. of Employees](#no-of-employees)
+
+**Data Sources**
+
+- Employee
+
+## Responsibility Centre Table
+
+**Responsibility Centre Measures**
+
+- [Facility Capactity](#facility-capactity)
+
+### Facility Capactity
+
+**Formula**  
+
+Measures the water capacity of the facility (Responsibility Centre). The measure is based on the **Month in Period** when filtering.
+
+**Data Sources**
+
+- Responsibility Centre
+
+## Sustainability Goals Table
+
+**Sustainability Goals Measures**
+
+- [CO2 Current Value](#co2-current-value)
+- [CO2 Target](#co2-target)
+- [CO2 Realized (%)](#co2-target)
+- [CH4 Current Value](#ch4-target)
+- [CH4 Target](#ch4-target)
+- [CH4 Realized (%)](#ch4-target)
+- [N2O Current Value](#n2o-current-value)
+- [N2O Target](#n2o-target)
+- [N2O Realized (%)](#n2o-target)
+- [Waste Current Value](#waste-target)
+- [Waste Target](#waste-target)
+- [Waste Realized (%)](#waste-target)
+- [Water Current Value](#water-target)
+- [Water Target](#water-target)
+- [Water Realized (%)](#water-target)
+- [CO2e Current Value](#co2e-current-value)
+- [CO2e Realized (%)](#co2e-realized-)
+
+### CO2 Current Value
+
+**Formula**  
+
+A sum of [CO2 Emissions](#co2-emissions) based on the start and dnd date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### CO2 Target
+
+**Formula**  
+
+Sum of the **Target Value** for **CO2**.
+
+**Data Sources**
+
+- Sustainability Goals
+
+### CO2 Realized (%)
+
+**Formula**  
+
+The **CH4 Current Value** divided by the **CH4 Emissions**.
+
+[CO2 Current Value](#co2-current-value) / [CO2 Target](#co2-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### CH4 Current Value
+
+**Formula**  
+
+A sum of [CH4 Emissions](#ch4-emissions) based on the start and end date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### CH4 Target
+
+**Formula**  
+
+Sum of **Target Value** for **CH4**.
+
+**Data Sources**
+
+- Sustainability Goals
+
+### CH4 Realized (%)
+
+**Formula**  
+
+The **CH4 Current Value** divided by the **CH4 Emissions**.
+
+[CH4 Current Value](#ch4-current-value) / [CH4 Target](#ch4-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### N2O Current Value
+
+**Formula**  
+
+A sum of [N2O Emissions](#n2o-emissions) based on the start and end date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### N2O Target
+
+**Formula**  
+
+A sum of **Target Value** for **N2O** from the **Sustainability Goals**.
+
+**Data Sources**
+
+- Sustainability Goals
+
+### N2O Realized (%)
+
+**Formula**  
+
+The **N2O Current Value** divided by the **N2O Emissions**.
+
+[N2O Current Value](#n2o-current-value) / [N2O Target](#n2o-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### Waste Current Value
+
+**Formula**  
+
+A sum of [Waste Intensity](#waste-intensity) based on the start and end date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### Waste Target
+
+**Formula**  
+
+A sum of **Target Value** for **Waste**.
+
+**Data Sources**
+
+- Sustainability Goals
+
+### Waste Realized (%)
+
+**Formula**  
+
+The **Waste Current Value** divided by the **Waste Emissions**.
+
+[Waste Current Value](#waste-current-value) / [Waste Target](#waste-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### Water Current Value
+
+**Formula**  
+
+A sum of [Water Intensity](#water-intensity) based on the start and end date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### Water Target
+
+**Formula**  
+
+A sum of **Target Value** for **Water**.
+
+**Data Sources**
+
+- Sustainability Goals
+
+### Water Realized (%)
+
+**Formula**  
+
+The **Water Current Value** divided by the **Water Emissions**.
+
+[Water Current Value](#water-current-value) / [Water Target](#water-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### CO2e Current Value
+
+**Formula**  
+
+A sum of [CO2e Emissions](#co2e-emissions) based on the start and end date from the selected scorecards.
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+### CO2e Realized (%)
+
+**Formula**  
+
+The **CO2e Current Value** divided by the **CO2e Emissions**.
+
+[CO2e Current Value](#co2e-current-value) / [CO2e Target](#co2e-target)
+
+**Data Sources**
+
+- Sustainability Ledger Entries
+- Sustainability Goals
+
+## Sustainability Ledger Entries Table
+
+**Sustainability Ledger Entries Measures**
+
+- [CO2 Emissions](#co2-emissions)
+- [CO2 Emissions Balance](#co2-emissions-balance)
+- [CO2 Emissions Balance at Date ](#co2-emissions-balance-at-date)
+- [CO2 Baseline](#co2-baseline) 
+- [CO2 vs Baseline (%)](#co2-vs-baseline-)
+
+- [CH4 Emissions](#ch4-emissions)
+- [CH4 Emissions Balance at Date ](#ch4-emissions-balance-at-date)
+- [CH4 Emissions Balance](#ch4-emissions-balance)
+- [CH4 Baseline](#ch4-baseline) 
+- [CH4 vs Baseline (%)](#ch4-vs-baseline-)
+
+- [N2O Emissions](#n2o-emissions)
+- [N2O Emissions Balance](#n2o-emissions-balance)
+- [N2O Emissions Balance at Date](#n2o-emissions-balance-at-date)
+- [N2O Baseline](#n2o-baseline) 
+- [N2O vs Baseline (%)](#n2o-vs-baseline-)
+
+- [CO2e Emissions](#co2e-emissions)
+- [CO2e Emissions (Excl Credits)](#co2e-emissions-excl-credits)
+- [CO2e Emissions Balance](#co2e-emissions-balance)
+- [CO2e Emissions Balance at Date](#co2e-emissions-balance-at-date)
+- [CO2e Baseline](#co2-baseline) 
+- [CO2e vs Baseline (%)](#co2e-vs-baseline-)
+
+- [Discharged Into Water](#discharged-into-water)
+- [Discharged Into Water Balance](#discharged-into-water-balance)
+- [Discharged Into Water Balance at Date](#discharged-into-water-balance-at-date)
+- [Discharged Into Water DOD](#discharged-into-water-dod)
+- [Discharged Into Water PD](#discharged-into-water-pd)
+- [Discharged Into Water PY](#discharged-into-water-py)
+- [Discharged Into Water YOY](#discharged-into-water-yoy)
+- [Discharged Into Water Baseline](#discharged-into-water-baseline)
+- [Discharged Into Water vs Baseline (%)](#discharged-into-water-vs-baseline-)
+
+- [Water Intensity](#water-intensity)
+- [Water Intensity Baseline](#water-intensity-balance)
+- [Water Intensity Baseline at Date](#water-intensity-balance-at-date)
+- [Water Intensity DOD](#water-intensity-dod)
+- [Water Intensity PD](#water-intensity-pd)
+- [Water Intensity PY](#water-intensity-py)
+- [Water Intensity YOY](#water-intensity-yoy)
+- [Water Intensity Baseline](#water-intensity-baseline)
+- [Water Intensity vs Baseline (%)](#water-intensity-vs-baseline-)
+- [Water Available](#water-available)
+
+- [Waste Intensity](#waste-intensity)
+- [Waste Intensity Balance](#waste-intensity-balance)
+- [Waste Intensity Balance at Date](#waste-intensity-balance-at-date)
+- [Waste Intensity DOD](#waste-intensity-dod)
+- [Waste Intensity PD](#waste-intensity-pd)
+- [Waste Intensity PY](#waste-intensity-py)
+- [Waste Intensity YOY](#waste-intensity-yoy)
+- [Waste Intensity Baseline](#waste-intensity-baseline)
+- [Waste vs Baseline (%)](#waste-intensity-vs-baseline-)
+
+- [Purchased Carbon Credits](#purchased-carbon-credits)
+
+### CO2 Emissions
+
+**Formula**  
+
+A sum of **CO2** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2 Emissions Balance
+
+**Formula**  
+
+Calculates the total [CO2 Emissions](#co2-emissions) across all dates and ignores filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2 Emissions Balance at Date 
+
+**Formula**  
+
+Calculates the cumulative [CO2 Emissions](#co2-emissions) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date in the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2 Baseline
+
+**Formula**  
+
+A sum of [CO2 Emissions](#co2-emissions) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### CO2 vs Baseline (%)
+
+**Formula**  
+
+The **CO2 Current Value** divided by the **CO2 Baseline**.
+
+[CO2 Current Value](#co2-current-value) / [CO2 Baseline](#co2-baseline)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### CH4 Emissions
+
+**Formula**  
+
+A sum of **CH4** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CH4 Emissions Balance at Date
+
+**Formula**  
+
+Calculates the cumulative [CH4 Emissions](#ch4-emissions) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date in the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CH4 Emissions Balance 
+
+**Formula**  
+
+Calculates the total [CH4 Emissions](#ch4-emissions) across all dates, and ignore filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CH4 Baseline
+
+**Formula**  
+
+A sum of [CH4 Emissions](#ch4-emissions) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### CH4 vs Baseline (%)
+
+**Formula**  
+
+The **CH4 Current Value** divided by the **CH4 Baseline**.
+
+[CH4 Current Value](#ch4-current-value) / [CH4 Baseline](#ch4-baseline)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### N2O Emissions
+
+**Formula**  
+
+A sum of **N2O** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### N2O Emissions Balance at Date
+
+**Formula**  
+
+Calculates the cumulative [N2O Emissions](#n2o-emissions) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date in the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### N2O Emissions Balance
+
+**Formula**  
+
+Calculates the total [N2O Emissions](#n2o-emissions) across all dates, and ignore filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### N2O Baseline
+
+**Formula**  
+
+A sum of [N2O Emissions](#n2o-emissions) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### N2O vs Baseline (%)
+
+**Formula**  
+
+The **N2O Current Value** divided by the **N2O Baseline**
+
+[N2O Current Value](#n2o-current-value) / [N2O Baseline](#n2o-baseline)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### CO2e Emissions
+
+**Formula**  
+
+A sum of **CO2e** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2e Emissions (Excl Credits) 
+
+**Formula**  
+
+Uses the existing [CO2e Emissions](#co2e-emissions) and filters to where the document type isn't **GHG Credit**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2e Emissions Balance at Date
+
+**Formula**  
+
+Calculates the cumulative [CO2e Emissions](#co2e-emissions) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date in the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2e Emissions Balance
+
+**Formula**  
+
+Calculates the total [CO2e Emissions](#co2e-emissions) across all dates, and ignores filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### CO2e Baseline
+
+**Formula**  
+
+A sum of [CO2e Emissions](#co2e-emissions) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### CO2e vs Baseline (%)
+
+**Formula**  
+
+The **CO2e Current Value** divided by the **CO2e Baseline**.
+
+[CO2e Current Value](#co2e-current-value) / [CO2e Baseline](#co2e-baseline) 
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+- Sustainability Goals
+
+### Discharged Into Water
+
+**Formula**  
+
+A sum of **Discharged Into Water** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water Balance
+
+**Formula**  
+
+Calculates the total [Discharged Into Water](#discharged-into-water) value across all dates, and ignores filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water Balance at Date 
+
+**Formula**  
+
+Calculates the cumulative [Discharged Into Water](#discharged-into-water) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date in the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water DOD
+
+**Formula**  
+
+Calculates the difference between the **Discharged Into Water** and the **Discharged Into Water PD**. It calculates the **Discharge Into Water** change directly in the measure as [Discharged Into Water PD](#discharged-into-water-pd) - [Discharged Into Water](#discharged-into-water)
+
+Discharge Into Water Change / [Discharged Into Water PD](#discharged-into-water)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water PD
+
+**Formula**  
+
+Calculates the [Discharged Into Water](#discharged-into-water) for the prior day.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water PY
+
+**Formula**  
+
+Calculates the [Discharged Into Water](#discharged-into-water) for the prior year.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water YOY
+
+**Formula**  
+
+Calculates the difference between the **Discharged Into Water** and **Discharged Into Water PY**. It calculates the **Discharge Into Water** change directly in the measure as [Discharged Into Water PY](#discharged-into-water-py) - [Discharged Into Water](#discharged-into-water)
+
+Discharge Into Water Change / [Discharged Into Water PY](#discharged-into-water)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water Baseline
+
+**Formula**  
+
+A sum of [Discharged Into Water](#discharged-into-water) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Discharged Into Water vs Baseline (%)
+
+**Formula**  
+
+The **Discharged Into Water** divided by the **Baseline**.
+
+[Discharged Into Water](#discharged-into-water) / [Baseline](#discharged-into-water-balance) 
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity
+
+**Formula**  
+
+Sum of **Water Intensity** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity Balance at Date
+
+**Formula**  
+
+Calculates the cumulative [Water Intensity](#water-intensity) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date within the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity Balance
+
+**Formula**  
+
+Calculates the total [Water Intensity](#water-intensity) across all dates, and ignores filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity DOD
+
+**Formula**  
+
+Calculates the difference between the **Water Intensity** and the **Water Intensity PD**. It calculates the **Water Intensity Change** directly in the measure as [Water Intensity PD](#water-intensity-pd) - [Water Intensity](#water-intensity)
+
+Water Intensity Change / [Water Intensity PD](#water-intensity-pd)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity PD
+
+**Formula**  
+
+Calculates the [Water Intensity](#water-intensity) for the prior day.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity PY
+
+**Formula**  
+
+Calculates the [Water Intensity](#water-intensity) for the prior year.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity YOY
+
+**Formula**  
+
+Calculates the difference between the **Water Intensity** and the **Water Intensity PY**. It calculates the **Water Intensity Change** directly in the measure as [Water Intensity PY](#water-intensity-py) - [Water Intensity](#water-intensity)
+
+Water Intensity Change / [Water Intensity PY](#water-intensity-py)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity Baseline
+
+**Formula**  
+
+A sum of [Water Intensity](#water-intensity) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Intensity vs Baseline (%)
+
+**Formula**  
+
+The **Water Intensity** divided by the **Baseline**.
+
+[Water Intensity](#water-intensity) / [Baseline](#water-intensity-baseline)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Water Available
+
+**Formula**  
+
+Calculated as **Facility Capacity** minus **Water Intensity**.
+
+[Facility Capacity](#facility-capactity) - [Water Intensity](#water-intensity)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity
+
+**Formula**  
+
+A sum of **Waste Intensity** from the **Sustainability Ledger Entry**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity Balance at Date 
+
+**Formula**  
+
+Calculates the cumulative [Water Intensity](#waste-intensity) up to the latest date in the current filter. It removes all date filters, then re-applies a filter to include only dates up to and including the latest date within the selection, which gives a running balance up to the specified date.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity Balance
+
+**Formula**  
+
+Calculates the total [Waste Intensity](#waste-intensity) across all dates, and ignores filters on the Date table. By removing date-based filtering, this measure provides the full value from the start to the end of the dataset.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity DOD
+
+**Formula**  
+
+Calculates the difference between the **Waste Intensity** and the **Waste Intensity PD**. It calculates the **Waste Intensity** change directly in the measure as [Waste Intensity PD](#waste-intensity-pd) - [Waste Intensity](#waste-intensity)
+
+Waste Intensity Change / [Waste Intensity PD](#waste-intensity-pd)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity PD
+
+**Formula**  
+
+Calculates the [Waste Intensity](#waste-intensity) for the prior day.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity PY
+
+**Formula**  
+
+Calculates the [Waste Intensity](#waste-intensity) for the prior year.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity YOY
+
+**Formula**  
+
+Calculates the difference between the **Waste Intensity** and the **Waste Intensity PY**. It calculates the **Waste Intensity** change directly in the measure as [Waste Intensity PY](#waste-intensity-py) - [Waste Intensity](#waste-intensity)
+
+Waste Intensity Change / [Waste Intensity PY](#waste-intensity-py)
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity Baseline
+
+**Formula**  
+
+A sum of [Waste Intensity](#waste-intensity) based on the **Baseline Start** and **End Date** from the selected scorecards to determine a **Baseline** value.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Waste Intensity vs Baseline (%)
+
+**Formula**  
+
+The **Waste Intensity** divided by the **Baseline**.
+
+[Waste Intensity](#waste-intensity) / [Baseline](#waste-intensity-baseline) 
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+### Purchased Carbon Credits
+
+**Formula**  
+
+Uses the existing [CO2e Emissions](#co2e-emissions) and filters to where the document type is **GHG Credit**.
+
+**Data Sources**
+
+- Sustainability Ledger Entry
+
+## Related information
+
+[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
+[Sustainability management overview](finance-manage-sustainability.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-process-sales-returns-cancellations
 ---
 title: Process sales returns or cancellations
@@ -674,7 +1843,7 @@ ms.author: bholtorf
 ms.topic: get-started
 ms.search.keywords: SMTP, email, Office 365, connector
 ms.search.form: 1805, 9813, 9814, 1262, 1263, 8898_Primary, 8897_Primary
-ms.date: 05/15/2025
+ms.date: 06/15/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -697,7 +1866,7 @@ Email capabilities in [!INCLUDE[prod_short](includes/prod_short.md)] are for out
 
 There are a couple of requirements for setting up and using the email features.
 
-* To set up email, you must have the **EMAIL SETUP** permission set. For more information, see [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+* To set up email, you must have the **EMAIL SETUP** permission set. To learn more, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
 * Everyone who uses the email features must be a fully licensed [!INCLUDE [prod_short](includes/prod_short.md)]. For example, delegated admins and guest users can't use the tenant's email account.
 * Everyone who uses the email features must have a valid, paid license for Exchange Online. Otherwise, some features won’t work. For example, they can’t send emails because Exchange rejects their messages. You can’t use trial licenses.
 
@@ -711,7 +1880,7 @@ The following table describes the email extensions that are available by default
 
 |Extension  |Description  |Examples of when to use  |
 |---------|---------|---------|
-|**Microsoft 365 Connector**|Everyone sends email from a shared mailbox in Exchange Online.|When all messages come from the same department, for example, your sales organization sends messages from a sales@cronus.com account. This option requires that you set up a shared mailbox in the Microsoft 365 admin center. For more information, see [Shared mailboxes](/Exchange/collaboration/shared-mailboxes/shared-mailboxes).|
+|**Microsoft 365 Connector**|Everyone sends email from a shared mailbox in Exchange Online.|When all messages come from the same department, for example, your sales organization sends messages from a sales@cronus.com account. This option requires that you set up a shared mailbox in the Microsoft 365 admin center. To learn more, go to [Shared mailboxes](/Exchange/collaboration/shared-mailboxes/shared-mailboxes).|
 |**Current User Connector**|Everyone sends email from the account they used to sign in to [!INCLUDE[prod_short](includes/prod_short.md)].|Allow communications from individual accounts.|
 |**SMTP Connector**|Use Simple Mail Transfer Protocol (SMTP) protocol to send emails.|Allow communications through your SMTP mail server. |
 
@@ -733,7 +1902,7 @@ External users, such as delegated admins and external accountants, can't use the
 
 ## Use SMTP
 
-If you want to use SMTP protocol to send emails from [!INCLUDE[prod_short](includes/prod_short.md)], you can use the SMTP Connector extension. When you set up an account that uses SMTP, the **Sender Type** field is important. If you choose **Specific User**, emails are sent using the name and other information from the account you're setting up. However, if you choose **Current User**, emails are sent from the email account specified for each user's account. Current User is similar to the Send As feature. For more information, see [Use a Substitute Sender Address on Outbound Email Messages](admin-how-setup-email.md#use-a-substitute-sender-address-on-outbound-email-messages). 
+If you want to use SMTP protocol to send emails from [!INCLUDE[prod_short](includes/prod_short.md)], you can use the SMTP Connector extension. When you set up an account that uses SMTP, the **Sender Type** field is important. If you choose **Specific User**, emails are sent using the name and other information from the account you're setting up. However, if you choose **Current User**, emails are sent from the email account specified for each user's account. Current User is similar to the Send As feature. To learn more, go to [Use a Substitute Sender Address on Outbound Email Messages](admin-how-setup-email.md#use-a-substitute-sender-address-on-outbound-email-messages). 
 
 > [!IMPORTANT]
 > To use Auth 2.0 for SMTP authentication, consider the following:
@@ -788,8 +1957,8 @@ On the **User Email View Policies**, choose a user, and then choose one of the f
 
 * **View own emails** - The user can view only their own email messages.
 * **View all emails** - The user can view all email messages, including emails that were sent by other users.
-* **View if access to all related records** - This view policy is used if no other policy is specified. A user can view email messages that other users sent if the user has access to the record that was sent and all of the related records. For example, User A sent a posted sales invoice to a customer. User B can see the email message if they have access to both the invoice and the customer.
-* **View if access to any related records** - The user can view email messages that were sent by other people if the user has access to at least one record that is related to the record that was sent. For example, User A sent a posted sales invoice to a customer. User B can see the email message if they have access to either the invoice or the customer.
+* **View if access to all related records** - This view policy is used if no other policy is specified. A user can view email messages that other users sent if the user has access to the record that was sent and all of the related records. For example, User A sent a posted sales invoice to a customer. User B can access the email message if they have access to both the invoice and the customer.
+* **View if access to any related records** - The user can view email messages that were sent by other people if the user has access to at least one record that is related to the record that was sent. For example, User A sent a posted sales invoice to a customer. User B can access the email message if they have access to either the invoice or the customer.
 
 > [!NOTE]
 > If you leave the **User ID** field empty and then choose the **Email View Policy** action, the view policy applies to all users.
@@ -800,10 +1969,13 @@ Some email providers (ISPs) limit the number of email messages an email account 
 
 The default limit for the Microsoft 365 and Current User account types is 30, which matches the limit set by Exchange Online.
 
-There are two ways to specify the limit:
+There are a few ways to specify the limit:
 
 * When you use the Set Up Email assisted setup guide to create a new account, specify the limit in the **Rate limit per minute** field.
-* For existing email accounts, specify the limit in the **Email rate limit** field on the account.
+* For existing email accounts, specify:
+
+   * The number of messages an account can send per minute in the **Email rate limit** field on the account.
+   * The maximum number of messages an account can send simultaneously in the **Email Concurrency Limit** field. By default, the limit is **3**, but you can allow up to **10**.
 
 ## Set up reusable email texts and layouts
 
@@ -820,7 +1992,7 @@ You can use reports to include key information from sales, purchase, and service
 6. To view or edit the layout that the email text is based on, select the layout on the **Custom Report Layouts** page, and then choose the **Export Layout** action. If you customize the layout, use the **Import Layout** action to upload the new layout.
     > [!NOTE]
     > To customize a standard report layout, such as 1306, you must make a copy of the report. [!INCLUDE [prod_short](includes/prod_short.md)] will help you create a copy when you import a custom layout for a standard report. The name of your new custom report layout will be prefixed with "Copy of."
-7. If you want to let customers use a payment service, such as PayPal, you have to set up the service. Afterward, the PayPal information and link are inserted in the email text. For more information, see [Enable Customer Payments Through PayPal](sales-how-enable-payment-service-extensions.md).
+7. If you want to let customers use a payment service, such as PayPal, you have to set up the service. Afterward, the PayPal information and link are inserted in the email text. To learn more, go to [Enable Customer Payments Through PayPal](sales-how-enable-payment-service-extensions.md).
 8. Choose the **OK** button.
 
 Now, when you choose, for example, the **Send** action on the **Posted Sales Invoice** page, the email body contains the document information of report 1306 preceded by styled standard text according to the report layout that you selected in step 5.
@@ -839,7 +2011,7 @@ The following are examples of how Send As and Send on Behalf are used in [!INCLU
 * When your workflow sends an approval request by email using the email address of the requester.
 
 > [!Note]
-> You can only use one account to substitute sender addresses. That is, you cannot have one substitute address for purchasing processes, and another for sales processes.
+> You can only use one account for substitute sender addresses. That is, you can't have one substitute address for purchasing processes, and another for sales processes.
 
 <!--
 ### To set up the substitute sender address for all outbound email messages
@@ -862,7 +2034,7 @@ The following are examples of how Send As and Send on Behalf are used in [!INCLU
 
 ## Set up document sending profiles
 
-You can save time by setting up a preferred method of sending sales documents for each of your customers. You won't have to select a sending option, such as whether to send the document by email or as an electronic document, every time you send a document. For more information, see [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).
+You can save time by setting up a preferred method of sending sales documents for each of your customers. You won't have to select a sending option, such as whether to send the document by email or as an electronic document, every time you send a document. To learn more, go to [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).
 
 ## Optional: Set up email logging in Exchange Online
 
@@ -923,7 +2095,7 @@ When you create your app registration, note the following information. You'll ne
 Learn more about general guidelines for registering an app at [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 > [!NOTE]
-If you have trouble using the SMTP protocol to send email after you connect [!INCLUDE[prod_short](includes/prod_short.md)] to your app registration, it might be because SMTP AUTH is not enabled for your tenant. We recommend that you use the Microsoft 365 and Current User email connectors instead, because they use Microsoft Graph Mail APIs. However, if you must use SMTP protocol you can enable SMTP AUTH. For more information, see [Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#disable-smtp-auth-in-your-organization).
+If you have trouble using the SMTP protocol to send email after you connect [!INCLUDE[prod_short](includes/prod_short.md)] to your app registration, it might be because SMTP AUTH is not enabled for your tenant. We recommend that you use the Microsoft 365 and Current User email connectors instead, because they use Microsoft Graph Mail APIs. However, if you must use SMTP protocol you can enable SMTP AUTH. To learn more, go to [Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#disable-smtp-auth-in-your-organization).
 
 ### Connect [!INCLUDE[prod_short](includes/prod_short.md)] to your app registration
 
@@ -16697,6 +17869,173 @@ When you want to run matching from a purchase order, select the **Map E-Document
 [Responsible AI FAQ for bank reconciliation assist](faqs-bank-reconciliation.md)  
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/faqs-payables-agent
+---
+title: FAQ for Payables Agent
+description: Learn how AI automates purchase invoice creation in Business Central, including setup, capabilities, limitations, and responsible use.
+ms.date: 06/04/2025
+ms.custom: 
+  - responsible-ai-faqs
+ms.topic: article
+author: jswymer
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.collection:
+  - bap-ai-copilot
+---
+# FAQ for Payables Agent (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+
+These frequently asked questions (FAQ) describe the AI impact of Payables Agent feature in Business Central.
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+<!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
+
+## What is the Payables Agent? 
+
+The Payables Agent is an integrated copilot with agent capabilities that automates the task of creating purchase invoices. It starts by receiving a vendor's invoice attached to an e-mail. The agent analyzes the email attachment content, identifies the vendor from the registered list in Business Central, and prepares a draft purchase invoice with the requested invoice lines. It also offers the capability to help with vendor creation as part of this process. 
+
+The agent is readily available in the Business Central; you just need to activate it. The agent is also configurable, allowing you to define the name of the agent, a list of other users who can delegate the process of taking the purchase invoices to it, the channel for receiving the invoices (for example, by e-mail), and the steps you want to include or exclude in that process. Once the agent is activated, it's ready to process invoices.
+
+## What are the capabilities of the Payables Agent?
+
+The Payables Agent operates in Business Central using AI to identify and complete tasks based on its instructions and user configuration. The agent acts as a user with access limited to the necessary parts of the product. Learn more about its capabilities in [Payables Agent overview](payables-agent.md).
+
+- Agent instructions
+
+  The agent gets high-level business instructions that define its purpose, outline the tasks it performs, and specify more considerations. These instructions are set in the agent code and aren't visible to users.
+
+- Configuration
+
+  When you set up the Payables Agent, you can:
+  
+  - Define which users delegate tasks to the agent.
+  - Set channels for receiving orders, like email.
+  - Select which steps of the order-taking process to include or exclude, like converting a purchase document draft into a purchase invoice.
+  - Assign predefined permissions and a UI role (profile) to control which parts of the product and UI elements the agent can access.
+
+- Task execution and interaction
+
+  A built-in email dispatcher runs as a scheduled task and monitors the company mailbox specified in the agent’s configuration. The dispatcher forwards email attachments from vendors to the Payables Agent, which prepares a draft purchase invoice based on the attachment data.
+
+  The agent interacts with the Business Central web client using the logical UI API. The agent can:
+  
+  - Read data displayed on product pages.
+  - Access properties of UI elements, such as names, descriptions, fields, actions, and tooltips.
+  - Combine this data with user-provided instructions and email data.
+  - Use AI and business knowledge to orchestrate the steps needed to complete each task.
+
+- Integration with other services
+
+  The agent uses Azure Document Intelligence to analyze email attachments with Optical Character Recognition (OCR). It matches vendor invoice lines to accounts or items by using mapping tables, historical data, and an LLM that matches line descriptions to G/L account names from the customer's database.
+
+- Human intervention and transparency
+
+  The agent asks you to take action in specific situations, like when it can't find a matching vendor or G/L account, or when you need to approve a business decision. It shows notifications in the role center to let you know when your attention is needed.
+
+  For each task, you can view a detailed timeline that shows key steps taken by the agent and by people, including when you receive the initial email. You can review and update the agent’s suggested values and actions as needed.
+
+<!--
+The agent operates based on its instructions and user configuration. It uses AI to identify and carry out the steps needed to complete this task within the Business Central environment. The agent is provided with its own set of high-level business instructions, which describe its purpose, outline the task it needs to perform, and additional considerations it needs to take when performing the steps. These instructions are defined in the agent code and are not visible to the users. When configuring the Payables Agent, users can define the list of other users who can delegate their tasks to the agent, channels for receiving orders (for example, email), and select which steps of the order taking process should be included or excluded (for example, whether to convert generated purchase document draft into a purchase invoice). To execute its tasks, the payables agent interacts with the Business Central web client using a logical representation of the UI called the logical UI API. Through that logical UI API, the agent can read the data displayed on the product pages and access properties of the UI elements (for example, names and descriptions of the pages, fields, actions, and tooltips). It can then combine that data with the instructions provided by the users during agent configuration, along with data received via e-mail messages, and then use AI with its conventional business knowledge to orchestrate the steps needed to complete each step and the overall task. The agent integrates with Azure Document Intelligence for performing OCR analysis on the source e-mail attachment, and for matching vendor’s invoice lines with accounts or items it uses both mapping tables and historical data from the customer’s database and integrates with an LLM to match the line descriptions with names of G/L accounts from the customer’s database. 
+
+The agent runs as just another user in Business Central and is granted access solely to the necessary parts of the product to perform its task. It comes with predefined permissions and a UI role (profile) that can be assigned to it by the configuring user, limiting which parts of the product the agent can access and which UI elements (pages, fields, actions and FactBoxes) it can interact with. The agent will seek user intervention when specific situations arise, for instance, when a matching vendor or G/L account can’t be found or when providing business approval for key operations is necessary.  
+
+The agent is invoked by a built-in e-mail dispatcher, running as a scheduled task, which monitors the company mailbox that’s specified in the agent’s configuration settings. The dispatcher hands over e-mail attachments received from the vendors to the Payables Agent. The Payables Agent prepares a draft for the purchase invoice based on the data in the attachment. Business Central maintains full transparency and provides control over changes made by the agent.
+
+The agent brings humans in the loop when their attention is required by issuing in-product notifications that are displayed on the role center. This happens when the agent needs users to provide some missing details to get unblocked, or to provide business approval for important changes. For each task performed by the agent, users get a detailed timeline that shows the key steps taken by the agent and human users, including the receiving of the initial e-mail. Users can review this information and update the values and actions the agent suggested if needed.-->
+
+## What is the intended use of the Payables Agent?
+
+The Payables Agent handles the entire purchase invoice extraction and processing. It takes the vendor's invoice attached in an email, analyzes the data in the attachment, prepares a purchase document draft, and converts the draft to a purchase invoice.
+
+## How was the Payables Agent evaluated? What metrics are used to measure performance?
+
+The Payables Agent was tested for accuracy and safety.
+
+- Accuracy was tested using 150 test cases with unique PDF invoices that exhibit varying degrees of completeness and complexity.
+- Safety was tested using 240 test cases that covered categories such as cross-domain prompt injection attacks (XPIA), self-harm, sexual, and violence.
+
+## What are the limitations of the payables agent? How can users minimize the impact of payables agent’s limitations when using the system?
+
+### Languages
+
+- [!INCLUDE[copilot-language-support-en-only](includes/copilot-language-support-en-only.md)].
+- Due to limited language support, the system isn't initially available to Canadian customers because regulatory language compliance mandates support for both English and French.
+
+### Email
+
+- The agent reads inbound email from a shared inbox on Microsoft Exchange. Learn more in [Set up email](admin-how-setup-email.md). The agent doesn't support other ways to receive email.
+- The agent doesn't process the email body&mdash;it processes only attachments.
+- The agent processes only PDF attachments up to 5 MB.
+- The agent processes only PDF attachments up to 10 pages. This limitation might be enforced only from public preview onward.
+- Email messages generated by the agent might contain incorrect information. The agent asks a human user to review and edit every outbound message if necessary.
+
+### Entities and data the agent works with
+
+- The agent only creates purchase document drafts and purchase invoices. It can't create or work with other purchase documents like purchase orders or purchase credit memos, or documents in other areas of the product like sales or service orders.
+- The agent doesn't create new items, contacts, or G/L accounts. It only works with entities already registered in Business Central. However, the agent can be instructed to create new vendors in cases where the vendor of a received invoice is unknown or unmatched.
+- The agent doesn't post any documents.
+
+### Additional limitations
+
+- If the agent stops working, it notifies the users in the same place that it normally notifies users when it needs approval to process an email. For example, the agent stops if it loses access to the shared mailbox or calls to the LLM (large language models) are failing.
+- When calling an LLM to match invoice lines with G/L Accounts, payables agent matches only with G/L Accounts that allow direct posting and that are of type "Income Statement".
+- When the agent calls an LLM to match invoice lines with G/L Accounts, it first checks the list of income statement G/L Accounts that allow direct posting. If this list exceeds the limit of 20,000 AI tokens (a limit that customers can't currently configure), the agent doesn't call the LLM. Instead, it notifies users in the same place where it normally notifies them when approval is needed to process an email.
+- Delegated administrators can't activate the agent.
+- It's only possible to configure and use one payables agent per Business Central company.
+
+## What operational factors and settings allow for effective and responsible use of payables agent?
+
+<!--Like any other user in Business Central, the Payables Agent can be granted access exclusively to the specific parts of the product required to perform its designated tasks. The agent comes with predefined permissions and a user interface (UI) role, also known as a profile, that can be assigned to the agent by the configuring user or administrator. This assignment restricts the agent's access to certain areas of the product. It defines the type of access (for example, whether the agent is only allowed to read specific data or also update or delete it) and determines which UI elements—such as pages, fields, actions, and FactBoxes—it can interact with.
+
+We strongly encourage using the permission sets and the profile included with the payables agent, which can be assigned on the Agent card. This ensures that the agent only has access to the functionalities necessary for its role, enhancing both security and efficiency within the system.
+
+Business Central users can maintain full transparency and control over the changes made by the payables agent by using additional experiences, which enable them to:
+
+- Receive notifications on the role center that come from the agent when it requires help, or when the process demands human review (for example, for all inbound messages, approvals, adding missing data and similar reasons).
+- Get a better understanding of the specific task context and history (“timeline” view), including key steps involved in it.
+- Get a detailed review of each entity created by the agent (for example, a purchase document draft or a purchase invoice that surfaces all changes and suggestions made by the agent within a specific task. This allows humans to review and adjust changes and then sign off on proceeding with the task.
+- Get an overview of the agents’ KPIs (Key Performance Indicators) that summarize the impact of the agent's work, for example, the number of purchase document drafts or purchase invoices created by the agent.
+
+Make sure you attend to the notifications raised by the agent to review and approve its work.
+
+All actions done by the agent, including creating and modifying records and calling actions, carry the agent’s user ID. This user ID appears in the same places and in the same way as with other users, such as in list views, history, posted documents, notifications, and more.
+
+
+Additionally, in Business Central, you can set up and use approval workflows to add an extra layer of control to the tasks performed by different users, including agents. Approval workflows can be set up to make the agent create a request for approval for a specific change (for example, to mark the quote as released), and the change isn’t allowed until the request is approved by another user. Learn more in [Use Approval Workflows](across-use-workflows.md).-->
+
+- Access control and permissions
+
+  Like any other user in Business Central, the Sales Order Agent can be granted access exclusively to the specific parts of the product required to perform its designated tasks. The agent comes with predefined permissions and a user interface (UI) role, also known as a profile, that an administrator or configuring user can assign to the agent. This assignment restricts the agent's access to certain areas of the product. It defines the type of access (for example, whether the agent is only allowed to read specific data or also update or delete it) and determines which UI elements—such as pages, fields, actions, and FactBoxes—it can interact with.  
+
+  We strongly encourage using the permission sets and the profile included with the Sales Order Agent, which can be assigned on the Agent card. This practice ensures that the agent only has access to the functionalities necessary for its role, enhancing both security and efficiency within the system.
+
+  Learn more in [Set up Payables Agent](payables-agent-setup.md).
+
+- Transparency and notifications
+
+  Business Central users can maintain full transparency and control over the changes made by the Sales Order Agent by using other experiences that enable them to:
+
+  - Receive notifications on the role center that come from the agent when it requires help or when the process demands human review. For example, review is required for all inbound and outbound messages, approvals, adding missing data, and similar reasons.
+  - Get a better understanding of the specific task context and history ("timeline" view), including key steps involved in it.
+  - Get a detailed review of each entity created by the agent (for example, a sales quote or sales order that surfaces all changes and suggestions made by the agent within a specific task. This behavior allows humans to review and adjust changes, and then sign out on proceeding with the task.
+  - Get an overview of the agent's KPIs (Key Performance Indicators) that summarize the impact of the agent's work. For example, you can get an overview of the number of sales quotes or orders created by the agent and the total number of these orders.
+
+    Make sure you attend to the notifications raised by the agent to review and approve its work.  
+- All actions done by the agent, including creating and modifying records and calling actions, carry the agent's user ID. This user ID appears in the same places and in the same way as it does with other users, such as in list views, history, posted documents, notifications, and more.  
+- Approval workflows can be used to add an extra layer of control to the tasks done by the agent, as they do with other users. You can set up approval workflows to make the agent create a request for approval for a specific change, for example, to mark the quote as released. The change isn't allowed until another user approves the request. Learn more in [Use Approval Workflows](across-how-use-approval-workflows.md).
+
+## Is this capability extensible?
+
+No. Microsoft creates and maintains the Payables Agent, and its code isn't extensible by other solutions or plugins.
+
+## Related information
+
+[Payables Agent overview](payables-agent.md)  
+[Set up Payables Agent](payables-agent-setup.md)  
+[Configure Copilot and agent capabilities](enable-ai.md)  end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-coding
 ---
 title: Set Up Codes for Standard Services
@@ -19464,308 +20803,6 @@ You can use alternate addresses to keep track of your employees’ location, for
 [Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Change Which Features are Displayed](ui-experiences.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-production-boms
----
-title: Create production BOMs
-description: Learn how to create a production bill of material (BOM), new versions of a production BOM, and how to use the quantity calculation formula.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: production bom, bills of material, 
-ms.search.form: 911, 912, 917, 9287, 99000786, 99000787, 99000788, 99000789, 99000795, 99000797, 99000800, 99000809, 99000811, 99000812, 99000818
-ms.date: 03/21/2025
-ms.service: dynamics-365-business-central
----
-# Create production BOMs
-
-A production bill of material (BOM) holds master data that describes the components and subassemblies used in the production of an item. When you create a production order for an item, its production BOM governs the calculation of material requirements as represented on the **Prod. Order Components** page.
-
-[!INCLUDE[prod_short](includes/prod_short.md)] also supports assembly BOMs. Use assembly orders to make end items from components in a process that one or more basic resources, which aren't machine or work centers, can do. Or, a process that can complete without any resources. For example, an assembly process could be to pick two wine bottles and one coffee sack and then pack them as a gift item. To learn more, go to [Assembly BOMs or Production BOMs](inventory-how-work-boms.md#assembly-boms-or-production-boms).  
-
-> [!TIP]
-> The **Contoso Coffee Demo Data** app includes demonstration products for a variety of production BOM scenarios that can be used on a test environment, including during a trial. Learn how to set up the Contoso Coffee Data and find walkthroughs for different scenarios at [Introduction to Contoso Coffee Demo Data](contoso-coffee/contoso-coffee-intro.md).
-
-Before you can set up a routing, the following setups must be in place:  
-
-- Item cards are created for parent items that take part in manufacturing. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
-- Production resources are set up. To learn more, go to [Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md).
-
-## To create a production BOM
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOMs**, then choose the related link.  
-2. Choose the **New** action.  
-3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-4. To edit the BOM, set the **Status** field to **New** or **Under Development**. To activate it, set the **Status** field to **Certified**.  
-
-    Proceed to fill in the production BOM lines.
-5. In the **Type** field, select whether the item on this BOM line is an ordinary item or a production BOM. If the item on the line is a production BOM, then it must already exist as a certified production BOM.  
-6. In the **No.** field, look up and select the item or production BOM in question, or type it in the field.  
-
-   > [!TIP]
-   > If you need to add several items, you can use the **Select items** action to select and add them. You can also use the **Edit in Excel** action. You can make changes to records in Excel, and then update the data in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about the Edit in Excel action, go to [Edit in Excel](across-work-with-excel.md#edit-in-excel).
-
-7. In the **Quantity per** field, enter how many units of the item go into the parent item, for example, 4 wheels for 1 car.  
-8. In the **Scrap %** field, you can enter a fixed percentage of components that are scrapped during production. When the components are ready to be consumed in a released production order, this percentage is added to the expected quantity in the **Consumption Quantity** field in a production journal. To learn more, go to [Register Consumption and Output](production-how-to-register-consumption-and-output.md).  
-
-    > [!NOTE]  
-    > This scrap percentage represents components that are scrapped during production when picking from inventory. The scrap percentage on routing lines represents scrapped output before it's put in inventory.  
-
-9. In the **Routing Link Code** field, enter a code to connect the component to a specific operation. To learn more, go to [To create routing links](production-how-to-create-routings.md#to-create-routing-links).
-10. To copy lines from an existing production BOM, choose the **Copy BOM** action to select existing lines.  
-11. Certify the production BOM.  
-12. You can now attach the new production BOM to the card of the parent item in question. To learn more, go to [Register New Items](inventory-how-register-new-items.md).  
-
-> [!NOTE]  
-> [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)] To recalculate the item's standard cost from the item card, choose the **Production** action, then choose the **Calc. Production Std. Cost** action. You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. To learn more, go to [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).  
-
-## To create a new version of a production BOM
-
-For example, use new versions of production BOMs when an item is replaced, or when a customer requires a special version of a product. The version principle enables various versions of a production BOM to be managed. The structure of the production BOM version corresponds to the structure of the production BOM. The basic difference is in the time validity of the versions. The starting date defines the validity.  
-
-The starting date indicates the start of the period in which this version is valid. For all other considerations, the starting date is a filter criterion for calculations and evaluations. The BOM version is valid until the next version becomes valid for its starting date. You can quickly go to the certified BOM or BOM version that's valid on the work date by choosing the **Prod. Active BOM Version** action.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOMs**, then choose the related link.  
-2. Select the production BOM to be copied, then choose the **Versions** action.  
-3. Choose the **New** action.  
-4. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-5. In the **Version Code** field, enter the unique identification of the version. Any combination of numbers and letters is permitted.  
-
-    The newly created version is automatically assigned the status **New**.
-6. When the BOM version is completed, setting the **Status** field to **Certified**.  
-
-The time validity of the version is specified by the **Starting Date** field.  
-
-> [!NOTE]  
-> Select the **Item** option in the **Type** field to use an item from your item master data in the production BOM. If the item also has a production BOM, whereby the **Production BOM No.** field is filled in on the item card, this production BOM is also considered.  
->
-> Select the **Production BOM** option if you want to use a phantom production BOM on the line.  
->
-> Phantom production BOMs serve for structuring products. This production BOM type never leads to a finished product but is used exclusively for determining the dependent demand. Phantom production BOMs don't have their own item master data.
-
-## Compare production BOM versions
-
-Use the **Production BOM Version Comparison** page to access a list of all production BOM versions and items and the quantity used per item. You can use the matrix to compare different production BOM versions for the used items per version, including the original BOM as the first column. This page gives you an overview of all BOM versions and their respective quantities.
-
-## Quantity calculation formula on production BOMs
-
-The quantity is calculated taking into consideration different dimensions that are also entered on the production BOM lines. The dimensions refer to an order unit of the respective item. The length, width, depth, and weight can be entered as dimensions.  
-
-The Calculation Formula, Length, Width, Depth, and Weight columns aren't displayed, because they're only used by some users. If you wish to use the calculation of the quantity, you must first display these columns.  
-
-The calculation formula defines the relation of the individual components. The following options are available as a calculation formula:  
-
-- **Empty** - No consideration of dimensions. (Quantity = Quantity per.)  
-- **Length** - Quantity = Quantity per * Length  
-- **Length x Width** - Quantity = Quantity per * Length x Width  
-- **Length x Width x Depth** - Quantity = Quantity per x Length x Width x Depth  
-- **Weight** - Quantity = Quantity per x Weight  
-- **Fixed Quantity** - Quantity = Quantity per
-
-> [!NOTE]
-> The **Fixed Quantity** calculation formula ensures that the consumption of a component is the same, regardless of the scrap or output quantities. For production order components, when the **Calculation Formula** field is set to **Fixed Quantity**, the **Expected Quantity** field value is always equal to the **Quantity per** field. The scrap percentage that is defined on the same line is ignored. Fixed quantity is respected by the **Availability by BOM** report. The report will show the item as the bottleneck if the available quantity is less than the quantity in the **Quantity Per Parent** field. The **Able to Make Parent** and **Able to Make Top Item** fields are always blank, regardless of the available quantity. Fixed quantity is also included in calculations for standard costs. The lot size for the produced item impacts the cost that is allocated for one item.
-
-### Example
-
-A production BOM requires 70 metal parts with the dimensions length = 0.20 m and width = 0.15 m. Enter the values as follows: Calculation Formula = Length x Width, Length = 20, Width = 15, Quantity per = 70.
-
-Quantity per x Length * Width, that is, Quantity = 70 x 0.20 m x 0.15 m = 2.1 m2, gives the quantity.  
-
-## Related information
-
-[Create Routings](production-how-to-create-routings.md)  
-[Manage Product Variants](inventory-item-variants.md)  
-[Walkthrough: Variants](contoso-coffee/manufacturing/variants.md)  
-[Setting Up Manufacturing](production-configure-production-processes.md)  
-[Manufacturing](production-manage-manufacturing.md)  
-[Planning](production-planning.md)  
-[Work with Bills of Material](inventory-how-work-BOMs.md)  
-[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-multi-site-organizations
----
-title: Business Central for multi-site and international organizations
-description: Business Central provides capabilities that support a hub-and-spoke business model.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: hub-and-spoke, multi-site, headquarter, sites
-ms.date: 06/17/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-
-# Business Central for multi-site and international organizations
-
-Organizations that have multiple sites often use a hub-and-spoke business model where a parent company, or headquarters, manages the overall operations of the business while each site functions as a single, standalone entity. Sites are often geographically distributed and have different needs for sharing information with the headquarter company. Additionally, sites typically don't need the same level of complexity, and often lack the resources to maintain a large system.
-
-[!INCLUDE[prod_short](includes/prod_short.md)] gives small and mid-sized businesses a business management solution that's easy-to-use and maintain at a low cost of ownership.
-
-This article introduces some of the ways in which [!INCLUDE[prod_short](includes/prod_short.md)] supports a hub-and-spoke business model.
-
-## Integrating the headquarter company and the sites
-
-[!INCLUDE[prod_short](includes/prod_short.md)] can integrate with the headquarter company's accounting system while meeting the varying needs of different sites, regardless of size, location, or type of business.
-
-The following diagram is an example of different sites integrated with a headquarter company.
-
-![Diagram Description automatically generated.](media/multisite-headquarter-sites.png)
-
-## Meet the Needs of Domestic and International Sites
-
-Business needs at sites often differ based on industry, business methods, or their relationship to the headquarter company. [!INCLUDE[prod_short](includes/prod_short.md)] can be easily adapted and extended for various types of businesses and locales. Microsoft AppSource offers a wealth of apps from Microsoft and our partners, and partners can quickly deploy [!INCLUDE[prod_short](includes/prod_short.md)] with minimal disruption to daily operations.
-
-For multi-national organizations, [!INCLUDE[prod_short](includes/prod_short.md)] supports local legal requirements and business practices.
-
-* For online versions, there are more than [40 localized country/region versions](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations?toc=/dynamics365/business-central/toc.json) that you can install as extensions from Microsoft AppSource.  
-* For on-premises versions, [country/region versions](/azure/architecture/solution-ideas/articles/business-central) are available either as Microsoft-localized versions or partner-led add-on localizations.
-
-A network of more than 4,000 Microsoft partners world-wide provides local expertise.
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Tailor the system to fit the business. | Enjoy a system that was designed from the start for mid-sized businesses. | [Overview](https://dynamics.microsoft.com/business-central/overview/) |
-| Address regulatory and local practices. | Comply with local legal requirements and business practices. | [Local Functionality](about-localization.md) |
-| Access multiple companies from a single page. | Get quick access to any Business Central company in your organization. | [Company Hub](ui-extensions-company-hub.md) |
-| Handle multiple languages and currencies. | Support for multiple languages and currencies helps meet local needs. | [Multi-language capabilities](about-locale-language.md)<br></br>[Multi-currency capabilities](finance-how-setup-additional-currencies.md) |
-
-## Consolidate financial data
-
-A core facet of the hub-and-spoke business model is the ability for the headquarter company and sites to exchange financial data. This requirement must be met, even when the headquarter company and sites use different systems, accounting structures, languages, and currencies.
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Consolidate financial data from sites. | Consolidate financial statements for sites, regardless of whether they're running Business Central or another application, into a single business entity (company). | [Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md) |
-| Integrate accounting structures. | Transfer consolidation data from different accounting structures to your own. | [Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)<br></br>[Prepare general ledger accounts for consolidation](finance-consolidated-company-reporting-setup.md#glacc) |
-| Transact in multiple currencies. | Help ensure that financial statements in different currencies are accurate and use correct exchange rates. | [Update Currency Exchange Rates](finance-how-update-currencies.md) |
-
-## Share Business Insight with Integrated Analytics
-
-Align the organization with your business goals by providing a common understanding of the current reality. Integrated analytics can help people base their decisions on the same set of facts.
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Share insights with sites without extensive IT support. | Create KPIs and business intelligence dashboards in Power BI based on your data. | [Connect to Power BI from Business Central on-premises](across-working-with-business-central-in-powerbi.md) |
-| Develop custom financial reports. | Generate parameter-based financial reports. | [Business Intelligence](bi.md) |
-| Align on the facts. | Generate, view, and share reports with internal and external stakeholders. | [Financial Reports](finance-reports.md) |
-| Analyze data in Excel. | Fact-find, troubleshoot, and do unplanned analyses in Microsoft Excel. | [Analyze Financial Statements in Excel](finance-analyze-excel.md) |
-
-
-## Exchange Data Using APIs and XMLports
-
-APIs and XMLports simplify the process of connecting instances of [!INCLUDE[prod_short](includes/prod_short.md)], including instances that are customized for each site.
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Connect customized versions among sites and the headquarter company. | API Pages can expose any representation of an entity, including its customizations. | [Enabling APIs for Business Central](/dynamics-nav/enabling-apis-for-dynamics-nav) |
-| Versioning and security. | APIs use ODataV4, which provides versioning, and webhooks and change tracking. | [Security and protection](/dynamics365/business-central/dev-itpro/security/security-and-protection) |
-| Post and import XML documents. | Codeunits can be exposed as unbound actions to support posting and ingestion of XML documents. For processing XML documents, XMLports can be applied. Unbound actions are also capable of generating an XML or JSON document. | [XMLport Objects](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-object) |
-| Make maintenance easier through electronic data exchange. | An electronic data exchange solution can be added to serve as an integration layer between the headquarter company and sites. | [Data Exchange Framework](across-about-the-data-exchange-framework.md) |
-| Exchange data between different systems. | Use XMLports to create XML documents, which can then be exchanged between a headquarter company that uses one system and sites that use [!INCLUDE [prod_short](includes/prod_short.md)]. | [XMLport Overview](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-overview) |
-| Orchestrate complex data exchanges. | Use a combination of XMLports with [!INCLUDE [prod_short](includes/prod_short.md)] and Microsoft BizTalk Server to meet unique needs at your sites.</br></br> For complex needs, use an electronic data exchange solution based on BizTalk Server and Commerce Gateway in [!INCLUDE [prod_short](includes/prod_short.md)] in combination with the XMLports. | [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md) |
-| Connect to non-Microsoft solutions and services. | APIs establish a point-to-point connection between [!INCLUDE [prod_short](includes/prod_short.md)] and non-Microsoft solutions and services. | [API v2.0](/dynamics-nav/api-reference/v2.0/) |
-
-## Promote an efficient intercompany supply chain
-
-Sites often need access to the supply chain, and the ability to manage certain aspects of it. For example, sites might use the same vendor, but manage their assets and physical locations separately.
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Treat inter-divisional transactions as normal sales and purchase transactions. | Use inter-company postings to create sales and purchase documents and general ledger entries for entire workflows, and for more than one company at a time to eliminate duplicate data entry. | [Managing Inter-company Transactions](intercompany-manage.md) |
-| Use paperless processes. | Avoid the cost of sending, receiving, and printing documents. | [Incoming Documents](across-income-documents.md)<br><br> [Manage Attachments, Links, and Notes on Cards and Documents](ui-how-add-link-to-record.md) |
-
-## Respond Quickly to New Business Conditions
-
-The headquarter company must be able to react quickly to business changes at each site. Combined with Power Automate, [!INCLUDE[prod_short](includes/prod_short.md)] can serve as an early warning mechanism.
-
-![A screenshot of a social media post Description automatically generated.](media/multisite-apps.png)
-
-| **Business requirement** | **How Business Central supports it** | **Learn more** |
-|-------------------------|-------------------------|-------------------------|
-| Automatically generate email alerts. | Set up alerts in Power Automate that generate emails to inform you of critical business conditions at sites or supply chain partners. | [Business Central and Power BI](admin-powerbi.md) |
-| Use standard or custom alerts. | Use 12 different templates included for Business Central or set up your own alerts to suit your business. | [Use Business Central in an Automated Workflow](across-how-use-financials-data-source-flow.md) |
-
-## Related information
-
-[Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-to-sell-inventory-items-in-assemble-to-order-flows
----
-title: Sell Inventory Items in Assemble-to-Order Flows
-description: Assemble-to-order items are assembled for sales orders through an assembly order.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 02/21/2023
-ms.custom: bap-template
-ms.search.keywords: kit, kitting
-ms.search.form: 900, 901, 902, 903, 904, 907, 910, 916, 920, 921, 922, 923, 940, 941, 942, 930, 931, 932, 914, 915, 905
-ms.service: dynamics-365-business-central
----
-# Selling Inventory Items in Assemble-to-Order Flows
-
-If the **Assembly Policy** field on the item card of an assembly item contains **Assemble-to-Order**, the sales order process assumes that the item isn't in inventory and must be assembled for sales orders. When you add the item to a line on a sales order, [!INCLUDE [prod_short](includes/prod_short.md)] creates an assembly order that's linked to the sales order. To learn more about how to sell assemble-to-order items, go to [Sell Items Assembled to Order](assembly-how-to-sell-items-assembled-to-order.md). However, if some of the sales order quantity is already available in inventory, you can decrease the assembly order quantity by changing the **Qty. to Assemble to Order** field on the sales order line.  
-
-It's relatively rare for businesses to sell inventory items as assemble-to-order items. Assemble-to-order items typically aren't standard. They're customized to meet specific customer requirements. However, you might have quantities of assemble-to-order items in inventory due to returns or order cancellations. Those quantities should be picked and sold before new ones are assembled.  
-
-> [!NOTE]  
-> To check whether whether assemble-to-order items are already available for assembly orders, use the **Sales Line Details** FactBox on the sales order.  
-
-You can do similar things when you're selling assembly items from inventory and some or all of the quantity isn't available. You can supply the missing quantity through an assembly order. To learn more about selling inventory and assembly items, go to [Sell Assemble-to-Order Items and Inventory Items Together](assembly-how-to-sell-assemble-to-order-items-and-inventory-items-together.md).  
-
-> [!NOTE]  
-> There are rules that apply to the **Qty. to Ship** field on sales order lines that contain a combination of assemble-to-order quantities and inventory quantities. To learn more about the rules, go to [Combination scenarios](assembly-assemble-to-order-or-assemble-to-stock.md#combination-scenarios).  
-
-In this procedure, you replace assemble-to-order quantities with inventory quantities on a sales order line. The following steps provide an overview:
-
-1. Determine availability.
-2. Reducing that quantity from the linked assembly order.
-3. Reserve the inventory quantity to make sure that it's picked and shipped for the order.  
-
-## To sell inventory items in assemble-to-order flows
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.  
-2. Create a sales order. To learn about creating sales orders, go to [Sell Products](sales-how-sell-products.md).  
-3. On a sales order line that contains an assemble-to-order item, in the **Quantity** field, enter the quantity.  
-4. In the **Sales Line Details** FactBox, determine whether some of all of the quantity is available.  
-5. In the **Qty. to Assemble to Order** field, deduct the available quantity so that only the unavailable quantity is assembled to the order. The **Reserved Quantity** field is decreased accordingly to reflect that the order-to-order link, or reservation, only applies to the quantity to be assembled.  
-6. On the **Lines** FastTab, choose **Functions**, and then choose the **Reserve** action.  
-7. On the **Reservation** page, select the item ledger entry line or lines that contain the available quantities, choose the **Reserve from Current Line** action, and then choose the **OK** button.  
-
-    On the **Sales Order** page, the **Reserved Quantity** field now shows that the full quantity for the order line is reserved. The **Qty. to Assemble to Order** field still reflects the quantity to assemble.  
-
-8. Release the sales order to make the items available for picking and for assembly of the unavailable items. To learn more about assembling items, go to [Assemble Items](assembly-how-to-assemble-items.md).  
-
-> [!CAUTION]  
-> The **Bin Code** field on the sales order might contain the value from the **Assemble-to-Order Shpt. Bin Code** or **From-Assembly Bin Code** fields on the location card. If it does, the **Bin Code** field on the sales order line might be incorrect for this combination of assemble-to-order and assemble-to-stock quantities. It's a good idea to double-check that the bin in the **Bin Code** field works for all quantities. Alternatively, enter the two different quantities on separate sales order lines.  
-
-## Related information
-
-[Assembly Management](assembly-assemble-items.md)  
-[Reserve Items](inventory-how-to-reserve-items.md)  
-[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Warehouse Management Overview](design-details-warehouse-management.md)
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]

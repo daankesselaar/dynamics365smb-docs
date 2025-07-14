@@ -1,3 +1,305 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-production-boms
+---
+title: Create production BOMs
+description: Learn how to create a production bill of material (BOM), new versions of a production BOM, and how to use the quantity calculation formula.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: production bom, bills of material, 
+ms.search.form: 911, 912, 917, 9287, 99000786, 99000787, 99000788, 99000789, 99000795, 99000797, 99000800, 99000809, 99000811, 99000812, 99000818
+ms.date: 03/21/2025
+ms.service: dynamics-365-business-central
+---
+# Create production BOMs
+
+A production bill of material (BOM) holds master data that describes the components and subassemblies used in the production of an item. When you create a production order for an item, its production BOM governs the calculation of material requirements as represented on the **Prod. Order Components** page.
+
+[!INCLUDE[prod_short](includes/prod_short.md)] also supports assembly BOMs. Use assembly orders to make end items from components in a process that one or more basic resources, which aren't machine or work centers, can do. Or, a process that can complete without any resources. For example, an assembly process could be to pick two wine bottles and one coffee sack and then pack them as a gift item. To learn more, go to [Assembly BOMs or Production BOMs](inventory-how-work-boms.md#assembly-boms-or-production-boms).  
+
+> [!TIP]
+> The **Contoso Coffee Demo Data** app includes demonstration products for a variety of production BOM scenarios that can be used on a test environment, including during a trial. Learn how to set up the Contoso Coffee Data and find walkthroughs for different scenarios at [Introduction to Contoso Coffee Demo Data](contoso-coffee/contoso-coffee-intro.md).
+
+Before you can set up a routing, the following setups must be in place:  
+
+- Item cards are created for parent items that take part in manufacturing. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
+- Production resources are set up. To learn more, go to [Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md).
+
+## To create a production BOM
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOMs**, then choose the related link.  
+2. Choose the **New** action.  
+3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+4. To edit the BOM, set the **Status** field to **New** or **Under Development**. To activate it, set the **Status** field to **Certified**.  
+
+    Proceed to fill in the production BOM lines.
+5. In the **Type** field, select whether the item on this BOM line is an ordinary item or a production BOM. If the item on the line is a production BOM, then it must already exist as a certified production BOM.  
+6. In the **No.** field, look up and select the item or production BOM in question, or type it in the field.  
+
+   > [!TIP]
+   > If you need to add several items, you can use the **Select items** action to select and add them. You can also use the **Edit in Excel** action. You can make changes to records in Excel, and then update the data in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about the Edit in Excel action, go to [Edit in Excel](across-work-with-excel.md#edit-in-excel).
+
+7. In the **Quantity per** field, enter how many units of the item go into the parent item, for example, 4 wheels for 1 car.  
+8. In the **Scrap %** field, you can enter a fixed percentage of components that are scrapped during production. When the components are ready to be consumed in a released production order, this percentage is added to the expected quantity in the **Consumption Quantity** field in a production journal. To learn more, go to [Register Consumption and Output](production-how-to-register-consumption-and-output.md).  
+
+    > [!NOTE]  
+    > This scrap percentage represents components that are scrapped during production when picking from inventory. The scrap percentage on routing lines represents scrapped output before it's put in inventory.  
+
+9. In the **Routing Link Code** field, enter a code to connect the component to a specific operation. To learn more, go to [To create routing links](production-how-to-create-routings.md#to-create-routing-links).
+10. To copy lines from an existing production BOM, choose the **Copy BOM** action to select existing lines.  
+11. Certify the production BOM.  
+12. You can now attach the new production BOM to the card of the parent item in question. To learn more, go to [Register New Items](inventory-how-register-new-items.md).  
+
+> [!NOTE]  
+> [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)] To recalculate the item's standard cost from the item card, choose the **Production** action, then choose the **Calc. Production Std. Cost** action. You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. To learn more, go to [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).  
+
+## To create a new version of a production BOM
+
+For example, use new versions of production BOMs when an item is replaced, or when a customer requires a special version of a product. The version principle enables various versions of a production BOM to be managed. The structure of the production BOM version corresponds to the structure of the production BOM. The basic difference is in the time validity of the versions. The starting date defines the validity.  
+
+The starting date indicates the start of the period in which this version is valid. For all other considerations, the starting date is a filter criterion for calculations and evaluations. The BOM version is valid until the next version becomes valid for its starting date. You can quickly go to the certified BOM or BOM version that's valid on the work date by choosing the **Prod. Active BOM Version** action.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOMs**, then choose the related link.  
+2. Select the production BOM to be copied, then choose the **Versions** action.  
+3. Choose the **New** action.  
+4. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+5. In the **Version Code** field, enter the unique identification of the version. Any combination of numbers and letters is permitted.  
+
+    The newly created version is automatically assigned the status **New**.
+6. When the BOM version is completed, setting the **Status** field to **Certified**.  
+
+The time validity of the version is specified by the **Starting Date** field.  
+
+> [!NOTE]  
+> Select the **Item** option in the **Type** field to use an item from your item master data in the production BOM. If the item also has a production BOM, whereby the **Production BOM No.** field is filled in on the item card, this production BOM is also considered.  
+>
+> Select the **Production BOM** option if you want to use a phantom production BOM on the line.  
+>
+> Phantom production BOMs serve for structuring products. This production BOM type never leads to a finished product but is used exclusively for determining the dependent demand. Phantom production BOMs don't have their own item master data.
+
+## Compare production BOM versions
+
+Use the **Production BOM Version Comparison** page to access a list of all production BOM versions and items and the quantity used per item. You can use the matrix to compare different production BOM versions for the used items per version, including the original BOM as the first column. This page gives you an overview of all BOM versions and their respective quantities.
+
+## Quantity calculation formula on production BOMs
+
+The quantity is calculated taking into consideration different dimensions that are also entered on the production BOM lines. The dimensions refer to an order unit of the respective item. The length, width, depth, and weight can be entered as dimensions.  
+
+The Calculation Formula, Length, Width, Depth, and Weight columns aren't displayed, because they're only used by some users. If you wish to use the calculation of the quantity, you must first display these columns.  
+
+The calculation formula defines the relation of the individual components. The following options are available as a calculation formula:  
+
+- **Empty** - No consideration of dimensions. (Quantity = Quantity per.)  
+- **Length** - Quantity = Quantity per * Length  
+- **Length x Width** - Quantity = Quantity per * Length x Width  
+- **Length x Width x Depth** - Quantity = Quantity per x Length x Width x Depth  
+- **Weight** - Quantity = Quantity per x Weight  
+- **Fixed Quantity** - Quantity = Quantity per
+
+> [!NOTE]
+> The **Fixed Quantity** calculation formula ensures that the consumption of a component is the same, regardless of the scrap or output quantities. For production order components, when the **Calculation Formula** field is set to **Fixed Quantity**, the **Expected Quantity** field value is always equal to the **Quantity per** field. The scrap percentage that is defined on the same line is ignored. Fixed quantity is respected by the **Availability by BOM** report. The report will show the item as the bottleneck if the available quantity is less than the quantity in the **Quantity Per Parent** field. The **Able to Make Parent** and **Able to Make Top Item** fields are always blank, regardless of the available quantity. Fixed quantity is also included in calculations for standard costs. The lot size for the produced item impacts the cost that is allocated for one item.
+
+### Example
+
+A production BOM requires 70 metal parts with the dimensions length = 0.20 m and width = 0.15 m. Enter the values as follows: Calculation Formula = Length x Width, Length = 20, Width = 15, Quantity per = 70.
+
+Quantity per x Length * Width, that is, Quantity = 70 x 0.20 m x 0.15 m = 2.1 m2, gives the quantity.  
+
+## Related information
+
+[Create Routings](production-how-to-create-routings.md)  
+[Manage Product Variants](inventory-item-variants.md)  
+[Walkthrough: Variants](contoso-coffee/manufacturing/variants.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Planning](production-planning.md)  
+[Work with Bills of Material](inventory-how-work-BOMs.md)  
+[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-multi-site-organizations
+---
+title: Business Central for multi-site and international organizations
+description: Business Central provides capabilities that support a hub-and-spoke business model.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: hub-and-spoke, multi-site, headquarter, sites
+ms.date: 06/17/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Business Central for multi-site and international organizations
+
+Organizations that have multiple sites often use a hub-and-spoke business model where a parent company, or headquarters, manages the overall operations of the business while each site functions as a single, standalone entity. Sites are often geographically distributed and have different needs for sharing information with the headquarter company. Additionally, sites typically don't need the same level of complexity, and often lack the resources to maintain a large system.
+
+[!INCLUDE[prod_short](includes/prod_short.md)] gives small and mid-sized businesses a business management solution that's easy-to-use and maintain at a low cost of ownership.
+
+This article introduces some of the ways in which [!INCLUDE[prod_short](includes/prod_short.md)] supports a hub-and-spoke business model.
+
+## Integrating the headquarter company and the sites
+
+[!INCLUDE[prod_short](includes/prod_short.md)] can integrate with the headquarter company's accounting system while meeting the varying needs of different sites, regardless of size, location, or type of business.
+
+The following diagram is an example of different sites integrated with a headquarter company.
+
+![Diagram Description automatically generated.](media/multisite-headquarter-sites.png)
+
+## Meet the Needs of Domestic and International Sites
+
+Business needs at sites often differ based on industry, business methods, or their relationship to the headquarter company. [!INCLUDE[prod_short](includes/prod_short.md)] can be easily adapted and extended for various types of businesses and locales. Microsoft AppSource offers a wealth of apps from Microsoft and our partners, and partners can quickly deploy [!INCLUDE[prod_short](includes/prod_short.md)] with minimal disruption to daily operations.
+
+For multi-national organizations, [!INCLUDE[prod_short](includes/prod_short.md)] supports local legal requirements and business practices.
+
+* For online versions, there are more than [40 localized country/region versions](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations?toc=/dynamics365/business-central/toc.json) that you can install as extensions from Microsoft AppSource.  
+* For on-premises versions, [country/region versions](/azure/architecture/solution-ideas/articles/business-central) are available either as Microsoft-localized versions or partner-led add-on localizations.
+
+A network of more than 4,000 Microsoft partners world-wide provides local expertise.
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Tailor the system to fit the business. | Enjoy a system that was designed from the start for mid-sized businesses. | [Overview](https://dynamics.microsoft.com/business-central/overview/) |
+| Address regulatory and local practices. | Comply with local legal requirements and business practices. | [Local Functionality](about-localization.md) |
+| Access multiple companies from a single page. | Get quick access to any Business Central company in your organization. | [Company Hub](ui-extensions-company-hub.md) |
+| Handle multiple languages and currencies. | Support for multiple languages and currencies helps meet local needs. | [Multi-language capabilities](about-locale-language.md)<br></br>[Multi-currency capabilities](finance-how-setup-additional-currencies.md) |
+
+## Consolidate financial data
+
+A core facet of the hub-and-spoke business model is the ability for the headquarter company and sites to exchange financial data. This requirement must be met, even when the headquarter company and sites use different systems, accounting structures, languages, and currencies.
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Consolidate financial data from sites. | Consolidate financial statements for sites, regardless of whether they're running Business Central or another application, into a single business entity (company). | [Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md) |
+| Integrate accounting structures. | Transfer consolidation data from different accounting structures to your own. | [Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)<br></br>[Prepare general ledger accounts for consolidation](finance-consolidated-company-reporting-setup.md#glacc) |
+| Transact in multiple currencies. | Help ensure that financial statements in different currencies are accurate and use correct exchange rates. | [Update Currency Exchange Rates](finance-how-update-currencies.md) |
+
+## Share Business Insight with Integrated Analytics
+
+Align the organization with your business goals by providing a common understanding of the current reality. Integrated analytics can help people base their decisions on the same set of facts.
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Share insights with sites without extensive IT support. | Create KPIs and business intelligence dashboards in Power BI based on your data. | [Connect to Power BI from Business Central on-premises](across-working-with-business-central-in-powerbi.md) |
+| Develop custom financial reports. | Generate parameter-based financial reports. | [Business Intelligence](bi.md) |
+| Align on the facts. | Generate, view, and share reports with internal and external stakeholders. | [Financial Reports](finance-reports.md) |
+| Analyze data in Excel. | Fact-find, troubleshoot, and do unplanned analyses in Microsoft Excel. | [Analyze Financial Statements in Excel](finance-analyze-excel.md) |
+
+
+## Exchange Data Using APIs and XMLports
+
+APIs and XMLports simplify the process of connecting instances of [!INCLUDE[prod_short](includes/prod_short.md)], including instances that are customized for each site.
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Connect customized versions among sites and the headquarter company. | API Pages can expose any representation of an entity, including its customizations. | [Enabling APIs for Business Central](/dynamics-nav/enabling-apis-for-dynamics-nav) |
+| Versioning and security. | APIs use ODataV4, which provides versioning, and webhooks and change tracking. | [Security and protection](/dynamics365/business-central/dev-itpro/security/security-and-protection) |
+| Post and import XML documents. | Codeunits can be exposed as unbound actions to support posting and ingestion of XML documents. For processing XML documents, XMLports can be applied. Unbound actions are also capable of generating an XML or JSON document. | [XMLport Objects](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-object) |
+| Make maintenance easier through electronic data exchange. | An electronic data exchange solution can be added to serve as an integration layer between the headquarter company and sites. | [Data Exchange Framework](across-about-the-data-exchange-framework.md) |
+| Exchange data between different systems. | Use XMLports to create XML documents, which can then be exchanged between a headquarter company that uses one system and sites that use [!INCLUDE [prod_short](includes/prod_short.md)]. | [XMLport Overview](/dynamics365/business-central/dev-itpro/developer/devenv-xmlport-overview) |
+| Orchestrate complex data exchanges. | Use a combination of XMLports with [!INCLUDE [prod_short](includes/prod_short.md)] and Microsoft BizTalk Server to meet unique needs at your sites.</br></br> For complex needs, use an electronic data exchange solution based on BizTalk Server and Commerce Gateway in [!INCLUDE [prod_short](includes/prod_short.md)] in combination with the XMLports. | [Work with Reports, Batch Jobs, and XMLports](ui-work-report.md) |
+| Connect to non-Microsoft solutions and services. | APIs establish a point-to-point connection between [!INCLUDE [prod_short](includes/prod_short.md)] and non-Microsoft solutions and services. | [API v2.0](/dynamics-nav/api-reference/v2.0/) |
+
+## Promote an efficient intercompany supply chain
+
+Sites often need access to the supply chain, and the ability to manage certain aspects of it. For example, sites might use the same vendor, but manage their assets and physical locations separately.
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Treat inter-divisional transactions as normal sales and purchase transactions. | Use inter-company postings to create sales and purchase documents and general ledger entries for entire workflows, and for more than one company at a time to eliminate duplicate data entry. | [Managing Inter-company Transactions](intercompany-manage.md) |
+| Use paperless processes. | Avoid the cost of sending, receiving, and printing documents. | [Incoming Documents](across-income-documents.md)<br><br> [Manage Attachments, Links, and Notes on Cards and Documents](ui-how-add-link-to-record.md) |
+
+## Respond Quickly to New Business Conditions
+
+The headquarter company must be able to react quickly to business changes at each site. Combined with Power Automate, [!INCLUDE[prod_short](includes/prod_short.md)] can serve as an early warning mechanism.
+
+![A screenshot of a social media post Description automatically generated.](media/multisite-apps.png)
+
+| **Business requirement** | **How Business Central supports it** | **Learn more** |
+|-------------------------|-------------------------|-------------------------|
+| Automatically generate email alerts. | Set up alerts in Power Automate that generate emails to inform you of critical business conditions at sites or supply chain partners. | [Business Central and Power BI](admin-powerbi.md) |
+| Use standard or custom alerts. | Use 12 different templates included for Business Central or set up your own alerts to suit your business. | [Use Business Central in an Automated Workflow](across-how-use-financials-data-source-flow.md) |
+
+## Related information
+
+[Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-to-sell-inventory-items-in-assemble-to-order-flows
+---
+title: Sell Inventory Items in Assemble-to-Order Flows
+description: Assemble-to-order items are assembled for sales orders through an assembly order.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 02/21/2023
+ms.custom: bap-template
+ms.search.keywords: kit, kitting
+ms.search.form: 900, 901, 902, 903, 904, 907, 910, 916, 920, 921, 922, 923, 940, 941, 942, 930, 931, 932, 914, 915, 905
+ms.service: dynamics-365-business-central
+---
+# Selling Inventory Items in Assemble-to-Order Flows
+
+If the **Assembly Policy** field on the item card of an assembly item contains **Assemble-to-Order**, the sales order process assumes that the item isn't in inventory and must be assembled for sales orders. When you add the item to a line on a sales order, [!INCLUDE [prod_short](includes/prod_short.md)] creates an assembly order that's linked to the sales order. To learn more about how to sell assemble-to-order items, go to [Sell Items Assembled to Order](assembly-how-to-sell-items-assembled-to-order.md). However, if some of the sales order quantity is already available in inventory, you can decrease the assembly order quantity by changing the **Qty. to Assemble to Order** field on the sales order line.  
+
+It's relatively rare for businesses to sell inventory items as assemble-to-order items. Assemble-to-order items typically aren't standard. They're customized to meet specific customer requirements. However, you might have quantities of assemble-to-order items in inventory due to returns or order cancellations. Those quantities should be picked and sold before new ones are assembled.  
+
+> [!NOTE]  
+> To check whether whether assemble-to-order items are already available for assembly orders, use the **Sales Line Details** FactBox on the sales order.  
+
+You can do similar things when you're selling assembly items from inventory and some or all of the quantity isn't available. You can supply the missing quantity through an assembly order. To learn more about selling inventory and assembly items, go to [Sell Assemble-to-Order Items and Inventory Items Together](assembly-how-to-sell-assemble-to-order-items-and-inventory-items-together.md).  
+
+> [!NOTE]  
+> There are rules that apply to the **Qty. to Ship** field on sales order lines that contain a combination of assemble-to-order quantities and inventory quantities. To learn more about the rules, go to [Combination scenarios](assembly-assemble-to-order-or-assemble-to-stock.md#combination-scenarios).  
+
+In this procedure, you replace assemble-to-order quantities with inventory quantities on a sales order line. The following steps provide an overview:
+
+1. Determine availability.
+2. Reducing that quantity from the linked assembly order.
+3. Reserve the inventory quantity to make sure that it's picked and shipped for the order.  
+
+## To sell inventory items in assemble-to-order flows
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.  
+2. Create a sales order. To learn about creating sales orders, go to [Sell Products](sales-how-sell-products.md).  
+3. On a sales order line that contains an assemble-to-order item, in the **Quantity** field, enter the quantity.  
+4. In the **Sales Line Details** FactBox, determine whether some of all of the quantity is available.  
+5. In the **Qty. to Assemble to Order** field, deduct the available quantity so that only the unavailable quantity is assembled to the order. The **Reserved Quantity** field is decreased accordingly to reflect that the order-to-order link, or reservation, only applies to the quantity to be assembled.  
+6. On the **Lines** FastTab, choose **Functions**, and then choose the **Reserve** action.  
+7. On the **Reservation** page, select the item ledger entry line or lines that contain the available quantities, choose the **Reserve from Current Line** action, and then choose the **OK** button.  
+
+    On the **Sales Order** page, the **Reserved Quantity** field now shows that the full quantity for the order line is reserved. The **Qty. to Assemble to Order** field still reflects the quantity to assemble.  
+
+8. Release the sales order to make the items available for picking and for assembly of the unavailable items. To learn more about assembling items, go to [Assemble Items](assembly-how-to-assemble-items.md).  
+
+> [!CAUTION]  
+> The **Bin Code** field on the sales order might contain the value from the **Assemble-to-Order Shpt. Bin Code** or **From-Assembly Bin Code** fields on the location card. If it does, the **Bin Code** field on the sales order line might be incorrect for this combination of assemble-to-order and assemble-to-stock quantities. It's a good idea to double-check that the bin in the **Bin Code** field works for all quantities. Alternatively, enter the two different quantities on separate sales order lines.  
+
+## Related information
+
+[Assembly Management](assembly-assemble-items.md)  
+[Reserve Items](inventory-how-to-reserve-items.md)  
+[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Warehouse Management Overview](design-details-warehouse-management.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-reverse-output-posting
 ---
 title: Reverse Output Posting
@@ -8785,6 +9087,144 @@ Take all necessary privacy precautions, including ensuring that the email printi
 [Printing a Report](ui-work-report.md#PrintReport)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Run Batch Jobs](ui-how-run-batch-jobs.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/use-payables-agent
+---
+title: Process Vendor Invoices with Payables Agent
+description: Payables Agent automates vendor invoice processing, tracks tasks, and keeps you informed. Discover how to simplify your accounts payable process.
+author: jswymer
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: how-to
+ms.collection:
+  - bap-ai-copilot
+ms.date: 06/18/2025
+ms.custom:
+  - bap-template
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/18/2025
+ms.search.form: 4400, 4410
+ROBOTS: NOINDEX,NOFOLLOW
+---
+# Process vendor invoices with Payables Agent (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+
+This article explains how to use Payables Agent to process vendor invoices received via email. The Payables Agent uses AI to analyze incoming invoices, create drafts for review, and reduce manual corrections.
+
+The agent monitors a designated mailbox for email from vendors or employees with attached PDF invoices. When it detects an email, it starts to create a purchase invoice and keeps you informed and involved from your role center in Business Central. Learn more in [Payables Agent overview](payables-agent.md).
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+<!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
+
+## Supported languages
+
+[!INCLUDE[soa-language-support](includes/soa-language-support.md)]
+
+## Prerequisites
+
+Payables Agent is activated, and you have permission to use it. Learn more in [Set up Payables Agent](payables-agent-setup.md).
+
+## Get started
+
+You collaborate with Payables Agent to process invoices using the **Tasks** tab in the **Copilot** pane. To access this tab, select ![Shows Payables Agent icon.](media/payables-agent-activated-icon.png) **Payable Agent** on the upper right of the navigation menu. A red circle with a number on the icon indicates the tasks that need attention.
+
+![Shows the agents task view with steps](media/payables-agent-tasks-pane.svg)
+
+The ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** tab opens in the **Copilot** pane to display tasks recently created by the agent. Tasks that require attention&mdash;like reviewing vendor information&mdash;are at the top of the list.  
+
+For each invoice, the agent adds a task to track, review, and follow up on until the agent creates the purchase invoice. Each task has multiple steps that create a timeline of the process.
+
+> [!TIP]
+> Hover over the ![Shows Payables Agent icon.](media/payables-agent-activated-icon.png) **Payable Agent** icon in the role or select the ![Show summary for Agent icon](media/soa-summary-icon.png) **Show summary for Payables Agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) summarizing the impact of the agent's work in your organization. For example, view the number of sales quotes or orders created by the agent, the time saved by your team, and the total number of sales orders created.
+
+## Review and assist
+
+The agent does most of the work autonomously, but it asks for user input when needed to move through the process. For example:
+
+- Review and confirm the vendor information.
+- Review and confirm the purchase invoice document draft.
+- Help the agent get unblocked, like by providing missing data.
+
+Learn more about the Payables Agent and its process flow in [Payables Agent process flow](payables-agent.md#payables-agent-process-flow).
+
+Steps that need intervention appear under **Needs Attention** in the **Tasks** tab. To review a step, follow these instructions:
+
+1. In the **Task** tab, select the step requesting review or assistance.
+
+   The task *timeline* opens, focused on the selected step. The timeline displays each step of a task, past and present, in chronological order.
+
+1. Select **Review** for the step.
+
+   The **Tasks** tab switches to **Review** mode, and the review content appears in the main display area.
+1. Review the contents and make changes as needed.
+
+1. When you're satisfied with the content and want the process to continue, select **Confirm** in the **Review** pane.
+
+   If you want to complete the task yourself, select **Stop** to halt the agent's processing of this task. Learn more in [Stop a task](#stop-a-task),
+
+After confirmation, the agent continues with the task. When a new notification appears on the Payables Agent icon after some time, follow the same flow to review and confirm the results.
+
+<!--
+## Modify invoices
+
+During review, you might need to modify the vendor details or purchase document draft created by the agent, or when the agent requests assistance. When you select **Review**, the invoice opens for inspection. Make changes as needed, then select **Confirm** in the **Review** pane. The agent processes the purchas invoice document.
+
+You also have the opportunity to modify a quote or order during the review step for an outgoing email. In this case, select **...** (More options) > **Discard step** on the step. This action stops the task temporarily to allow you to open the quote or order and makes changes and then resume the step.
+
+![Shows the discard step action on a Sales Order Agent task.](media/soa-discard-step.png "Shows the discard step action on a Sales Order Agent task.")
+
+> [!NOTE]
+> **Discard step** is available only on review steps for outgoing emails.
+
+After you make the changes, return to the **Tasks** tab, select one of the following options for resuming the task, and then select **Send**:
+
+- **I have updated the quote** or **I have updated the order**: Select one of these options if you made changes to the quote or order. The agent generates a new PDF and email for the customer.
+- **Just resume**: Select this option if you didn't change the quote or order. The agent doesn't generate a new quote or order and keeps the original email as before.  
+
+![Shows the resume step action on a Sales Order Agent task.](media/soa-resume-step.png "Shows the resume step action on a Sales Order Agent task.")
+
+If you change your mind while reviewing the outgoing message and decide to make more changes to the sales document, use the **Discard step** action to discard the email message generated by the agent. Then, update the sales document as needed and instruct the agent to create a new outgoing email with the updated attachment.
+-->
+
+## Reviewing drafts from the Inbound E-Documents page
+
+To understand how the Payables Agent drafted the purchase invoice document, you can also go directly to the **Inbound E-Documents** page and open a purchase document draft.  
+
+Business Central helps you focus your review by highlighting the fields that benefit most from your attention, reducing the review effort and minimizing risk of inaccuracy.
+
+Fields that are recommended for review display an [info] information icon.
+
+When you select this icon or use the <kbd>Alt</kbd>+<kbd>I</kbd> keyboard shortcut on the field, Business Central reveals why the Payables Agent chose that specific field value. This information helps you determine whether a better value would be more appropriate. 
+
+You can quickly replace or correct any fields that the Payables Agent didn’t quite get right. 
+
+To complete the review and elevate the draft to a purchase invoice document, choose the **Finalize draft** action.
+
+> [!IMPORTANT]
+> Fields recommended for review are provided as a convenience, and you aren't required to inspect all of them. Always review the entire purchase document draft, especially if you're new to the Payables Agent and are learning the limitations of how the agent works with your data.
+
+> [!NOTE]
+> While reviewing a purchase document draft, you can't use Copilot’s Autofill feature.
+
+## Stop a task
+
+Most steps of a task include a **Stop** button that lets you terminate the process. When you select **Stop**, a task isn't terminated immediately&mdash;you're asked to confirm before the task is stopped.
+
+Before you stop a task, consider the following behavior:
+
+- Stopped tasks can't be restarted.
+- Stopping the task might leave some results incomplete or unwanted, and it might require follow-up actions. Follow up actions depend on where in the process the task was stopped.
+- Stopped tasks aren't deleted immediately. You can still explore a task's timeline until it's deleted, typically by an administrator.
+
+## Related information
+
+[Payables Agent overview](payables-agent.md)  
+[Set up Payables Agent](payables-agent-setup.md)  
+[FAQ for Payables Agent](faqs-payables-agent.md)  
+[Configure Copilot and agent capabilities](enable-ai.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-record-sales-price-discount-payment-agreements
