@@ -2153,7 +2153,7 @@ author: brentholtorf
 ms.author: bholtorf    
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 03/24/2025
+ms.date: 07/14/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -2172,7 +2172,7 @@ Depending on your configuration, you use these different numbers to keep track o
 
 ## To set up item tracking codes
 
-An item tracking code reflects the different considerations a company has regarding the use of serial and lot numbers for items moving through the inventory.  
+An item tracking code reflects the different considerations regarding the use of serial and lot numbers for items moving through the inventory.  
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Item Tracking Codes**, and then choose the related link.  
 2. Choose the **New** action.
@@ -2182,10 +2182,10 @@ An item tracking code reflects the different considerations a company has regard
 > [!NOTE]  
 > If you want to track specific items or specific lots throughout their lifetime, you must choose the **SN Specific Tracking**, **Lot Specific Tracking**, and **Package Specific Tracking** fields, respectively. As a result, when you handle an outbound unit of an item with this item tracking code, you must always specify which serial number or lot number to handle. This means that when you sell a unit of the item, it must be applied against a specific pool of serial numbers or lot numbers. In other words, the serial, lot, or package number assigned to the item when it enters inventory must follow the item when it leaves inventory.
 
-Because these setup fields cover all possible transactions with the item, the individual inbound/outbound fields are selected. However, the individual inbound/outbound fields have nothing to do with application across inventory. They merely define your company's work flow concerning when to assign item tracking numbers.  
+Because these setup fields cover all possible transactions with the item, the individual inbound/outbound fields are selected. However, the individual inbound and outbound fields have nothing to do with application across inventory. They merely define your company's work flow concerning when to assign item tracking numbers.  
 
 > [!NOTE]  
-> To assign item tracking numbers in warehouse activities, the **SN Warehouse Tracking** and **Lot Warehouse Tracking** fields must be selected on the item's item tracking code card.  
+> To assign item tracking numbers in warehouse activities, you must turn on the **SN Warehouse Tracking** and **Lot Warehouse Tracking** toggles on the item tracking code that you assign to the item. The toggles are available on the **Item Tracking Code Card** page.
 
 ## To set up expiration rules for serial or lot numbers
 
@@ -2223,33 +2223,6 @@ To enable item tracking, you first have to assign the item tracking codes to an 
 3. On the **Item Tracking** FastTab, assign the appropriate item tracking codes and choose the **Item Tracking Code**, the **Serial Nos.**, and the **Lot Nos.**.
     1. Alternatively you can also create a new item tracking code by selecting the **New** action.
 
-## To specify opening balances for the items, you track
-
-You can create opening balances for the items you track. Because you can choose different warehouse configurations, there are two options:
-
-* Enable specific batches on the **Item Journal** page to let people enter serial, lot, and package data directly on journal lines.
-* For locations where the **Directed Put-away and Pick** toggle is turned on, use the **Warehouse Physical Inventory Journal** page to make all item tracking fields available. The fields that are available include the **Warranty Date** and **Expiration Date** fields.
-
-### Item journals
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Item Journals**, and then choose the related link.
-2. To open a list of item journal batches, choose the **Name** field.
-3. Choose **New** to create a new batch, and then turn on the **Item Tracking on Lines** toggle.
-4. Choose **OK** to select the batch you created.
-5. Fill in the fields on the item journal line as necessary. The **Lot No.**, **Serial No.**, **Expiration Date**, **Warranty Date**, and **Package No.** fields are available if you enabled item tracking.
-    1. Alternatively choose the **Edit in Excel** action. Using Excel lets you quickly fill in columns, including **Serial No.**, **Lot No.**, **Package No.**, **Expiration Date**, and **Warranty Date**. When you're done, choose **Publish** to send changes to [!INCLUDE [prod_short](includes/prod_short.md)].
-6. Choose the **Post** action to adjust inventory.
-
-> [!NOTE] 
-> [!INCLUDE [prod_short](includes/prod_short.md)] does a few minor validations when you enter or import data. A more comprehensive check happens when you post or transfer data from journal lines to the **Item Tracking** page. The latter happens automatically when you open the **Item Tracking** page from the item journal line or if you choose the **Update Item Tracking Lines** action.
-
-### Warehouse physical inventory journal for locations where directed pick and put-away is turned on  
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Physical Inventory Journal**, and then choose the related link.
-2. Fill in the fields on the item journal line as necessary. The **Lot No.**, **Serial No.**, **Expiration Date**, **Warranty Date**, and **Package No.** fields are available if you enabled item tracking.
-3. Choose the **Register** action to make the inventory adjustments. Remember to synchronize the adjusted warehouse entries with the related item ledger entries. To learn more, go to [synchronize the adjusted warehouse entries](/dynamics365/business-central/inventory-how-count-adjust-reclassify#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).
-
-For bulk imports, use configuration packages to import data to the journals.
 
 ## Related information
 
@@ -6097,6 +6070,7 @@ ms.collection:
   - get-started
   - bap-ai-copilot
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.custom: bap-template 
 ---
 
@@ -6761,6 +6735,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Sales Order Agent overview (preview)
 description: Learn about the sales order Copilot agent in Business Central.
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.topic: overview
 author: dmc-dk
 ms.author: dmitrych
@@ -7194,6 +7169,7 @@ ms.topic: how-to
 ms.search.keywords: Copilot, AI, sell
 ms.search.form:
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ms.collection: bap-ai-copilot
@@ -7464,6 +7440,7 @@ ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.search.form: 4400, 4410
 ---
@@ -11664,6 +11641,7 @@ ms.reviewer: solsen
 ms.search.keywords: bing, browsing, search engine, web-enabled AI, web-aware AI
 ms.topic: overview 
 ms.date: 07/02/2025
+ms.update-cycle: 180-days
 ms.custom: bap-template 
 ms.collection:
   - bap-ai-copilot
@@ -15336,13 +15314,13 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-edocuments-overview
 ---
 title: E-documents overview
-description: This article provides an overview of the e-documents module.
+description: Learn about e-documents in Business Central and how they streamline business transactions with automated document management and local compliance features.
 author: altotovi
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: electronic document, electronic invoice, e-document, e-invoice
 ms.search.form: 
-ms.date: 09/16/2024
+ms.date: 07/17/2025
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -15371,6 +15349,7 @@ The documentation explains e-documents in detail. It shows the capabilities of t
 | [Parameters for setting the e-documents connector with external endpoints](finance-edocuments-connectors.md) | Learn how to set up parameters and credentials for e-documents with specific external endpoints. |
 | [Exchanging Data Electronically](across-data-exchange.md) | Learn how to use the Data Exchange Framework to manage the exchange of data in business documents such as bank files and currency exchange rates. | 
 | [Map e-documents to purchase order lines with Copilot (preview)](map-edocuments-with-copilot.md) | Learn how to use Copilot to improve your efficiency when working with e-documents. |
+| [FAQ](faq-electronic-invoicing.yml) | Frequent Questions and Answers about E-Documents. |
 
 ## Localizations  
 
@@ -15378,20 +15357,19 @@ Microsoft currently supports the following localizations:
 
 | Article | Description | 
 |---------|-------------|
-| Australian E-Invoicing | Peppol PINT A-NZ format is coming soon - 2025 release wave 1. |
-| [Belgian E-Invoicing](finance-how-setup-edocuments-external.md) | Supported Peppol BIS 3 format. |
+| [Australian E-Invoicing](localfunctionality/australia/australia-local-functionality.md) | Peppol PINT A-NZ format. |
 | [Danish E-Invoicing](localfunctionality/denmark/how-to-edocuments-nemhadel.md) | Supported both Peppol BIS 3 and OIOUBL formats. |
-| French E-Invoicing | Will be supported in 2026. |
-| [German E-Invoicing](LocalFunctionality/Germany/germany-einvoicing.md) | Suppoerted Peppol BIS 3 and XRechnung. ZUGFeRD will come later this year. |
+| French E-Invoicing | To be supported in 2026. |
+| [German E-Invoicing](LocalFunctionality/Germany/germany-einvoicing.md) | Supported Peppol BIS 3, XRechnung (UBL only), and ZUGFeRD formats. |
 | Indian E-Invoicing | Using new E-Documents framework - TBD |
 | Italian E-Invoicing | Using new E-Documents framework - TBD |
 | Mexican E-Invoicing | Using new E-Documents framework - TBD |
-| New Zealand E-Invoicing | Peppol PINT A-NZ format is coming soon - 2025 release wave 1. |
+| [New Zealand E-Invoicing](localfunctionality/newzealand/how-to-nz-einvoice.md) | Peppol PINT A-NZ format. |
 | [Norway E-Invoicing](LocalFunctionality/Norway/ehf-electronic-invoicing-in-norway.md) | Supported Peppol BIS 3 format. |
 | [Spanish E-Invoicing](LocalFunctionality/Spain/spain-einvoicing.md) | Supported Factura-E format. |
 
 > [!NOTE]
-> For non-Microsoft localizations, please visit the AppSource.  
+> For non-Microsoft localizations, visit the AppSource.  
 
 ## Related information
 
@@ -17083,6 +17061,7 @@ ms.reviewer: jswymer
 ms.topic: article
 ms.search.form:
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.service: dynamics-365-business-central
 ms.collection: bap-ai-copilot
 ms.custom: bap-template
@@ -17768,6 +17747,7 @@ ms.collection:
   - get-started
   - bap-ai-copilot
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.custom: bap-template 
 ---
 
@@ -17874,6 +17854,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: FAQ for Payables Agent
 description: Learn how AI automates purchase invoice creation in Business Central, including setup, capabilities, limitations, and responsible use.
 ms.date: 06/04/2025
+ms.update-cycle: 180-days
 ms.custom: 
   - responsible-ai-faqs
 ms.topic: article
@@ -18086,6 +18067,7 @@ ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
 ms.date: 04/01/2025
+ms.update-cycle: 180-days
 ms.service: dynamics-365-business-central
 ms.collection: bap-ai-copilot
 ms.custom: bap-template
