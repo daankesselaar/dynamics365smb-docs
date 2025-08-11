@@ -1011,6 +1011,7 @@ The following table lists the permissions needed to use the different Copilot an
 | Autofill | **Copilot Sys Features** permission set or execute permission on system object 9700 **Allow Copilot Autofill**. |
 | Bank reconciliation assist | Permission on page 7250 **Bank Acc. Rec. AI Proposal** and page 7252 **Trans. To GL Acc. AI Proposal**. |
 | Chat |**Copilot Sys Features** permission set or execute permission on system object 9690 **Allow Copilot Chat**. |
+|No. series suggestions|No permissions or permission sets control access to this Copilot feature. Users who can set up number series can use Copilot for assistance when the **No. series suggestions** feature is activated.  |
 | Suggest substitute items| Permission on page 7410 **Item Subst. Suggestion** and page 7411 **Item Subst. Suggestion Sub**.|
 | Summarize |**Copilot Sys Features** permission set or execute permission on system object 9680 **Allow Copilot Summary**. |
 | Map e-documents | Permission on page 6166 **E-Doc. PO Copilot Prop**. |
@@ -4795,7 +4796,7 @@ ms.custom: bap-template
 
 [!INCLUDE[prod_short](includes/prod_short.md)] is a business management solution for small and mid-sized organizations that automates and streamlines business processes and helps you manage your business. Highly adaptable and rich with features, [!INCLUDE[prod_short](includes/prod_short.md)] enables companies to manage their business, including finance, manufacturing, sales, shipping, project management, services, and more. Companies can easily add functionality that is relevant to the region of operation, and that is customized to support even highly specialized industries. [!INCLUDE[prod_short](includes/prod_short.md)] is fast to implement, easy to configure, and simplicity guides innovations in product design, development, implementation, and usability.  
 
-If you already have [!INCLUDE[prod_short](includes/prod_short.md)], sign in at [https://businesscentral.dynamics.com](https://businesscentral.dynamics.com). Otherwise, [get the overview](https://dynamics.microsoft.com/business-central/overview/), [take the guided tour](https://dynamics.microsoft.com/guidedtour/dynamics/business-central/1/1), and then [learn how to start a free trial](trial-signup.md). Check out the [quickstart articles](quick-start-business-central.md) to help you get to know [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about onboarding to [!INCLUDE[prod_short](includes/prod_short.md)], go to [Get Ready for Doing Business](ui-get-ready-business.md).  
+If you already have [!INCLUDE[prod_short](includes/prod_short.md)], sign in at [https://businesscentral.dynamics.com](https://businesscentral.dynamics.com). Otherwise, [get the overview](https://www.microsoft.com/dynamics-365/products/business-central/), [take the guided tour](https://dynamics.microsoft.com/guidedtour/dynamics/business-central/1/1), and then [learn how to start a free trial](trial-signup.md). Check out the [quickstart articles](quick-start-business-central.md) to help you get to know [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about onboarding to [!INCLUDE[prod_short](includes/prod_short.md)], go to [Get Ready for Doing Business](ui-get-ready-business.md).  
 
 ## Core business functionality
 
@@ -9372,7 +9373,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Responsible AI FAQ for Autofill (preview)
 description: Learn about the AI technology of Autofill in Business Central, considerations, details about how AI is used, tested, evaluated, and limitations.
-ms.date: 04/01/2025
+ms.date: 07/24/2025
 ms.custom: 
   - responsible-ai-faqs
 ms.topic: faq
@@ -9389,7 +9390,7 @@ ms.search.keywords: copilot, AI, chat
 
 [!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
-These frequently asked questions (FAQ) describe the AI impact of Copilot’s Autofill feature in Business Central.
+These frequently asked questions (FAQ) describe the AI effect of Copilot’s Autofill feature in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]
 
@@ -9403,21 +9404,15 @@ Microsoft Copilot is an AI-powered assistant that sparks creativity, boosts prod
 
 ## What are the capabilities of Autofill?
 
-When you ask Copilot to autofill fields on a page in Business Central, it suggests values for all fields within a field group (FastTab). These suggestions aren't always AI-generated. Copilot uses various mechanisms described in the following table to provide suggestions for each field, indicating the most appropriate mechanism.
-
-Regardless of whether the suggested value is AI-generated, Copilot always uses AI to determine the appropriate mechanism for a field.
-
-|Mechanism|Description|
-|-|-|
-|Most Frequently Used |The value most frequently assigned to records in your company. The suggested value isn't computed using AI and comes directly from your Business Central data. |
-|Most Recently Used |For fields that reference another table, the most recently used reference, or most recently viewed record for that table. The suggested value isn't computed using AI and comes directly from your Business Central data. |
-|Lookup selection |For fields that reference another table and have a short list of possible choices, AI is used to intelligently select from the possible values.|
-|AI-generated |AI is used to intelligently generate the suggested value. |
+[!INCLUDE[autofill-suggestions-source](includes/autofill-suggestions-source.md)]
 
 > [!IMPORTANT]
 > Copilot runs under your user context. It only has access to data that you already have access to. Your assigned permissions and all other security and compliance controls also apply when you use Copilot.
 
-## What is the intended use of Autofill? 
+> [!IMPORTANT]
+> Web Search is available from version 26.4 and above. The feature requires that you turn on **Bing Search** on the **Copilot & agent capabilities** page. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
+
+## What is the intended use of Autofill?
 
 Autofill is an assistive feature intended to help people enter data into Business Central. It isn't designed to run autonomously and enter data on behalf of others. Since the suggestions aren't automatically saved to Business Central, you must review and accept each field for it to be saved. 
 
@@ -9435,17 +9430,17 @@ The feature underwent extensive AI testing using Business Central's demonstratio
 
 To ensure customer safety and data protection, this feature underwent rigorous testing to detect and deflect harmful content, jailbreaks, and other risks.
 
-## How does Microsoft monitor the quality of generated content? 
+## How does Microsoft monitor the quality of generated content?
 
-Microsoft has various automated systems in place to ensure that output from Copilot is of the highest quality. Automated systems also detect abuse, and ensure safety for our customers and their data by filtering harmful content. 
+Microsoft has various automated systems in place to ensure that output from Copilot is of the highest quality. Automated systems also detect abuse, and ensure safety for our customers and their data by filtering harmful content.
 
-Microsoft might disable the Copilot features for selected customers if abuse of the functionality is detected. 
+Microsoft might disable the Copilot features for selected customers if abuse of the functionality is detected.
 
 Users have the opportunity to provide feedback to every Copilot response and report inaccurate or inappropriate content to help Microsoft improve this feature. If you encounter inappropriate content, report it to Microsoft by using this feedback form: [Report abuse](https://go.microsoft.com/fwlink/?linkid=2249810). We analyze user feedback on the feature and use it to help us improve responses.
 
 You provide feedback by using the **like** (thumbs up) or **dislike** (thumbs down) icon in the information about an individual suggestion or for all suggestions in the group of fields.
 
-## What are the AI limitations of Autofill? How can users minimize the impact of the limitations when using the system?
+## What are the AI limitations of Autofill? How can users minimize the effect of the limitations when using the system?
 
 - **General AI limitations**
   AI systems are valuable tools but they're nondeterministic. The content they generate might not be accurate. It's important to use your judgment to review and verify responses before making decisions that could affect stakeholders like customers and partners. 
@@ -9464,6 +9459,24 @@ Business Central collects the minimum data required for Microsoft to offer the s
 
 - Microsoft collects anonymized information about decisions made by Copilot and your choice to keep or discard a suggestion. It doesn't collect suggested field values or other company data used by Copilot to provide suggestions.
 - Microsoft doesn't use your business data to train the foundational models for the benefit of others. Learn more in [Dynamics 365 terms for Azure OpenAI-powered features](https://go.microsoft.com/fwlink/?linkid=2236010).
+  
+## How does Autofill treat data residency?
+
+The Autofill feature relies on Azure OpenAI Service and Bing Search to provide suggestions.
+
+- Azure OpenAI Service  
+  Learn more about data residency and Azure OpenAI Service in [Azure OpenAI Service and Business Central data](azure-openai-data.md) and [Copilot data movement across geographies](ai-copilot-data-movement.md).
+
+- Bing Search  
+  Service endpoints are available in the US only and Bing Search operates under different terms. If your [!INCLUDE[prod_short](includes/prod_short.md)] environment is deployed to any other Azure geography, [!INCLUDE[prod_short](includes/prod_short.md)] connects to the Bing Search service outside your environment’s geographic region or compliance boundary. When you use Autofill to find suggestions for fields of public domain, only the input prompt is sent to the Bing Search service. This information is processed and not stored for more than one day.
+
+  To prevent Autofill from connecting to the Bing Search service, turn off the **Enable Bing Search** toggle on the **Copilot & agent capabilities** page. Learn more about how Copilot searches the web using Bing in [Searching the web with Copilot (preview)](ai-search-web-copilot.md).
+
+## What does Autofill offer for security?
+
+When Autofill is used on fields of public domain, it searches the web powered by Bing Search. To ensure security and safety, [!INCLUDE[prod_short](includes/prod_short.md)] applies various mechanisms such as content filtering and malicious site detection to reduce risk from these websites.
+
+Learn more about how Copilot searches the web in [Searching the web with Copilot (preview)](ai-search-web-copilot.md).
 
 ## Related information
 
@@ -9933,7 +9946,7 @@ View the list of suggested apps by choosing the **Connectivity Apps** action in 
 > [!NOTE]
 > The first person to open the **Connectivity Apps** page must allow the extension to connect to an external service. Allow the connection once or always. If you choose to block the connection, you must find the relevant apps on AppSource. If you allow the connection once or always, be aware that your information might be shared with third parties. Learn more in the section [Understanding the risks of installing apps](#understanding-the-risks-of-installing-apps).
 
-This external service generates a list of relevant apps based on your country or region
+This external service generates a list of relevant apps based on your country or region.
 
 ## Recommended apps
 
@@ -9962,36 +9975,37 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/privacy-connected-services
 ---
-title: Trial features that connect to other Microsoft services  
+title: Trial Features that Connect to Other Microsoft Services  
 description: Overview of Microsoft services that Business Central connects to with the trial version.
 author: jswymer
 ms.topic: overview
 ms.service: dynamics-365-business-central
 ms.search.keywords: privacy, trial, Microsoft services
-ms.date: 04/14/2024
+ms.date: 07/24/2025
 ms.author: jswymer
 ms.reviewer: jswymer
 ---
 # Trial features that connect to other Microsoft services 
 
-[!INCLUDE[prod_long](includes/prod_long.md)] is a comprehensive business management solution that is deeply integrated with Microsoft 365 productivity apps and Power Platform. Your free trial of Business Central can connect to many different Microsoft services that you must first configure and enable. To get the most out of your free trial, some of these features have been automatically enabled for you. Even though the connection from [!INCLUDE[prod_short](includes/prod_short.md)] is enabled, these services aren't included with your trial and must be purchased separately unless you have them already.
+[!INCLUDE[prod_long](includes/prod_long.md)] is a comprehensive business management solution that is deeply integrated with Microsoft 365 productivity apps, Power Platform, and AI services. Your free trial of Business Central can connect to many different Microsoft services that you must first configure and enable. To get the most out of your free trial, some of these features are automatically enabled for you. Even though the connection from [!INCLUDE[prod_short](includes/prod_short.md)] is enabled, these services might not be included with your trial and might need to be purchased separately unless you have them already. 
 
 The following table indicates the connections to Microsoft services that are automatically enabled for [!INCLUDE[prod_short](includes/prod_short.md)] trials:
 
 |Service name|Connection is automatically enabled |Service is contacted when signing in to Business Central |Example feature that uses this service | Learn how to manage the connection and features that use it|  
 |------------|-------------|--------|------------|-------------|
 |Microsoft Teams|Yes|No|**Share to Teams** action on **Item** card |[Managing Teams Integration with Business Central](admin-teams-integration.md)|  
-|Microsoft OneDrive for Business|Yes|No|**Open in OneDrive** action on **Item** attachments |[Managing OneDrive Integration with Business Central](admin-onedrive-integration.md#configure-onedrive-using-onedrive-setup)|  
+|Microsoft OneDrive|Yes|No|**Open in OneDrive** action on **Item** attachments |[Managing OneDrive Integration with Business Central](admin-onedrive-integration.md#configure-onedrive-using-onedrive-setup)|  
 | Microsoft Power Automate |Yes|No|**Automate** actions on **Item** card |[Set Up Power Automate Integration](/dynamics365/business-central/dev-itpro/powerplatform/power-automate-setup)|
 | Microsoft Azure OpenAI Service |Yes |No|**Copilot** |[Configure AI-powered item marketing text with Copilot](enable-ai.md)|
+|Microsoft Bing |Yes |No |Copilot |[Searching the web with Copilot](ai-search-web-copilot.md)|
 |Microsoft Learn Platform|Yes|No|Copilot, Help pane|[Chat with Copilot FAQ](chat-with-copilot-faq.md#how-does-chat-treat-data-residency)|
 
 > [!NOTE]
 > By using features that connect to these services:
 >
-> - You consent to your data being shared with that Microsoft service. If your organization has deployed these services in a different country or region, connecting to the service may result in your data crossing data residency boundaries. Make sure to confirm your organization’s policies and government compliance requirements for data residency before proceeding to use these features. 
-> - You may affect services that aren't trials. If these services are used in production by your organization and aren't being evaluated together with Business Central, other users of these services who aren't participating in this trial of [!INCLUDE[prod_short](includes/prod_short.md)] may be affected.
-> - [!INCLUDE[prod_short](includes/prod_short.md)] may also connect to Microsoft services or third-party services depending on the customizations and extensions that you or your administrator have installed in your [!INCLUDE[prod_short](includes/prod_short.md)] trial. For information about how your extensions process your data, contact the extension developer or follow the privacy link for the extension on AppSource.
+> - You consent to your data being shared with that Microsoft service. If your organization deployed these services in a different country or region, connecting to the service might result in your data crossing data residency boundaries. Make sure to confirm your organization’s policies and government compliance requirements for data residency before proceeding to use these features.
+> - You might affect services that aren't trials. If your organization uses these services in production and aren't being evaluated together with Business Central, other users of these services who aren't participating in this trial of [!INCLUDE[prod_short](includes/prod_short.md)] might be affected.
+> - [!INCLUDE[prod_short](includes/prod_short.md)] might also connect to Microsoft services or third-party services depending on the customizations and extensions that you or your administrator installed in your [!INCLUDE[prod_short](includes/prod_short.md)] trial. For information about how your extensions process your data, contact the extension developer or follow the privacy link for the extension on AppSource.
 > - For features in preview, you consent to the [preview terms](https://go.microsoft.com/fwlink/?linkid=2189520).
 
 Your privacy is important to us. To learn more about how Microsoft processes your data, view the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?linkid=521839).
@@ -10065,7 +10079,7 @@ When you set up the connection, you create the integration table mappings that y
 
 You can connect to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a different base currency than the local currency in [!INCLUDE[prod_short](includes/prod_short.md)]. You make the connection in [!INCLUDE[prod_short](includes/prod_short.md)] on the **Dataverse Connection Setup** page or by using the **Set up connection to Dataverse** assisted setup guide.
 
-To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[prod_short](includes/cds_long_md.md)] has the currency that set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
+To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[prod_short](includes/cds_long_md.md)] has the currency that is set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
 
 Here's an example. You're connecting [!INCLUDE[prod_short](includes/cds_long_md.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
 
@@ -15508,7 +15522,7 @@ Whether and where a row gets created depends on the synchronization direction. F
 * Coupled, the synchronization direction (for example, from [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[prod_short](includes/cds_long_md.md)] or from [!INCLUDE[prod_short](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)]) is predetermined by the integration table mappings. For more information, see [Standard Table Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization).  
 
 > [!IMPORTANT]  
->  You typically only use the full synchronization when you initially set up integration between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)] and only one of solutions contains data, which you want to copy to the other solution. A full synchronization can be useful in a demonstration environment. Because the full synchronization automatically creates and couples records between the solutions, it makes it faster to start working with synchronizing data between records. On the other hand, you should only run a full synchronization if you want a row in [!INCLUDE[prod_short](includes/prod_short.md)] for each row in [!INCLUDE[prod_short](includes/cds_long_md.md)] for the given table mappings. Otherwise, you can have unwanted or duplicate records in either [!INCLUDE[prod_short](includes/prod_short.md)] or [!INCLUDE[prod_short](includes/cds_long_md.md)].  
+>  You typically only use the full synchronization when you initially set up integration between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)] and only one of the solutions contains data, which you want to copy to the other solution. A full synchronization can be useful in a demonstration environment. Because the full synchronization automatically creates and couples records between the solutions, it makes it faster to start working with synchronizing data between records. On the other hand, you should only run a full synchronization if you want a row in [!INCLUDE[prod_short](includes/prod_short.md)] for each row in [!INCLUDE[prod_short](includes/cds_long_md.md)] for the given table mappings. Otherwise, you can have unwanted or duplicate records in either [!INCLUDE[prod_short](includes/prod_short.md)] or [!INCLUDE[prod_short](includes/cds_long_md.md)].  
 
 ### To run a full synchronization  
 1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Dataverse Connection Setup**, and then choose the related link.
@@ -15526,7 +15540,7 @@ Whether and where a row gets created depends on the synchronization direction. F
 You can view the results of the full synchronization on the **Integration Synchronization Jobs** page. For more information, see [View the Status of a Synchronization](admin-how-to-view-synchronization-status.md).  
 
 ## Synchronizing All Modified Records
-You can use the **Common Data Service Connection Setup** page to synchronize changes to data in all integration table mappings. This is similar to a full synchronization. It will synchronize data in all coupled records in the [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)] tables that are defined in the table mappings. By default, only data that has been modified since the last synchronization will be synchronized. Synchronization jobs synchronize table mappings in the following order to avoid coupling dependencies between the tables:  
+You can use the **Dataverse Connection Setup** page to synchronize changes to data in all integration table mappings. This is similar to a full synchronization. It will synchronize data in all coupled records in the [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)] tables that are defined in the table mappings. By default, only data that has been modified since the last synchronization will be synchronized. Synchronization jobs synchronize table mappings in the following order to avoid coupling dependencies between the tables:  
 
 1.  CURRENCY  
 2.  SALESPEOPLE  
@@ -16410,7 +16424,7 @@ If you enable the extension, a **Payments Predicted to be Late** tile is availab
 
 ## Design details
 
-Microsoft deploys and operates predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Access to these web services is included in your [!INCLUDE[prod_short](includes/prod_short.md)] subscription. For more information, see the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central](https://dynamics.microsoft.com/business-central/overview/) website.
+Microsoft deploys and operates predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Access to these web services is included in your [!INCLUDE[prod_short](includes/prod_short.md)] subscription. For more information, see the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central](https://www.microsoft.com/dynamics-365/products/business-central/) website.
 
 The web services work in three modes:
 
@@ -19336,7 +19350,7 @@ Each KPI and measure is described, including how it is calculated and what data 
 
 ### Average Collection Period (Days) 
 **Formula**  
-( [No. of Days](#no-of-days) * [Accounts Receivable (Average)](#accounts-receivable-average) ) / [Revenue](#revenue)
+( [No. of Days](#no-of-days) * [Accounts Receivable (Net Change)](#accounts-receivable-net-change) ) / [Revenue](#revenue)
 
 **Data Sources**
 - Date
@@ -19410,6 +19424,7 @@ The No. of Days measure calculates the total number of days within a selected pe
 - [Accounts Receivable](#accounts-receivable)   
 - [Accounts Receivable (Average)](#accounts-receivable-average)   
 - [Accounts Receivable (Beginning Balance)](#accounts-receivable-beginning-balance)   
+- [Accounts Receivable (Net Change)](#accounts-receivable-net-change)
 - [Assets](#assets)
 - [Capital Employed](#capital-employed)   
 - [Current Assets](#current-assets)   
@@ -19468,6 +19483,15 @@ The Accounts Receivable measure calculates the [Balance at Date](#balance-at-dat
 ### Accounts Receivable (Beginning Balance) 
 **Formula**  
 The Accounts Receivable (Beginning Balance) measure calculates the [Balance at Date](#balance-at-date) for [accounts receivable](#accounts-receivable) up to the earliest date in the selected period. The measure calculates the beginning balance by identifying the earliest date in the selected period, removing any existing date filters to consider all historical dates, and then limiting results to transactions on or before this earliest date. This approach yields the balance as of the start of the selected period.
+
+**Data Sources**
+- G/L Entry
+- G/L Account Category
+- Account Categories
+
+### Accounts Receivable (Net Change) 
+**Formula**  
+The Accounts Receivable (Net Change) measure calculates the [Net Change](#net-change) for general ledger accounts categorized as *Accounts Receivable* on the [G/L Account Category](https://businesscentral.dynamics.com?page=790) page and where this category is mapped to the **Accounts Receivable (Level 3 Category)** on the [Power BI Account Categories](https://businesscentral.dynamics.com?page=36961) page. 
 
 **Data Sources**
 - G/L Entry

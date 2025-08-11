@@ -3438,7 +3438,7 @@ After you add users or change user information in the Microsoft 365 Admin Center
 The next step for newly created users is to assign user groups and permissions. Go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information. If you update a user with a license change, [!INCLUDE [prod_short](includes/prod_short.md)] assigns users to the appropriate user group and updates their permission sets. For more information, see [To manage permissions through user groups](ui-define-granular-permissions.md).  
 
 > [!NOTE]
-> With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. For more information about licensing, go to [Business Central](https://dynamics.microsoft.com/business-central/overview/) website.
+> With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. For more information about licensing, go to [Business Central](https://www.microsoft.com/dynamics-365/products/business-central/) website.
 
 If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. For more information, see [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
 
@@ -4712,11 +4712,11 @@ The following sections lead you through some basic tasks to give you a general u
 
 ### View and change the contact details or switch company
 
-The action bar at the top of the [!INCLUDE[prod_short](includes/prod_short.md)] add-in pane includes several actions that let your dig deeper into details about the contact and change things.
+The action bar at the top of the [!INCLUDE[prod_short](includes/prod_short.md)] add-in pane includes several actions that let you dig deeper into details about the contact and change things.
 
 ![Business Central add-in action bar in Outlook.](media/outlook-addin-action-bar.png)
 
-For example, you can open the full contact details as you would see them in [!INCLUDE[prod_short](includes/prod_short.md)]. If you work with more that one [!INCLUDE[prod_short](includes/prod_short.md)] company, you can easily switch between companies.
+For example, you can open the full contact details as you would see them in [!INCLUDE[prod_short](includes/prod_short.md)]. If you work with more than one [!INCLUDE[prod_short](includes/prod_short.md)] company, you can easily switch between companies.
 
 ### Track incoming documents
 
@@ -4736,7 +4736,7 @@ Perhaps you use the **Incoming Documents** list in [!INCLUDE[prod_short](include
 
 Your email inbox often serves as a source of incoming files that initiate or unblock workflows. Files can include things like PDF invoice payments, photos of goods, or requirements in a Word document. When working in Outlook with Business Central records like vendors, customers, purchase invoices, or sales orders, you can attach these files to the records.
 
-There's a couple ways you can attach files. One way is to upload files from your device. The other way is upload files that are attached to an email. For example, suppose you get an email with files from a contact. The add-in will automatically display the contact record that matches the email sender. From there, you can navigate to a document for the contact, like the latest sales order. Once you've identified the order that the email relates to, you quickly upload the files from the email to that order.
+There's a couple ways you can attach files. One way is to upload files from your device. The other way is to upload files that are attached to an email. For example, suppose you get an email with files from a contact. The add-in will automatically display the contact record that matches the email sender. From there, you can navigate to a document for the contact, like the latest sales order. Once you've identified the order that the email relates to, you quickly upload the files from the email to that order.
 
 ![Shows how to add attachments from an email to records in Business Central.](media/outlook-attach-files.png)
 
@@ -7055,27 +7055,30 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-display-lists-different-views
 ---
-title: Adjust the Amount of Detail You See in Lists
-description: You can display lists as detailed rows that provide most information, or as tiles that are easy to visually scan and may include picture thumbnails.
+title: Adjust the amount of detail in lists
+description: You can display lists as detailed rows that provide most information, or as tiles that are easy to visually scan.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: personalization
-ms.search.form: 31
-ms.date: 04/01/2021
+ms.search.form: 31,
+ms.date: 07/17/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Displaying Lists in Different Ways
-In the right corner of any list in [!INCLUDE[prod_short](includes/prod_short.md)] you will find icons that let you choose how the list of records is displayed. A list can be displayed as detailed rows, which is ideal when you need to work with many fields or edit fields in the list. But you can also switch to display records as tiles, which is more compact and shows less fields on the specific record. This is very useful to gain an overview of several entries and is in particular useful on smaller devices, because it is compact and easier to tap.
+# Display lists in different ways
 
-## Item List
-On the **Items** page, having pictures helps you get a quick overview of what you sell and switching to the tiles gives you an item catalogue to browse through. For lists that include pictures, such as the **Items** page, you have a third option to display as large tiles. This displays large pictures for each record but also shows few fields.
+List pages in [!INCLUDE[prod_short](includes/prod_short.md)] let you choose how to display the records. A list can display as detailed rows, which is ideal when you need to work with many fields or edit fields in the list. But, you can also switch to display records as tiles, which is more compact and shows fewer fields on the specific record. Tiles are useful for an overview of several entries and are helpful on smaller devices because they're compact and easier to tap.
+
+## Items list
+
+On the **Items** page, having pictures helps you get a quick overview of what you sell and switching to the tiles gives you an item catalog to browse through. For lists that include pictures, such as the **Items** page, you have a third option to display as large tiles. This displays large pictures for each record but also shows few fields.
 
 You can import item pictures, either one by one or for multiple items in one go. For more information, see [Import Multiple Item Pictures](inventory-how-import-item-pictures.md).  
 
 ## Related information
+
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Register New Items](inventory-how-register-new-items.md)  
 
@@ -16304,7 +16307,7 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-order-agent-process
 ---
 title: Process sales quotes and orders with Sales Order Agent (preview)
-description: Learn how to use Sales Order Agent to process sales quotes and orders from customer email requests.
+description: Learn how to use the Sales Order Agent to process sales quotes and orders from customer email requests.
 author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
@@ -20192,7 +20195,7 @@ The following video shows how to use actionable error messages to get unblocked.
 
 ### Tip for developers
 
-If you're a developer, when you call the [TestField](/dynamics365/business-central/dev-itpro/developer/methods-auto/record/record-testfield-joker-joker-errorinfo-method) method, but don't pass in the |`ErrorInfo` object, [!INCLUDE [prod_short](includes/prod_short.md)] automatically generates the link to a page where a user can correct the issue. [!INCLUDE [prod_short](includes/prod_short.md)] first gets the lookup or drill-down page for the record, and then finds the card page or lookup page and adds a navigation link to that card page. [!INCLUDE [prod_short](includes/prod_short.md)] doesn't add a link in the following situations:
+If you're a developer, when you call the [TestField](/dynamics365/business-central/dev-itpro/developer/methods-auto/record/record-testfield-joker-joker-errorinfo-method) method, but don't pass in the `ErrorInfo` object, [!INCLUDE [prod_short](includes/prod_short.md)] automatically generates the link to a page where a user can correct the issue. [!INCLUDE [prod_short](includes/prod_short.md)] first gets the lookup or drill-down page for the record, and then finds the card page or lookup page and adds a navigation link to that card page. [!INCLUDE [prod_short](includes/prod_short.md)] doesn't add a link in the following situations:
 
 * If the error is on the page that's currently open.
 * If the user doesn't have permission to modify the underlying record.
@@ -20970,14 +20973,17 @@ ms.reviewer: bholtorf
 
 European Union (EU) third-party trade occurs when you receive a purchase invoice from a customer in one EU country/region, and the products are sent to a different EU country/region without entering the country of residence. The transaction amount can be identified and reported separately to comply with some EU countries'/regions' value-added tax (VAT) reporting and VAT Information Exchange System (VIES) requirements. Microsoft Dynamics 365 Business Central enables purchase transactions to be set up as EU third-party trade. Posted EU third-party transactions can be filtered in VAT statements and excluded from the amount in the **Sales to Customer** column of the **VAT-VIES Declaration Tax Auth** report.
 
-Even if the feature is preinstalled as an extension, it isn't activated by default. Follow these steps to activate the feature.
+## Prerequisites
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, go to the **Feature Management** workspace, and then select the related link.
-2. In the list, find and select **Feature update: Replace the existing EU 3-Party Purchase functionality with the new EU 3-Party Trade Purchase extension**.
-3. In the **Enabled for** column, select **All users**.
+- For Sweden (SE) and Finland (FI) localized versions, activate the EU third-party trade feature in **Feature Management**.
 
-> [!NOTE]
-> If you use the German or Italian localization, you won't be able to enable this app because it's not compatible with certain VAT features in those localizations.  
+  Even if the feature is preinstalled as an extension, it isn't activated by default. Follow these steps:
+
+  1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, go to the **Feature Management** workspace, and then select the related link.
+  1. In the list, find and select **Feature update: Replace the existing EU 3-Party Purchase functionality with the new EU 3-Party Trade Purchase extension**.
+  1. In the **Enabled for** column, select **All users**.
+
+- The EU third-party trade feature is unavailable in the German (DE) or Italy (IT) localized versions, because it's not compatible with the local VAT reporting and declaration features specific to these countries/regions.
 
 ## Enable EU third-party trade functionality for a purchase
 
@@ -23925,7 +23931,7 @@ To use a manual process:
 
 ## Design details
 
-Subscriptions for [!INCLUDE[prod_short](includes/prod_short.md)] come with access to several predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Learn more at the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central](https://dynamics.microsoft.com/business-central/overview/) website.
+Subscriptions for [!INCLUDE[prod_short](includes/prod_short.md)] come with access to several predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Learn more at the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central]( https://www.microsoft.com/dynamics-365/products/business-central/) website.
 
 These web services are stateless, meaning they use data only to calculate predictions on demand. They don't store data.
 
