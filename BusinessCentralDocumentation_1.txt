@@ -20,14 +20,14 @@ Before you can manage fixed assets (FA), you must set up default G/L accounts, a
 
 Define the general behavior of the fixed asset functionality and its document number series on the **Fixed Assets Setup** page.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Fixed Assets Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets Setup**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 ## To set up fixed asset posting groups
 
 Use posting groups to define groups of fixed assets. Entries for these posting groups post to the same general ledger accounts.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Posting Groups**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
 2. Choose the **New** action.
 3. On the **FA Posting Group Card** page, fill in the fields as necessary.
 
@@ -43,7 +43,7 @@ A template is a predefined layout for a journal. The template contains informati
 
 [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset journal template the first time that you open the **Fixed Asset Journal** page, but you can set up other journal templates.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Journal Templates**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
 ## To set up fixed asset class and subclass codes
@@ -54,14 +54,14 @@ In fixed assets, you can define a classification hierarchy that can be used to g
 
 Fixed asset classes are the top-level entries in the classification hierarchy in which you group assets. For example, use classes to divide assets into tangible or intangible assets. You must create at least one fixed asset class in your setup.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Classes**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Classes**, and then choose the related link.
 2. Enter codes and names for the fixed asset classes that you want to create.
 
 ### Fixed asset subclass codes
 
 Fixed asset subclasses are the second level entries in the classification hierarchy in which you group assets. Each subclass points to a top-level class. Use fixed asset subclass codes to group fixed assets in more specific categories, such as buildings, vehicles, furniture, or machinery. You must create at least one fixed asset subclass in your setup.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Subclasses**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Subclasses**, and then choose the related link.
 2. Enter codes and names for the fixed asset subclasses that you want to create.
 
 ## Start to register assets
@@ -75,7 +75,7 @@ The following procedure is used if fixed asset transactions are to be posted to 
 3. Create a fixed asset depreciation book for each depreciation purpose (such as tax and financial statements). For each depreciation book, define the terms and conditions, such as integration with the general ledger.
 
     Enable general ledger integration by following the next steps. First, ensure that general ledger integration isn't enabled for all depreciation books, then post the opening entries, and finally, turn on general ledger integration.  
-4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Depreciation Books**, and then choose the related link.  
+4. [!INCLUDE[open-search](includes/open-search.md)], enter **Depreciation Books**, and then choose the related link.  
 5. Select the relevant depreciation book, and then choose the **Edit** action to open the **Depreciation Book Card** page.
 6. On the **Integration** FastTab, turn off all of the toggles. If you have more than one depreciation book, repeat this step for each one.  
 7. In the fixed asset journal, enter the following lines for each asset:
@@ -93,7 +93,7 @@ If the fixed assets aren't integrated with the general ledger, skip steps six an
 
 Fixed asset location codes define identifiers for where assets can be located, such as sales department, reception, administration, production, or warehouse. You can use them to register the location of a fixed asset. This information is useful for insurance and inventory purposes.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA locations**, and then choose the related link.
 2. Enter codes and names for the fixed asset locations that you want to create.
 
 ## To set up fixed asset allocation keys (optional)
@@ -102,7 +102,7 @@ Use allocation keys to allocate transactions to various departments or projects.
 
 Allocation keys apply to fixed asset classes, not to individual assets.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Posting Groups**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
 2. On the **FA Posting Groups** page, choose the **Allocations** action, and then choose a posting type.
 3. On the **FA Allocations** page, fill in the fields as necessary.
 4. Repeat steps 2 and 3 for each posting type that you want to define allocation keys for.
@@ -111,7 +111,7 @@ Allocation keys apply to fixed asset classes, not to individual assets.
 
 You can set up multiple journal batches, which are individual journals for each journal template. For example, employees can have their own journal batch that uses the employee’s initials as the journal batch name. For more information, see [Work with General Journals](ui-work-general-journals.md).  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Journal Templates**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
 2. Select the relevant journal template, and then choose the **Batches** action.
 3. On the **FA Journal Batches** page, fill in the fields as necessary.
 
@@ -119,14 +119,14 @@ You can set up multiple journal batches, which are individual journals for each 
 
 Use dedicated reclassification journals to transfer, split, or combine fixed assets. [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset reclassification journal template the first time you open the **FA Reclass. Journal** page, but you can set up other reclassification journal templates. For more information, see [Work with General Journals](ui-work-general-journals.md).  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Reclass. Journal Templates**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
 ## To set up fixed asset reclassification journal batches (optional)
 
 You can set up multiple journal batches, which are individual journals for each reclassification journal template. For example, employees can have their own reclassification journal batch that uses the employee’s initials as the reclassification journal batch name. For more information, see [Work with General Journals](ui-work-general-journals.md).
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Reclass. Journal Templates**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
 2. Select the relevant journal template, and then choose the **Batches** action.
 3. On the **FA Reclass. Journal Batches** page, fill in the fields as necessary.
 
@@ -248,7 +248,7 @@ To enable import/export of data in XML files through the data exchange framework
 
 1. Make sure that the relevant XML schema file is available. The file extension is .xsd.  
 
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **XML Schemas**, and then choose the related link.  
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **XML Schemas**, and then choose the related link.  
 
 3. Choose the **New** action.  
 
@@ -270,7 +270,7 @@ To enable import/export of data in XML files through the data exchange framework
 
 ### To select or clear nodes in an XML schema  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **XML Schema Viewer**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **XML Schema Viewer**, and then choose the related link.  
 
 2. Fill the fields on the header as described in the following table.  
 
@@ -308,7 +308,7 @@ To enable import/export of data in XML files through the data exchange framework
 
 ### To generate a data exchange definition that is based on an XML schema  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter  **XML Schemas**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter  **XML Schemas**, and then choose the related link.  
 
 2. Select the relevant XML schema, and then choose the **Open XML Schema Viewer** action.  
 
@@ -605,7 +605,7 @@ Permission sets assigned to a user through a user group stay synchronized. A cha
 
 The following procedure explains how to create user groups manually. To learn how to create user groups automatically, go to [To copy a user group and all its permission sets](#copy-a-user-group-and-all-its-permission-sets).
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **User Groups**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **User Groups**, and then choose the related link.
 
     1. Alternatively, on the **Users** page, choose the **User Groups** action.
 2. On the **User Group** page, choose the **User Group Members** action.
@@ -618,7 +618,7 @@ To quickly define a new user group, you can copy all permission sets from an exi
 > [!NOTE]
 > The user group members aren't copied to the new user group. You must add them manually afterwards. To learn more, go to [To add users to a user group](#add-users-to-a-user-group).
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **User Groups**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **User Groups**, and then choose the related link.
 2. Select the user group that you want to copy, and then choose the **Copy User Group** action.
 3. In the **New User Group Code** field, enter a name for the group, and then choose the **OK** button.
 
@@ -633,7 +633,7 @@ The new user group is added to the **User Groups** page. Proceed to add users. T
 
 ## Assign permission sets to user groups
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **User Groups**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **User Groups**, and then choose the related link.
 2. Select the user group that you want to assign permission to.  
 
     Any permission sets that are already assigned to the user are displayed in the **Permission Sets** FactBox.
@@ -644,7 +644,7 @@ The new user group is added to the **User Groups** page. Proceed to add users. T
 
 The following procedure explains how to assign permission sets to a user group on the **Permission Set by User Group** page.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Users**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.
 2. On the **Users** page, select the relevant user, and then choose the **Permission Set by User Group** action.
 3. On the **Permission Set by User Group** page, select the **[user group name]** field on a line for the relevant permission set to assign the set to the user group.
 4. Select the **All User Groups** checkbox to assign the permission set to all user groups.
@@ -724,7 +724,7 @@ You can reverse entries from all **Ledger Entries** pages. The following procedu
 > [!NOTE]
 > The entry must originate from a journal posting.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **General Ledger Entries**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Entries**, and then choose the related link.
 2. Select the entry that you want to reverse, and then choose the **Reverse Transaction** action.
 3. On the **Reverse Transaction Entries** page, choose the **Reverse** action.
 4. Choose **Yes** to confirm the reversal.
@@ -733,7 +733,7 @@ You can reverse entries from all **Ledger Entries** pages. The following procedu
 
 Use the **Correction** field to post a negative debit instead of a credit, or to post a negative credit instead of a debit on an account. By default, the field is available in all journals. The **Debit Amount** and **Credit Amount** fields include both the original entry, and the corrected entry. These fields have no effect on the account balance.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **General Journals**, and then choose the related link  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Journals**, and then choose the related link  
 2. In the **Batch Name** field, select the required batch name.  
 3. Enter information into the relevant fields.  
 4. In the journal line that you want to activate for negative entries, select the **Correction** check box.  
@@ -743,7 +743,7 @@ Use the **Correction** field to post a negative debit instead of a credit, or to
 
 The following steps describe how to undo a posted receipt of items or resources. The steps are similar for posted shipments.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Purchase Receipts**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Purchase Receipts**, and then choose the related link.  
 2. Open the posted receipt that you want to undo.  
 3. Select the line or lines that you want to undo.  
 4. Choose **Undo Receipt** action.
@@ -761,7 +761,7 @@ The following steps describe how to:
 
 The steps are similar for posted return receipts.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Return Shipments**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Return Shipments**, and then choose the related link.  
 2. Open the posted return shipment to undo.
 3. Select the line or lines to undo.  
 
@@ -772,7 +772,7 @@ The steps are similar for posted return receipts.
     Now go back to the purchase return order and redo the posting.  
 
 5. On the **Posted Return Shipment** page, take a note of the number in the **Return Order No.** field.  
-6. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Return Orders**, and then select the related link.  
+6. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Return Orders**, and then select the related link.  
 7. Open the return order in question, and then choose the **Reopen** action.  
 8. Correct the entry in the **Quantity** field and post the purchase return order again.  
 
@@ -832,7 +832,7 @@ Page customization starts from the **Profiles (Roles)** page, the administrator'
 
 ## Customize pages for a profile
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Profiles (Roles)**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Profiles (Roles)**, and then choose the related link.
 2. Select the line for the profile that you want to customize pages for, and then choose the **Edit** action.
 3. Choose the **Customize pages** action.
 
@@ -964,7 +964,7 @@ ms.reviewer: jswymer
 You can create segments to select a group of contacts, for example, if you want to create an interaction involving several contacts, such as direct mail.
 
 ## To create a segment
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Segments**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Segments**, and then choose the related link.
 2. Choose the **New** action.
 3. In the **General** section, in the **No.** field, enter a number for the segment.
 
@@ -1128,7 +1128,7 @@ If you aren't using Microsoft Entra ID to manage identities and access, you need
 
 ## To stop logging email
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Email Logging**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Email Logging**, and then choose the related link.
 2. Turn off the **Enabled** toggle.
 
 ## To change the user account used for email logging
@@ -1136,13 +1136,13 @@ If you aren't using Microsoft Entra ID to manage identities and access, you need
 ### [!INCLUDE[prod_short](includes/prod_short.md)] Online
 
 1. Sign in to [!INCLUDE[prod_short](includes/prod_short.md)] with the account that the scheduled job uses to connect to the shared mailbox and process emails. This account must have access to both [!INCLUDE[prod_short](includes/prod_short.md)] and Exchange Online.
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Email Logging**, and then choose the related link. 
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **Email Logging**, and then choose the related link. 
 3. Choose **Related**, and then **Job Queue Entry**.
 4. Restart the **Email Logging** job.
 
 ### [!INCLUDE[prod_short](includes/prod_short.md)] on-premises
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Email Logging**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Email Logging**, and then choose the related link.
 2. Choose **Actions**, and then **Renew Token**.
 3. Sign in with the Exchange Online account that the scheduled job uses to connect to the shared mailbox and process emails.
 
@@ -1440,7 +1440,7 @@ ms.custom: bap-template
 
 To use the sustainability value chain with transfer orders, you must enable the **Enable Value Chain Tracking** field on the **Sustainability Setup** page.  
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Setup**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Setup**, and then select the related link.
 2. Check whether the basic setup already exists. If it doesn't, follow [these instructions](finance-sustainability-setup.md) to set it up.  
 3. On the **Procurement** FastTab, select the **Enable Value Chain tracking** field.
 4. Close the page.
@@ -1453,7 +1453,7 @@ To use transfer orders in the sustainability value chain process, you must add t
 
 After you post a transfer order, you can find entries related to the transfer on the **Posted Transfer Shipment** page. To find the entries, follow these steps:  
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted transfer shipments**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted transfer shipments**, and then select the related link.
 2. Open the **Posted Transfer Shipment** you want to check, and then choose the **Find entries** action.
 3. On the **Find entries** page, choose **Sustainability Value Entry** to review the transactions related to this document.
 4. Close the page.
@@ -1964,10 +1964,10 @@ Create a project WIP method that meets the needs of your organization and set it
 > [!NOTE]
 > After you use a method to create WIP entries, you can't modify or delete the method.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Project WIP Methods**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Project WIP Methods**, and then choose the related link.  
 2. Choose the **New** action, select the appropriate values for the **Recognized Costs** and **Recognized Sales** fields, and then fill in the other fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 3. Close the page.
-4. To make this method the default, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **projects setup**, and then choose the related link.  
+4. To make this method the default, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **projects setup**, and then choose the related link.  
 5. In the **Default WIP Method** field, choose the method from the list.
 
 ### Recognized cost
@@ -2088,7 +2088,7 @@ You can set up items to have replacements, such as other items that can be used 
 
 ### To make an item substitution
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Find the relevant item, and then choose the **No.** to open the Item Card.  
 3. Choose the **Related** action, then choose **Item**, and then **Substitutions** to open the **Item Substitution Entry** page.  
 4. Choose the **Substitute No.** field, and then select the replacement item from the list.
@@ -2124,7 +2124,7 @@ To register items that you use in production orders, specify the replenishment s
 
 If you purchase the same item from more than one vendor, you can connect those vendors to the item. Use the **Vendors** action on the **Item Card** page to open the **Item Vendor Catalog** page. 
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Select the relevant item, and then choose the **Edit** action.  
 3. Choose the **Vendors** action.  
 4. Choose the **No.** field, and then select the vendor that you want to set up for the item.  
@@ -2234,7 +2234,7 @@ You can use two approaches to reconcile bank accounts with Copilot:
 
 For this approach, you create and reconcile a new bank account reconciliation from scratch. This approach requires that you select the bank account. If the bank account isn't linked to an online account, you must also import the bank statement file.
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Account Reconciliations**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Account Reconciliations**, and then select the related link.
 1. Select ![Shows the copilot icon](media/copilot-icon.png) **Start a Copilot prompt action** > **Reconcile** to open the **Reconcile with Copilot** window.
 1. Set the **Perform reconciliation for this bank account** field to the bank account that you want to reconcile.
 
@@ -2251,7 +2251,7 @@ For this approach, you create and reconcile a new bank account reconciliation fr
 
 For this approach, you use Copilot either on a new bank account reconciliation that you manually create or by editing an existing reconciliation.
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Account Reconciliations**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Account Reconciliations**, and then select the related link.
 1. Follow one of these steps:
 
     - Select **New** to start a new reconciliation. Add the statement lines, either manually or by using **Suggest Lines** action to get a copy of the bank ledger entries as a starting point.
@@ -2698,7 +2698,7 @@ The following procedures are based on setting up basic warehouse activities arou
 
 ## To enable inventory documents for internal operation activities
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.
 2. Open the location card you want to set up.  
 3. On the **Warehouse** FastTab, select **Inventory Put-Away** in the **Prod. Output Whse. Handling** field to indicate that when someone releases an internal source document with a bin code, an inventory put-away or movement document can be created.  
 4. To require that an inventory pick or an inventory movement document when you create an outbound or internal source document with a bin code, fill in the following fields:
@@ -2708,7 +2708,7 @@ The following procedures are based on setting up basic warehouse activities arou
 
 ## To define a default bin structure in the production area
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.
 2. Open the Location you want to set up.  
 3. On the **Bins** FastTab, in the **Open Shop Floor Bin Code** field, enter the code of the bin in the production area with plenty of components that the machine operator can consume from without requesting a warehouse activity to bring them to the bin. Items that are placed in this bin are typically set up for automatic posting, or flushing. This setup means that the **Flushing Method** field contains **Forward**, **Backward**, or **Manual**.  
 
@@ -2738,14 +2738,14 @@ To learn more, go to [Assembly Management](assembly-assemble-items.md).
 
 ### To set up that an inventory movement is automatically created when the inventory pick for the assembly item is created
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Assembly Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Assembly Setup**, and then choose the related link.
 2. Select the **Create Movements Automatically** checkbox.
 
 ### To set up the bin in the assembly area where components are placed by default before they can be consumed in assembly
 
 The value in this field is automatically inserted in the **Bin Code** field on assembly order lines when this location is entered in the **Location Code** field on the assembly order line.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.
 2. Open the Location you want to set up.
 3. Fill in the **To-Assembly Bin Code** field.
 
@@ -2758,7 +2758,7 @@ Bin codes that are set up on location cards define a default warehouse flow for 
 > [!NOTE]
 > This setup is only possible for locations where the **Bin Mandatory** field is selected.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.
 2. Open the Location you want to set up.
 3. Fill in the **From-Assembly Bin Code** field.
 
@@ -2780,7 +2780,7 @@ If the **Asm.-to-Order Shpt. Bin Code** is blank, then the **From-Assembly Bin C
 
 The same bin code is in turn copied to the **Bin Code** field on the inventory pick line that manages the shipment of the assemble-to-order quantity. To learn more, go to [Handling assemble-to-order items with inventory picks](warehouse-how-to-pick-items-with-inventory-picks.md#handling-assemble-to-order-items-with-inventory-picks).
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.
 2. Open the Location you want to set up.
 3. Fill in the **Asm.-to-Order Shpt. Bin Code** field.
 
@@ -2797,7 +2797,7 @@ Making a bin dedicated provides similar functionality to using bin types, which 
 > [!CAUTION]
 > Items in dedicated bins are not protected when they are picked and consumed as production components with the Inventory Pick page.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link. Select the location that you want to update.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link. Select the location that you want to update.  
 2. Choose the **Bins** action.  
 3. Select the **Dedicated** field for each bin that you want to use exclusively for certain internal operations and where you want quantities to be reserved for that internal operation once placed there.  
 
@@ -2893,7 +2893,7 @@ For each shipping agent, you can set up an unlimited number of services, and you
 When you have assigned a shipping agent service to a sales order line, the shipping time of the service will be included in the order promising calculation, for that line. For more information, see [Calculate Order Promising Dates](sales-how-to-calculate-order-promising-dates.md).
 
 ## To set up a shipping agent  
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Shipping Agents**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Shipping Agents**, and then choose the related link.  
 2.  Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)].  
 3.  Choose the **Shipping Agent Services** action.
 4. In the **Shipping Agent Services**, fill in the fields as necessary.
@@ -2958,7 +2958,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To move items with the warehouse movement worksheet
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Movement Worksheet**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Movement Worksheet**, and then choose the related link.  
 2. Fill in the fields on the worksheet lines manually, or use one of the following actions to automatically fill in the lines:
 
     * **Get Bin Content** fills in the worksheet lines with the contents of the bin or bins you specify.
@@ -2975,7 +2975,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To register the warehouse movement
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Movements**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Movements**, and then choose the related link.  
 2. Open the movement document to register.  
 3. On **Place** lines, specify where, which, and by when to move the item by choosing values in the **Zone Code**, **Bin Code**, **Qty. to Handle**, or **Due Date** fields.  
 4. On **Take** lines, in the **Qty. to Handle** field, specify the quantity of the bin content that you want to move. You can only edit this field on **Take** lines. 
@@ -2993,7 +2993,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To create an internal pick  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Whse. Internal Pick**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Whse. Internal Pick**, and then choose the related link.  
 2. Choose the **New** action.
 3. Fill in the **No.** field, **Location Code** field, and the **To Bin Code** field on the **General** FastTab. The **To Bin Code** field specifies the bin where you want to place the picked items. For production purposes, this bin would be the inbound production bin or the open shop bin. For other purposes, choose a bin code of a bin type that is not used for picking, most likely a staging, shipping, or special purpose bin.  
 4. Select an item in the **Item No.** field, and fill in the quantities you want to pick.  
@@ -3002,7 +3002,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To register the warehouse pick
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Picks**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Picks**, and then choose the related link.  
 
     To work on a particular pick, select the pick from the list, or filter the list to find the picks that are assigned to you.  
 2. If the **Assigned User ID** field is blank, enter your ID to identify yourself, if needed.  
@@ -3016,7 +3016,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To create an internal put-away  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Internal Put-aways**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Internal Put-aways**, and then choose the related link.  
 2. Choose the **New** action.
 3. Fill in the **No.** and **Location Code** fields.
 4. Fill in a line for each item to move to the warehouse. The **Item No.** and the **Quantity** fields are required.
@@ -3030,7 +3030,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 ### To register the warehouse put away
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Put-aways**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Put-aways**, and then choose the related link.
 2. Open the warehouse put-away that's ready to handle.  
 3. If required, enter your user ID when you start work on a put-away.  
 
@@ -3055,7 +3055,7 @@ The **Movement Worksheet** , **Warehouse Internal Pick**, and  **Warehouse Inter
 
 If you must register the fact that items has been already moved to other bins without a put-away, pick, or movement, you can use the **Whse. Reclassification Journal** page to register the movement.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Whse. Reclassification Journal**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Whse. Reclassification Journal**, and then choose the related link.  
 2. Fill in the **Item No.**, **From Zone Code**, **From Bin Code**, **To Zone Code**, and **To Bin Code** fields.  
 3. Choose the **Register** action.  
 
@@ -3154,7 +3154,7 @@ You can enter the **Order Planning** page in two ways depending on your focus: F
 
 ## To plan for new production order demand
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planned Production Orders**, and then choose the related link. (You can perform these steps for planned, firm planned, or released production orders).
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Planned Production Orders**, and then choose the related link. (You can perform these steps for planned, firm planned, or released production orders).
 2. Open the production order you want to plan for, and then choose the **Planning** action.  
 3. On the **Order Planning** page, choose the **Calculate Plan** action.  
 
@@ -3162,7 +3162,7 @@ The page displays planning lines according to the view filter **Production Deman
 
 ## To plan for any new demand
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Order Planning**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Order Planning**, and then choose the related link.  
 2. On the **Order Planning** page, choose the **Calculate Plan** action.
 3. Choose the **Expand (+)** button in front of the date in the **Demand Date** field to see the underlying planning lines that represent demand lines with insufficient availability.  
 4. For each expanded planning line, that is, demand line, you can see values in information fields at the bottom of the page.  
@@ -3218,7 +3218,7 @@ The page displays planning lines according to the view filter **Production Deman
 
 ## To make supply orders
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planned Production Orders**, and then choose the related link. You can perform these steps for a planned, firm planned, or released production order.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Planned Production Orders**, and then choose the related link. You can perform these steps for a planned, firm planned, or released production order.  
 2. Open the production order you want to plan for, and then choose the **Planning** action.  
 3. Place the cursor on a relevant planning line, and then choose the **Make Orders** action.  
 4. On the **Make Supply Orders** page, on the **Order Planning** FastTab, in the **Make Orders for** field, select one of the following options.  
@@ -3407,7 +3407,7 @@ Other permission sets are added automatically based on the user groups assigned 
 If this default configuration isn't the right setup for a particular environment, the admin can change that configuration. However, customized permissions affect only new users who are assigned that license. Permissions for existing users who are assigned the license aren't affected.  
 
 1. Sign in to [!INCLUDE[prod_short](includes/prod_short.md)] using an administrator account.  
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **License Configuration**, and then choose the related link.  
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **License Configuration**, and then choose the related link.  
 
     <!--Alternatively, if you're already in the **Users** page, you can run the **Update Users from Microsoft 365** guide, and then, on the first page of the guide, choose the **Configure permissions per license** link.-->  
 3. In the **License Configuration** page, choose the license that you want to customize, and then choose the **Configure** action.  
@@ -3426,7 +3426,7 @@ After you add users or change user information in the Microsoft 365 Admin Center
 > If you need to update user information and you have a lot of users, you can use the filter pane to narrow down the list. You can filter on basic information such as the user name, or set more technical filters, such as the user's security ID.
 
 1. Sign in to [!INCLUDE[prod_short](includes/prod_short.md)] using an administrator account.
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Users**, and then choose the related link.  
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.  
 3. Choose **Update Users from Microsoft 365**.
 
 > [!IMPORTANT]  
@@ -3451,7 +3451,7 @@ For more information about synchronizing user information with Microsoft 365, go
 
 You can remove a user's access to [!INCLUDE[prod_short](includes/prod_short.md)] online. All references to the user are kept. However, the user can't sign in and active sessions for the user are stopped.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Users**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.
 2. Open the **User Card** page for the relevant user, and then, in the **Status** field, select **Disabled**.
 3. To give the user access again, set the **Status** field to **Enabled**.
 
@@ -3493,7 +3493,7 @@ For on-premises deployments, the administrator creates, edits, and deletes users
 
 ### To edit or delete a user in an on-premises deployment
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Users**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.
 2. Select the user that you want to edit, and then choose the **Edit** action.
 3. On the **User Card** page, change the information as necessary.  
 4. To delete a user, select the user that you want to delete, and then choose the **Delete** action.
@@ -3583,7 +3583,7 @@ Automation happens through a job queue entry. When you set up an automation, use
 
 The following sections describe how to set up reminders to create, issue, and send automatically.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Reminders Automation**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Reminders Automation**, and then choose the related link.
 1. Choose **New**, and then fill in the fields on the **General** FastTab.
 1. In the **Reminder Terms Filter** field, choose the reminder term or terms to use this automation for.
 1. In the **Cadence** field, choose how often the automation runs.
@@ -4127,7 +4127,7 @@ Before is uses the web service, [!INCLUDE[prod_short](includes/prod_short.md)] c
 
 For [!INCLUDE[prod_short](includes/prod_short.md)] online, the model is published by Microsoft and connected to the Microsoft subscription. For other deployment options, you must create Machine Learning resources in your own Azure subscription. You can find sample steps in the [sample repo](https://github.com/microsoft/BCTech/tree/master/samples/MachineLearning). The purpose of this task is to get the API URI and API key.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales and Inventory Forecast Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales and Inventory Forecast Setup**, and then choose the related link.  
 2. Expand the **General** FastTab, and then fill in the API URL and API key fields.
 
 > [!NOTE]
@@ -4412,7 +4412,7 @@ You can create zones and bins either before or after the conversion. The only bi
 >  To clear all negative inventory and any open warehouse documents before you convert the location for warehouse handling, run a report to identify the items with negative inventory and open warehouse documents for the location. For more information, see Check on Negative Inventory.  
 
 ## To enable an existing location to operate as a warehouse location  
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Create Warehouse Location**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Create Warehouse Location**, and then choose the related link.  
 2.  In the **Location Code** field, specify the location that you want to enable for warehouse processing.  
 3.  In the **Adjustment Bin Code** field, specify the bin at the location where unsynchronized warehouse entries are stored. For more information, see the [To synchronize the adjusted warehouse entries with the related item ledger entries](inventory-how-count-adjust-reclassify.md#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).  
 
@@ -4526,7 +4526,7 @@ In database terms, this feature is commonly known as *read scale-out*. For more 
 
 ## To change the database access intent
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Database Access Intent List**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Database Access Intent List**, and then choose the related link.
 
     The page lists all reports, pages, and queries. The **Access Intent** column includes one of the following values:
 
@@ -4579,29 +4579,29 @@ To use resource allocation, you must set up:
 * Whether to display resource skills and zones, and whether to display a warning if someone chooses unqualified resource, or a resource that is not in the customer zone.  
 
 ## To set up skills
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Skills**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Skills**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
 ## To assign skills to service items and resources
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Service Items** or **Resources**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items** or **Resources**, and then choose the related link.  
 2. Open the card for the service item or resource, and then choose one of the following:  
   
     * For service items, choose **Resource Skills**.  
     * For resources, choose **Skills**.  
 
 ## To set up zones
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Zones**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Zones**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
 ## To assign zones to customers and resources 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers** or **Resources**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers** or **Resources**, and then choose the related link.  
 2. Open the card for the service item or resource, and then choose one of the following:  
   
     * For customers, choose a zone in the **Service Zone Code** field.  
     * For resources, choose the **Service Zones** action.  
 
 ## To specify what to show when a resource is chosen
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Service Management Setup**, and then choose the related link. 
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Management Setup**, and then choose the related link. 
 2. In the **Resource Skills Option** field, choose one of the options described in the following table.  
   
     |**Option**|**Description**|  
@@ -4613,14 +4613,14 @@ To use resource allocation, you must set up:
 ## To update resource capacity  
 You may need to change the capacity of resources.  
   
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Resource Capacity**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Resource Capacity**, and then choose the related link.  
 2. Choose the resource, and then choose the **Set Capacity** action.  
 3. Make the changes, and then choose **Update Capacity**.  
 
 ## To update skills for items, service items, or service item groups
 If you want to change the skill codes assigned to items, for example from **PC** to **PCS**, you can do so either for an item, service item, or for all items in a service item group.  
   
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items** or **Service Item**, or **Service Item Group**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items** or **Service Item**, or **Service Item Group**, and then choose the related link.  
 2. Choose the entity to update, and then choose the **Resource Skills** action.  
 3. On the line with the code to be changed, in the **Skill Code** field, choose the relevant skill code.  
 4.  If the item has associated service items, a dialog box opens with the following two options:  
@@ -4809,7 +4809,7 @@ The following table describes the options for blocking vendors.
 
 ## To block a vendor
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Vendors**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then choose the related link.
 2. Select the vendor that you want to block.
 3. In the **Blocked** field, choose one of the options for blocking.
 
@@ -4882,7 +4882,7 @@ Additionally, you must assign vendors to a domestic **Gen. Bus. Posting Group** 
 
 ### To allow [!INCLUDE[prod_short](includes/prod_short.md)] to export payment data
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Payment Journal**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Payment Journal**, and then choose the related link.  
 2. On the **Edit Payment Journal** page, choose the **Bank** batch.  
 3. Choose the **Allow Payment Export** check box.  
 
@@ -4896,19 +4896,19 @@ The following table shows the combinations of FIK and GIRO payment methods that 
 |Allows Message to Recipient? | Yes |No |No | Yes |
 |Contains Payment Reference number? | No | Yes, 16 digits. | Yes, 15 digits. | No|
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Vendors**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then choose the related link.  
 2. Open the card, expand the **Payments** tab, in the **Payment Method** field choose the payment method.  
 3. Depending on your selection, you must complete other fields. See the table above for a description of the combinations.  
 
 ### To specify the format to use for a bank account
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.  
 2. Open the card for the bank account.  
 3. In the **Payment Export Format** field, choose the format for your export file.  
 
 ## Choosing the FIK or Giro payment information for vendor invoices
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Invoices**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.
 2. Choose the vendor. Remember, this must be a Danish vendor with an address in Denmark.
 3. Create an invoice. The **Payment Method** and **Vendor Number** fields are filled in based on settings on the Vendor card. You can change them if you want.
 4. In the **Payment Reference** field, enter the 15-digit number from the vendor invoice.  
@@ -4920,7 +4920,7 @@ The following table shows the combinations of FIK and GIRO payment methods that 
 
 ## To use the extension to export payment data
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Payment Journals**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Payment Journals**, and then choose the related link.  
 2. Choose the **Suggest Vendor Payment Journals** action.  
 
     > [!Tip]
@@ -5164,12 +5164,12 @@ On the **Workflow** page, you create a workflow by listing the involved steps on
 
 ## To view archived workflow step instances
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Workflows**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, then choose the related link.  
 2. Open the workflow for which you want to view all archived workflow step instances.  
 3. On the **Workflow** page, choose the **Archived Workflow Step Instances** action.  
 
    The **Archived Workflow Step Instances** page opens showing the archived workflow step instances of the selected workflow.  
-4. Alternatively, Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Archived Workflow Step Instances**, and then choose the related link.  
+4. Alternatively, [!INCLUDE[open-search](includes/open-search.md)], enter **Archived Workflow Step Instances**, and then choose the related link.  
 
    The **Archived Workflow Step Instances** page opens showing all archived workflow step instances. In the **Workflow Code** field, you can see which workflow the archived workflow step instance belonged to.  
 
@@ -6655,14 +6655,14 @@ To make sure that your bank only clears validated checks and amounts, you can ex
 
 ## To set up a bank account for positive pay
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
 2. Open the card for the bank that you want to use positive pay for.
 3. In the **Positive Pay Export Format** field, choose the format for your bank.
 4. Close the page.
 
 ## To export a positive pay file
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
 2. Select the bank account that you want to export a positive pay file for.
 3. Choose **Positive Pay Export** action.
 
@@ -6675,7 +6675,7 @@ To make sure that your bank only clears validated checks and amounts, you can ex
 
 ## To view exported positive pay records
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
 2. Select the bank account that you want to view positive pay export records for.
 3. Choose the **Positive Pay Entries** action.
 
@@ -6685,7 +6685,7 @@ To make sure that your bank only clears validated checks and amounts, you can ex
 
 ## To reexport positive pay files
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
 2. Select the bank account that you want to reexport positive pay files for.
 3. Choose the **Positive Pay Entries** action.
 4. Select the line for the positive pay export file that you want to reexport.
@@ -6728,7 +6728,7 @@ When you have agreed on the prices that the group of customers will pay for cert
 
 ### To create sales prices for a group of customers
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customer Price Groups**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customer Price Groups**, and then choose the related link.  
 
 2. Select the line for the customer price group. If a line does not already exist you can create a new line. Select **New** to create a new entity and give it a name.  
     
@@ -6754,7 +6754,7 @@ After you have set up the customer price groups, you can enter the customer pric
 
 ### To enter customer price group codes on a customer card  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.  
 
 2. Open the relevant **Customer Card** for a customer that you want to be part of a customer price group.  
 
@@ -6796,7 +6796,7 @@ Order tracking shows how sales orders, production orders, and purchase orders ar
 
 The following describes how to track linked items on a firm planned production order. The steps are similar for all other order types, and from planning worksheet lines.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Firm Planned Prod. Order**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Firm Planned Prod. Order**, and then choose the related link.
 2. Open the relevant firm planned production order from the list.
 3. On the **Lines** FastTab, choose the **Functions** action, and then choose the **Order Tracking** action.
 
@@ -6947,7 +6947,7 @@ After you assign a fixed asset to an insurance policy, the **Insured** field on 
 
 When you receive information about changes in the coverage amount, you must enter the new information on the **Insurance Card** page to ensure that you analyze insurance policy coverage correctly.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance**, and then choose the related link.
 2. Choose the **New** action to create a new card for an insurance policy. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 3. Alternatively, select the insurance policy that you want to change, and then choose the **Edit** action.
 
@@ -6957,7 +6957,7 @@ You assign a fixed asset to an insurance policy by posting to the insurance cove
 
 The following procedure explains how to create an insurance journal line manually. If the **Automatic Insurance Posting** toggle is turned on the **Fixed Asset Setup** page, insurance journal lines are automatically created when you post acquisition costs. In that case, all you have to do is to post the journal.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance Journals**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Journals**, and then choose the related link.  
 2. Open the relevant journal, and fill in the journal lines as necessary.  
 3. To assign multiple fixed assets to one insurance policy, create journal lines with the same value in the **Insurance No.** field and different values in the **FA No.** field.  
 4. Choose the **Post** action.  
@@ -6969,7 +6969,7 @@ The following procedure explains how to create an insurance journal line manuall
 
 You can use the **Index Insurance** batch job to update the value of the fixed assets that are covered.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Index Insurance**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Index Insurance**, and then choose the related link.
 2. Fill in the fields as necessary.
 
     > [!NOTE]  
@@ -6977,7 +6977,7 @@ You can use the **Index Insurance** batch job to update the value of the fixed a
 3. Choose the **OK** button.  
 
    The batch job calculates the new amount as a percentage of the total value insured, as stated on the **Insurance Statistics** page, and then creates a line in the insurance journal.  
-4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance Journals**, and then choose the related link.  
+4. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Journals**, and then choose the related link.  
 5. Open the relevant insurance journal, review the created values, and then post them to the insurance coverage ledger.  
 
 ## To monitor insurance coverage
@@ -7013,7 +7013,7 @@ To check whether you forgot to assign a fixed asset to an insurance policy, use 
 
 You can view the entries that you made in the insurance coverage ledger.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance**, and then choose the related link.  
 2. Select the relevant insurance policy, and then choose the **Coverage Ledger Entries** action.  
 
 
@@ -7021,7 +7021,7 @@ You can view the entries that you made in the insurance coverage ledger.
 
 A matrix page shows the insurance values that are registered for each insurance policy for each fixed asset that result from posted insurance-related amounts.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance**, and then choose the related link.  
 2. Select the relevant insurance policy, and then choose the **Total Value Insures per FA** action.  
 3. Fill in the fields as necessary.  
 4. Choose the **Show Matrix** action.  
@@ -7031,7 +7031,7 @@ A matrix page shows the insurance values that are registered for each insurance 
 
 If a fixed asset was assigned to the wrong insurance policy, you can correct it by creating two reclassification entries from the insurance journal.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insurance Journals**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Journals**, and then choose the related link.  
 2. Create one journal line for the fixed asset and the correct insurance policy where the value in the **Amount** field is positive.  
 3. Create another journal line for the fixed asset and the incorrect insurance policy where the value in the **Amount** field is negative.  
 4. Choose the **Post** action.  
@@ -7154,7 +7154,7 @@ A catalog item typically has the item number of the vendor who supplies it. Befo
 
 ## Create a catalog item
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Catalog Items**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Items**, and then choose the related link.
 2. On the **Catalog Items** page, choose the **New** action.
 3. On the **Catalog Item Card** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
@@ -7162,12 +7162,12 @@ A catalog item typically has the item number of the vendor who supplies it. Befo
 
 Before you can convert a catalog item to a regular item, you must specify how to convert vendor item numbers to the structure you use for item numbers.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Catalog Item Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Item Setup**, and then choose the related link.
 2. In the **No. Format** field, choose the option you prefer.
 
 ## Convert a catalog item to a normal item
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Catalog Items**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Items**, and then choose the related link.
 2. Open the card for a catalog item that you want to convert to a normal item.
 3. On the **Catalog Item Card** page, choose the **Create Item** action.
 
@@ -7180,7 +7180,7 @@ A new item card prefilled with information from the catalog item and an item tem
 
 The following process uses a sales order, but the steps are the same for blanket sales orders and quotes.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
 2. Choose the **New** action. Fill in the fields on the **General** FastTab as for any sales order. For more information, see [Sell Products](sales-how-sell-products.md).
 3. On a new sales line, in the **Type** field, select **Item**, but leave the **No.** field empty.
 4. Choose the **Line** action, and then choose the **Select Catalog Items** action.
@@ -9217,7 +9217,7 @@ When someone enters a quantity for an item on a sales document that exceeds the 
 
 ## To show a warning about low inventory on a sales document
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales & Receivables Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales & Receivables Setup**, and then choose the related link.
 1. Depending on whether you want to show the warning, turn on or turn off the **Stockout Warning** toggle.
 
 ## Video guidance
@@ -9398,7 +9398,7 @@ If you often need to create purchase lines with similar information, you can set
 
 ## Set up recurring purchase lines
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Recurring Purchase Lines**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring Purchase Lines**, and then choose the related link.
 2. On the **Recurring Purchase Lines** page, choose the **New** action.
 3. On the **General** FastTab, fill the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. On the **Lines** FastTab, enter the information in the fields that reflect the standard lines you expect to use as recurring lines on purchase documents.
@@ -9412,7 +9412,7 @@ If you often need to create purchase lines with similar information, you can set
 
 Assign one or more recurring purchase lines to a vendor so that they're available to insert on purchase documents from that vendor.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Vendors**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then choose the related link.
 2. Open the card for a relevant vendor.
 3. Choose the **Recurring Purchase Lines** action.
 4. On the **Recurring Purchase Lines** page, select codes for the recurring purchase lines that you want to be able to insert on purchase documents for the vendor.
@@ -9429,7 +9429,7 @@ Assign one or more recurring purchase lines to a vendor so that they're availabl
 
 If recurring purchase lines exist for the vendor, you can insert them, or have them automatically added, on all types of purchase documents, such as a purchase invoice. If you have activated the **Always Ask** options while assigning recurring purchase lines to vendors, you'll be informed if recurring purchase lines exist.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Invoices**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.
 2. Open the purchase invoice that you want to insert one or more standard purchase lines on.
 3. Choose the **Get Recurring Purchase Lines** action.
 4. On the **Recurring Purchase Lines** page, choose the lookup button in the **Code** field, and then select a set of standard purchase lines.
@@ -9670,7 +9670,7 @@ Budgeting in cost accounting resembles budgeting in the general ledger. A cost b
 
 A cost budget is created for a certain period of time, for example, a fiscal year. You can create as many cost budgets as needed. You can create a new cost budget manually, or by importing a cost budget, or by copying an existing cost budget as the budget base. For more information, see [Create G/L Budgets](finance-how-create-budgets.md).
 
-You use the following pages to create and analyze cost budgets. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon to find a page, and then read the tooltip for each.
+You use the following pages to create and analyze cost budgets. [!INCLUDE[open-search](includes/open-search.md)] to find a page, and then read the tooltip for each.
 
 |To|See|  
 |--------|---------|  
@@ -9820,7 +9820,7 @@ The **Set Up Email** assisted setup guide can help you get started quickly with 
 > [!NOTE]
 > You must have a default email account, even if you add only one account. The default account will be used for all email scenarios that aren't assigned to an account. Learn more at [Assign Email Scenarios to Email Accounts](admin-how-setup-email.md#assign-email-scenarios-to-email-accounts).
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Set Up Email Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Set Up Email Accounts**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] 
 
 <!--
@@ -9836,7 +9836,7 @@ On the **Email Scenario Assignment** page, you can choose the **Set Default Atta
 
 <!--
 ## To set up email
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **SMTP Email Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **SMTP Email Setup**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
     > [!NOTE]
@@ -9882,7 +9882,7 @@ You can use reports to include key information from sales, purchase, and service
 > [!NOTE]
 > To use the layout to create content for email messages, you must use the Word file type for your layout.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Report Selections - Sales**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Report Selections - Sales**, and then choose the related link.
 2. On the **Report Selection - Sales** page, in the **Usage** field, select **Invoice**.
 3. On a new line, in the **Report ID** field, select, for example, standard report 1306.
 4. Select the **Use for Email Body** checkbox.
@@ -9914,17 +9914,17 @@ The following are examples of how Send As and Send on Behalf are used in [!INCLU
 <!--
 ### To set up the substitute sender address for all outbound email messages
 1. In the **Exchange admin center** for your Microsoft 365 account, find the mailbox to use as the substitute address, and then copy or make a note of the address. If you need a new address, go to your Microsoft 365 admin center to create a new user and set up their mailbox.
-2. In [!INCLUDE[prod_short](includes/prod_short.md)] choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **SMTP Email Setup**, and then choose the related link.
+2. In [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **SMTP Email Setup**, and then choose the related link.
 3. In the **Send As** field, enter the substitute address.
 4. Copy or make a note of the address in the **User ID** field.
 5. In the **Exchange admin center**, find the mailbox to use as the substitute address, and then enter the address from the **User ID** field in the **Send As** field. For more information, see [Use the EAC to assign permissions to individual mailboxes](/Exchange/recipients/mailbox-permissions?view=exchserver-2019&preserve-view=true#use-the-eac-to-assign-permissions-to-individual-mailboxes).
 
 ### To use the substitute address in approval workflows
-1. In [!INCLUDE[prod_short](includes/prod_short.md)] choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **SMTP Email Setup**, and then choose the related link.
+1. In [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **SMTP Email Setup**, and then choose the related link.
 2. Copy or make a note of the address in the **User ID** field.
-3. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Approval User Setup**, and then choose the related link.
+3. [!INCLUDE[open-search](includes/open-search.md)], enter **Approval User Setup**, and then choose the related link.
 4. In the **Exchange admin center**, find the mailboxes for each user listed in the **Approval User Setup** page, and in the **Send As** field enter the address from the **User ID** field of the **SMTP Email Setup** page in [!INCLUDE[prod_short](includes/prod_short.md)]. For more information, see [Manage permissions for recipients](/Exchange/recipients/mailbox-permissions?view=exchserver-2019&preserve-view=true).
-5. In [!INCLUDE[prod_short](includes/prod_short.md)] choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **SMTP Email Setup**, and then choose the related link.
+5. In [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **SMTP Email Setup**, and then choose the related link.
 6. To enable substitution, turn on the **Allow Sender Substitution** toggle.
 
 > [!Note]
@@ -9999,7 +9999,7 @@ If you have trouble using the SMTP protocol to send email after you connect [!IN
 
 After you register your application in Azure portal, in [!INCLUDE[prod_short](includes/prod_short.md)], use the **Email Microsoft Entra application registration** page to connect [!INCLUDE[prod_short](includes/prod_short.md)] to it.
 
-1. In [!INCLUDE[prod_short](includes/prod_short.md)], choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Email Microsoft Entra application registration**, and then choose the related link.
+1. In [!INCLUDE[prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Email Microsoft Entra application registration**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 > [!TIP]
@@ -10540,7 +10540,7 @@ You can get an overview of all of the intercompany transactions that you have se
 If you have an intercompany partner that is not in the same database as your company, you can receive intercompany transactions from that partner in an .xml file. Then you must import the transactions into your inbox.  
 
 1. Save the file to the location that you specified in the **Intercompany Inbox Details** field when you set up intercompany.  
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intercompany Inbox Transactions**, and then choose the related link.
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Inbox Transactions**, and then choose the related link.
 3. On the **Intercompany Inbox Transactions** page, choose the **Import Transaction File** action.  
 4. on the page that appears, select the .xml file that contains the transactions, and then choose the **Open** button.  
 
@@ -10550,7 +10550,7 @@ The transactions are imported into the inbox and you can now process them.
 
 When your intercompany partners send you intercompany transactions, the transactions end up in your intercompany inbox. You must evaluate each transaction in your inbox and act on it.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intercompany Inbox Transactions**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Inbox Transactions**, and then choose the related link.  
 2. On the **Intercompany Inbox Transactions** page, select a line, and then choose an action, such as **Accept**, to process the line.
 3. On the **Complete IC Inbox Action** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. Choose the **OK** button.  
@@ -10565,7 +10565,7 @@ For lines that a partner rejected and returned to you, you must post a correctio
 
 When you post an intercompany journal or document, or send an intercompany order confirmation, the transactions go to your intercompany outbox. To send them to your intercompany partners, open the outbox and process them.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Intercompany Outbox Transactions**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Outbox Transactions**, and then choose the related link.  
 2. On the **Intercompany Outbox Transactions** page, select a line, and then choose an action, such as **Return to Inbox**, to process the line.
 
 Use the **Send to Intercompany Partner** action to send lines to the relevant partner's inbox.
@@ -10580,7 +10580,7 @@ You might want to re-create a transaction in the inbox or outbox. For example, i
 
 The following procedure describes to re-create inbox transactions, but the same steps also apply to the outbox.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Handled IC Inbox Transactions**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Handled IC Inbox Transactions**, and then choose the related link.  
 2. On the **Handled IC Inbox Transactions** page, select the line with the transaction that you want to re-create in the inbox, and then choose the **Re-create Inbox Transaction** action.  
 
 ## Related information
@@ -10975,7 +10975,7 @@ The generic version of [!INCLUDE[prod_short](includes/prod_short.md)] supports s
 
 ### To send an electronic sales invoice
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Invoices**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Invoices**, and then choose the related link.  
 
 2. Create a new sales invoice.  
 
@@ -11079,7 +11079,7 @@ Centralized Deployment is a feature in the Microsoft 365 admin center that you u
 
 In this task, you work in both [!INCLUDE[prod_short](includes/prod_short.md)] and the Microsoft 365 admin center.
 
-1. In [!INCLUDE[prod_short](includes/prod_short.md)], choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Excel Add-in Centralized Deployment**, and then choose the related link.
+1. In [!INCLUDE[prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Excel Add-in Centralized Deployment**, and then choose the related link.
 2. Read the information on the **Business Central Excel add-in setup** page and choose **Next**.
 3. Sign in to the [Microsoft 365 admin center](https://go.microsoft.com/fwlink/?linkid=2163967) and go to **Integrated Apps**<!--**Add-ins**-->.
 
@@ -11398,7 +11398,7 @@ ms.reviewer: jswymer
 | Print a financial report to analyze figures in general ledger accounts or compare actual general ledger entries with general ledger budget entries. |**Financial Report** |
 | Check whether customer and vendor ledger entries balance with corresponding general ledger entries. |**Reconcile Cust. and Vend. Accs** |
 
-To find a report, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, type the name as it appears in the table, and then choose the related link.
+To find a report, [!INCLUDE[open-search](includes/open-search-lowercase.md)], type the name as it appears in the table, and then choose the related link.
 
 ## Related information
 
@@ -11430,7 +11430,7 @@ ms.reviewer: jswymer
 After you have created a segment and entered basic information about it, you may want to add contacts to the segment. You can do this by filling in the lines on the **Segment** page manually, but it is easier and faster to use the **Add Contacts** action.
 
 ## To add a contact to a segment
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Segments**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Segments**, and then choose the related link.  
 2. Select the segment, and then choose the **Add Contacts** action. The **Add Contacts** batch job page opens.
 3. In the **Contact** section, set filters to specify the information by which you want to select contacts.
 
@@ -12168,7 +12168,7 @@ The following table describes the options for blocking customers.
 |**All**|No transaction is allowed for this customer, including payments.|  
 
 ## To block a customer  
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Select a customer, and then choose the **Edit** action.
 3. In the **Blocked** field, choose what to block, as described in the table above.
 
@@ -12298,7 +12298,7 @@ When signed in as yourself, set up Alicia as an approval user whose approver is 
 
 #### To set up yourself and Alicia as approval users
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Approval User Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Approval User Setup**, and then choose the related link.  
 2. On the **Approval User Setup** page, choose the **New** action.  
 
     > [!NOTE]  
@@ -12332,7 +12332,7 @@ Create the purchase order approval workflow by copying the steps from the **Purc
 
 ### To create and enable a purchase order approval workflow
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Workflows**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, then choose the related link.  
 2. On the **Workflows** page, select **Actions**, then select **New**, and then choose the **New Workflow from Template** action.  
 3. On the **Workflow Templates** page, select the workflow template named **Purchase Order Approval Workflow**.  
 
@@ -12346,7 +12346,7 @@ Use the new Purchase Order Approval Workflow by first signing in to [!INCLUDE[pr
 ### To request approval of a purchase order, as Alicia
 
 1. Sign in as Alicia.
-2. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, then choose the related link.  
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Orders**, then choose the related link.  
 3. Select the line to open *Purchase Order 106001*.  
 4. On the **Purchase Order** page, choose **Actions**, then **Request Approval**, and then choose the **Send Approval Request** action.  
 
@@ -12436,7 +12436,7 @@ In order to get your data out of the QuickBooks desktop application you will nee
 
 ## Finding the QuickBooks data migration extension
 
-The QuickBooks Data Migration extension is installed and ready to go as an integrated part of the Data Migration assisted setup guide. If you are ready to get started now, and have exported your data from QuickBooks, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Assisted Setup**, and then choose the related link. Choose **Migrate business data**, and then follow the steps in the guide.  
+The QuickBooks Data Migration extension is installed and ready to go as an integrated part of the Data Migration assisted setup guide. If you are ready to get started now, and have exported your data from QuickBooks, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Assisted Setup**, and then choose the related link. Choose **Migrate business data**, and then follow the steps in the guide.  
 
 ## What do I do after I migrate data?
 
@@ -12845,7 +12845,7 @@ There are six types. You can operate your warehouse with all of the six possible
 
 ## To set up the bin types you want to use
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bin Types**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Bin Types**, and then choose the related link.  
 2.  On the **Bin Types** page, create a 10-character code for a bin type.  
 3.  Select the activities that can be performed with each bin type.  
 
@@ -13295,7 +13295,7 @@ In addition to the original posted sales invoice, you can apply the sales credit
 
 ## Create a sales return order based on one or more posted sales documents  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Return Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Return Orders**, and then choose the related link.
 2. Choose the **New** action.  
 3. Fill in the fields on the **General** FastTab as necessary.
 4. On the **Lines** FastTab, fill the lines manually, or copy information from other documents to fill the lines automatically:
@@ -13629,7 +13629,7 @@ In the following walkthrough, Tricia applies the Cost Value method, which is the
 
 ### To calculate WIP  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Project**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Project**, and then choose the related link.  
 2. In the **Projects** list, select the **Deerfield** project, and then choose the **Edit** action. This opens the Project Card in edit mode.  
 
      WIP can be calculated based on Cost Value, Sales Value, Cost of Sales, Percentage of Completion, or Completed Contract. In this example, CRONUS uses the Cost Value method.  
@@ -13659,7 +13659,7 @@ In the following walkthrough, Tricia applies the Cost Value method, which is the
 
 ### To review WIP warnings  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Project WIP Cockpit**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Project WIP Cockpit**, and then choose the related link.  
 2. Select the **Deerfield** project, and then choose the **Show Warnings** action.  
 3. On the **Project WIP Warnings** page, review the warning associated with the project.  
 
@@ -13796,7 +13796,7 @@ The lines on the bank deposit use the default dimensions you specified in the **
 
 ## Create a bank deposit
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Deposits**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Deposits**, and then choose the related link.
 2. Choose **New** to open the **Bank Deposit** page.
 3. Choose the general journal template that you created for bank deposits.  
 
@@ -13842,7 +13842,7 @@ The lines on the bank deposit use the default dimensions you specified in the **
 
 You can post lump sum deposits from multiple checks on deposit lines for customer ledger entries. 
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Deposits**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Deposits**, and then choose the related link.
 2. Create or choose a line for the customer, and in the **External Document No.** field, enter the check number.
 3. Choose **Apply Entries**.
 4. On the **Apply Customer Entries** page, for each document you want to apply the check to, in the **Applies-to ID** field, enter the check number.
@@ -13971,7 +13971,7 @@ Before you can perform the tasks in the walkthrough, you must do the following:
 -   Install [!INCLUDE[prod_short](includes/prod_short.md)].  
 -   Make yourself a warehouse employee at WHITE location by following these steps:  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Employees**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Employees**, and then choose the related link.  
 2.  Choose the **User ID** field, and select your own user account on the **Users** page.  
 3.  In the **Location Code** field, enter WHITE.  
 4.  Select the **Default** field.  
@@ -13981,7 +13981,7 @@ Before you can perform the tasks in the walkthrough, you must do the following:
 
 Prepare WHITE location for assembly processing by following these steps:  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.  
 2.  Open the location card for WHITE location.  
 3.  On the **Bins** FastTab, enter **W-10-0001** in the **To-Assembly Bin Code** field.  
 
@@ -13993,7 +13993,7 @@ Prepare WHITE location for assembly processing by following these steps:
 
 Remove the default lead time for internal processes by following these steps:  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Manufacturing Setup**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Manufacturing Setup**, and then choose the related link.  
 2.  On the **Manufacturing Setup** page, on the **Planning** FastTab, remove the value in the **Default Safety Lead Time** field.  
 
 <!-- Create inventory for assembly components by following [Prepare Sample Data](walkthrough-selling-assembling-and-shipping-kits.md#prepare-sample-data).   -->
@@ -14028,7 +14028,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ## Prepare Sample Data
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Whse. Item Journals**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Whse. Item Journals**, and then choose the related link.  
 2.  Choose the **Batch Name** field, and then select the default journal.  
 3.  Create positive inventory adjustments at WHITE location on the work date, January 23, by entering the following information.  
 
@@ -14045,14 +14045,14 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
     Next, synchronize the new warehouse entries with inventory.  
 
-5.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Item Journals**, and then choose the related link. The **Item Journal** page opens.  
+5.  [!INCLUDE[open-search](includes/open-search.md)], enter **Item Journals**, and then choose the related link. The **Item Journal** page opens.  
 6.  Choose the **Calculate Whse. Adjustment** action.  
 7.  On the **Calculate Whse. Adjustment** page, choose the **OK** button.  
 8.  On the **Item Journal** page, choose the **Post** action, and then choose the **Yes** button.  
 
 ### Creating the Assembly Items  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2.  Choose the **New** action.  
 3.  Create the first assembly item based on the following information.  
 
@@ -14103,7 +14103,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Selling the Assembly Items  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.  
 2.  Choose the **New** action.  
 3.  Create two sales order lines for customer 62000, The Device Shop, on the work date with the following information.  
 
@@ -14156,7 +14156,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Planning for the Unavailable ATS Items  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planning Worksheet**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Planning Worksheet**, and then choose the related link.  
 2.  Choose the **Calculate Regenerative Plan** action.  
 3.  On the **Calculate Plan** page, set the following filters.  
 
@@ -14174,7 +14174,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Assembling and Shipping the First ATO Quantity  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Shipment**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Shipment**, and then choose the related link.  
 
     > [!NOTE]  
     >  In this section, the person who is responsible for shipping is in charge of recording the completed ATO assembly work on the warehouse shipment line. This workflow may occur in environments where the assembly work is performed by the person who is responsible for shipping or by assembly workers in the shipping area.  
@@ -14193,7 +14193,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
     Next, perform the picker's task.  
 
-4.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Picks**, and then choose the related link.  
+4.  [!INCLUDE[open-search](includes/open-search.md)], enter **Picks**, and then choose the related link.  
 5.  Open the warehouse pick document that you created in step 3 in this section.  
 
     Notice the value in the **Source Document** field and that all the pick lines are for assembly components.  
@@ -14234,7 +14234,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Assembling and Recording the Second ATO Quantity  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Assembly Orders**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Assembly Orders**, and then choose the related link.  
 
     Notice that the ATO order for shipped units of Kit B is still in the list, although the **Remaining Quantity** is empty. This is because the linked sales order is still not fully invoiced.  
 
@@ -14258,7 +14258,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Assembling the ATS Quantity  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Assembly Orders**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Assembly Orders**, and then choose the related link.  
 2.  Open the assembly order for ten units of Kit A.  
 
     Notice that the **Quantity to Assemble** field is filled with the expected quantity.  
@@ -14270,7 +14270,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
     Next, perform the picker's task.  
 
-5.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Picks**, and then choose the related link.  
+5.  [!INCLUDE[open-search](includes/open-search.md)], enter **Picks**, and then choose the related link.  
 6.  Open the warehouse pick document that you created in step 4 in this section.  
 
      Proceed to register the pick without changing the default information.  
@@ -14286,7 +14286,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
 ### Shipping the Remaining Items, Partly from Stock and Partly Assembled to the Order  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Warehouse Shipment**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Shipment**, and then choose the related link.  
 2.  Open the most recent warehouse shipment that is created at WHITE location.  
 
     Notice on the line for ten units of Kit A that the **Qty. to Ship** and **Qty. Picked** field are empty.  
@@ -14297,7 +14297,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
     Next, perform the picker's last task for this warehouse shipment.  
 
-4.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Picks**, and then choose the related link.  
+4.  [!INCLUDE[open-search](includes/open-search.md)], enter **Picks**, and then choose the related link.  
 5.  Open the warehouse pick document that you created in step 3 in this section.  
 
     Notice that this pick document is for assembly item, not for assembly components.  
@@ -14317,7 +14317,7 @@ When the sales order is later posted as fully invoiced, the sales order and the 
 
     The warehouse shipment document is removed, which indicates that the involved warehouse activities are completed. Next, verify that the sales order has been processed.  
 
-10. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link  
+10. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link  
 11. Open the sales order for The Device Shop.  
 
     Notice that the **Quantity Shipped** field contains the full quantity on both lines.  
@@ -14372,7 +14372,7 @@ For more information, read about the extension that suits your QuickBooks app:
 
 ## Ready now?
 
-If you're ready to get started now, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Assisted Setup**, and then choose the related link. Choose **Migrate business data**, and then follow the steps in the guide.
+If you're ready to get started now, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Assisted Setup**, and then choose the related link. Choose **Migrate business data**, and then follow the steps in the guide.
 
 ## Related information
 
@@ -14464,7 +14464,7 @@ A contract gain or loss entry is generated when a contract quote is converted to
 |**Contract Gain/Loss (Reasons)**|To view the contract gain/loss by reason code.|  
 |**Contract Gain/Loss (Resp.Ctr)**|To view the contract gain/loss by responsibility center.|  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter the name of the page to display, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter the name of the page to display, and then choose the related link.  
 2. Fill in the filter criteria you want to apply. For example, on the **Contract Gain/Loss (Reasons)** page, choose a value for **Reason Code Filter**.  
 3. Choose the **Show Matrix** action.
 
@@ -14601,7 +14601,7 @@ To prepare a budget, you have to set up fixed asset cards for fixed assets that 
 
 When you post the acquisition cost, you enter the number of the budgeted fixed asset in the **Budgeted FA No.** field. This will post an acquisition cost with an opposite sign for the budgeted asset. This means that the total acquisition cost on the budgeted asset is the difference between the budgeted and the actual acquisition cost.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Fixed Assets**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.
 2. Choose the **New** action to create a new fixed asset card for the budgeted fixed asset.
 3. Select the **Budgeted Asset** check box to prevent posting to the general ledger.
 4. Fill in the remaining fields, assign a depreciation book, and then post the first acquisition cost with the budgeted fixed asset entered in the **Budgeted FA No.** field on the journal line. For more information, see [Acquire Fixed Assets](fa-how-acquire.md).
@@ -14610,7 +14610,7 @@ When you post the acquisition cost, you enter the number of the budgeted fixed a
 
 If you plan to sell assets within the budget period, you can enter information about sales price and sales date.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Fixed Assets**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.
 2. Select the fixed asset to be disposed of, and then choose the **Depreciation Books** action.
 3. On the **FA Depreciation Books** page, fill in the **Projected Disposal Date** and **Projected Proceeds on Disposal** fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
@@ -14618,7 +14618,7 @@ If you plan to sell assets within the budget period, you can enter information a
 
 To see the projected disposal values and have the gain and loss calculated, you can use the **FA Projected Value** report.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **FA Projected Value**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Projected Value**, and then choose the related link.
 2. Fill in the fields as necessary.
 3. Choose the **Print** or **Preview** button.
 
@@ -14626,7 +14626,7 @@ To see the projected disposal values and have the gain and loss calculated, you 
 
 You can use the **Fixed Asset - Projected Value** report to calculate future depreciation. The report shows the book value and accumulated depreciation at the start of the selected period, changes during the period, and the book value and accumulated depreciation at the end of the selected period.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Fixed Asset Projected Value**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset Projected Value**, and then choose the related link.
 2. Fill in the fields as necessary.
 3. To see total values for all assets, clear the **Print per Fixed Asset** check box.
 4. Leave the **Fixed Asset** FastTab blank to have all assets included. In the **Budgeted Asset** field, enter **No** to exclude budgeted assets or **Yes** to see budgeted assets only.
@@ -14777,7 +14777,7 @@ To report VAT to a tax authority electronically, you need to connect [!INCLUDE[p
 
 Optionally, if your business isn't located in the UK, use the **VAT Returns Periods** page to set up scheduled VAT returns. If your business is located in the UK, see [Making Tax Digital in the United Kingdom](LocalFunctionality/UnitedKingdom/making-tax-digital-submit-vat-return.md).  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Return Periods**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Return Periods**, and then choose the related link.  
 2. On the **VAT Return Periods** page, fill in the fields to set up the first period. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)].  
 3. Repeat step 2 for any additional periods that you want to add.  
 
@@ -14884,7 +14884,7 @@ The first step to configure electronic documents (e-documents) is to set up the 
 
 To set up an e-document service, follow these steps.
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **E-Document Services**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **E-Document Services**, and then select the related link.
 2. Select **New**, and then, on the **E-Document Service** page, on the **General** FastTab, configure the fields as described in the following table.
 
     | Field | Description |
@@ -14951,7 +14951,7 @@ This feature is used to set up electronic invoicing automation. If you're using 
 
 However, to enable the new **E-Document** framework, you need to configure the **Document Sending Profile** accordingly. To set up a document sending profile, follow these steps.
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Document Sending Profile**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Document Sending Profile**, and then select the related link.
 2. On the **Document Sending Profiles** page, select **New**.
 3. On the **General** FastTab, fill in the required fields.
 4. On the **Sending Options** FastTab, set the **Printer**, **Email**, and **Disk** fields to **No**. Enabling any of these options prevent you from using the **E-Document** framework, limiting you to the legacy e-invoicing functionality instead.
@@ -14975,9 +14975,9 @@ However, to enable the new **E-Document** framework, you need to configure the *
 
 To set up a workflow for e-documents, follow these steps.
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Workflow Templates**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflow Templates**, and then select the related link.
 2. If you can't find **E-Document Workflow Templates** on the **Workflow Templates** page, select **Reset Microsoft Templates**. **E-Document Workflow Templates** should then appear. Close the page.
-3. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Workflows**, and then select the related link.
+3. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, and then select the related link.
 4. Choose the **New Workflow from Template** action to select a template for the e-documents process. The available templates are **Send to one service** and **Send to multiple services**.
 5. Select **OK** to finish the workflow setup.
 6. In the **Then Response** field, select **Send E-Document using setup** to configure the workflow responses.
@@ -15011,7 +15011,7 @@ To set up retention policies for e-documents, follow these steps.
 
 To provide easier ways to test and demonstrate e-documents, Microsoft offers a demo module. To enable the module, follow these steps:  
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Contoso Demo Tool**, and then select the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Contoso Demo Tool**, and then select the related link.  
 2. Before you enable the **E-Document Contoso Module**, you must first enable the  **Common Module** and **Warehouse Module**.
 3. After you enable the modules, select the **E-Documents Contoso Module**, and then choose the **Generate** action.
 4. Follow the steps.  
@@ -15300,7 +15300,7 @@ From sales orders and sales invoices, you can use functions to quickly create pu
 ## To create one or more purchase orders from a sales order
 To create a purchase order for each unavailable item quantity on the sales order, you use the **Create Purchase Orders** function.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
 2. Open a sales order that you want to purchase items for.
 3. Choose the **Create Purchase Orders** action.
 
@@ -15323,7 +15323,7 @@ To create a single purchase invoice for one or more lines on a sales document by
 > [!NOTE]  
 >   This function creates a purchase invoice for the exact item quantity on the selected sales document. To change the purchase quantity, you must edit the purchase invoice after it is created.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
 2. Open a sales invoice that you want to purchase items for.
 3. Select one or more sales invoice lines that you want to use on the purchase invoice. To use all the sales invoice lines, select either all of them or don't select any lines.
 4. Choose the **Create Purchase Invoice** action.
@@ -16104,7 +16104,7 @@ You can create an inventory pick or inventory movement in three ways:
 
 ### To create multiple inventory picks or movements with a batch job
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Create Inventory Put-away/Pick/Movement**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Create Inventory Put-away/Pick/Movement**, and then choose the related link.  
 2. On the **Warehouse Request** FastTab, use the **Source Document** and **Source No.** fields to filter on types of documents or ranges of document numbers. For example, you might create picks only for productions orders.
 3. On the **Options** FastTab, turn on the **Create Invt. Pick** or **Create Invt. Movement** toggles.
 4. Choose the **OK** button.
@@ -16121,7 +16121,7 @@ To pick or move components for source documents in two steps, you must release t
 
 A warehouse employee assigned to picking items can create an inventory put-away document for the source document.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Inventory Picks** or **Inventory Movement**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Picks** or **Inventory Movement**, and then choose the related link.  
 2. Choose the **New** action.  
 3. In the **Source Document** field, select the type of source document that the put-away is for.
 
@@ -16650,7 +16650,7 @@ Before you get started working with your contacts and marketing interests, there
 
 Managing your contacts and having a strategy in place to identify, attract, and retain customers will help optimize your business and increase customer satisfaction. Using a good contact management system will also help you create and maintain relationships with your customers. Communication is the key to these relationships. Being able to tailor communication with potential and existing customers, vendors, and business partners according to their needs, is necessary for companies to succeed. Establishing a strategy and defining how your company uses contact information is a primary step. This information will be viewed by many different groups in your company, so having a good system in place will help everyone be more productive.
 
-You set up the marketing and contact management from the **Marketing Setup** page. To open the **Marketing Setup** page, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Marketing Setup**, and then choose the related link.
+You set up the marketing and contact management from the **Marketing Setup** page. To open the **Marketing Setup** page, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Marketing Setup**, and then choose the related link.
 
 ## Automatically Copying Specific Information from Contact Companies to Contact Persons
 Some information about contact companies is identical to the information about the contact persons working within these companies, for example, the address details. In the **Inheritance** section of the **Marketing Setup** page, you can set the application to automatically copy specific fields from the contact company card to the contact person card each time you create a contact person for a contact company. For example, you can select to copy the salesperson code, address details (address, address 2, city, post code, and county), communication details (fax number, telex answer back, and phone number), and more.
@@ -16725,7 +16725,7 @@ When you use the **Copy from Document** action to create new documents based on 
 
 ## To block an item
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Depending on what you want to do, select the item, and then turn on one or more of the following toggles:
 
     * **Sales Blocked**
@@ -16735,7 +16735,7 @@ When you use the **Copy from Document** action to create new documents based on 
 
 ## To block an item variant  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Select the item that has a variant you want to block, choose **Variants**, and then select one or more of the following checkboxes:  
 
     * **Blocked**
@@ -16814,14 +16814,14 @@ The use of standard tasks simplifies the creation and maintenance of routings. T
 
 ## To set up a standard task
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Standard Tasks**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Standard Tasks**, and then choose the related link.
 2. Choose the **New** action.
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. Choose the **Tools**, **Personnel**, **Description**, or **Tools** action, and then, on the page that opens, add the relevant entry.
 
 ## To add a standard task to an operation
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Routings**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Routings**, and then choose the related link.
 2. Open the relevant routing.
 3. Select a relevant routing line, choose the **Operations** action, and then choose the **Tools**, **Personnel**, **Description**, or **Tools** action.
 
@@ -16862,7 +16862,7 @@ When you set up a warehouse location for directed put-away and pick, you have ne
 
 ## To set up an item for directed put-away and pick  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Open the card for the item that you want to set up for directed put-away and pick.
 3. On the **Warehouse** FastTab of the item card, fill in the fields to define how the item should be handled in the warehouse.  
 4. Choose the **Units of Measure** action.
@@ -16876,7 +16876,7 @@ Directed put-away and pick gives you access to advanced warehouse configuration 
 
 To use the directed put-away and pick functionality, you must activate the functionality on the location card.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.  
 2. Select the location where you want to use directed put-away and pick, and then choose the **Edit** action.  
 3. On the **Warehouse** FastTab, select the **Directed Put-away and Pick** checkbox.  
 
@@ -16893,7 +16893,7 @@ You're now ready to set up zones, if you want. Using zones reduces the number of
 
 ## To set up a zone in your warehouse  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Locations**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.  
 2. Select the location where you want to set up zone and open the location card, and then choose the **Zones** action.  
 3. On the **Zones** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
@@ -16937,7 +16937,7 @@ ms.reviewer: bholtorf
 If you are using bins at a location, assigning default bins to your items can make the process of shipping, receiving, and moving your items much easier. When a default bin is assigned to an item, this bin is suggested every time you initiate a transaction for this item. Default bins are defined on the **Bin Content** page.  
 
 ## To assign a default bin to an item
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bin Content Creation Worksheet**, and choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Bin Content Creation Worksheet**, and choose the related link.  
 2.  Fill in the bin code and item information for each bin that you would like to set up as a default for an item. Make sure to select the **Default** field.  
 3.  Choose the **Create Bin Content** action. Default bins are now assigned for your item.  
 
@@ -16946,7 +16946,7 @@ If you are using bins at a location, assigning default bins to your items can ma
 
 ## To change the default bin for an item  
 You may need to change the default bin assignment for an item or assign a default bin to a new item.
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bin Contents**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Bin Contents**, and then choose the related link.  
 2.  In the **Location Filter** field, select the appropriate location code.  
 3.  Find the current default bin content entry for the item and clear the **Default Bin** check box.  
 4.  Find the bin content line for the bin that you would like as the new default bin. Select the **Default Bin** check box.  
@@ -17236,7 +17236,7 @@ Tax authorities can, and do, change their requirements for posting VAT. VAT Stat
 
 VAT statements let you calculate your VAT settlement amount for a certain period, for example, a quarter.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Statements**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Statements**, and then choose the related link.  
 2. Choose the **Name** field, and then choose **New** on the **VAT Statement Names** page.
 3. Fill in the required fields. Usually you want to have a setting for each VAT Bus. Posting Group / VAT Prod. Posting Group combination. For Row numbers it does make sense to use equivalent numbers or codes as in your official VAT Statement [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
@@ -17679,7 +17679,7 @@ In this procedure, you replace assemble-to-order quantities with inventory quant
 
 ## To sell inventory items in assemble-to-order flows
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.  
 2. Create a sales order. To learn about creating sales orders, go to [Sell Products](sales-how-sell-products.md).  
 3. On a sales order line that contains an assemble-to-order item, in the **Quantity** field, enter the quantity.  
 4. In the **Sales Line Details** FactBox, determine whether some of all of the quantity is available.  
@@ -17799,7 +17799,7 @@ From the **Chart of Accounts** and **General Ledger Entries** pages, you can use
 
 ## To find posted documents without incoming document records
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Chart of Accounts**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.
 2. Select a line for a G/L account for whose general ledger entries you want to see posted purchase and sales documents without incoming document records, and then choose the **Posted Documents without Incoming Document** action.
 3. Alternatively, choose the **Ledger Entries** action.
 4. On the **General Ledger Entries** page, choose the **Posted Documents without Incoming Documents** action.
@@ -17901,7 +17901,7 @@ You can define whether specific types of reports must include the accounts in ea
 
 For example, the default balance statement has a subcategory for *Cash* under *Current Assets*. If you want the balance statement to consider petty cash and checking, take the following steps:
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **G/L Account Categories**, then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **G/L Account Categories**, then choose the related link.
    1. Alternatively, [open the page here](https://businesscentral.dynamics.com/?page=790).
 2. Choose the **Edit List** action.
 3. Add two new subcategories: One for petty cash, and one for your checking account:
@@ -18003,7 +18003,7 @@ You can also run the questionnaire to answer some of the questions based on cont
 
 ## To add a profile questionnaire
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Questionnaire Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Questionnaire Setup**, and then choose the related link.  
 2. Choose the **New** Action.  
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
@@ -18267,7 +18267,7 @@ A physical inventory order is a complete document that consists of a physical in
 
 To create the physical inventory order lines, you typically use the **Calculate Lines** action to add the current inventory as lines on the order. You can also use the **Copy from Document** action to fill in the lines with the content of another open or posted physical inventory order. The following procedure only describes how to use the **Calculate Lines** action.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Physical Inventory Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Physical Inventory Orders**, and then choose the related link.
 2. Choose the **New** action.
 3. Fill in the required fields on the **General** FastTab. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. On the **Actions** tab, in the **Functions** group, choose **Other**, and then choose **Calculate Lines**.
@@ -18335,7 +18335,7 @@ You can also choose the **Phys. Inventory Order Diff.** action to view any diffe
 
 ### To find duplicate physical inventory order lines
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Physical Inventory Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Physical Inventory Orders**, and then choose the related link.
 2. Open the physical inventory order to view duplicate lines for.
 1. On the **Related** tab, choose **Other**, and then choose **Show Duplicate Lines**.
 
@@ -18349,7 +18349,7 @@ After you complete a physical inventory order and change its status to **Finishe
 - Each physical inventory order line is counted by at least one inventory recording line.
 - The **In Recording Lines** and the **Qty. Exp. Calculated** checkboxes are selected for all physical inventory order lines.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Physical Inventory Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Physical Inventory Orders**, and then choose the related link.
 2. Select the physical inventory order that you want to complete, and then choose the **Edit** action.
 
     On the **Physical Inventory Order** page, the quantity recorded shows in the **Qty. Recorded (Base)** field.
@@ -18366,7 +18366,7 @@ After you complete a physical inventory order and change its status to **Finishe
 
 After posting, the physical inventory order is deleted and you can view and evaluate the document as a posted physical inventory order. The posted order includes its physical inventory recordings and any comments made.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Phys. Invt. Orders**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Phys. Invt. Orders**, and then choose the related link.
 2. On the **Posted Phys. Invt. Orders** page, select the posted inventory order to view, and then choose the **View** action.
 3. On the **Related** tab, choose **Order**, and then choose the **Recordings** action to view a list of related physical inventory recordings.  
 
@@ -18444,7 +18444,7 @@ You can print these documents at any stage, release, and reopen them, and assign
 
 The following procedure shows how to set up numbering for inventory documents.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Inventory Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Setup**, and then choose the related link.
 2. On the **Numbering** FastTab, specify in the following fields the series of numbers for documents:
 
    - **Invt. Receipt Nos.**  
@@ -18456,7 +18456,7 @@ The following procedure shows how to set up numbering for inventory documents.
 
 The following procedure shows how to create, print, and post an inventory receipt. The steps are similar for inventory shipments.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Inventory Receipts**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Receipts**, and then choose the related link.  
 2. In the header of the **Invt. Receipt** page, choose the location in the **Location Code** field, and then fill in the remaining fields as necessary.
 3. On the **Lines** FastTab, in the **Item** field, choose the inventory item. In the **Quantity** field, enter the number of items to add.
 4. To print an **Inventory Receipt** report from the **Invt. Receipt** page, choose the **Print** action.
@@ -18515,7 +18515,7 @@ Fault reporting lets you establish standards for recording fault information for
 Fault codes describe the typical service item faults or the actions taken on service items. Depending on the level of fault reporting in your company, you might need to set up fault area codes and symptom codes before you set up fault codes. Fault areas describe areas of service item faults. Fault reason codes describe the reason for service item faults and, if needed, whether to exclude warranty and contract discounts. For example, you might want to exclude warranty and contract discounts if the customer was somehow responsible for the fault in the service item. You assign fault reason codes to service orders. For more information, see [Work on Service Tasks](service-how-to-work-on-service-tasks.md).  
 
 ## To specify the overall level of fault reporting
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Service Setup**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Setup**, and then choose the related link.
 2. In the **Fault Reporting Level** field, choose one of the options described in the following table.  
 
     |**Fault Level**|**Description**|  
@@ -18531,7 +18531,7 @@ To complete the setup of fault reporting, you can also specify what repairs or r
 <!--this needs to go in a working with topic-->
 To be able to see the most common methods of repair for particular item faults when you are servicing the items, you need to build up information on fault/resolution codes relationships. Use the **Insert Fault/Resol. Codes Relationships** batch job to find all the combination of fault and resolution codes in posted service orders and record them on the **Fault/Resol. Codes Relationships** page.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Insert Fault/Resol. Codes Relationships**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insert Fault/Resol. Codes Relationships**, and then choose the related link.  
 2. Enter dates to define the period you want to include in the batch job.  
 3. To group the relationships by service item group, choose the **Relation Based on Service Item Group** check box.  
 4. To retain the records that you have already inserted manually on the **Fault/Resol. Codes Relationships** page, choose the **Retain Manually Inserted Rec.** check box.  
@@ -19445,7 +19445,7 @@ These steps differ, depending on whether your admin turned on the **New sales pr
 
 ### [Current Experience](#tab/current-experience)  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Choose the customer, and then choose the **Prices** action.
 3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that grants a special sales price to the customer.
 
@@ -19463,7 +19463,7 @@ By default, the status of new price lists is **Draft**. When you're ready to sta
 
 To review price lists and prices that apply for specific customers or vendors, on the **Customer** or **Vendor** pages, choose either **Sales Price Lists** or **Purchase Price Lists** action. For items and resources, you can view price list lines by choosing **Sales Prices** or **Purchase Prices** on the **Item** and **Resource** pages.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Choose the customer, and then choose the **Sales Price Lists** action.
 3. Choose **New** to create a new sales price list.
 4. On the **General** and **Tax** FastTabs, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
@@ -19481,7 +19481,7 @@ These steps differ, depending on whether your administrator turned on the **New 
 
 ### [Current Experience](#tab/current-experience/)  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Open the relevant customer card, and then choose the **Line Discounts** action.
 3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that grants a sales line discount to the customer.
 
@@ -19491,7 +19491,7 @@ These steps differ, depending on whether your administrator turned on the **New 
 
 ### [New Experience](#tab/new-experience/)  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Choose the customer, and then choose the **Sales Price Lists** action.
 3. Open the price list for which to specify the line discount.
 4. Turn on the **Allow Line Disc.** toggle.
@@ -19525,7 +19525,7 @@ In addition to (or instead of) a discount percentage, you can link a service cha
 
 After you decide which customers are eligible for invoice discounts, enter the invoice discount code on the customer cards and set up the terms for each code.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
 2. Open the customer page for a customer that's eligible for invoice discounts.
 3. In the **Invoice Disc. Code** field, select a customer for which you specified the invoice discount terms to use to calculate invoice discounts.
 
@@ -19550,7 +19550,7 @@ These steps differ, depending on whether your admin turned on the **New sales pr
 
 To copy sales prices, such as an individual customer's sales prices, to use for a customer price group, you must run the **Suggest Sales Price on Wksh.** batch job on the **Sales Price Worksheet** page.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Price Worksheet**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Price Worksheet**, and then choose the related link.  
 2. Choose the **Suggest Sales Price on Wksh.** action.  
 3. On the **Sales Prices** FastTab, fill in the **Sales Type** and **Sales Code** fields with the original sales prices you want to copy.  
 4. In the top section of the request page, fill in the **Sales Type** and **Sales Code** fields with the type and name you want the sales prices copied to.  
@@ -19564,7 +19564,7 @@ To copy sales prices, such as an individual customer's sales prices, to use for 
 
 The status of the price list must be **Draft**.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Price Lists**, and then choose the related link. 
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Price Lists**, and then choose the related link. 
 2. Choose the price list to copy, and then choose **Copy Lines**.
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
@@ -19581,7 +19581,7 @@ These steps differ, depending on whether your administrator turned on the **New 
 
 If you want to bulk update item prices, such as increase all item prices by some percentage, you must run the **Suggest Item Price on Wksh.** batch job. You can find a link to the batch job on the **Sales Price Worksheet** page.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Price Worksheet**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Price Worksheet**, and then choose the related link.  
 2. Choose the **Suggest Item Price on Wksh.** action.  
 3. On the **Item** FastTab, fill in the **No.** or **Inventory Posting Group** or other fields with the original item prices you want to update.  
 4. In the top section of the request page, fill in the **Sales Type** and **Sales Code** with the type and name you want the sales prices copied to.
@@ -19636,7 +19636,7 @@ When you are ready to post a document, such as an order, invoice, or a credit me
 >   The following procedure is about testing before posting a purchase document. The functionality works in the same way for sales documents.
 
 ## To print a test report before posting a purchase invoice
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Invoices**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then select the related link.
 2. Open the purchase invoice that you want to test.
 3. Choose the **Test Report** action.  
 
@@ -19685,7 +19685,7 @@ To use automatic invoice rounding, you must:
 To use automatic invoice rounding, you must set up the general ledger account or accounts where rounding differences are posted. Before you can do so, you must set up VAT product posting groups. For more information, see [Set up VAT](finance-setup-vat.md).  
 
 ### To set up general ledger accounts for invoice rounding differences  
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Chart of Accounts**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.  
 2. On the **Chart of Accounts** page, set up the account and name it **Invoice Rounding** or something similar. [!INCLUDE[prod_short](includes/prod_short.md)] uses the account name as text for invoices that are rounded.  
 3. Depending on whether you use VAT or sales tax, in the **Tax Prod. Posting Group** or **VAT Prod. Posting Group** fields, choose a posting group for rounded amounts. You might want to set up a new group code to use for invoice rounding.
 4. Leave the **Gen. Posting Type**, and either the **Tax Bus. Posting Group** or **VAT Bus. Posting Group** fields blank. <!-- Why do we say to leave these blank, when there are a lot of other fields we also leave blank but don't mention? -->  
@@ -19696,17 +19696,17 @@ Now you can assign the invoice rounding account to posting groups on the **Vendo
 Before you can use the automatic invoice rounding function, you must set up rounding rules for foreign and local currencies.
 
 ### To set up rounding for foreign currencies  
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Currencies**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Currencies**, and then choose the related link.  
 2. On the **Currencies** page, choose the foreign currency to open the **Currency Card**, and then fill in the **Amount Rounding Precision**, **Unit-Amount Rounding Precision**, **Invoice Rounding Precision** and **Invoice Rounding Type** fields.
 
 ### To set up rounding for your local currency
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **General Ledger Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup**, and then choose the related link.  
 2. On the **General Ledger Setup** page, on the **General** FastTab, fill in the **Inv. Rounding Precision** and **Inv. Rounding Type** fields.  
 
 ## Activate the invoice rounding function  
 To ensure that sales and purchase invoices are rounded automatically, you must activate the invoice rounding function. You activate invoice rounding separately for sales and purchase invoices.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales & Receivables Setup** or **Purchases & Payables Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales & Receivables Setup** or **Purchases & Payables Setup**, and then choose the related link.  
 2. On the **General** FastTab, choose the **Invoice Rounding** check box.  
 
 ## Related information  
@@ -20032,7 +20032,7 @@ You can choose to have VAT amounts calculated and posted to a temporary general 
 
 To use accounts for unrealized VAT, follow these steps:
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, and enter **General Ledger Setup**.
+1. [!INCLUDE[open-search](includes/open-search.md)], and enter **General Ledger Setup**.
 2. On the **General Ledger Setup** page, select the **Unrealized VAT** check box.
 3. Choose the **Search for Page or Report** icon ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do"), and enter **VAT Posting Setup**.
 4. On the **VAT Posting Setup** page, choose the VAT posting group, and then choose the **Edit** action.
@@ -20307,18 +20307,18 @@ You can achieve that by combining backward flushing method and routing link code
 
 ## To flush components according to operation output
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.  
 2. Choose the **Edit** action.  
 3. On the **Replenishment** FastTab, in the **Flushing Method** field, select **Backward**.  
 
     > [!NOTE]  
     > Select **Pick + Backward** if the component is used in a location that is set up for directed put-away and pick.  
 
-4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Routings**, and then choose the related link.  
+4. [!INCLUDE[open-search](includes/open-search.md)], enter **Routings**, and then choose the related link.  
 5. Define routing link codes for every operation that consumes the component. For more information, see [Create Routings](production-how-to-create-routings.md).  
     > [!IMPORTANT]  
     > Don't use the same routing link for different operations in the routing. Using the same routing link would lead to registration of consumption of component for each linked operation.  
-6. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOM**, and then choose the related link.  
+6. [!INCLUDE[open-search](includes/open-search.md)], enter **Production BOM**, and then choose the related link.  
 7. Define routing link codes from each instance of the component to the operation that consumes it.
 
 The consumption is posted automatically when you register output. To learn more, go to [Batch Post Output and Run Times](production-how-to-post-output-quantity.md).
@@ -20384,7 +20384,7 @@ Payment journals are general journals that are optimized for making payments. Yo
 
 ## To make payments in the payment journal
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Payment Journals**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Payment Journals**, and then choose the related link.
 2. Open the journal batch that you use for payments.
 3. If you know who to pay, fill in the fields manually. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. To also apply the payment to the related invoice or credit memo, choose the **Applies-to Doc. No.** field, on the **Apply Vendor Entries** page, select the relevant invoice or credit memo, and then choose the **OK** button.
@@ -20510,7 +20510,7 @@ Before you can set up a repair status, you must set up service status priorities
 
 ## To set up service status priorities
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Service Order Status**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Order Status**, and then choose the related link.  
 2. Select the service order status you want to set a priority for.  
 3. In the **Priority** field, choose the priority you want for this service order status.  
 
@@ -20518,7 +20518,7 @@ Repeat steps 2 and 3 until you have set the priority for each of the four status
 
 ## To set up a repair status
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Repair Status**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Repair Status**, and then choose the related link.
 2. Create a new repair status.  
 3. Fill in the **Code** and **Description** fields.  
 4. In the **Service Order Status** field, choose the order status to link the repair status to. The **Priority** field displays the priority of the service order status you have chosen.  
@@ -20929,7 +20929,7 @@ On the **Workflow User Groups** page, you can specify where a participant engage
 
 ## To set up a workflow user group
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Workflow User Groups**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflow User Groups**, then choose the related link.  
 2. Choose the **New** action. The **Workflow User Group** page opens.  
 3. In the **Code** field, enter a maximum of 20 characters to identify the workflow.  
 4. In the **Description** field, describe the workflow.  
@@ -20980,7 +20980,7 @@ European Union (EU) third-party trade occurs when you receive a purchase invoice
 
   Even if the feature is preinstalled as an extension, it isn't activated by default. Follow these steps:
 
-  1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, go to the **Feature Management** workspace, and then select the related link.
+  1. [!INCLUDE[open-search](includes/open-search.md)], go to the **Feature Management** workspace, and then select the related link.
   1. In the list, find and select **Feature update: Replace the existing EU 3-Party Purchase functionality with the new EU 3-Party Trade Purchase extension**.
   1. In the **Enabled for** column, select **All users**.
 
@@ -20988,19 +20988,19 @@ European Union (EU) third-party trade occurs when you receive a purchase invoice
 
 ## Enable EU third-party trade functionality for a purchase
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Setup**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Setup**, and then select the related link.
 2. On the **VAT Setup** page, mark the **Enable EU 3-Party Purchase** field.
 
 ## Use EU third-party trade functionality
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Invoices** (or another purchase document), and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices** (or another purchase document), and then select the related link.
 2. Select an existing purchase invoice, or select **New** to create a new one.
 3. On the **Invoice Details** FastTab, select the **EU 3-Party Trade** checkbox.
 4. Select **OK**.
 
 ## Include or exclude EU third-party trade records on the VAT statement
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Statements**, and then select the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Statements**, and then select the related link.
 2. On the **VAT Statement** page, select one of the following options to show EU third-party trade records by using the **EU 3-Party Trade Filter** field.
 
     | Option | Description |
@@ -21055,7 +21055,7 @@ Additionally, each term in the Finance Charge Terms table is linked to a subtabl
 
 ### To set up finance charge terms
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Finance Charge Terms**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Finance Charge Terms**, and then choose the related link.  
 2. Fill in the fields as necessary.
 3. To use more than one combination of finance charge terms, set up a code for each one.
 
@@ -21130,7 +21130,7 @@ The following additional documents can be edited in the specified countries or r
 
 The following explains how to edit a posted sales shipment. The steps are similar for the other supported documents.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Sales Shipments**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.
 2. Select the document that you want to edit, and then choose the **Update Document** action. Alternatively, open the document and then choose the action.
 3. On the **Posted Sales Shipment - Update** page, edit the **Package Tracking No.** field, for example.
 4. Choose the **OK** button.
@@ -21346,7 +21346,7 @@ After you set up approval users, you can create workflow responses for approval 
 
 [!INCLUDE [workflow-requestor-approver](includes/workflow-requestor-approver.md)]
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Approval User Setup**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Approval User Setup**, then choose the related link.  
 2. Create a new line on the **Approval User Setup** page, and then fill the fields as described in the following table.  
 
    |Field|Description|
@@ -21456,7 +21456,7 @@ For businesses with warehouses in multiple EU countries, managing VAT (Value Add
 
 To set up the alternative VAT registration numbers for different countries/regions, follow these steps: 
 
-1. Select the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Alternative Customer VAT Registration**, and then select the related link. 
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Alternative Customer VAT Registration**, and then select the related link. 
 2. Add the customer in the **Customer No** field and the country/region related to this VAT registration in the **VAT Country/Region Code**.  
 3. You must add the VAT number in the **VAT Registration No.** field. You must stick to the format when you use **Country/Region Code**. 
 4. If you want to use different VAT or general posting groups, you can alternatively add them to the setup in the **VAT Bus. Posting Group** and **Gen. Bus. Posting Group** fields. 
@@ -22330,7 +22330,7 @@ Setting a job queue entry to **On Hold** doesn't affect a job that's already run
 
 ### To view status for any job
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Job Queue Entries**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Job Queue Entries**, and then choose the related link.
 2. On the **Job Queue Entries** page, select a job queue entry, and then choose the **Log Entries** action.  
 
 > [!TIP]
@@ -22528,7 +22528,7 @@ The following procedure describes how to undo posted assembly orders that contai
 
 You can undo fully or partially posted assembly orders.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Assembly Orders**, and choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Assembly Orders**, and choose the related link.  
 
    Each partial posting creates a separate posted assembly order.  
 2. Open the posted assembly order that you want to undo, and then choose the **Undo Assembly** action.  
@@ -22576,7 +22576,7 @@ Before you create interactions though, you must set up interaction templates. To
 
 ## To create an interaction with a contact
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Contacts**, **Salesperson**, or **Interaction Log Entry**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Contacts**, **Salesperson**, or **Interaction Log Entry**, and then choose the related link.
 2. Choose the **Create Interaction** action.
 3. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
@@ -22585,7 +22585,7 @@ Before you create interactions though, you must set up interaction templates. To
 
 ## To create an interaction on a segment
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Segments**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Segments**, and then choose the related link.
 2. Choose the **Create Interaction** action.
 3. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
@@ -22600,7 +22600,7 @@ An interaction is recorded for each contact within the segment in the **Interact
 
 ## To finish setting up a postponed interaction
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Postponed Interactions**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Postponed Interactions**, and then choose the related link.
 2. Choose the interaction you want to finish, and then choose the **Resume** action.
 
 ## Related information
@@ -22635,7 +22635,7 @@ Checks are designed to print in both the United States and Canadian check image 
 
 ## To select a check layout
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Report Selections Bank Account**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Report Selections Bank Account**, and then choose the related link.
 2. On the **Report Selection - Bank Acc.** page, in the **Usage** field, select **Check**.
 3. Select one of the following report IDs.
 
@@ -22861,7 +22861,7 @@ Each line you open to reserve items displays information about one type of line 
 
 The following procedure describes how to reserve items from a sales order. The steps are similar for purchase, service, transfer, and assembly orders.
   
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, then choose the related link.  
 2. Choose the sales order.
 3. On the **Lines** FastTab, choose the **Reserve** action. The **Reservation** page opens.  
 4. Select the line you want to reserve the items from.  
@@ -22882,7 +22882,7 @@ You can reserve items for production orders. You must distinguish between produc
 
 In the following procedure, a firm planned production order is used.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Firm Planned Prod. Order**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Firm Planned Prod. Order**, then choose the related link.  
 2. Open the firm planned production order you want to reserve parent items for.  
 3. Select the relevant production order line.  
 4. On the **Lines** FastTab, in the **Functions** group, choose the **Reserve** action.
@@ -22896,7 +22896,7 @@ You can reserve items for production orders. You have to distinguish between pro
 
 In the following procedure, a firm planned production order is used.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Firm Planned Prod. Order**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Firm Planned Prod. Order**, then choose the related link.  
 2. Open the firm planned production order you want to reserve component items for.  
 3. Select the relevant production order line.  
 4. On the **Lines** FastTab, choose **Line**, then choose **Components**.  
@@ -22910,7 +22910,7 @@ The quantity you entered in the firm planned production component line is now re
 
 Use the **Reservation Worksheet** page to reserve and allocate incoming goods in bulk. For example, bulk reservations can help ensure that quantities are available for your sales and production orders. You can have multiple batches for different purposes. For example, you might allocate production orders on a weekly basis but reserve daily for sales.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Reservation Worksheet**, then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Reservation Worksheet**, then choose the related link.  
 1. Choose the **Get Demand** action. The **Get Demand to Reserve** page opens.
 1. On the **Get Demand to Reserve** page, specify the kind of demand you want to reserve from available inventory.
 1. Fill in the filters as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
@@ -22956,7 +22956,7 @@ This practice is referred to as a specific reservation, because you reserve from
 
 The following procedure is based on a sales order.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then select the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then select the related link.  
 2. Create a sales order line for an item-tracked item.  
 3. Assign serial and lot numbers to the sales order line. Learn more at [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
 4. On the sales order line, choose the **Reserve** action.  
@@ -23050,7 +23050,7 @@ You can choose not to receive warnings when the customer's credit limit is excee
 
 ### To specify credit limit warnings
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales & Receivables Setup**, then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales & Receivables Setup**, then choose the related link.
 
 2. On the **General** FastTab, in the **Credit Warnings** field, choose the relevant option as described in the following table:
 
@@ -23150,7 +23150,7 @@ To import bank statements as bank feeds, you must set up the Envestnet Yodlee Ba
 > [!TIP]
 > You can also import bank statement files in comma or semicolon delimited format (.CSV). Use the **Set up a bank statement file format** assisted setup to define bank statement import formats and attach the format to a bank account. You can then use these formats when you import bank statements in the **Bank Account Reconciliation** page.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Account Reconciliation**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Account Reconciliation**, and then choose the related link.
 2. Choose the **New** action.
 3. In the **Bank Account No.** field, select the relevant bank account. The bank account ledger entries that exist on the bank account appear in the **Bank Account Ledger Entries** pane.
 4. In the **Statement Date** field, enter the date of the statement from the bank.
@@ -23960,7 +23960,7 @@ To use the assisted setup guide:
 
 To use a manual process:  
 
-1. In the Accountant Role Center, choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Flow Setup**, then choose the related link.
+1. In the Accountant Role Center, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Cash Flow Setup**, then choose the related link.
 2. Expand the **Azure AI** FastTab, then choose the **Azure AI Enabled** field.
 3. Back in the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
 
@@ -24012,7 +24012,7 @@ Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_s
 
 For [!INCLUDE[prod_short](includes/prod_short.md)] online, the model is published by Microsoft and connected to the Microsoft subscription. For other deployment options, you have to create Machine Learning resources in your own Azure subscription. You can find sample steps in the [sample repo](https://github.com/microsoft/BCTech/tree/master/samples/MachineLearning). The purpose of this task is to get the API URI and API key.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Cash Flow Setup**, and then choose the related link.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Cash Flow Setup**, and then choose the related link.  
 2. Expand the **Azure AI** FastTab, and then fill in the fields, including the API URL and API key provided from Azure Machine Learning studio. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 3. In the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
 
@@ -24096,7 +24096,7 @@ Phrases like "run planning" and "run MRP" refer to the calculation of the master
 
 ### To change selected planning parameters  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Stockkeeping Units**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Stockkeeping Units**, and then choose the related link.  
 2.  Open the EAST stockkeeping unit card for item 1100, Front Wheel.  
 3.  On the **Planning** FastTab, fill in the fields as described in the following table.  
 
@@ -24113,7 +24113,7 @@ Phrases like "run planning" and "run MRP" refer to the calculation of the master
 
 ### To create the sales order  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sales Orders**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.  
 2.  Choose the **New** action.  
 3.  On the **Sales Order** page, fill in the fields as described in the following table.  
 
@@ -24125,7 +24125,7 @@ Phrases like "run planning" and "run MRP" refer to the calculation of the master
 
 ### To create a regenerative plan to fulfill demand at location EAST  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planning Worksheet**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Planning Worksheet**, and then choose the related link.  
 2.  Choose the **Calculate Regenerative Plan** action.  
 3.  On the **Calculate Plan - Plan. Wksh.** page, fill in the fields as described in the following table.  
 
@@ -24148,7 +24148,7 @@ Phrases like "run planning" and "run MRP" refer to the calculation of the master
 
 ### To calculate MRP to include underlying component needs  
 
-1.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planning Worksheet**, and then choose the related link.  
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Planning Worksheet**, and then choose the related link.  
 2.  Choose the **Calculate Regenerative Plan** action.  
 3.  On the **Calculate Plan - Plan. Wksh.** page, fill in the fields as described in the following table.  
 
@@ -24242,7 +24242,7 @@ Phrases like "run planning" and "run MRP" refer to the calculation of the master
 
 3.  Accept the availability warning and choose the **Yes** button to record the demand quantity.  
 4.  Proceed to replan to adjust the current supply plan.  
-5.  Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Planning Worksheet**, and then choose the related link.  
+5.  [!INCLUDE[open-search](includes/open-search.md)], enter **Planning Worksheet**, and then choose the related link.  
 6.  Choose the **Calculate Net Change Plan** action.  
 7.  On the **Calculate Plan - Plan. Wksh.** page, fill in the fields as described in the following table.  
 
