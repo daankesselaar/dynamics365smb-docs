@@ -1,3 +1,562 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-making-cash-flow-forecasts-by-using-account-schedules
+---
+title: Make cash flow forecasts using financial reports
+description: This walkthrough describes how you can use financial reports to make cash flow forecasts in Business Central. 
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords:
+ms.date: 08/01/2024
+ms.author: bholtorf
+ms.search.form: 103, 104, 108, 488, 489, 490
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Walkthrough: Make cash flow forecasts using financial reports
+
+This walkthrough describes how you can use the financial reports feature to make cash flow forecasts. Financial reports perform calculations that cannot be done directly in the chart of cash flow accounts. In the financial reports, you can set up subtotals for cash flow receipts and disbursements. These subtotals can be included in new totals that can then be used to make cash flow forecasts.  
+
+## About this walkthrough
+
+This walkthrough describes the following tasks:  
+
+- Setting up a new cash flow financial report name.  
+- Setting up financial report lines.  
+- Setting up a new column definition.  
+- Assigning a column definition to a financial report.  
+- Viewing and printing the cash flow forecast.  
+
+### Prerequisites
+
+To complete this walkthrough, you will need:  
+
+- [!INCLUDE[prod_short](includes/prod_short.md)]  
+- A cash flow worksheet with registered lines  
+
+## Roles
+
+This walkthrough demonstrates tasks that are performed by the following user role:  
+
+- Controller  
+
+## Story
+
+Ken is a controller at CRONUS who makes monthly cash flow forecasts. Ken includes finance, sales, purchase, and fixed assets in the forecasts, and presents to CFO Sara for business insight.  
+
+## Set up a new financial report name
+
+The financial report name is the name you give the cash flow forecast that includes a series of defined lines and a column definition.  
+
+### Set up a new financial report name  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Financial Reports**, and then choose the related link.  
+2. On the **Financial Reports** page, choose **New** to create a new cash flow financial report name.  
+3. In the **Name** field, enter **Forecast**.  
+4. In the **Description** field, enter **Cash Flow Forecast**.  
+5. Leave the **Row Definition** and **Column Definition** fields blank.
+
+## Set up row definition lines
+
+After a financial report name is set up, Ken defines each line in the cash flow financial report. Ken defines lines to be shown in reports in addition to lines that are only for calculation purposes.  
+
+### Set up row definition lines  
+
+1. On the **Financial Reports** page, select the new **Forecast** financial report you created, then choose the **Edit Row Definition** action.  
+2. On the **Row Definition** page, enter each line as shown in the following table.  
+
+    > [!TIP]  
+    > Use the **Insert CF Accounts** function to quickly mark, in the cash flow accounts chart, the cash flow accounts you want and copy them to row definition lines.  
+
+    | Row No. | Description              | Totaling Type            | Totaling | Row Type   | Amount Type | Show |
+    |---------|--------------------------|--------------------------|----------|------------|-------------|------|
+    | R10     | Receivables              | Cash Flow Entry Accounts | 10       |Net Change | Net Amount  | Yes  |
+    | R10     | Open sales orders        | Cash Flow Entry Accounts | 20       |Net Change | Net Amount  | Yes  |
+    | R10     | Rentals                  | Cash Flow Entry Accounts | 30       |Net Change | Net Amount  | Yes  |
+    | R10     | Financial assets         | Cash Flow Entry Accounts | 40       |Net Change | Net Amount  | Yes  |
+    | R10     | Fixed assets disposal    | Cash Flow Entry Accounts | 50       |Net Change | Net Amount  | Yes  |
+    | R10     | Private investments      | Cash Flow Entry Accounts | 60       |Net Change | Net Amount  | Yes  |
+    | R10     | Miscellaneous receipts   | Cash Flow Entry Accounts | 70       |Net Change | Net Amount  | Yes  |
+    | R10     | Open service orders      | Cash Flow Entry Accounts | 80       |Net Change | Net Amount  | Yes  |
+    | R20     | Total cash receipts      | Formula                  | R10      |Net Change | Net Amount  | Yes  |
+    | R30     | Payables                 | Cash Flow Entry Accounts | 1010     |Net Change | Net Amount  | Yes  |
+    | R30     | Open purchase orders     | Cash Flow Entry Accounts | 1020     |Net Change | Net Amount  | Yes  |
+    | R30     | Personnel costs          | Cash Flow Entry Accounts | 1030     |Net Change | Net Amount  | Yes  |
+    | R30     | Running costs            | Cash Flow Entry Accounts | 1040     |Net Change | Net Amount  | Yes  |
+    | R30     | Finance costs            | Cash Flow Entry Accounts | 1050     |Net Change | Net Amount  | Yes  |
+    | R30     | Investments              | Cash Flow Entry Accounts | 1070     |Net Change | Net Amount  | Yes  |
+    | R30     | Private consumptions     | Cash Flow Entry Accounts | 1090     |Net Change | Net Amount  | Yes  |
+    | R30     | VAT due                  | Cash Flow Entry Accounts | 1100     |Net Change | Net Amount  | Yes  |
+    | R30     | Other expenses           | Cash Flow Entry Accounts | 1110     |Net Change | Net Amount  | Yes  |
+    | R40     | Total cash disbursements | Formula                  | R30      |Net Change | Net Amount  | Yes  |
+    | R50     | Surplus                  | Formula                  | R20+R40  |Net Change | Net Amount  | Yes  |
+    | R60     | Cash flow funds          | Cash Flow Entry Accounts | 2100     |Net Change | Net Amount  | Yes  |
+    | R70     | Total cash flow          | Formula                  | R50+R60  |Net Change | Net Amount  | Yes  |
+
+    > [!NOTE]
+    > The row number R10 is used to capture the account totals for receivables. The row number R20 is used to calculate the sum of all cash receipts. The row number R30 is used to capture the account totals for payables. The row number R40 is used to calculate the sum of all cash disbursements. The row number R50 is used to capture the sum of cash surplus. The row number R60 is used to capture the liquid funds. The row number R70 is used to calculate the forecasted cash flow.
+
+## Set up a new column definition
+
+Before printing the cash flow forecast, Ken needs to create the column definition for the numerical information. In the columns, Ken defines the information needed to use from the lines.
+
+- The first column has the number *C10* with the title **Amount** and contains the net change.  
+- The second column has the number *C20* with the title **Balance at Date** and contains the transactions for the period.  
+- The third column has the number *C30* with the title **Entire Year** and contains the net change in the balances for the entire fiscal year.  
+- Finally, Ken assigns the column definition as the default option for the **Forecast** financial report.  
+
+### Set up a new column definition
+
+1. On the **Financial Reports** page, select the new **Forecast** financial report name you created. On the **Home** tab, in the **Process** group, choose **Edit Column Definition**.
+
+2. Create a new column definition with the name **Cash Flow**.
+
+3. Choose the **OK** button.
+
+4. Enter each line exactly as shown in the following table.
+
+    |Column No.|Column Header|Column Type|Ledger Entry Type|Amount Type|Show|  
+    |----------|-------------|-----------|-----------------|-----------|----|
+    |C10|Amount|Net Change|Entries|Net Amount|Always|  
+    |C20|Amount Until Date|Balance at Date|Entries|Net Amount|Always|  
+    |C30|Entire Fiscal Year|Entire Fiscal Year|Entries|Net Amount|Always|
+
+## Assig the column definition to the financial report name
+
+Ken is now ready to assign the column definition to the financial report name.  
+
+### Assign the column definition to the financial report name
+
+1. In the **Financial Reports** page, select the **Forecast** financial report, then choose the **Edit Column Definition** action.  
+2. In the **Name** field, choose the column definition **Cash Flow** to assign as the default column definition.  
+
+## View and print the cash flow forecast
+
+1. On the **Financial Reports** page, choose the **Forecast** financial report [Financial analytics overview](bi.md)  to view the cash flow forecast.  
+2. On the **Financial Report** page, you can select an amount and then view the cash flow forecast entries that make up the amount. In addition, you can view the formula used to calculate that amount. You can also filter the amounts by date and dimension.  
+3. Choose the **Print** action to print the cash flow forecast.  
+
+## Related information
+
+[Prepare financial reporting](bi-how-work-account-schedule.md)  
+[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
+[Financial analytics overview](bi.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/receivables-how-block-customers
+---
+title: How to block sales to customers
+description: If needed, you can block a customer from being included on sales documents and other sales transactions.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords:
+ms.date: 07/05/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Block customers
+You can block a customer, for example because of insolvency, so that the customer can't be added to sales documents or so that no transactions can be posted for the customer.
+
+In addition to blocking a customer, you can set receivable transactions for the customer to be on hold in connection with reminders. For more information, see [Collect Outstanding Balances](receivables-collect-outstanding-balances.md).   
+
+The following table describes the options for blocking customers.  
+
+|Option|Description|  
+|--------------------|------------|  
+|**Blank**|Transactions are allowed for this customer.|
+|**Ship**|New orders and new shipments can't be created for this customer. Existing shipments not yet invoiced can be invoiced.|  
+|**Invoice**|New orders, new shipments, and new invoices can't be created for this customer. Existing shipments not yet invoiced can't be invoiced. You can still send reminders and finance charge memos to the customer.|  
+|**All**|No transaction is allowed for this customer, including payments.|  
+
+## To block a customer  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
+2. Select a customer, and then choose the **Edit** action.
+3. In the **Blocked** field, choose what to block, as described in the table above.
+
+## Related information  
+[Register New Customers](sales-how-register-new-customers.md)  
+[Collect Outstanding Balances](receivables-collect-outstanding-balances.md)  
+[Managing Receivables](receivables-manage-receivables.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-prod-order-routing-gantt
+---
+title: Prod.Order Routing Gantt
+description: Learn how to benefit from using the Prod. Order Routing Gantt report.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+# TODO correct page id must be added
+# ms.search.form: 37042_Primary 
+ms.date: 05/26/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Prod. Order Routing Gantt (Power BI Report)
+
+[!INCLUDE[applies-to-2025w1](includes/applies-to-2025w1.md)]
+
+The **Prod. Order Routings Gantt** report provides an overview of production processes, combining visual and tabular formats to enhance understanding. The report helps you monitor and analyze production tasks, offering insights into scheduling, durations, and task locations.
+
+:::image type="content" source="media/manufacturing/prod-order-routing-gantt-v26.png" alt-text="Screenshot of the Prod Order Routing Gantt Power BI Report" lightbox="media/manufacturing/prod-order-routing-gantt-v26.png":::
+
+The **Production Time Line (Gantt Chart Visual)** visualization provides a Gantt chart representation of production processes, enabling you to effectively monitor and analyze tasks within production orders. Key features of this visualization include:
+
+1. **Hierarchy:**  
+   - *Parent:* Production orders serve as the primary grouping level.  
+   - *Nested Tasks:* Routing line descriptions represent individual tasks in the process.  
+
+2. **Timeline Configuration:**  
+   - By default, the timeline displays at a daily level.  
+   - Non-working days are highlighted in red for improved clarity.  
+
+3. **Task Duration:**  
+   - Task durations calculate based on the routing line's starting and ending date-time values.  
+
+4. **Task Bar Representation:**  
+   - The color of the task bars differentiates between routing through machine centers and work centers.  
+   - Within each bar, the name of the machine center or work center displays, providing added context about where the task is done.  
+
+The **Routing Line Details** table is a tabular representation of production and routing data. It includes essential information such as the **Production Order No.** and the **Operations No.** which specifies individual operations within the process. The table also highlights the **Work Center/Machine Center No.**, identifying the location associated with each routing line task. Additionally, the table displays the **Starting Date Time** and **Ending Date Time**, outlining the scheduled start and completion times for tasks. The date times are used to calculate the **Total Duration Hours**, showing the time taken to execute tasks in hours, and the **Duration Total Days**, which represents the task duration in days for an alternative perspective. Together, these details ensure you have a clear and structured view of production processes.
+
+## Use the report
+
+Manufacturing Managers use the report to gain an overview of production scheduling and routing processes. The **Production Time Line** Gantt chart helps you monitor task durations and sequencing. The bar colors and contextual information on machine centers or work centers allow you to quickly identify resource usage and task assignments. Paired with the **Routing Line Details** table, you can analyze production timelines, evaluate task completion dates, and compare actual durations with planned expectations. These details help you detect delays, optimize schedules, and ensure you allocate resources effectively across work centers and machine centers.  
+
+Production supervisors rely on the report to manage day-to-day production tasks and maintain operational efficiency. The Gantt chart shows production order tasks so that you can easily track which operations are occurring at what locations and for how long. The red-marked non-working days help you identify gaps or conflicts in scheduling and address potential bottlenecks. Meanwhile, the **Routing Line Details** table provides starting and ending date times with total task durations by day and by hours. Together, the Gantt visual and tabular components of the report support effective coordination for smooth production workflows.  
+
+## Key performance indicators (KPIs)
+
+The Prod. Order Routing Gantt report includes the following KPIs and measures:
+
+- [Total Duration Hours](manufacturing-powerbi-kpis.md#total-duration-hours)
+- [Total Duration Days](manufacturing-powerbi-kpis.md#total-duration-days)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Prod. Order Routing Line
+- Production Order
+  
+## Try the report
+
+Try the report here: [Prod. Order Routing Gantt](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Manufacturing app](manufacturing-powerbi-app.md)  
+[Built-in production reports](production-reports.md)  
+[Manufacturing overview](production-manage-manufacturing.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-create-contact-profile-questionnaire
+---
+title: Use profiles to classify contacts
+description: Red about how to set up profile questionnaires to help classify your business contacts' profiles.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: contacts, profiles
+ms.search.form: 5109, 5110
+ms.author: bholtorf
+ms.date: 05/20/2022
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Use Profile Questionnaires to Classify Business Contacts
+
+You can rate a prospect so you can identify the ideal prospects to focus your sales campaign on. You can set up profile questionnaires that you want to use when entering information about your contacts' profiles. Within each questionnaire, you can set up the different questions you intend to ask your contacts. This way, you can group contacts so that your campaigns are more likely to target the right people based on the criteria that you define with the questionnaires.  
+
+With the right questionnaires, you can rate your prospects and group them into categories. You can use existing questions and answers and combine them with new questions and answers to form the basis of your rating. Each answer in the rating is given a point value and, depending on the range you set up for the categories (*From Value* and *To Value*), the rating system will group your contacts in the categories you have defined. For example, *ABC* customers, *High/Low loyalty* vendors, or *Platinum/Gold/Silver* prospects.  
+
+You can also run the questionnaire to answer some of the questions based on contact, customer, or vendor data automatically.  
+
+## To add a profile questionnaire
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Questionnaire Setup**, and then choose the related link.  
+2. Choose the **New** Action.  
+3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
+
+## To add questions to a profile questionnaire
+
+1. Choose the relevant profile questionnaire, and then choose the **Edit Questionnaire Setup** action.  
+2. On the first empty line, in the **Type** field, choose **Question** and type your question in the **Description** field. Fill in the other fields on this line.  
+
+    Optionally, add details to the question.
+
+    1. Choose the line with the question, and then, choose the **Line** menu, and then choose **Question Details**.  
+
+    2. On the **Classification** FastTab in the **Profile Question Details** page, select the **Auto Contact Classification** field.  
+
+    3. In the **Contact Class. Field** field, select the **Rating** option.  
+
+    4. Fill in the **Min. % Questions Answered** field. The default is **0**.  
+
+        This specifies the number of questions in percentage that must be answered for this rating to be calculated.
+
+    5. On the **Actions** tab, in the **Page** group, choose **Answer Points**. Enter the points you want to give each answer listed in the **Answer Points** page.
+
+        If you want to get an overview of the points you have given each answer, choose the **Answer Points** action.
+
+    6. To run an update, return to the **Profile Questionnaire Setup** page. On the **Actions** menu, in the **Functions** group, choose **Update Classification**.
+
+    In the **Profile Questionnaire Setup** page, the number of contacts that meets this criteria is displayed in the **No. of Contacts** field, as well as on the **Contact Card** of each contact.
+
+3. On the next empty line, in the **Type** field, choose **Answer** and type your answer in the **Description** field.  
+4. In the **Priority** field, select the priority. In the **From Value** and **To Value** fields, define a point range. Contacts that receive points within the defined range will get the answer.  
+
+Repeat these steps to enter all the questions and answers within the profile questionnaire.
+
+After you have created a questionnaire, you can use it to rate and classify your contacts. You can also set up questions that are rated automatically based on information in the contact card.  
+
+> [!NOTE]
+> If you enter a question that is automatically answered, choose **Line**, and then choose **Question Details**, to enter the criteria to automatically answer the question.
+
+## Apply questionnaires to contacts
+
+You can apply your questionnaires to contacts manually. Just open the relevant contact card, and then choose the **Profile** action. Then, once you have applied the questionnaires that you want to apply, you can start using the categories in your campaigns.  
+
+## The Automatic Classification of Contacts
+
+You can automatically classify your contacts according to customer, vendor, and contact information, by setting up automatically answered profile questions on the **Profile Questionnaire Setup** page.  
+
+> [!NOTE]
+> Only contacts that are recorded as customers can be assigned a classification based on customer data and only contacts that are recorded as vendors can be assigned a classification based on vendor data. The automatic classification is not updated automatically. Consequently, you may want to update the profile questionnaires, after you have updated the customer, vendor or contact data they are based on.  
+
+After you have set up automatically answered profile questions, if you assign the profile questionnaire containing these questions to a contact, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically assign the right answers for the contact.  
+
+## Example
+
+You can classify your contacts according to how much they bought from you:
+
+|Answer|Applies to|
+|--- |--- |
+|A|contacts who bought for 500,000 LCY or more|
+|B|contacts who bought for 100,000 up to 499,999 LCY|
+|C|contacts who bought for 99,999 LCY or less|
+
+To do this, fill on the **Profile Questionnaire Setup** page as follows:
+
+| Type     | Description        | Automatic Classification     | From Value | To Value |
+|----------|--------------------|------------------------------|------------|----------|
+| Question | ABC Classification | Click to insert a check mark |            |          |
+| Answer   | A                  |                              | 500,000    |          |
+| Answer   | B                  |                              | 100,000    | 499,999  |
+| Answer   | C                  |                              |            | 99,999   |
+
+Then fill on the **Profile Question Details** page as follows:
+
+| Field                         | Value         |
+|-------------------------------|---------------|
+| Customer Classification Field | Sales (LCY)   |
+| Classification Method         | Defined Value |
+
+When you assign the profile questionnaire containing this question to a contact, application automatically enters the relevant answer for this contact on the profile lines of the contact card.
+
+## Related information
+
+[Creating Contacts](marketing-create-contact-companies.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-scorecards-goals
+---
+title: Sustainability scorecards and goals
+description: Learn how to set up and use sustainability scorecards and goals.
+author: altotovi
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, scorecard, goal, forecast, budget
+ms.search.form: 
+ms.date: 01/30/2025
+ms.author: altotovi
+ms.service: dynamics-365-business-central
+ms.reviewer: solsen
+---
+
+# Sustainability scorecards and goals overview
+
+This article offers guidance on how to create scorecards and goals, and how to update the status of goals. Scorecards and goals allow organizations to curate sustainability metrics and track them against key business objectives. Goals can be created based on current and target values, so users can keep track of the progress of current gas emissions, or water/waste intensity, compared to previous periods.  
+
+## Create a scorecard  
+
+To create a sustainability scorecard, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Scorecards**, and then select the related link.
+2. On the **Sustainability Scorecards** page, select **New** to create a new scorecard.  
+3. Specify the **No.** and the **Name** fields on the **General** FastTab, and then add the **Owner**.
+
+> [!NOTE]
+> In the **Owner** field, you can only choose users who enabled the **Sustainability Manager** field on the **User Setup** page.
+
+## Create goals  
+
+To create a new sustainability goal, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Scorecards**, and then select the related link.
+2. Choose the **Goals** action to create a new sustainability goal for the scorecard.  
+3. Select **New** to start creating a goal.
+4. The **Scorecard No.** is automatically added based on the value from the sustainability scorecard, and you can't edit this field. [!INCLUDE [prod_short](includes/prod_short.md)] also fills in the **Unit of Measure** field based on the **Emission Unit of Measure Code** on the **Sustainability Setup** page.  
+5. Fill in **No.** and **Name** of the new sustainability goal. The **Owner** field is automatically filled in based on the value from the connected **Sustainability Scorecard**.
+6. You can create a sustainability goal for the entire company, a specific country/region, or a facility. To create a specific goal, choose the country or region in the **Country/Region Code** field or the facility in the **Responsibility Center** field.  
+7. Select the **Start Date** and **End Date** fields to set up a dedicated period for tracking current values. This configuration determines the values in the **Current Value for CO2**, **Current Value for CH4**, **Current Value for N2O**, **Current Value for Water Intensity**, and **Current Value for Waste Intensity** fields.  
+8. Select the **Baseline Start Date** and **Baseline End Date** fields to set up a dedicated baseline period for comparing current values. This configuration determines the values in the **Baseline for CO2**, **Baseline for CH4**, **Baseline for N2O**, **Baseline for Water Intensity**, and **Baseline for Waste Intensity** fields.  
+9. You can also add target values in the selected **Unit of Measure** field for the current period using the following **Target Value for CO2**, **Target Value for CH4**, **Target Value for N2O**, **Target Value for Water Intensity**, and **Target Value for Waste Intensity** fields.
+10. You can specify one of these goals as a **Main Goal**. Values from the main goal are used on the **Sustainability Manager** Role Center.  
+
+If you have many goals on the page, you can use the **Show My Goals** action to show only your goals. To show all, run the **Show All Goals** action.  
+
+> [!NOTE]
+> You can only create sustainability goals for a specific sustainability scorecard. You can't create goals that aren't related to a scorecard, but you can create more goals for one scorecard. You can only have one sustainability goal as the **Main Goal**.  
+
+> [!NOTE]
+> You can set up different combinations of goals for the whole company, specific countries or regions, and a responsibility center for a sustainability scorecard. You can also use different periods for the same model of tracking.  
+
+## Related information
+
+[Sustainability setup](finance-sustainability-setup.md)  
+[Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md)  
+[How to record sustainability entries](finance-sustainability-journal.md)  
+[Ad hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
+[Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json)  
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-sync-master-data
+---
+title: Manage master data synchronization
+description: Learn how to manage master data synchronization.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.service: dynamics-365-business-central
+ms.topic: article
+ms.date: 02/26/2025
+ms.custom: bap-template
+ms.search.form: 7230, 7233, 5338, 7236, 672, 7234
+---
+# Manage master data synchronization
+
+After you set up master data synchronization, when you synchronize for the first time [!INCLUDE [prod_short](includes/prod_short.md)] does the following:
+
+- Couples records in the selected tables.
+- Creates a recurring job queue entry for each table.
+
+The job queue entries automatically synchronize data in the subsidiary companies when someone makes a change in the source company. Otherwise, you don't need to do anything.
+
+> [!NOTE]
+> For the automatic synchronization to work, the user who makes the change in the source company must have:
+>
+> - A [!INCLUDE [prod_short](includes/prod_short.md)] license.
+> - Permission sets that allow them to reschedule a background task in the subsidiary company. To learn more about the required license and permissions, go to [Before you start](admin-set-up-data-sync.md#before-you-start).
+>
+> Otherwise, the change happens in the next unconditional synchronization run. The unconditional synchronization is controlled by the **Inactivity Timeout Period** field on the job queue entry.
+
+However, sometimes things go wrong, and there might be situations that you need to manage or investigate. For example, if people change the same record in both the source company and a subsidiary, synchronization fails so that you can specify the change that's correct. Or, the source company might install an extension that changes the schema of one of the tables you're synchronizing by adding a field or two. If you want to synchronize the new fields in the subsidiaries, install the same extensions and update the table schemas in their setup.
+
+This article describes the tools you can use to keep synchronization running smoothly.
+
+## Overwrite local changes
+
+You can use the **Overwrite Local Change** checkbox on the fields and tables you synchronize to allow data from the source company to overwrite data in the subsidiary company.
+
+> [!NOTE]
+> You can't enable the synchronization of a field and allow the subsidiary to write values in it independently from the source company. You must either disable synchronization for the field, or allow the source company to overwrite local changes.
+
+## Update table schemas
+
+If the source company changes a table, for example, by adding a field that you want to synchronize, subsidiaries must update their field mappings. On the **Synchronization Fields** page, use the **Update Fields** action.
+
+## Enable or disable couplings between records
+
+To start or stop coupling on specific records on a table, on the **Synchronization Fields** page, choose the fields, and then use either the **Enable** or **Disable** actions.
+
+> [!TIP]
+> A fast way to enable or disable multiple fields at the same time is to select them in the list, and then use either the **Enable** or **Disable** actions.
+
+## Run a full synchronization
+
+The **Run Full Synchronization** action schedules a synchronization for all of the table records in the source company, and resynchronizes all records unconditionally. For example, resynchronization is useful if you enable an extra field on a synchronization table, or add an extra field by using the **Update Fields** action. The action retroactively synchronizes the data in those fields.
+
+## Synchronize modified records
+
+If you change a setting for a table or field in a subsidiary, you must update the synchronization. To update the synchronization, use the **Synchronize Modified Records** action on the **Synchronization Tables** page.
+
+The **Synchronize Modified Records** action schedules a synchronization of the following table records:
+
+* Records that failed to synchronize in the last attempt.
+* Records that were changed in the source company after the last scheduled synchronization. You can review the last scheduled synchronization time on the **Synchronization Tables** page in the **Synchronize Changes Since** field.
+
+The action works in the same way as a scheduled synchronization, and you can use it as a way to synchronize outside the schedule. For example, if you select the **Overwrite Local Change** checkbox on a field to allow data from the source company to overwrite local changes, the action updates that data. You can also just wait until the next scheduled synchronization happens.
+
+## Investigate the status of synchronization
+
+There are two actions on the **Synchronization Tables** page that can help you monitor your synchronization:
+
+* **Integration Synchronization Jobs**
+* **Job Queue Entries**
+
+The following table describes the actions.
+
+|Page  |Description  |
+|---------|---------|
+|**Integration Synchronization Jobs**     | Open the **Integration Synchronization Jobs** page to investigate what happened each time a job queue entry ran. To dig deeper into the details about new records that were added, or explore why a record failed to synchronize, choose the numbers in the **Inserted** or **Failed** columns. You can also use this page to clean up older records that you might not need. To learn more about cleaning up, go to [Clean up old entries](#clean-up-old-entries).        |
+|**Job Queue Entries**     | Access details about the job queue entry that synchronize data for a selected table. For example, use this page to manage the status of the job queue entry,    To learn more about job queue entries, go to [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).     |
+
+> [!NOTE]
+> If you find an error on the **Integration Synchronization Jobs** page that you can't resolve yourself, if you contact your partner or Microsoft for support, it's helpful to provide the error message and callstack information.
+
+## Clean up old entries
+
+Over time, the number of entries in the synchronization log will become large, so you might want to do a little housekeeping to remove unneeded entries. To make it easier to clean up old entries, the **Integration Synchronization Jobs** page offers the following actions:
+
+* **Delete Entries Older Than 7 Days**
+* **Delete All Entries**
+
+## Adding extensions
+
+If the source company installs a new extension, the subsidiary must also install it if they want to synchronize data for it. The subsidiary can use the **Update Fields** action On the **Synchronization Fields** page to add the tables from the extension to the list.
+
+> [!NOTE]
+> Some tables get data from related tables. If you add an extension that doesn't include related tables, the fields on those tables aren't available. Verify that you added all related tables.
+
+<!--
+## Recreate a deleted job queue entry
+
+If the recurring job queue entry is deleted for a table, you can quickly recreate it. On the **Synchronization Tables** page, choose the **Use Default Synchronization Setup** action.
+-->
+
+## Related information
+
+[Get ready to synchronize master data](admin-set-up-data-sync.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-ebitda
 ---
 title: EBITDA
@@ -593,10 +1152,11 @@ Purchasers make purchasing decisions for specific items or categories. You want 
 
 The *Purchases by Item* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 - [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-- [**% GT Purchase Amount**](purchases-powerbi-kpis.md#-gt-purchase-amount)
-- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#-gt-purchase-quantity)
+- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+- [**No. of Posted Purchase Invoices**](purchases-powerbi-kpis.md#no-of-posted-purchase-invoices)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -606,8 +1166,9 @@ The *Purchases by Item* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 - Item
 
 ## Try the report
@@ -2636,6 +3197,79 @@ When you enable this option, the system uses the following rules, but only if yo
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)    
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-late-payment-analysis-receivables
+---
+title: Late Payments (Receivables)
+description: The Late Payments (Receivables) report provides insights into the behaviors of late paying customers.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37113_Primary
+ms.date: 09/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Late Payments (Receivables) (Power BI report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Late Payments (Receivables)** report analyzes the behaviors of late paying customers, providing insights into amounts, payment times and the financial impacts on the business. It showcases key metrics, including late payments over time and contrasts customer value against payment delays, to highlight cash flow risks.
+
+:::image type="content" source="media/finance/late-payments-receivables-report.png" alt-text="Screenshot of the Late Payment Analysis (Receivables) report" lightbox="media/finance/late-payments-receivables-report.png":::
+
+## Use the report
+
+The audiences for the report are:
+
+- Executives
+- Finance Managers
+
+Executives can use this report to track cash flow risks and customer reliability on a high level. The late payments metrics over time and customer dimensions can inform strategic business decisions to mitigate financial risk.
+
+Finance managers can use this report to identify customers who pose a cash flow risk and monitor late payment behaviors. By using insights from the late payment analysis by customer and late payments over time, you can prioritize future collection efforts.
+
+## Key Performance Indicators (KPIs)
+
+The *Late Payments (Receivables)* report includes the following KPIs and measures: 
+
+- [**Late Payment Amount**](finance-powerbi-kpis.md#late-payment-amount)
+- [**Late Payment %**](finance-powerbi-kpis.md#late-payment-percent)
+- [**Average Days Late**](finance-powerbi-kpis.md#average-days-late)
+- [**No. of Payments**](finance-powerbi-kpis.md#no-of-payments)
+- [**No. of Late Payments**](finance-powerbi-kpis.md#no-of-late-payments)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Customer Ledger Entries
+- Customer
+
+## Try the report
+
+Try the report here: [Financial Overview](https://businesscentral.dynamics.com?page=37113)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI finance app](finance-powerbi-app.md)  
+[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+[Built-in core finance reports](finance-reports.md)  
+[Built-in fixed assets reports](fa-reports.md)  
+[Built-in accounts receivable reports](receivables-reports.md)  
+[Built-in accounts payable reports](payables-reports.md)  
+[Financial analytics overview](bi.md)  
+[Finance overview](finance.md)
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-reports
@@ -7200,13 +7834,18 @@ Leadership teams use the report to identify high and low performing projects, an
 
 The *Project Profitability* report includes the following KPIs:
 
-- [**Actual Profit**](projects-powerbi-kpis.md#actual-profit)
-- [**Actual (Total Cost)**](projects-powerbi-kpis.md#actual-total-cost)
-- [**Actual Profit Margin %**](projects-powerbi-kpis.md#actual-profit-margin-)
-- [**Billable (Invoiced Price)**](projects-powerbi-kpis.md#billable-invoiced-price)
-- [**Budget (Total Price)**](projects-powerbi-kpis.md#budget-total-price)
-- [**Budget (Total Cost)**](projects-powerbi-kpis.md#budget-total-cost)
+- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
+- [**Total Budget Profit**](projects-powerbi-kpis.md#total-budget-profit)
+- [**Total Invoiced Profit**](projects-powerbi-kpis.md#total-invoiced-profit)
+- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
+- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
+- [**Total Budget Price**](projects-powerbi-kpis.md#total-budget-price)
+- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
+- [**Total Invoiced Costs**](projects-powerbi-kpis.md#total-invoiced-costs)
+- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-profit)
 - [**Budget Profit Margin %**](projects-powerbi-kpis.md#budget-profit-margin-)
+- [**Total Invoiced Profit Margin %**](projects-powerbi-kpis.md#total-invoiced-profit-margin)
+- [**Total Usage Profit Margin %**](projects-powerbi-kpis.md#total-usage-profit-margin)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -7216,9 +7855,9 @@ The *Project Profitability* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Ledger Entries
-- Tasks
+- Job
+- Job Task
+- Job Ledger Entries
 
 ## Try the report
 
@@ -11400,7 +12039,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: reject, delegate, request
-ms.search.form: 1533,
+ms.search.form: 1533_Primary
 ms.date: 06/10/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -12133,18 +12772,18 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 1752,
-ms.date: 04/19/2024
+ms.date: 09/22/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 
 # Classifying data sensitivity fields
 
-To classify the fields that hold sensitive or personal data, a Microsoft partner can set the ```DataClassification``` property on fields. This requires access to the database tables, either through the development environment or by running a Windows PowerShell script. For more information, see [Classifying Data](/dynamics365/business-central/dev-itpro/developer/devenv-classifying-data).  
+To classify the fields that hold sensitive or personal data, a Microsoft partner can set the ```DataClassification``` property on fields. To set the property, you must have access to the database tables, either through the development environment or by running a Windows PowerShell script. To learn more, go to [Classifying Data](/dynamics365/business-central/dev-itpro/developer/devenv-classifying-data).  
 
 As a customer, you can add a second level of classification by specifying sensitivity levels for the data you store in standard and custom fields. Classifying data sensitivity helps ensure that you know where you keep personal data in your system, and makes it easier to respond to requests from data subjects. For example, if a contact or customer asks you to export their personal data. For more information, see [Responding to Requests About Personal Data](admin-responding-to-requests-about-personal-data.md).
 
-> [!Important]  
+> [!IMPORTANT]  
 > Microsoft is providing this Data Sensitivity Classification feature as a matter of convenience only. It's your responsibility to classify the data appropriately and comply with any laws and regulations that are applicable to you. Microsoft disclaims all responsibility towards any claims related to your classification of the data.  
 
 The following table describes data sensitivity levels you can assign.
@@ -12153,24 +12792,69 @@ The following table describes data sensitivity levels you can assign.
 |----|----|
 |Sensitive | Information about a data subject's racial or ethnic origin, political opinions, religious beliefs, involvement with trade unions, physical or mental health, sexuality, or details about criminal offenses. |
 |Personal | Information that can be used to identify a data subject, either directly or in combination with other data or information.|
-|Confidential | Business data that you use for accounting or other business purposes, and do not want to expose to other entities. For example, this might include ledger entries.|
-|Normal | General data that does not belong to any other categories.|
+|Confidential | Business data that you use for accounting or other business purposes, and don't want to expose to other entities. For example, data such as ledger entries.|
+|Normal | General data that doesn't belong to any other categories.|
 
 ## How do I classify my data?
 
-Classifying the sensitivity of a large number of fields one-by-one would take a long time. To help speed up the process, we provide tools that you can use to bulk classify the sensitivity of fields, and then fine-tune classifications for specific fields. You can find tools on the Data Classification Worksheet page, which is available on the Administration of users, user groups, and permissions Role Center. You must be a system administrator to use the worksheet.
- 
-> [!Important]  
-> When you open the Data Classification Worksheet page for the first time, it will be empty. You must run the Data Classification guide to generate the list of fields. To start the guide, choose the **Set Up Data Classifications** action.
+Classifying the sensitivity of a large number of fields one-by-one would take a long time. To help speed-up the process, we provide tools that you can use to bulk classify the sensitivity of fields, and then fine-tune classifications for specific fields. You can find tools on the Data Classification Worksheet page, which is available on the Administration of users, user groups, and permissions Role Center. You must be a system administrator to use the worksheet.
+
+> [!IMPORTANT]  
+> The Data Classification Worksheet page is empty when you open it the first time. You must run the **Data Classification** guide to generate the list of fields. To start the guide, choose the **Set Up Data Classifications** action.
 
 For example, the Data Classification Worksheet page lets you do things like:  
 
-* Use the Data Classification guide to export your fields to an Excel worksheet where you can bulk classify them. Using the Excel worksheet is particularly useful if you are collaborating with a Microsoft partner. After you update the worksheet, you can use the guide to import and apply the classifications. You can also use the guide to classify fields manually.  
+* Use the Data Classification guide to export your fields to an Excel worksheet where you can bulk classify them. Using the Excel worksheet is useful if you're collaborating with a Microsoft partner. After you update the worksheet, you can use the guide to import and apply the classifications. You can also use the guide to classify fields manually.  
 * Choose a field and then filter the list to find similar fields that are likely to belong to the same classification as the field you based the search on.  
 * Investigate a field by viewing its contents.  
 
-> [!Tip]  
-> We have defined sample sensitivity classifications for the tables and fields in the Cronus demonstration company. You can use those classifications as inspiration when you classify your own tables and fields.
+> [!TIP]  
+> We defined sample sensitivity classifications for the tables and fields in the Cronus demonstration company. You can use those classifications as inspiration when you classify your own tables and fields.
+
+## Mask or show sensitive data in fields
+
+You can protect sensitive information by masking field values on the screen. Masking helps protect sensitive data, such as personal identifiers, financial details, or confidential notes, from casual observation or shoulder surfing. For example, you might want to mask values when people work in shared or open work environments.
+
+The following image shows a masked field value and highlights the reveal button.
+
+:::image type="content" source="media/masked-field.png" alt-text="Screenshot that shows a masked field value and the reveal button.":::
+
+Masking is consistent across pages, and you can configure it to support role-based visibility or audit logging.
+
+> [!NOTE]
+> Masking provides lightweight, UI-layer-only information protection only. The unmasked data transfers to the web browser anyway.
+
+Additional information:
+
+* List pages or grid controls don't support this feature. Only document and card pages do (not supported in repeater controls).
+* The reveal button renders on the control that lets you toggle between mask and show states.
+* Masking works on desktop and mobile devices.
+
+> [!NOTE]
+> To use masking, you must enable **Introduce UI support for masking sensitive data** on the **Feature Management** page. To learn more, go to [Introduce UI support for masking sensitive data feature key](/dynamics365/business-central/dev-itpro/developer/devenv-masktype-feature-key).
+>
+> We introduced masking in 2025 release wave 2. We'll make the feature a standard part of [!INCLUDE [prod_short](includes/prod_short.md)] in a future version and remove the feature key.
+
+### Information about masking for developers
+
+The `MaskType` field-level property allows you to hide values in text fields. Learn more at [MaskType Property](/dynamics365/business-central/dev-itpro/developer/properties/devenv-masktype-property).
+
+When you apply the property, [!INCLUDE [prod_short](includes/prod_short.md)] masks the field's value by default, and only shows the value when you choose the reveal button in the field.
+
+The `MaskType` property is a field-level property. You can use the property on the following types of fields:
+
+* `Code`
+* `Text`
+* `Decimal`
+* `Integer`
+
+You define the property as an `enum MaskType` with the following values:
+
+* `None` - Shows the field value by default. Masking isn't applied.
+* `Concealed` - Masks the field value in the user interface by default.
+
+> [!NOTE]
+> You can't define the `MaskType` property together with the `ExtendedDatatype` property set to `Masked`.
 
 ## Related information
 
@@ -13068,7 +13752,7 @@ ms.service: dynamics-365-business-central
 
 The **Project Realization** report shows how billing is performing against the costs.
 
-The report compares the billable (invoiced price) value to the actual (total price) value, and highlights how much of each project was invoiced.
+The report compares the total invoiced price to the total usage price, and highlights how much of each project was invoiced.
 
 :::image type="content" source="media/projects/project-realization.png" alt-text="Screenshot of the Project Realization Power BI Report" lightbox="media/projects/project-realization.png":::
 
@@ -13084,8 +13768,9 @@ Project managers use this report to identify projects with completed work that i
 
 The *Project Realization* report includes the following KPIs:
 
-- [**Actual (Total Price)**](projects-powerbi-kpis.md#actual-total-price)
-- [**Billable (Invoiced Price)**](projects-powerbi-kpis.md#billable-invoiced-price)
+- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
+- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
+- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
 - [**Realization %**](projects-powerbi-kpis.md#realization-)
 - [**Realization Variance**](projects-powerbi-kpis.md#realization-variance)
 
@@ -13098,8 +13783,8 @@ The *Project Realization* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Ledger Entries
+- Job
+- Job Ledger Entries
 
 ## Try the report
 
@@ -13965,63 +14650,30 @@ Each KPI is described, including how it is calculated and what data was used in 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Project Measures
-- [% Invoiced](#-invoiced)
-- [% Complete](#-complete)
-- [Duration (Days)](#duration-days)
+
+- [No. of Completed Projects](#no-of-completed-projects)
 - [Project Count](#project-count)
+- [Tasks Count](#tasks-count)
+- [Complete (%)](#completed-)
+- [Invoiced (%)](#invoiced-)
 - [Realization %](#realization-)
 - [Realization Variance](#realization-variance)
-- [Tasks Count](#tasks-count)
 
-### % Invoiced
-
-**Formula**  
-*% Invoiced = [Billable (Invoiced Price)](#billable-invoiced-price) / [Billable (Total Price)](#billable-total-price)*
-  
-**Data Sources**
-- Job Ledger Entry
-- Job Planning Line
-
-### % Complete
+### No. of Completed Projects
 
 **Formula**  
-*% Complete = [Actual (Total Cost)](#actual-total-cost) / [Budget (Total Cost)](#budget-total-cost)*
-  
-**Data Sources**
-- Job Ledger Entry
-- Job Planning Line
+The No. of Completed Projects measure calculates the number of projects where the Complete column is "Yes".
 
-### Duration (Days)
-
-**Formula**  
-The Duration (Days) measure calculates the number of days between the earliest starting date and latest ending date for a given project in the Project table.
-  
 **Data Sources**
 - Job
 
 ### Project Count
+
 **Formula**  
 The Project Count measure counts the total number of projects in the Project table.
 
 **Data Sources**
 - Job
-
-### Realization %
-
-**Formula**  
-*Realization % = [Billable (Invoiced Price)](#billable-invoiced-price) / [Actual (Total Price)](#actual-total-price)*
-  
-**Data Sources**
-- Job Ledger Entry
-
-### Realization Variance
-
-**Formula**  
-*Realization Variance = [Billable (Invoiced Price)](#billable-invoiced-price) - [Actual (Total Price)](#actual-total-price)*
-
-**Data Sources**
-- Job Ledger Entry
-- Job Planning Line
 
 ### Tasks Count
 
@@ -14031,13 +14683,56 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 **Data Sources**
 - Job Task
 
-## Profit
-- [Actual Profit](#actual-profit)
-- [Actual Profit Margin %](#actual-profit-margin-)
-- [Budget Profit](#budget-profit)
-- [Budget Profit Margin %](#budget-profit-margin-)
+### Completed (%)
+
+**Formula**  
+*Completed (%) = [Total Usage Cost](#total-usage-cost) / [Total Budget Cost](#total-budget-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+- Job Planning Line
+
+### Invoiced (%)
+
+**Formula**  
+*Invoiced (%) = [Total Invoiced Price](#total-invoiced-price) / [Total Billable Price](#total-billable-price)*
+
+**Data Sources**
+- Job Ledger Entry
+- Job Planning Line
+
+### Duration (Days)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Duration (Days) measure calculates the number of days between the earliest starting date and latest ending date for a given project in the Project table.
+  
+**Data Sources**
+- Job
+
+### Realization (%)
+
+**Formula**  
+*Realization (%) = [Total Billable Price)](#total-billable-price) / [Total Usage Price](#total-usage-price)*
+  
+**Data Sources**
+- Job Ledger Entry
+
+### Realization Variance
+
+**Formula**  
+*Realization Variance = [Total Billable Price](#total-billable-price) - [Total Usage Price](#total-usage-price)*
+
+**Data Sources**
+- Job Ledger Entry
+- Job Planning Line
+
+## Obsolete Project Measures
 
 ### Actual Profit
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 *Actual Profit = [Billable (Invoiced Price)](#billable-invoiced-price) - [Actual (Total Cost)](#actual-total-cost)*
@@ -14047,6 +14742,8 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 
 ### Actual Profit Margin %
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 *Actual Profit Margin % = [Actual Profit Margin %](#actual-profit-margin-) / [Billable (Invoiced Price)](#billable-invoiced-price)*
   
@@ -14054,6 +14751,9 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 - Job Ledger Entry
 
 ### Budget Profit
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 *Budget Profit = - [Budget (Total Price)](#budget-total-price) - [Budget (Total Cost)](#budget-total-cost)*
 
@@ -14063,6 +14763,8 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 
 ### Budget Profit Margin %
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 *Budget Profit Margin % = [Budget Profit](#budget-profit) / [Budget (Total Price)](#budget-total-price)*
 
@@ -14071,14 +14773,288 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 - Job Planning Line
 
 ## Project Ledger Measures
-- [Actual (Total Price)](#actual-total-price)
-- [Billable (Invoiced Price)](#billable-invoiced-price)
-- [Invoiced (Total Cost)](#invoiced-total-cost)
-- [Invoiced (Total Price)](#invoiced-total-price)
-- [Quantity](#quantity)
-- [Total Price](#total-price)
+
+- [Project Ledger Entry Quantity](#project-ledger-entry-quantity)
+- [Project Ledger Line Amount](#project-ledger-line-amount)
+<!-- ### Statistics -->
+<!-- #### Invoiced Cost -->
+- [G/L Account Invoiced Cost](#gl-account-invoiced-cost)
+- [Item Invoiced Cost](#item-invoiced-cost)
+- [Resource Invoiced Cost](#resource-invoiced-cost)
+<!-- #### Invoiced Price -->
+- [G/L Account Invoiced Price](#gl-account-invoiced-price)
+- [Item Invoiced Price](#item-invoiced-price)
+- [Resource Invoiced Price](#resource-invoiced-price)
+<!-- #### Invoiced Profit -->
+- [G/L Account Invoiced Profit](#gl-account-invoiced-profit)
+- [Item Invoiced Profit](#item-invoiced-profit)
+- [Resource Invoiced Profit](#resource-invoiced-profit)
+<!-- #### Usage Cost -->
+- [G/L Account Usage Cost](#gl-account-usage-cost)
+- [Item Usage Cost](#item-usage-cost)
+- [Resource Usage Cost](#resource-usage-cost)
+<!-- #### Usage Price -->
+- [G/L Account Usage Price](#gl-account-usage-price)
+- [Item Usage Price](#item-usage-price)
+- [Resource Usage Price](#resource-usage-price)
+<!-- #### Totals -->
+- [Total Invoiced Costs](#total-invoiced-costs)
+- [Total Invoiced Price](#total-invoiced-price)
+- [Total Invoiced Profit](#total-invoiced-profit)
+- [Total Invoiced Profit Margin %](#total-invoiced-profit-margin-)
+- [Total Usage Cost](#total-usage-cost)
+- [Total Usage Price](#total-usage-price)
+- [Total Usage Profit](#total-usage-profit)
+- [Total Usage Profit Margin %](#total-usage-profit-margin-)
+
+### Project Ledger Entry Quantity
+**Formula**  
+The Project Ledger Entry Quantity measure aggregates the Qty. column of the Project Ledger Entry table. The sign is then inverted by multiplying by negative one.
+  
+**Data Sources**
+- Project Ledger Entry
+
+### Project Ledger Line Amount
+**Formula**  
+The Project Ledger Line Amount measure calculates the Project Ledger Line Amount by iterating over each Project Ledger Entry and multiplying Quantity by Unit Price (LCY).
+  
+**Data Sources**
+- Project Ledger Entry
+
+<!-- Invoiced -->
+## Invoiced Cost
+
+<!-- Invoiced Cost -->
+### G/L Account Invoiced Cost
+
+**Formula**  
+The G/L Account Invoiced Cost calculates the total invoiced cost for G/L accounts used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Sale" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Invoiced Cost
+
+**Formula**  
+The Item Invoiced Cost calculates the total invoiced cost for items used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Sale" and the type is "Item".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Invoiced Cost
+
+**Formula**  
+The Resource Invoiced Cost calculates the total invoiced cost for resources used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Sale" and the type is "Resource".
+
+**Data Sources**
+- Job Ledger Entry
+
+<!-- Invoiced Price -->
+## Invoiced Price
+
+### G/L Account Invoiced Price
+
+**Formula**  
+The G/L Account Invoiced Price calculates the total invoiced price for G/L accounts used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Sale" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Invoiced Price
+
+**Formula**  
+The Item Invoiced Price calculates the total invoiced price for items used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Sale" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Invoiced Price
+
+**Formula**  
+The Resource Invoiced Price calculates the total invoiced price for resources used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Sale" and the type is "Resource".
+
+**Data Sources**
+- Job Ledger Entry
+
+<!-- Invoiced Profit -->
+## Invoiced Profit
+
+### G/L Account Invoiced Profit
+
+**Formula**  
+*G/L Account Invoiced Profit = [G/L Account Invoiced Price](#gl-account-invoiced-price) - [G/L Account Invoiced Cost](#gl-account-invoiced-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Invoiced Profit
+
+**Formula**  
+*Item Invoiced Profit = [Item Invoiced Price](#item-invoiced-price) - [Item Invoiced Cost](#item-invoiced-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Invoiced Profit
+
+**Formula**  
+*Resource Invoiced Profit = [Resource Invoiced Price](#resource-invoiced-price) - [Resource Invoiced Cost](#resource-invoiced-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+<!-- Usage -->
+## Usage Cost
+
+<!-- Usage Cost-->
+### G/L Account Usage Cost
+
+**Formula**  
+The G/L Account Usage Cost calculates the total usage cost for G/L accounts used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Usage" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Usage Cost
+
+**Formula**  
+The Item Usage Cost calculates the total usage cost for items used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Usage" and the type is "Item".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Usage Cost
+
+**Formula**  
+The Resource Usage Cost calculates the total usage cost for resources used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the entry type is "Usage" and the type is "Resource".
+
+**Data Sources**
+- Job Ledger Entry
+
+<!-- Usage Price-->
+## Usage Price
+### G/L Account Usage Price
+
+**Formula**  
+The G/L Account Usage Price calculates the total usage price for G/L accounts used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Usage" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Usage Price
+
+**Formula**  
+The Item Usage Price calculates the total usage price for items used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Usage" and the type is "G/L Account".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Usage Price
+
+**Formula**  
+The Resource Usage Price calculates the total usage price for resources used in a project. It uses the SUMX function to calculate the line amount for each entry where the entry type is "Usage" and the type is "Resource".
+
+**Data Sources**
+- Job Ledger Entry
+
+<!-- Usage Profit-->
+## Usage Profit
+
+### G/L Account Usage Profit
+
+**Formula**  
+*G/L Account Usage Profit = [G/L Account Usage Price](#gl-account-usage-price) - [G/L Account Usage Cost](#gl-account-usage-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Item Usage Profit
+
+**Formula**  
+*Item Usage Profit = [Item Usage Price](#item-usage-price) - [Item Usage Cost](#item-usage-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Resource Usage Profit
+
+**Formula**  
+*Resource Usage Profit = [Resource Usage Price](#resource-usage-price) - [Resource Usage Cost](#resource-usage-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+## Totals
+
+### Total Invoiced Costs
+
+**Formula**  
+*Total Invoiced Costs = [G/L Account Invoiced Cost](#gl-account-invoiced-cost) + [Item Invoiced Cost](#item-invoiced-cost) + [Resource Invoiced Cost](#resource-invoiced-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Invoiced Price
+
+**Formula**  
+*Total Invoiced Price = [G/L Account Invoiced Price](#gl-account-invoiced-price) + [Item Invoiced Price](#item-invoiced-price) + [Resource Invoiced Price](#resource-invoiced-price)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Invoiced Profit
+
+**Formula**  
+*Total Invoiced Profit = [G/L Account Invoiced Profit](#gl-account-invoiced-profit) + [Item Invoiced Profit](#item-invoiced-profit) + [Resource Invoiced Profit](#resource-invoiced-profit)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Invoiced Profit Margin %
+
+**Formula**  
+*Total Invoiced Profit Margin % = [Total Invoiced Profit](#total-invoiced-profit) / [Total Invoiced Price](#total-invoiced-price)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Usage Cost
+
+**Formula**  
+*Total Usage Costs = [G/L Account Usage Cost](#gl-account-usage-cost) + [Item Usage Cost](#item-usage-cost) + [Resource Usage Cost](#resource-usage-cost)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Usage Price
+
+**Formula**  
+*Total Usage Price = [G/L Account Usage Price](#gl-account-usage-price) + [Item Usage Price](#item-usage-price) + [Resource Usage Price](#resource-usage-price)*
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Usage Profit
+
+**Formula**  
+*Total Usage Profit = [Total Usage Price](#total-usage-price) - [Total Usage Cost](#total-usage-cost) *
+
+**Data Sources**
+- Job Ledger Entry
+
+### Total Usage Profit Margin %
+
+**Formula**  
+*Total Usage Profit Margin % = [Total Usage Profit](#total-usage-profit) / [Total Usage Price](#total-usage-price)*
+
+**Data Sources**
+- Job Ledger Entry
+
+## Obsolete Project Ledger Measures
 
 ### Actual (Total Price)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Actual (Total Price) measure calculates the total actual cost of project entries by calculating the total price (in local currency) in the Project Ledger Entry table and selecting only those entries with an entry type of "Usage". The result of this calculation is then converted to a positive value.
@@ -14088,6 +15064,8 @@ The Actual (Total Price) measure calculates the total actual cost of project ent
 
 ### Billable (Invoiced Price)
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Billable (Invoiced Price) measure shows the total invoiced price of billable project entries by calculating the total price (in local currency) in the Project Ledger Entry table and selecting only those entries with an entry type of "Sale", which indicates that the project entry is billable.
   
@@ -14095,6 +15073,8 @@ The Billable (Invoiced Price) measure shows the total invoiced price of billable
 - Job Ledger Entry
 
 ### Invoiced (Total Cost)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Invoiced (Total Cost) measure calculates the total cost of all project ledger entries where the entry type is "Sale" in the Project Ledger Entry table.
@@ -14104,6 +15084,8 @@ The Invoiced (Total Cost) measure calculates the total cost of all project ledge
 
 ### Invoiced (Total Price)
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Invoiced (Total Price) measure calculates the total price of all project ledger entries where the entry type is "Sale" in the Project Ledger Entry table.
   
@@ -14112,13 +15094,17 @@ The Invoiced (Total Price) measure calculates the total price of all project led
 
 ### Quantity
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
-The Quantity measure calculates the total quantity of a product or service used in a project by summing the quantity in the Project Ledger Entry table and converting the measure to a postive value.
+The Quantity measure calculates the total quantity of a product or service used in a project by summing the quantity in the Project Ledger Entry table and converting the measure to a positive value.
   
 **Data Sources**
 - Job Ledger Entry
 
 ### Total Price
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Total Price measure calculates the total price of all project ledger entries in the Project Ledger Entry table. It uses the SUMX function to iterate over each row in the table and multiply the quantity and unit price (in local currency) columns for each row. The results of each multiplication are then summed up to produce the total price.
@@ -14126,13 +15112,9 @@ The Total Price measure calculates the total price of all project ledger entries
 **Data Sources**
 - Job Ledger Entry
 
-## Usage
-- [Actual (Total Cost)](#actual-total-cost)
-- [Gen. Journal Usage (Total Cost)](#gen-journal-usage-total-cost)
-- [Labour Usage (Total Cost)](#labour-usage-total-cost)
-- [Material Usage (Total Cost)](#material-usage-total-cost)
-
 ### Actual (Total Cost)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Actual (Total Cost) measure calculates the total cost (in local currency) of all project ledger entries where the type is "Usage" in the Project Ledger Entry table.
@@ -14142,6 +15124,8 @@ The Actual (Total Cost) measure calculates the total cost (in local currency) of
 
 ### Gen. Journal Usage (Total Cost)
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Gen. Journal Usage (Total Cost) measure calculates the total cost of all project ledger entries where the type is "G/L Account" in the Project Ledger Entry table.
   
@@ -14149,6 +15133,8 @@ The Gen. Journal Usage (Total Cost) measure calculates the total cost of all pro
 - Job Ledger Entry
 
 ### Labour Usage (Total Cost)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Labour Usage (Total Cost) measure calculates the total cost of all project ledger entries where the type is "Resource" in the Project Ledger Entry table.
@@ -14158,68 +15144,59 @@ The Labour Usage (Total Cost) measure calculates the total cost of all project l
 
 ### Material Usage (Total Cost)
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Material Usage (Total Cost) measure calculates the total cost of all project ledger entries where the type is "Item" in the Project Ledger Entry table.
   
 **Data Sources**
 - Job Ledger Entry
 
-
 ## Planning Line Measures
-- [Billable (Total Cost)](#billable-total-cost)
-- [Billable (Total Price)](#billable-total-price)
-- [Budget (Total Cost)](#budget-total-cost)
-- [Budget (Total Price)](#budget-total-price)
+
 - [Planning Line Quantity](#planning-line-quantity)
 - [Planning Line Total Cost (LCY)](#planning-line-total-cost-lcy)
 - [Planning Line Total Price (LCY)](#planning-line-total-price-lcy)
+<!-- Variance -->
 - [Total Cost Variance to Budget](#total-cost-variance-to-budget)
 - [Total Cost Variance to Budget %](#total-cost-variance-to-budget-)
-
-### Billable (Total Cost)
-
-**Formula**  
-The Billable (Total Cost) measure calculates the total cost (in local currency) of all project planning lines where the line type is "Billable" or "Both Budget and Billable" in the Project Planning Line table.
-  
-**Data Sources**
-- Job Planning Line
-
-### Billable (Total Price)
-
-**Formula**  
-The Billable (Total Price) measure calculates the total price (in local currency) of all project planning lines where the line type is "Billable" or "Both Budget and Billable" in the Project Planning Line table.
-  
-**Data Sources**
-- Job Planning Line
-
-### Budget (Total Cost)
-
-**Formula**  
-The Budget (Total Cost) measure represents the budgeted cost of resources to be used in a project by calculating the total cost (in local currency) in the Project Planning Line table and selecting only those lines with a line type of "Budget" or "Both Budget and Billable".
-
-**Data Sources**
-- Job Ledger Entry
-
-### Budget (Total Price)
-
-**Formula**  
-The Budget (Total Price) measure represents the budgeted price of resources to be used in a project by calculating the total price (in local currency) in the Project Planning Line table and selecting only those lines with a line type of "Budget" or "Both Budget and Billable".
-
-**Data Sources**
-- Job Planning Line
-
-### Planning Line Quantity
-
-**Formula**  
-The Planning Line Quantity measure calculates the sum of the quantity column in the Project Planning Line table.
-
-**Data Sources**
-- Job Planning Line
+<!-- Statistics -->
+<!-- Billable Costs -->
+- [G/L Account Billable Costs](#gl-account-billable-costs)
+- [Item Billable Costs](#item-billable-costs)
+- [Resource Billable Costs](#resource-billable-costs)
+<!-- Billable Price -->
+- [G/L Account Billable Price](#gl-account-billable-price)
+- [Item Billable Price](#item-billable-price)
+- [Resource Billable Price](#resource-billable-price)
+<!-- Billable Profit -->
+- [G/L Account Billable Profit](#gl-account-billable-profit)
+- [Item Billable Profit](#item-billable-profit)
+- [Resource Billable Profit](#resource-billable-profit)
+<!-- Budget Cost -->
+- [G/L Account Budget Costs](#gl-account-budget-costs)
+- [Item Budget Costs](#item-budget-costs)
+- [Resource Budget Costs](#resource-budget-costs)
+<!-- Budget Price -->
+- [G/L Account Budget Price](#gl-account-budget-price)
+- [Item Budget Price](#item-budget-price)
+- [Resource Budget Price](#resource-budget-price)
+<!-- Budget Profit -->
+- [G/L Account Budget Profit](#gl-account-budget-profit)
+- [Item Budget Profit](#item-budget-profit)
+- [Resource Budget Profit](#resource-budget-profit)
+<!-- Totals -->
+- [Total Billable Cost](#total-billable-cost)
+- [Total Billable Price](#total-billable-price)
+- [Total Billable Profit](#total-billable-profit)
+- [Total Budget Cost](#total-budget-cost)
+- [Total Budget Price](#total-budget-price)
+- [Total Budget Profit](#total-budget-profit)
 
 ### Planning Line Quantity
 
 **Formula**  
-The Planning Line Quantity measure calculates the sum of the quantity column in the Project Planning Line table.
+The Planning Line Quantity measure calculates the sum of the Quantity column in the Project Planning Line table.
 
 **Data Sources**
 - Job Planning Line
@@ -14243,7 +15220,7 @@ The Planning Line Total Price (LCY) measure calculates the total price of all pr
 ### Total Cost Variance to Budget
 
 **Formula**  
-*Total Cost Variance to Budget = [Actual (Total Cost)](#actual-total-cost) - [Budget (Total Cost)](#budget-total-cost)*
+*Total Cost Variance to Budget = [Total Usage Cost](#total-usage-cost) - [Total Budget Cost](#total-budget-cost)*
 
 **Data Sources**
 - Job Ledger Entry
@@ -14251,23 +15228,215 @@ The Planning Line Total Price (LCY) measure calculates the total price of all pr
 ### Total Cost Variance to Budget %
 
 **Formula**  
-*Total Cost Variance to Budget % = [Total Cost Variance to Budget %](#total-cost-variance-to-budget-) / [Budget (Total Cost)](#budget-total-cost)*
+*Total Cost Variance to Budget % = [Total Cost Variance to Budget %](#total-cost-variance-to-budget) / [Total Budget Cost)](#total-budget-cost)*
 
 **Data Sources**
 - Job Ledger Entry
 
-### Project Task Starting Date
+## Billable Costs
+
+### G/L Account Billable Costs
 
 **Formula**  
-The Project Task Starting Date column calculates the earliest planning date for a project task, helping to identify when the task is scheduled to begin.
+The G/L Account Billable Costs calculates the total billable cost for G/L accounts used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "G/L Account".
 
 **Data Sources**
 - Job Planning Line
 
-### Project Task Ending Date
+### Item Billable Costs
 
 **Formula**  
-The Project Task Ending Date column calculates the latest planning date for a project task, helping to identify when the task is scheduled to end.
+The Item Billable Costs calculates the total billable cost for items used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "Item".
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Billable Costs
+
+**Formula**  
+The Resource Billable Costs calculates the total billable cost for resources used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "Resource".
+
+**Data Sources**
+- Job Planning Line
+
+## Billable Price
+
+### G/L Account Billable Price
+
+**Formula**  
+The G/L Account Billable Price calculates the total billable amount for G/L accounts used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "G/L Account".
+
+**Data Sources**
+- Job Planning Line
+
+### Item Billable Price
+
+**Formula**  
+The Item Billable Price calculates the total billable amount for items used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "Item".
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Billable Price
+
+**Formula**  
+The Resource Billable Price calculates the total billable amount for resources used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Billable" or "Both Budget and Billable" and the type is "Resource".
+
+**Data Sources**
+- Job Planning Line
+
+## Billable Profit
+
+### G/L Account Billable Profit
+
+**Formula**  
+*G/L Account Billable Profit = [G/L Account Billable Price](#gl-account-billable-price) - [G/L Account Billable Costs](#gl-account-billable-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Item Billable Profit
+
+**Formula**  
+*Item Billable Profit = [Item Billable Price](#item-billable-price) - [Item Billable Costs](#item-billable-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Billable Profit
+
+**Formula**  
+*Resource Billable Profit = [Resource Billable Price](#resource-billable-price) - [Resource Billable Costs](#resource-billable-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+## Budget Costs
+
+### G/L Account Budget Costs
+
+**Formula**  
+The G/L Account Budget Costs calculates the total budget cost for G/L accounts used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "G/L Account".
+
+**Data Sources**
+- Job Planning Line
+
+### Item Budget Costs
+
+**Formula**  
+The Item Budget Costs calculates the total budget cost for items used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "Item".
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Budget Costs
+
+**Formula**  
+The Resource Budget Costs calculates the total budget cost for resources used in a project. It uses the SUM function to add up all entries by the Total Cost (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "Resource".
+
+**Data Sources**
+- Job Planning Line
+
+## Budget Price
+
+### G/L Account Budget Price
+
+**Formula**  
+The G/L Account Budget Price calculates the total budget amount for G/L accounts used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "G/L Account".
+
+**Data Sources**
+- Job Planning Line
+
+### Item Budget Price
+
+**Formula**  
+The Item Budget Price calculates the total budget amount for items used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "Item".
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Budget Price
+
+**Formula**  
+The Resource Budget Price calculates the total budget amount for resources used in a project. It uses the SUM function to add up all entries by the Line Amount (LCY) column where the line type is "Budget" or "Both Budget and Billable" and the type is "Resource".
+
+**Data Sources**
+- Job Planning Line
+
+## Budget Profit
+
+### G/L Account Budget Profit
+
+**Formula**  
+*G/L Account Budget Profit = [G/L Account Budget Price](#gl-account-budget-price) - [G/L Account Budget Costs](#gl-account-budget-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Item Budget Profit
+
+**Formula**  
+*Item Budget Profit = [Item Budget Price](#item-budget-price) - [Item Budget Costs](#item-budget-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Resource Budget Profit
+
+**Formula**  
+*Resource Budget Profit = [Resource Billable Price](#resource-budget-price) - [Resource Budget Costs](#resource-budget-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+## Totals
+
+<!-- Billable Totals -->
+### Total Billable Cost
+
+**Formula**  
+*Total Billable Cost = [G/L Account Billable Costs](#gl-account-billable-costs) + [Item Billable Costs](#item-billable-costs) + [Resource Billable Costs](#resource-billable-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Total Billable Price
+
+**Formula**  
+*Total Billable Price = [G/L Account Billable Price](#gl-account-billable-price) + [Item Billable Price](#item-billable-price) + [Resource Billable Price](#resource-billable-price)*
+
+**Data Sources**
+- Job Planning Line
+
+### Total Billable Profit
+
+**Formula**  
+*Total Billable Profit = [Total Billable Price](#total-billable-price) + [Total Billable Costs](#total-billable-cost)*
+
+**Data Sources**
+- Job Planning Line
+
+<!-- Budget Totals -->
+### Total Budget Cost
+
+**Formula**  
+*Total Budget Cost = [G/L Account Budget Costs](#gl-account-budget-costs) + [Item Budget Costs](#item-budget-costs) + [Resource Budget Costs](#resource-budget-costs)*
+
+**Data Sources**
+- Job Planning Line
+
+### Total Budget Price
+
+**Formula**  
+*Total Budget Price = [G/L Account Budget Price](#gl-account-budget-price) + [Item Budget Price](#item-budget-price) + [Resource Budget Price](#resource-budget-price)*
+
+**Data Sources**
+- Job Planning Line
+
+### Total Budget Profit
+
+**Formula**  
+*Total Budget Profit = [Total Budget Price](#total-budget-price) + [Total Budget Costs](#total-budget-cost)*
 
 **Data Sources**
 - Job Planning Line
@@ -14326,6 +15495,71 @@ The Quantity on PO measure calculates the total quantity of items ordered in the
 
 **Data Sources**
 - Purchase Line
+
+## Obsolete Planning Line Measures
+
+### Billable (Total Cost)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Billable (Total Cost) measure calculates the total cost (in local currency) of all project planning lines where the line type is "Billable" or "Both Budget and Billable" in the Project Planning Line table.
+  
+**Data Sources**
+- Job Planning Line
+
+### Billable (Total Price)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Billable (Total Price) measure calculates the total price (in local currency) of all project planning lines where the line type is "Billable" or "Both Budget and Billable" in the Project Planning Line table.
+  
+**Data Sources**
+- Job Planning Line
+
+### Budget (Total Cost)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Budget (Total Cost) measure represents the budgeted cost of resources to be used in a project by calculating the total cost (in local currency) in the Project Planning Line table and selecting only those lines with a line type of "Budget" or "Both Budget and Billable".
+
+**Data Sources**
+- Job Ledger Entry
+
+### Budget (Total Price)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Budget (Total Price) measure represents the budgeted price of resources to be used in a project by calculating the total price (in local currency) in the Project Planning Line table and selecting only those lines with a line type of "Budget" or "Both Budget and Billable".
+
+**Data Sources**
+- Job Planning Line
+
+## Tasks
+
+- [Project Task Duration Days](#project-task-duration-days)
+- [Project Task Duration Weeks](#project-task-duration-weeks)
+
+### Project Task Duration Days
+
+**Formula**
+
+The Project Task Duration Days measure calculates the duration of a project task in days by finding the earliest and latest planning dates from related Project Planning Lines, then returning the day difference between them.
+
+**Data Sources**
+- Project Planning Line
+
+### Project Task Duration Weeks
+
+**Formula**
+
+The Project Task Duration Days measure calculates the duration of a project task in weeks by taking the earliest and latest planning dates from related Project Planning Lines, then returning the week difference.
+
+**Data Sources**
+- Project Planning Line
 
 ## Related information
 
@@ -14491,7 +15725,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000846, 99000850
-ms.date: 03/20/2025
+ms.date: 09/01/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -14510,7 +15744,10 @@ You can also set up [!INCLUDE[prod_short](includes/prod_short.md)] to automatica
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Consumption Journal**, and then choose the related link.  
 2. Fill in the fields with the production order data and the consumption data. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-    Use the **Calc. Consumption** action to generate journal lines from production orders based on the actual output (the quantity of finished goods that you reported) or on the expected output (the quantity of finished goods that you expect to produce).
+    > [!TIP]
+    > Use the **Calc. Consumption** action to generate journal lines from production orders based on the actual output (the quantity of finished goods that you reported) or on the expected output (the quantity of finished goods that you expect to produce).
+    >
+    > When you do, the **Calculation Based on** field might be filled in already. On the **Manufacturing Setup** page, you can specify the value to use by default in the **Default Consumption Calculation Based on** field. Specifying a default value lets you align consumption calculations with your preferred process, and saves you a step.
 
     > [!NOTE]
     > If you configured the location to require warehouse pick processing, only quantities that are already picked through a warehouse activity can be entered in the **Quantity** field in the **Consumption Journal** page. It can't be a calculated quantity. To learn more, go to [Pick for Production or Assembly in Advanced Warehouse Configurations](warehouse-how-to-pick-for-internal-operations-in-advanced-warehousing.md).

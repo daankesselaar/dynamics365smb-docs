@@ -1,3 +1,246 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-consolidated-company-reporting-setup
+---
+title: Set up company consolidation
+description: Learn how you can configure how data from different companies in Business Central is reported into a consolidation company.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 04/25/2025
+ms.custom: bap-template
+ms.search.keywords: consolidation, subsidiaries, consolidate
+ms.search.form: 240, 1826, 1827, Report_16, Report_17, Report_18, Report_4410
+ms.service: dynamics-365-business-central
+---
+
+# Set up company consolidation
+
+Before you can consolidate the general ledger entries of two or more companies (subsidiaries) into a consolidated company, you must prepare the charts of accounts and the consolidation company.  
+
+Depending on the complexity of your businesses, there are two ways to set up consolidation:
+
+* If you don't need advanced settings, such as including a company that you only own part of, you can use the **Company Consolidation** setup guide to quickly set-up a consolidation. The guide helps you through the basic steps.
+* If you need more advanced settings, you can set up the consolidated company and business units yourself.
+  * In each business unit, specify the general ledger accounts to include in the consolidation and the translation method for each account.
+  * In the consolidated company, set up a business unit card for each company to include in the consolidation. The business unit card includes information such as the dates of the business unit's fiscal year, and the percentage of each account to include in the consolidation.
+
+## Simple consolidation setup
+
+If your consolidation is straightforward, for example because you wholly own the business units to consolidate, the **Company Consolidation** guide helps you through the following steps:
+
+* Create a new consolidated company, or consolidate a company you already created. The company shouldn't contain transactions.
+* Preview the results. [!INCLUDE[prod_short](includes/prod_short.md)] verifies that you can successfully transfer the master data and transactions to the consolidated company.
+
+To use the assisted setup guide, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Assisted Setup**, and then choose the related link.
+2. Choose **Process Consolidations**, and then complete each step in the Company Consolidation assisted setup guide.
+
+## Advanced consolidation setup
+
+If you need more advanced settings for your consolidation, you can set up consolidation manually. For example, if you have companies that you partially own, or you have companies that you don't want to include.  
+
+### Set up the consolidated company
+
+First, you must set up the consolidated company. You set up the consolidated company in the same way that you set up other companies. To learn more about setting up a company, go to [Getting Ready for Doing Business](ui-get-ready-business.md).  
+
+The following list illustrates key aspects of the consolidated company.
+
+1. Set up the chart of accounts.
+
+    To learn more about setting up a chart of accounts, go to [Setting Up or Changing the Chart of Accounts](finance-setup-chart-accounts.md).  
+
+    The charts of accounts can be identical across a business unit and the consolidated company, or the consolidated company can have a different chart of account. If a business unit's chart of accounts differs from the consolidated company's, you must map the accounts to the accounts in the business unit. To learn more, go to the [Prepare general ledger accounts for consolidation](#glacc) section.
+
+2. Add business units.
+
+    To consolidate several companies' data, you must set up the subsidiaries as business units and specify how much of their balances to include. To learn more about business units, to go the [Add business units](#busunit) section.
+
+3. Specify exchange rates, if needed.
+
+    Specify exchange rates if you consolidate data for business units that use different currencies. The exchange rates you can use are **Average Rate (Manual)** and **Closing Rate**. To learn more about exchange rates, go to [Specify exchange rates for consolidations](#exchrates).
+
+4. Consolidate dimension information and general ledger accounts.
+
+    To learn more, go to the [Include or exclude dimensions](#dim) section.
+
+### <a name="busunit"></a>Add business units
+
+In the consolidated company, set up each company that you want to consolidate data from as a business unit. Before you run a consolidation and generate your consolidation report, it's a good idea to verify the financial data in each business unit.
+
+A significant part of setting up the business unit is to specify how the unit shares it's financial data with the consolidated company. There are manual and automated options:
+
+* To use a manual process, for [!INCLUDE [prod_short](includes/prod_short.md)] online and on-premises, you can export an .xml file that contains the unit's general ledger entries. Then import the file in the consolidated company.
+* To automate the data exchange, for [!INCLUDE [prod_short](includes/prod_short.md)] online you can use an API that [!INCLUDE [prod_short](includes/prod_short.md)] provides to share data across environments. If your companies are in the same environment, you can use the **Database** option.
+
+> [!NOTE]
+> The API option also lets you share general ledger entries from other [!INCLUDE [prod_short](includes/prod_short.md)] environments. To use the API option, the user who configures the consolidation must have permission to access G/L entries. For example, the D365 Basic and D365 Read permission sets provide access.
+
+#### Set up business unit currencies
+
+When you run consolidation for business units in a foreign currency, pay attention to the exchange rates that various parts of the process use. This is especially true when you rerun consolidation. Use the **Set Up Business Unit Currencies** page to easily keep track of the rates.
+
+The **Set Up Business Unit Currencies** page gives you the last rates for average and closing. You can look up the exchange rates in the currency exchange rate table, which makes it easier to validate rates. You can change the rates for the current run by entering the values or copying them from previous runs. To copy rates, choose **Select from previous consolidation**. This page is valuable when you want to rerun a previous consolidation and use a previous closing rate. This step helps to correctly revaluate your balance sheet items. The **Select from previous consolidation** page is also useful if you just want to view the rates that were used, for example, when you're troubleshooting. The page is filtered to runs that included the selected business unit.
+
+You start the **Run Consolidation** batch job from the **Business Units** list page. You can also find the **Set Up Business Unit Currencies** page by choosing the **Exchange Rates** action.
+
+> [!NOTE]
+> The exchange rate setup pages for average and closing that are currently available on the **Business Unit** card will be deprecated in a future version. However, you can still maintain these rates if you have business units that you import through files.
+
+#### Create a business unit
+
+1. Sign in to the consolidated company.
+2. [!INCLUDE[open-search](includes/open-search.md)], enter **Business Units**, and then choose the related link.  
+3. Choose **New**, and then fill in the required fields on the **General** and **G/L Accounts** FastTabs. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+    > [!IMPORTANT]
+    > When you fill in the **Starting Date** and **Ending Date** fields, make sure you comply with GAAP rules concerning the fiscal periods of the business unit versus the parent company.
+4. On the **Data Import** FastTab, in the **Default Data Import** field, specify how you share general ledger entries with the consolidated company:
+
+   * To share data between companies in the same environment, choose **Database**.
+   * To share data between companies in different environments, choose **API**, and then fill in the **API's Endpoint** field.
+        
+        To get the endpoint URL, in the business unit company's [!INCLUDE [prod_short](includes/prod_short.md)], open the **Consolidation Setup Page** and check the Current environment's API Endpoint field value. 
+   * To export an .xml file and manually share it, choose **File Format**.
+
+### <a name="glacc"></a>Prepare general ledger accounts for consolidation
+
+The chart of accounts for a company that you will consolidate must specify accounts for consolidation. For each posting general ledger account in each company, you must specify the general ledger account in the consolidated company to transfer the balance to. This mapping lets you consolidate companies that have different charts of accounts.
+
+If the chart of accounts in the business unit differs from the consolidated company, you must prepare general ledger accounts for consolidation. You can specify the accounts to post debits and credits to, and the method to use to translate currencies in the consolidated company.
+
+1. In each business unit's [!INCLUDE [prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Chart of Accounts**, and then choose the related link.  
+2. Open the card for the account, and then fill in the fields on the **Consolidation** FastTab. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+> [!NOTE]
+> If you don't fill in the **Consol. Debit Acc.** and **Consol. Credit Acc.** fields, [!INCLUDE [prod_short](includes/prod_short.md)] assumes they're mapped to the same accounts in the consolidated company.
+
+> [!TIP]
+> There might be scenarios where you don't want to include an account in a consolidation. For example, if you want your consolidation company to reflect only the balance sheets from the subsidiary companies. To exclude an account from consolidation, turn on the **Exclude from Consolidation** toggle for the account.
+
+### <a name="exchrates"></a>Specify exchange rates for consolidations
+
+If a business unit uses a different currency than the consolidated company, you must specify exchange rate methods for each account before you consolidate. For each account, the content of the **Consol. Translation Method** field determines the exchange rate. In the consolidated company, on each business unit card, in the **Currency Exchange Rate Table** field you specify whether consolidation uses exchange rates from the business unit or the consolidated company. If you use exchange rates from the consolidated company, you can change the exchange rates for a business unit. For business units, if the **Currency Exchange Rate Table** field on the business unit card contains **Local**, you can change the exchange rate from the business unit card. The exchange rates are copied from the **Currency Exchange Rate** table, but you can change them before consolidating.
+
+The following table describes the exchange rate methods you can use for accounts.
+
+|Exchange rate | Typical use |
+|---|---|
+|Average Rate (Manual) | You manually calculate the average rate for the period to consolidate. Calculate the average either as an arithmetic average or as a best estimate, and specify the result for each business unit. Use for income statement accounts.|
+|Closing Rate | Used for balance sheet accounts.|
+|Historical Rate | The exchange rate that was valid when the transaction occurred.|
+|Composite Rate | The current period amounts are translated at the average rate and added to the previously recorded balance in the consolidated company. You typically use this method for retained earnings accounts. Those accounts include amounts from different periods, so they contain amounts translated with different exchange rates.|
+|Equity Rate | This option is similar to **Composite**. Differences post to separate general ledger accounts.|
+
+To specify exchange rates for a business unit, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Business Units**, and then choose the related link.  
+2. On the **Business Unit List** page, choose the business unit, and then choose the **Exchange Rates** action.  
+3. On the **Setup Business Unit Currencies** page, fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+### <a name="dim"></a>Include or exclude dimensions
+
+You can consolidate dimension information and general ledger accounts.
+
+* On the dimensions, specify the **Consolidation Code** field, or leave it blank.
+  * To exclude a dimension in the consolidation, leave the **Consolidation Code** field blank on the dimension, and don't choose dimensions in the **Copy Dimensions** fields in any consolidation functions or reports.
+  * To include dimension information in the consolidation, leave the **Consolidation Code** field blank. However, the consolidation works only if the dimension values in the business unit are the same as the consolidated company.
+  * To consolidate the dimension value code in the business unit with a different dimension value code in the consolidated company, fill in the **Consolidation Code** field on the dimensions.  
+* Add the dimensions to the general ledger accounts.
+
+### <a name="exclude"></a>Exclude a company from consolidation
+
+If you don't want to include a business unit in the consolidation, you can exclude it. To do that, go to the business unit card, and clear the **Consolidate** checkbox.
+
+### <a name="include"></a>Include a partially owned company in consolidation
+
+If you own only part of a company, you can include a percentage of each transaction that reflects the percentage you own. For example, if you own 70% of the company, consolidation includes $70 of an invoice for $100. To specify the percentage of the company you own, go to the business unit card and enter the percentage in the **Consolidation %** field.  
+
+## Consolidation finance report overview
+
+[!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
+
+[!INCLUDE [finance_reports_consolidation](includes/finance-reports-consolidation-include.md)]
+
+## Related information
+
+[Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md)  
+[Managing Intercompany Transactions](intercompany-manage.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Exporting Your Business Data to Excel](about-export-data.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-project-invoiced-sales-by-customer
+---
+title: Project Invoiced Sales by Customer (Power BI report)
+description: The Project Invoiced Sales by Customer report describes your sales activities based on each project for specific customers.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37039_Primary
+ms.date: 10/28/2024
+ms.service: dynamics-365-business-central
+---
+
+# Project Invoiced Sales by Customer (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Project Invoiced Sales by Customer** report breaks down your sales values for each project and highlights customer sales.
+
+This report can show you key information about the customers you sell to the most, and which projects generate the sales.
+
+:::image type="content" source="media/projects/project-invoiced-sales-by-customer.png" alt-text="Screenshot of the Project Invoiced Sales by Customer Power BI Report" lightbox="media/projects/project-invoiced-sales-by-customer.png":::
+
+## Use the report
+
+The report is typically used by project managers, but leadership can also use it to view your high-volume customers.
+
+Project managers use the report to track sales to each customer for each individual project. The report helps you monitor the performance of each project and identify potential issues if you aren't meeting quota for a customer or you're over spending.
+
+People in leadership teams want to a high-level view of your project sales and which customers you sell to. The report can give you a clear understanding of this data to help you make informed business decisions.
+
+## Key Performance Indicators (KPIs)
+
+The *Project Invoiced Sales by Customer* report includes the following KPIs:
+
+- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
+- [**Quantity**](projects-powerbi-kpis.md#quantity)
+- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
+- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Job
+- Job Ledger Entry
+- Job Planning Line
+
+## Try the report
+
+Try the report here: [Project Invoiced Sales by Customer](https://businesscentral.dynamics.com?page=37039)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Projects app](projects-powerbi-app.md)  
+[Built-in Projects reports](project-reports.md)  
+[Project management analytics overview](projects-analytics-overview.md)  
+[Project management overview](projects-manage-projects.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-view-table-information
 ---
 title: View table information
@@ -2841,6 +3084,11 @@ The Tax Expense (Beginning Balance) measure calculates the [Balance at Date](#ba
 - [Amount Receivable (LCY)](#amount-receivable-lcy)
 - [Balance (Accounts Receivable)](#balance-accounts-receivable)
 - [Original Amount (LCY)](#original-amount-lcy)
+- [Late Payment Amount](#late-payment-amount)
+- [Late Payment %](#late-payment-percent)
+- [Average Days Late](#average-days-late)
+- [No. of Payments](#no-of-payments)
+- [No. of Late Payments](#no-of-late-payments)
 
 ### Bucket 1 (Receivables)
 **Formula**   
@@ -2906,6 +3154,46 @@ The Balance (Accounts Receivable) measure calculates the total balance of accoun
 ### Original Amount (LCY)
 **Formula**   
 The Original Amount (LCY) measure calculates the total amount of original entries for customers in the local currency. The measure sums up the amount (in local currency) of the Customer Ledger Entries table, but only includes entries with the entry type of "Initial Entry".
+
+**Data Sources**
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+### Late Payment Amount
+**Formula**   
+The Late Payment Amount measure sums up the amount (in local currency) of the Customer Ledger Entries table, where **Document Type** is **Payment** and Posting Date exceeds Due Date.
+
+**Data Sources**
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+### Late Payment Percent
+**Formula**   
+The Late Payment % measure calculates the [No. of Late Payments](#no-of-late-payments) divided by the total [No. of Payments](#no-of-payments).
+
+**Data Sources**
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+### Average Days Late
+**Formula**   
+The Average Days Late measure calculates the average number of days between the Due Date and Posting Date, where **Document Type** is **Payment** and Posting Date exceeds Due Date.
+
+**Data Sources**
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+### No. of Payments
+**Formula**   
+The No. of Payments measure calculates a distinct count of the **Document No.** column, where **Document Type** is **Payment**.
+
+**Data Sources**
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+### No. of Late Payments
+**Formula**   
+The No. of Late Payments measure calculates a distinct count of the **Document No.** column, where **Document Type** is **Payment** and Posting Date exceeds Due Date.
 
 **Data Sources**
 - Customer Ledger Entry
@@ -5493,7 +5781,7 @@ ms.author: kepontop
 ms.reviewer:
 ms.topic: conceptual
 ms.search.keywords: reporting
-ms.search.form: 37061_Primary, 37009, 37010, 37010, 37011, 37012, 37013, 37014, 37015, 37016, 37017, 37018, 37019, 37020, 37021
+ms.search.form: 37061_Primary, 37009, 37010, 37010, 37011, 37012, 37013, 37014, 37015, 37016, 37017, 37018, 37019, 37020, 37021, 37112, 37115, 37116, 37117, 37118
 ms.date: 10/31/2024
 ms.service: dynamics-365-business-central
 ---
@@ -6469,7 +6757,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 03/11/2025
+ms.date: 09/11/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -6477,7 +6765,7 @@ ms.custom: bap-template
 
 This article describes the planning parameters that you can use in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-How the planning system controls item supply is determined by various settings on the **Item Card**, **SKU**, and **Manufacturing Setup** pages. The following table explains how planning uses these settings.  
+Various settings on the **Item Card**, **SKU**, **Inventory Setup** and **Manufacturing Setup** pages determine how the planning system controls item supply. The following table explains how planning uses these settings.  
 
 |Purpose|Settings|
 |-------------|---------------|
@@ -6501,7 +6789,7 @@ The **Time Bucket** field is used by reorder point policies (**Fixed Reorder Qty
 > [!NOTE]  
 > When planning calculates time buckets, it ignores working calendars that are defined in the **Base Calendar Code** field on the **Company Information** and **Location Card** pages.  
 
-On the **Manufacturing Setup** page, you should set the default safety lead time to at least one day. The due date of the demand might be known, but not the due time. The planning schedules backward to meet gross demand. If you don't define a safety lead time, the goods might arrive too late to meet the demand.  
+On the **Inventory Setup** page, you should set the default safety lead time to at least one day. The due date of the demand might be known, but not the due time. The planning schedules backward to meet gross demand. If you don't define a safety lead time, the goods might arrive too late to meet the demand.  
 
 The **Rescheduling Period**, **Lot Accumulation Period**, and **Dampener Period** fields also play a role in defining when to reorder. To learn more, go to [Optimize When and How Much to Reorder](design-details-planning-parameters.md#optimize-when-and-how-much-to-reorder).  
 
@@ -6563,7 +6851,7 @@ In the following examples, the black arrows represent existing supply (up) and d
 
 :::image type="content" source="media/supply_planning_5_dampener_period_lot_accum_period_change_qty.png" alt-text="Dampener period, lot accumulation period, and change quantity.":::
 
-**Default values:** The default value of the **Time Bucket** field and the three reorder period fields is blank. For all fields, except the **Dampener Period** field, this means 0D (zero days). If the **Dampener Period** field is blank, the global value in the **Default Dampener Period** field on the **Manufacturing Setup** page is used.  
+**Default values:** The default value of the **Time Bucket** field and the three reorder period fields are blank. For all fields, except the **Dampener Period** field, this means 0D (zero days). If the **Dampener Period** field is blank, the global value in the **Default Dampener Period** field on the **Inventory Setup** page is used.  
 
 ## Modify the supply orders  
 
@@ -6587,7 +6875,7 @@ You can assign a low-level code to each part in the product structure or the ind
 
 On the **Manufacturing Setup** page, use the **Dynamic Low-Level Code** toggle to specify whether to immediately assign and calculate low-level codes for each component in the product structure. If you have large amounts of data, this function can have negative effects on the program's performance, for example during automatic cost adjustment. This function isn't retroactive, so it's a good idea to consider the use of this feature beforehand.
 
-As an alternative to the automatic calculation that occurs dynamically if the field is selected, you can run the **Calculate Low-Level Code** batch job from the **Manufacturing** menu by clicking **Product Design**, **Calculate Low-Level Code**.
+As an alternative to the automatic calculation that occurs dynamically if the field is selected, you can run the **Calculate Low-Level Code** batch job.
 
 > [!IMPORTANT]
 > If you don't turn on the **Dynamic Low-Level Code** toggle, you must run the **Calculate Low-Level Code** batch job before you calculate a supply plan (the **Calculate Plan** batch job).  
@@ -7085,6 +7373,79 @@ This problem is likely because you shared a list view that is a personal view. I
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchase-forecasting
+---
+title: Purchase Forecasting (Power BI Report)
+description: The Purchase Forecasting report predicts future purchasing trends to anticipate supply chain requirements.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37112_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Purchase Forecasting (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Purchase Forecasting** report predicts future purchasing trends based on historical data. It uses advanced forecasting techniques to project purchase values across vendor, document, item category and purchaser dimensions.
+
+The purchase forecast visualization predicts the next three months of purchases based on the previous six months, assuming a monthly seasonality.
+
+> [!NOTE]
+> The default forecasting options can be customized through the Forecast section in the Analytics Pane in Power BI Desktop. This includes modifying the forecast length, seasonality, period and confidence interval.
+
+:::image type="content" source="media/purchases/purchase-forecasting.png" alt-text="Screenshot of the Purchases Forecasting Power BI report" lightbox="media/purchases/purchase-forecasting.png":::
+
+## Use the report
+
+Leadership and purchasing managers can use this report to anticipate purchase requirements and upcoming financial impacts on the organization.
+
+CEOs need to track purchasing trends to implement strategic business decisions based on upcoming supply chain requirements. For example, you may identify that purchases are predicted to increase for a particular month. In response, you coordinate hiring additional staff to ensure sufficient workforce for managing increased purchasing operations.
+
+Purchasing managers need to anticipate supply chain trends across key attributes, to inform future purchases. For example, the purchases by item category highlights a decreasing demand for a particular item category. You use this information to plan purchasing schedules accordingly to optimize inventory levels.
+
+## Key Performance Indicators (KPIs)
+
+The *Purchase Forecasting* report includes the following KPIs and measures:
+
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase (LCY) Forecasting**](purchases-powerbi-kpis.md#purchase-lcy-forecasting)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Value Entry
+- Purchase Credit Line
+- Purchase Invoice Line
+- Vendor
+- Item
+- Salesperson/Purchaser
+
+## Try the report
+
+Try the report here: [Purchases Forecasting](https://businesscentral.dynamics.com?page=37112)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-teams-settings
@@ -8518,6 +8879,83 @@ The following procedure shows how to issue a prepayment credit memo to cancel al
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-vendor-quality-analysis
+---
+title: Vendor Quality Analysis (Power BI Report)
+description: The Vendor Quality Analysis report provides insights into your organization's vendor performance and quality metrics.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37115_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Vendor Quality Analysis (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Vendor Quality Analysis** report analyzes vendor performance, showcasing vendor quality, returns, reliance and purchase discount trends. By visualizing key purchasing metrics over time, item distribution and spending diversity, this report provides a breakdown of vendor behaviors to continuously improve supplier performance and mitigate  purchasing risks.
+
+:::image type="content" source="media/purchases/purchases-vendor-quality-analysis.png" alt-text="Screenshot of the Vendor Quality Analysis Power BI report" lightbox="media/purchases/purchases-vendor-quality-analysis.png":::
+
+## Use the report
+
+This report is designed for executives, purchasing managers and purchasers, to highlight effective vendor relationships and minimize supply chain risks.
+
+As a CEO, you want to monitor vendor performance and identify trusted vendors and supplier risks, to inform key business decisions. For example, by reviewing the vendor analysis details, you identify a vendor with the highest [Spend Reliance %](purchases-powerbi-kpis.md#spend-reliance-) who consistently performs poorly across returns and discounts. Using these insights, you decide to pursue an alternate supplier to improve supply-chain reliability, product quality and profit metrics.
+
+For purchasing managers, you want to track vendor performance and item dependence, to ensure a reliable supply-chain pipeline. Using the vendor reliance analysis, you identify a single-supplier item with the highest purchase amount. In response, you engage with additional vendors to diversify product supply and reduce over-reliance on a specific vendor. 
+
+As a purchaser, you want to analyze vendor behaviors to manage effective supplier relationships. Using the purchase discount amount over time, you might identify a vendor who is not consistently delivering discounts compared to other vendors. With this information, you are empowered to negotiate discounted purchase prices to improve profit metrics.
+
+## Key Performance Indicators (KPIs)
+
+The *Vendor Quality Analysis* report includes the following KPIs and measures: 
+
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+- [**No. of Vendors**](purchases-powerbi-kpis.md#no-of-vendors)
+- [**No. of Distinct Items**](purchases-powerbi-kpis.md#no-of-distinct-items)
+- [**No. of Single Supplier Items**](purchases-powerbi-kpis.md#no-of-single-supplier-items)
+- [**Purchase Value Entries Discount %**](purchases-powerbi-kpis.md#purchase-value-entries-discount-)
+- [**Purchase Value Entries Discount Amount**](purchases-powerbi-kpis.md#purchase-value-entries-discount-amount)
+- [**Return Rate (Amount)**](purchases-powerbi-kpis.md#return-rate-amount)
+- [**Spend Reliance %**](purchases-powerbi-kpis.md#spend-reliance-)
+- [**Item Reliance %**](purchases-powerbi-kpis.md#item-reliance-)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Value Entries
+- Purchase Invoice Lines
+- Purchase Credit Lines
+- Item
+- Vendor
+
+## Try the report
+
+Try the report here: [Vendor Quality Analysis](https://businesscentral.dynamics.com?page=37115)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-reverse-journal-posting
 ---
 title: Undo a posting by posting a reversing entry
@@ -9023,9 +9461,9 @@ The *Moving Annual Total (MAT)* report includes the following KPIs and measures:
 
 - [**Moving Annual Total (MAT)**](purchases-powerbi-kpis.md#purchase-amount-matg-fiscal)
 - [**Previous Year Moving Annual Total (PYMAT)**](purchases-powerbi-kpis.md#purchase-amount-pymat-fiscal)
-- [**Moving Annual Total Growth Amount**](purchases-powerbi-kpis.md#purchase-amount-matg-fiscal)
+- [**Moving Annual Total Growth**](purchases-powerbi-kpis.md#purchase-amount-matg-fiscal)
 - [**Moving Annual Total Growth %**](purchases-powerbi-kpis.md#purchase-amount-matg--fiscal)
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -9035,8 +9473,9 @@ The *Moving Annual Total (MAT)* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -11466,7 +11905,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 5430,
-ms.date: 02/25/2025
+ms.date: 09/11/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -11479,16 +11918,16 @@ The planning system takes all demand and supply data into account, nets the resu
 
 ## Supply and demand
 
-Planning has two elements, supply and demand. These must balance to ensure that the demand is met.  
+Planning has two elements, supply and demand, that must balance to ensure that the demand is met.  
 
-- Demand is any kind of gross requirement, such as a sales order, service order, or a component need for assembly or production orders, outbound transfer, blanket order, or forecast. Additionally, there other technical types of demand, such as a negative production or purchase order, negative inventory, and purchase return.  
-- Supply refers to any kind of replenishment such as inventory, a purchase order, assembly order, production order, or inbound transfer. Correspondingly, there can be a negative sales or service order, negative component need or sales return that also represent supply.  
+- Demand is any kind of gross requirement. For example, a sales or service order, or a component need for assembly or production orders, outbound transfer, blanket order, or forecast. There are also other technical types of demand, such as a negative production or purchase order, negative inventory, and purchase return.  
+- Supply refers to any kind of replenishment. For example, inventory, purchase, assembly, and production order, or inbound transfer. There can also be a negative sales or service order, negative component need, or sales return that also represent supply.  
 
-Another goal of the planning system is to ensure that the inventory does not grow unnecessarily. In the case of decreasing demand, the planning system will suggest that you postpone, decrease in quantity, or cancel existing replenishment orders.  
+Another goal of the planning system is to ensure that the inventory doesn't grow unnecessarily. For decreasing demand, the planning system suggests that you postpone, decrease in quantity, or cancel existing replenishment orders.  
 
 ## Planning calculation
 
-The planning system is driven by anticipated and actual customer demand, as well as inventory reordering parameters. Running the planning calculation will result in application suggesting specific actions ([Action Messages](production-how-to-run-mps-and-mrp.md#action-messages)) to take concerning possible replenishment from vendors, transfers between warehouses, or production. If replenishment orders already exist, the suggested actions could be to increase or expedite the orders to meet the changes in demand.  
+Anticipated and actual customer demand, and inventory reordering parameters, drive the planning system. Running the planning calculation results in suggestions for specific actions ([Action Messages](production-how-to-run-mps-and-mrp.md#action-messages)) to take for possible replenishment from vendors, transfers between warehouses, or production. If replenishment orders already exist, the suggested actions could be to increase or expedite the orders to meet the changes in demand.  
 
 The basis of the planning routine is in the gross-to-net calculation. Net requirements drive planned order releases, which are scheduled based on the routing information (manufactured items) or the item card lead time (purchased items). Planned order release quantities are based on the planning calculation, and are affected by the parameters set on the individual item cards.  
 
@@ -11499,13 +11938,13 @@ The basis of the planning routine is in the gross-to-net calculation. Net requir
 
 In the **Replenishment System** field on a SKU card, you can set up the planning system to create transfer orders to balance supply and demand across locations.  
 
-In addition to such automatic transfer orders, you may sometimes need to perform a general move of inventory quantities to another location, irrespective of existing demand. For this purpose you would manually create a transfer order for the quantity to move. To ensure that the planning system does not try to manipulate this manual transfer order, you must set the **Planning Flexibility** on the transfer line(s) to None.  
+In addition to such automatic transfer orders, you might need to move inventory quantities to another location, irrespective of existing demand. You can manually create a transfer order for the quantity to move. To ensure that the planning system doesn't try to manipulate this manual transfer order, you must set the **Planning Flexibility** on the transfer lines to **None**.  
 
 Contrarily, if you do want the planning system to adjust the transfer order quantities and dates to existing demand, you must set the **Planning Flexibility** field to the default value, Unlimited.
 
 ## Planning parameters
 
-The planning parameters control when, how much, and how to replenish based on the various settings on the item card (or stockkeeping unit - SKU), and the manufacturing setup.  
+The planning parameters control when, how much, and how to replenish based on the various settings on the item card (or stockkeeping unit - SKU), and the inventory and manufacturing setups.  
 
 The following planning parameters exist on the item or SKU card:  
 
@@ -11530,18 +11969,21 @@ The following order modifiers exist on the item or SKU card:
 - Maximum Order Quantity  
 - Order Multiple  
 
-Global planning setup fields on the **Manufacturing Setup** page include:  
+Global planning setup fields on the **Inventory Setup** page include:  
 
-- Dynamic Low-Level Code  
 - Current Demand Forecast  
-- Use Forecast on Locations  
+- Use Forecast on Locations
+- Use Forecast on Variants
 - Default Safety Lead Time  
 - Blank Overflow Level  
 - Combined MPS/MRP Calculation
-- Components at Location  
 - Default Dampener Period  
 - Default Dampener Quantity  
-- Default General Business Posting Group
+
+Global planning setup fields on the **Manufacturing Setup** page include:  
+
+- Dynamic Low-Level Code  
+- Components at Location  
 
 To learn more, go to [Design Details: Planning Parameters](design-details-planning-parameters.md)  
 
@@ -11551,8 +11993,9 @@ To learn more, go to [Design Details: Planning Parameters](design-details-planni
 
 On most supply orders, such as production orders, you can select **Unlimited** or **None** in the **Planning Flexibility** field on the lines.
 
-This specifies whether the supply represented by the production order line is considered by the planning system when calculating action messages.
-If the field contains **Unlimited**, then the planning system includes the line when calculating action messages. If the field contains **None**, then the line is firm and unchangeable, and the planning system does not include the line when calculating action messages.
+This setting specifies whether planning considers the supply from the production order line when it calculates action messages.
+
+If the field contains **Unlimited**, the planning system includes the line when calculating action messages. If the field contains **None**, then the line is firm and unchangeable, and the planning system doesn't include the line when calculating action messages.
 
 ### Warnings
 
@@ -11577,22 +12020,22 @@ Any document lines with due dates before the planning starting date are consolid
 
 The exception warning displays if the projected available inventory drops below the safety stock quantity.
 
-The planning system will suggest a supply order to meet the demand on its due date. The warning text states the item's safety stock quantity and the date on which it is violated.
+The planning system suggests a supply order to meet the demand on its due date. The warning text states the item's safety stock quantity and the date on which it's violated.
 
-Violating the safety stock level is considered an exception because it shouldn't occur if the reorder point has been set correctly.
+Violating the safety stock level is considered as an exception because it shouldn't occur if the reorder point is set correctly.
 
 > [!NOTE]
-> Supply on planning lines with Exception warnings is normally not modified according to planning parameters. Instead, the planning system only suggests a supply to cover the exact demand quantity. However, you can set the planning run up to respect certain planning parameters for planning lines with certain warnings. To learn more, go to the description for the **Respect Planning Parameters for Exception Warnings** field in the [Run Full Planning, MPS or MRP](production-how-to-run-mps-and-mrp.md) article.
+> Supply on planning lines with Exception warnings is normally not modified according to planning parameters. Instead, the planning system only suggests a supply to cover the exact demand quantity. However, you can set the planning run up to respect certain planning parameters for planning lines with certain warnings. To learn more, go to the description for the **Respect Planning Parameters for Exception Warnings** field in the [Run Full Planning, MPS, or MRP](production-how-to-run-mps-and-mrp.md) article.
 
 #### Attention
 
 The attention warning displays in two situations:
 
 - The planning starting date is earlier than the work date.
-- The planning line suggests to change a released purchase or production order.
+- The planning line suggests changing a released purchase or production order.
 
 > [!NOTE]
-> In planning lines with warnings, the **Accept Action Message** field is not selected, because the planner is expected to further investigate these lines before carrying out the plan.
+> In planning lines with warnings, the **Accept Action Message** field isn't selected, because the planner is expected to further investigate these lines before carrying out the plan.
 
 ## Planning worksheets and requisition worksheets
 
@@ -11608,8 +12051,8 @@ As described in [Planning](production-planning.md), you can choose between two w
 The **Requisition Worksheet** page lists items that you want to order. You can enter items in the worksheet in the following ways:
 
 - Enter the items manually in the worksheet and fill in the relevant fields.
-- Use the **Calculate Plan** batch job. This calculates a replenishment plan for items and stockkeeping units that have been set up with a replenishment system of **Purchase** or **Transfer**. When you use this batch job, the program automatically fills in the **Action Message** field with a suggestion for an action you can take to replenish the item. This could be increasing the item quantity on an existing order or creating a new order, for example.
-- If you have used the **Calculate Plan** batch job from the **Planning Worksheet** page to calculate a replenishment plan, you can use the **Carry Out Action Message** batch job to copy purchase and transfer order proposals from the planning worksheet to the requisition worksheet. This is practical if separate users are responsible for handling production orders and purchase/transfer orders.
+- Use the **Calculate Plan** batch job. The batch job calculates a replenishment plan for items and stockkeeping units that are set up with a replenishment system of **Purchase** or **Transfer**. When you use this batch job, the program automatically fills in the **Action Message** field with a suggestion for an action you can take to replenish the item. The suggestion could be increasing the item quantity on an existing order or creating a new order, for example.
+- If you use the **Calculate Plan** batch job from the **Planning Worksheet** page to calculate a replenishment plan, you can use the **Carry Out Action Message** batch job to copy purchase and transfer order proposals from the planning worksheet to the requisition worksheet. This method is practical if separate users are responsible for handling production, purchase, and transfer orders.
 - You can use the **Drop Shipment** action to fill in the requisition worksheet lines. This action uses the **Get Sales Orders** batch job to determine the sales order lines that you want to designate for a drop shipment.
 - You can use the **Special Order** action to fill in the requisition worksheet lines. This action uses the **Get Sales Orders** batch job to determine the sales order lines that you want to designate for a special order.
 
@@ -11618,7 +12061,7 @@ Requisition worksheet lines contain detailed information about the items that ne
 To learn more about planning with locations and transfers, go to [Planning With or Without Locations](production-planning-with-without-locations.md).
 
 > [!TIP]
-> When you're working on the **Requisition Worksheet** or **Planning Worksheet** pages, you can organize the lines by sorting on a column name. This is especially useful on the Planning Worksheet page because they it can be used for multilevel production orders. By default, lines are sorted by the **Item No.** field. To group lines for a multilevel order, sort by the **Ref. Order No.** field. Also, the **MPS Order** and **Planning Level** fields can help show the hierarchy of the lines.
+> When you're working on the **Requisition Worksheet** or **Planning Worksheet** pages, you can organize the lines by sorting on a column name. This sorting is especially useful on the Planning Worksheet page because you can use it for multilevel production orders. By default, lines are sorted by the **Item No.** field. To group lines for a multilevel order, sort by the **Ref. Order No.** field. Also, the **MPS Order** and **Planning Level** fields can help show the hierarchy of the lines.
 
 ## Related information
 
@@ -11664,14 +12107,14 @@ Project Managers use the report to track the progress of project tasks and make 
 
 The *Project Tasks* report includes the following KPIs:
 
-- [**Actual (Total Price)**](projects-powerbi-kpis.md#actual-total-price)
-- [**Actual (Total Cost)**](projects-powerbi-kpis.md#actual-total-cost)
-- [**Actual Profit**](projects-powerbi-kpis.md#actual-profit)
-- [**Actual Profit Margin %**](projects-powerbi-kpis.md#actual-profit-margin-)
-- [**Billable (Invoiced Price)**](projects-powerbi-kpis.md#billable-invoiced-price)
-- [**Billable (Total Price)**](projects-powerbi-kpis.md#billable-total-price)
-- [**Budget (Total Cost)**](projects-powerbi-kpis.md#budget-total-cost)
-- [**Realization %**](projects-powerbi-kpis.md#realization-)
+- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
+- [**Total Usage Profit Margin %**](projects-powerbi-kpis.md#total-usage-profit-margin)
+- [**Realization (%)**](projects-powerbi-kpis.md#realization-)
+- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
+- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
+- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
+- [**Total Billable Price)**](projects-powerbi-kpis.md#total-billable-price)
+- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -11681,10 +12124,10 @@ The *Project Tasks* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Planning Lines
-- Project Ledger Entries
-- Task
+- Job
+- Job Task
+- Job Planning Lines
+- Job Ledger Entries
 
 ## Try the report
 
@@ -13009,19 +13452,20 @@ When you enable the validation, the **Journal Check** FactBox shows issues on th
 To work with sustainability journals, follow these steps:
 
 1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Journal**, and then select the related link.
-2. On the **Sustainability Journal** page, enter as many lines as you plan to post in the same batch.
-3. For internal documents, you can leave the **Document Type** field blank. If not, you can select **Invoice**, **Credit Memo**, or **GHG Credit**.  
-4. In the **Account No.** field, you can select only nonblocked sustainability accounts where the **Direct Posting** field is selected and the **Accounting Type** field is set to **Posting**. The accounts must also be configured with a category and a subcategory.
+1. On the **Sustainability Journal** page, enter as many lines as you plan to post in the same batch.
+1. For internal documents, you can leave the **Document Type** field blank. If not, you can select **Invoice**, **Credit Memo**, or **GHG Credit**.  
+1. In the **Account No.** field, you can select only nonblocked sustainability accounts where the **Direct Posting** field is selected and the **Accounting Type** field is set to **Posting**. The accounts must also be configured with a category and a subcategory.
 
     > [!NOTE]
     > If you use a batch where the emission scope is configured, the **Emission Scope** value in the sustainability account must equal the **Emission Scope** value in the batch.
 
-5. You can either manually fill in the emission amounts or use formulas.
+1. In the **Energy Source Code** field, you can specify the source of sustainable energy if you want to use the journal to track energy consumption. For example, biomass, hydropower, geothermal, wind, and solar.
+1. You can either manually fill in the emission amounts or use formulas.
 
     - If you have accurate information about gas emission or water or waste intensity and want to post it (that is, if you have the information on the received invoice, or some other measured model), select the **Manual Input** field to indicate that you manually enter the amounts. In this case, you can't enter your data directly in the **Fuel/Electricity**, **Distance**, **Custom Amount**, **Installation Multiplier**, and **Time Factor** fields because they become uneditable. However, the **Emission CO2**, **Emission CH4**, **Emission N2O**, **Water Intensity**, **Discharged Into Water**, and **Waste Intensity** fields remain editable, and you can enter your data directly in them.
     - If you don't have accurate knowledge of the gas emission or water or waste intensity and must calculate it, don't select the **Manual Input** field. In this case, the **Emission CO2**, **Emission CH4**, **Emission N2O**, **Water Intensity**, **Discharged Into Water**, and **Waste Intensity** fields become uneditable. However, you can enter your calculation details based on the formula that you're using. To learn more about the formulas that are defined in the **sustainability account category**, go to [Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md#account-categories).  
 
-6. To post the journal, select the **Post** action. When you post in a sustainability journal, entries are generated in the sustainability ledger.
+1. To post the journal, select the **Post** action. When you post in a sustainability journal, entries are generated in the sustainability ledger.
 
 > [!NOTE]
 > For water and waste intensity calculation, you can only use a formula with the **Custom Amount** that multiplies with the emission factor from the **Sustainability Account Subcategory**.  
@@ -13057,15 +13501,15 @@ To work with any purchase-related documents, follow these steps:
 1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon and:  
    - Enter **Purchase Invoices** if you want the invoice as a **Document Type**, and then select the related link.  
    - Enter **Purchase Orders** if you want the order as a **Document Type**, and then select the related link.  
-2. Populate the header and lines based on the instructions in [how to work with purchase invoices and orders](purchasing-how-record-purchases.md).
-3. If you have information about emissions on your invoice from the vendor, choose the appropriate **Sustainability Account No.** in the document lines and add emission values using one of the following fields (based on what you want to track and emissions you have on your physical invoice): **Emission CO2**, **Emission CH4**, or **Emission N2O**.
+1. Populate the header and lines based on the instructions in [how to work with purchase invoices and orders](purchasing-how-record-purchases.md).
+1. If you have information about emissions on your invoice from the vendor, choose the appropriate **Sustainability Account No.** in the document lines and add emission values using one of the following fields (based on what you want to track and emissions you have on your physical invoice): **Emission CO2**, **Emission CH4**, or **Emission N2O**.
 
     > [!NOTE]
     > The values you enter in the emission fields are fixed amounts per line. They aren't multiplied with the **Quantity** field. You can use **Sustainability Account No.** only when the **Type** field (**Option Values**) is **Item** or **G/L Account**. You can't use **Resource** or **Charge (Item)** **Option Values**. 
 
-4. If you want to review total emissions before posting, you can open the statistics page and find the total posted emissions and emissions for posting per document (any purchase-related documents) on the **Sustainability** FastTab.
-5. Post the documents and open a new **Posted Purchase Invoice**.
-6. Select the **Find Entries** action. You have a **Sustainability Ledger Entry** as one of the related entries on the **Find entries** page.
+1. If you want to review total emissions before posting, you can open the statistics page and find the total posted emissions and emissions for posting per document (any purchase-related documents) on the **Sustainability** FastTab.
+1. Post the documents and open a new **Posted Purchase Invoice**.
+1. Select the **Find Entries** action. You have a **Sustainability Ledger Entry** as one of the related entries on the **Find entries** page.
 
 > [!NOTE]
 > When you post the document, for each of the purchase lines where you have **Sustainability Account No.**, [!INCLUDE [prod_short](includes/prod_short.md)] creates an independent **Sustainability Ledger Entry** with the **Invoice** as a **Document Type** and the same **Document No.**.
@@ -15362,7 +15806,7 @@ The report helps purchase and finance teams to track actual spending against bud
 
 CEOs can easily track and analyze the purchasing performance of your organization against your budget to ensure that you're meeting your financial goals. This report provides a comprehensive overview of the entire organization's purchasing performance, helping you make informed decisions when you manage your budget. With this report, you can identify areas where your organization is overspending or underspending, and adjust your purchasing budget accordingly.  
 
-Purchasing managers can use this report to analyze purchasing data and make decisions about inventory management. By analyzing the **Variance** and **Budget Amount Variance** indicators in the report, you can see how specific item categories and items are tracking against their allocated budget. This report helps you to understand which items are being purchased frequently and which ones aren't. Use this information to optimize your inventory and ensure that your organization is always stocked with the products that you need.  
+Purchasing managers can use this report to analyze purchasing data and make decisions about inventory management. By analyzing the **Budget Amount Variance** indicators in the report, you can see how specific item categories and items are tracking against their allocated budget. This report helps you to understand which items are being purchased frequently and which ones aren't. Use this information to optimize your inventory and ensure that your organization is always stocked with the products that you need.  
 
 Purchasers can monitor the variance metrics to ensure that you're meeting your purchasing targets. Use this report to see the purchasing performance of specific item categories, and items that you purchase. With this information, you can identify opportunities to reduce cost and optimize your approach to purchasing specific items.
 
@@ -15370,14 +15814,11 @@ Purchasers can monitor the variance metrics to ensure that you're meeting your p
 
 The *Actual vs Budget* report includes the following KPIs and measures: 
 
-- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)  
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)  
-- [**Budget Quantity**](purchases-powerbi-kpis.md#budget-quantity)  
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)  
+- [**Purchase Amount YTD (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-ytd-fiscal)  
 - [**Budget Amount**](purchases-powerbi-kpis.md#budget-amount)  
 - [**Budget Amount Variance**](purchases-powerbi-kpis.md#budget-amount-variance)
-- [**Budget Amount Variance %**](purchases-powerbi-kpis.md#budget-amount-variance-)  
-- [**Variance**](purchases-powerbi-kpis.md#budget-quantity-variance)  
-- [**Variance %**](purchases-powerbi-kpis.md#budget-quantity-variance-)  
+- [**Budget Amount Variance %**](purchases-powerbi-kpis.md#budget-amount-variance-)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -15390,7 +15831,8 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
 - Item
 - Item Category
 - Value Entry
-- Purchase Line
+- Purchase Invoice Lines
+- Purchase Credit Lines
 - Item Budget Entry
 
 ## Try the report
@@ -15592,6 +16034,80 @@ As when you sell any other type of item, you can also create a sales quote for a
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-key-purchase-influencers
+---
+title: Key Purchase Influencers (Power BI Report)
+description: Identify and analyze factors that influence purchasing performance. Explore the most impactful variables and trends based on purchase data.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37117_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Key Purchase Influencers (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Key Purchase Influencers** report identifies the key factors driving purchase performance in your organization. This report highlights the most impactful variables and trends based on purchase data, providing insights into how they influence purchasing metrics to empower strategic business decisions and inform procurement planning.
+
+The **Key Influencers** visual uses AI to identify factors that affect purchases across types of purchase documents. It highlights the key metrics that influence specific datasets and breaks down the most impactful segments within your purchase data.
+
+Additionally, the **Top Segments** tab summarizes the segments analyzed in the **Key Influencers** visual. The summary gives you an overview of the areas that contribute most to your purchase outcomes. Together, these tools provide a comprehensive view of purchase drivers and help uncover opportunities for optimization.
+
+:::image type="content" source="media/purchases/key-purchase-influencers.png" alt-text="Screenshot of the Key Purchase Influencers Power BI report" lightbox="media/purchases/key-purchase-influencers.png":::
+
+## Use the report
+
+This report can be used by leadership and management teams to identify the primary drivers of purchase performance and highlight actionable insights.
+
+As a CEO,  this report can be used to identify the item and vendor metrics contributing to purchasing trends. For example, the **Key Influencers** visual might reveal that a significant number of purchase returns are attributed to single-supplier items, with an increased likelihood of three times compared to return documents with a lower number of single-supplier items.
+
+As a purchasing manager, this report can be used to identify the key factors influencing purchasing metrics and track the vendor behaviors which positively contribute to purchasing performance. Using the report, you may identify purchase documents attributed to a specific purchaser are more likely to receive a higher discount percent.
+
+Using these insights, you can optimize purchasing strategies to improve profit metrics and improve the organization's supply chain. This could include diversifying product suppliers, strengthening valuable vendor relationships, or informing new purchaser process training.
+
+## Key Performance Indicators (KPIs)
+
+The *Key Purchase Influencers* report includes the following KPIs and measures:
+
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Line
+- Purchase Line
+- Item
+- Salesperson/Purchaser
+
+## Try the report
+
+Try the report here: [Key Purchase Influencers](https://businesscentral.dynamics.com?page=37117)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-accounting-periods-and-fiscal-years
@@ -18561,10 +19077,12 @@ Purchasers can use this report to monitor purchasing activities and identify the
 
 The *Purchases by Vendor* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 - [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-- [**% GT Purchase Amount**](purchases-powerbi-kpis.md#-gt-purchase-amount)
-- [**% GT Purchase Amount PY (Fiscal)**](purchases-powerbi-kpis.md#-gt-purchase-amount-py-fiscal)
+- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**% GT Purchase Amount PY (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-py-fiscal)
+- [**Pareto Cumulative Purchase (LCY) %**](purchases-powerbi-kpis.md#pareto-cumulative-purchase-lcy-)
+- [**% GT Pareto Cumulative Purchase (LCY) %**](purchases-powerbi-kpis.md#pareto-cumulative-purchase-lcy-)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -18576,8 +19094,9 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
 
 - Vendor
 - Item
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -18984,14 +19503,15 @@ Purchasing managers can identify where you might be overspending or underspendin
 
 The *Purchases Overview* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
-- [**Outstanding Amount (excluding VAT)**](purchases-powerbi-kpis.md#outstanding-amount-excl-vat)
-- [**Amount Received but Not Invoiced (excluding VAT)**](purchases-powerbi-kpis.md#amt-rcd-not-invd-excl-vat)
-- [**Invoiced Amount**](purchases-powerbi-kpis.md#invoiced-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase Amount PY (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-py-fiscal)
+- [**Amt. Rcd. Not Invoiced (LCY)**](purchases-powerbi-kpis.md#amt-rcd-not-invoiced-lcy)
+- [**Outstanding Orders (LCY)**](purchases-powerbi-kpis.md#outstanding-orders-lcy)
 - [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+- [**Outstanding Invoices (LCY)**](purchases-powerbi-kpis.md#outstanding-invoices-lcy)
 - [**No. of Outstanding Purchase Orders**](purchases-powerbi-kpis.md#no-of-outstanding-purchase-orders)
-- [**No. of Received Not Invd. Purchase Orders**](purchases-powerbi-kpis.md#no-of-received-not-invd-purchase-orders)
-- [**No. of Purchase Invoices**](purchases-powerbi-kpis.md#no-of-purchase-invoices)
+- [**No. of Received Not Invoiced Purchase Orders**](purchases-powerbi-kpis.md#no-of-received-not-invd-purchase-orders)
+- [**No. of Outstanding Invoices**](purchases-powerbi-kpis.md#no-of-outstanding-invoices)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -19001,9 +19521,13 @@ The *Purchases Overview* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Item Ledger Entry
-- Value Entry
+- Purchase Value Entries
+- Purchase Invoice Lines
+- Purchase Credit Lines
 - Purchase Lines
+- Location
+- Item Category
+- Vendor
 
 ## Try the report
 
@@ -20148,323 +20672,6 @@ Customization allows you to lock (allow editing) or unlock editing (prevent edit
 [Change Basic Settings](ui-change-basic-settings.md)  
 [Change Which Features are Displayed](ui-experiences.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-data-replication
----
-title: Cloud Migration Extensions
-description: Use the cloud migration extensions to migrate your on-premises data to Business Central online. These extensions move your on-premises data to the cloud.
-author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: app, add-in, manifest, customize, import, implement
-ms.search.form: 4021, 4026, 4031, 4090, 4091, 4092, 4093, 4094, 4095, 4096, 4097, 40027, 
-ms.reviewer: bholtorf
-ms.date: 06/23/2021
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
----
-
-# Cloud Migration Extensions for Migrating to Business Central Online
-
-Depending on your on-premises solution, you must use different extensions to connect your data with [!INCLUDE[prod_short](includes/prod_short.md)] online for purposes of migrating your solution to the cloud.  
-
-If you are using one of the supported on-premises products, you can configure your cloud environment based on a product-specific extension. Once your cloud environment is configured, you will be able to migrate data from your on-premises solution to [!INCLUDE[prod_short](includes/prod_short.md)]. This will enable you to take full advantage of what the cloud has to offer your business such as, enhanced insights into your business, artificial intelligence, multiple device access, and anytime, anywhere access.  
-
-For more information, see [Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data) in the administration content for [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-## Business Central on-premises
-
-If you are using an on-premises deployment of [!INCLUDE[prod_short](includes/prod_short.md)], get the **Intelligent Cloud Base** extension and the **Business Central Intelligent Cloud** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
-
-## Dynamics GP
-
-If you are using Dynamics GP,  get the **Intelligent Cloud Base Extension** extension and the **Dynamics GP Intelligent Cloud** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
-
-> [!IMPORTANT]
-> Migrating from Dynamics GP using the **Cloud Migration Setup** assisted setup guide is currently only supported for the following markets: United States, Canada, United Kingdom.
-
-## Dynamics SL
-
-If you are using Dynamics SL, get the **Intelligent Cloud Base** extension, the **Microsoft Dynamics SL Intelligent Cloud** extension and the **Microsoft Dynamics SL History SmartLists** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
-
-## Related information
-
-[Cloud Migration Base Extension](ui-extensions-intelligent-cloud.md)  
-[Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-how-set-up-colored-indicator-on-cues
----
-title: Set up your customized colored indicators for a Cue's activity
-description: As an administrator, you can set up Cues that appear on the users' Role Centers to include an indicator that changes color based on the data values in the Cues.
-author: jswymer
-
-
-ms.topic: how-to
-ms.devlang: al
-ms.search.form: 9701, 9702
-ms.date: 04/01/2021
-ms.author: jswymer
-
-ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
----
-# Set Up a Colored Indicator on Cues for the Company or Individual Users
-
-As an administrator, you can set up Cues that appear on the users' Role Centers to include an indicator that changes color based on the data values in the Cues.  
-
-The indicator appears as a colored bar along the top border of the Cue tile. It provides a visual signal of the status of the Cue's activity, which can indicate favorable or unfavorable conditions to prompt the user to take action. For example, if a Cue displays ongoing sales invoices, you can set up the indicator to appear green (favorable) when total number of ongoing sales invoices is below 10, and appears red (unfavorable) when the total is greater than 20.  
-
-From the **Cue Setup** page, you set up indicators for all the Cues that are available in the company database. You can set up the indicators to apply to all users in the company or an individual user only. The indicator settings on the **Cue Setup** page act as the default indicator settings. If the **Cue Setup End User** page is made available to users, then they can personalize the indicators settings that you define on the **Cue Setup** page.  
-
-To set up the indicator, you specify up to two threshold values that define three ranges of data values (low, middle, and high) to which you can apply a different color (or style).  
-
-### To set up colored indicators on Cues  
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Cue Setup**, and then choose the related link.  
-
-     The **Cue Setup** page appears. The page lists the indicators that are currently setup up on Cues. Indicators that apply to all users in the company have a blank **User Name** field. Indicators that apply to a specific user include the user's name in the **User Name** field.  
-
-    > [!NOTE]  
-    >  If you set up a company-wide indicator and a user modifies the indicator later on, then a separate entry for the indicator appears in list for that user.  
-
-2. Choose **Edit List** action.  
-3. To set up an indicator for a Cue that is not listed on the page, choose the **New** action, and then fill in the fields as described in the following. If you want to modify an existing indicator, go to the next step.  
-
-    |  Field  |  Description  |    
-    |---------|---------------|  
-    |**User Name**|If you want to set up the indicator for all users, leave this field blank.<br /><br /> If you want to set up the indicator for a specific user, then set this field to the user name.|  
-    |**Table No**|Specifies the ID of the table object that contains the Cue. Use the drop down list to find the table. The drop down list includes all Cue tables in the company database.<br /><br /> The **Table Name** field will be automatically filled in based on your selection.|  
-    |**Field No**|Specifies the ID of the Cue that you want to set up an indicator on. Use the drop down list to find the Cue that you want. **Note:**  The Cue ID corresponds to the field number that is assigned to the Cue in the table. <br /><br /> The **Field Name** field is automatically filled in based on your selection|  
-
-4. To set up the indicator for a Cue, set the fields as described in the following table.  
-
-    |  Field  |  Description  |    
-    |---------|---------------|  
-    |**LowStyle**|Specifies the color of the indicator when the Cue's value is below the value of the **Threshold 1** field.|  
-    |**LowThreshold**|Specifies the value at or above which the indicator changes to the color specified by the **Middle Range Style** field.|  
-    |**MiddleStyle**|Specifies the color of the indicator when Cue's value is greater than or equal to the value of the **Threshold 1** field but less than or equal to the value of the **Threshold 2** field.|  
-    |**HighThreshold**|Specifies the value above which the indicator changes to the color specified by the **High Range Style** field.|  
-    |**HighStyle**|Specifies the color to use when the Cue's value is above the value of the **Threshold 2** field.|  
-
-     The following table lists the colors that correspond to the options of the **LowStyle**, **MiddleStyle**, and **HighStyle** fields.  
-
-    |  Option  |  Color  |  
-    |----------|---------|  
-    |**None**|No color (same color as the Cue tile)|  
-    |**Favorable**|Green|  
-    |**Unfavorable**|Red|  
-    |**Ambiguous**|Yellow|  
-    |**Subordinate**|Gray|  
-
-## Related information
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-revalue-inventory
----
-title: Create new value entries for items in the inventory| Microsoft Docs
-description: Describes how to appreciate or depreciate the value entries of one or more items in inventory by posting their current, calculated value.
-documentationcenter: ''
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: costing, inventory cost, value entries
-ms.search.forms: 5803,
-ms.date: 07/29/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Revalue inventory
-If you want to appreciate or depreciate an item or a specific item ledger entry, you must use the revaluation journal.
-
-## To revalue inventory
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Revaluation Journal**, and then choose the related link.
-2. Choose the **Calculate Inventory Value** action.
-3. On the **Calculate Inventory Value** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-4. Choose the **OK** button.
-5. On each line on the **Item Revaluation Journals** page, in the **Unit Cost (Revalued)** field, enter the new unit cost. Alternatively, enter the new total amount in the **Inventory Value (Revalued)** field.
-
-    The relevant fields are automatically updated. The **Amount** field shows the actual change in inventory value for the selected item ledger entry. It calculates the difference between the **Inventory Value (Calculated)** field and the **Inventory Value (Revalued)** field.
-6. When you have completed all lines in the revaluation journal, choose the **Post** action.
-
-New value entries are now created to reflect the revaluations that you have posted. You can see the new values on the respective item cards.
-
-## Related information
-[Design Details: Revaluation](design-details-revaluation.md)    
-[Inventory](inventory-manage-inventory.md)    
-[Sales](sales-manage-sales.md)    
-[Purchasing](purchasing-manage-purchasing.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-cash-flow-overview
----
-title:  Cash flow overview
-description: An overview of cash inflows and outflows to help forecast money to be received and paid out.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: overview
-ms.devlang: al
-ms.search.keywords: cash flow, money flow, expense and income, liquidity, cash receipts minus cash payments
-ms.search.form: 841, 849, 1818
-ms.date: 07/31/2024
-ms.service: dynamics-365-business-central
----
-
-# Cash flow overview
-
-Understanding cash inflows and outflows are the key to running a successful business. You can use cash flow to easily create a short-term forecast that predicts how and when you expect money to be received and paid out by your business. It's important to know that your business will have enough cash to pay creditors and expenses when they're due.
-
-## Definition of cash flow
-
-The term *cash flow* is used to designate cash receipts minus cash payments over a selected period. It's an estimate of the amount of money that you expect to flow in and out of your business, and it includes all your forecasted income and expenses.
-
-## Work with cash flow
-
-The following illustration shows an overview of how you can work with cash flow.
-
-![Cash Flow overview.](media/finance_cash_flow_overview.png "Cash Flow overview")
-
-- You set up a cash flow forecast.  
-
-- You get cash flow forecast sources from the following areas:  
-
-  - General ledger – Information about the liquid funds and the budgeted revenues and expenses of your company.  
-  - Purchasing – Information about the current payables and any forecasted debts from open purchase orders.  
-  - Sales – Information about the current receivables and any forecasted receipts from open sales orders.  
-  - Service – Information about open service orders.  
-  - Fixed assets – Information about planned disposal and budgeted purchases of fixed assets.  
-  - Manual revenues and expenses – Manage manual revenues and expenses and include them in the cash flow forecast.  
-- You use a batch job to transfer information from the areas of general ledger, sales, purchasing, service, and fixed assets to the worksheet Then, you register worksheet lines to make a cash flow forecast.  
-- You use various pages, reports, and charts to analyze and print a cash flow forecast that relates to availability and timeline overviews.  
-
-## Making a cash flow forecast
-
-Based on the registered worksheet lines, you can periodically make a cash flow forecast. The following layout is a frequently used layout for a cash flow forecast. The layout has three sections:
-
-- Cash receipts  
-- Cash disbursements  
-- Net cash flow or cash-in-hand  
-
-Cash receipts provide details of the income that the business receives.
-
-*total cash receipts* = *receivables* + *open sales orders* + *open service orders* + *fixed assets disposals* + *manual revenues* + *budgeted revenues*
-
-> [!NOTE]
-> Manual revenues can be rental income, interest from financial assets, or new private capital. You can plan manual revenues for a period of time and use them in the calculation of cash flow forecast.
-
-Cash disbursements provide details of the payments made by the business.
-
-*total cash disbursements* = *payables* + *open purchase orders* + *fixed asset investment* + *manual expenses* + *budgeted expenses*
-
-> [!NOTE]
-> Manual expenses can be salaries, interest on credit, or private consumptions. You can plan manual expenses for a period of time and use them in the calculation of cash flow forecast.
-
-Net cash flow or cash-in-hand is calculated as total receipts minus total disbursements at the end of each period.
-
-*net cash flow* = *total cash receipts* – *total cash disbursements* + *liquid funds*
-
-You can use the forecast as an internal management decision-making tool that helps you plan ahead and make important strategic decisions about the operation of the business.
-
-## Related information
-
-[Setting Up Cash Flow Analysis](finance-setup-cash-flow-analyses.md)  
-[Analyze Cash Flow](finance-analyze-cash-flow.md)  
-[Forecast your cash flow in Dynamics 365 Business Central](/training/modules/forecast-cash-flow-dynamics-365-business-central/index)  
-[Set up cash flow forecasts using Azure AI in Dynamics 365 Business Central](/training/modules/setup-cash-flow-forecasts/)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-how-setup-opportunity-sales-cycles-stages
----
-title: Set Up Opportunity Sales Cycles and Cycle Stages
-description: Describes how to define sales stages, from initial contact to closing, to create a sales cycle and assign it to opportunities in Business Central.
-author: brentholtorf
-
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: relationship, prospect
-ms.search.forms: 5122, 5121, 5120, 5175, 5119, 5098, 5096
-ms.date: 05/27/2022
-ms.author: jswymer
-
-ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
----
-# Set Up Opportunity Sales Cycles and Cycle Stages
-
-Before you start using sales opportunities, you must set up sales cycles and sales cycle stages. A sales cycle is made up of a series of stages that go from the initial contact to the closing of a sale. For each stage, you define any requirements that must be met, such as requiring a sales quote, before an opportunity can go to the next stage. You can also specify whether a stage can be skipped. You can set up as many sales cycles as you need. You can set up as many sales cycle stages as necessary within a sales cycle.
-
-To use opportunity sales cycles, you must set up the sales cycle, define the different stages of the cycle, and then assign the cycle to opportunities. Assigning the relevant activity or tasks to the opportunity may also be part of setting up a sales cycle.
-
-This article also describes how to set up tasks and activities, and how to assign tasks to activities. For more information, see [To set up activities with tasks](marketing-how-setup-opportunity-sales-cycles-stages.md#to-set-up-activities-with-tasks).
-
-## To set up opportunity sales cycle codes
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Cycles**, and then choose the related link. The **Sales Cycles** page opens, and lists all the existing sales cycles.
-2. Choose the **New** action, and fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-Repeat these steps to set up as many sales cycles as you want. After you have set up opportunity sales cycles, you may want to set up the different stages within each cycle.
-
-## To define opportunity sales cycle stages
-
-1. On the **Sales Cycles** page, select the opportunity sales cycle for which you want to set up stages, and then choose the **Stages** action. The **Sales Cycle Stages** page opens.
-2. Choose the **New** action to enter a new stage in the sales cycle.
-
-Repeat these steps to set up as many stages as you want within the sales cycle.
-
-## To assign stage cycles to opportunities
-
-After you add the opportunities stage cycle, you can start to add sales opportunities, and then assign the stage cycle to opportunities by setting the **Sales Cycle Code** field. For more information, see [Create Sales Opportunities](marketing-how-create-opportunities.md).
-
-## To set up activities with tasks
-
-You can combine multiple tasks, such as tasks that each represent a step, in activities. Activity tasks are related to each other by a date formula. You can assign activities to opportunities, salespeople, or contacts.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Activities**, and then choose the related link.
-2. Choose the **New** action, and fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-3. On the **Lines** FastTab, fill in the fields as necessary to define one or more tasks in the activity.
-
-## To assign tasks or activities of tasks to opportunities
-
-When you have set up a task, you can assign it to a sales opportunity and thereby assign the activity that the task belongs to.
-
-> [!NOTE]
-> You cannot create tasks of type *Meeting* in [!INCLUDE [prod_short](includes/prod_short.md)] online. The capability requires access to an on-premises deployment.
-
-The following procedure describes how to assign activity tasks to opportunities. The steps are similar when you assign tasks to salespeople and contacts.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Opportunities**, and then choose the related link.
-2. Select an opportunity, and then choose the **Tasks** action.
-3. On the **Task List** page, choose the **Create Task** action.
-4. The **Create Task** page, fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-
-    > [!TIP]
-    > As you can see in the **Opportunity** field, the task is automatically assigned to the relevant opportunity.
-5. Choose the **OK** button.
-6. On the **Task List** page, select the new task, and then choose the **Assign Activities** action.
-7. On the **Assign Activity** page, fill in the fields as necessary, and then choose the **OK** button.
-
-## Related information
-
-[Processing Sales Opportunities](marketing-processing-sales-opportunities.md)  
-[Sales](sales-manage-sales.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]

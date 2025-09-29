@@ -1,3 +1,547 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-allowed-languages
+---
+title: Specify available languages in your environment
+description: Learn how to build a list of the languages that are available in your Business Central environment. 
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 
+ms.date: 02/19/2025
+ms.custom: bap-template
+---
+
+# Specify the languages that are available in your Business Central environment
+
+To let people work in their preferred language, the user interface (UI) in [!INCLUDE [prod_short](includes/prod_short.md)] is translated by apps that Microsoft provides, or by language apps that our partners provide on AppSource. Administrators install the language apps in their [!INCLUDE [prod_short](includes/prod_short.md)] environment. Afterward, on the **My Settings** page, people can choose the language in which they want to use [!INCLUDE [prod_short](includes/prod_short.md)].
+
+The **Languages** page lists all languages that [!INCLUDE [prod_short](includes/prod_short.md)] supports. However, to use [!INCLUDE [prod_short](includes/prod_short.md)] in a selected language, the language app must be installed in the environment. If someone chooses a language that a language app isn't installed for, they might be confused when the UI doesn't change.
+
+To avoid confusion and make it easier for people to select a language they can use, administrators can use the **Allowed Languages** page to list the languages that they installed language apps for. [!INCLUDE [prod_short](includes/prod_short.md)] filters the list of languages on the **My Settings** page to show only the allowed languages.
+
+## Create a list of allowed languages
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Allowed Languages**, and choose the related link.
+1. In the **Language ID** field, choose the language to allow.
+1. Repeat step 2 for each language that you installed a language app for.
+
+## Related information
+
+[Administration Tasks](admin-setup-and-administration.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-a-forecast
+---
+title: Create a demand forecast
+description: Learn about the demand forecasting features, and how you can create sales and production forecasts.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 9245, 99000919, 99000921, 99000922
+ms.date: 09/11/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Create a demand forecast
+
+You can create sales and production forecasts with the **Demand Forecasts** list page. Then, for each forecast, you specify various settings for that forecast in the **Demand Forecast Overview** page.  
+
+Forecasting functionality is used to create anticipated demand; actual demand is created from sales and production orders. During creation of the Master Production Schedule (MPS), the forecast is netted against the sales and production orders. The **Forecast Type** field on the forecast determines which type of requirements to take into consideration in the netting process. If the forecast is for a *sales item*, only sales orders net the forecast. If it is for *components*, only dependent demand from production order components net the forecast.  
+
+Forecasting allows your company to create "what if" scenarios and efficiently and cost-effectively plan for and meet demand. Accurate forecasting can make a difference in customer satisfaction levels regarding order promising dates and on-time delivery.  
+
+You can also define the right level of details in the **Forecast by Location** and **Forecast by Variant** fields in the **Demand Forecast Overview** page. Filters and other settings are stored in the **Demand Forecast Name** table, so you can easily stop and continue your work later. 
+
+## Sales forecasts and production forecasts
+
+The forecasting functionality in application can be used to create sales or production forecasts, in combination or independently. For example, most make-to-order companies don't carry finished goods inventory, because each item is produced when it's ordered. Anticipating orders (sales forecasting) is critical for a reasonable turnaround time on the finished goods (production forecasting). As an example, component parts with lengthy delivery times, if not on order or on inventory, can delay production.  
+
+- The sales forecast is the sales department's best guess at what they'll sell in the future, specified by item and by period. However, the sales forecast isn't always adequate for production.  
+- The production forecast is the production planner's projection of how many end items and derived subassemblies to produce in specific periods to meet the forecasted sales.  
+
+In most cases, the production planner modifies the sales forecast to fit the conditions of production, yet still satisfy the sales forecast.  
+
+You create forecasts manually on the **Demand Forecast** page. You can have multiple forecasts, differentiated by name and type. You can copy and edit forecasts as needed. 
+
+> [!NOTE]
+> Only one forecast is valid for planning purposes at any time.
+
+The forecast consists of several records, each with an item number, forecast date, and forecasted quantity. The forecast of an item covers a period defined by the forecast date and the forecast date of the next (later) forecast record. From a planning point of view, the forecasted quantity should be available at the start of the demand period.  
+
+You must designate a forecast as *Sales Item*, *Component*, or *Both*. The forecast type *Sales Item* is used for sales forecasting. The production forecast is created using the *Component* type. The forecast type *Both* is only used to give the planner an overview of both the sales forecast and the production forecast. With this option, the forecast entries aren't editable. By designating these forecast types here, you can use the same worksheet to enter a sales forecast as you do a production forecast, and use the same sheet to view both forecasts simultaneously. [!INCLUDE [prod_short](includes/prod_short.md)] treats the different inputs (sales and production) differently when it calculates planning, based on item, manufacturing, and production setup.  
+
+## Component forecast
+
+The component forecast can be considered as an optional forecast in relation to a parent item. The forecast can, for example, be useful if the planner can estimate the demand for the component.  
+
+Because the component forecast is designed to define options for a parent item, the component forecast should be less than or equal to the sales item forecast quantity. If the component forecast is higher than the sales item forecast, the system treats the difference between these two types of forecasts as independent demand.  
+
+## Forecasting periods
+
+The forecast period is valid from its starting date until the date the next forecast starts. The time interval page gives you multiple choices to insert the demand at a specific date in a period. It's therefore recommended not to change the forecast period scope unless you want to move all forecast entries to the starting date of this period.  
+
+## Forecast by locations
+
+On the **Inventory Setup** page, you can specify whether you want to consider the locations that are defined on forecasts when you calculate plans. 
+
+### Use forecast by locations
+
+If you turn on the **Use Forecast by Location** toggle, [!INCLUDE[prod_short](includes/prod_short.md)] respects any location codes that are specified for each demand forecast entry and calculate the remaining forecast for each location.  
+
+Consider this example: Your company purchases and sells items on two locations: EAST and WEST. For both locations, you configured a lot-to-lot reordering policy. You create a forecast for the two locations:
+
+- 10 pieces for location EAST
+- 4 pieces for location WEST
+
+Then, you create a sales order with a quantity of 12 on location WEST. The planning system suggests the following actions:
+
+- Replenish 10 pieces for location EAST, based on data from the forecast.  
+- Replenish 12 pieces for location WEST, based on the sales order. The four pieces that were specified in the forecast are fully consumed by the actual demand of the sales order. To learn more, go to [Forecast Demand is Reduced by Sales Orders](design-details-balancing-demand-and-supply.md#forecast-demand-is-reduced-by-sales-orders).  
+
+> [!NOTE]  
+> If location-based forecasts are viewed in isolation, the overall forecast might not be representative.
+
+### If you don't use forecast by locations
+
+If you turn off the **Use Forecast by Location** toggle, [!INCLUDE[prod_short](includes/prod_short.md)] ignores the location codes that are specified for each demand forecast entry and aggregate the forecasts into a forecast for empty locations.  
+
+Consider this example: Your company purchases and sells items on two locations: EAST and WEST. For both locations, you configured a lot-to-lot reordering policy. You create a forecast for the two locations:
+
+- 10 pieces for location EAST
+- 4 pieces for location WEST
+
+Then, you create a sales order with a quantity of 12 on location WEST. The planning system suggests the following actions:
+
+- Replenish 12 pieces for location WEST, based on the sales order.  
+- Replenish 2 pieces for the empty location. The 10 and 4 pieces that were specified in the forecast are partially consumed by the actual demand of the sales order. [!INCLUDE[prod_short](includes/prod_short.md)] ignored the location codes that you specified and uses a blank location instead.  
+
+> [!NOTE]  
+> You can set a filter by locations, but location-based results might not match planning results without filters.
+
+## To create a demand forecast
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Demand Forecast**, and then choose the related link.  
+2. On the **General** FastTab, select a forecast in the **Demand Forecast Name** field. You can have multiple forecasts, differentiated by name and forecast type.  
+3. In the **Location Filter** field, select the location to which this forecast applies.
+4. In the **View by** field to change the period that is displayed in each column. You can select from the following intervals: **Day**, **Week**, **Month**, **Quarter**, **Year**, or the **Accounting Period** as set up in your finance area.
+
+   > [!NOTE]  
+   > You should consider which time interval that you want to use for future forecasts so that the time interval is consistent throughout. When you enter a forecast quantity, it's valid on the first day of the time interval that you select. For example, if you select a month, enter the forecast quantity on the first day of the month. If you select a quarter, enter the forecast quantity on the first day of the first month in the quarter.
+
+5. In the **View as** field, select how the forecast quantities are shown for the time interval. If you select **Net Change**, then the net change in balance is displayed for the time interval. If you select **Balance at Date**, then the page displays the balance as of the last day in the time interval.  
+6. In the **Forecast Type** field, select **Sales Item**,  **Component**, or **Both**. If you select **Sales Item** or **Component**, then you can edit the quantity by period. If you select **Both**, then you can't edit the quantity, but you can choose the drop-down arrow button and view the demand forecast entries.  
+7. Specify a **Date Filter** if you want to limit the amount of data displayed.  
+8. On the **Demand Forecast Matrix** FastTab, enter the forecasted quantities by typing a quantity in the cell representing an item on a particular date or period. In empty cells, the lookup button opens an empty page, which means you must enter a value manually.  
+
+> [!NOTE]  
+> You can also edit an existing forecast. On the **Demand Forecast Matrix** page, choose the **Copy Demand Forecast** action and populate the **Demand Forecast** page with an existing forecast. You can then edit quantities as appropriate.  
+
+## Related information
+
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Manufacturing](production-manage-manufacturing.md)
+[Inventory](inventory-manage-inventory.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Design Details: Supply Planning](design-details-supply-planning.md)   
+[Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-app
+---
+title: Sustainability Power BI app
+description: The Power BI app for sustainability in Business Central provides comprehensive sustainability analytics to stakeholders at all levels of your organization.
+author: altotovi
+ms.author: altotovi
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 
+ms.date: 06/04/2025
+ms.service: dynamics-365-business-central
+---
+
+# Sustainability Power BI app
+
+[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
+
+The Sustainability Power BI app provides detailed insight into the emission usage of an organization to support Environment Social Governance (ESG) reporting. The report helps identify key areas to change. The app provides various reports that focus on areas that organizations want to track, such as [Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md), [Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md) and [Social Analysis](https://businesscentral.dynamics.com?page=37091).
+
+## Sustainability analytics
+
+To fit into this category, you might have a role such as:
+
+- Sustainability Manager
+- Data Analyst
+
+### Example scenario: The sustainability team needs to review their water and waste usage over a period
+
+As someone on the Sustainability team, you want to consistently review your water and waste usage at specific facilities. Using the [Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md) report, you can review the capacity at each facility and location to understand the available capacity, should you need it in the future.
+
+:::image type="content" source="media\sustainability\water-waste-by-loc-fac.png" alt-text="Screenshot of the Water and Waste Analysis Snippet Power BI" lightbox="media\sustainability\water-waste-by-loc-fac.png":::
+
+The report also allows the team to track different water and waste types along with the YOY and DOD change to ensure they're moving in the right direction.
+
+## Sustainability analytics for the Executive team
+
+To fit into this category, you might have a role such as:
+
+- CEO
+- Chief Operating Officer
+- Chief Sustainability Officer
+
+### Example scenario: Ensure targets are being met
+
+For someone on the executive team, you need to ensure targets you put in place for the organization are being met. The [Realized Emissions vs. Target](sustainability-powerbi-realized-emissions-vs-target.md) report can quickly and efficiently compare your actual emissions with your target and make informed decisions about where to make changes.
+
+:::image type="content" source="media\sustainability\co2e-comparision.png" alt-text="Screenshot of the Realized Emissions vs Target Snippet Power BI" lightbox="media\sustainability\co2e-comparision.png":::
+
+You can compare the data in this report with the [Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md) report to ensure your organization is on the right track.
+
+:::image type="content" source="media\sustainability\journey-to-net-zero-snip.png" alt-text="Screenshot of the Journey To Net Zero Carbon Snippet Power BI" lightbox="media\sustainability\journey-to-net-zero-snip.png":::
+
+For an executive looking for a quick, high-level view for their organization, you can use the [Sustainability Overview](sustainability-powerbi-sustainability-overview.md) report.
+
+## Alternative use cases
+
+While the reports benefit these examples, in some scenarios other roles can also use this report pack. For example, a Procurement Manager might use the [Emissions by Category and Scope](sustainability-powerbi-emissions-by-category-and-scope.md) report to review Scope 3 so they can identify better vendors. Or, a member of the Human Resources team can use the [Social Analysis](sustainability-powerbi-social-analysis.md) report to get a view of employee activities.
+
+## Use the reports
+
+The following table provides descriptions on how you can use each report in the Power BI Sustainability app.
+
+|To... | Open in Business Central (CTRL+select) | Learn more |
+|------|---------------------------------------|----------- |
+|The **Sustainability Overview** report gives you a high-level view of all the key sustainability metrics.| [Sustainability Overview](https://businesscentral.dynamics.com?page=37084) | [About Sustainability Overview](sustainability-powerbi-sustainability-overview.md)|
+|The **Journey to Net Zero** report highlights the journey to net zero within an organization.| [Journey to Net Zero Carbon](https://businesscentral.dynamics.com?page=37090) | [About Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md)|
+|The **Realized Emissions vs Target** report breaks down your carbon emissions and allows for comparison against the target. You can effectively monitor planned progress and drive continuous improvement to sustainability goals.| [Realized Emissions vs Target](https://businesscentral.dynamics.com?page=37085) | [About Realized Emissions vs. Target](sustainability-powerbi-realized-emissions-vs-target.md)|
+|The **Realized Emissions vs Baseline** report breaks down your carbon emissions and allows for comparison against a defined baseline period. This comparison lets you track progress against the baseline and monitor trends against a previous period.| [Realized Emissions vs Baseline](https://businesscentral.dynamics.com?page=37086) | [About Realized Emissions vs. Baseline](sustainability-powerbi-realized-emissions-vs-baseline.md)|
+|The **Water and Waste Analysis** report allows you to effectively monitor your water and waste usage by different metrics such as water type, intensity type, and responsibility center.| [Water and Waste Analysis](https://businesscentral.dynamics.com?page=37087) | [About Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md)|
+|The **Emissions by Category and Scope** report breaks down each emission type based on the account category and the scope to show how each account and scope is tracking. | [Emissions by Category and Scope](https://businesscentral.dynamics.com?page=37088) | [About Emissions by Category and Scope](sustainability-powerbi-emissions-by-category-and-scope.md)|
+|The **CO2e Analysis** report provides detailed insight into your CO2e emissions and how you purchase carbon credit.| [CO2e Analysis](https://businesscentral.dynamics.com?page=37089) | [About CO2e Analysis](sustainability-powerbi-co2e-analysis.md)|
+|The **CO2e Key Influencers** report identifies the key factors behind increases in CO2e emissions. It highlights the most impactful variables and trends based on the sustainability account categories.| [CO2e Key Influences](https://businesscentral.dynamics.com?page=37093) | [About CO2e Key Influences](sustainability-powerbi-co2e-key-influences.md)|
+|The **CO2e Decomposition Tree** report breaks down CO2e emission metrics into its key contributing components to help you understand what's driving changes in CO2 emissions, and why.| [CO2e Decomposition Tree](https://businesscentral.dynamics.com?page=37108) | [About CO2e Decomposition Tree](sustainability-powerbi-co2e-decomposition-tree.md)|
+|The **Social Analysis** report displays employee details as part of social reporting for ESG. | [Social Analysis](https://businesscentral.dynamics.com?page=37091) | [About Social Analysis](sustainability-powerbi-social-analysis.md)|
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Related information
+
+[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
+[Sustainability scorecards and goals overview](sustainability-scorecards-goals.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-manage
+---
+title: Manage fixed assets
+description: Learn about the fixed assets functionality and get an overview of how to work with and manage your fixed assets.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: machinery, buildings
+ms.search.form: 5601_Primary, 5604, 5606, 5664, 5601, 5602, 5658, 5603, 5671, 5641, 5629, 5633, 5634, 5649, 5622, 5650
+ms.date: 06/10/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Manage fixed assets
+
+The fixed assets functionality in [!INCLUDE[prod_short](includes/prod_short.md)] provides an overview of your fixed assets and helps ensure that their depreciation is correct. It also helps you track maintenance costs, manage insurance policies, post fixed asset transactions, and generate various reports and statistics.
+
+## What is a fixed asset?
+
+Fixed assets differ from other items in your warehouse. A fixed asset, also known as a capital asset, is a tangible piece of property, plant, or equipment (PP&E) that you own or manage with the expectation that it will continue to help generate income. An asset is fixed when it’s an item that your business won’t consume, sell, or convert to cash within the next calendar year. Fixed assets are different than current assets, which are in cash or slated to be converted to cash within the next 12 months. Fixed assets also differ from your inventory, because inventory is typically consumed within a short time.
+
+## Types of fixed assets
+
+Businesses typically invest in a few types of fixed assets. Some examples are:
+
+- Buildings and facilities
+- Computer equipment and software
+- Furniture and fixtures
+- Machinery
+- Vehicles
+
+## Understanding fixed asset accounting
+
+Fixed asset accounting means keeping precise financial records about your capital assets. These records include details about the five stages in an asset's lifecycle. After your initial purchase, each fixed asset’s lifecycle includes at least three of the following stages:
+
+- Acquisition: You add a new fixed asset to your books.
+- Depreciation: You record an asset's periodic decline in value, which you use a depreciation method to calculate. To learn more, go to [FA Depreciation Calculation](LocalFunctionality/India/FA_Depreciation.md).
+- Revaluation: You record an assessment of the current fair market value of an asset. To learn more, go to [Revalue Fixed Assets](fa-how-revalue.md).
+- Impairment: You record a reduction in value due to events or circumstances.
+- Disposal: You sell, scrap, or use another way dispose of an asset at the end of its service life.
+
+Audits are also included in the detailed checks of your company’s accounting records after closing the books for the financial year. Whether internal or external, audits are where you might notice inconsistencies or differences between your notes and the actual state of your assets. Audits promote transparency in your assets and accounting if you’re losing more money than anticipated.
+
+## Video overview
+
+The following video covers the basics of fixed assets:
+
+> [!Video https://learn-video.azurefd.net/vod/player?id=32fa27be-9e9a-4637-bc9b-87eb994f5ae0]
+
+## Initial setup of fixed assets
+
+Before you can manage fixed assets, you must complete the following setups:
+
+- Default values
+- Fixed asset accounting
+- Posting groups and types
+- Allocation keys
+- Fixed asset journals
+
+To learn more, go to [Setting Up Fixed Assets](fa-setup.md).
+
+## Fixed assets analytics
+
+This section describes the analytical tools you can use to get insights into data about your fixed assets.
+
+| To... | See |
+| --- | --- |
+| Learn about capabilities for analyzing data about fixed assets. | [Fixed assets analytics overview](fa-analytics-overview.md) |
+| Do ad-hoc analysis of fixed assets data directly on list pages and queries. | [Ad-hoc analysis of fixed assets data](ad-hoc-analysis-fa.md) |
+| Explore built-in reports for fixed assets. | [Built-in fixed assets reports](fa-reports.md) |
+| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
+| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
+| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
+| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
+
+## Register fixed assets
+
+For each fixed asset, you must set up a card that contains information about them. For example, you can set up buildings or production equipment as main assets with a component list. You can group assets in various ways, such as by class, department, or location. Then you can acquire, maintain, and sell the fixed assets. You can also set up budgeted assets. Budgeting lets you include any anticipated acquisitions and sales in reports.
+
+| To  | See |
+| --- | --- |
+| Manage fixed asset budgets, budget acquisition costs, budget disposals of fixed assets, and budget depreciation. |[Manage Budgets for Fixed Assets](fa-how-manage-budgets.md) |
+| Create fixed assets, assign depreciation methods, post acquisitions, salvage values, and print fixed asset lists. |[Acquire Fixed Assets](fa-how-acquire.md) |
+
+## Set up depreciations for your fixed assets
+
+To track fixed asset depreciations and other financial transactions for fixed assets, set up one or more depreciation books for each one. There are a few steps to depreciate assets:
+
+1. Run a report that calculates periodic depreciation.
+1. Fill in a journal with the resulting entries.
+1. Post the journal.
+
+[!INCLUDE[prod_short](includes/prod_short.md)] supports several depreciation methods. To learn more, go to [Depreciation Methods](fa-depreciation-methods.md). You can set up multiple depreciation books for each fixed asset for different purposes, such as one for tax reporting and another for internal reporting.
+
+| To  | See |
+| --- | --- |
+| Learn about different fixed asset depreciation methods. |[Depreciation Methods](fa-depreciation-methods.md) |
+| Calculate depreciation, post depreciation, and analyze depreciation in fixed assets reports. |[Depreciate or Amortize Fixed Assets](fa-how-depreciate-amortize.md) |
+| View changed depreciation book values. | [View changed depreciation book values](fa-how-trans-split-combine.md#to-view-changed-depreciation-book-values-due-to-fixed-asset-reclassification) |
+| Manually record fixed asset transactions on the **Fixed Asset G/L Journal** page or on the **Fixed Asset Journal** page, depending on whether the transactions are for financial reporting or for internal management. | [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md) |
+
+## Fixed assets maintenance and insurance
+
+You can record maintenance costs and the next service date for each asset. Tracking maintenance expenses can be important for budgeting purposes and deciding whether to replace a fixed asset. You can attach each fixed asset to one or more insurance policies, and verify that policy premiums align with the value of the assets.
+
+| To  | See |
+| --- | --- |
+| Record service visits, post maintenance costs, and monitor maintenance costs. |[Maintain Fixed Assets](fa-how-maintain.md) |
+| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
+| Update insurance information, post acquisition costs to insurance policies, modify insurance coverage, view insurance statistics, and list insurance policies. |[Insure Fixed Assets](fa-how-insure.md) |
+| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
+
+## Reclassify, transfer, split up/combine, adjust value, write-down, and dispose fixed assets
+
+| To  | See |
+| --- | --- |
+| Reclassify fixed assets, transfer fixed assets to different locations, split up or combine assets. |[Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md) |
+| Adjust values of fixed assets, post appreciation, and post write-down transactions. |[Revalue Fixed Assets](fa-how-revalue.md) |
+| Post disposal transactions, view disposal ledger entries, and post partial disposals. |[Dispose of or Retire Fixed Assets](fa-how-dispose-retire.md) |
+| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
+| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
+
+## Tips for improving your fixed asset accounting
+
+There are a few things you can implement in your accounting strategy for fixed assets that can help ensure you’re maximizing your earnings.
+
+- Establish a threshold for capitalization. When you purchase an item, determine a fixed amount for capitalization. The amount helps ensure your accounting books are consistent, and makes it easier for you and your team to spot accounting errors.
+- Reevaluate equipment lifecycle. It's important to correctly estimate the length of time you can use your fixed assets for their original purpose. Because accounting and depreciation rely on accurate lifecycle estimates, reevaluate when necessary because it might change over time.
+- Tag your assets. It’s essential to track and tag your assets throughout their lifecycle because many factors can affect their value. Tagging helps track your items throughout the stages of their lifecycle, and help prevent theft, eliminate misplacement, and support financial statistics.
+- Automate insight with fixed asset accounting software. Automating manual activities to track your data with fixed asset accounting software make processes easier to complete. Password protection can help provide access only to the people who need it and are trained for it.
+
+## Related information
+
+[Setting Up Fixed Assets](fa-setup.md)  
+[Fixed assets analytics overview](fa-analytics-overview.md)  
+[Finance overview](finance.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Change Which Features are Displayed](ui-experiences.md)  
+
+## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-journey-to-net-zero-carbon
+---
+title: Journey to Net Zero Carbon
+description: The Journey to Net Zero highlights the journey to net zero within an organization.
+author: altotovi
+ms.author: altotovi
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 
+ms.date: 05/26/2025
+ms.service: dynamics-365-business-central
+---
+
+# Journey to Net Zero Carbon (Power BI Report)
+
+[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
+
+The Journey to Net Zero Carbon report helps you monitor and analyze key metrics that can help you reduce your carbon footprint. The report arranges data by global dimensions or scopes to provide multiple scenarios for informed reporting.
+
+:::image type="content" source="media\sustainability\journey-to-net-zero-carbon.png" alt-text="Screenshot of the Journey to Net Zero Carbon Power BI report" lightbox="media\sustainability\journey-to-net-zero-carbon.png":::
+
+## Use the report
+
+The report is useful for various different users, depending on what they want to analyze.
+
+Sustainability Managers can use the report to monitor key carbon emissions and renewable energy use. This information can help identify areas where you can reduce emissions, based on different scopes or the dimensions. You can also use this report to track emission reductions year over year as you get closer to net zero.
+
+## Key performance indicators (KPIs)
+
+The Journey to Net Zero Carbon report includes the following KPIs and measures:
+
+- [CO2e Emissions (Excl Credits)](sustainability-powerbi-kpis.md#co2e-emissions-excl-credits)
+- [Purchased Carbon Credits](sustainability-powerbi-kpis.md#purchased-carbon-credits)
+- [CO2e Emissions](sustainability-powerbi-kpis.md#co2e-emissions)
+- [CO2 Emissions](sustainability-powerbi-kpis.md#co2-emissions)
+
+Choose the link for a KPI to learn more about what it means, its calculation, and what data is used in the calculations.
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The Journey to Net Zero Carbon report use data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Sustainability Ledger Entry
+- Sustainability Account Category
+
+## Try the report
+
+Try the report here: [Journey to Net Zero Carbon](https://businesscentral.dynamics.com?page=37090)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
+[Sustainability management overview](finance-manage-sustainability.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-use-multiple-vat-registrations
+---
+title: Multiple VAT registration numbers
+description: Learn about the functionality for multiple (alternative) value-added tax (VAT) registration numbers.
+author: altotovi
+ms.topic: article
+ms.reviewer: 
+ms.search.keywords: VAT, multiple, alternative, customer, tax, value-added tax
+ms.search.form: 212, 301, 
+ms.date: 08/21/2024
+ms.author: altotovi
+ms.service: dynamics-365-business-central
+---
+
+# Multiple VAT registration numbers 
+
+For businesses with warehouses in multiple EU countries, managing VAT (Value Added Tax) can be challenging, as each warehouse location requires a different VAT number to comply with the specific regulations of each country. This article provides information about this requirement and explains the functionality for multiple value-added tax (VAT) registration numbers. This functionality allows users to set up tax registration numbers for their customers in different countries/regions.  
+
+> [!NOTE]
+> The *Multiple VAT numbers for customers* functionality is available only from Business Central 2024 release wave 2 (version 25).
+
+## How to set up the alternative VAT registration numbers  
+
+To set up the alternative VAT registration numbers for different countries/regions, follow these steps: 
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Alternative Customer VAT Registration**, and then select the related link. 
+2. Add the customer in the **Customer No** field and the country/region related to this VAT registration in the **VAT Country/Region Code**.  
+3. You must add the VAT number in the **VAT Registration No.** field. You must stick to the format when you use **Country/Region Code**. 
+4. If you want to use different VAT or general posting groups, you can alternatively add them to the setup in the **VAT Bus. Posting Group** and **Gen. Bus. Posting Group** fields. 
+5. Close the page.   
+
+To create an alternative address for your customer, follow these steps:  
+
+1. Open the **Customer** card for the customer you want to add new **Ship-to Address**. 
+2. Select **Customer**, and choose the **Ship-to Addresses** action.   
+3. The **Ship-to Address List** page opens, and select **New**. 
+4. Fill in the information about your customer's ship-to destination.  
+5. Choose the proper **Country/Region Code**.   
+6. If you have already configured a new **VAT Registration No.** on the **Alternative Customer VAT Registration** for this country or region, nothing will happen. 
+  - But if you didn't configure the **VAT Registration No.** previously on the **Alternative Customer VAT Registration** for this country or region, the following notification appears: **Click Add if you want to insert the Alternative VAT Registration for this Ship-To Country Code.**
+  - Choose the **Add** action on the notification and the **Alternative Customer VAT Registration** page opens.
+This page populates your **Customer No.** and the **VAT Country/Region Code**. So, you just need to add the setup that you want to use. 
+
+## Work with the sales documents   
+
+You can create new [sales invoice](sales-how-invoice-sales.md) or [sales order](sales-how-sell-products.md) in [!INCLUDE[prod_short](includes/prod_short.md)]. If you need to use a ship-to address that differs from the customer's address and is located in a different country, follow the steps:  
+
+### Alternate shipping address  
+
+1. Expand the **Shipping and Billing** FastTab.   
+2. In the Ship-to field, choose the **Alternate Shipping Address** option. 
+3. The **Ship-to Address List** page with available alternate addresses appears. 
+4. Choose one of the addresses with a different **Country/Region Code**. 
+5. The **Confirm Alternative Customer VAT Registration** dialog page appears with a list of fields that you have modified because of the **Alternative Customer VAT Registration** setup change. 
+6. Select **OK** to confirm.   
+
+> [!NOTE]
+> If you don't want to confirm such a choice anymore, you can select the **Don't show again** field, and in the future you won't see this type of notification about changes. But if you want to enable it again, you can do it by enabling the **Confirm Alternative VAT Registration** field on the **VAT Setup**.  
+   
+7. Once you confirm, the values are overwritten with the values from the **Alternative Customer VAT Registration** setup. You can check all the VAT related fields that are under the **Invoice Details** FastTab.  
+8. Post the document.  
+
+### Custom address  
+
+In case you don't have the ship-to address configured but still want to use a different address for shipping, you can use this option.  
+
+1. Expand the **Shipping and Billing** FastTab.   
+2. In the Ship-to field, choose the **Custom Address** option.  
+3. Change the country in the **Country/Region** field.  
+4. Once you change the country/region code to match the **VAT Country/Region Code** of the **Alternative Customer VAT Registration**, the **Confirm Alternative Customer VAT Registration** dialog page appears with a list of fields that have been changed. 
+5. [!INCLUDE[prod_short](includes/prod_short.md)] will also change all the VAT related fields that are under the **Invoice Details** FastTab.  
+
+### Work with no shipment 
+
+If there's no shipment as a process, you still can leverage the **Alternative Customer VAT Registration** setup.
+
+In the sales order or invoice, you can find the **VAT Country/Region Code** under the **Invoice Details** FastTab and specify the value that matches the **Alternative Customer VAT Registration** setup. You should see the same confirmation dialog page as above. 
+
+In this situation, you can post a sales invoice with the proper **VAT Registration No.** for your customer even if you don't ship items with this document. 
+
+### Work with the sales credit memo  
+
+Once you post the invoice with a **Ship-to address** or **VAT Country/Region Code** that has different posting data, the corrective **Sales credit memo** takes the values from the **Posted sales invoice** header where these values are taken from the **Alternative customer VAT registration**, so no other actions required. 
+
+## Related information
+
+[VAT Management Overview](finance-manage-vat.md)    
+[Set Up Value-Added Tax](finance-setup-vat.md)    
+[Work with VAT on Sales and Purchases](finance-work-with-vat.md)    
+[Report VAT to a Tax Authority](finance-how-report-vat.md)    
+[Local functionality in Business Central](about-localization.md)    
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-setup-banking
 ---
 title: Set Up Banking
@@ -591,8 +1135,8 @@ Purchasers track daily purchases and ensure they stay within budget. Use this re
 
 The *Daily Purchases* report includes the following KPIs and measures: 
 
-- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)  
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)  
+- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -602,8 +1146,9 @@ The *Daily Purchases* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 - Item
 
 ## Try the report
@@ -1183,7 +1728,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.search.form: 663,
+ms.search.form: 663_Primary
 ms.date: 06/10/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -3973,53 +4518,22 @@ The Budget Quantity measure sums the Quantity column from the Purchase Budget ta
 - Purchase Line
 - Value Entry
 
-## Counters
-- [No. of Distinct Items](#no-of-distinct-items)
-- [No. of Outstanding Purchase Orders](#no-of-outstanding-purchase-orders)
-- [No. of Purchase Invoices](#no-of-purchase-invoices)
-- [No. of Received Not Invd. Purchase Orders](#no-of-received-not-invd-purchase-orders)
+## Documents
 
-### No. of Distinct Items
-
-**Formula**  
-The No. of Distinct Items calculates the number of unique items that have been purchased by counting the distinct values of the Item No. column of the Purchases table.
-
-**Data Sources**
-- Purchase Line
-- Value Entry 
-
-### No. of Outstanding Purchase Orders
-
-**Formula**  
-The No. of Outstanding Purchase Orders calculates the number of unique purchase orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchases table, where Document Type = Order and Source Type = Purchase Order Outstanding.
-
-**Data Sources**
-- Purchase Line
-- Value Entry
-
-### No. of Purchase Invoices
-
-**Formula**
-The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by countint the distinct count of the Document No. column from the Purchases table where Document Type = Purchase Invoice and Source Type = Value Entries Invoiced.
-
-**Data Sources**
-- Purchase Line
-- Value Entry
-
-### No. of Received Not Invd. Purchase Orders
-
-**Formula**
-The No. of Received Not Invd. Purchase Orders measure calculates the number of unique purchase orders that are received but not invoiced, by counting the distinct count of Document No. column from the Purchases table where Document Type = Order and Source Type = Purchase Orders Received Not Invoiced.
-
-**Data Sources**
-- Purchase Line
-- Value Entry
-
-## Purchase Measures
-- [Purchase Amount](#purchase-amount)
+- [Invoiced Prepayment Amount (LCY)](#invoiced-prepayment-amount-lcy)
+- [Purchase (LCY)](#purchase-lcy)
+- [Purchase (LCY) Forecasting](#purchase-lcy-forecasting)
 - [Purchase Quantity](#purchase-quantity)
+- [Return Rate (Amount)](#return-rate-amount)
+- [Return Rate (Qty.)](#return-rate-qty)
+- [Total Credit (Amount)](#total-credit-amount)
+- [Total Credit (Qty.)](#total-credit-qty)
+- [Total Purchase (Amount)](#total-purchase-amount)
+- [Total Purchase (Qty)](#total-purchase-qty)
 
 ### Purchase Amount
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**
 The Purchase Amount measure sums the the Purchase Amount column of the Purchases table.
@@ -4035,31 +4549,326 @@ The Purchase Quantity measure sums the the Purchase Quantity column of the Purch
 **Data Sources**
 - Value Entry
 
-## Invoiced
-- [Invoiced Amount](#invoiced-amount)
-- [Invoiced Quantity](#invoiced-quantity)
+### Purchase (LCY)
+
+**Formula**  
+The Purchase (LCY) measure calculates the purchase amount across all invoiced purchase transactions by calculating the sum of [Purchase Value Entries Amount](#purchase-value-entries-amount), [Purchase Credit Line Amount](#purchase-credit-line-amount) and [Purchase Invoice Line Amount](#purchase-invoice-line-amount). Reconcile this measure to the Vendor Statistics page.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Purchase (LCY) Forecasting
+
+**Formula**  
+The Purchase (LCY) Forecasting measure calculates the [Purchase (LCY)](#purchase-lcy) within the period of dates with purchase transactions and inserts zero values for dates without purchase entries, for compatibility with forecasting.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Return Rate (Amount)
+
+**Formula**  
+*Return Rate (Amount) = - [Total Credit (Amount)](#total-credit-amount) / [Total Purchase (Amount)](#total-purchase-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Return Rate (Qty.)
+
+**Formula**  
+*Return Rate (Qty.) = - [Total Credit (Qty.)](#total-credit-qty) / [Total Purchase (Qty.)](#total-purchase-qty)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Total Credit (Amount)
+
+**Formula**  
+*Total Credit (Amount) = [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount) + [Purchase Credit Line Amount](#purchase-credit-line-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Credit Memo Line
+
+### Total Credit (Qty.)
+
+**Formula**  
+*Total Credit (Qty.)= [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Credit Memo Line
+
+### Total Purchase (Amount)
+
+**Formula**  
+*Total Purchase (Amount) = [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount) + [Purchase Invoice Line Amount](#purchase-invoice-line-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+
+### Total Purchase (Qty.)
+
+**Formula**  
+*Total Purchase (Qty.)= [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity) + [Purchase Invoice Quantity Base](#purchase-invoice-line-quantity-base)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+
+### Invoiced Prepayment Amount (LCY)
+
+**Formula**  
+The Invoiced Prepayment Amount (LCY) measure calculates the sum of the Prepayment Amount Invoiced (LCY) from the Purchase Lines table.
+
+**Data Sources**  
+- Purchase Line
+
+## Purchase Value Entries
+
+- **Counters**
+  - [No. of Distinct Items](#no-of-distinct-items)
+  - [No. of Posted Purchase Invoices](#no-of-posted-purchase-invoices)
+  - [No. of Single Supplier Items](#no-of-single-supplier-items)
+  - [No. of Vendors](#no-of-vendors)
+
+- **Purchase Invoice**
+  - [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount)
+  - [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity)
+
+- **Purchase CR/Adj Note**
+  - [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount)
+  - [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity)
+
+- [Purchase Value Entries Amount](#purchase-value-entries-amount)
+- [Purchase Value Entries Discount %](#purchase-value-entries-discount-)
+- [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount)
+- [Purchase Value Entries Quantity](#purchase-value-entries-quantity)
+
+### No. of Distinct Items
+
+**Formula**  
+The No. of Distinct Items calculates the number of unique items that have been purchased by counting the distinct values of the Item No. column of the Purchase Value Entry table.
+
+**Data Sources**  
+- Value Entry 
+
+### No. of Posted Purchase Invoices
+
+**Formula**  
+The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases Value Entries table where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
+
+### No. of Purchase Invoices
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases table where Document Type = Purchase Invoice and Source Type = Value Entries Invoiced.
+
+**Data Sources**  
+- Purchase Line
+- Value Entry
+
+### No. of Vendors
+
+**Formula**  
+The No. of Vendors calculates the number of unique items that have been purchased by counting the distinct values of the Vendor No. column of the Purchase Value Entry table.
+
+**Data Sources**  
+- Value Entry 
+
+### No. of Single Supplier Items
+
+**Formula**  
+The No. of Single Supplier Items calculates the number of items that have been purchased from a single vendor, by filtering to items where [No. of Vendors](#no-of-vendors) equals one.
+
+**Data Sources**  
+- Value Entry 
+
+### Posted Purchase Invoice Amount
+
+**Formula**  
+The Posted Purchase Invoice Amount calculates the total cost amount that has been purchased and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
+
+### Posted Purchase Invoice Quantity
+
+**Formula**  
+The Posted Purchase Invoice Quantity calculates the total quantity that has been purchased and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
 
 ### Invoiced Amount
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**
 The Invoiced Amount calculates the total amount of items that have been purchased and invoiced, by summing the Purchase Amount column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
 
-**Data Sources**
+**Data Sources**  
 - Value Entry
 
 ### Invoiced Quantity
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**
 The Invoiced Quantity measure calculates the total quantity of items that have been purchased and invoiced, by summing the Purchase Quantity column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
 
-**Data Sources**
+**Data Sources**  
 - Value Entry
 
-## Outstanding
-- [Outstanding Amount (Excl. VAT)](#outstanding-amount-excl-vat)
-- [Outstanding Quantity](#outstanding-quantity)
+### Posted Purchase CR/Adj Note Amount
+
+**Formula**
+The Posted Purchase CR/Adj Note Amount calculates the total cost amount that has been credited and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
+
+**Data Sources**  
+- Value Entry
+
+### Posted Purchase CR/Adj Note Quantity
+
+**Formula**  
+The Posted Purchase CR/Adj Note Quantity calculates the total quantity that has been credited and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Amount
+
+**Formula**  
+The Purchase Value Entries Amount calculates the total amount that has been purchased, by summing the Cost Amount Actual column of the Purchase Value Entries table, where Value Entry Type = Direct Cost and Adjustment is false.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Quantity
+
+**Formula**  
+The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Discount Amount
+
+**Formula**  
+The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Discount %
+
+**Formula**  
+*Purchase Value Entries Discount % = [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount) / [Purchase Value Entries Amount](#purchase-value-entries-amount)*
+
+**Data Sources**  
+- Value Entry
+
+## Purchase Lines
+
+- **Counters**
+  - [No. of Outstanding Invoices](#no-of-outstanding-invoices)
+  - [No. of Outstanding Purchase Orders](#no-of-outstanding-purchase-orders)
+  - [No. of Outstanding Return Orders](#no-of-outstanding-return-orders)
+  - [No. of Purchase Quotes](#no-of-purchase-quotes)
+  - [No. of Received Not Invd. Purchase Orders](#no-of-received-not-invd-purchase-orders)
+
+- **Outstanding**
+  - [Outstanding Invoices (LCY)](#outstanding-invoices-lcy)
+  - [Outstanding Orders (LCY)](#outstanding-orders-lcy)
+
+- **Quote**
+  - [Purchase Quote Purchase (LCY)](#purchase-quote-purchase-lcy)
+  - [Purchase Quote Quantity](#purchase-quote-quantity)
+
+- **Received Not Invoiced**
+  - [Amt. Rcd. Not Invoiced (LCY)](#amt-rcd-not-invoiced-lcy)
+
+- **Return Order**
+  - [Outstanding Return Order (LCY)](#outstanding-return-order-lcy)
+  - [Return Order Amount](#return-order-amount)
+  - [Return Order Quantity](#return-order-quantity)
+  - [Return Qty. Invoiced](#return-qty-invoiced)
+  - [Return Qty. Shipped](#return-qty-shipped)
+  - [Return Qty. to Invoice](#return-qty-to-invoice)
+  - [Return Qty. to Ship](#return-qty-to-ship)
+  - [Returned Quantity](#returned-quantity)
+
+### No. of Outstanding Invoices
+
+**Formula**  
+The No. of Outstanding Invoices calculates the number of unique purchase invoices that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Invoice.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Outstanding Purchase Orders
+
+**Formula**  
+The No. of Outstanding Purchase Orders calculates the number of unique purchase orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Outstanding Return Orders
+
+**Formula**  
+The No. of Outstanding Return Orders calculates the number of unique purchase return orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Return Order.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Purchase Quotes
+
+**Formula**  
+The No. of Purchase Quotes calculates the number of unique purchase quotes, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Received Not Invd. Purchase Orders
+**Formula**
+The No. of Received Not Invd. Purchase Orders measure calculates the number of unique purchase orders that are received but not invoiced, by counting the distinct count of Document No. column from the Purchases table where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
+
+### Outstanding Invoices (LCY)
+
+**Formula**  
+The Outstanding Invoices (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Invoice.
+
+**Data Sources**  
+- Purchase Line
+
+### Outstanding Orders (LCY)
+
+**Formula**  
+The Outstanding Orders (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
 
 ### Outstanding Amount (Excl. VAT)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Outstanding Amount (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Outstanding, excluding VAT.
@@ -4069,17 +4878,41 @@ The Outstanding Amount (Excl. VAT) measure calculates the sum of Purchase Amount
 
 ### Outstanding Quantity
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Outstanding Quantity measure calculates the sum of Purchase Qty. (Base) column from the Purchases table where Source Type = Purchase Order Outstanding.
 
 **Data Sources**
 - Purchase Line
 
-## Received Not Invoiced
-- [Amt. Rcd. Not Invd. (Excl. VAT)](#amt-rcd-not-invd-excl-vat)
-- [Quantity Rcd. Not Invd.](#amt-rcd-not-invd-excl-vat)
+### Purchase Quote Purchase (LCY)
+
+**Formula**  
+The Purchase Quote Purchase (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### Purchase Quote Quantity
+
+**Formula**  
+The Purchase Quote Quantity measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### Amt. Rcd. Not Invoiced (LCY)
+
+**Formula**  
+The Amt. Rcd. Not Invoiced (LCY) measure calculates the sum of the Amount Received Not Invoiced (LCY) column from the Purchase Line table where Document Type = Order.
+
+**Data Sources**
+- Purchase Line
 
 ### Amt. Rcd. Not Invd. (Excl. VAT)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 The Amt. Rcd. Not Invd. (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Received Not Invoiced, excluding VAT.
@@ -4089,11 +4922,266 @@ The Amt. Rcd. Not Invd. (Excl. VAT) measure calculates the sum of Purchase Amoun
 
 ### Quantity Rcd. Not Invd.
 
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
 **Formula**  
 The Quantity Rcd. Not Invd. measure calculates the sum of Purchase Qty. (Base) column from the Purchases table. where Source Type = Purchase Order Received Not Invoiced.
 
 **Data Sources**
 - Purchase Line
+
+### Outstanding Return Order (LCY)
+
+**Formula**  
+The Outstanding Return Order (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Order Amount
+
+**Formula**  
+The Return Order Amount measure calculates the sum of the Amount column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Order Quantity
+
+**Formula**  
+The Return Order Quantity measure calculates the sum of the Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. Invoiced
+
+**Formula**  
+The Return Qty. Invoiced measure calculates the sum of the Quantity Invoiced column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. Shipped
+
+**Formula**  
+*Return Qty. Shipped = [Return Order Quantity](#return-order-quantity) - [Return Qty. to Ship](#return-qty-to-ship)*
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. to Invoice
+
+**Formula**  
+*Return Qty. to Invoice = [Return Order Quantity](#return-order-quantity) - [Return Qty. Invoiced](#return-qty-invoiced)*
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. to Ship
+
+**Formula**  
+The Return Qty. to Ship measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Returned Quantity
+
+**Formula**  
+*Returned Quantity = [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Return Qty. to Invoice](#return-qty-to-invoice)*
+
+**Data Sources**  
+- Purchase Line
+- Value Entry
+
+## Purchase Credit Lines
+
+- [Purchase Credit Line Amount](#purchase-credit-line-amount)
+- [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)
+
+### Purchase Credit Line Amount
+
+**Formula**  
+The Purchase Credit Line Amount measure calculates the negative sum of the Amount column from the Purchase Credit Line table.
+
+**Data Sources**  
+- Purchase Credit Memo Line
+
+### Purchase Credit Line Quantity Base
+
+**Formula**  
+The Purchase Credit Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Credit Line table.
+
+**Data Sources**  
+- Purchase Credit Memo Line
+
+## Purchase Invoice Lines
+
+- [Purchase Invoice Line Amount](#purchase-invoice-line-amount)
+- [Purchase Invoice Line Quantity Base](#purchase-invoice-line-quantity-base)
+
+### Purchase Invoice Line Amount
+
+**Formula**  
+The Purchase Invoice Line Amount measure calculates the sum of the Amount column from the Purchase Invoice Line table.
+
+**Data Sources**  
+- Purchase Invoice Line
+
+### Purchase Invoice Line Quantity Base
+
+**Formula**  
+The Purchase Invoice Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Invoice Line table.
+
+**Data Sources**  
+- Purchase Invoice Line
+
+## Pareto Measures
+
+- [Pareto Color Cutoff](#pareto-color-cutoff)
+- [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy)
+- [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-)
+- [Pareto Cutoff Cumulative Purchase (LCY)](#pareto-cutoff-cumulative-purchase-lcy)
+- [Pareto Cutoff Purchase (LCY) %](#pareto-cutoff-purchase-lcy-)
+- [Pareto Cutoff Vendor](#pareto-cutoff-vendor)
+- [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank)
+- [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank)
+- [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy)
+- [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy)
+
+### Pareto Color Cutoff
+
+**Formula**  
+The color cutoff where [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) exceeds the [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank).
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cumulative Purchase (LCY)
+
+**Formula**  
+
+The [Purchase (LCY)](#purchase-lcy) based on the [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cumulative Purchase (LCY) %
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) divided by the [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Cumulative Purchase (LCY)
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Purchase (LCY) %
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Vendor
+
+**Formula**  
+
+The Vendor with the maximum difference of the [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) minus the **Pareto Value**.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Vendor Rank
+
+**Formula**  
+
+The [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Vendor Cutoff Rank
+
+**Formula**  
+
+The maximum [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank) value across all vendors.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Vendor Rank by Purchase (LCY)
+
+**Formula**  
+
+The Pareto Vendor Rank by Purchase (LCY) measure calculates the vendor rank, ordered by the [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Total Purchase (LCY)
+
+**Formula**  
+
+The total [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+## Vendor Measures
+
+- [Item Reliance %](#item-reliance-)
+- [Spend Reliance %](#spend-reliance-)
+
+### Item Reliance %
+
+**Formula**  
+The Item Reliance % measure calculates the proportion of transactions for an item based on either the number of unique vendors or number of unique items, from the Purchase Value Entry Table. In a Vendor context, the Item Reliance % measure is calculated as [No. of Distinct Items](#no-of-distinct-items) divided by the total [No. of Distinct Items](#no-of-distinct-items) for all vendors. In an Item context, the Item Reliance % measure is calculated as one divided by the total [No. of Vendors](#no-of-vendors) who have supplied the item.
+
+### Spend Reliance %
+
+**Formula**  
+The Spend Reliance % measure calculates the [Purchase (LCY)](#purchase-lcy) divided by the total [Purchase (LCY)](#purchase-lcy) across all vendors.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Line
+
+
+**Data Sources**  
+- Value Entry
 
 ## Purchase Amount Moving Annual Total
 - [Purchase Amount MAT (Fiscal)](#purchase-amount-mat-fiscal)  
@@ -4209,6 +5297,19 @@ The Purchase Amount YOY (Fiscal) measure shows the purchase amount of a specific
 **Data Sources**
 - Value Entry
 - Purchase Line
+- Date (Fiscal Calendar)
+
+## Purchase Amount Period-to-Date
+
+- [Purchase Amount YTD (Fiscal)](purchases-powerbi-kpis.md#purchase-amount-ytd-fiscal)  
+
+### Purchase Amount YTD (Fiscal)
+
+**Formula**  
+The Purchase Amount YTD (Fiscal) measure calculates the purchase amount to date for the current period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount in the current month.
+
+**Data Sources**  
+- Value Entry
 - Date (Fiscal Calendar)
 
 ## Budget Amount Moving Annual Total
@@ -4376,7 +5477,9 @@ Purchasers can use this report to analyze the purchasing activities for a specif
 
 The *Purchases Decomposition* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**%GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**%GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -4388,12 +5491,12 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
 
 - Item
 - Item Category
-- Vendor
-- Purchase Header
-- Location
 - Salesperson/Purchaser
-- Vendor Posting Group
-- Value Entry
+- Vendor
+- Location
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -7776,11 +8879,11 @@ Project managers use the report to track the different type of sales entries. Yo
 
 The *Project Invoiced Sales by Type* report includes the following KPIs:
 
-- [**% Invoiced**](projects-powerbi-kpis.md#-invoiced)
+- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
 - [**Quantity**](projects-powerbi-kpis.md#quantity)
-- [**Billable (Invoiced Price)**](projects-powerbi-kpis.md#billable-invoiced-price)
-- [**Billable (Total Price)**](projects-powerbi-kpis.md#billable-total-price)
-- [**Actual (Total Price)**](projects-powerbi-kpis.md#actual-total-price)
+- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
+- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
+- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -7791,8 +8894,8 @@ The *Project Invoiced Sales by Type* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Ledger Entries
+- Job
+- Job Ledger Entry
 
 ## Try the report
 
@@ -10588,7 +11691,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: reporting
-ms.search.form: 37059_Primary, 36984, 36985, 36986, 36987, 36988, 36989, 36990, 36991, 36992, 36993,36994, 36995, 36996, 36997
+ms.search.form: 37059_Primary, 36984, 36985, 36986, 36987, 36988, 36989, 36990, 36991, 36992, 36993,36994, 36995, 36996, 36997, 37113
 ms.date: 10/30/2024
 ms.service: dynamics-365-business-central
 ---
@@ -17591,32 +18694,32 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-configure-production-processes
 ---
-title: Configure Production Processes
+title: Configure production processes
 description: To convert material into produced end items, production resources, such as bills of material, routings, machine operators, and machinery must be set up in the system.
 author: brentholtorf
-ms.topic: concept-article
-ms.devlang: al
-ms.search.form: 99000768, 99000779, 99000780, 99000866
-ms.date: 04/01/2021
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.form: 99000768, 99000779, 99000780, 99000866
+ms.date: 09/11/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
-# Setting Up Manufacturing
 
-To convert material into produced end items, production resources, such as bills of material, routings, machine operators, and machinery must be set up in the system.
+# Setting up manufacturing
 
-Operators and machines are represented in the system as machine centers that may be organized in work centers and work center groups. When these resources are established, they can be loaded with operations according to the item's defined material (BOM) and process (routing) structure, and according to the capacity of the machine or work center. You can also set the production capacity of each resource. Capacity is defined by the work time available in the machine and work centers, and is governed by calendars for each level. A work center calendar specifies the working days or hours, shifts, holidays, and absence that determine the work center's gross available capacity (typically measured in minutes). All of this is determined by defined efficiency and capacity values.  
+To convert material into produced end items, you must set up production resources, such as bills of material, routings, machine operators, and machinery.
 
-When you have set up manufacturing, you can plan and execute production orders. For more information, see [Planning](production-planning.md) and [Manufacturing](production-manage-manufacturing.md).  
+In [!INCLUDE [prod_short](includes/prod_short.md)], machine centers represent operators and machines. You can organize machine centers in work centers and work center groups. When these resources are established, you can load them with operations according to the item's defined material (BOM) and process (routing) structure, and according to the capacity of the machine or work center. You can also set the production capacity of each resource. The work time available in the machine and work centers define capacity, governed by calendars for each level. A work center calendar specifies the working days or hours, shifts, holidays, and absence that determine the work center's gross available capacity (typically measured in minutes). The efficiency and capacity values you define determine all of this.  
 
-The following table describes a sequence of tasks, with links to the topics that describe them.
+After you set up manufacturing, you can plan and fulfill production orders. To learn more, go to [Planning](production-planning.md) and [Manufacturing](production-manage-manufacturing.md).  
 
-|**To**|**See**|  
+The following table describes a sequence of tasks, with links to the articles that describe them.
+
+|**To**|**Go to**|  
 |------------|-------------|  
-|Configure the manufacturing features, such as defining shop floor work hours and selecting planning parameters.|The **Manufacturing Setup** page.|
-|On the **Planning** tab on the **Manufacturing Setup** page, set global planning parameters that override parameters set on individual item cards.|[Design Details: Planning Parameters](design-details-planning-parameters.md)|
+|Configure the manufacturing features, such as defining shop floor work hours and cost calculation parameters.|The **Manufacturing Setup** page.|
+|On the **Planning** tab on the **Inventory Setup** page, set global planning parameters that override parameters set on individual item cards.|[Design Details: Planning Parameters](design-details-planning-parameters.md)|
 |Define a standard working week in the manufacturing department in terms of starting and ending times of each work day and related work shift.|[Create Shop Calendars](production-how-to-create-work-center-calendars.md)|  
 |Organize fixed values and requirements of production resources as work centers or machine centers to govern their output of production performed.|[Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md)|
 |Organize production operations in the required order and assign them to work or machine centers with the required work times.|[Create Routings](production-how-to-create-routings.md)|
@@ -19599,564 +20702,5 @@ To learn more about dimensions, go to [Set up default dimensions for customers, 
 [Finance](finance.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-making-cash-flow-forecasts-by-using-account-schedules
----
-title: Make cash flow forecasts using financial reports
-description: This walkthrough describes how you can use financial reports to make cash flow forecasts in Business Central. 
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.date: 08/01/2024
-ms.author: bholtorf
-ms.search.form: 103, 104, 108, 488, 489, 490
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Walkthrough: Make cash flow forecasts using financial reports
-
-This walkthrough describes how you can use the financial reports feature to make cash flow forecasts. Financial reports perform calculations that cannot be done directly in the chart of cash flow accounts. In the financial reports, you can set up subtotals for cash flow receipts and disbursements. These subtotals can be included in new totals that can then be used to make cash flow forecasts.  
-
-## About this walkthrough
-
-This walkthrough describes the following tasks:  
-
-- Setting up a new cash flow financial report name.  
-- Setting up financial report lines.  
-- Setting up a new column definition.  
-- Assigning a column definition to a financial report.  
-- Viewing and printing the cash flow forecast.  
-
-### Prerequisites
-
-To complete this walkthrough, you will need:  
-
-- [!INCLUDE[prod_short](includes/prod_short.md)]  
-- A cash flow worksheet with registered lines  
-
-## Roles
-
-This walkthrough demonstrates tasks that are performed by the following user role:  
-
-- Controller  
-
-## Story
-
-Ken is a controller at CRONUS who makes monthly cash flow forecasts. Ken includes finance, sales, purchase, and fixed assets in the forecasts, and presents to CFO Sara for business insight.  
-
-## Set up a new financial report name
-
-The financial report name is the name you give the cash flow forecast that includes a series of defined lines and a column definition.  
-
-### Set up a new financial report name  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Financial Reports**, and then choose the related link.  
-2. On the **Financial Reports** page, choose **New** to create a new cash flow financial report name.  
-3. In the **Name** field, enter **Forecast**.  
-4. In the **Description** field, enter **Cash Flow Forecast**.  
-5. Leave the **Row Definition** and **Column Definition** fields blank.
-
-## Set up row definition lines
-
-After a financial report name is set up, Ken defines each line in the cash flow financial report. Ken defines lines to be shown in reports in addition to lines that are only for calculation purposes.  
-
-### Set up row definition lines  
-
-1. On the **Financial Reports** page, select the new **Forecast** financial report you created, then choose the **Edit Row Definition** action.  
-2. On the **Row Definition** page, enter each line as shown in the following table.  
-
-    > [!TIP]  
-    > Use the **Insert CF Accounts** function to quickly mark, in the cash flow accounts chart, the cash flow accounts you want and copy them to row definition lines.  
-
-    | Row No. | Description              | Totaling Type            | Totaling | Row Type   | Amount Type | Show |
-    |---------|--------------------------|--------------------------|----------|------------|-------------|------|
-    | R10     | Receivables              | Cash Flow Entry Accounts | 10       |Net Change | Net Amount  | Yes  |
-    | R10     | Open sales orders        | Cash Flow Entry Accounts | 20       |Net Change | Net Amount  | Yes  |
-    | R10     | Rentals                  | Cash Flow Entry Accounts | 30       |Net Change | Net Amount  | Yes  |
-    | R10     | Financial assets         | Cash Flow Entry Accounts | 40       |Net Change | Net Amount  | Yes  |
-    | R10     | Fixed assets disposal    | Cash Flow Entry Accounts | 50       |Net Change | Net Amount  | Yes  |
-    | R10     | Private investments      | Cash Flow Entry Accounts | 60       |Net Change | Net Amount  | Yes  |
-    | R10     | Miscellaneous receipts   | Cash Flow Entry Accounts | 70       |Net Change | Net Amount  | Yes  |
-    | R10     | Open service orders      | Cash Flow Entry Accounts | 80       |Net Change | Net Amount  | Yes  |
-    | R20     | Total cash receipts      | Formula                  | R10      |Net Change | Net Amount  | Yes  |
-    | R30     | Payables                 | Cash Flow Entry Accounts | 1010     |Net Change | Net Amount  | Yes  |
-    | R30     | Open purchase orders     | Cash Flow Entry Accounts | 1020     |Net Change | Net Amount  | Yes  |
-    | R30     | Personnel costs          | Cash Flow Entry Accounts | 1030     |Net Change | Net Amount  | Yes  |
-    | R30     | Running costs            | Cash Flow Entry Accounts | 1040     |Net Change | Net Amount  | Yes  |
-    | R30     | Finance costs            | Cash Flow Entry Accounts | 1050     |Net Change | Net Amount  | Yes  |
-    | R30     | Investments              | Cash Flow Entry Accounts | 1070     |Net Change | Net Amount  | Yes  |
-    | R30     | Private consumptions     | Cash Flow Entry Accounts | 1090     |Net Change | Net Amount  | Yes  |
-    | R30     | VAT due                  | Cash Flow Entry Accounts | 1100     |Net Change | Net Amount  | Yes  |
-    | R30     | Other expenses           | Cash Flow Entry Accounts | 1110     |Net Change | Net Amount  | Yes  |
-    | R40     | Total cash disbursements | Formula                  | R30      |Net Change | Net Amount  | Yes  |
-    | R50     | Surplus                  | Formula                  | R20+R40  |Net Change | Net Amount  | Yes  |
-    | R60     | Cash flow funds          | Cash Flow Entry Accounts | 2100     |Net Change | Net Amount  | Yes  |
-    | R70     | Total cash flow          | Formula                  | R50+R60  |Net Change | Net Amount  | Yes  |
-
-    > [!NOTE]
-    > The row number R10 is used to capture the account totals for receivables. The row number R20 is used to calculate the sum of all cash receipts. The row number R30 is used to capture the account totals for payables. The row number R40 is used to calculate the sum of all cash disbursements. The row number R50 is used to capture the sum of cash surplus. The row number R60 is used to capture the liquid funds. The row number R70 is used to calculate the forecasted cash flow.
-
-## Set up a new column definition
-
-Before printing the cash flow forecast, Ken needs to create the column definition for the numerical information. In the columns, Ken defines the information needed to use from the lines.
-
-- The first column has the number *C10* with the title **Amount** and contains the net change.  
-- The second column has the number *C20* with the title **Balance at Date** and contains the transactions for the period.  
-- The third column has the number *C30* with the title **Entire Year** and contains the net change in the balances for the entire fiscal year.  
-- Finally, Ken assigns the column definition as the default option for the **Forecast** financial report.  
-
-### Set up a new column definition
-
-1. On the **Financial Reports** page, select the new **Forecast** financial report name you created. On the **Home** tab, in the **Process** group, choose **Edit Column Definition**.
-
-2. Create a new column definition with the name **Cash Flow**.
-
-3. Choose the **OK** button.
-
-4. Enter each line exactly as shown in the following table.
-
-    |Column No.|Column Header|Column Type|Ledger Entry Type|Amount Type|Show|  
-    |----------|-------------|-----------|-----------------|-----------|----|
-    |C10|Amount|Net Change|Entries|Net Amount|Always|  
-    |C20|Amount Until Date|Balance at Date|Entries|Net Amount|Always|  
-    |C30|Entire Fiscal Year|Entire Fiscal Year|Entries|Net Amount|Always|
-
-## Assig the column definition to the financial report name
-
-Ken is now ready to assign the column definition to the financial report name.  
-
-### Assign the column definition to the financial report name
-
-1. In the **Financial Reports** page, select the **Forecast** financial report, then choose the **Edit Column Definition** action.  
-2. In the **Name** field, choose the column definition **Cash Flow** to assign as the default column definition.  
-
-## View and print the cash flow forecast
-
-1. On the **Financial Reports** page, choose the **Forecast** financial report [Financial analytics overview](bi.md)  to view the cash flow forecast.  
-2. On the **Financial Report** page, you can select an amount and then view the cash flow forecast entries that make up the amount. In addition, you can view the formula used to calculate that amount. You can also filter the amounts by date and dimension.  
-3. Choose the **Print** action to print the cash flow forecast.  
-
-## Related information
-
-[Prepare financial reporting](bi-how-work-account-schedule.md)  
-[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
-[Financial analytics overview](bi.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/receivables-how-block-customers
----
-title: How to block sales to customers
-description: If needed, you can block a customer from being included on sales documents and other sales transactions.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.date: 07/05/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Block customers
-You can block a customer, for example because of insolvency, so that the customer can't be added to sales documents or so that no transactions can be posted for the customer.
-
-In addition to blocking a customer, you can set receivable transactions for the customer to be on hold in connection with reminders. For more information, see [Collect Outstanding Balances](receivables-collect-outstanding-balances.md).   
-
-The following table describes the options for blocking customers.  
-
-|Option|Description|  
-|--------------------|------------|  
-|**Blank**|Transactions are allowed for this customer.|
-|**Ship**|New orders and new shipments can't be created for this customer. Existing shipments not yet invoiced can be invoiced.|  
-|**Invoice**|New orders, new shipments, and new invoices can't be created for this customer. Existing shipments not yet invoiced can't be invoiced. You can still send reminders and finance charge memos to the customer.|  
-|**All**|No transaction is allowed for this customer, including payments.|  
-
-## To block a customer  
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.
-2. Select a customer, and then choose the **Edit** action.
-3. In the **Blocked** field, choose what to block, as described in the table above.
-
-## Related information  
-[Register New Customers](sales-how-register-new-customers.md)  
-[Collect Outstanding Balances](receivables-collect-outstanding-balances.md)  
-[Managing Receivables](receivables-manage-receivables.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-prod-order-routing-gantt
----
-title: Prod.Order Routing Gantt
-description: Learn how to benefit from using the Prod. Order Routing Gantt report.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: conceptual
-ms.search.keywords: reporting
-# TODO correct page id must be added
-# ms.search.form: 37042_Primary 
-ms.date: 05/26/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Prod. Order Routing Gantt (Power BI Report)
-
-[!INCLUDE[applies-to-2025w1](includes/applies-to-2025w1.md)]
-
-The **Prod. Order Routings Gantt** report provides an overview of production processes, combining visual and tabular formats to enhance understanding. The report helps you monitor and analyze production tasks, offering insights into scheduling, durations, and task locations.
-
-:::image type="content" source="media/manufacturing/prod-order-routing-gantt-v26.png" alt-text="Screenshot of the Prod Order Routing Gantt Power BI Report" lightbox="media/manufacturing/prod-order-routing-gantt-v26.png":::
-
-The **Production Time Line (Gantt Chart Visual)** visualization provides a Gantt chart representation of production processes, enabling you to effectively monitor and analyze tasks within production orders. Key features of this visualization include:
-
-1. **Hierarchy:**  
-   - *Parent:* Production orders serve as the primary grouping level.  
-   - *Nested Tasks:* Routing line descriptions represent individual tasks in the process.  
-
-2. **Timeline Configuration:**  
-   - By default, the timeline displays at a daily level.  
-   - Non-working days are highlighted in red for improved clarity.  
-
-3. **Task Duration:**  
-   - Task durations calculate based on the routing line's starting and ending date-time values.  
-
-4. **Task Bar Representation:**  
-   - The color of the task bars differentiates between routing through machine centers and work centers.  
-   - Within each bar, the name of the machine center or work center displays, providing added context about where the task is done.  
-
-The **Routing Line Details** table is a tabular representation of production and routing data. It includes essential information such as the **Production Order No.** and the **Operations No.** which specifies individual operations within the process. The table also highlights the **Work Center/Machine Center No.**, identifying the location associated with each routing line task. Additionally, the table displays the **Starting Date Time** and **Ending Date Time**, outlining the scheduled start and completion times for tasks. The date times are used to calculate the **Total Duration Hours**, showing the time taken to execute tasks in hours, and the **Duration Total Days**, which represents the task duration in days for an alternative perspective. Together, these details ensure you have a clear and structured view of production processes.
-
-## Use the report
-
-Manufacturing Managers use the report to gain an overview of production scheduling and routing processes. The **Production Time Line** Gantt chart helps you monitor task durations and sequencing. The bar colors and contextual information on machine centers or work centers allow you to quickly identify resource usage and task assignments. Paired with the **Routing Line Details** table, you can analyze production timelines, evaluate task completion dates, and compare actual durations with planned expectations. These details help you detect delays, optimize schedules, and ensure you allocate resources effectively across work centers and machine centers.  
-
-Production supervisors rely on the report to manage day-to-day production tasks and maintain operational efficiency. The Gantt chart shows production order tasks so that you can easily track which operations are occurring at what locations and for how long. The red-marked non-working days help you identify gaps or conflicts in scheduling and address potential bottlenecks. Meanwhile, the **Routing Line Details** table provides starting and ending date times with total task durations by day and by hours. Together, the Gantt visual and tabular components of the report support effective coordination for smooth production workflows.  
-
-## Key performance indicators (KPIs)
-
-The Prod. Order Routing Gantt report includes the following KPIs and measures:
-
-- [Total Duration Hours](manufacturing-powerbi-kpis.md#total-duration-hours)
-- [Total Duration Days](manufacturing-powerbi-kpis.md#total-duration-days)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Prod. Order Routing Line
-- Production Order
-  
-## Try the report
-
-Try the report here: [Prod. Order Routing Gantt](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Manufacturing app](manufacturing-powerbi-app.md)  
-[Built-in production reports](production-reports.md)  
-[Manufacturing overview](production-manage-manufacturing.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-create-contact-profile-questionnaire
----
-title: Use profiles to classify contacts
-description: Red about how to set up profile questionnaires to help classify your business contacts' profiles.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: contacts, profiles
-ms.search.form: 5109, 5110
-ms.author: bholtorf
-ms.date: 05/20/2022
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Use Profile Questionnaires to Classify Business Contacts
-
-You can rate a prospect so you can identify the ideal prospects to focus your sales campaign on. You can set up profile questionnaires that you want to use when entering information about your contacts' profiles. Within each questionnaire, you can set up the different questions you intend to ask your contacts. This way, you can group contacts so that your campaigns are more likely to target the right people based on the criteria that you define with the questionnaires.  
-
-With the right questionnaires, you can rate your prospects and group them into categories. You can use existing questions and answers and combine them with new questions and answers to form the basis of your rating. Each answer in the rating is given a point value and, depending on the range you set up for the categories (*From Value* and *To Value*), the rating system will group your contacts in the categories you have defined. For example, *ABC* customers, *High/Low loyalty* vendors, or *Platinum/Gold/Silver* prospects.  
-
-You can also run the questionnaire to answer some of the questions based on contact, customer, or vendor data automatically.  
-
-## To add a profile questionnaire
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Questionnaire Setup**, and then choose the related link.  
-2. Choose the **New** Action.  
-3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
-
-## To add questions to a profile questionnaire
-
-1. Choose the relevant profile questionnaire, and then choose the **Edit Questionnaire Setup** action.  
-2. On the first empty line, in the **Type** field, choose **Question** and type your question in the **Description** field. Fill in the other fields on this line.  
-
-    Optionally, add details to the question.
-
-    1. Choose the line with the question, and then, choose the **Line** menu, and then choose **Question Details**.  
-
-    2. On the **Classification** FastTab in the **Profile Question Details** page, select the **Auto Contact Classification** field.  
-
-    3. In the **Contact Class. Field** field, select the **Rating** option.  
-
-    4. Fill in the **Min. % Questions Answered** field. The default is **0**.  
-
-        This specifies the number of questions in percentage that must be answered for this rating to be calculated.
-
-    5. On the **Actions** tab, in the **Page** group, choose **Answer Points**. Enter the points you want to give each answer listed in the **Answer Points** page.
-
-        If you want to get an overview of the points you have given each answer, choose the **Answer Points** action.
-
-    6. To run an update, return to the **Profile Questionnaire Setup** page. On the **Actions** menu, in the **Functions** group, choose **Update Classification**.
-
-    In the **Profile Questionnaire Setup** page, the number of contacts that meets this criteria is displayed in the **No. of Contacts** field, as well as on the **Contact Card** of each contact.
-
-3. On the next empty line, in the **Type** field, choose **Answer** and type your answer in the **Description** field.  
-4. In the **Priority** field, select the priority. In the **From Value** and **To Value** fields, define a point range. Contacts that receive points within the defined range will get the answer.  
-
-Repeat these steps to enter all the questions and answers within the profile questionnaire.
-
-After you have created a questionnaire, you can use it to rate and classify your contacts. You can also set up questions that are rated automatically based on information in the contact card.  
-
-> [!NOTE]
-> If you enter a question that is automatically answered, choose **Line**, and then choose **Question Details**, to enter the criteria to automatically answer the question.
-
-## Apply questionnaires to contacts
-
-You can apply your questionnaires to contacts manually. Just open the relevant contact card, and then choose the **Profile** action. Then, once you have applied the questionnaires that you want to apply, you can start using the categories in your campaigns.  
-
-## The Automatic Classification of Contacts
-
-You can automatically classify your contacts according to customer, vendor, and contact information, by setting up automatically answered profile questions on the **Profile Questionnaire Setup** page.  
-
-> [!NOTE]
-> Only contacts that are recorded as customers can be assigned a classification based on customer data and only contacts that are recorded as vendors can be assigned a classification based on vendor data. The automatic classification is not updated automatically. Consequently, you may want to update the profile questionnaires, after you have updated the customer, vendor or contact data they are based on.  
-
-After you have set up automatically answered profile questions, if you assign the profile questionnaire containing these questions to a contact, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically assign the right answers for the contact.  
-
-## Example
-
-You can classify your contacts according to how much they bought from you:
-
-|Answer|Applies to|
-|--- |--- |
-|A|contacts who bought for 500,000 LCY or more|
-|B|contacts who bought for 100,000 up to 499,999 LCY|
-|C|contacts who bought for 99,999 LCY or less|
-
-To do this, fill on the **Profile Questionnaire Setup** page as follows:
-
-| Type     | Description        | Automatic Classification     | From Value | To Value |
-|----------|--------------------|------------------------------|------------|----------|
-| Question | ABC Classification | Click to insert a check mark |            |          |
-| Answer   | A                  |                              | 500,000    |          |
-| Answer   | B                  |                              | 100,000    | 499,999  |
-| Answer   | C                  |                              |            | 99,999   |
-
-Then fill on the **Profile Question Details** page as follows:
-
-| Field                         | Value         |
-|-------------------------------|---------------|
-| Customer Classification Field | Sales (LCY)   |
-| Classification Method         | Defined Value |
-
-When you assign the profile questionnaire containing this question to a contact, application automatically enters the relevant answer for this contact on the profile lines of the contact card.
-
-## Related information
-
-[Creating Contacts](marketing-create-contact-companies.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-scorecards-goals
----
-title: Sustainability scorecards and goals
-description: Learn how to set up and use sustainability scorecards and goals.
-author: altotovi
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, scorecard, goal, forecast, budget
-ms.search.form: 
-ms.date: 01/30/2025
-ms.author: altotovi
-ms.service: dynamics-365-business-central
-ms.reviewer: solsen
----
-
-# Sustainability scorecards and goals overview
-
-This article offers guidance on how to create scorecards and goals, and how to update the status of goals. Scorecards and goals allow organizations to curate sustainability metrics and track them against key business objectives. Goals can be created based on current and target values, so users can keep track of the progress of current gas emissions, or water/waste intensity, compared to previous periods.  
-
-## Create a scorecard  
-
-To create a sustainability scorecard, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Scorecards**, and then select the related link.
-2. On the **Sustainability Scorecards** page, select **New** to create a new scorecard.  
-3. Specify the **No.** and the **Name** fields on the **General** FastTab, and then add the **Owner**.
-
-> [!NOTE]
-> In the **Owner** field, you can only choose users who enabled the **Sustainability Manager** field on the **User Setup** page.
-
-## Create goals  
-
-To create a new sustainability goal, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Scorecards**, and then select the related link.
-2. Choose the **Goals** action to create a new sustainability goal for the scorecard.  
-3. Select **New** to start creating a goal.
-4. The **Scorecard No.** is automatically added based on the value from the sustainability scorecard, and you can't edit this field. [!INCLUDE [prod_short](includes/prod_short.md)] also fills in the **Unit of Measure** field based on the **Emission Unit of Measure Code** on the **Sustainability Setup** page.  
-5. Fill in **No.** and **Name** of the new sustainability goal. The **Owner** field is automatically filled in based on the value from the connected **Sustainability Scorecard**.
-6. You can create a sustainability goal for the entire company, a specific country/region, or a facility. To create a specific goal, choose the country or region in the **Country/Region Code** field or the facility in the **Responsibility Center** field.  
-7. Select the **Start Date** and **End Date** fields to set up a dedicated period for tracking current values. This configuration determines the values in the **Current Value for CO2**, **Current Value for CH4**, **Current Value for N2O**, **Current Value for Water Intensity**, and **Current Value for Waste Intensity** fields.  
-8. Select the **Baseline Start Date** and **Baseline End Date** fields to set up a dedicated baseline period for comparing current values. This configuration determines the values in the **Baseline for CO2**, **Baseline for CH4**, **Baseline for N2O**, **Baseline for Water Intensity**, and **Baseline for Waste Intensity** fields.  
-9. You can also add target values in the selected **Unit of Measure** field for the current period using the following **Target Value for CO2**, **Target Value for CH4**, **Target Value for N2O**, **Target Value for Water Intensity**, and **Target Value for Waste Intensity** fields.
-10. You can specify one of these goals as a **Main Goal**. Values from the main goal are used on the **Sustainability Manager** Role Center.  
-
-If you have many goals on the page, you can use the **Show My Goals** action to show only your goals. To show all, run the **Show All Goals** action.  
-
-> [!NOTE]
-> You can only create sustainability goals for a specific sustainability scorecard. You can't create goals that aren't related to a scorecard, but you can create more goals for one scorecard. You can only have one sustainability goal as the **Main Goal**.  
-
-> [!NOTE]
-> You can set up different combinations of goals for the whole company, specific countries or regions, and a responsibility center for a sustainability scorecard. You can also use different periods for the same model of tracking.  
-
-## Related information
-
-[Sustainability setup](finance-sustainability-setup.md)  
-[Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md)  
-[How to record sustainability entries](finance-sustainability-journal.md)  
-[Ad hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
-[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
-[Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json)  
-[Finance](finance.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-sync-master-data
----
-title: Manage master data synchronization
-description: Learn how to manage master data synchronization.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.service: dynamics-365-business-central
-ms.topic: article
-ms.date: 02/26/2025
-ms.custom: bap-template
-ms.search.form: 7230, 7233, 5338, 7236, 672, 7234
----
-# Manage master data synchronization
-
-After you set up master data synchronization, when you synchronize for the first time [!INCLUDE [prod_short](includes/prod_short.md)] does the following:
-
-- Couples records in the selected tables.
-- Creates a recurring job queue entry for each table.
-
-The job queue entries automatically synchronize data in the subsidiary companies when someone makes a change in the source company. Otherwise, you don't need to do anything.
-
-> [!NOTE]
-> For the automatic synchronization to work, the user who makes the change in the source company must have:
->
-> - A [!INCLUDE [prod_short](includes/prod_short.md)] license.
-> - Permission sets that allow them to reschedule a background task in the subsidiary company. To learn more about the required license and permissions, go to [Before you start](admin-set-up-data-sync.md#before-you-start).
->
-> Otherwise, the change happens in the next unconditional synchronization run. The unconditional synchronization is controlled by the **Inactivity Timeout Period** field on the job queue entry.
-
-However, sometimes things go wrong, and there might be situations that you need to manage or investigate. For example, if people change the same record in both the source company and a subsidiary, synchronization fails so that you can specify the change that's correct. Or, the source company might install an extension that changes the schema of one of the tables you're synchronizing by adding a field or two. If you want to synchronize the new fields in the subsidiaries, install the same extensions and update the table schemas in their setup.
-
-This article describes the tools you can use to keep synchronization running smoothly.
-
-## Overwrite local changes
-
-You can use the **Overwrite Local Change** checkbox on the fields and tables you synchronize to allow data from the source company to overwrite data in the subsidiary company.
-
-> [!NOTE]
-> You can't enable the synchronization of a field and allow the subsidiary to write values in it independently from the source company. You must either disable synchronization for the field, or allow the source company to overwrite local changes.
-
-## Update table schemas
-
-If the source company changes a table, for example, by adding a field that you want to synchronize, subsidiaries must update their field mappings. On the **Synchronization Fields** page, use the **Update Fields** action.
-
-## Enable or disable couplings between records
-
-To start or stop coupling on specific records on a table, on the **Synchronization Fields** page, choose the fields, and then use either the **Enable** or **Disable** actions.
-
-> [!TIP]
-> A fast way to enable or disable multiple fields at the same time is to select them in the list, and then use either the **Enable** or **Disable** actions.
-
-## Run a full synchronization
-
-The **Run Full Synchronization** action schedules a synchronization for all of the table records in the source company, and resynchronizes all records unconditionally. For example, resynchronization is useful if you enable an extra field on a synchronization table, or add an extra field by using the **Update Fields** action. The action retroactively synchronizes the data in those fields.
-
-## Synchronize modified records
-
-If you change a setting for a table or field in a subsidiary, you must update the synchronization. To update the synchronization, use the **Synchronize Modified Records** action on the **Synchronization Tables** page.
-
-The **Synchronize Modified Records** action schedules a synchronization of the following table records:
-
-* Records that failed to synchronize in the last attempt.
-* Records that were changed in the source company after the last scheduled synchronization. You can review the last scheduled synchronization time on the **Synchronization Tables** page in the **Synchronize Changes Since** field.
-
-The action works in the same way as a scheduled synchronization, and you can use it as a way to synchronize outside the schedule. For example, if you select the **Overwrite Local Change** checkbox on a field to allow data from the source company to overwrite local changes, the action updates that data. You can also just wait until the next scheduled synchronization happens.
-
-## Investigate the status of synchronization
-
-There are two actions on the **Synchronization Tables** page that can help you monitor your synchronization:
-
-* **Integration Synchronization Jobs**
-* **Job Queue Entries**
-
-The following table describes the actions.
-
-|Page  |Description  |
-|---------|---------|
-|**Integration Synchronization Jobs**     | Open the **Integration Synchronization Jobs** page to investigate what happened each time a job queue entry ran. To dig deeper into the details about new records that were added, or explore why a record failed to synchronize, choose the numbers in the **Inserted** or **Failed** columns. You can also use this page to clean up older records that you might not need. To learn more about cleaning up, go to [Clean up old entries](#clean-up-old-entries).        |
-|**Job Queue Entries**     | Access details about the job queue entry that synchronize data for a selected table. For example, use this page to manage the status of the job queue entry,    To learn more about job queue entries, go to [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).     |
-
-> [!NOTE]
-> If you find an error on the **Integration Synchronization Jobs** page that you can't resolve yourself, if you contact your partner or Microsoft for support, it's helpful to provide the error message and callstack information.
-
-## Clean up old entries
-
-Over time, the number of entries in the synchronization log will become large, so you might want to do a little housekeeping to remove unneeded entries. To make it easier to clean up old entries, the **Integration Synchronization Jobs** page offers the following actions:
-
-* **Delete Entries Older Than 7 Days**
-* **Delete All Entries**
-
-## Adding extensions
-
-If the source company installs a new extension, the subsidiary must also install it if they want to synchronize data for it. The subsidiary can use the **Update Fields** action On the **Synchronization Fields** page to add the tables from the extension to the list.
-
-> [!NOTE]
-> Some tables get data from related tables. If you add an extension that doesn't include related tables, the fields on those tables aren't available. Verify that you added all related tables.
-
-<!--
-## Recreate a deleted job queue entry
-
-If the recurring job queue entry is deleted for a table, you can quickly recreate it. On the **Synchronization Tables** page, choose the **Use Default Synchronization Setup** action.
--->
-
-## Related information
-
-[Get ready to synchronize master data](admin-set-up-data-sync.md)
 end of article
 

@@ -1,3 +1,320 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-data-replication
+---
+title: Cloud Migration Extensions
+description: Use the cloud migration extensions to migrate your on-premises data to Business Central online. These extensions move your on-premises data to the cloud.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: app, add-in, manifest, customize, import, implement
+ms.search.form: 4021, 4026, 4031, 4090, 4091, 4092, 4093, 4094, 4095, 4096, 4097, 40027, 
+ms.reviewer: bholtorf
+ms.date: 06/23/2021
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+---
+
+# Cloud Migration Extensions for Migrating to Business Central Online
+
+Depending on your on-premises solution, you must use different extensions to connect your data with [!INCLUDE[prod_short](includes/prod_short.md)] online for purposes of migrating your solution to the cloud.  
+
+If you are using one of the supported on-premises products, you can configure your cloud environment based on a product-specific extension. Once your cloud environment is configured, you will be able to migrate data from your on-premises solution to [!INCLUDE[prod_short](includes/prod_short.md)]. This will enable you to take full advantage of what the cloud has to offer your business such as, enhanced insights into your business, artificial intelligence, multiple device access, and anytime, anywhere access.  
+
+For more information, see [Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data) in the administration content for [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+## Business Central on-premises
+
+If you are using an on-premises deployment of [!INCLUDE[prod_short](includes/prod_short.md)], get the **Intelligent Cloud Base** extension and the **Business Central Intelligent Cloud** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
+
+## Dynamics GP
+
+If you are using Dynamics GP,  get the **Intelligent Cloud Base Extension** extension and the **Dynamics GP Intelligent Cloud** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
+
+> [!IMPORTANT]
+> Migrating from Dynamics GP using the **Cloud Migration Setup** assisted setup guide is currently only supported for the following markets: United States, Canada, United Kingdom.
+
+## Dynamics SL
+
+If you are using Dynamics SL, get the **Intelligent Cloud Base** extension, the **Microsoft Dynamics SL Intelligent Cloud** extension and the **Microsoft Dynamics SL History SmartLists** extension, and then run the **Cloud Migration Setup** assisted setup guide.  
+
+## Related information
+
+[Cloud Migration Base Extension](ui-extensions-intelligent-cloud.md)  
+[Migrating On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-how-set-up-colored-indicator-on-cues
+---
+title: Set up your customized colored indicators for a Cue's activity
+description: As an administrator, you can set up Cues that appear on the users' Role Centers to include an indicator that changes color based on the data values in the Cues.
+author: jswymer
+
+
+ms.topic: how-to
+ms.devlang: al
+ms.search.form: 9701, 9702
+ms.date: 04/01/2021
+ms.author: jswymer
+
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+# Set Up a Colored Indicator on Cues for the Company or Individual Users
+
+As an administrator, you can set up Cues that appear on the users' Role Centers to include an indicator that changes color based on the data values in the Cues.  
+
+The indicator appears as a colored bar along the top border of the Cue tile. It provides a visual signal of the status of the Cue's activity, which can indicate favorable or unfavorable conditions to prompt the user to take action. For example, if a Cue displays ongoing sales invoices, you can set up the indicator to appear green (favorable) when total number of ongoing sales invoices is below 10, and appears red (unfavorable) when the total is greater than 20.  
+
+From the **Cue Setup** page, you set up indicators for all the Cues that are available in the company database. You can set up the indicators to apply to all users in the company or an individual user only. The indicator settings on the **Cue Setup** page act as the default indicator settings. If the **Cue Setup End User** page is made available to users, then they can personalize the indicators settings that you define on the **Cue Setup** page.  
+
+To set up the indicator, you specify up to two threshold values that define three ranges of data values (low, middle, and high) to which you can apply a different color (or style).  
+
+### To set up colored indicators on Cues  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Cue Setup**, and then choose the related link.  
+
+     The **Cue Setup** page appears. The page lists the indicators that are currently setup up on Cues. Indicators that apply to all users in the company have a blank **User Name** field. Indicators that apply to a specific user include the user's name in the **User Name** field.  
+
+    > [!NOTE]  
+    >  If you set up a company-wide indicator and a user modifies the indicator later on, then a separate entry for the indicator appears in list for that user.  
+
+2. Choose **Edit List** action.  
+3. To set up an indicator for a Cue that is not listed on the page, choose the **New** action, and then fill in the fields as described in the following. If you want to modify an existing indicator, go to the next step.  
+
+    |  Field  |  Description  |    
+    |---------|---------------|  
+    |**User Name**|If you want to set up the indicator for all users, leave this field blank.<br /><br /> If you want to set up the indicator for a specific user, then set this field to the user name.|  
+    |**Table No**|Specifies the ID of the table object that contains the Cue. Use the drop down list to find the table. The drop down list includes all Cue tables in the company database.<br /><br /> The **Table Name** field will be automatically filled in based on your selection.|  
+    |**Field No**|Specifies the ID of the Cue that you want to set up an indicator on. Use the drop down list to find the Cue that you want. **Note:**  The Cue ID corresponds to the field number that is assigned to the Cue in the table. <br /><br /> The **Field Name** field is automatically filled in based on your selection|  
+
+4. To set up the indicator for a Cue, set the fields as described in the following table.  
+
+    |  Field  |  Description  |    
+    |---------|---------------|  
+    |**LowStyle**|Specifies the color of the indicator when the Cue's value is below the value of the **Threshold 1** field.|  
+    |**LowThreshold**|Specifies the value at or above which the indicator changes to the color specified by the **Middle Range Style** field.|  
+    |**MiddleStyle**|Specifies the color of the indicator when Cue's value is greater than or equal to the value of the **Threshold 1** field but less than or equal to the value of the **Threshold 2** field.|  
+    |**HighThreshold**|Specifies the value above which the indicator changes to the color specified by the **High Range Style** field.|  
+    |**HighStyle**|Specifies the color to use when the Cue's value is above the value of the **Threshold 2** field.|  
+
+     The following table lists the colors that correspond to the options of the **LowStyle**, **MiddleStyle**, and **HighStyle** fields.  
+
+    |  Option  |  Color  |  
+    |----------|---------|  
+    |**None**|No color (same color as the Cue tile)|  
+    |**Favorable**|Green|  
+    |**Unfavorable**|Red|  
+    |**Ambiguous**|Yellow|  
+    |**Subordinate**|Gray|  
+
+## Related information
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-revalue-inventory
+---
+title: Create new value entries for items in the inventory| Microsoft Docs
+description: Describes how to appreciate or depreciate the value entries of one or more items in inventory by posting their current, calculated value.
+documentationcenter: ''
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: costing, inventory cost, value entries
+ms.search.forms: 5803,
+ms.date: 07/29/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Revalue inventory
+If you want to appreciate or depreciate an item or a specific item ledger entry, you must use the revaluation journal.
+
+## To revalue inventory
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Revaluation Journal**, and then choose the related link.
+2. Choose the **Calculate Inventory Value** action.
+3. On the **Calculate Inventory Value** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+4. Choose the **OK** button.
+5. On each line on the **Item Revaluation Journals** page, in the **Unit Cost (Revalued)** field, enter the new unit cost. Alternatively, enter the new total amount in the **Inventory Value (Revalued)** field.
+
+    The relevant fields are automatically updated. The **Amount** field shows the actual change in inventory value for the selected item ledger entry. It calculates the difference between the **Inventory Value (Calculated)** field and the **Inventory Value (Revalued)** field.
+6. When you have completed all lines in the revaluation journal, choose the **Post** action.
+
+New value entries are now created to reflect the revaluations that you have posted. You can see the new values on the respective item cards.
+
+## Related information
+[Design Details: Revaluation](design-details-revaluation.md)    
+[Inventory](inventory-manage-inventory.md)    
+[Sales](sales-manage-sales.md)    
+[Purchasing](purchasing-manage-purchasing.md)    
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-cash-flow-overview
+---
+title:  Cash flow overview
+description: An overview of cash inflows and outflows to help forecast money to be received and paid out.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: overview
+ms.devlang: al
+ms.search.keywords: cash flow, money flow, expense and income, liquidity, cash receipts minus cash payments
+ms.search.form: 841, 849, 1818
+ms.date: 07/31/2024
+ms.service: dynamics-365-business-central
+---
+
+# Cash flow overview
+
+Understanding cash inflows and outflows are the key to running a successful business. You can use cash flow to easily create a short-term forecast that predicts how and when you expect money to be received and paid out by your business. It's important to know that your business will have enough cash to pay creditors and expenses when they're due.
+
+## Definition of cash flow
+
+The term *cash flow* is used to designate cash receipts minus cash payments over a selected period. It's an estimate of the amount of money that you expect to flow in and out of your business, and it includes all your forecasted income and expenses.
+
+## Work with cash flow
+
+The following illustration shows an overview of how you can work with cash flow.
+
+![Cash Flow overview.](media/finance_cash_flow_overview.png "Cash Flow overview")
+
+- You set up a cash flow forecast.  
+
+- You get cash flow forecast sources from the following areas:  
+
+  - General ledger – Information about the liquid funds and the budgeted revenues and expenses of your company.  
+  - Purchasing – Information about the current payables and any forecasted debts from open purchase orders.  
+  - Sales – Information about the current receivables and any forecasted receipts from open sales orders.  
+  - Service – Information about open service orders.  
+  - Fixed assets – Information about planned disposal and budgeted purchases of fixed assets.  
+  - Manual revenues and expenses – Manage manual revenues and expenses and include them in the cash flow forecast.  
+- You use a batch job to transfer information from the areas of general ledger, sales, purchasing, service, and fixed assets to the worksheet Then, you register worksheet lines to make a cash flow forecast.  
+- You use various pages, reports, and charts to analyze and print a cash flow forecast that relates to availability and timeline overviews.  
+
+## Making a cash flow forecast
+
+Based on the registered worksheet lines, you can periodically make a cash flow forecast. The following layout is a frequently used layout for a cash flow forecast. The layout has three sections:
+
+- Cash receipts  
+- Cash disbursements  
+- Net cash flow or cash-in-hand  
+
+Cash receipts provide details of the income that the business receives.
+
+*total cash receipts* = *receivables* + *open sales orders* + *open service orders* + *fixed assets disposals* + *manual revenues* + *budgeted revenues*
+
+> [!NOTE]
+> Manual revenues can be rental income, interest from financial assets, or new private capital. You can plan manual revenues for a period of time and use them in the calculation of cash flow forecast.
+
+Cash disbursements provide details of the payments made by the business.
+
+*total cash disbursements* = *payables* + *open purchase orders* + *fixed asset investment* + *manual expenses* + *budgeted expenses*
+
+> [!NOTE]
+> Manual expenses can be salaries, interest on credit, or private consumptions. You can plan manual expenses for a period of time and use them in the calculation of cash flow forecast.
+
+Net cash flow or cash-in-hand is calculated as total receipts minus total disbursements at the end of each period.
+
+*net cash flow* = *total cash receipts* – *total cash disbursements* + *liquid funds*
+
+You can use the forecast as an internal management decision-making tool that helps you plan ahead and make important strategic decisions about the operation of the business.
+
+## Related information
+
+[Setting Up Cash Flow Analysis](finance-setup-cash-flow-analyses.md)  
+[Analyze Cash Flow](finance-analyze-cash-flow.md)  
+[Forecast your cash flow in Dynamics 365 Business Central](/training/modules/forecast-cash-flow-dynamics-365-business-central/index)  
+[Set up cash flow forecasts using Azure AI in Dynamics 365 Business Central](/training/modules/setup-cash-flow-forecasts/)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-how-setup-opportunity-sales-cycles-stages
+---
+title: Set Up Opportunity Sales Cycles and Cycle Stages
+description: Describes how to define sales stages, from initial contact to closing, to create a sales cycle and assign it to opportunities in Business Central.
+author: brentholtorf
+
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: relationship, prospect
+ms.search.forms: 5122, 5121, 5120, 5175, 5119, 5098, 5096
+ms.date: 05/27/2022
+ms.author: jswymer
+
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+# Set Up Opportunity Sales Cycles and Cycle Stages
+
+Before you start using sales opportunities, you must set up sales cycles and sales cycle stages. A sales cycle is made up of a series of stages that go from the initial contact to the closing of a sale. For each stage, you define any requirements that must be met, such as requiring a sales quote, before an opportunity can go to the next stage. You can also specify whether a stage can be skipped. You can set up as many sales cycles as you need. You can set up as many sales cycle stages as necessary within a sales cycle.
+
+To use opportunity sales cycles, you must set up the sales cycle, define the different stages of the cycle, and then assign the cycle to opportunities. Assigning the relevant activity or tasks to the opportunity may also be part of setting up a sales cycle.
+
+This article also describes how to set up tasks and activities, and how to assign tasks to activities. For more information, see [To set up activities with tasks](marketing-how-setup-opportunity-sales-cycles-stages.md#to-set-up-activities-with-tasks).
+
+## To set up opportunity sales cycle codes
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Cycles**, and then choose the related link. The **Sales Cycles** page opens, and lists all the existing sales cycles.
+2. Choose the **New** action, and fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+Repeat these steps to set up as many sales cycles as you want. After you have set up opportunity sales cycles, you may want to set up the different stages within each cycle.
+
+## To define opportunity sales cycle stages
+
+1. On the **Sales Cycles** page, select the opportunity sales cycle for which you want to set up stages, and then choose the **Stages** action. The **Sales Cycle Stages** page opens.
+2. Choose the **New** action to enter a new stage in the sales cycle.
+
+Repeat these steps to set up as many stages as you want within the sales cycle.
+
+## To assign stage cycles to opportunities
+
+After you add the opportunities stage cycle, you can start to add sales opportunities, and then assign the stage cycle to opportunities by setting the **Sales Cycle Code** field. For more information, see [Create Sales Opportunities](marketing-how-create-opportunities.md).
+
+## To set up activities with tasks
+
+You can combine multiple tasks, such as tasks that each represent a step, in activities. Activity tasks are related to each other by a date formula. You can assign activities to opportunities, salespeople, or contacts.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Activities**, and then choose the related link.
+2. Choose the **New** action, and fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+3. On the **Lines** FastTab, fill in the fields as necessary to define one or more tasks in the activity.
+
+## To assign tasks or activities of tasks to opportunities
+
+When you have set up a task, you can assign it to a sales opportunity and thereby assign the activity that the task belongs to.
+
+> [!NOTE]
+> You cannot create tasks of type *Meeting* in [!INCLUDE [prod_short](includes/prod_short.md)] online. The capability requires access to an on-premises deployment.
+
+The following procedure describes how to assign activity tasks to opportunities. The steps are similar when you assign tasks to salespeople and contacts.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Opportunities**, and then choose the related link.
+2. Select an opportunity, and then choose the **Tasks** action.
+3. On the **Task List** page, choose the **Create Task** action.
+4. The **Create Task** page, fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+    > [!TIP]
+    > As you can see in the **Opportunity** field, the task is automatically assigned to the relevant opportunity.
+5. Choose the **OK** button.
+6. On the **Task List** page, select the new task, and then choose the **Assign Activities** action.
+7. On the **Assign Activity** page, fill in the fields as necessary, and then choose the **OK** button.
+
+## Related information
+
+[Processing Sales Opportunities](marketing-processing-sales-opportunities.md)  
+[Sales](sales-manage-sales.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-working-with-teams
 ---
 title: Sharing Business Central records in Microsoft Teams
@@ -9494,7 +9811,9 @@ The *Year-Over-Year* report includes the following KPIs and measures:
 
 - [**Current Year**](purchases-powerbi-kpis.md#purchase-amount)
 - [**Previous Year (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-py-fiscal)
-- [**Current Year YOY (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-yoy-fiscal)
+- [**Purchase Amount YOY (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-yoy-fiscal)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**%GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -9504,9 +9823,9 @@ The *Year-Over-Year* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
-- Item
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 - Item Category
 
 ## Try the report
@@ -14977,6 +15296,73 @@ Microsoft maintains this article. Parts of the examples were originally written 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchase-quote-overview
+---
+title: Purchase Quote Overview (Power BI Report)
+description: The Purchase Quote Overview report gives a clear picture of your organization's purchase quotes.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37118_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Purchases Quote Overview (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Purchase Quote Overview** report provides detailed information on your organization's purchase quote activities for vendors. The report visualizes the number of quotes, purchase quantities and purchase amount over time. Additionally, this report provides insights into purchase quotes by vendor, and purchase amount by purchaser and item category, to help you anticipate upcoming purchases.
+
+:::image type="content" source="media/purchases/purchase-quote-overview.png" alt-text="Screenshot of the Purchase Quote Overview Power BI report" lightbox="media/purchases/purchase-quote-overview.png":::
+
+## Use the report
+
+This report is designed for purchasing managers and purchasers to track ongoing purchase quotes and predict purchasing impacts on profit figures.
+
+As a purchase manager, you might want to monitor the performance of purchasers or proactively adapt to purchasing requirements or supply chain conditions. With these insights, you can compare purchase quotes by vendor and anticipate purchase contributions to profit figures, before accepting a vendor's quote. Meanwhile, through reviewing purchaser activities, you can delegate accordingly to optimize and diversify purchasing strategies.
+
+As a purchaser, you can use the report to review your upcoming purchase impacts and prioritize purchasing operations. For example, analyzing the purchase quote value over time or by item category, might give you insights into anticipating purchasing requirements for a particular period or item category. 
+
+## Key Performance Indicators (KPIs)
+
+The *Purchase Quote Overview* report includes the following KPIs and measures: 
+
+- [**No. of Purchase Quotes**](purchases-powerbi-kpis.md#no-of-purchase-quotes)
+- [**Purchase Quote Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-quote-purchase-lcy)
+- [**Purchase Quote Quantity**](purchases-powerbi-kpis.md#purchase-quote-quantity)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:  
+
+- Purchase Line
+- Vendor
+- Item
+- Salesperson/Purchaser
+
+## Try the report
+
+Try the report here: [Purchases quote overview](https://businesscentral.dynamics.com?page=37118)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-browser-settings
 ---
 title: Setting up your browser
@@ -16700,14 +17086,15 @@ Project managers use the report to gain a better understanding of the health of 
 
 The *Project Overview* report includes the following KPIs:
 
-- [**% Complete**](projects-powerbi-kpis.md#-complete)
-- [**% Invoiced**](projects-powerbi-kpis.md#-invoiced)
-- [**Realization %**](projects-powerbi-kpis.md#realization-)
-- [**Actual Profit**](projects-powerbi-kpis.md#actual-profit)
-- [**Actual Profit Margin %**](projects-powerbi-kpis.md#actual-profit-margin-)
-- [**Actual (Total Cost)**](projects-powerbi-kpis.md#actual-total-cost)
-- [**Budget (Total Cost)**](projects-powerbi-kpis.md#budget-total-cost)
+- [**Completed (%)**](projects-powerbi-kpis.md#-completed-)
+- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
+- [**Realization (%)**](projects-powerbi-kpis.md#realization-)
+- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
+- [**Total Invoiced Profit**](projects-powerbi-kpis.md#total-invoiced-profit)
+- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
+- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
 - [**Project Count**](projects-powerbi-kpis.md#project-count)
+- [**No. of Completed Projects**](projects-powerbi-kpis.md#no-of-completed-projects)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -16717,9 +17104,9 @@ The *Project Overview* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Ledger Entries
-- Project Planning Line
+- Job
+- Job Ledger Entry
+- Job Planning Line
 
 ## Try the report
 
@@ -18507,34 +18894,42 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Best practices for global planning setup | Microsoft Docs
 description: The Planning FastTab in the Manufacturing Setup page contains several fields that define global rules for supply planning.
 author: brentholtorf
-ms.topic: best-practice
-ms.devlang: al
-ms.search.keywords:
-ms.date: 04/01/2021
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.topic: best-practice
+ms.date: 09/11/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
 ---
 # Setup Best Practices: Global Planning Setup
-The **Planning** FastTab on the **Manufacturing Setup** page contains several fields that define global rules for supply planning.  
 
- The following table provides best practices on how to set up selected global planning parameter fields. For more information about a field, choose the link in the **Setup field** column.  
+The **Planning** FastTab on the **Inventory Setup** page contains several fields that define global rules for supply planning.  
 
-|Setup field|Best practice|Comment|  
-|-----------------|-------------------|-------------|  
-|Use Forecast on Locations|Select if you have forecasts for specific locations.||  
-|Components at Location|If items are not defined as SKUs, select the location code of your main warehouse.|This also applies if you only use the requisition worksheet.|  
-|Blank Overflow Level|Select **Allow Default Calculation** if you are migrating from Microsoft Dynamics NAV 5.0 or earlier.|Use only if you want to allow all or some of your items to overflow the reorder point.|  
-|Default Dampener Period|Set between 1D and 5D.<br /><br /> If new to planning in [!INCLUDE[prod_short](includes/prod_short.md)], then set a longer period.|When users are more familiar with the different reasons for action messages, then shorten the dampener period to allow more change suggestions.|  
-|Default Dampener Quantity %|Set between 5 and 20 percent of the item’s lot size.||  
+The following table provides best practices on how to set up selected global planning parameter fields.  
+
+| Setup field | Best practice |
+|-----------------|-------------------|
+|Use Forecast on Locations|Select if you have forecasts for specific locations.|
+|Use Forecast on Variants| Select if you have items with variants and want to specify forecast for each variant individually|
+|Blank Overflow Level|Use only if you want to allow all or some of your items to overflow the reorder point.|
+|Default Dampener Period|Set between 1D and 5D.<br/><br/> If you're new to planning in [!INCLUDE[prod_short](includes/prod_short.md)], set a longer period. When you're more familiar with the different reasons for action messages, shorten the dampener period to allow more change suggestions.|  
+|Default Dampener Quantity %|Set between 5 and 20 percent of the item’s lot size.|
+
+The **Planning** FastTab on the **Manufacturing Setup** page also contains several fields that define global rules for supply planning.  
+
+The following table provides best practices on how to set up selected global planning parameter fields.
+
+|Setup field|Best practice|
+|-----------------|-------------------|
+|Components at Location|If items aren't defined as SKUs, select the location code of your main warehouse. This selection also applies if you only use the requisition worksheet.|  
 
 ## Related information  
- [Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)   
- [Design Details: Supply Planning](design-details-supply-planning.md)   
- [Set Up Complex Application Areas Using Best Practices](set-up-complex-application-areas-using-best-practices.md)  
- [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
+[Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
+[Design Details: Supply Planning](design-details-supply-planning.md)  
+[Set Up Complex Application Areas Using Best Practices](set-up-complex-application-areas-using-best-practices.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -18653,24 +19048,24 @@ ms.service: dynamics-365-business-central
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-The **Project Performance to Budget** report can help you keep your projects under budget. For each project, it shows the budgeted total cost and the project's actual cost.
+The **Project Performance to Budget** report can help you keep your projects under budget. For each project, it shows the total budget cost and the project's usage.
 
 :::image type="content" source="media/projects/project-performance-to-budget.png" alt-text="Screenshot of the Project Performance to Budget Power BI Report" lightbox="media/projects/project-performance-to-budget.png":::
 
 ## Use the report
 
-Project managers want a clear view of projects to ensure they're on budget. The report lets them compare the budget and actual costs of each project.
+Project managers want a clear view of projects to ensure they're on budget. The report lets them compare the budget and usage costs of each project.
 
 ## Key Performance Indicators (KPIs)
 
 The *Project Performance to Budget* report includes the following KPIs:
 
-- [**Actual (Total Cost)**](projects-powerbi-kpis.md#actual-total-cost)
-- [**Budget (Total Price)**](projects-powerbi-kpis.md#budget-total-price)
+- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
+- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
 - [**Total Cost Variance to Budget**](projects-powerbi-kpis.md#total-cost-variance-to-budget)
 - [**Total Cost Variance to Budget %**](projects-powerbi-kpis.md#total-cost-variance-to-budget-)
-- [**% Complete**](projects-powerbi-kpis.md#-complete)
-- [**% Invoiced**](projects-powerbi-kpis.md#-invoiced)
+- [**Completed (%)**](projects-powerbi-kpis.md#completed-)
+- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -18680,9 +19075,9 @@ The *Project Performance to Budget* report includes the following KPIs:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Project
-- Project Ledger Entries
-- Project Planning Line
+- Job
+- Job Ledger Entry
+- Job Planning Line
 
 ## Try the report
 
@@ -19362,10 +19757,11 @@ Purchaser can use this report to monitor purchasing activities, including purcha
 
 The *Purchases by Purchaser* report includes the following KPIs and measures:
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 - [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-- [**% GT Purchase Amount**](purchases-powerbi-kpis.md#-gt-purchase-amount)
-- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#-gt-purchase-quantity)
+- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+- [**No. of Posted Purchase Invoices**](purchases-powerbi-kpis.md#no-of-posted-purchase-invoices)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -19377,8 +19773,10 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
 
 - Salesperson/Purchaser
 - Item
-- Value Entry
-- Purchase Line
+- Item Category
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -19915,550 +20313,6 @@ This task deletes the personalization, and the user's experience of the relevant
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Country/regional availability and supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations)  
 [Changing Language and Locale](about-locale-language.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-allowed-languages
----
-title: Specify available languages in your environment
-description: Learn how to build a list of the languages that are available in your Business Central environment. 
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.form: 
-ms.date: 02/19/2025
-ms.custom: bap-template
----
-
-# Specify the languages that are available in your Business Central environment
-
-To let people work in their preferred language, the user interface (UI) in [!INCLUDE [prod_short](includes/prod_short.md)] is translated by apps that Microsoft provides, or by language apps that our partners provide on AppSource. Administrators install the language apps in their [!INCLUDE [prod_short](includes/prod_short.md)] environment. Afterward, on the **My Settings** page, people can choose the language in which they want to use [!INCLUDE [prod_short](includes/prod_short.md)].
-
-The **Languages** page lists all languages that [!INCLUDE [prod_short](includes/prod_short.md)] supports. However, to use [!INCLUDE [prod_short](includes/prod_short.md)] in a selected language, the language app must be installed in the environment. If someone chooses a language that a language app isn't installed for, they might be confused when the UI doesn't change.
-
-To avoid confusion and make it easier for people to select a language they can use, administrators can use the **Allowed Languages** page to list the languages that they installed language apps for. [!INCLUDE [prod_short](includes/prod_short.md)] filters the list of languages on the **My Settings** page to show only the allowed languages.
-
-## Create a list of allowed languages
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Allowed Languages**, and choose the related link.
-1. In the **Language ID** field, choose the language to allow.
-1. Repeat step 2 for each language that you installed a language app for.
-
-## Related information
-
-[Administration Tasks](admin-setup-and-administration.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-a-forecast
----
-title: Create a demand forecast
-description: Learn about the demand forecasting features, and how you can create sales and production forecasts.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.form: 9245, 99000919, 99000921, 99000922
-ms.date: 04/19/2024
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Create a demand forecast
-
-You can create sales and production forecasts with the **Demand Forecasts** list page. Then, for each forecast, you specify various settings for that forecast in the **Demand Forecast Overview** page.  
-
-Forecasting functionality is used to create anticipated demand; actual demand is created from sales and production orders. During creation of the Master Production Schedule (MPS), the forecast is netted against the sales and production orders. The **Forecast Type** field on the forecast determines which type of requirements to take into consideration in the netting process. If the forecast is for a *sales item*, only sales orders net the forecast. If it is for *components*, only dependent demand from production order components net the forecast.  
-
-Forecasting allows your company to create "what if" scenarios and efficiently and cost-effectively plan for and meet demand. Accurate forecasting can make a critical difference in customer satisfaction levels with regard to order promising dates and on-time delivery.  
-
-You can also define the right level of details in the **Forecast by Location** and **Forecast by Variant** fields in the **Demand Forecast Overview** page. Filters and other settings are stored in the **Demand Forecast Name** table, so you can easily stop and continue your work later. 
-
-## Sales forecasts and production forecasts
-
-The forecasting functionality in application can be used to create sales or production forecasts, in combination or independently. For example, most make-to-order companies do not carry finished goods inventory, because each item is produced when it is ordered. Anticipating orders (sales forecasting) is critical for a reasonable turnaround time on the finished goods (production forecasting). As an example, component parts with lengthy delivery times, if not on order or on inventory, can delay production.  
-
-- The sales forecast is the sales department's best guess at what will be sold in the future, and is specified by item and by period. However, the sales forecast is not always adequate for production.  
-- The production forecast is the production planner's projection of how many end items and derived subassemblies to produce in specific periods to meet the forecasted sales.  
-
-In most cases, then, the production planner modifies the sales forecast to fit the conditions of production, yet still satisfies the sales forecast.  
-
-You create forecasts manually on the **Demand Forecast** page. Multiple forecasts can exist in the system, and are differentiated by name and type. Forecasts can be copied and edited as necessary. 
-
-> [!NOTE]
-> Only one forecast is valid for planning purposes at any time.
-
-The forecast consists of a number of records each stating item number, forecast date, and forecasted quantity. The forecast of an item covers a period, which is defined by the forecast date and the forecast date of the next (later) forecast record. From a planning point of view, the forecasted quantity should be available at the start of the demand period.  
-
-You must designate a forecast as *Sales Item*, *Component*, or *Both*. The forecast type *Sales Item* is used for sales forecasting. The production forecast is created using the *Component* type. The forecast type *Both* is only used to give the planner an overview of both the sales forecast and the production forecast. With this option, the forecast entries are not editable. By designating these forecast types here, you can use the same worksheet to enter a sales forecast as you do a production forecast, and use the same sheet to view both forecasts simultaneously. Note that the system treats the different inputs (sales and production) differently when calculating planning, based on item, manufacturing, and production setup.  
-
-## Component forecast
-
-The component forecast can be seen as an option forecast in relation to a parent item. This can, for example, be useful if the planner can estimate the demand for the component.  
-
-Because the component forecast is designed to define options for a parent item, the component forecast should be less than or equal to the sales item forecast quantity. If the component forecast is higher than the sales item forecast, the system treats the difference between these two types of forecasts as independent demand.  
-
-## Forecasting periods
-
-The forecast period is valid from its starting date until the date the next forecast starts. The time interval page gives you multiple choices to insert the demand at a specific date in a period. It is therefore recommended not to change the forecast period scope unless you want to move all forecast entries to the starting date of this period.  
-
-## Forecast by locations
-
-On the **Manufacturing Setup** page you can specify whether you want to consider the locations that are defined on forecasts when you calculate plans. 
-
-### Use forecast by locations
-
-If you turn on the **Use Forecast by Location** toggle, [!INCLUDE[prod_short](includes/prod_short.md)] respects any location codes that are specified for each demand forecast entry and calculate the remaining forecast for each location.  
-
-Consider this example: Your company purchases and sells items on two locations: EAST and WEST. For both locations, you have configured a lot-to-lot reordering policy. You create a forecast for the two locations:
-
-- 10 pieces for location EAST
-- 4 pieces for location WEST
-
-Then, you create a sales order with a quantity of 12 on location WEST. The planning system will suggest that you do the following:
-
-- Replenish 10 pieces for location EAST, based on data from the forecast.  
-- Replenish 12 pieces for location WEST, based on the sales order. The four pieces that were specified in the forecast are fully consumed by the actual demand of the sales order. For more information, see [Forecast Demand is Reduced by Sales Orders](design-details-balancing-demand-and-supply.md#forecast-demand-is-reduced-by-sales-orders).  
-
-> [!NOTE]  
-> If location-based forecasts are viewed in isolation, the overall forecast might not be representative.
-
-### If you don't use forecast by locations
-
-If you turn off the **Use Forecast by Location** toggle, [!INCLUDE[prod_short](includes/prod_short.md)] ignores the location codes that are specified for each demand forecast entry and aggregate the forecasts into a forecast for empty locations.  
-
-Consider this example: Your company purchases and sells items on two locations: EAST and WEST. For both locations, you configured a lot-to-lot reordering policy. You create a forecast for the two locations:
-
-- 10 pieces for location EAST
-- 4 pieces for location WEST
-
-Then, you create a sales order with a quantity of 12 on location WEST. The planning system suggests that you do the following:
-
-- Replenish 12 pieces for location WEST, based on the sales order.  
-- Replenish 2 pieces for the empty location. The 10 and 4 pieces that were specified in the forecast are partially consumed by the actual demand of the sales order. [!INCLUDE[prod_short](includes/prod_short.md)] ignored the location codes that were specified by the user and uses a blank location instead.  
-
-> [!NOTE]  
-> You can set a filter by locations, but location-based results might not match planning results without filters.
-
-## To create a demand forecast
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Demand Forecast**, and then choose the related link.  
-2. On the **General** FastTab, select a forecast in the **Demand Forecast Name** field. Multiple forecasts can exist and are differentiated by name and forecast type.  
-3. In the **Location Filter** field, select the location to which this forecast will apply.
-4. In the **View by** field to change the period that is displayed in each column. You can select from the following intervals: **Day**, **Week**, **Month**, **Quarter**, **Year**, or the **Accounting Period** as set up in your finance area.
-
-> [!NOTE]  
-> You should consider which time interval that you want to use for future forecasts so that the time interval is consistent throughout. When you enter a forecast quantity, it is valid on the first day of the time interval that you select. For example, if you select a month, enter the forecast quantity on the first day of the month. If you select a quarter, enter the forecast quantity on the first day of the first month in the quarter.
-
-5. In the **View as** field, select how the forecast quantities are shown for the time interval. If you select **Net Change**, then the net change in balance is displayed for the time interval. If you select **Balance at Date**, then the page displays the balance as of the last day in the time interval.  
-6. In the **Forecast Type** field, select **Sales Item**,  **Component**, or **Both**. If you select **Sales Item** or **Component**, then you can edit the quantity by period. If you select **Both**, then you cannot edit the quantity, but you can choose the drop-down arrow button and view the demand forecast entries.  
-7. Specify a **Date Filter** if you want to limit the amount of data displayed.  
-8. On the **Demand Forecast Matrix** FastTab, enter the forecasted quantities by typing a quantity in the cell representing an item on a particular date or period. Note that in empty cells, the lookup button opens an empty page indicating that you must enter a value manually.   
-
-> [!NOTE]  
-> You can also edit an existing forecast. On the **Demand Forecast Matrix** page, choose the **Copy Demand Forecast** action and populate the **Demand Forecast** page with an existing forecast. You can then edit quantities as appropriate.  
-
-## Related information
-
-[Setting Up Manufacturing](production-configure-production-processes.md)  
-[Manufacturing](production-manage-manufacturing.md)
-[Inventory](inventory-manage-inventory.md)  
-[Purchasing](purchasing-manage-purchasing.md)  
-[Design Details: Supply Planning](design-details-supply-planning.md)   
-[Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-app
----
-title: Sustainability Power BI app
-description: The Power BI app for sustainability in Business Central provides comprehensive sustainability analytics to stakeholders at all levels of your organization.
-author: altotovi
-ms.author: altotovi
-ms.reviewer: bholtorf
-ms.topic: conceptual
-ms.search.keywords: reporting
-ms.search.form: 
-ms.date: 06/04/2025
-ms.service: dynamics-365-business-central
----
-
-# Sustainability Power BI app
-
-[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
-
-The Sustainability Power BI app provides detailed insight into the emission usage of an organization to support Environment Social Governance (ESG) reporting. The report helps identify key areas to change. The app provides various reports that focus on areas that organizations want to track, such as [Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md), [Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md) and [Social Analysis](https://businesscentral.dynamics.com?page=37091).
-
-## Sustainability analytics
-
-To fit into this category, you might have a role such as:
-
-- Sustainability Manager
-- Data Analyst
-
-### Example scenario: The sustainability team needs to review their water and waste usage over a period
-
-As someone on the Sustainability team, you want to consistently review your water and waste usage at specific facilities. Using the [Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md) report, you can review the capacity at each facility and location to understand the available capacity, should you need it in the future.
-
-:::image type="content" source="media\sustainability\water-waste-by-loc-fac.png" alt-text="Screenshot of the Water and Waste Analysis Snippet Power BI" lightbox="media\sustainability\water-waste-by-loc-fac.png":::
-
-The report also allows the team to track different water and waste types along with the YOY and DOD change to ensure they're moving in the right direction.
-
-## Sustainability analytics for the Executive team
-
-To fit into this category, you might have a role such as:
-
-- CEO
-- Chief Operating Officer
-- Chief Sustainability Officer
-
-### Example scenario: Ensure targets are being met
-
-For someone on the executive team, you need to ensure targets you put in place for the organization are being met. The [Realized Emissions vs. Target](sustainability-powerbi-realized-emissions-vs-target.md) report can quickly and efficiently compare your actual emissions with your target and make informed decisions about where to make changes.
-
-:::image type="content" source="media\sustainability\co2e-comparision.png" alt-text="Screenshot of the Realized Emissions vs Target Snippet Power BI" lightbox="media\sustainability\co2e-comparision.png":::
-
-You can compare the data in this report with the [Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md) report to ensure your organization is on the right track.
-
-:::image type="content" source="media\sustainability\journey-to-net-zero-snip.png" alt-text="Screenshot of the Journey To Net Zero Carbon Snippet Power BI" lightbox="media\sustainability\journey-to-net-zero-snip.png":::
-
-For an executive looking for a quick, high-level view for their organization, you can use the [Sustainability Overview](sustainability-powerbi-sustainability-overview.md) report.
-
-## Alternative use cases
-
-While the reports benefit these examples, in some scenarios other roles can also use this report pack. For example, a Procurement Manager might use the [Emissions by Category and Scope](sustainability-powerbi-emissions-by-category-and-scope.md) report to review Scope 3 so they can identify better vendors. Or, a member of the Human Resources team can use the [Social Analysis](sustainability-powerbi-social-analysis.md) report to get a view of employee activities.
-
-## Use the reports
-
-The following table provides descriptions on how you can use each report in the Power BI Sustainability app.
-
-|To... | Open in Business Central (CTRL+select) | Learn more |
-|------|---------------------------------------|----------- |
-|The **Sustainability Overview** report gives you a high-level view of all the key sustainability metrics.| [Sustainability Overview](https://businesscentral.dynamics.com?page=37084) | [About Sustainability Overview](sustainability-powerbi-sustainability-overview.md)|
-|The **Journey to Net Zero** report highlights the journey to net zero within an organization.| [Journey to Net Zero Carbon](https://businesscentral.dynamics.com?page=37090) | [About Journey to Net Zero Carbon](sustainability-powerbi-journey-to-net-zero-carbon.md)|
-|The **Realized Emissions vs Target** report breaks down your carbon emissions and allows for comparison against the target. You can effectively monitor planned progress and drive continuous improvement to sustainability goals.| [Realized Emissions vs Target](https://businesscentral.dynamics.com?page=37085) | [About Realized Emissions vs. Target](sustainability-powerbi-realized-emissions-vs-target.md)|
-|The **Realized Emissions vs Baseline** report breaks down your carbon emissions and allows for comparison against a defined baseline period. This comparison lets you track progress against the baseline and monitor trends against a previous period.| [Realized Emissions vs Baseline](https://businesscentral.dynamics.com?page=37086) | [About Realized Emissions vs. Baseline](sustainability-powerbi-realized-emissions-vs-baseline.md)|
-|The **Water and Waste Analysis** report allows you to effectively monitor your water and waste usage by different metrics such as water type, intensity type, and responsibility center.| [Water and Waste Analysis](https://businesscentral.dynamics.com?page=37087) | [About Water and Waste Analysis](sustainability-powerbi-water-and-waste-analysis.md)|
-|The **Emissions by Category and Scope** report breaks down each emission type based on the account category and the scope to show how each account and scope is tracking. | [Emissions by Category and Scope](https://businesscentral.dynamics.com?page=37088) | [About Emissions by Category and Scope](sustainability-powerbi-emissions-by-category-and-scope.md)|
-|The **CO2e Analysis** report provides detailed insight into your CO2e emissions and how you purchase carbon credit.| [CO2e Analysis](https://businesscentral.dynamics.com?page=37089) | [About CO2e Analysis](sustainability-powerbi-co2e-analysis.md)|
-|The **CO2e Key Influencers** report identifies the key factors behind increases in CO2e emissions. It highlights the most impactful variables and trends based on the sustainability account categories.| [CO2e Key Influences](https://businesscentral.dynamics.com?page=37093) | [About CO2e Key Influences](sustainability-powerbi-co2e-key-influences.md)|
-|The **CO2e Decomposition Tree** report breaks down CO2e emission metrics into its key contributing components to help you understand what's driving changes in CO2 emissions, and why.| [CO2e Decomposition Tree](https://businesscentral.dynamics.com?page=37108) | [About CO2e Decomposition Tree](sustainability-powerbi-co2e-decomposition-tree.md)|
-|The **Social Analysis** report displays employee details as part of social reporting for ESG. | [Social Analysis](https://businesscentral.dynamics.com?page=37091) | [About Social Analysis](sustainability-powerbi-social-analysis.md)|
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Related information
-
-[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
-[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
-[Sustainability scorecards and goals overview](sustainability-scorecards-goals.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-manage
----
-title: Manage fixed assets
-description: Learn about the fixed assets functionality and get an overview of how to work with and manage your fixed assets.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: machinery, buildings
-ms.search.form: 5601_Primary, 5604, 5606, 5664, 5601, 5602, 5658, 5603, 5671, 5641, 5629, 5633, 5634, 5649, 5622, 5650
-ms.date: 06/10/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Manage fixed assets
-
-The fixed assets functionality in [!INCLUDE[prod_short](includes/prod_short.md)] provides an overview of your fixed assets and helps ensure that their depreciation is correct. It also helps you track maintenance costs, manage insurance policies, post fixed asset transactions, and generate various reports and statistics.
-
-## What is a fixed asset?
-
-Fixed assets differ from other items in your warehouse. A fixed asset, also known as a capital asset, is a tangible piece of property, plant, or equipment (PP&E) that you own or manage with the expectation that it will continue to help generate income. An asset is fixed when it’s an item that your business won’t consume, sell, or convert to cash within the next calendar year. Fixed assets are different than current assets, which are in cash or slated to be converted to cash within the next 12 months. Fixed assets also differ from your inventory, because inventory is typically consumed within a short time.
-
-## Types of fixed assets
-
-Businesses typically invest in a few types of fixed assets. Some examples are:
-
-- Buildings and facilities
-- Computer equipment and software
-- Furniture and fixtures
-- Machinery
-- Vehicles
-
-## Understanding fixed asset accounting
-
-Fixed asset accounting means keeping precise financial records about your capital assets. These records include details about the five stages in an asset's lifecycle. After your initial purchase, each fixed asset’s lifecycle includes at least three of the following stages:
-
-- Acquisition: You add a new fixed asset to your books.
-- Depreciation: You record an asset's periodic decline in value, which you use a depreciation method to calculate. To learn more, go to [FA Depreciation Calculation](LocalFunctionality/India/FA_Depreciation.md).
-- Revaluation: You record an assessment of the current fair market value of an asset. To learn more, go to [Revalue Fixed Assets](fa-how-revalue.md).
-- Impairment: You record a reduction in value due to events or circumstances.
-- Disposal: You sell, scrap, or use another way dispose of an asset at the end of its service life.
-
-Audits are also included in the detailed checks of your company’s accounting records after closing the books for the financial year. Whether internal or external, audits are where you might notice inconsistencies or differences between your notes and the actual state of your assets. Audits promote transparency in your assets and accounting if you’re losing more money than anticipated.
-
-## Video overview
-
-The following video covers the basics of fixed assets:
-
-> [!Video https://learn-video.azurefd.net/vod/player?id=32fa27be-9e9a-4637-bc9b-87eb994f5ae0]
-
-## Initial setup of fixed assets
-
-Before you can manage fixed assets, you must complete the following setups:
-
-- Default values
-- Fixed asset accounting
-- Posting groups and types
-- Allocation keys
-- Fixed asset journals
-
-To learn more, go to [Setting Up Fixed Assets](fa-setup.md).
-
-## Fixed assets analytics
-
-This section describes the analytical tools you can use to get insights into data about your fixed assets.
-
-| To... | See |
-| --- | --- |
-| Learn about capabilities for analyzing data about fixed assets. | [Fixed assets analytics overview](fa-analytics-overview.md) |
-| Do ad-hoc analysis of fixed assets data directly on list pages and queries. | [Ad-hoc analysis of fixed assets data](ad-hoc-analysis-fa.md) |
-| Explore built-in reports for fixed assets. | [Built-in fixed assets reports](fa-reports.md) |
-| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
-| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
-| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
-| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
-
-## Register fixed assets
-
-For each fixed asset, you must set up a card that contains information about them. For example, you can set up buildings or production equipment as main assets with a component list. You can group assets in various ways, such as by class, department, or location. Then you can acquire, maintain, and sell the fixed assets. You can also set up budgeted assets. Budgeting lets you include any anticipated acquisitions and sales in reports.
-
-| To  | See |
-| --- | --- |
-| Manage fixed asset budgets, budget acquisition costs, budget disposals of fixed assets, and budget depreciation. |[Manage Budgets for Fixed Assets](fa-how-manage-budgets.md) |
-| Create fixed assets, assign depreciation methods, post acquisitions, salvage values, and print fixed asset lists. |[Acquire Fixed Assets](fa-how-acquire.md) |
-
-## Set up depreciations for your fixed assets
-
-To track fixed asset depreciations and other financial transactions for fixed assets, set up one or more depreciation books for each one. There are a few steps to depreciate assets:
-
-1. Run a report that calculates periodic depreciation.
-1. Fill in a journal with the resulting entries.
-1. Post the journal.
-
-[!INCLUDE[prod_short](includes/prod_short.md)] supports several depreciation methods. To learn more, go to [Depreciation Methods](fa-depreciation-methods.md). You can set up multiple depreciation books for each fixed asset for different purposes, such as one for tax reporting and another for internal reporting.
-
-| To  | See |
-| --- | --- |
-| Learn about different fixed asset depreciation methods. |[Depreciation Methods](fa-depreciation-methods.md) |
-| Calculate depreciation, post depreciation, and analyze depreciation in fixed assets reports. |[Depreciate or Amortize Fixed Assets](fa-how-depreciate-amortize.md) |
-| View changed depreciation book values. | [View changed depreciation book values](fa-how-trans-split-combine.md#to-view-changed-depreciation-book-values-due-to-fixed-asset-reclassification) |
-| Manually record fixed asset transactions on the **Fixed Asset G/L Journal** page or on the **Fixed Asset Journal** page, depending on whether the transactions are for financial reporting or for internal management. | [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md) |
-
-## Fixed assets maintenance and insurance
-
-You can record maintenance costs and the next service date for each asset. Tracking maintenance expenses can be important for budgeting purposes and deciding whether to replace a fixed asset. You can attach each fixed asset to one or more insurance policies, and verify that policy premiums align with the value of the assets.
-
-| To  | See |
-| --- | --- |
-| Record service visits, post maintenance costs, and monitor maintenance costs. |[Maintain Fixed Assets](fa-how-maintain.md) |
-| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
-| Update insurance information, post acquisition costs to insurance policies, modify insurance coverage, view insurance statistics, and list insurance policies. |[Insure Fixed Assets](fa-how-insure.md) |
-| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
-
-## Reclassify, transfer, split up/combine, adjust value, write-down, and dispose fixed assets
-
-| To  | See |
-| --- | --- |
-| Reclassify fixed assets, transfer fixed assets to different locations, split up or combine assets. |[Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md) |
-| Adjust values of fixed assets, post appreciation, and post write-down transactions. |[Revalue Fixed Assets](fa-how-revalue.md) |
-| Post disposal transactions, view disposal ledger entries, and post partial disposals. |[Dispose of or Retire Fixed Assets](fa-how-dispose-retire.md) |
-| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
-| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
-
-## Tips for improving your fixed asset accounting
-
-There are a few things you can implement in your accounting strategy for fixed assets that can help ensure you’re maximizing your earnings.
-
-- Establish a threshold for capitalization. When you purchase an item, determine a fixed amount for capitalization. The amount helps ensure your accounting books are consistent, and makes it easier for you and your team to spot accounting errors.
-- Reevaluate equipment lifecycle. It's important to correctly estimate the length of time you can use your fixed assets for their original purpose. Because accounting and depreciation rely on accurate lifecycle estimates, reevaluate when necessary because it might change over time.
-- Tag your assets. It’s essential to track and tag your assets throughout their lifecycle because many factors can affect their value. Tagging helps track your items throughout the stages of their lifecycle, and help prevent theft, eliminate misplacement, and support financial statistics.
-- Automate insight with fixed asset accounting software. Automating manual activities to track your data with fixed asset accounting software make processes easier to complete. Password protection can help provide access only to the people who need it and are trained for it.
-
-## Related information
-
-[Setting Up Fixed Assets](fa-setup.md)  
-[Fixed assets analytics overview](fa-analytics-overview.md)  
-[Finance overview](finance.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)  
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-journey-to-net-zero-carbon
----
-title: Journey to Net Zero Carbon
-description: The Journey to Net Zero highlights the journey to net zero within an organization.
-author: altotovi
-ms.author: altotovi
-ms.reviewer: bholtorf
-ms.topic: conceptual
-ms.search.keywords: reporting
-ms.search.form: 
-ms.date: 05/26/2025
-ms.service: dynamics-365-business-central
----
-
-# Journey to Net Zero Carbon (Power BI Report)
-
-[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
-
-The Journey to Net Zero Carbon report helps you monitor and analyze key metrics that can help you reduce your carbon footprint. The report arranges data by global dimensions or scopes to provide multiple scenarios for informed reporting.
-
-:::image type="content" source="media\sustainability\journey-to-net-zero-carbon.png" alt-text="Screenshot of the Journey to Net Zero Carbon Power BI report" lightbox="media\sustainability\journey-to-net-zero-carbon.png":::
-
-## Use the report
-
-The report is useful for various different users, depending on what they want to analyze.
-
-Sustainability Managers can use the report to monitor key carbon emissions and renewable energy use. This information can help identify areas where you can reduce emissions, based on different scopes or the dimensions. You can also use this report to track emission reductions year over year as you get closer to net zero.
-
-## Key performance indicators (KPIs)
-
-The Journey to Net Zero Carbon report includes the following KPIs and measures:
-
-- [CO2e Emissions (Excl Credits)](sustainability-powerbi-kpis.md#co2e-emissions-excl-credits)
-- [Purchased Carbon Credits](sustainability-powerbi-kpis.md#purchased-carbon-credits)
-- [CO2e Emissions](sustainability-powerbi-kpis.md#co2e-emissions)
-- [CO2 Emissions](sustainability-powerbi-kpis.md#co2-emissions)
-
-Choose the link for a KPI to learn more about what it means, its calculation, and what data is used in the calculations.
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The Journey to Net Zero Carbon report use data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Sustainability Ledger Entry
-- Sustainability Account Category
-
-## Try the report
-
-Try the report here: [Journey to Net Zero Carbon](https://businesscentral.dynamics.com?page=37090)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
-[Sustainability management overview](finance-manage-sustainability.md)  
-[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-use-multiple-vat-registrations
----
-title: Multiple VAT registration numbers
-description: Learn about the functionality for multiple (alternative) value-added tax (VAT) registration numbers.
-author: altotovi
-ms.topic: article
-ms.reviewer: 
-ms.search.keywords: VAT, multiple, alternative, customer, tax, value-added tax
-ms.search.form: 212, 301, 
-ms.date: 08/21/2024
-ms.author: altotovi
-ms.service: dynamics-365-business-central
----
-
-# Multiple VAT registration numbers 
-
-For businesses with warehouses in multiple EU countries, managing VAT (Value Added Tax) can be challenging, as each warehouse location requires a different VAT number to comply with the specific regulations of each country. This article provides information about this requirement and explains the functionality for multiple value-added tax (VAT) registration numbers. This functionality allows users to set up tax registration numbers for their customers in different countries/regions.  
-
-> [!NOTE]
-> The *Multiple VAT numbers for customers* functionality is available only from Business Central 2024 release wave 2 (version 25).
-
-## How to set up the alternative VAT registration numbers  
-
-To set up the alternative VAT registration numbers for different countries/regions, follow these steps: 
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Alternative Customer VAT Registration**, and then select the related link. 
-2. Add the customer in the **Customer No** field and the country/region related to this VAT registration in the **VAT Country/Region Code**.  
-3. You must add the VAT number in the **VAT Registration No.** field. You must stick to the format when you use **Country/Region Code**. 
-4. If you want to use different VAT or general posting groups, you can alternatively add them to the setup in the **VAT Bus. Posting Group** and **Gen. Bus. Posting Group** fields. 
-5. Close the page.   
-
-To create an alternative address for your customer, follow these steps:  
-
-1. Open the **Customer** card for the customer you want to add new **Ship-to Address**. 
-2. Select **Customer**, and choose the **Ship-to Addresses** action.   
-3. The **Ship-to Address List** page opens, and select **New**. 
-4. Fill in the information about your customer's ship-to destination.  
-5. Choose the proper **Country/Region Code**.   
-6. If you have already configured a new **VAT Registration No.** on the **Alternative Customer VAT Registration** for this country or region, nothing will happen. 
-  - But if you didn't configure the **VAT Registration No.** previously on the **Alternative Customer VAT Registration** for this country or region, the following notification appears: **Click Add if you want to insert the Alternative VAT Registration for this Ship-To Country Code.**
-  - Choose the **Add** action on the notification and the **Alternative Customer VAT Registration** page opens.
-This page populates your **Customer No.** and the **VAT Country/Region Code**. So, you just need to add the setup that you want to use. 
-
-## Work with the sales documents   
-
-You can create new [sales invoice](sales-how-invoice-sales.md) or [sales order](sales-how-sell-products.md) in [!INCLUDE[prod_short](includes/prod_short.md)]. If you need to use a ship-to address that differs from the customer's address and is located in a different country, follow the steps:  
-
-### Alternate shipping address  
-
-1. Expand the **Shipping and Billing** FastTab.   
-2. In the Ship-to field, choose the **Alternate Shipping Address** option. 
-3. The **Ship-to Address List** page with available alternate addresses appears. 
-4. Choose one of the addresses with a different **Country/Region Code**. 
-5. The **Confirm Alternative Customer VAT Registration** dialog page appears with a list of fields that you have modified because of the **Alternative Customer VAT Registration** setup change. 
-6. Select **OK** to confirm.   
-
-> [!NOTE]
-> If you don't want to confirm such a choice anymore, you can select the **Don't show again** field, and in the future you won't see this type of notification about changes. But if you want to enable it again, you can do it by enabling the **Confirm Alternative VAT Registration** field on the **VAT Setup**.  
-   
-7. Once you confirm, the values are overwritten with the values from the **Alternative Customer VAT Registration** setup. You can check all the VAT related fields that are under the **Invoice Details** FastTab.  
-8. Post the document.  
-
-### Custom address  
-
-In case you don't have the ship-to address configured but still want to use a different address for shipping, you can use this option.  
-
-1. Expand the **Shipping and Billing** FastTab.   
-2. In the Ship-to field, choose the **Custom Address** option.  
-3. Change the country in the **Country/Region** field.  
-4. Once you change the country/region code to match the **VAT Country/Region Code** of the **Alternative Customer VAT Registration**, the **Confirm Alternative Customer VAT Registration** dialog page appears with a list of fields that have been changed. 
-5. [!INCLUDE[prod_short](includes/prod_short.md)] will also change all the VAT related fields that are under the **Invoice Details** FastTab.  
-
-### Work with no shipment 
-
-If there's no shipment as a process, you still can leverage the **Alternative Customer VAT Registration** setup.
-
-In the sales order or invoice, you can find the **VAT Country/Region Code** under the **Invoice Details** FastTab and specify the value that matches the **Alternative Customer VAT Registration** setup. You should see the same confirmation dialog page as above. 
-
-In this situation, you can post a sales invoice with the proper **VAT Registration No.** for your customer even if you don't ship items with this document. 
-
-### Work with the sales credit memo  
-
-Once you post the invoice with a **Ship-to address** or **VAT Country/Region Code** that has different posting data, the corrective **Sales credit memo** takes the values from the **Posted sales invoice** header where these values are taken from the **Alternative customer VAT registration**, so no other actions required. 
-
-## Related information
-
-[VAT Management Overview](finance-manage-vat.md)    
-[Set Up Value-Added Tax](finance-setup-vat.md)    
-[Work with VAT on Sales and Purchases](finance-work-with-vat.md)    
-[Report VAT to a Tax Authority](finance-how-report-vat.md)    
-[Local functionality in Business Central](about-localization.md)    
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

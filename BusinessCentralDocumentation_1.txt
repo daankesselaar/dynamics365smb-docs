@@ -6257,6 +6257,66 @@ Sometimes you must provide a customer a loaner item for use when your customer s
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-connect-edocuments-microsoft365
+---
+title: Connect e-documents to Microsoft 365 applications
+description: Learn how to integrate e-documents with Microsoft 365 applications.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: e-documents, Microsoft 365
+ms.search.form: 
+ms.date: 09/04/2025
+ms.custom: bap-template
+ROBOTS: NOINDEX
+---
+
+# Connect e-documents to Microsoft 365 applications
+
+Streamline accounts payable processes by enabling purchasers to add multiple invoice and receipt documents to e-documents in a single action. That makes it easier for them to process vendor invoices and receipts because it's faster to import the documents from a single point of entry.
+
+This article describes how to set up connections to Microsoft 365 applications.
+
+## Set up connections to Microsoft 365 applications
+
+Connecting e-documents with Microsoft 365 applications requires that you set up e-documents in [!INCLUDE [prod_short](includes/prod_short.md)]. If you haven't done that already, follow the steps in [Set up e-documents](finance-how-setup-edocuments.md) to get started.
+
+> [!NOTE]
+>
+> * The connections only work for the online version of [!INCLUDE [prod_short](includes/prod_short.md)].
+> * The Microsoft 365 access point that you connect with must be in the same Microsoft Entra tenant as your [!INCLUDE [prod_short](includes/prod_short.md)] environment.
+
+### Configure an access point
+
+When your e-document setup is complete and you're ready to connect to a Microsoft 365 application, follow these steps:
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **E-Document Services**, and then choose the related link.
+1. In the **Service Integration V2** field, choose **Outlook**.
+1. Choose the **Setup Service Integration** action.
+
+The steps to connect e-documents to a Microsoft 365 access point depend on the type of connector you choose.
+
+### Set up the connector for Outlook
+
+> [!NOTE]
+> Currently, the connector for Outlook only lets you download PDF file attachments.
+
+1. On the **Outlook Document Import Setup** page, choose the assist edit button :::image type="content" source="media/assist-edit-icon.png" alt-text="The AssistEdit icon."::: in the **Account** field, and then choose the Microsoft 365 mailbox that you want to download documents from.
+
+   > [!NOTE]
+   > The account you're signed in with must have Read/Write access to the Microsoft 365 e-mail account.
+
+1. Turn on the **Enabled** toggle, and then close the page.
+1. On the **E-Document Service** page, choose the **Receive** action. This action reads the unread emails from the specified mailbox that were received after the last time you downloaded them. It creates one e-document for each PDF attachment, and marks the emails as read.
+
+## Related information
+
+[E-documents overview](finance-edocuments-overview.md)  
+[Set up e-documents](finance-how-setup-edocuments.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-troubleshoot-self-signup
 ---
 title: Troubleshoot Issues with Self-Service Sign-Up | Microsoft Docs
@@ -7870,8 +7930,8 @@ For example, you might notice that purchasing demands are often higher towards t
 
 The *Moving Averages* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
-- [**Purchase Amount Average 30D**](purchases-powerbi-kpis.md#purchase-amount-avg-30d-fiscal)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase Amount Average 30D (Fiscal)**](purchases-powerbi-kpis.md#purchase-amount-avg-30d-fiscal)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -7881,8 +7941,9 @@ The *Moving Averages* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -10673,104 +10734,167 @@ ms.custom: bap-template
 
 # Set up e-documents
 
-> [!IMPORTANT]
-> The E-Documents core module is a framework. By default, there's no **Service Integration** field. If you find the **Document Format** options by default, remember that they're offered as examples. Localization apps must provide format detail because they're specific to local requirements.
+This article describes how to configure electronic documents (e-documents), and how to set up the E-Documents Service for e-document communications.
+
+## Use the Clearance model if your country/region requires it
+
+Some countries/regions, such as Spain, India, Mexico, and Italy, require that a tax authority or third-party certifier pre-approves invoices before businesses can send them to customers. This requirement is referred to as the _Clearance model_.
+
+### Overview of the Clearance model process
+
+The following is an example of the high-level steps in an approval and certification process for the Clearance model. The process might differ in your country/region.
+
+1. The seller creates an invoice, and generates an XML or JSON file. The file type depends on country/regional requirements.
+1. The seller submits the e-invoice to the tax authority. The tax authority adds a unique ID or a QR code and returns it to the seller.
+1. The seller submits the e-invoice to a third-party certifier for validation. For example, the certifier validates the schema structure, content, checks for duplicates, and so on. If they approve the e-invoice, the certifier marks it as certified. For example, they might add a unique identifier, a digital signature, or a QR code.
+1. The seller sends the certified e-invoice to the customer.
+
+> [!TIP]
+> If the tax authority provides a QR code, the returned JSON file includes it as a base64-encoded string. If you want to include the QR code in printed documents, you can update your document layout. [!INCLUDE [prod_short](includes/prod_short.md)] stores the QR code in the **Posted Sales Invoices** table. To learn more about document layouts, go to [Report and document layouts overview](ui-manage-report-layouts.md).
+
+### E-Document setups for the Clearance model
 
 > [!NOTE]
-> A standard PEPPOL document format is a global format in the **Document Format** field. Keep in mind that you probably can't use this format as is. It's a W1 format that Microsoft provides to show how to use this feature. We recommend that you test the existing PEPPOL format before you start to use this format.
+> Because the Clearance model differs in countries/regions, support for the model in [!INCLUDE [prod_short](includes/prod_short.md)] is a framework only. You must create an extension that meets the requirements in your country/region, and use the extension in your e-document service setup. To explore an example of an extension, go to the samples in our **BCTech** repository on GitHub and find [ClearanceServiceSample](https://github.com/microsoft/BCTech/tree/master/samples/ClearanceServiceSample).
 
-The first step to configure electronic documents (e-documents) is to set up the E-Documents Service for e-document communication.
+You can set up an e-document service specifically for the Clearance model. The setup is almost the same as setting up any e-document service, with a few exceptions here and there. This section describes the settings that are specific to the Clearance model.
+
+- When you set up the e-document service on the **E-Documents Services Setup** page, enter the following values in the following fields.
+
+   - In the **Code** field, give the e-document service for the Clearance model a name that's easy to differentiate from the service provider.
+   - In the **Document Format** field, choose **PEPPOL BIS 3.0**.
+   - In the **Service Integration** field, choose the extension that you created for the Clearance model.
+
+- Create a workflow that suits the process in your country/region. The following table shows an example of a workflow. Be sure to specify the correct service for the Clearance model and the provider for the then responses. To learn more about workflows, go to [Workflows in Business Central](across-workflow.md).
+
+|When event  |On condition  |Then Response  |
+|---------|---------|---------|
+| E-document Created            | \<Always> | Export E-Document using setup: \<clearance model service>  |
+| E-Document has been exported  | \<Always> | Send E-Document using setup: \<clearance model service>    |
+| E-Document has changed        | \<Always> | Export E-Document using setup: \<service provider>  |
+| E-Document has been exported  | \<Always> | Send E-Document using setup: \<service provider>    |
+| E-Document has changed        | \<Always> | Send E-Document to customer                         |
 
 ## Set up an e-document service
 
 To set up an e-document service, follow these steps.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **E-Document Services**, and then select the related link.
-2. Select **New**, and then, on the **E-Document Service** page, on the **General** FastTab, configure the fields as described in the following table.
+2. Select **New**, and then configure the fields on the **General** FastTab as described in the following table.
 
-    | Field | Description |
-    |-------|-------------|
-    | Code | Select the electronic export setup code. |
-    | Description | Enter a brief description of the electronic export setup. |
-    | Document Format | The export format of the electronic export setup. By default, there are two options in this field. You can select **PEPPOL BIS 3** as a generic code-based format or **Data Exchange** when you must set up predocuments of specific formats on the **Data Exchange Definition** FastTab.</p> |
-    | Service Integration | Select the integration code for the electronic export setup. Currently, the only option is **No integration**. |
+   | Field | Description |
+   |-------|-------------|
+   | Code | Select the electronic export setup code. |
+   | Description | Enter a brief description of the electronic export setup. |
+   | Document Format | Select the export format of the electronic export setup. You can select **PEPPOL BIS 3.0** as a generic code-based format, or **Data Exchange** when you must set up documents of specific formats on the **Data Exchange Definition** FastTab. <br><br>**Note:** The default options in this field are provided as examples. Localization apps must provide format detail because they're specific to local requirements.<br><br> You probably can't use the default PEPPOL document format as is. Microsoft provides this option as an example of how to use this feature. We recommend that you test the existing PEPPOL format before you start to use it. |
+   | Service Integration | Select the integration code for the electronic export setup. By default, the only option is **No integration** unless integration connectors are installed.<br><br>**Important:** By default, the **Service Integration** field is available only if you install integration connectors. |
 
 3. On the **Importing** FastTab, configure the fields as described in the following table.
 
-    | Field | Description |
-    |-------|-------------|
-    | Automatic Import | Specify whether documents should be automatically imported from the service. |
-    | Automatic processing| Specify whether [!INCLUDE [prod_short](includes/prod_short.md)] uses your e-document setup to automatically create a purchase document based on the received e-document. If you choose **No**, [!INCLUDE [prod_short](includes/prod_short.md)] creates the e-document, but you must review its details before you create the purchase document. |
-    | Validate Receiving Company | Specify whether the receiving company information must be validated during import. |
-    | Resolve Unit Of Measure | Specify whether to resolve the unit of measure during import. |
-    | Lookup Item Reference | Specify whether to search for items by item reference during import. |
-    | Lookup Item GTIN | Specify whether to search for items by Global Trade Item Number (GTIN) during import. |
-    | Lookup Account Mapping | Specify whether to search for accounts in **Account Mapping** by the incoming text during import. |
-    | Validate Line Discount | Specify whether to validate a line discount during import. |
-    | Apply Invoice Discount | Specify whether to apply an invoice discount during import. |
-    | Verify Totals | Specify whether to verify invoice totals during import. |
-    | Create Journal Lines | Specify whether a journal line must be created instead of a purchase document. Select this option when you want to use journals as a destination for your invoices. |
-    | General Journal Template Name | Specify the name of the general journal template that's used for journal line creation. This field is applicable when you want to use journals as a destination for your invoices. |
-    | General Journal Batch Name | Specify the name of the general journal batch that's used for journal line creation. This field is applicable when you want to use journals as a destination for your invoices. |
-    | Batch Start Time | Specify the start time for import jobs. |
-    | Minutes between runs | Specify the number of minutes between import job runs. |
+   | Field | Description |
+   |-------|-------------|
+   | Automatic Import | Specify whether a background job automatically imports documents from the service. |
+   | Import Start Time | Specify the start time for automatic import jobs. This field is available only when **Automatic Import** is enabled. |
+   | Import Minutes between runs | Specify the number of minutes to wait between runs of the automatic import job. This field is available only when **Automatic Import** is enabled. |
+   | Automatic Processing | Specify whether to automatically create a purchase document based on the received e-document. If you choose **No**, [!INCLUDE [prod_short](includes/prod_short.md)] creates the e-document, but you must review its details before creating the purchase document. |
+   | Validate Receiving Company | Specify whether the receiving company information must be validated during import. |
+   | Resolve Unit Of Measure | Specify whether to resolve the unit of measure during import. |
+   | Lookup Item Reference | Specify whether to search for items by item reference during import. |
+   | Lookup Item GTIN | Specify whether to search for items by Global Trade Item Number (GTIN) during import. |
+   | Lookup Account Mapping | Specify whether to search for accounts in **Account Mapping** by the incoming text during import. |
+   | Validate Line Discount | Specify whether to validate a line discount during import. |
+   | Apply Invoice Discount | Specify whether to apply an invoice discount during import. |
+   | Verify Totals | Specify whether to verify invoice totals during import. |
+   | Create Journal Lines | Specify whether a journal line must be created instead of a purchase document. Select this option when you want to use journals as a destination for your invoices. |
+   | General Journal Template Name | Specify the name of the general journal template that's used for journal line creation. This field is relevant when you want to use journals as a destination for your invoices. |
+   | General Journal Batch Name | Specify the name of the general journal batch that's used for journal line creation. This field is relevant when you want to use journals as a destination for your invoices. |
 
-4. If you selected **Data Exchange** in the **Document Format** field on the **General** FastTab, on the **Data Exchange Definition** FastTab, fill in the fields as described in the following table.
+4. On the **Exporting** FastTab, configure the fields as described in the following table.
 
-    | Field | Description |
-    |-------|-------------|
-    | Document Type | Specify the document type that uses data exchange to import and export the data. Examples include **Sales Invoice**, **Sales Credit memo**, and **Purchase Invoice**. |
-    | Import Data Exchange Def. Code | Specify the data exchange code that's used to import the data. Use this field only to receive a document in the purchase process. |
-    | Export Data Exchange Def. Code | Specify the data exchange code that's used to export the data. Use this field only to deliver documents in the sales process. |
-
-> [!NOTE]
-> There are data exchange definitions for the PEPPOL format that are related to sales and purchase documents. However, you likely can't use these definitions as is. They're all W1 formats that are provided to show how to use this feature. We recommend that you test the existing PEPPOL format before you start to use them. It's possible that using a specific localization reveals more formats, as some can be country/region-specific.
->
-> If you configured the **Data Exchange Definition** format in your localization, you can add a line for the document types that you need. Add lines that match the default data exchange example for the W1 PEPPOL format. However, first select the **Document Type** option for each line that you need. For each data type, select the **Import Data Exchange Def. Code** or **Export Data Exchange Def. Code** value that you want to use.
->
-> If you don't use the **Data Exchange Definition** format, you can create and configure formats by using the [interface](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments). Adjust the information on the **Export Mapping** and **Import Mapping** lines, where you can find the tables and fields to configure transformation rules. In this case, you must add a new option for your format in the **Document Format** field.  
-
-5. On the **Exporting** FastTab, fill in the fields as described in the following table:
-
-   |Field  |Description  |
-   |---------|---------|
+   | Field | Description |
+   |-------|-------------|
    | Batch Exporting | Specify whether the service uses batch processing to export e-documents. |
-   | Embed document PDF to export| Specify whether to embed a PDF version of the e-document in the e-document file when you export.|
+   | Batch Mode | Specify the mode of batch processing. Choose **Threshold** to send documents when a specified number of documents are ready, or **Recurrent** to send documents on a scheduled basis. This field is available only when **Batch Exporting** is enabled. |
+   | Batch Threshold | Specify the number of documents that must be ready before batch processing begins. This field is only visible when **Batch Mode** is set to **Threshold**. |
+   | Batch Start Time | Specify the start time for batch processing jobs. This field is available only when the **Batch Mode** field is set to **Recurrent**. |
+   | Batch Minutes between runs | Specify the number of minutes between batch processing jobs. This field is available only when the **Batch Mode** field is set to **Recurrent**. |
+   | Embed PDF in export | Specify whether to embed a PDF version of the e-document in the e-document file when you export. This field is available only when the **Document Format** field is set to **PEPPOL BIS 3.0**. <br><br>**Note:** The **Embed PDF in export** option can make life a little easier. When you post a document, [!INCLUDE [prod_short](includes/prod_short.md)] creates a PDF file and embeds it as a PDF attachment in the e-document. The PDF is a human-readable version that's easier to understand than the full XML of the PEPPOL format. |
+
+5. If you selected **Data Exchange** in the **Document Format** field on the **General** FastTab, on the **Data Exchange Definition** FastTab, fill in the fields as described in the following table.
+
+   | Field | Description |
+   |-------|-------------|
+   | Document Type | Specify the document type that uses data exchange to import and export the data. Examples include **Sales Invoice**, **Sales Credit memo**, and **Purchase Invoice**. |
+   | Import Data Exchange Def. Code | Specify the data exchange code that's used to import the data. Use this field only to receive a document in the purchase process. |
+   | Export Data Exchange Def. Code | Specify the data exchange code that's used to export the data. Use this field only to deliver documents in the sales process. |
 
    > [!NOTE]
-   > The **Embed document PDF to export** option can make life a little easier. When you post a document, [!INCLUDE [prod_short](includes/prod_short.md)] creates a PDF file and embeds it as a PDF attachment in the e-document. The PDF is a human-readable version that's easier to understand than the full XML of the PEPPOL format.
+   > There are data exchange definitions for the PEPPOL format that are related to sales and purchase documents. However, you likely can't use these definitions as is. They're generic formats that are provided to show how to use this feature. We recommend that you test the existing formats before you start to use them. It's possible that using a specific localization reveals more formats because some can be specific to a country/region.
+   >
+   > If you configured the **Data Exchange Definition** format in your localization, you can add a line for the document types that you need. Add lines that match the default data exchange example for the W1 PEPPOL format. However, first select the **Document Type** option for each line that you need. For each data type, select the **Import Data Exchange Def. Code** or **Export Data Exchange Def. Code** value that you want to use.
+   >
+   > If you don't use the **Data Exchange Definition** format, you can create and configure formats by using the [interface](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments). Adjust the information on the **Export Mapping** and **Import Mapping** lines, where you can find the tables and fields to configure transformation rules. In this case, you must add a new option for your format in the **Document Format** field.
+
+## Other configuration options
+
+After you set up the basics for the e-document service, you can add more advanced options:
+
+- **Set up service integration** - Configure authentication and connection settings for your integration connector. This option is only available when integration connectors are installed.
+- **Configure documents to export** - Set up the document types the framework exports using this service.
+- **Export mapping setup** - Configure simple value mappings for export processes.
+- **Import mapping setup** - Configure simple value mappings for import processes.
+- **Receive** - Manually trigger the receipt of new e-documents from the integration service.
 
 ### Supported document types
 
-Support for document types is based on the **Document Format**. To check which document types are supported, on the **E-Document Services** page, choose the **Supported Document Types** action. The **E-Document Service Supported Source Document Types** opens. In the **Source Document Type** column, you can choose different document types for the format you're planning to use. Only use the document type if that document is selected.
+The types of documents you can use is based on your selection in the **Document Format** field on the **E-Document Service** page. To explore the types of documents that a document format supports, select the format, and then choose the **Configure documents to export** action. The **E-Document Service Supported Source Document Types** page opens, and the **Source Document Type** field shows the types of documents for the document format. Only use types of documents that the document format supports.
 
 ## Set up a document sending profile
 
-You need to set up a preferred method of sending sales documents for each customer. On the **Document Sending Profiles** page, you can set up sending profiles and then select the one to use in the **Document Sending Profile** field on a customer card. You can select the **Default** checkbox to specify that a document sending profile is the profile for all customers for which a profile isn't specified in the **Document Sending Profile** field.
+You need to set up a preferred method of sending sales documents for each customer. On the **Document Sending Profiles** page, you can set up sending profiles and then select the one to use in the **Document Sending Profile** field on a customer card page. You can select the **Default** checkbox to specify that a document sending profile is the profile for all customers for which a profile isn't specified in the **Document Sending Profile** field.
 
-This feature is used to set up electronic invoicing automation. If you're using [legacy e-invoices](sales-how-to-send-electronic-documents.md) before enabling the **E-Document** framework, the process is slightly different. When you choose **Post and Send** on a sales document, the **Post and Send Confirmation** dialog shows the sending profile in use. The profile is either the profile set up for the customer or the default profile for all customers.
+This feature is used to set up electronic invoicing automation. If you're using [legacy e-invoices](sales-how-to-send-electronic-documents.md) and want to enable the **E-Document** framework, the process is slightly different. When you choose **Post and Send** on a sales document, the **Post and Send Confirmation** dialog shows the sending profile in use. The profile is either the profile set up for the customer or the default profile for all customers.
 
-However, to enable the new **E-Document** framework, you need to configure the **Document Sending Profile** accordingly. To set up a document sending profile, follow these steps.
+However, to enable the new **E-Document** framework, you must configure the **Document Sending Profile** accordingly. To set up a document sending profile, follow these steps.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Document Sending Profile**, and then select the related link.
 2. On the **Document Sending Profiles** page, select **New**.
 3. On the **General** FastTab, fill in the required fields.
 4. On the **Sending Options** FastTab, set the **Printer**, **Email**, and **Disk** fields to **No**. Enabling any of these options prevent you from using the **E-Document** framework, limiting you to the legacy e-invoicing functionality instead.
-5. On the same FastTab fill in the fields as described in the following table.
+5. On the same FastTab, fill in the fields as described in the following table.
 
-    | Field | Description | Set up options |
-    |-------|-------------|----------------|
-    | Electronic Document | Specify whether the document is sent as an e-document that the customer can import into their system. This option must be set to the **Extended E-Document Service Flow** to use E-Document framework. To use this option, you must also set the **Format** or **Electronic Document Service Flow Code** field. Alternatively, you can save the file to your computer. | Must choose **Extended E-Document Service Flow**. |
-    | Format | Specify the format to use to send an e-document. This field is required if you select **Through Document Exchange** in the **Electronic Document** field. | Don't use this setup for E-Document framework because it's part of [legacy e-invoicing](sales-how-to-send-electronic-documents.md). |
-    | Electronic Document Service Flow Code | Specify the electronic service flow that's used to send documents. This field is required if you select **Extended E-Document Service Flow** in the **Electronic Document** field. | You must set up it if you selected the **Extended E-Document Service Flow** option. |
+   | Field | Description | E-Document Framework Usage |
+   |-------|-------------|----------------------------|
+   | Printer | Specify whether to print the document. | Can be used together with e-document options. |
+   | Email | Specify whether to email the document. | Can be used together with e-document options to send e-documents as email attachments. |
+   | E-Mail Attachment | Specify what to attach to the email when emailing is enabled. Options include **PDF**, **E-Document**, and **PDF & E-Document**. | **E-Document** sends only the electronic file format. **PDF & E-Document** sends both the PDF report and the electronic file. |
+   | Disk | Specify whether to save the document to disk. | Can be used together with e-document options. |
+   | Electronic Document | Specify whether the document is sent as an e-document. Choose **Extended E-Document Service Flow** to use the E-Document framework. | You must choose **Extended E-Document Service Flow** to use the E-Document framework. |
+   | E-Document Workflow | Specify the e-document workflow that's used to send documents. This field is required when **Extended E-Document Service Flow** is selected and must be an enabled workflow. | Required field when using the E-Document framework. |
 
-    > [!NOTE]
-    > If you select **Extended E-Document Service Flow** in the **Electronic Document** field, you must already have the workflow configured for your e-documents.
+   > [!NOTE]
+   > When you select **E-Document** or **PDF & E-Document** in the **E-Mail Attachment** field, you must set the **Electronic Document** field to **Extended E-Document Service Flow** and specify an **E-Document Workflow**. The specified workflow must be enabled.
 
-    > [!IMPORTANT]
-    > The [legacy e-invoicing system](sales-how-to-send-electronic-documents.md) is still in use, which allows users to configure the **Electronic Document** field as **Through Document Exchange Service**. In this setup, the **Printer**, **Email**, and **Disk** fields are applicable and typically enabled. However, this configuration isn't supported in any of Microsoft’s e-invoicing localizations and is planned for deprecation.
-    > 
-    > To use the new **E-Document** framework, you must configure the **Electronic Document** field as **Extended E-Document Service Flow** and specify a value in the **Electronic Document Service Flow Code** field. 
+   > [!NOTE]
+   > The **E-Document Workflow** field is available only when **Extended E-Document Service Flow** is selected in the **Electronic Document** field. Similarly, to prevent conflicts, certain format-related fields are hidden when you use e-document email attachments.
+
+## Sending options combinations
+
+The E-Document framework supports several options for sending documents:
+
+- **Service-based sending**: Use **Extended E-Document Service Flow** with an **E-Document Workflow** to send documents through configured service integrations.
+- **Email-based sending**: Enable **Email** and select **E-Document** or **PDF & E-Document** as the attachment type to send e-documents via email. Email-based sending relies on the e-document workflow to run in order to export the e-document. To use this option, you must fill in the **E-Document Workflow** field.
+- **Combined sending**: Use both service-based and email-based sending together to send through a service integration and email the document simultaneously.
+
+## Creating e-documents from posted documents
+
+After you post documents, you can create or view e-documents from the pages that show posted documents. For example, the **Posted Sales Invoice** page.
+
+1. Open the posted document.
+1. To manually create an e-document from the posted document, choose **Create**.
+1. To view the existing e-document, choose **Open**.
+
+This feature is useful when you need to send documents electronically after they were originally posted without e-document processing.
 
 ## Set up the workflow
 
@@ -10807,10 +10931,12 @@ To set up retention policies for e-documents, follow these steps.
 
 ## E-Documents demo data  
 
+To provide easier ways to test and demonstrate e-documents, Microsoft offers a demo module. 
+
 > [!NOTE]
 > From [!INCLUDE [prod_short](includes/prod_short.md)] version 24.0, you can set up demo data for E-Documents.
 
-To provide easier ways to test and demonstrate e-documents, Microsoft offers a demo module. To enable the module, follow these steps:  
+To enable the module, follow these steps:  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Contoso Demo Tool**, and then select the related link.  
 2. Before you enable the **E-Document Contoso Module**, you must first enable the  **Common Module** and **Warehouse Module**.
@@ -10962,8 +11088,8 @@ The report includes the following key performance indicators (KPI) and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Projects
-- Project Tasks
+- Job
+- Job Task
 
 ## Try the report
 
@@ -11413,69 +11539,92 @@ ms.reviewer: solsen
 
 # Sustainability certificates
 
-In today’s business landscape, sustainability is more than a trend - it’s a necessity. As companies strive to reduce their environmental impact and meet growing consumer demand for responsible practices, sustainability certificates are now an essential tool for validating these efforts. These certificates serve as an independent verification that a company or its products meet specific environmental, social, and governance (ESG) standards, fostering trust and transparency in the marketplace.  
+In today’s business landscape, sustainability is more than a trend, it’s becoming a necessity. As companies strive to reduce their environmental effect and meet growing consumer demand for responsible practices, sustainability certificates are now an essential tool for validating these efforts. These certificates serve as an independent verification that a company or its products meet specific environmental, social, and governance (ESG) standards, fostering trust and transparency in the marketplace.  
 
 Sustainability certificates offer a clear and measurable way to assess the environmental and ethical credentials of both companies and their products. By prioritizing vendors who hold recognized sustainability certifications, businesses can enhance their supply chain integrity, reduce risks, and contribute to a more sustainable future.
 
-Sustainability certificates for companies cover a wide range of criteria, including resource efficiency, waste management, emissions reduction, and social responsibility. Similarly for products, these certifications ensure that items meet stringent environmental standards, from raw material sourcing to manufacturing processes and end-of-life disposal. 
+Sustainability certificates for companies cover a wide range of criteria, including resource efficiency, waste management, emissions reduction, and social responsibility. Similarly for products, these certifications ensure that items meet stringent environmental standards, from raw material sourcing to manufacturing processes and end-of-life disposal.
 
-## Sustainability certificate area 
+## Sustainability certificate area
 
-The *sustainability certificate area* refers to the specific area covered by a particular certificate. Generally, this method is used to categorize similar certificates based on distinct characteristics. To create new sustainability certificate area, follow these steps:   
+The *sustainability certificate area* refers to the specific area covered by a particular certificate. Generally, this method is used to categorize similar certificates based on distinct characteristics. To create new sustainability certificate area, follow these steps:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sust. Certificate Areas**, and then select the related link.
-2. On the **Sust. Certificate Areas** page, select **New**, and enter the **Number** and **Name** fields for new certificate area. 
-3. Close the page.   
+2. On the **Sust. Certificate Areas** page, select **New**, and enter the **Number** and **Name** fields for new certificate area.
+3. Close the page.
 
 ## Sustainability certificate standards
 
-The *Sustainability certificate standard* refers to the specific standard for a particular certificate. Generally, it should provide third-party verified, transparent, and measurable criteria aligned with international ESG frameworks to promote responsible business practices. To create new sustainability certificate standard, follow these steps: 
+The *Sustainability certificate standard* refers to the specific standard for a particular certificate. Generally, certificates should provide verified, transparent, and measurable criteria aligned with international ESG frameworks to promote responsible business practices.
+
+To create a new sustainability certificate standard, follow these steps:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sust. Certificate Standards**, and then select the related link.
-2. On the **Sust. Certificate Standards** page, select **New**, and enter the **Number** and **Name** fields for new certificate standard. 
+2. On the **Sust. Certificate Standards** page, select **New**, and enter the **Number** and **Name** fields for new certificate standard.
 3. Close the page.  
 
-## Create a sustainability certificate 
+## Create a sustainability certificate
 
-To create a new sustainability certificate, follow these steps:   
+Typically, independent organization like the following issue sustainability certificates:
+  
+* Non-profit certifying bodies
+* Industry associations
+* Standards organizations
+* Specialized sustainability certification firms
+
+The issuers are responsible for assessing compliance with established sustainability standards.
+
+To create a new sustainability certificate, follow these steps:  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Certificates**, and then select the related link.
 2. On the **Sustainability Certificates** page, select **New**.
 3. In the **Type** field, choose if this certificate is related to vendors or items, and enter the **No.** and **Name** fields.
 4. In the **Area** field, choose specific **Sust. Certificate Area** option and in the **Standard** field, choose adequate **Sust. Certificate Standard**.
-5. In the **Issuer** field, specify the issuer name. 
-Sustainability certificates are typically issued by independent third-party organizations, which can include non-profit certifying bodies, industry associations, standards organizations, or specialized sustainability certification firms. The issuers are responsible for assessing compliance with established sustainability standards.
-1. If this certificate has a measurable value, enable the **Has Value** field and enter the **Value**.   
+5. In the **Issuer** field, specify the issuer name.
+6. If this certificate has a measurable value, enable the **Has Value** field and then fill in the **Value** field.
 
 > [!NOTE]
-> You can also create a new sustainabilty directly from the vendor or item card. In this case, the **Type** field is automatically prepopulated as an Item or Vendor based on where you create the certificate.   
- 
+> You can also create a new sustainability certificate directly from the vendor or item card. In this case, the **Type** field is automatically filled in with **Item** or **Vendor** based on where you create the certificate.
+
 ### Add the sustainability certificate for vendors
 
-To add the sustainability certificate to the vendor follow the next steps:   
+To add the sustainability certificate to the vendor, follow these steps:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then select the related link.
 2. Choose the vendor you want to work with.
-3. In the **General** FastTab, select the certificate in the **Sust. Certificate No.** field. If you don't see the field by default, select the **Show more** for the **General** FastTab.
+3. In the **General** FastTab, select the certificate in the **Sust. Certificate No.** field. If the field doesn't display by default, select **Show more** on the **General** FastTab.
 4. Close the page.  
 
-### Add the sustainability certificate for items
+### Add a sustainability certificate to an item
 
-To add the sustainability certificate to the item follow the steps:   
+To add a sustainability certificate to an item, follow the steps:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then select the related link.
 2. Choose the item you want to work with.
 3. In the **Sustainability** FastTab, select the certificate in the **Sust. Certificate No.** field. 
 4. Close the page.
 
+## Meet Digital Product Passport reporting requirements
+
+Support for Digital Product Passport (DPP) reporting requirements empowers businesses to meet European Union sustainability regulations by capturing key environmental data in [!INCLUDE [prod_short](includes/prod_short.md)]. Structured reporting on recyclability, energy efficiency, and end-of-life handling can help enhance product transparency, support circular economy goals, and build trust with eco-conscious customers and partners. To learn more about DPP, go to the [European Union website](https://go.microsoft.com/fwlink/?linkid=2334243).
+
+To support DPP initiatives, there are sustainability-related fields on the **Item Card** page. Depending on your business needs, use these fields to comply with your local DPP standards.
+
+* **Recyclability Percentage**: Indicates the percentage of recyclable content in the product.
+* **Energy Efficiency Ratings**: Captures standardized energy efficiency information, such as the product category or label (for example, A–G rating).
+* **End-of-Life Information**: Provides disposal instructions, recycling options, return schemes, or environmental effect notes.
+
+> [!NOTE]
+> Because there are limitations to the amount of information that a QR code can contain, [!INCLUDE [prod_short](includes/prod_short.md)] doesn't generate embedded QR codes for DPP. However, it does provide data that you can expose to an external tool from where you can use a URL to the QR code.
+
 ## Related information
 
-- [Sustainability management overview](finance-manage-sustainability.md)  
-- [Sustainability setup](finance-sustainability-setup.md)    
-- [Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)    
-- [Sustainability reports and analytics in Business Central](sustainability-reports.md)   
-- [Finance](finance.md)    
-- [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)   
+[Sustainability management overview](finance-manage-sustainability.md)  
+[Sustainability setup](finance-sustainability-setup.md)  
+[Ad hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
@@ -12932,7 +13081,7 @@ Purchasing managers can use this report to analyze the growth amount and growth 
 
 The *Period-Over-Period* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)  
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)  
 - [**Previous Period**](purchases-powerbi-kpis.md#purchase-amount-pp-fiscal)
 - [**Period-over-Period Growth Amount**](purchases-powerbi-kpis.md#purchase-amount-pop-fiscal)  
 - [**Period-over-Period Growth %**](purchases-powerbi-kpis.md#purchase-amount-pop--fiscal)  
@@ -12945,8 +13094,9 @@ The *Period-Over-Period* report includes the following KPIs and measures:
 
 The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-- Value Entry
-- Purchase Line
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -14084,7 +14234,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, CoA, Chart, Account, Ledger
 ms.search.form: 6210, 6213, 6214, 6220
-ms.date: 01/30/2025
+ms.date: 08/29/2025
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -14191,27 +14341,35 @@ You must add a sustainability account subcategory to each sustainability account
 
 To review sustainability account subcategories, follow these steps:
 
-1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Account Subcategories**, and then select the related link.
-2. On the **Sustainability Account Subcategories** page, you can edit the existing list or create a new category. To create a new category, select the **New** action.
-3. Fill in the **Code** and **Description** fields.
-4. Based on the gas emissions that you track in the sustainability account category and connect this subcategory to, you can also set one or more emission factors:
+1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Account Categories**, and then select the related link.
+1. Select an account category, and then select the **Subcategories** action.
+1. On the **Sustainability Account Subcategories** page, you can edit existing list or create a new category. To create a new category, select the **New** action.
+1. Fill in the **Code** and **Description** fields.
+1. In the **Emission Factor CO2** field, based on the gas emissions that you track in the sustainability account category, you can also set one or more emission factors:
 
     - **Emission Factor CO2** – The emission factor for carbon dioxide (CO<sub>2</sub>) emission.
     - **Emission Factor CH4** – The emission factor for methane (CH<sub>4</sub>) emission.
     - **Emission Factor N2O** – The emission factor for nitrous oxide (N<sub>2</sub>O) emission.
-    - **Water Intensity Factor** - The intensity factor for Water.
-    - **Discharged Into Water Factor** - The intensity factor for Discharged Into Water.
-    - **Waste Intensity Factor** - The intensity factor for Waste.
+    - **Water Intensity Factor** - The intensity factor for water.
+    - **Discharged Into Water Factor** - The intensity factor for discharged into water.
+    - **Waste Intensity Factor** - The intensity factor for waste.
 
-5. If the subcategory is related to renewable energy, select the **Renewable Energy** field. However, you can select this field only if it's related to gas emissions and to water or waste.  
+1. In the **Source** field, specify the source of the emission factor.
+1. Fill in the relevant factors.
+1. In the **Energy Source Code** field, choose the type of energy. For example, source codes such as solar, wind, nuclear, and so on.
+1. To require people to fill in the **Energy Consumption** field on purchase order lines and sustainability journals, select the **Energy Value Required** checkbox.
+1. If the subcategory is related to renewable energy, select the **Renewable Energy** field. However, you can select this field only if it's related to gas emissions and to water or waste.
 
 > [!NOTE]
-> The **Import Data** and **Import From** fields are intended for integration with external systems that are used to collect emission factors. However, in **2024 release wave 1**, these fields can't be used as a feature by default.
+> If you select both the **Energy Value Required** and **Renewable Energy** checkboxes, the **Energy Consumption** field on purchase order lines and sustainability journals isn't mandatory.
 
-You can have more than one account subcategory for a sustainability account, but only one can be set as the default value. You must set the default value for the account every time if you want to use it for posting.  
+1. To specify that the energy source is located onsite, select the **Energy Onsite** checkbox.
+
+   > [!NOTE]
+   > The **Import Data** and **Import From** fields are intended for integration with external systems that are used to collect emission factors.   
 
 > [!TIP]
-> For example, if you want to use one account for cars, but you have different types of cars with different emission factors. You can set up one account and create account subcategories for the different emission factors. When you work in a sustainability journal, you can change your account subcategory based on the car type.  
+> You can have more than one account subcategory for a sustainability account. For example, if you want to use one account for cars, but you have different types of cars with different emission factors. You can set up one account and create account subcategories for the different emission factors. When you work in a sustainability journal, you can change your account subcategory based on the car type.  
 
 ## Sustainability ledger entries
 
@@ -15793,10 +15951,10 @@ Purchasers can use this report to monitor purchasing activities across warehouse
 
 The *Purchases by Location* report includes the following KPIs and measures: 
 
-- [**Purchase Amount**](purchases-powerbi-kpis.md#purchase-amount)
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
 - [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-- [**% GT Purchase Amount**](purchases-powerbi-kpis.md#-gt-purchase-amount)
-- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#-gt-purchase-quantity)
+- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
@@ -15808,8 +15966,10 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
 
 - Location
 - Item
-- Value Entry
-- Purchase Line
+- Vendor
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
 ## Try the report
 
@@ -15973,7 +16133,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, equivalent, CO2e, CO2, carbon, water, waste, value chain, role center, fees
 ms.search.form: 6221, 6235, 6245
-ms.date: 01/28/2025
+ms.date: 08/28/2025
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -15996,7 +16156,7 @@ To configure the Role Center, follow the steps:
 
 ## Sustainability setup  
 
-Specify some general settings for sustainability, such as the unit of measure for emissions, the decimal places for amounts, and whether some fields are mandatory.
+Specify general settings for sustainability, such as the unit of measure for emissions, the decimal places for amounts, and whether some fields are mandatory.
 
 To configure these settings, follow these steps:
 
@@ -16005,7 +16165,7 @@ To configure these settings, follow these steps:
 
     | Field | Description |
     |-------|-------------|
-    | **Emission Unit of Measure Code** | Enter the unit of measure code that you use to register emissions. |
+    | **Emission Unit of Measure Code** | Enter the unit of measure code that you use to register emissions.<br><br>**Note:** To maintain consistency in environmental data, [!INCLUDE [prod_short](includes/prod_short.md)] restricts changes to this field after you create entries in the sustainability ledger. This restriction prevents accidental or intentional changes that could compromise emissions calculations or audit compliance. We recommend that you finalize your unit of measure during initial configuration to ensure consistent reporting. |
     | **Waste Unit of Measure Code** | Enter the the waste unit of measure code that you use to register waste intensity. |
     | **Water Unit of Measure Code** | Enter the water unit of measure code that you use to register water intensity. |
     | **Disch. Into Water Unit of Measure Code** | Enter the unit of measure code that you use to register discharged into water. |
@@ -16052,18 +16212,20 @@ To configure these settings, follow these steps:
     | **Reporting UOM Factor** | Enter the unit of measure factor that you use to register emissions, if you use a different unit of measure when you report to authorities. |
     | **Emission Rounding Precision** | Enter the size of the interval that you use to round emission amounts when you report to authorities. |
     | **Emission Rounding Type** | Choose how to round emission amounts when you report to authorities. |
+    | **Energy Reporting Unit of Measure**| Enter the unit of measure in which you report energy consumption. When people fill in the **Energy Consumption** field on purchase documents and sustainability journals, this is the unit of measure for the value. You can use a different unit of measure when you report to authorities. This field isn't applicable to the standard reports.|
+    |**Energy Reporting UOM Factor**| Enter the unit of measure factor that you use to register energy consumption, if you use a different unit of measure when you report to authorities.|
 
 ## Emission fees
 
 To track internal carbon fees or calculate your emissions using carbon dioxide (CO2) equivalents, configure the **Emission Fees** page.  
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Emission Fees**, and then select the related link. 
-2. In the **Emission Type** field, choose the greenhouse gas (GHG) emission you want to configure: **CO2**, **CH4**, or **N2O**. This field is mandatory.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Emission Fees**, and then select the related link.
+2. In the **Emission Type** field, choose the greenhouse gas (GHG) emission you want to configure. This field is mandatory.
 3. Specify the **Scope Type**. If you leave this field blank, it applies to all scopes, but you can configure it for each scope.  
 4. Specify a **Starting Date** and **Ending Date**. These dates let you use different configurations for different periods.
 5. The **Country/Region Code** and **Responsibility Code** are optional fields that you can use if you want to have different carbon fees or carbon equivalent factors per country/region or per facility (responsibility center).
-6. The **Carbon Fee** field represents the internal carbon fee that a company charges itself for each unit of CO2 equivalent that it emits. You can use this field based on some local or regional regulations, or for internal calculations. The **Carbon Fee** is calculated every time you post emissions. This information displays on the **Sustainability Ledger Entries**, without more posting to the **G/L Ledger**. You can set up **Carbon Fee** per unit of measure that you have in the **Sustainability Setup**, and you can fill this field only for the line where the **Emission Type** is **CO2**.
-7. The **Carbon Equivalent Factor** specifies the coefficient that converts the effect of various GHGs into the equivalent amount of carbon dioxide based on their global warming potential. If the **Emission Type** is CO2, the **Carbon Equivalent Factor** is always *1* and you can't modify this value because CO2 is the reference gas used for calculating the global warming potential (GWP) of other GHGs. Because CO2 is the baseline, its GWP is set to *1*. For other GHGs, you must configure the values manually.
+6. The **Carbon Fee** field represents the internal carbon fee that a company charges itself for each unit of CO2 equivalent that it emits. You can use this field based on local or regional regulations, or for internal calculations. The carbon fee calculates every time you post emissions. This information displays on the **Sustainability Ledger Entries** page, without more posting to the G/L ledger. You can set up a carbon fee for each unit of measure that you have in your sustainability setup. You can fill in this field only for the line where **CO2** is selected in the **Emission Type** field.
+7. The **Carbon Equivalent Factor** field specifies the coefficient that converts the effect of various GHGs into the equivalent amount of carbon dioxide based on their global warming potential. If the **Emission Type** is **CO2**, the **Carbon Equivalent Factor** is always **1**. You can't change this value because CO2 is the reference gas used to calculate the global warming potential (GWP) of other GHGs. Because CO2 is the baseline, its GWP is set to **1**. For other GHGs, you must configure the values manually.
 To calculate the carbon equivalent factor, use the following example. If we assume that 1 kilogram of N2O is equivalent to 298 kilograms of CO2, divide 1 by 298. The result you need to add is 0.00336.  
 
 > [!NOTE]
@@ -18973,6 +19135,84 @@ You apply employee payments to their related open employee ledger entries in the
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchase-return-overview
+---
+title: Purchases Return Overview (Power BI Report)
+description: The Purchase Return Overview report gives a clear picture of your organization's purchase returns.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: conceptual
+ms.search.keywords: reporting
+ms.search.form: 37116_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Purchases Return Overview (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Purchase Return Overview** report tracks and analyzes purchase returns, showing 
+reasons for return, return rate, purchase value and the financial impact on the organization. This report summarizes key return trends by vendor, reason and type, and visualizes return metrics over time.
+
+:::image type="content" source="media/purchases/purchase-return-overview.png" alt-text="Screenshot of the Purchase Return Overview Power BI report" lightbox="media/purchases/purchase-return-overview.png":::
+
+## Use the report
+
+Leadership and purchasing teams use the report to identify the return trends contributing to return orders and credit memos.
+
+For CEOs, you want to evaluate return trends to inform key business decisions. For example, you identify a particular vendor with the highest [Return Rate (Amount)](purchases-powerbi-kpis.md#return-rate-amount). In response, you engage with an alternative vendor to minimize returns and reduce time spent conducting product quality inspections.
+
+As a purchasing manager, you want to identify key factors contributing to purchase returns to optimize purchasing operations. For example, you identify an increase in credits attributed to purchaser errors, impacting profit metrics. These insights empower you to invest in additional employee training to improve purchasing processes.
+
+As a purchaser, you want to analyze return trends to ensure product quality while maintaining effective supplier relations. Using this report, you recognize a particular component has an increased credit amount over the past months, due to faulty products. Using this information, you engage with the supplier to switch to a more reliable component, decreasing return frequency.
+
+## Key Performance Indicators (KPIs)
+
+The *Purchase Return Overview* report includes the following KPIs and measures: 
+
+- [**Return Rate (Amount)**](purchases-powerbi-kpis.md#return-rate-amount)
+- [**Return Rate (Qty.)**](purchases-powerbi-kpis.md#return-rate-qty)
+- [**Total Credit (Amount)**](purchases-powerbi-kpis.md#total-credit-amount)
+- [**Total Credit (Qty.)**](purchases-powerbi-kpis.md#total-credit-qty)
+- [**Total Purchase (Amount)**](purchases-powerbi-kpis.md#total-credit-amount)
+- [**No. of Outstanding Return Orders**](purchases-powerbi-kpis.md#no-of-outstanding-return-orders)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:  
+
+- Purchase Line
+- Value Entry
+- Purchase Credit Line
+- Purchase Invoice Line
+- Reason Code
+- Vendor
+- Item
+- Resource
+- G/L Account
+
+## Try the report
+
+Try the report here: [Purchases return overview](https://businesscentral.dynamics.com?page=37116)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-to-create-prepayment-invoices
 ---
 title: Create prepayment invoices
@@ -20448,249 +20688,6 @@ The contact card works just like cards for records, like items, customers, or sa
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-consolidated-company-reporting-setup
----
-title: Set up company consolidation
-description: Learn how you can configure how data from different companies in Business Central is reported into a consolidation company.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 04/25/2025
-ms.custom: bap-template
-ms.search.keywords: consolidation, subsidiaries, consolidate
-ms.search.form: 240, 1826, 1827, Report_16, Report_17, Report_18, Report_4410
-ms.service: dynamics-365-business-central
----
-
-# Set up company consolidation
-
-Before you can consolidate the general ledger entries of two or more companies (subsidiaries) into a consolidated company, you must prepare the charts of accounts and the consolidation company.  
-
-Depending on the complexity of your businesses, there are two ways to set up consolidation:
-
-* If you don't need advanced settings, such as including a company that you only own part of, you can use the **Company Consolidation** setup guide to quickly set-up a consolidation. The guide helps you through the basic steps.
-* If you need more advanced settings, you can set up the consolidated company and business units yourself.
-  * In each business unit, specify the general ledger accounts to include in the consolidation and the translation method for each account.
-  * In the consolidated company, set up a business unit card for each company to include in the consolidation. The business unit card includes information such as the dates of the business unit's fiscal year, and the percentage of each account to include in the consolidation.
-
-## Simple consolidation setup
-
-If your consolidation is straightforward, for example because you wholly own the business units to consolidate, the **Company Consolidation** guide helps you through the following steps:
-
-* Create a new consolidated company, or consolidate a company you already created. The company shouldn't contain transactions.
-* Preview the results. [!INCLUDE[prod_short](includes/prod_short.md)] verifies that you can successfully transfer the master data and transactions to the consolidated company.
-
-To use the assisted setup guide, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Assisted Setup**, and then choose the related link.
-2. Choose **Process Consolidations**, and then complete each step in the Company Consolidation assisted setup guide.
-
-## Advanced consolidation setup
-
-If you need more advanced settings for your consolidation, you can set up consolidation manually. For example, if you have companies that you partially own, or you have companies that you don't want to include.  
-
-### Set up the consolidated company
-
-First, you must set up the consolidated company. You set up the consolidated company in the same way that you set up other companies. To learn more about setting up a company, go to [Getting Ready for Doing Business](ui-get-ready-business.md).  
-
-The following list illustrates key aspects of the consolidated company.
-
-1. Set up the chart of accounts.
-
-    To learn more about setting up a chart of accounts, go to [Setting Up or Changing the Chart of Accounts](finance-setup-chart-accounts.md).  
-
-    The charts of accounts can be identical across a business unit and the consolidated company, or the consolidated company can have a different chart of account. If a business unit's chart of accounts differs from the consolidated company's, you must map the accounts to the accounts in the business unit. To learn more, go to the [Prepare general ledger accounts for consolidation](#glacc) section.
-
-2. Add business units.
-
-    To consolidate several companies' data, you must set up the subsidiaries as business units and specify how much of their balances to include. To learn more about business units, to go the [Add business units](#busunit) section.
-
-3. Specify exchange rates, if needed.
-
-    Specify exchange rates if you consolidate data for business units that use different currencies. The exchange rates you can use are **Average Rate (Manual)** and **Closing Rate**. To learn more about exchange rates, go to [Specify exchange rates for consolidations](#exchrates).
-
-4. Consolidate dimension information and general ledger accounts.
-
-    To learn more, go to the [Include or exclude dimensions](#dim) section.
-
-### <a name="busunit"></a>Add business units
-
-In the consolidated company, set up each company that you want to consolidate data from as a business unit. Before you run a consolidation and generate your consolidation report, it's a good idea to verify the financial data in each business unit.
-
-A significant part of setting up the business unit is to specify how the unit shares it's financial data with the consolidated company. There are manual and automated options:
-
-* To use a manual process, for [!INCLUDE [prod_short](includes/prod_short.md)] online and on-premises, you can export an .xml file that contains the unit's general ledger entries. Then import the file in the consolidated company.
-* To automate the data exchange, for [!INCLUDE [prod_short](includes/prod_short.md)] online you can use an API that [!INCLUDE [prod_short](includes/prod_short.md)] provides to share data across environments. If your companies are in the same environment, you can use the **Database** option.
-
-> [!NOTE]
-> The API option also lets you share general ledger entries from other [!INCLUDE [prod_short](includes/prod_short.md)] environments. To use the API option, the user who configures the consolidation must have permission to access G/L entries. For example, the D365 Basic and D365 Read permission sets provide access.
-
-#### Set up business unit currencies
-
-When you run consolidation for business units in a foreign currency, pay attention to the exchange rates that various parts of the process use. This is especially true when you rerun consolidation. Use the **Set Up Business Unit Currencies** page to easily keep track of the rates.
-
-The **Set Up Business Unit Currencies** page gives you the last rates for average and closing. You can look up the exchange rates in the currency exchange rate table, which makes it easier to validate rates. You can change the rates for the current run by entering the values or copying them from previous runs. To copy rates, choose **Select from previous consolidation**. This page is valuable when you want to rerun a previous consolidation and use a previous closing rate. This step helps to correctly revaluate your balance sheet items. The **Select from previous consolidation** page is also useful if you just want to view the rates that were used, for example, when you're troubleshooting. The page is filtered to runs that included the selected business unit.
-
-You start the **Run Consolidation** batch job from the **Business Units** list page. You can also find the **Set Up Business Unit Currencies** page by choosing the **Exchange Rates** action.
-
-> [!NOTE]
-> The exchange rate setup pages for average and closing that are currently available on the **Business Unit** card will be deprecated in a future version. However, you can still maintain these rates if you have business units that you import through files.
-
-#### Create a business unit
-
-1. Sign in to the consolidated company.
-2. [!INCLUDE[open-search](includes/open-search.md)], enter **Business Units**, and then choose the related link.  
-3. Choose **New**, and then fill in the required fields on the **General** and **G/L Accounts** FastTabs. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-    > [!IMPORTANT]
-    > When you fill in the **Starting Date** and **Ending Date** fields, make sure you comply with GAAP rules concerning the fiscal periods of the business unit versus the parent company.
-4. On the **Data Import** FastTab, in the **Default Data Import** field, specify how you share general ledger entries with the consolidated company:
-
-   * To share data between companies in the same environment, choose **Database**.
-   * To share data between companies in different environments, choose **API**, and then fill in the **API's Endpoint** field.
-        
-        To get the endpoint URL, in the business unit company's [!INCLUDE [prod_short](includes/prod_short.md)], open the **Consolidation Setup Page** and check the Current environment's API Endpoint field value. 
-   * To export an .xml file and manually share it, choose **File Format**.
-
-### <a name="glacc"></a>Prepare general ledger accounts for consolidation
-
-The chart of accounts for a company that you will consolidate must specify accounts for consolidation. For each posting general ledger account in each company, you must specify the general ledger account in the consolidated company to transfer the balance to. This mapping lets you consolidate companies that have different charts of accounts.
-
-If the chart of accounts in the business unit differs from the consolidated company, you must prepare general ledger accounts for consolidation. You can specify the accounts to post debits and credits to, and the method to use to translate currencies in the consolidated company.
-
-1. In each business unit's [!INCLUDE [prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Chart of Accounts**, and then choose the related link.  
-2. Open the card for the account, and then fill in the fields on the **Consolidation** FastTab. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-
-> [!NOTE]
-> If you don't fill in the **Consol. Debit Acc.** and **Consol. Credit Acc.** fields, [!INCLUDE [prod_short](includes/prod_short.md)] assumes they're mapped to the same accounts in the consolidated company.
-
-> [!TIP]
-> There might be scenarios where you don't want to include an account in a consolidation. For example, if you want your consolidation company to reflect only the balance sheets from the subsidiary companies. To exclude an account from consolidation, turn on the **Exclude from Consolidation** toggle for the account.
-
-### <a name="exchrates"></a>Specify exchange rates for consolidations
-
-If a business unit uses a different currency than the consolidated company, you must specify exchange rate methods for each account before you consolidate. For each account, the content of the **Consol. Translation Method** field determines the exchange rate. In the consolidated company, on each business unit card, in the **Currency Exchange Rate Table** field you specify whether consolidation uses exchange rates from the business unit or the consolidated company. If you use exchange rates from the consolidated company, you can change the exchange rates for a business unit. For business units, if the **Currency Exchange Rate Table** field on the business unit card contains **Local**, you can change the exchange rate from the business unit card. The exchange rates are copied from the **Currency Exchange Rate** table, but you can change them before consolidating.
-
-The following table describes the exchange rate methods you can use for accounts.
-
-|Exchange rate | Typical use |
-|---|---|
-|Average Rate (Manual) | You manually calculate the average rate for the period to consolidate. Calculate the average either as an arithmetic average or as a best estimate, and specify the result for each business unit. Use for income statement accounts.|
-|Closing Rate | Used for balance sheet accounts.|
-|Historical Rate | The exchange rate that was valid when the transaction occurred.|
-|Composite Rate | The current period amounts are translated at the average rate and added to the previously recorded balance in the consolidated company. You typically use this method for retained earnings accounts. Those accounts include amounts from different periods, so they contain amounts translated with different exchange rates.|
-|Equity Rate | This option is similar to **Composite**. Differences post to separate general ledger accounts.|
-
-To specify exchange rates for a business unit, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Business Units**, and then choose the related link.  
-2. On the **Business Unit List** page, choose the business unit, and then choose the **Exchange Rates** action.  
-3. On the **Setup Business Unit Currencies** page, fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-
-### <a name="dim"></a>Include or exclude dimensions
-
-You can consolidate dimension information and general ledger accounts.
-
-* On the dimensions, specify the **Consolidation Code** field, or leave it blank.
-  * To exclude a dimension in the consolidation, leave the **Consolidation Code** field blank on the dimension, and don't choose dimensions in the **Copy Dimensions** fields in any consolidation functions or reports.
-  * To include dimension information in the consolidation, leave the **Consolidation Code** field blank. However, the consolidation works only if the dimension values in the business unit are the same as the consolidated company.
-  * To consolidate the dimension value code in the business unit with a different dimension value code in the consolidated company, fill in the **Consolidation Code** field on the dimensions.  
-* Add the dimensions to the general ledger accounts.
-
-### <a name="exclude"></a>Exclude a company from consolidation
-
-If you don't want to include a business unit in the consolidation, you can exclude it. To do that, go to the business unit card, and clear the **Consolidate** checkbox.
-
-### <a name="include"></a>Include a partially owned company in consolidation
-
-If you own only part of a company, you can include a percentage of each transaction that reflects the percentage you own. For example, if you own 70% of the company, consolidation includes $70 of an invoice for $100. To specify the percentage of the company you own, go to the business unit card and enter the percentage in the **Consolidation %** field.  
-
-## Consolidation finance report overview
-
-[!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
-
-[!INCLUDE [finance_reports_consolidation](includes/finance-reports-consolidation-include.md)]
-
-## Related information
-
-[Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md)  
-[Managing Intercompany Transactions](intercompany-manage.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Exporting Your Business Data to Excel](about-export-data.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-project-invoiced-sales-by-customer
----
-title: Project Invoiced Sales by Customer (Power BI report)
-description: The Project Invoiced Sales by Customer report describes your sales activities based on each project for specific customers.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 37039_Primary
-ms.date: 10/28/2024
-ms.service: dynamics-365-business-central
----
-
-# Project Invoiced Sales by Customer (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Project Invoiced Sales by Customer** report breaks down your sales values for each project and highlights customer sales.
-
-This report can show you key information about the customers you sell to the most, and which projects generate the sales.
-
-:::image type="content" source="media/projects/project-invoiced-sales-by-customer.png" alt-text="Screenshot of the Project Invoiced Sales by Customer Power BI Report" lightbox="media/projects/project-invoiced-sales-by-customer.png":::
-
-## Use the report
-
-The report is typically used by project managers, but leadership can also use it to view your high-volume customers.
-
-Project managers use the report to track sales to each customer for each individual project. The report helps you monitor the performance of each project and identify potential issues if you aren't meeting quota for a customer or you're over spending.
-
-People in leadership teams want to a high-level view of your project sales and which customers you sell to. The report can give you a clear understanding of this data to help you make informed business decisions.
-
-## Key Performance Indicators (KPIs)
-
-The *Project Invoiced Sales by Customer* report includes the following KPIs:
-
-- [**% Invoiced**](projects-powerbi-kpis.md#-invoiced)
-- [**Quantity**](projects-powerbi-kpis.md#quantity)
-- [**Billable (Invoiced Price)**](projects-powerbi-kpis.md#billable-invoiced-price)
-- [**Billable (Total Price)**](projects-powerbi-kpis.md#billable-total-price)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
-
-- Project
-- Project Ledger Entries
-- Project Planning Lines
-
-## Try the report
-
-Try the report here: [Project Invoiced Sales by Customer](https://businesscentral.dynamics.com?page=37039)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Projects app](projects-powerbi-app.md)  
-[Built-in Projects reports](project-reports.md)  
-[Project management analytics overview](projects-analytics-overview.md)  
-[Project management overview](projects-manage-projects.md)
-end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/LocalFunctionality/Germany/process-for-digital-audits
 ---
