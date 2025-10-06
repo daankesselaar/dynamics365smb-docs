@@ -182,8 +182,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37039_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Invoiced Sales by Customer (Power BI Report)
@@ -208,15 +209,14 @@ People in leadership teams want to a high-level view of your project sales and w
 
 The *Project Invoiced Sales by Customer* report includes the following KPIs:
 
-- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
-- [**Quantity**](projects-powerbi-kpis.md#quantity)
-- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
-- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
+- [Invoiced (%)](projects-powerbi-kpis.md#invoiced-)
+- [Quantity](projects-powerbi-kpis.md#quantity)
+- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-price)
+- [Total Billable Price](projects-powerbi-kpis.md#total-billable-price)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
 
 ## Data used in the report
 
@@ -772,7 +772,7 @@ author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 03/13/2025
+ms.date: 10/04/2025
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: 103, 104, 108, 195, 196, 197, 198, 488_Primary, 489_Primary, 490, 764, 765, 766
@@ -808,16 +808,40 @@ To edit the content of a column definition, follow these steps.
 
 ## Built-in column definitions
 
-[!INCLUDE[prod_short](includes/prod_short.md)] provides sample column definitions that can help you to quickly get started setting up finance reports that suit your needs.
+[!INCLUDE [applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-<!-- update this when we release the new templates in 24.1
-| Column definition code | Description | How to use this column definition | 
-| ------------------- | ----------- | ------------------------------ | 
-| TBA 1 | TBA 1 | TBA 1 |
-| TBA 2 | TBA 2 | TBA 2 |
-| TBA 3 | TBA 3 | TBA 3 |
-| TBA 4 | TBA 4 | TBA 4 |
--->
+[!INCLUDE[prod_short](includes/prod_short.md)] provides sample column definitions that can help you to quickly get started setting up finance reports that suit your needs. 
+
+| Column definition code | Description                                  | Category of analysis | 
+| ---------------------- | -------------------------------------------- | -------------------- |
+| ACT/BUD    | Actual / Budget Comparision                              | Budget Analysis      |
+| BAL ONLY   | Balance Only                                             | Balance              |
+| BBDRCREB   | TB Beginning Balance Debits Credits Ending Balance       | (Trial) Balance      |
+| BSTREND    | BS 12 Months Balance Trending Current Fiscal Year        | Balance              |
+| BUDGANALYS | Budget Analysis                                          | Budget Analysis      |
+| CASHFLOW   | Comparison month - year                                  | Calendar Analysis    |
+| CB         | BS Current Month Balance                                 | Balance              |
+| CB V PB    | BS Current Month Balance v Prior Month Balance           | Balance              |
+| CB V SPYB  | BS Current Month Balance v Same Month Prior Year Balance | Balance              |
+| CNC        | IS Current Month Net Change                              | Income Statement     |
+| CNC BUD    | IS 12 Months Net Change Budget Only                      | Income Statement     |
+| CNC V PNC  | IS Current Month Net Change v Prior Month Net Change     | Income Statement     |
+| CNC VSPYNC | IS Current Month Net Change v Same Month Prior Year Net Change | Income Statement |
+| CNCVPNCYOY | IS Current Month v Prior Month for CY and Current Month v Prior Month for PY | Income Statement |
+| CVC YTDBUD | IS Current Month v Budget Year to Date v Budget and Bud Total and Bud Remaining | Income Statement |
+| DEFAULT    | Standard Column Layout                                   |                      | 
+| DEGREE     | Key Cash Flow Ratio                                      |                      |
+| ESG-PERIOD | ESG Periods                                              | Calendar Analysis    |
+| ISTREND    | IS 12 Months Net Change Trending Current Fiscal Year     | Income Statement     |
+| M-BALANCE  | Balance                                                  | Balance              |
+| M-NETCHANG | Net Change                                               |                      |
+| PERIODS    | Periods Definition for Mini Charts                       | Calendar Analysis    |
+| PTD + YTD  | Period and Year to Date                                  | Calendar Analysis    |
+| PTD+YTD+%  | Period and Year to Date with Percent of Total Revenue    | Calendar Analysis    |
+| YTDCOMPARE | This Year to Date vs. Prior Year to Date                 | Calendar Analysis    |
+
+> [!NOTE]
+> For local versions of [!INCLUDE [prod_short](includes/prod_short.md)], the column definition codes and names that appear in the table are translated.
 
 ## Example: Create a column definition to calculate percentages
 
@@ -870,9 +894,25 @@ To calculate by regular time periods, enter a formula in the **Comparison Date F
 
 Learn more at [Work with Calendar Dates and Times](ui-enter-date-ranges.md).
 
-## Find the reports that use a column definition
+## Use dynamic date headers
 
-[!INCLUDE[prod_short](includes/introduced_in_2025rw1.md)]
+If you use headers with date formulas, you can include information about the date in the header. Choose a value in the **Include Date In Header** field, such as **Weekday**, **Week**, **Month**, and so on. If the **Column Header** field is filled in, the **Include Date In Header** field appends the date information to the header in parenthesis. If the **Column Header** field is empty, the header just shows the date information.
+
+This table shows some examples of how combinations of the two fields show in the report.
+
+| Column Header | Include Date In Header                       | Header shows like this... | 
+| --------------| -------------------------------------------- | ------------------------- |
+| Amount        |                                              | Amount                    |
+| Period        | Month                                        | Period (January)          |
+|               | Month                                        | January                   |
+
+## Create reports that include both local currency and additional currency
+
+If you use an additional reporting currency (ACY), you can include columns in local currency (LCY), which is the default, ACY, or both, in the same column definition. The **Show in ACY** field controls the choice of currency.
+
+To learn more about how to setup ACY, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
+
+## Find the reports that use a column definition
 
 Before you change a column definition, it can be helpful to know which reports use it so that you understand the effect of your change. To find out which reports use a column definition, follow these steps:
 
@@ -881,11 +921,13 @@ Before you change a column definition, it can be helpful to know which reports u
 
 ## Best practices for working with column definitions
 
-<!-- [!INCLUDE [report-best-practices-column-defs](includes/report-best-practices-column-defs2.md)] -->
+[!INCLUDE [report-best-practices-column-defs](includes/report-best-practices-column-defs.md)]
 
 ## Import or export financial report column definitions
 
-Starting with the 2024 release wave 1 (version 24.1), you can import and export financial report column definitions as RapidStart configuration packages. For example, configuration packages are useful for sharing information with other companies. The package is created in a .rapidstart file, which compresses the contents.
+[!INCLUDE [applies-to-2024w1](includes/applies-to-2024w1.md)]
+
+You can import and export financial report column definitions as configuration packages. For example, configuration packages are useful for sharing information with other companies. The package is created in a .rapidstart file, which compresses the contents.
 
 > [!NOTE]
 > When you import financial report column definitions, they replace existing records with the same names. The configuration package for a report definition won't overwrite any existing row or column definitions that are used in the report definition.
@@ -1131,7 +1173,8 @@ To set a date field, you can manually enter the date, or you can open a calendar
 
 | Select these keys | To do this |
 |---|---|
-| <kbd>Ctrl</kbd>+<kbd>Home</kbd> | <p>Open a closed calendar.</p><p>**Note:** This keyboard shortcut doesn't work if the date field is in a grid. In that case, <kbd>Ctrl</kbd>+<kbd>Home</kbd> jumps to the first row of the grid.</p> |
+| <kbd>Ctrl</kbd>+<kbd>Home</kbd> | <p>Open and close calendar. </p><p>**Note:** This keyboard shortcut doesn't work if the date field is in a grid. In that case, <kbd>Ctrl</kbd>+<kbd>Home</kbd> jumps to the first row of the grid.</p> |
+| <kbd>Shift</kbd>+<kbd>Home</kbd> |<p>Show or hide week numbers in calendar.</p> |
 | <kbd>Ctrl</kbd>+<kbd>Home</kbd><br>(<kbd>Cmd</kbd>+<kbd>Home</kbd>) | Move to the current month and the current day. |
 | <kbd>Left arrow</kbd><br>(<kbd>Left arrow</kbd>) | Move to the previous day. |
 | <kbd>Right arrow</kbd><br>(<kbd>Right arrow</kbd>) | Move to the next day. |
@@ -3390,7 +3433,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Responsible AI FAQ for Chat with Copilot (preview)
 description: This FAQ provides information about the AI technology used for chatting with Copilot in Business Central. It includes key considerations and details about how AI is used, how it was tested and evaluated, and any specific limitations.
-ms.date: 07/04/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom: 
   - responsible-ai-faqs
@@ -3412,7 +3455,7 @@ These frequently asked questions (FAQ) describe the AI impact of Chat with Copil
 
 Microsoft Copilot is an AI-powered assistant that helps you be more creative, productive, and efficient. You can chat with Copilot in Business Central to get answers and insights about [!INCLUDE[prod_short](includes/prod_short.md)] and your business data by typing what you want to know in natural language.
 
-Chat with Copilot, also called chat, is an interactive feature that answers your questions without requiring you to navigate the user interface or the product documentation. The Copilot pane is available from anywhere in the [!INCLUDE[prod_short](includes/prod_short.md)] client.
+Chat with Copilot, also called chat, is an interactive feature that answers your questions without requiring you to navigate the user interface or online documentation. The Copilot pane is available from anywhere in the [!INCLUDE[prod_short](includes/prod_short.md)] client.
 
 You can ask questions in natural language, like "How do I deliver goods to my customers directly from my vendors?" or "Do we have any office chairs in stock for under $600?" In response, Copilot provides answers in natural language. Depending on the questions, answers can include plain text, links to records or pages in [!INCLUDE[prod_short](includes/prod_short.md)], and links to [!INCLUDE[prod_short](includes/prod_short.md)] help articles on Microsoft Learn.
 
@@ -3425,7 +3468,7 @@ You can chat with Copilot to get answers to the following classes of questions:
 You can ask Copilot to explain a specific concept related to [!INCLUDE[prod_short](includes/prod_short.md)], like what are dimensions, or provide guidance on how to complete a task, like how to post a sales order. Copilot searches the official [!INCLUDE[prod_short](includes/prod_short.md)] documentation published by Microsoft, and provides an answer based on the documentation.
 
 - Copilot uses the knowledge on Microsoft Learn (not a broad web search) to semantically search only Dynamics 365 [!INCLUDE[prod_short](includes/prod_short.md)] documentation on Microsoft Learn. This includes product documentation, release plans, local functionality content, and troubleshooting content.
-- Copilot can also use knowledge from the 3rd party apps that your administrator has installed to [!INCLUDE[prod_short](includes/prod_short.md)]. This knowledge source is provided by the app publisher as part of the app, so Copilot doesn't do a broad web search here either. 
+- Copilot can also use knowledge from the non-Microsoft apps that your administrator installed to [!INCLUDE[prod_short](includes/prod_short.md)]. This knowledge source is provided by the app publisher as part of the app, so Copilot doesn't do a broad web search here either. 
 - Copilot doesn't take action, create new data, or modify any configuration. It simply summarizes any paragraphs it finds on in online documentation that match the question or prompt in chat.
 
 ### Find business data and related pages
@@ -3482,19 +3525,19 @@ You can provide feedback to every Copilot response and report inaccurate or inap
 
    Chat includes built-in safety mechanisms that prevent the undesirable generation of harmful content, such as sexually explicit content or incitement of violence. Sometimes, customers operate in industries, sell products and services, or work with processes that naturally overlap with what might be considered inappropriate in other contexts, or work with data that might trigger these safeguards. Chat might not perform as well in these cases.
 
-## What data does Chat with Copilot collect and how is it used
+## What data does Chat with Copilot collect and how is it used?
 
 Microsoft doesn't use your company data, including the text you send to Copilot, to train the foundational AI models for the benefit of others. Company administrators have full control to govern this data that is part of their Azure subscription. Because administrators or others in your company might have access to this data as determined by your employer, we recommend you don't enter sensitive data such as passwords or other secrets.
 
-## What does Chat with Copilot offer for security
+## What does Chat with Copilot offer for security?
 
 Chat is designed to be secure and executes under the user's identity, inheriting all security permissions and other restrictions and never operating outside of [!INCLUDE[prod_short](includes/prod_short.md)]'s platform security. This design means that Copilot can only access data that you have access to.
 
 For users with SUPER permission, chat can more easily locate unsecured data that's typically harder to get to for other users. Organizations that don't apply [!INCLUDE[prod_short](includes/prod_short.md)]'s security model to restrict which tables and objects each user or user role has access to, might be at elevated risk when using chat. Therefore, we recommend that your organization either implements [!INCLUDE[prod_short](includes/prod_short.md)]'s security model or deactivates chat.
 
-When Copilot needs to answer questions about 3rd party apps, it searches the online help content associated with those apps, powered by Bing Search. To ensure security and safety;
+When Copilot needs to answer questions about non-Microsoft apps, it searches the online help content associated with those apps, powered by Bing Search. To ensure security and safety;
 
-- Copilot only searches these specific URLs and doesn't perform a broad web search
+- Copilot only searches these specific URLs and doesn't perform a broad web search.
 - [!INCLUDE[prod_short](includes/prod_short.md)] applies various mechanisms such as content filtering and malicious site detection to reduce risk from these websites.
 
 Learn more about how Copilot searches the web in [Searching the web with Copilot (preview)](ai-search-web-copilot.md).
@@ -4266,7 +4309,7 @@ ms.topic: faq
 ms.service: dynamics-365-business-central
 ms.search.keywords: find, search, Tell Me
 ms.search.form: TellMe
-ms.date: 03/20/2024
+ms.date: 09/30/2025
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.custom: bap-template
@@ -4274,6 +4317,13 @@ ms.custom: bap-template
 # Tell Me FAQ
 
 This article answers questions that our advanced users often ask about the Tell me what you want to do feature.
+
+## Why isn't there an Advanced tab?
+
+There are a couple reasons why the **Advanced** tab isn't available:
+
+- You're using a Business Central on-premises version. The **Advanced** tab is only available in Business Central online.
+- The **Advanced Tell Me** feature isn't enabled in the **Feature Management** page. Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).
 
 ## Are all actions from my current page discoverable in Tell Me?
 
@@ -4301,7 +4351,7 @@ You can use Tell Me in the on-premises Web Client to find actions, pages, and re
 
 ## Is Tell Me available for all form factors?
 
-Yes. It was introduced on phones and tablets in Business Central 2023 release wave 2. In 2023 release wave 2, it must be enabled in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management) using the **Feature: Search for pages and data in the mobile app** switch. In 2024 rlease wave 1 and later, it's always enabled.
+Yes. It was introduced on phones and tablets in Business Central 2023 release wave 2. In 2023 release wave 2, it must be enabled in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management) using the **Feature: Search for pages and data in the mobile app** switch. In 2024 release wave 1 and later, it's always enabled.
 
 <!-- removed in v20 because of Help pane
 ### Are the documentation results available in any language?
@@ -4671,7 +4721,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: direct posting, general ledger
 ms.search.form: 39, 251
-ms.date: 08/06/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ---
 
@@ -9633,7 +9683,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: electronic document, electronic invoice, e-document, e-invoice, sales, deliver
 ms.search.form: 42, 43, 132, 6103, 6133, 6121, 9301, 9305
-ms.date: 03/18/2025
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -9647,8 +9697,8 @@ You can use configured electronic documents (e-documents) with the following sal
 - Sales credit memos
 - Service invoices
 - Service credit memos
-- Finance charge memos
-- Reminders
+- Issued finance charge memos
+- Issued reminders
 
 ## E-documents in sales  
 
@@ -9658,6 +9708,9 @@ Before posting, you can choose to add the attachment to the invoice if you want 
 
 After you post the sales document, open the **Posted Sales Invoices** page to access the related **E-Documents** page.
 
+> [!NOTE]
+> When you use issued finance charge memos and issued reminders, [!INCLUDE [prod_short](includes/prod_short.md)] creates an electronic sales invoice file that contain financial details from these documents. If a document doesn't have a financial amount, [!INCLUDE [prod_short](includes/prod_short.md)] doesn't create the e-document.
+
 ### View e-documents
 
 To view existing e-documents, follow these steps.
@@ -9666,6 +9719,19 @@ To view existing e-documents, follow these steps.
 2. On the **E-Documents** page, on the header, you can view basic information about the posted invoice.
 3. The **Record** field shows the document number of the posted sales invoice. Select the link to open the document.
 4. In the **Electronic Document Status** field, you can view the real-time status of the document and its location in the process. If the document is posted, the status is **Processed**.
+
+### Send e-documents via a service and email simultaneously
+
+[!INCLUDE [prod_short](includes/prod_short.md)] offers flexible ways to share documents and information quickly and easily. Document sending profiles let you specify your preferred way to send documents when you post them. For example, you might want to send a document by email or as an electronic document through a service you use. Or, you might want to do both at the same time. To learn more about document sending profiles, go to [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).
+
+If you choose the **Post** action from the **Sales Order**, **Sales Invoice** or **Sales Credit Memo** pages, [!INCLUDE [prod_short](includes/prod_short.md)] posts the document as usual. However, if you set up e-document workflow for the customer, it can also start a workflow to create an e-document. Then, when you choose **Post and Send**, [!INCLUDE [prod_short](includes/prod_short.md)] also sends the e-document via email as an attachment.
+
+Depending on whether you enable **Service Integration** on the **E-Document Service** page, you can choose one of the following ways to send documents in the sales process:
+
+- When **Service Integration** is enabled, use the **Post** action to send the e-document to the configured access point.
+- When **Service Integration** is enabled, use the **Post and Send** action to send the e-document to the configured access point and as an attachment in an email.
+- When **Service Integration** isn't enabled, use the **Post** action to create an e-document that you can download.
+- When **Service Integration** isn't enabled, use the **Post and Send** action to send the e-document by email.
 
 ### E-document statuses and logs
 
@@ -10883,7 +10949,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Responsible AI FAQ for summarize (preview)
 description: Learn about the AI technology of summarize in Business Central, considerations, details about how AI is used, tested, evaluated, and limitations.
-ms.date: 04/14/2025
+ms.date: 09/14/2025
 ms.custom: 
   - responsible-ai-faqs
 ms.topic: faq
@@ -10950,7 +11016,7 @@ to review and verify responses before making decisions that could affect stakeho
 
 - Geographic and language availability
 
-  [!INCLUDE [copilot-geo-and-language-availability-en-only](includes/copilot-geo-and-language-availability-en-only.md)]
+  [!INCLUDE[copilot-language-support](includes/copilot-language-support.md)]
 
 - Certain industry, product, and subject limitations
 
@@ -12084,11 +12150,12 @@ description: The Project Tasks report breaks down each project and their tasks.
 author: kennienp
 ms.author: kepontop
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: reporting
 ms.search.form: 37034_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Tasks (Power BI Report)
@@ -12107,16 +12174,16 @@ Project Managers use the report to track the progress of project tasks and make 
 
 The *Project Tasks* report includes the following KPIs:
 
-- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
-- [**Total Usage Profit Margin %**](projects-powerbi-kpis.md#total-usage-profit-margin)
-- [**Realization (%)**](projects-powerbi-kpis.md#realization-)
-- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
-- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
-- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
-- [**Total Billable Price)**](projects-powerbi-kpis.md#total-billable-price)
-- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
+- [Actual (Total Price)](projects-powerbi-kpis.md#actual-total-price)
+- [Actual (Total Cost)](projects-powerbi-kpis.md#actual-total-cost)
+- [Actual Profit](projects-powerbi-kpis.md#actual-profit)
+- [Actual Profit Margin %](projects-powerbi-kpis.md#actual-profit-margin-)
+- [Realization (%)](projects-powerbi-kpis.md#realization-)
+- [Billable (Invoiced Price)](projects-powerbi-kpis.md#billable-invoiced-price)
+- [Billable (Total Price)](projects-powerbi-kpis.md#billable-total-price)
+- [Budget (Total Cost)](projects-powerbi-kpis.md#budget-total-cost)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -13909,7 +13976,7 @@ ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 04/01/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.search.form: 4400, 4410
@@ -13950,7 +14017,7 @@ The ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** tab open
 For each sales quote request, Sales Order Agent adds a task to track, review, and follow up on updates, eventually processing the quote into an order. Tasks can consist of multiple steps that form a timeline of the process.
 
 > [!TIP]
-> Hover over the ![Shows Sales Order Agent icon with an open action.](media/soa-activated-icon.png) **Sales Order Agent** icon in the role or select the ![Show summary for Sales Order Agent icon](media/soa-summary-icon.png) **Show summary for Sales Order Agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) summarizing the impact of the agent's work in your organization. For example, view the number of sales quotes or orders created by the agent, the time saved by your team, and the total number of sales orders created.
+> Hover over the ![Shows Sales Order Agent icon with an open action.](media/soa-activated-icon.png) **Sales Order Agent** icon in the navigation menu or select the ![Show summary for Sales Order Agent icon](media/soa-summary-icon.png) **Show summary for Sales Order Agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) summarizing the impact of the agent's work in your organization. For example, view the number of sales quotes or orders created by the agent, the time saved by your team, and the total number of sales orders created.
 
 ## Review and assist
 
@@ -14049,17 +14116,25 @@ From the ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** vie
   
      `[{no: ITEM-1, description: Shirt, attributes: Linen}, {no: ITEM-2, description: Shirt, attributes: Cotton}]`
 
-  2. Customer's initial request email:
+  1. Customer's initial request email:
 
      `I want a quote for nice shirts`
 
-  3. Agent's reply email:
+  1. Agent's reply email:
   
      `We have X quantity of ITEM-1 Shirt and ITEM-2 Shirt`
 
-  4. Customer's response email:
+  1. Customer's response email:
   
      `I want the ones with linen material`
+
+- Partial word matching in some local versions
+
+  When a search term appears as part of a longer word, the system fails to match it. For example, suppose a customer requests a quote for `Züge von Wagonwheel` in the DE version. The inventory includes the items `WonderWagon Nachziehzug` and `WonderWagon Elektrischer Zug`. However, the agent only returns `WonderWagon Elektrischer Zug`.
+
+- Consumable search in some local versions
+
+  Searches for related consumables often return the main product instead of the requested accessory or consumable. For example, suppose the customer requests a quote for `WonderWash Waschpulver` in the DE version. The inventory includes `WonderWash Waschmaschine` but not `WonderWash Waschpulver`. However, the agent returns `WonderWash Waschmaschine`.
 
 ## Related information
 
@@ -14127,6 +14202,7 @@ ms.collection:
 [!INCLUDE[responsible-ai-features](includes/responsible-ai-features.md)]
 
 - [FAQ for Copilot data security and privacy for Dynamics 365 and Power Platform](/dynamics365/faqs-copilot-data-security-privacy?toc=/dynamics365/business-central/toc.json)
+- [Advanced Tell Me (preview)](faqs-advanced-tell-me.md)
 - [Analysis assist (preview)](faqs-analysis-assist.md)
 - [Autofill (preview)](faqs-autofill.md)
 - [Bank reconciliation assist](faqs-bank-reconciliation.md)
@@ -18352,7 +18428,7 @@ These steps differ, depending on whether your administrator turned on the **New 
 
 > [!Note]
 >
-> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. To learn more, go to [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#to-bulk-update-item-prices).  
+> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. To learn more, go to [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#bulk-update-item-prices).  
 
 ### [New Experience](#tab/new-experience/)  
 
@@ -18769,9 +18845,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 - [Net Qty. Purchased](#net-qty-purchased)  
 - [Net Qty. Sold](#net-qty-sold)
 - [Quantity](#quantity)
+- [Quantity (Forecasting)](#quantity-forecasting)
 - [Remaining Quantity](#remaining-quantity)
 
 ### Expired Inventory
+
 **Formula**  
 - This measure shows how much inventory has expired and is no longer available for sale or use by calculating the remaining quantity of items on all item ledger entries.
 
@@ -18779,6 +18857,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Item Ledger Entry
 
 ### Inventory (Quantity)
+
 **Formula**  
 - This measure shows the total quantity of inventory on hand for all items by summing up the quantity of items on all item ledger entries.
 
@@ -18786,6 +18865,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Item Ledger Entry
 
 ### Invoiced Quantity
+
 **Formula**  
 - This measure calculates the total quantity that has been invoiced by summing all values in the [invoicedQuantity] column from the Item Ledger Entries table. 
 
@@ -18793,6 +18873,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Item Ledger Entry
 
 ###  Net Qty. Purchased
+
 **Formula**  
 - This measure shows the total quantity of items that have been purchased and received by the company by calculating the quantity, filtered to only include item ledger entries that have an entry type of "Purchase".
 
@@ -18800,6 +18881,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Item Ledger Entry
 
 ###  Net Qty. Sold
+
 **Formula**  
 - This measure shows the total quantity of items that have been sold by the company by calculating the quantity, filtered to only include item ledger entries that have an entry type of "Sale".
 
@@ -18808,24 +18890,35 @@ Each KPI is described, including how it is calculated and what data was used in 
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
-
 ### Quantity
+
 **Formula**  
 - This measure shows the total quantity of items that have been processed through the item ledger by summing up the quantity of items on all item ledger entries including sales, purchases, adjustments, and other types of transactions.
 
 **Data Sources**
 - Item Ledger Entry
 
+### Quantity (Forecasting)
+
+**Formula**  
+- This measure calculates the **Quantity** within the period of dates with item transactions and inserts zero values for dates without item ledger entries, for compatibility with forecasting.
+
+**Data Sources**
+- Item Ledger Entry
+
 ### Remaining Quantity
+
 **Formula**  
 - This measure calculates the total remaining quantity of items by summing all values in the [Remaining Qty.] column from the Item Ledger Entries table.
 **Data Sources**
 - Item Ledger Entry
 
 ## Planning Component Line Measures
+
 - [Planning Issues (Qty.)](#planning-issues-qty)  
 
 ### Planning Issues (Qty.)
+
 **Formula**  
 - This measure shows how many items are expected to be consumed for planned production orders by summing up the expected quantity of items that are required for production.
 
@@ -18834,9 +18927,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 
 
 ## Prod. Order Component Line Measures
+
 - [Qty. on Prod. Order Comp. Lines](#qty-on-prod-order-comp-lines)  
 
 ### Qty. on Prod. Order Comp. Lines
+
 **Formula**  
 - This measure shows how many items are yet to be completed on a production order by summing up the total remaining quantity of items on all production order component lines.
 
@@ -18844,12 +18939,14 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Prod. Order Component
 
 ## Production Order Line Measures
+
 - [FP Order Receipt (Qty.)](#fp-order-receipt-qty) 
 - [Qty. on Prod. Order](#qty-on-prod-order) 
 - [Rel. Order Receipt (Qty.)](#rel-order-receipt-qty)
 - [Scheduled Receipt (Qty.)](#scheduled-receipt-qty)
 
 ### FP Order Receipt (Qty.)
+
 **Formula**  
 - This measure is abbreviated for Firmed Planned Order Receipt (Qty.) and hows how many items are expected to be received for firm planned production orders by summing up the remaining quantity of items on all firm planned production order lines.
 
@@ -18857,6 +18954,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Production Order Line
 
 ### Qty. on Prod. Order
+
 **Formula**  
 - This measure shows how many items are yet to be produced for production orders by summing up the remaining quantity of items on all planned, firm planned, and released production order lines.
 
@@ -18864,6 +18962,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Production Order Line
 
 ### Rel. Order Receipt (Qty.)
+
 **Formula**  
 - This measure is abbreviated for Released Production Order Receipt (Qty.) and shows how many items are expected to be received for released production orders by summing up the remaining quantity of items on all released production order lines.
 
@@ -18871,6 +18970,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Production Order Line
 
 ### Scheduled Receipt (Qty.)
+
 **Formula**
 - This measure calculates the total scheduled receipt quantity from production orders by summing the [remainingQtyBase] column in the Production Order Lines table. It includes only those orders where the [Status] is either "Firm Planned" or "Released," which represents production orders expected to be completed. This measure gives an overview of pending quantities that are scheduled for receipt in the near future.
 
@@ -18878,9 +18978,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Production Order Line
 
 ## Project Planning Line Measures
+
 - [Qty. on Projects](#qty-on-projects)
 
 ### Qty. on Projects
+
 **Formula**  
 - This measure shows how many items or hours are yet to be completed on a project by summing up the total outstanding quantity of items or hours on all project lines.
 
@@ -18888,10 +18990,12 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Project Planning Line
 
 ## Purchase Line Measures
+
 - [Qty. on Purch. Order](#qty-on-purch-order)  
 - [Qty. on Purch. Return](#qty-on-purch-return)
 
 ### Qty. on Purch. Order
+
 **Formula**  
 - This measure shows how many items are yet to be received for purchase orders by summing up the outstanding quantity of items on all purchase order lines.
 
@@ -18899,19 +19003,20 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Purchase Line
 
 ### Qty. on Purch. Return
+
 **Formula**  
 - This measure shows how many items have been returned to the supplier but are yet to be received or credited by summing up the total outstanding quantity of items on all purchase return order lines.
 
 **Data Sources**
 - Purchase Line
 
-
-
 ## Sales Line Measures
+
 - [Qty. on Sales Order](#qty-on-sales-order)
 - [Qty. on Sales Return Order](#qty-on-sales-return-order)  
 
 ### Qty. on Sales Order
+
 **Formula**  
 - This measure shows how many items have been ordered by customers but are yet to be delivered or shipped by summing up the total outstanding quantity of items on all sales order lines. 
 
@@ -18919,6 +19024,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Sales Line
 
 ### Qty. on Sales Return Order
+
 **Formula**  
 - This measure shows how many items are yet to be returned by customers for sales return orders by summing up the outstanding quantity of items on all sales lines that are associated with return orders.
 
@@ -18927,9 +19033,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 
 
 ## Service Line Measures
+
 - [Qty. on Service Order](#qty-on-service-order)  
 
 ### Qty. on Service Order
+
 **Formula**  
 - This measure represents how many service items or hours have been ordered by customers but are yet to be fulfilled by summing up the total outstanding quantity of items or hours on all service order lines.
 
@@ -18938,12 +19046,14 @@ Each KPI is described, including how it is calculated and what data was used in 
 
 
 ## Transfer Line Measures
+
 - [Qty. in Transit](#qty-in-transit)  
 - [Trans. Order Outstanding Qty.](#trans-order-outstanding-qty)
 - [Trans. Order Receipt (Qty.)](#trans-order-receipt-qty)
 - [Trans. Order Shipment (Qty.)](#trans-order-shipment-qty)
 
 ### Qty. in Transit
+
 **Formula**  
 - This measure shows how many items are currently in transit between locations by summing up the quantity of items in transit on all transfer lines.
 
@@ -18951,6 +19061,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Transfer Line
 
 ### Trans. Order Outstanding Qty.
+
 **Formula**
 - This measure calculates the total outstanding quantity for transfer orders by summing all values in the [outstandingQtyBase] column from the Transfer Lines table. 
 
@@ -18958,6 +19069,7 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Transfer Line
 
 ### Trans. Order Shipment (Qty.)
+
 **Formula**  
 - This measure shows how many items have been shipped between two locations by summing up the total outstanding quantity of items on all transfer order lines that are associated with the specified location codes and shipment date.
 
@@ -18965,13 +19077,12 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Transfer Line
 
 ### Trans. Order Receipt (Qty.)
+
 **Formula**  
 - This measure shows how many items are expected to be received for transfer orders by summing up the outstanding quantity of items on all transfer lines.
 
 **Data Sources**
 - Transfer Line
-
-
 
 ## Related information
 
@@ -19376,7 +19487,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 09/14/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.collection:
@@ -19401,7 +19512,7 @@ The **Summarize** capability is active, and you have the required permissions to
 
 ## Supported languages
 
-[!INCLUDE[copilot-language-support-en-only](includes/copilot-language-support-en-only.md)]
+[!INCLUDE[copilot-language-support](includes/copilot-language-support.md)]
 
 ## Availability
 
@@ -20375,7 +20486,7 @@ ms.reviewer: bholtorf
 ms.topic: install-set-up-deploy
 ms.search.keywords: posting setup, initialize
 ms.search.form: 312, 313
-ms.date: 08/13/2024
+ms.date: 08/13/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -20420,17 +20531,23 @@ The following table describes the posting groups that are specific to types of d
 | Bank Account Posting Groups |Define the general ledger accounts that bank account entries are posted to. For example, this can simplify the processes of tracing transactions and reconciling bank accounts. Set up these posting groups on the **Bank Account Posting Groups** page. We recommend that these G/L accounts have the **Direct Posting** field set to *No*. |
 | Fixed Assets Posting Groups |Define accounts for different types of expenses and costs, such as acquisition costs, accumulated depreciation amounts, acquisition costs on disposal, accumulated depreciation on disposal, gains on disposal, losses on disposal, maintenance expenses, and depreciation expenses. Set up these posting groups on the **FA Posting Groups** page. |
 
-### Allow substitute customer or vendor posting groups on documents
+### Allow alternative posting groups on documents
 
-You can let people choose other customer and vendor posting groups than the default groups when they're working with sales or purchase documents and journals.
+You can let people choose other customer, vendor, or employee posting groups than the default groups when they're working with sales or purchase documents and journals. Alternative posting groups can replace their default posting group.
 
-To allow changes to customer posting groups, choose **Allow Multiple Posting Groups** on the **Sales & Receivable Setup** and **Service Mgt. Setup** pages, and the **Purchase & Payables Setup** page for vendor posting group changes.
+To allow people to choose alternative posting groups, turn on the **Allow Multiple Posting Groups** toggle on the following pages:
 
-On the **Customer Posting Groups** or **Vendor Posting Groups** pages, you can specify the posting groups to allow as substitutes by choosing **Substitutions**. Substitute posting groups can replace the default customer or vendor posting groups specified for a customer or vendor.
+* **Sales & Receivable Setup** for customer posting groups. If you use service management features, also turn on the toggle on the **Service Management Setup** page.
+* **Purchase & Payables Setup** page for vendor posting groups.
+* **Human Resources Setup** page for employee posting groups.
 
-After you set this up, you can choose from the allowed substitute posting groups and change the customer or vendor posting group when posting sales or purchase documents and journals. The substitute customer or vendor posting groups are copied to posted documents and journals, and payable or receivable G/L entries are posted to the G/L accounts specified for the substitutes.
+On the **Customer Posting Groups**, **Vendor Posting Groups**, and **Employee Posting Groups** pages, you can use the **Alternative Groups** action to specify the posting groups to allow as substitutes.
 
-When applying, for example, an invoice and payment that are posted with different customer or vendor posting groups (different G/L accounts), [!INCLUDE[prod_short](includes/prod_short.md)] transfers the amounts between the G/L accounts to balance them.
+The last step in the setup is to turn on the **Allow Multiple Posting Groups** toggle on the card pages for the relevant customers, vendors, or employees.
+
+After you set this up, you can choose from the allowed alternative posting groups when you post sales or purchase documents and journals. The alternative posting groups are copied to posted documents and journals, and payable or receivable G/L entries are posted to their G/L accounts.
+
+When you apply, for example, an invoice and payment that are posted with different posting groups (different G/L accounts), [!INCLUDE[prod_short](includes/prod_short.md)] transfers the amounts between the G/L accounts to balance them.
 
 ## Tax posting groups
 

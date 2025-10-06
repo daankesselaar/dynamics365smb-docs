@@ -1,6 +1,6 @@
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-import-and-export-report-layout
 ---
-title: Import and Export a Report and Document Layout
+title: (Obsolete) Import and Export Custom Report Layouts
 description: You can import and export an existing custom report layout as a file to and from a location on your computer and network.
 author: brentholtorf
 ms.topic: how-to
@@ -7554,7 +7554,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-update-report-layouts
 ---
-title: Update Custom Report Layouts
+title: (Obsolete) Update Custom Report Layouts
 description: Learn how to update a custom report layout used on a report when there are design changes to the report's data set, for example.
 author: brentholtorf
 ms.topic: how-to
@@ -9824,7 +9824,7 @@ ms.topic: how-to
 ms.collection:
   - get-started
   - bap-ai-copilot
-ms.date: 04/01/2025
+ms.date: 09/28/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template 
 ---
@@ -9852,6 +9852,15 @@ Bank account reconciliation assist is a set of AI-powered features that help you
 ## Supported languages
 
 [!INCLUDE[copilot-language-support](includes/copilot-language-support.md)]
+
+## Operational limits
+
+Depending on the version of [!INCLUDE [prod_short](includes/prod_short.md)] you have, this feature has operational limits. The following table describes the limits.
+
+|Version  |Description  |
+|---------|---------|
+|2025 release wave 1 and earlier     | The number of open bank account ledger entries with posting date between the bank statement minimum transaction date (minus one day) and the bank statement maximum transaction date can't exceed around 1000. This number can vary, depending on the length of the description texts on the bank account ledger entries.   |
+|2025 release wave 2 and later     | The number of open bank account ledger entries with posting dates between the bank statement minimum transaction date (minus one day) and bank statement maximum transaction date can't exceed around 3000. This number can vary, depending on the length of the description texts on the bank account ledger entries.  |
 
 ## Prerequisites
 
@@ -10771,7 +10780,7 @@ You can set up an e-document service specifically for the Clearance model. The s
 |---------|---------|---------|
 | E-document Created            | \<Always> | Export E-Document using setup: \<clearance model service>  |
 | E-Document has been exported  | \<Always> | Send E-Document using setup: \<clearance model service>    |
-| E-Document has changed        | \<Always> | Export E-Document using setup: \<service provider>  |
+| E-Document Service Status has changed        | E-Document Status: Cleared | Export E-Document using setup: \<service provider>  |
 | E-Document has been exported  | \<Always> | Send E-Document using setup: \<service provider>    |
 | E-Document has changed        | \<Always> | Send E-Document to customer                         |
 
@@ -10782,43 +10791,51 @@ To set up an e-document service, follow these steps.
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **E-Document Services**, and then select the related link.
 2. Select **New**, and then configure the fields on the **General** FastTab as described in the following table.
 
-   | Field | Description |
-   |-------|-------------|
-   | Code | Select the electronic export setup code. |
-   | Description | Enter a brief description of the electronic export setup. |
-   | Document Format | Select the export format of the electronic export setup. You can select **PEPPOL BIS 3.0** as a generic code-based format, or **Data Exchange** when you must set up documents of specific formats on the **Data Exchange Definition** FastTab. <br><br>**Note:** The default options in this field are provided as examples. Localization apps must provide format detail because they're specific to local requirements.<br><br> You probably can't use the default PEPPOL document format as is. Microsoft provides this option as an example of how to use this feature. We recommend that you test the existing PEPPOL format before you start to use it. |
-   | Service Integration | Select the integration code for the electronic export setup. By default, the only option is **No integration** unless integration connectors are installed.<br><br>**Important:** By default, the **Service Integration** field is available only if you install integration connectors. |
+    | Field | Description |
+    |-------|-------------|
+    | Code | Select the electronic export setup code. |
+    | Description | Enter a brief description of the electronic export setup. |
+    | Document Format | The export format of the electronic export setup. By default, there are two options in this field. You can select **PEPPOL BIS 3** as a generic code-based format or **Data Exchange** when you must set up predocuments of specific formats on the **Data Exchange Definition** FastTab.</p> |
+    | Service Integration | Select the integration code for the electronic export setup. Currently, the only option is **No integration**. |
+    | Is a Clearance | Select this field only if your country/region uses a clearance e-invoicing model. When selected, the e-document service sends your invoice only to the tax authorities for clearance. You must configure another service to deliver the cleared invoice to the customer, along with a workflow that supports both the clearance and delivery steps. |
+
+    > [!NOTE]
+    > You can't use the clearance model until you choose a dedicated service integration.
 
 3. On the **Importing** FastTab, configure the fields as described in the following table.
 
-   | Field | Description |
-   |-------|-------------|
-   | Automatic Import | Specify whether a background job automatically imports documents from the service. |
-   | Import Start Time | Specify the start time for automatic import jobs. This field is available only when **Automatic Import** is enabled. |
-   | Import Minutes between runs | Specify the number of minutes to wait between runs of the automatic import job. This field is available only when **Automatic Import** is enabled. |
-   | Automatic Processing | Specify whether to automatically create a purchase document based on the received e-document. If you choose **No**, [!INCLUDE [prod_short](includes/prod_short.md)] creates the e-document, but you must review its details before creating the purchase document. |
-   | Validate Receiving Company | Specify whether the receiving company information must be validated during import. |
-   | Resolve Unit Of Measure | Specify whether to resolve the unit of measure during import. |
-   | Lookup Item Reference | Specify whether to search for items by item reference during import. |
-   | Lookup Item GTIN | Specify whether to search for items by Global Trade Item Number (GTIN) during import. |
-   | Lookup Account Mapping | Specify whether to search for accounts in **Account Mapping** by the incoming text during import. |
-   | Validate Line Discount | Specify whether to validate a line discount during import. |
-   | Apply Invoice Discount | Specify whether to apply an invoice discount during import. |
-   | Verify Totals | Specify whether to verify invoice totals during import. |
-   | Create Journal Lines | Specify whether a journal line must be created instead of a purchase document. Select this option when you want to use journals as a destination for your invoices. |
-   | General Journal Template Name | Specify the name of the general journal template that's used for journal line creation. This field is relevant when you want to use journals as a destination for your invoices. |
-   | General Journal Batch Name | Specify the name of the general journal batch that's used for journal line creation. This field is relevant when you want to use journals as a destination for your invoices. |
+    | Field | Description |
+    |-------|-------------|
+    | Automatic Import | Specify whether documents should be automatically imported from the service. |
+    | Automatic processing| Specify whether [!INCLUDE [prod_short](includes/prod_short.md)] uses your e-document setup to automatically create a purchase document based on the received e-document. If you choose **No**, [!INCLUDE [prod_short](includes/prod_short.md)] creates the e-document, but you must review its details before you create the purchase document. |
+    | Validate Receiving Company | Specify whether the receiving company information must be validated during import. |
+    | Resolve Unit Of Measure | Specify whether to resolve the unit of measure during import. |
+    | Lookup Item Reference | Specify whether to search for items by item reference during import. |
+    | Lookup Item GTIN | Specify whether to search for items by global trade item number (GTIN) during import. |
+    | Lookup Account Mapping | Specify whether to search for accounts in **Account Mapping** by the incoming text during import. |
+    | Validate Line Discount | Specify whether to validate a line discount during import. |
+    | Apply Invoice Discount | Specify whether to apply an invoice discount during import. |
+    | Verify Totals | Specify whether to verify invoice totals during import. |
+    | Create Journal Lines | Specify whether a journal line must be created instead of a purchase document. Select this option when you want to use journals as a destination for your invoices. |
+    | General Journal Template Name | Specify the name of the general journal template that's used for journal line creation. This field is applicable when you want to use journals as a destination for your invoices. |
+    | General Journal Batch Name | Specify the name of the general journal batch that's used for journal line creation. This field is applicable when you want to use journals as a destination for your invoices. |
+    | Batch Start Time | Specify the start time for import jobs. |
+    | Minutes between runs | Specify the number of minutes between import job runs. |
 
-4. On the **Exporting** FastTab, configure the fields as described in the following table.
+4. If you selected **Data Exchange** in the **Document Format** field on the **General** FastTab, on the **Data Exchange Definition** FastTab, fill in the fields as described in the following table.
 
-   | Field | Description |
-   |-------|-------------|
-   | Batch Exporting | Specify whether the service uses batch processing to export e-documents. |
-   | Batch Mode | Specify the mode of batch processing. Choose **Threshold** to send documents when a specified number of documents are ready, or **Recurrent** to send documents on a scheduled basis. This field is available only when **Batch Exporting** is enabled. |
-   | Batch Threshold | Specify the number of documents that must be ready before batch processing begins. This field is only visible when **Batch Mode** is set to **Threshold**. |
-   | Batch Start Time | Specify the start time for batch processing jobs. This field is available only when the **Batch Mode** field is set to **Recurrent**. |
-   | Batch Minutes between runs | Specify the number of minutes between batch processing jobs. This field is available only when the **Batch Mode** field is set to **Recurrent**. |
-   | Embed PDF in export | Specify whether to embed a PDF version of the e-document in the e-document file when you export. This field is available only when the **Document Format** field is set to **PEPPOL BIS 3.0**. <br><br>**Note:** The **Embed PDF in export** option can make life a little easier. When you post a document, [!INCLUDE [prod_short](includes/prod_short.md)] creates a PDF file and embeds it as a PDF attachment in the e-document. The PDF is a human-readable version that's easier to understand than the full XML of the PEPPOL format. |
+    | Field | Description |
+    |-------|-------------|
+    | Document Type | Specify the document type that uses data exchange to import and export the data. Examples include **Sales Invoice**, **Sales Credit memo**, and **Purchase Invoice**. |
+    | Import Data Exchange Def. Code | Specify the data exchange code that's used to import the data. Use this field only to receive a document in the purchase process. |
+    | Export Data Exchange Def. Code | Specify the data exchange code that's used to export the data. Use this field only to deliver documents in the sales process. |
+
+> [!NOTE]
+> There are data exchange definitions for the PEPPOL format that are related to sales and purchase documents. However, you likely can't use these definitions as is. They're all W1 formats that are provided to show how to use this feature. We recommend that you test the existing PEPPOL format before you start to use them. It's possible that using a specific localization reveals more formats, as some can be country/region-specific.
+>
+> If you configured the **Data Exchange Definition** format in your localization, you can add a line for the document types that you need. Add lines that match the default data exchange example for the W1 PEPPOL format. However, first select the **Document Type** option for each line that you need. For each data type, select the **Import Data Exchange Def. Code** or **Export Data Exchange Def. Code** value that you want to use.
+>
+> If you don't use the **Data Exchange Definition** format, you can create and configure formats by using the [interface](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments). Adjust the information on the **Export Mapping** and **Import Mapping** lines, where you can find the tables and fields to configure transformation rules. In this case, you must add a new option for your format in the **Document Format** field.  
 
 5. If you selected **Data Exchange** in the **Document Format** field on the **General** FastTab, on the **Data Exchange Definition** FastTab, fill in the fields as described in the following table.
 
@@ -13836,7 +13853,7 @@ author: jswymer
 ms.topic: overview
 ms.custom: bap-template
 ms.search.keywords: version
-ms.date: 03/07/2025
+ms.date: 09/30/2025
 ms.review: jswymer
 ms.author: jswymer
 ms.service: dynamics-365-business-central
@@ -13869,7 +13886,7 @@ We recommend that you use a stable channel version of a web browser as it's the 
 
 **Outlook applications:** To use [!INCLUDE[prod_short](includes/prod_short.md)] online as your business inbox in Outlook, you need Outlook 2021 or later or Outlook on the web. Your organization must also use Microsoft 365. You can't use [!INCLUDE[prod_short](includes/prod_short.md)] online as your business inbox in Outlook if your organization uses Exchange Server on-premises. 
 
-**Browsers:** When using [!INCLUDE[prod_short](includes/prod_short.md)] as your business inbox in Outlook in a browser, the add-in requires that your computer is running one of the supported browsers that are listed earlier in this article. 
+**Browsers:** When using [!INCLUDE[prod_short](includes/prod_short.md)] as your business inbox in Outlook in a browser, the add-in requires that your computer is running one of the supported browsers that are listed earlier in this article.
 
 ## Teams
 
@@ -13896,12 +13913,12 @@ The administration center is designed to work with the current version of the fo
 
 ## Use Business Central on-premises
 
-If you want to deploy Business Central on-premises, you should check the system requirements. Learn more in [System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v25) and [Deployment Overview](/dynamics365/business-central/dev-itpro/deployment/deployment).  
+If you want to deploy Business Central on-premises, you should check the system requirements. Learn more in [System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v27) and [Deployment Overview](/dynamics365/business-central/dev-itpro/deployment/deployment).  
 
 ## Related information
 
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v25)  
+[System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v27)  
 [Getting the Business Central Desktop App](install-desktop-app.md)  
 [Getting Business Central on Your Mobile Device](install-mobile-app.md)  
 [Managing Business Interactions in Microsoft Outlook](admin-outlook.md)  
@@ -13913,7 +13930,7 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-working-with-powerbi
 ---
 title: Working with Power BI reports in Business Central
-description: Get insight, business intelligence, and KPIs from your Business Central data with Power BI using [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)].
+description: Get insight, business intelligence, and KPIs from your Business Central data with Power BI.
 author: jswymer
 ms.topic: get-started
 ms.devlang: al
@@ -16174,6 +16191,7 @@ To configure these settings, follow these steps:
     | **Responsibility Center Mandatory** | Make the responsibility center mandatory. The responsibility center can be used as a facility, so that you can measure facility-based emissions. You can set the responsibility center field in journals even if you don't select this field. However, by selecting it, you require that users set the responsibility center field before posting. |
     | **Block Calculation Foundation Change If Ledger Entries Exist** | Prevent changes to the calculation foundation (formula) at the account category level when the formula was already applied to sustainability entries. |
     | **Enable Background Error Check** | Enable validations for sustainability journal lines. The validations run in the background. |
+    |**Enable Dataverse Integration**| Enable the connection to ESG External Reporting tool with Dataverse. To learn more, go to [Sustainability reports and analytics in Business Central](sustainability-reports.md).|
 
     > [!NOTE]
     > After you turn on or turn off validations in journals, sign in again before you start the new setup.
@@ -16189,9 +16207,10 @@ To configure these settings, follow these steps:
     | **Item Charge Emissions** | Enable default **Sustainability Account** emissions on the **Item Charge** (currently not operating) page. |
     | **Resource Emissions** | Enable default **Sustainability Account** emissions on the **Resource Card** page. |
     | **Work Machine Center Emissions** | Specifies the enablement of default **Sustainability Account** emissions on the **Work Center** and **Machine Center** pages. |
+    | **Use All Gasses As CO2e** |Specifies that you use carbon equivalent (CO2e) values for all gasses that you track. Use this feature when you don't have accurate information for all gases, but do have their carbon equivalent values. When you turn on this toggle, the captions for gases change from their names to their CO2e equivalents. For example, the **CH4** field becomes the **CO2e for CH4** field. The field values correspond to carbon equivalent values, not the original gas values. [!INCLUDE [prod_short](includes/prod_short.md)] sets the **Carbon Equivalent Factor** on the emission fees to **1** for all three gases.|
 
     > [!NOTE]
-    > The **Use Emissions in Purchase Documents** field makes the **Sustainability Account** and emission fields on purchase documents. However, when you post the document, [!INCLUDE [prod_short](includes/prod_short.md)] only creates **Sustainability Ledger Entries**. To activate posting to the **Sustainability Value Entries** and enable value chain tracking, you must also select the **Enable Value Chain Tracking** field.
+    > The **Use Emissions in Purchase Documents** field adds the **Sustainability Account** and emission fields on purchase documents. However, when you post the document, [!INCLUDE [prod_short](includes/prod_short.md)] only creates **Sustainability Ledger Entries**. To activate posting to the **Sustainability Value Entries** and enable value chain tracking, you must also select the **Enable Value Chain Tracking** field.
 
 4. On the **Calculations** FastTab, configure the required fields for the formulas that calculate emissions.
 
@@ -16214,6 +16233,8 @@ To configure these settings, follow these steps:
     | **Emission Rounding Type** | Choose how to round emission amounts when you report to authorities. |
     | **Energy Reporting Unit of Measure**| Enter the unit of measure in which you report energy consumption. When people fill in the **Energy Consumption** field on purchase documents and sustainability journals, this is the unit of measure for the value. You can use a different unit of measure when you report to authorities. This field isn't applicable to the standard reports.|
     |**Energy Reporting UOM Factor**| Enter the unit of measure factor that you use to register energy consumption, if you use a different unit of measure when you report to authorities.|
+    |**Energy Reporting Unit of Measure Code**| Enter the unit of measure that you use to report energy in sustainability journals.|
+    |**Energy Reporting UOM Factor**|Enter the unit of measure factor to recalculate energy amounts in the sustainability ledger entry that you use to report energy.|
 
 ## Emission fees
 
@@ -16299,15 +16320,15 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/use-payables-agent
 ---
-title: Process Vendor Invoices with Payables Agent
-description: Payables Agent automates vendor invoice processing, tracks tasks, and keeps you informed. Discover how to simplify your accounts payable process.
+title: Supervise agent activities for processing orders and payables (preview)
+description: Monitor Payables and Sales Order agents in Copilot Tasks, review drafts, confirm steps, and keep invoices and orders accurate.
 author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 06/18/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom:
   - bap-template
@@ -16315,49 +16336,53 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:06/18/2025
 ms.search.form: 4400, 4410
-ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Process vendor invoices with Payables Agent (preview)
+# Supervise agent activities in Copilot pane (preview)
 
 [!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
 
-This article explains how to use Payables Agent to process vendor invoices received via email. The Payables Agent uses AI to analyze incoming invoices, create drafts for review, and reduce manual corrections.
+You interact with Business Central agents, such as sales order and payables agents, directly in Copilot's **Tasks** tab. You can monitor task status, review agent-generated drafts and suggestions, and provide confirmations or input to help tasks complete responsibly and accurately.
 
-The agent monitors a designated mailbox for email from vendors or employees with attached PDF invoices. When it detects an email, it starts to create a purchase invoice and keeps you informed and involved from your role center in Business Central. Learn more in [Payables Agent overview](payables-agent.md).
+The process flow is different for each agent. This article explains the common aspects of working in the **Tasks** tab for all agents and answers frequently asked questions.
 
 [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 <!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
 
-## Supported languages
-
-[!INCLUDE[soa-language-support](includes/soa-language-support.md)]
-
 ## Prerequisites
 
-Payables Agent is activated, and you have permission to use it. Learn more in [Set up Payables Agent](payables-agent-setup.md).
+The agent is activated, and you have permission to use it. Learn more in [Set up Sales Order Agent](sales-order-agent-setup.md) and [Set up Payables Agent](payables-agent-setup.md).
 
 ## Get started
 
-You collaborate with Payables Agent to process invoices using the **Tasks** tab in the **Copilot** pane. To access this tab, select ![Shows Payables Agent icon.](media/payables-agent-activated-icon.png) **Payable Agent** on the upper right of the navigation menu. A red circle with a number on the icon indicates the tasks that need attention.
+On the upper right of the navigation menu, select the icon for the agent:
 
-![Shows the agents task view with steps](media/payables-agent-tasks-pane.svg)
+- ![Payables Agent icon in navigation menu.](media/payables-agent-activated-icon.png) **Payables Agent**
+- ![Sales Order Agent icon in navigation menu.](media/soa-activated-number-icon.png) **Sales Order Agent**
 
-The ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** tab opens in the **Copilot** pane to display tasks recently created by the agent. Tasks that require attention&mdash;like reviewing vendor information&mdash;are at the top of the list.  
+A red circle with a number on the icon indicates the number of tasks that need attention.
 
-For each invoice, the agent adds a task to track, review, and follow up on until the agent creates the purchase invoice. Each task has multiple steps that create a timeline of the process.
+![Shows the Payables Agent task view with process steps](media/payables-agent-tasks-pane.svg)
 
-> [!TIP]
-> Hover over the ![Shows Payables Agent icon.](media/payables-agent-activated-icon.png) **Payable Agent** icon in the role or select the ![Show summary for Agent icon](media/soa-summary-icon.png) **Show summary for Payables Agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) summarizing the impact of the agent's work in your organization. For example, view the number of sales quotes or orders created by the agent, the time saved by your team, and the total number of sales orders created.
+Selecting the ![Task view icon in Copilot pane](media/sot-task-view-icon.png) icon opens the **Tasks** tab in the **Copilot** pane, where you can view tasks recently created by the agent. Tasks that require attention&mdash;like reviewing vendor information&mdash;are at the top of the list.  
+
+For each inquiry the agent receives, like a request for a quote or invoice, the agent adds a **task** to track, review, and follow up on until the agent creates the entity. Each task has multiple steps that create a timeline of the process. A timeline is a visual sequence that shows each step taken for the task, helping you understand the progress and history.
+
+## View summary of agent activities
+
+Hover over the agent's icon or select the ![Show summary for Agent icon](media/soa-summary-icon.png) **Show summary for agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) that measure the impact of the agent's work in your organization.
 
 ## Review and assist
 
-The agent does most of the work autonomously, but it asks for user input when needed to move through the process. For example:
+The agent does most of the work autonomously, but sometimes it asks for user intervention to complete the process. When intervention is needed depends on the agent and  its setup, but here are some common situations:
 
-- Review and confirm the vendor information.
-- Review and confirm the purchase invoice document draft.
-- Help the agent get unblocked, like by providing missing data.
+- Reviewing and confirming incoming and outgoing emails
+- Review and confirm contact or vendor information.
+- Review and confirm the draft documents, like quotes, orders and purchase invoices.
+- Help the agent get unblocked, like by providing missing data, creating a new contact for an order, or finding items.
 
-Learn more about the Payables Agent and its process flow in [Payables Agent process flow](payables-agent.md#payables-agent-process-flow).
+Learn more about the Payables Agent and its process flow in [Payables Agent process](payables-agent.md#payables-agent-process-flow) and [Sales Order Agent process](sales-order-agent.md#how-the-agent-processes-requests).
+
+### Review a step
 
 Steps that need intervention appear under **Needs Attention** in the **Tasks** tab. To review a step, follow these instructions:
 
@@ -16370,53 +16395,44 @@ Steps that need intervention appear under **Needs Attention** in the **Tasks** t
    The **Tasks** tab switches to **Review** mode, and the review content appears in the main display area.
 1. Review the contents and make changes as needed.
 
+1. If the agent needs assistance, a message appears at the top of the text explaining the problem.
+
+   You often help the agent by making changes yourself, like making an item available, creating the right customer, contact, or vendor, or changing quantities in sales quotes. You can also [give instructions](#give-instructions-to-the-agent) to guide the agent to make changes for you.
+
 1. When you're satisfied with the content and want the process to continue, select **Confirm** in the **Review** pane.
 
-   If you want to complete the task yourself, select **Stop** to halt the agent's processing of this task. Learn more in [Stop a task](#stop-a-task),
+   If you want to complete the task yourself, select **Stop** to halt the agent's processing of this task. Learn more in [Stop a task](#stop-a-task).
 
 After confirmation, the agent continues with the task. When a new notification appears on the Payables Agent icon after some time, follow the same flow to review and confirm the results.
 
-<!--
-## Modify invoices
+## Give instructions to the agent
 
-During review, you might need to modify the vendor details or purchase document draft created by the agent, or when the agent requests assistance. When you select **Review**, the invoice opens for inspection. Make changes as needed, then select **Confirm** in the **Review** pane. The agent processes the purchas invoice document.
+When you review a step, you might need to change something the agent created or help it get unblocked. For example, you might need to make an item available, create the correct customer or vendor, or change quantities in sales quotes before the task can continue. Instead of making the changes yourself, you can guide the agent to do the work by providing instructions in the **Tasks** tab.
 
-You also have the opportunity to modify a quote or order during the review step for an outgoing email. In this case, select **...** (More options) > **Discard step** on the step. This action stops the task temporarily to allow you to open the quote or order and makes changes and then resume the step.
+:::image type="content" source="media/give-instructions-to-agent.svg" alt-text="Shows a step in Copilot Task pane that includes the options to give instructions to the agent.":::
 
-![Shows the discard step action on a Sales Order Agent task.](media/soa-discard-step.png "Shows the discard step action on a Sales Order Agent task.")
+In the **Give instructions to the agent** section of the step, you might get suggestions for instructions you can give. Copilot generates these suggestions automatically based on the current task. In some cases, there are no suggestions. Alternatively, you can write your own instructions in the **Type your instructions** box. After you select a suggestion or type instructions, select **Confirm** to let the agent resume the task.
 
-> [!NOTE]
-> **Discard step** is available only on review steps for outgoing emails.
+### How to write instructions
 
-After you make the changes, return to the **Tasks** tab, select one of the following options for resuming the task, and then select **Send**:
+You're free to enter any text in the **Type your instructions** box, which lets you write instructions in plain, everyday language. Here are some tips to get the best results:
 
-- **I have updated the quote** or **I have updated the order**: Select one of these options if you made changes to the quote or order. The agent generates a new PDF and email for the customer.
-- **Just resume**: Select this option if you didn't change the quote or order. The agent doesn't generate a new quote or order and keeps the original email as before.  
+- Be specific and clear.
+- Keep instructions focused on actions relevant to the current step.
 
-![Shows the resume step action on a Sales Order Agent task.](media/soa-resume-step.png "Shows the resume step action on a Sales Order Agent task.")
+Examples:
 
-If you change your mind while reviewing the outgoing message and decide to make more changes to the sales document, use the **Discard step** action to discard the email message generated by the agent. Then, update the sales document as needed and instruct the agent to create a new outgoing email with the updated attachment.
--->
+|Scenario|Instructions|
+|---|---|
+|When requested quantity of an item isn't available|Change the quantity to 50|
+|When the agent can't determine the exact item|Give a quote for the Rome guest chair in blue|
+|When you want to change a field| Change the shipping date to 09/01|
+|When you want to give specific information when creating an entity|Create vendor using OCR data|
 
-## Reviewing drafts from the Inbound E-Documents page
+Here's what to avoid:
 
-To understand how the Payables Agent drafted the purchase invoice document, you can also go directly to the **Inbound E-Documents** page and open a purchase document draft.  
-
-Business Central helps you focus your review by highlighting the fields that benefit most from your attention, reducing the review effort and minimizing risk of inaccuracy.
-
-Fields that are recommended for review display an [info] information icon.
-
-When you select this icon or use the <kbd>Alt</kbd>+<kbd>I</kbd> keyboard shortcut on the field, Business Central reveals why the Payables Agent chose that specific field value. This information helps you determine whether a better value would be more appropriate. 
-
-You can quickly replace or correct any fields that the Payables Agent didn’t quite get right. 
-
-To complete the review and elevate the draft to a purchase invoice document, choose the **Finalize draft** action.
-
-> [!IMPORTANT]
-> Fields recommended for review are provided as a convenience, and you aren't required to inspect all of them. Always review the entire purchase document draft, especially if you're new to the Payables Agent and are learning the limitations of how the agent works with your data.
-
-> [!NOTE]
-> While reviewing a purchase document draft, you can't use Copilot’s Autofill feature.
+- Instructions that directly alter the workflow, such as stopping the task, skipping or discarding a step. These types of operations have dedicated actions in the interface rather than through freeform instructions.
+- Instructions that are out of scope for the step or task, asking the agent to update unrelated records or perform actions outside the current task's context.
 
 ## Stop a task
 
@@ -17569,7 +17585,7 @@ ms.custom: bap-template
 ms.reviewer: jswymer
 ms.search.keywords: customize, personalize, personalization, hide columns, remove fields, move fields, resize column, change column width
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 02/14/2025
+ms.date: 09/30/2025
 ms.author: jswymer
 ---
 
@@ -17594,7 +17610,8 @@ You can make various adjustments, such as move or hide fields, columns, actions,
 - [Resize a column](#resize-a-column)
 - [Create, rename, or edit a view](ui-views.md)
 - [Bookmark the page](ui-bookmarks.md)
-- [Hide or resize a FactBox](#hide-or-resize-a-factbox)
+- [Resize or collapse the Copilot, Help, and Page Scripting panes](#resize-or-collapse-the-copilot-help-and-page-scripting-panes)
+- [Hide or resize a FactBox](#resize-or-collapse-a-factbox)
 - Expand/collapse hierarchical list
 
 ### Resize a column
@@ -17604,7 +17621,21 @@ There are two ways to change the width of a column in any list, including in dro
 - Select and drag the boundary between two columns in the header of a list.
 - Double-click the boundary between two columns to autofit the width of the column. The width adjusts to the optimal size for readability.
 
-### Hide or resize a FactBox
+### Resize or collapse the Copilot, Help, and Page Scripting panes
+
+The Copilot pane, Help pane, and Page Scripting pane appear along the right side of the role center when open.
+
+:::image type="content" source="media/copilot-pane-collapse.svg" alt-text="Shows the Copilot pane highlighting the collapse icon":::
+
+- To collapse these panes into a narrow bar along the right side, select **Collapse Copilot**, **Collapse Help**, or **Collapse Page Scripting** :::image type="icon" source="media/collapse-pane-icon.png"::: in the upper-right corner of the pane.
+
+  To expand the pane, select **Expand Copilot** :::image type="icon" source="media/expand-copilot-icon.png":::, **Expand Help** :::image type="icon" source="media/expand-help-icon.png":::, or **Expand Page Scripting** :::image type="icon" source="media/expand-page-scripting-icon.png"::: in the collapsed pane.
+
+- To resize these panes, drag the vertical divider between the pane and main content.
+
+  Double-click the divider to reset the width to default.
+
+### Resize or collapse a FactBox
 
 A FactBox is a pane along the right side of a page that displays more information related to the record on the page.
 
@@ -17613,7 +17644,7 @@ A FactBox is a pane along the right side of a page that displays more informatio
 - To hide or show the FactBox, select the ![Shows the collapse or expand FactBox icon in Business Central](media/collapse-expand-factbox.png) **Collapse/Expand the FactBox pane** icon at the top of the FactBox pane.
 - To resize the FactBox, drag the vertical divider between the FactBox and main content. Double-click the divider to reset the width to default.
 
-   If you can't resize the FactBox, you're either using Business Central version earlier than 26.0, or **Feature: Optimize screen estate usage for web** isn't turned on in **Feature Management**. Contact your admin, or learn more in [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
+   If you can't resize the FactBox, you're either using a Business Central version earlier than 26.0, or the **Feature: Optimize screen estate usage for web** isn't turned on in **Feature Management**. Contact your admin, or learn more in [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
 
 ## Start personalizing by using the personalization mode
 
@@ -18370,30 +18401,7 @@ The connector apps are preinstalled with [!INCLUDE [prod_short](includes/prod_sh
 
 ### Installing a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app
 
-Template apps are available to install from Microsoft AppSource. To install or update one or more of the template apps, go to one of the install links in the following table and select **Get it now**.
-
-| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
-|--------------------------------| -------------- | ------------------------------------------------- |
-| Finance                        | 26.2 and later | https://aka.ms/bc-pbi-finance-app                 |
-| Inventory                      | 26.2 and later | https://aka.ms/bc-pbi-inventory-app               |
-| Inventory Valuation            | 26.2 and later | https://aka.ms/bc-pbi-inventory-valuation-app     | 
-| Manufacturing                  | 26.2 and later | https://aka.ms/bc-pbi-manufacturing-app           |
-| Purchasing                     | 26.2 and later | https://aka.ms/bc-pbi-purchase-app                |
-| Projects                       | 26.2 and later | https://aka.ms/bc-pbi-projects-app                |
-| Sales                          | 26.2 and later | https://aka.ms/bc-pbi-sales-app                   |
-| Subscription Billing           | 26.2 and later | https://aka.ms/bc-pbi-subscription-billing-app    |
-| Sustainability                 | 26.2 and later | https://aka.ms/bc-pbi-sustainability-app          |
-
-
-| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
-|--------------------------------| ------------ | -------------------------------------------------- |
-| Finance                        | 25.2 to 26.1 | https://aka.ms/bc-pbi-finance-app-25-2             |
-| Inventory                      | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-app-25-2           |
-| Inventory Valuation            | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-valuation-app-25-2 | 
-| Manufacturing                  | 25.2 to 26.1 | https://aka.ms/bc-pbi-manufacturing-app-25-2       |
-| Purchasing                     | 25.2 to 26.1 | https://aka.ms/bc-pbi-purchase-app-25.2            |
-| Projects                       | 25.2 to 26.1 | https://aka.ms/bc-pbi-projects-app-25-2            |
-| Sales                          | 25.2 to 26.1 | https://aka.ms/bc-pbi-sales-app-25-2               |
+Template apps are available to install from Microsoft AppSource. To install or update one or more of the template apps, go to one of the install links in the following tables below and select **Get it now**.
 
 Sign in to Microsoft AppSource using your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account credentials. Follow the instructions to install the app in [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
 
@@ -18407,6 +18415,48 @@ When you install the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] templat
 
 > [!IMPORTANT]
 > To install a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app, you need a [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] license.
+
+#### Power BI apps (latest version)
+
+| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
+|--------------------------------| -------------- | ------------------------------------------------ |
+| Finance                        | 27.0 and later | https://aka.ms/bc-pbi-finance-app                |
+| Inventory                      | 27.0 and later | https://aka.ms/bc-pbi-inventory-app              |
+| Inventory Valuation            | 27.0 and later | https://aka.ms/bc-pbi-inventory-valuation-app    |
+| Manufacturing                  | 27.0 and later | https://aka.ms/bc-pbi-manufacturing-app          |
+| Purchasing                     | 27.0 and later | https://aka.ms/bc-pbi-purchase-app               |
+| Projects                       | 27.0 and later | https://aka.ms/bc-pbi-projects-app               |
+| Sales                          | 27.0 and later | https://aka.ms/bc-pbi-sales-app                  |
+| Subscription Billing           | 27.0 and later | https://aka.ms/bc-pbi-subscription-billing-app   |
+| Sustainability                 | 27.0 and later | https://aka.ms/bc-pbi-sustainability-app         |
+
+#### Power BI apps (version 26.2 to 26.5)
+
+| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
+|--------------------------------| -------------- | ------------------------------------------------ |
+| Finance                        | 26.2 to 26.5 | https://aka.ms/bc-pbi-finance-app-26-2             |
+| Inventory                      | 26.2 to 26.5 | https://aka.ms/bc-pbi-inventory-app-26-2           |
+| Inventory Valuation            | 26.2 to 26.5 | https://aka.ms/bc-pbi-inventory-valuation-app-26-2 | 
+| Manufacturing                  | 26.2 to 26.5 | https://aka.ms/bc-pbi-manufacturing-app-26-2       |
+| Purchasing                     | 26.2 to 26.5 | https://aka.ms/bc-pbi-purchase-app-26-2            |
+| Projects                       | 26.2 to 26.5 | https://aka.ms/bc-pbi-projects-app-26-2            |
+| Sales                          | 26.2 to 26.5 | https://aka.ms/bc-pbi-sales-app-26-2               |
+| Subscription Billing           | 26.2 to 26.5 | https://aka.ms/bc-pbi-subscription-billing-app     |
+| Sustainability                 | 26.2 to 26.5 | https://aka.ms/bc-pbi-sustainability-app-26-2      |
+
+
+#### Power BI apps (version 25.2 to 26.1)
+
+| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
+|--------------------------------| ------------ | -------------------------------------------------- |
+| Finance                        | 25.2 to 26.1 | https://aka.ms/bc-pbi-finance-app-25-2             |
+| Inventory                      | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-app-25-2           |
+| Inventory Valuation            | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-valuation-app-25-2 | 
+| Manufacturing                  | 25.2 to 26.1 | https://aka.ms/bc-pbi-manufacturing-app-25-2       |
+| Purchasing                     | 25.2 to 26.1 | https://aka.ms/bc-pbi-purchase-app-25.2            |
+| Projects                       | 25.2 to 26.1 | https://aka.ms/bc-pbi-projects-app-25-2            |
+| Sales                          | 25.2 to 26.1 | https://aka.ms/bc-pbi-sales-app-25-2               |
+
 
 ### Need Power BI apps for multiple companies?
 
@@ -19044,7 +19094,17 @@ The following video shows how to define the period in which you allow people to 
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=5d98a594-6b1c-45a5-b93a-1fb670a051e5]
 
-## Deferral reports
+## Analyze your deferral data
+
+You can analyze your deferral data with the data analysis tool or with out-of-the-box supplied reports. 
+
+To enable ad-hoc analysis on non-posted deferral lines, [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE[prod_short](includes/2025-releasewave2-short.md)] includes three new list pages:
+
+* Sales deferral lines
+* Purchasing deferral lines
+* G/L deferral lines
+
+When you turn on analysis mode for these list pages, you can analyze deferral lines that you haven't posted yet across all documents.
 
 [!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
 

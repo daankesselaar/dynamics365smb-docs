@@ -1,3 +1,186 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-items
+---
+title: Service Items and Service Item Components
+description: Learn about the things you must set up before you can use service items, including default values such as response time and service price group.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords:
+ms.date: 06/25/2021
+ms.author: bholtorf
+
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Set Up Service Items and Service Item Components
+To work with service items, you must set up the following
+
+* Service item groups.
+* Optional
+
+## To set up service item groups
+You can set up groups of items that are related in terms of repair and maintenance. You can define default values for service items in a service item group, such as response time, contract discount percent, and service price group. For items in a service item group, you can select whether you want them to be automatically registered as service items when they are sold.  
+
+You assign service item groups to items on the **Item** card, and to service items on the **Service Item** card.  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Item Groups**, and then choose the related link.  
+2. Create a new service item group.  
+3. Fill in the **Code** and **Description** fields.  
+4. In the **Default Contract Discount %** field, enter the default contract discount percentage that you want the service items in the group to have.  
+5. In the **Default Serv. Price Group Code** field, enter the default service price group code that you want the service items in the group to have.  
+6. In the **Default Response Time (Hours)** field, enter the default response time in hours that you want the service items in the group to have.  
+7. If you want to register the items in the group as service items when they are sold, select the **Create Service Item** field.  
+
+## To set up service item components
+A service item can consist of several components, which can be replaced with spare parts when the item is serviced. These components are set up on the **Service Item Component List** page. Additionally, if you want to set up components for service items that are BOMs, you can copy the BOM items and create them as service item components.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items**, and then choose the related link.
+2. Open the service item for which you want to set up components.  
+3. Choose the **Components** action. The **Service Item Component List** page opens.  
+4. Add a new component.  
+5. In the **Type** field, choose **Service Item** if the component itself is a registered service item. Otherwise, select **Item**.  
+6. In the **No.** field, choose the item or service item that is a component of the service item.  
+
+## To set up service item components from a BOM
+1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items**, and then choose the related link.  
+2. Open the service item for which you want to set up components from a BOM.  
+3. Choose the **Components** action. The **Service Item Component List** page opens.  
+4. Choose the **Copy from BOM** action.  
+
+    If the item that the service item is linked to is a BOM, the components for all the items in the BOM are created automatically.  
+
+## To set up a service shelf
+You can set up service shelves that identify where you store your service items. You assign service shelves to service items on the **Service Order** and **Service Item Worksheet** pages.  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Shelves**, and then choose the related link.
+2. Fill in the fields as necessary.
+
+## Related information
+[Set Up Codes for Standard Services](service-how-setup-service-coding.md)   
+[Set Up Troubleshooting](service-how-setup-troubleshooting.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-general-ledger
+---
+title: Understand the general ledger and Chart of Accounts
+description: Describes the general ledger, chart of accounts, and account categories. Use the General Ledger Setup page to specify handling accounting issues in your company.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: analysis, history, track
+ms.search.form: 18, 20_Primary, 37, 65, 99, 118, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
+ms.date: 08/06/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Understand the general ledger and Chart of Accounts
+
+The general ledger (G/L) stores your financial data, and the chart of accounts (COA) shows the accounts that you post general ledger entries to. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts that's ready to support your business.
+
+## General ledger setup and general posting setup
+
+The setup of the general ledger is at the core of financial processes because it defines how you post data. Two pages in particular play an important part in configuring your finance processes:  
+
+* **General Ledger Setup**
+* **General Posting Setup**
+
+### The **General Ledger Setup** page
+
+Use the **General Ledger Setup** page to specify how to handle certain accounting issues in your company, such as:  
+
+* Invoice rounding details  
+* Address formats  
+* Financial reporting
+
+> [!TIP]
+> The **General Ledger Setup** page includes generic fields, and fields that are particular to your country or region. If you're unsure of the meaning of a field, we suggest you work with your accountant to determine whether it's relevant to your organization. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
+
+To open the page now, use the following link [General Ledger Setup](https://businesscentral.dynamics.com/?page=118).
+
+### The **General Posting Setup** page
+
+Use the **General Posting Setup** page to set up combinations of general business and general product posting groups. Posting groups map entities such as customers, vendors, items, resources, and sales and purchase documents to general ledger accounts. You fill in a line for each combination of business posting group and product posting group. But you can also open each line in its own posting setup card. Learn more at [Posting Group Setups](finance-posting-groups.md).  
+
+> [!TIP]
+> If you can't see the fields you're looking for in the **General Posting Setup** page, use the horizontal scroll bar at the bottom of the page to scroll to the right.  
+
+To open the page now, use the following link [General Posting Setup](https://businesscentral.dynamics.com/?page=314).
+
+## The chart of accounts
+
+The **Chart of Accounts** page shows all general ledger accounts. From the chart of accounts, you can do things like:  
+
+* View reports that show general ledger entries and balances.  
+* Close your income statement.  
+* Open the general ledger (G/L) account card to add or change settings.  
+* See a list of posting groups for that account.
+* View separate debit and credit balances for a single account.
+
+To learn more, go to [Understanding the Chart of Accounts](finance-chart-of-accounts.md).
+
+## Account categories
+
+You can personalize the structure of your financial statements by mapping general ledger accounts to account categories.  
+
+The **G/L Account Categories** page shows your categories and subcategories, and the general ledger accounts assigned to them. You can create new subcategories and assign those categories to existing accounts.  
+
+You can create a category group by indenting other subcategories under a line on the **G/L Account Categories** page. Category groups make it easy to get an overview because each grouping shows a total balance. For example, you can create subcategories for different types of assets, then create category groups for fixed assets versus current assets.  
+
+You can define whether specific types of reports must include the accounts in each subcategory. The account categories help define the layout of your financial statements.  
+
+### Example
+
+For example, the default balance statement has a subcategory for *Cash* under *Current Assets*. If you want the balance statement to consider petty cash and checking, take the following steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **G/L Account Categories**, then choose the related link.
+   1. Alternatively, [open the page here](https://businesscentral.dynamics.com/?page=790).
+2. Choose the **Edit List** action.
+3. Add two new subcategories: One for petty cash, and one for your checking account:
+   1. Select the **Current Assets** category.
+   2. Choose the **New** action.
+   3. Enter the subcategory name on the **Description** field.
+   4. On the **G/L Accounts in Category** field, select the appropriate G/L account.
+   5. On the **Additional Report Definition** field, select the **Cash Accounts** option.
+4. Indent them under the **Cash** subcategory.
+   1. Select the subcategory created in step 3.
+   2. Choose the **Indent** action.
+   3. Choose the **Move Down** action.
+   4. Choose the **Indent** action to indent under the **Cash** subcategory.
+
+When you choose the **Generate Financial Reports** action, or the next time the report is generated, your balance statement shows the following lines:
+
+* Total balance for cash.
+* Lines with balances for petty cash and the checking account.  
+
+> [!NOTE]
+> If you create a G/L account without assigning an account category, when you assign the account to a posting group [!INCLUDE[prod_short](includes/prod_short.md)] automatically assigns the account category from the G/L account immediately above the account in your chart of accounts. However, to include the new account in your financial reports, you must choose the **Generate Financial Reports** action on the **G/L Account Categories** page. Alternatively, open the G/L Account Card page, specify the account category, and then regenerate your financial report.
+
+## Access to create and edit G/L accounts and account categories
+
+In a small organization, such as the CRONUS demonstration company, most users can edit financial entities such as G/L accounts, account categories, and the chart of accounts, except those users with a TEAM MEMBER license. However, larger organizations typically use roles and permissions to limit access to editing these entities. If you're an administrator, or have the *Business Manager* or *Accountant* role, you can control user permissions to give the right people access to the relevant tables. To learn more, go to [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).  
+
+## Use dimensions to simplify your chart of accounts
+
+Dimensions are values that categorize entries so you can track and analyze them on documents, such as sales orders. Dimensions can, for example, indicate the project or department an entry came from. So, instead of setting up separate general ledger accounts for each department and project, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts.
+
+To learn more about dimensions, go to [Set up default dimensions for customers, vendors, and other accounts](finance-dimensions.md#to-set-up-default-dimensions-for-customers-vendors-and-other-accounts).
+
+## Related information
+
+[Understand the chart of accounts](finance-chart-of-accounts.md)  
+[Work with Dimensions](finance-dimensions.md)  
+[Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
+[Business Intelligence](bi.md)  
+[Finance](finance.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-making-cash-flow-forecasts-by-using-account-schedules
 ---
 title: Make cash flow forecasts using financial reports
@@ -3280,9 +3463,10 @@ author: brentholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: Report_6210, Report_6211, Report_6212
-ms.date: 05/17/2024
+ms.date: 08/27/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Sustainability reports and analytics in Business Central
@@ -3298,6 +3482,7 @@ Sustainability reporting gives finance professionals insights and statistics abo
 The following articles describe some of the key tasks for analyzing the state of your sustainability efforts:
 
 * [Calculate Emission based on General Ledger](finance-sustainability-journal.md)
+* [Track items that you know have high emission levels](#track-items-that-you-know-have-high-emission-levels)
 
 ## Explore sustainability reports with Report Explorer
 
@@ -3309,10 +3494,22 @@ To get an overview of the reports that are available for sustainability, choose 
 
 To learn more, go to [Finding Reports with the Role Explorer](ui-role-explorer.md).
 
+## Track items that you know have high emission levels
+
+You can efficiently track items with high emissions to comply with environmental regulations and support your sustainability efforts. When you monitor inbound and outbound transactions and their pollution, you can make informed decisions that reduce your carbon footprint.
+
+On the **Item Card** page, you can track items of concern by using the **Item of Concern** field on the **Sustainability** FastTab. This field tracks items by their emissions level and lets you specifically target significant polluters. When you select this field, you must enter a value in at least one of the following fields:
+
+* **Default CO2 Emission**
+* **Default CH4 Emission**
+* **Default N2O Emission**
+
+To track all inbound transactions, such as purchases and production output, and outbound transactions, such as sales and consumption for these items, use the **Track Item of Concern** report. The report provides detailed information grouped by inbound and outbound transactions, and it shows total emissions for CO2e, CO2, CH4, and N2O. To run the report, [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **Track Item of Concern**, and then fill in the fields as necessary.
+
 ## Related information
 
-[Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)   
-[Sustainability management overview](finance-manage-sustainability.md)   
+[Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
+[Sustainability management overview](finance-manage-sustainability.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4147,7 +4344,7 @@ The general flow is illustrated in the figure, which is followed by more details
 
 ## Billing for use
 
-Sales Order Agent uses Microsoft Copilot Studio messages for AI interactions, which incur charges based on interaction complexity. Before using the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
+Sales Order Agent uses Copilot Credits for AI interactions, which incur charges based on interaction complexity. Before using the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
 ## Next steps
 
@@ -4198,20 +4395,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-search
 ---
-title: Finding Pages and Information
+title: Finding Pages and Information with Tell Me
 description: This article describes how to use search to find actions, pages, reports, documentation, and data, and other apps and consulting services.
 author: brentholtorf
 ms.topic: concept-article
 ms.search.keywords: find, Tell Me, search
 ms.search.form: TellMe, 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 10/01/2024
+ms.date: 09/30/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 # Finding pages and information with Tell Me
 
-This article describes how the in-product search, *Tell me what you want to do*, can help you: 
+This article describes how the in-product search called *Tell me what you want to do*, or Tell Me for short, can help you: 
 
 * Quickly go to things like actions, pages, or reports.
 * Search for specific data, either on a list page or in all of [!INCLUDE [prod_short](includes/prod_short.md)].
@@ -4219,18 +4416,46 @@ This article describes how the in-product search, *Tell me what you want to do*,
 
 <!-- ![!VIDEO https://go.microsoft.com/fwlink/?linkid=2086048] -->
 
-When you need help with finding something, use the ![Tell me what you want to do.](media/ui-search/search.png "Search for Page or Report") **Search** icon to search for it. You can also use <kbd>ALT</kbd>+<kbd>Q</kbd> to start a search.
+## Get started with Tell Me
 
-When you start typing characters on the **Tell me what you want to do** page, [!INCLUDE[prod_short](includes/prod_short.md)] immediately displays matches. Results in the list change as you type more characters. If you notice that when you enter the word *product* and the results include *items*, that's because search uses synonyms and alternate search terms to make it easier to find actions, pages, and reports.
+When you need help with finding something, [!INCLUDE[open-search](includes/open-search-lowercase.md)] to open the **Tell Me** feature.
 
-The column to the right indicates the general category of the result. For example, whether it opens a list page or is an administrative task.  
+[![Shows the Tell Me window in the role center](media/ui-search/tell-me.png)](media/ui-search/tell-me.png#lightbox)
 
-At the bottom of the **Tell me what you want to do** page, the **exploring pages and reports** action opens a feature overview that shows you all available features for your role or for all roles. Learn more at [Finding Pages with the Role Explorer](ui-role-explorer.md).
+The Tell Me feature has two tabs, depending on your setup: **Tell Me** and **Advanced**. Both tabs search the same items based on text you enter, but use different methods:
+
+# [Tell Me](#tab/tellme)
+
+The **Tell Me** tab is always available. It has the name **Tell me what you want to do** if the **Advanced** tab is missing.
+
+Tell Me finds matches based on the exact letters, words, or phrases you type. When you start typing characters, [!INCLUDE[prod_short](includes/prod_short.md)] immediately displays matches. Results in the list change as you type more characters. The search uses synonyms and alternate search terms to make it easier to find actions, pages, and reports. For example, if you enter the word *product*, the results include *items*. 
+
+The **exploring pages and reports** action opens a feature overview that shows all available features for your role or for all roles. Learn more at [Finding Pages with the Role Explorer](ui-role-explorer.md).
+
+# [Advanced (preview)](#tab/advanced)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner-section.md)]
+
+**Advanced** uses AI (semantic search) to find results by the meaning of your search text, not exact words. Type what you are looking for in plain, everyday language&mdash;short descriptive phrases or full sentences&mdash;and select **Search** :::image type="icon" source="media\ui-search\tell-me-advanced-search-icon.png" ::: in the box or <kbd>Enter</kbd> to run the search.
+
+The Advanced tab is useful even if you don’t know the names of things you're looking for. For example, type a phrase like "report that shows my best customers" to find the Customer - Top 10 report.
+
+The **exploring pages and reports** action opens a feature overview that shows all available features for your role or for all roles. Learn more at [Finding Pages with the Role Explorer](ui-role-explorer.md).
+
+> [!IMPORTANT]
+>
+> - This feature is a production-ready preview feature.
+> - Production-ready previews are subject to [supplemental terms of use](https://go.microsoft.com/fwlink/?linkid=2189520).
+> - This feature is available in Business Central online only, not on-premises, and only when an admin enables **Feature: Advanced Tell Me (preview)** in the **Feature Management** page. Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).
+
+---
+
+Search results display on the page the same way for the **Tell Me** or **Advanced** tab.
+
+The right-side column indicates the general category of the result. For example, whether it opens a list page or is an administrative task. The page categorizes results based on the data that you enter and the page you're working on. The following sections describe the categories.
 
 > [!TIP]  
 > If you prefer to use your keyboard, use the <kbd>Tab</kbd> key and <kbd>Arrow</kbd> keys to choose an item in the results. If you select the <kbd>Enter</kbd> key on your keyboard without choosing a result, [!INCLUDE[prod_short](includes/prod_short.md)] opens the result that is listed first.
-
-The **Tell me what you want to do** page categorizes results based on the data that you enter and the page you're working on. The following sections describe the categories.
 
 ## Find an action on the current page
 
@@ -4251,25 +4476,21 @@ The **Go to Reports and Analysis** section offers access to reporting tools. For
 
 ## Find a record or search the documentation
 
-The **Search for \<keyword\>** section [!INCLUDE [prod_short](includes/prod_short.md)] offers a couple of ways to search:
+Use Tell Me feature to search for data across [!INCLUDE [prod_short](includes/prod_short.md)]. For example, you can find a customer by entering their name or address, or even find a specific record, such as a sales order. You can also use it to find information in our documentation.
+
+The **Search for \<keyword\>** section offers a couple of ways to search:
 
 * Use the **Search company data** action to search all pages in [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more about how the company data search works in [Search for a record in company data](ui-search-data.md).
 * Use the **Search Help** action to find an article in the Business Central documentation that contains your keyword.
 
-  > [!NOTE]  
-  > Your search results won't include documentation for third-party extensions.
-
-### Use Tell me what you want to do
-
-Use the ![Tell me what you want to do.](media/ui-search/search.png "Search for Page or Report") **Search** icon to search for data across [!INCLUDE [prod_short](includes/prod_short.md)]. For example, you can find a customer by entering their name or address, or even find a specific record, such as a sales order. You can also use it to find information in our documentation.
-
 Just enter at least three characters of a keyword, and then choose either **Search company data** or **Search Help**.
 
 * If you search for data, results display on the **Search in company data** page, where they're sorted by type.  
-* If you search in our Help, the **Help** pane offers links to articles that contain your keywords. You'll also get a snippet from the article that can help you decide whether it's what you're interested in.
+* If you search in our Help, the **Help** pane offers links to articles that contain your keywords. You also get a snippet from the article that can help you decide whether it's what you're interested in.
 
 > [!NOTE]
-> For data, searching everything in [!INCLUDE [prod_short](includes/prod_short.md)] might take time. To speed up results, use the **Show tables to search** action to choose the tables and fields that you want to include in your searches. The tables and fields that you can choose from vary, depending on your Role Center. By default, all tables and fields are chosen, which can slow down the search. We recommend that you exclude as many tables and fields as you can.
+> - Your search results don't include documentation for Non-Microsoft extensions.
+> - Searching all data in [!INCLUDE [prod_short](includes/prod_short.md)] might take time. To speed up results, use the **Show tables to search** action to choose the tables and fields that you want to include in your searches. The tables and fields that you can choose from vary, depending on your Role Center. By default, all tables and fields are chosen, which can slow down the search. We recommend that you exclude as many tables and fields as you can.
 
 [!INCLUDE [ui-how-search-works](includes/ui-how-search-works.md)]
 
@@ -4290,6 +4511,7 @@ We've shown search to a range of stakeholders, noted the questions that they had
 
 ## Related information
 
+[Responsible aI FAQ for advanced Tell Me](faqs-advanced-tell-me.md)  
 [Work with Business Central](ui-work-product.md)  
 [Add a Page Action to Your Role Center](ui-bookmarks.md)  
 [Save and Personalize List Views](ui-views.md)  
@@ -7812,8 +8034,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37035_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Profitability (Power BI Report)
@@ -7834,20 +8057,20 @@ Leadership teams use the report to identify high and low performing projects, an
 
 The *Project Profitability* report includes the following KPIs:
 
-- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
-- [**Total Budget Profit**](projects-powerbi-kpis.md#total-budget-profit)
-- [**Total Invoiced Profit**](projects-powerbi-kpis.md#total-invoiced-profit)
-- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
-- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
-- [**Total Budget Price**](projects-powerbi-kpis.md#total-budget-price)
-- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
-- [**Total Invoiced Costs**](projects-powerbi-kpis.md#total-invoiced-costs)
-- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-profit)
-- [**Budget Profit Margin %**](projects-powerbi-kpis.md#budget-profit-margin-)
-- [**Total Invoiced Profit Margin %**](projects-powerbi-kpis.md#total-invoiced-profit-margin)
-- [**Total Usage Profit Margin %**](projects-powerbi-kpis.md#total-usage-profit-margin)
+- [Total Invoiced Profit Margin %](projects-powerbi-kpis.md#total-invoiced-profit-margin-)
+- [Total Usage Profit Margin %](projects-powerbi-kpis.md#total-usage-profit-margin-)
+- [Total Usage Profit](projects-powerbi-kpis.md#total-usage-profit)
+- [Total Budget Profit](projects-powerbi-kpis.md#total-budget-profit)
+- [Total Invoiced Profit](projects-powerbi-kpis.md#total-invoiced-profit)
+- [Total Usage Cost](projects-powerbi-kpis.md#total-usage-cost)
+- [Total Usage Price](projects-powerbi-kpis.md#total-usage-price)
+- [Total Budget Price](projects-powerbi-kpis.md#total-budget-price)
+- [Total Budget Cost](projects-powerbi-kpis.md#total-budget-cost)
+- [Total Invoiced Costs](projects-powerbi-kpis.md#total-invoiced-costs)
+- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-profit)
+- [Budget Profit Margin %](projects-powerbi-kpis.md#budget-profit-margin-)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -7939,7 +8162,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 10/04/2025
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: Report_25_Primary, 103, 104, 108_Primary, 195, 196, 197, 198, 488, 489, 490_Primary, 764, 765, 766
@@ -8052,9 +8275,11 @@ Your general ledger is set up to use your local currency (LCY), but you can set 
 
 Financial reports are based on G/L entries. To display report data in the additional reporting currency, select the **Show Amounts in Add. Reporting Currency** checkbox on the **Options** FastTab for the relevant report.
 
+> [!TIP]
+> You can report on both LCY and ACY in the same report. To learn more, go to [Create reports that include both local currency and additional currency](bi-column-definitions.md#create-reports-that-include-both-local-currency-and-additional-currency).
+
 > [!NOTE]
-> The **Show Amounts in Add. Reporting Currency** checkbox is only available if you set up an additional reporting currency (ACY).
-To learn more, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
+> The **Show Amounts in Add. Reporting Currency** checkbox is only available if you set up an ACY. To learn more, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
 
 ### Create or edit a row definition
 
@@ -8611,7 +8836,7 @@ ms.reviewer: solsen
 ms.topic: faq
 ms.collection:
   - bap-ai-copilot
-ms.date: 07/17/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template jswymer
 ---
@@ -8637,20 +8862,20 @@ No, the chat pane is only available on the [!INCLUDE[web_client](includes/web_cl
 
 ## In which countries or regions can I chat with Copilot?
 
-Starting in update 25.4, chat is available in all [!INCLUDE[prod_short](includes/prod_short.md)] countries and regions. If you're unable to access the chat pane, find the answer in [What can I do if the chat pane doesn't show?](#what-can-i-do-if-the-chat-pane-doesnt-show)
+Chat is available in all [!INCLUDE[prod_short](includes/prod_short.md)] countries and regions. If you're unable to access the chat pane, find the answer in [What can I do if the chat pane doesn't show?](#what-can-i-do-if-the-chat-pane-doesnt-show)
 
 ## I don't use Business Central in English. What are my options?
 
-As of January 2025, chat is available no matter which language you use in [!INCLUDE[prod_short](includes/prod_short.md)].
+Chat is available no matter which language you use in [!INCLUDE[prod_short](includes/prod_short.md)].
 
 [!INCLUDE[copilot-language-support-en-only](includes/copilot-language-support-en-only.md)]
 
 ## Does chat work with my customizations?
 
-It depends on the type of question you ask Copilot. For example:
+Yes.
 
 - If you ask questions to find records, it can find records in your custom tables or find and filter custom fields.
-- If you ask Copilot for an explanation or guidance, it can provide answers about functionality from the apps that you installed to [!INCLUDE[prod_short](includes/prod_short.md)]. The capability requires that app publishers provide documentation for their apps on the web, and Bing Search is enabled for Copilot in Business Central. Learn more in [Searching the web with Copilot (preview)](ai-search-web-copilot.md).
+- If you ask Copilot for an explanation or guidance, it can provide answers about functionality from the apps that you installed to [!INCLUDE[prod_short](includes/prod_short.md)].
 
 Learn how to improve Copilot output as a developer in [Influencing Copilot and agents without extending them](/dynamics365/business-central/dev-itpro/developer/copilot-and-agents-influence-without-extending).
 
@@ -8674,7 +8899,7 @@ Copilot might occasionally answer in different ways. Answers aren't always ident
 
 ## How do I use the Copy function on chat messages?
 
-You can use the Copy button to copy a message from earlier in your conversation with Copilot, paste it into the input box to try again or try a variation of your message to Copilot. When Copilot provides a record summary in the Copilot pane, the summary can also be copied using a Copy menu item.
+You can use the Copy button to copy a message from earlier in your conversation with Copilot, paste it into the input box to try again or try a variation of your message to Copilot. When Copilot provides a record summary in the Copilot pane, the summary can also be copied using a **Copy** menu item.
 
 ## Can I customize or extend chat?
 
@@ -8686,7 +8911,7 @@ Copilot only searches for records in the company you're currently signed into. I
 
 ## How does chat treat data residency?
 
-The chat feature relies on Azure OpenAI Service for AI and Microsoft Learn for online documentation and Bing Search to provide answers about installed apps.
+The chat feature relies on Azure OpenAI Service for AI, Microsoft Learn for online documentation, and Bing Search to provide answers about installed apps.
 
 - Azure OpenAI Service  
   Learn more about data residency and Azure OpenAI Service in [Azure OpenAI Service and Business Central data](azure-openai-data.md) and [Copilot data movement across geographies](ai-copilot-data-movement.md).
@@ -8704,6 +8929,10 @@ The chat feature relies on Azure OpenAI Service for AI and Microsoft Learn for o
 
   To prevent chat from connecting to the Bing Search service, turn off the Enable Bing Search switch from the Copilot & agent capabilities page. Learn more about how Copilot searches the web using Bing in [Searching the web with Copilot (preview)](ai-search-web-copilot.md).
 
+## Why don't I see the Ask Copilot button on all tooltips?
+
+At this time, a one-click mechanism to ask Copilot to explain a particular field is only available for fields from Business Central. This feature isn't yet available for custom fields originating from add-on apps and customizations.
+
 ## What can I do if the chat pane doesn't show?
 
 - Make sure your [!INCLUDE[prod_short](includes/prod_short.md)] is version 25.4 or later.
@@ -8715,7 +8944,7 @@ The chat feature relies on Azure OpenAI Service for AI and Microsoft Learn for o
 
 We're continually working on improving reliability and response time.
 
-We encourage administrators to try out experimental features on sandbox environments. To experience the latest improvements to chat, enable the **Feature: Enables advanced navigation (not data) search capabilities by utilizing semantic similarity search on application metadata.** key on the **Feature Management** page. This feature uses superior AI technology to match user inquiries with the names of pages, fields, and tables. Learn more in [Use semantic search to find pages and reports with Copilot chat](/dynamics365/business-central/dev-itpro/developer/semantic-search-feature-key).
+We encourage administrators to try out experimental features on sandbox environments. To experience the latest improvements to chat, enable the **Feature: Enables advanced navigation (not data) search capabilities by utilizing semantic similarity search on application metadata** key on the **Feature Management** page. This feature uses superior AI technology to match user inquiries with the names of pages, fields, and tables. Learn more in [Use semantic search to find pages and reports with Copilot chat](/dynamics365/business-central/dev-itpro/developer/semantic-search-feature-key).
 
 We look forward to getting your feedback about how Copilot can provide better assistance to your workday.
 
@@ -13742,8 +13971,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37036_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Realization (Power BI Report)
@@ -13768,16 +13998,15 @@ Project managers use this report to identify projects with completed work that i
 
 The *Project Realization* report includes the following KPIs:
 
-- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
-- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
-- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
-- [**Realization %**](projects-powerbi-kpis.md#realization-)
-- [**Realization Variance**](projects-powerbi-kpis.md#realization-variance)
+- [Realization (%)](projects-powerbi-kpis.md#realization-)
+- [Realization Variance](projects-powerbi-kpis.md#realization-variance)
+- [Total Usage Price](projects-powerbi-kpis.md#total-usage-price)
+- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-price)
+- [Total Billable Price](projects-powerbi-kpis.md#total-billable-price)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
 
 ## Data used in the report
 
@@ -14491,7 +14720,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to 
-ms.date: 06/27/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template 
 ms.collection:
@@ -14513,19 +14742,19 @@ Microsoft Copilot is an AI-powered assistant that helps spark creativity, boost 
 
 - Find business data for your company in Business Central. Use chat to look up and open data about entities or records related to business processes, such as customers, vendors, sales orders, and items. For example, ask: "Show me the latest sales order for Adatum".
 
-  Copilot can also organize data for you. Just ask it to group records or do calculations like adding or averaging, and it generates an analysis tab, displaying the results.
+  Copilot can also organize data for you. Just ask it to group records or do calculations like adding or averaging, and it generates an analysis tab, displaying the results. Learn more about prompting in [Prompting for aggregating data on analysis tabs](#prompting-for-aggregating-data-on-analysis-tabs).
 
-- Get explanations or step-by-step guidance on various tasks. For example, ask: "Help me understand dimensions" or "How do I post a sales order". Learn more about prompting in [Prompting for aggregating data on analysis tabs](#prompting-for-aggregating-data-on-analysis-tabs).
+- Get explanations or step-by-step guidance on various tasks. For example, ask: "Help me understand dimensions" or "How do I post a sales order?". You can also ask for explanations about the apps installed in your Business Central. For example, you can ask “how do I cancel hotel reservations?” if you installed a hotel management app.
 - Know the purpose and use of each field. When you choose **Ask Copilot** in a tooltip for a field, chat opens with an Explain prompt for the field name and Copilot provides information about it. Copilot links to the articles it referenced, so it's easy to verify the description.
   
-Using chat with Copilot streamlines your workflow by bypassing traditional navigation and product help. Watch [Work smarter with Copilot in Microsoft Dynamics 365 Business Central](https://go.microsoft.com/fwlink/?linkid=2250609) to learn more.
+Using chat with Copilot streamlines your workflow by bypassing traditional navigation and product help. To learn more, watch [Work smarter with Copilot in Microsoft Dynamics 365 Business Central](https://go.microsoft.com/fwlink/?linkid=2250609).
 
-Copilot's source responses are generated from the official [Microsoft Dynamics 365 Business Central documentation](/dynamics365/business-central/) page.
+Copilot's responses are generated from the official [Microsoft Dynamics 365 Business Central documentation](/dynamics365/business-central/) site or the documentation that accompanies the apps installed to Business Central.
 
 ## Prerequisites
 
-- For Business Central update 25.3 through 25.5, Chat with Copilot feature must be enabled on the **Feature Management** page by an administrator. Learn more in [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
-- The **Chat** capability is activated by an administrator. Learn more in [Configuring Copilot and agent capabilities](enable-ai.md).
+- The **Chat** capability must be activated by an administrator. Learn more in [Configuring Copilot and agent capabilities](enable-ai.md).
+- To get answers to questions about installed add-on apps, the **Enable Bing Search** option must be turned on in **Copilot and agent capabilities**. Learn more in [Searching the web with Copilot](ai-search-web-copilot.md).
 
 ## Get started using chat with Copilot
 
@@ -14606,7 +14835,11 @@ In this example, you ask Copilot to solve a common date puzzle that typically re
 
 Prompt: `How does I save my filterrings for later?`
 
-In this example, you ask Copilot for guidance on how to perform some task in Business Central. Copilot can usually understand the intent of your question, even if there are a few grammatical errors, spelling mistakes or abbreviations.
+In this example, you ask Copilot for guidance on how to perform a task in Business Central. Copilot can usually understand the intent of your question, even if there are a few grammatical errors, spelling mistakes or abbreviations.
+
+Prompt: `How do I cancel a hotel reservation?`
+
+In this example, you ask Copilot for guidance about custom functionality that happens to be provided by an add-on app or custom extension to Business Central. Copilot is often able to answer questions about customizations that you installed, including questions about fields, issues, pages, and business processes. For some domains, Copilot might interpret your question as unrelated to Business Central. You can improve the quality of the responses by including the name of the add-on app in your prompt, especially if you have multiple apps installed.
 
 ## Provide feedback on answers
 
@@ -14629,21 +14862,22 @@ title: Projects KPIs and measures (Power BI)
 description: The Projects App KPIs provides a page to clearly identify all KPIs and Measures used in the Projects Report.
 author: kennienp
 ms.author: kepontop
-ms.reviewer: 
+ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 
-ms.date: 11/08/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Power BI Projects app KPIs and measures
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Projects report. 
+This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Projects report.
 
-Explore the list of KPIs below to learn more about how they can help you achieve your business goals. 
+Explore the list of KPIs below to learn more about how they can help you achieve your business goals.
 
 Each KPI is described, including how it is calculated and what data was used in the calculations.
 
@@ -14654,9 +14888,10 @@ Each KPI is described, including how it is calculated and what data was used in 
 - [No. of Completed Projects](#no-of-completed-projects)
 - [Project Count](#project-count)
 - [Tasks Count](#tasks-count)
-- [Complete (%)](#completed-)
 - [Invoiced (%)](#invoiced-)
-- [Realization %](#realization-)
+- [Completed (%)](#completed-)
+- [Duration (Days)](#duration-days)
+- [Realization (%)](#realization-)
 - [Realization Variance](#realization-variance)
 
 ### No. of Completed Projects
@@ -14678,7 +14913,7 @@ The Project Count measure counts the total number of projects in the Project tab
 ### Tasks Count
 
 **Formula**  
-The Tasks Count measure counts the number of rows in the Tasks table that where the Project Task Type has a value of "Posting".
+The Tasks Count measure counts the number of rows in the Tasks table where the Project Task Type has a value of "Posting".
 
 **Data Sources**
 - Job Task
@@ -14707,15 +14942,16 @@ The Tasks Count measure counts the number of rows in the Tasks table that where 
 
 **Formula**  
 The Duration (Days) measure calculates the number of days between the earliest starting date and latest ending date for a given project in the Project table.
-  
+
 **Data Sources**
 - Job
 
 ### Realization (%)
 
 **Formula**  
+*Realization % = [Billable (Invoiced Price)](#billable-invoiced-price) / [Actual (Total Price)](#actual-total-price)*
 *Realization (%) = [Total Billable Price)](#total-billable-price) / [Total Usage Price](#total-usage-price)*
-  
+
 **Data Sources**
 - Job Ledger Entry
 
@@ -14751,8 +14987,6 @@ The Duration (Days) measure calculates the number of days between the earliest s
 - Job Ledger Entry
 
 ### Budget Profit
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**  
 *Budget Profit = - [Budget (Total Price)](#budget-total-price) - [Budget (Total Cost)](#budget-total-cost)*
@@ -14808,6 +15042,7 @@ The Duration (Days) measure calculates the number of days between the earliest s
 - [Total Usage Profit Margin %](#total-usage-profit-margin-)
 
 ### Project Ledger Entry Quantity
+
 **Formula**  
 The Project Ledger Entry Quantity measure aggregates the Qty. column of the Project Ledger Entry table. The sign is then inverted by multiplying by negative one.
   
@@ -15112,6 +15347,13 @@ The Total Price measure calculates the total price of all project ledger entries
 **Data Sources**
 - Job Ledger Entry
 
+## Usage
+
+- [Actual (Total Cost)](#actual-total-cost)
+- [Gen. Journal Usage (Total Cost)](#gen-journal-usage-total-cost)
+- [Labour Usage (Total Cost)](#labour-usage-total-cost)
+- [Material Usage (Total Cost)](#material-usage-total-cost)
+
 ### Actual (Total Cost)
 
 [!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
@@ -15196,7 +15438,7 @@ The Material Usage (Total Cost) measure calculates the total cost of all project
 ### Planning Line Quantity
 
 **Formula**  
-The Planning Line Quantity measure calculates the sum of the Quantity column in the Project Planning Line table.
+The Planning Line Quantity measure calculates the sum of the quantity column in the Project Planning Line table.
 
 **Data Sources**
 - Job Planning Line
@@ -15389,7 +15631,7 @@ The Resource Budget Price calculates the total budget amount for resources used 
 **Data Sources**
 - Job Planning Line
 
-## Totals
+## Totals for billables
 
 <!-- Billable Totals -->
 ### Total Billable Cost
@@ -15442,6 +15684,7 @@ The Resource Budget Price calculates the total budget amount for resources used 
 - Job Planning Line
 
 ## Purchase Measures
+
 - [Amount on PO](#amount-on-po)
 - [Amount Rcvd. Not Invoiced](#amount-rcvd-not-invoiced)
 - [Outstanding Amt. on PO](#outstanding-amt-on-po)
@@ -15452,14 +15695,6 @@ The Resource Budget Price calculates the total budget amount for resources used 
 
 **Formula**  
 The Amount on PO measure calculates the sum of the amount (in local currency) column in the Purchases table.
-
-**Data Sources**
-- Purchase Line
-
-### Amount Rcvd. Not Invoiced
-
-**Formula**  
-The Amount Rcvd. Not Invoiced measure calculates the total amount of purchases that have been received but not yet invoiced in the Purchases table.
 
 **Data Sources**
 - Purchase Line
@@ -19100,70 +19335,72 @@ ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, carbon, CO2
 ms.search.form: 
-ms.date: 09/06/2024
+ms.date: 02/03/2025
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Sustainability management overview
 
-> [!IMPORTANT]
-> This feature is available in Business Central starting from **2024 release wave 1**.  
+Business Central offers sustainability management features that help you monitor and manage your organization's effect on the environment. The features are designed to oversee and regulate an organization's environmental footprint by tracking various greenhouse gas (GHG) emissions, and water and waste intensity to gather insights. You gather sustainability data using sustainability journals, general journals, or purchase documents, and the recalculation of emissions to the CO2 equivalent (CO2e). You can manually enter known data, or use built-in methods to calculate emissions. However, calculation using formulas is available only when you use sustainability journals.
 
-Business Central offers a sustainability management feature that helps you monitor and manage your organization's and its effect on the environment. This feature is designed to oversee and regulate an organization's environmental footprint by tracking various greenhouse gas (GHG) emissions. In this way, it facilitates proper insights. The feature supports the basic process of collecting emission data via sustainability journals or purchase documents, and recalculation of emissions to CO2 equivalent. You can either manually enter known data or use built-in methods for calculating emissions footprints; calculation using formulas are available for use only when using sustainability journals.   
+Based on GHG protocol, there are three emission scopes:  
 
-> [!NOTE]
-> This solution is still in early stages of development and new set of features will be added with the next release.  
-
-The first version of the feature focuses on GHG emissions. The environmental, social, and governance (ESG) standard defines three emission scopes:
-
-- **Scope 1 emissions** include emissions from stationary and mobile combustion, and from inadvertent fugitive emissions.
-- **Scope 2 emissions** include indirect emissions from the generation of energy that is purchased from utility providers.
+- **Scope 1 emissions** include emissions from stationary and mobile combustion, and from inadvertent fugitive emissions.  
+- **Scope 2 emissions** include indirect emissions from the generation of energy that is purchased from utility providers.  
 - **Scope 3 emissions** include a wide spectrum of emissions, from purchased goods and services and capital goods, to fuel and energy–related activities, to upstream and downstream transportation, to generated waste, to business travel and employee commuting, and so on.
 
-With this feature, you can:
+But, [!INCLUDE [prod_short](includes/prod_short.md)] offers other emission scopes:  
 
-- Set up emission factors for different sources and categories of GHG emissions.
-- Record emission data in sustainability journals, either manually or by using predefined calculation methods.
-- Record emission data directly working with purchase documents.
-- Record purchase of carbon credit using purchase documents.
-- Calculate internal carbon fee.
-- Recalculate emission of all gasses to CO2 equivalent using formulas.
+- **Out of scope** emissions include emissions that fall outside these defined categories but are still relevant for a complete understanding of how an organization affects the environment. For example, emissions from activities or sources that an organization doesn't directly control but still contribute to the overall carbon footprint. Another example is carbon credits, which don't have a specific scope.
+- **Water/Waste** refers to the measurement and estimation of water withdrawn or discharged and waste disposed or diverted. The measurement is based on intensity factors and is intended to provide a comprehensive understanding of an organization's environmental effects.
+
+With this set of features, you can:
+
+- Set up emission factors for different sources and categories of GHG emissions, water, and waste.
+- Record emission, or water and waste intensity data in sustainability journals, either manually or by using predefined calculation methods.
+- Record emission data directly with purchase documents or general journals.  
+- Record purchase of carbon credit using purchase documents or sustainability journals.
+- Calculate internal carbon fees.
+- Recalculate emission of all gasses to the CO2 equivalent using formulas.  
 - Post emission entries (and carbon credits) to the sustainability ledger, where you can view and analyze the emission data by various dimensions.
-- Set scorecards and goals and compare them with baseline and targeted values.
-- Generate sustainability reports that show your organization's GHG emissions performance.
-- Use financial reports for cross functional reporting.
+- Set scorecards and goals and compare them with baseline and targeted values.  
+- Generate sustainability reports that show your organization's GHG emissions or water and waste intensity performance.  
+- Use financial reports for cross-functional reporting.
+- Operate with the value chain for Scope 3 across various operations (Public Preview).
+- Integrate sustainability features with non-Microsoft systems using APIs.  
 
-To get started with sustainability management, use the following articles.
+To following table links to articles that can help you get started with sustainability management.
 
 | Article | Description |
 |---------|-------------|
 | **Feature** |             |
-| [Sustainability setup](finance-sustainability-setup.md) | This article provides information to help you correctly configure the whole Sustainability module. |
-| [Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md) | This article provides information on how to set up charts of sustainability accounts (CoSA), account categories, and subcategories. And also, how to analyze information in sustainability ledger entries. |
-| [Record sustainability entries](finance-sustainability-journal.md) | Use this article to learn how to work with all types of sustainability journals. |
+| [Sustainability setup](finance-sustainability-setup.md) | Learn how to configure sustainability features. |
+| [Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md) | Learn how to set up charts of sustainability accounts (CoSA), account categories, and subcategories. It also describes how to analyze information in sustainability ledger entries. |
+| [Record sustainability entries](finance-sustainability-journal.md) | Learn how to work with all types of sustainability journals. |
 | [Work with carbon credits](sustainability-carbon-credit.md) | Learn how to set up and purchase carbon credit. |
-| [Work with sustainability certificates](sustainability-certificates.md) |  Learn what the sustainability certificates are and how to set up and use them.  |
+| [Work with sustainability certificates](sustainability-certificates.md) |  Learn about sustainability certificates, and how to set up and use them.  |
 | **Planning** |             |
 | [Sustainability scorecards and goals overview](sustainability-scorecards-goals.md) | Learn how to set up and use sustainability scorecards and goals. |
 | **Reporting** |             |
-| [Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md) | This article provides information about how to use ad-hoc analysis to analyze sustainability data directly from list pages and queries. |
-| [Sustainability reports and analytics in Business Central](sustainability-reports.md) | This article provides information about how to use integrated reports and analytics related to Sustainability in Business Central. |
-| [Analyzing sustainability entries with financial reports](sustainability-fin-reporting.md) | Describes how to use financial reports to create various views and reports for analyzing sustainability performance data. |
+| [Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md) | Learn how to use ad-hoc analysis to analyze sustainability data directly from list pages and queries. |
+| [Sustainability reports and analytics in Business Central](sustainability-reports.md) | Learn how to use integrated reports and analytics related to sustainability. |
+| [Analyzing sustainability entries with financial reports](sustainability-fin-reporting.md) | Learn how to use financial reports to create ways to analyze sustainability performance data. |
 | **Integrations** |             |
-| [Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json) | Use this article to learn how to create connected apps that establish a point-to-point connection between Business Central and non-Microsoft sustainability solutions or services using APIs. |
+| [Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json) | Learn how to create connected apps that establish a point-to-point connection between [!INCLUDE [prod_short](includes/prod_short.md)] and non-Microsoft sustainability solutions or services using APIs. |
 
 ## Related information
 
-[Sustainability setup](finance-sustainability-setup.md)    
-[Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md)    
-[Record sustainability entries](finance-sustainability-journal.md)    
-[Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)    
-[Sustainability reports and analytics in Business Central](sustainability-reports.md)   
-[Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json)    
-[Finance](finance.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)    
+[Sustainability setup](finance-sustainability-setup.md)  
+[Chart of sustainability accounts and ledger](finance-sustainability-accounts-ledger.md)  
+[Record sustainability entries](finance-sustainability-journal.md)  
+[Ad hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
+[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
+[Sustainability API](/dynamics365/business-central/dev-itpro/api-sustainability/sustainability-api?toc=/dynamics365/business-central/toc.json)  
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -19495,6 +19732,133 @@ You can allocate an entry in a recurring general journal to several different ac
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/faqs-advanced-tell-me
+---
+title: Responsible AI FAQ for Advanced Tell Me (preview)
+description: Learn about the AI technology behind Advanced Tell Me semantic search. Get an overview, evaluation metrics, limits, mitigations, data use, security details, and feedback steps.
+ms.date: 09/30/2025
+ms.update-cycle: 180-days
+ms.custom:
+  - responsible-ai-faqs
+ms.topic: faq
+author: jswymer
+ms.author: jswymer
+ms.reviewer: solsen
+ms.collection:
+  - bap-ai-copilot
+---
+
+# Responsible AI FAQ for Advanced Tell Me (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner-section.md)]
+
+These frequently asked questions (FAQ) describe the AI impact of Advanced Tell Me in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more about using Tell Me for searching in [Finding pages and information with Tell Me](ui-search.md).
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+
+## What is Advanced Tell Me?
+
+Advanced Tell Me is an AI-powered enhancement to the existing **Tell me what you want to do** (<kbd>Alt</kbd>+<kbd>Q</kbd>) feature. It provides semantic (meaning-based) search over product metadata&mdash;such as page captions, descriptions, additional search terms, and report or query metadata&mdash;so you can find pages, reports, and queries even when your wording doesn't match exact text.
+
+## What can Advanced Tell Me do?
+
+Advanced Tell Me improves navigation and discoverability by:
+
+- Matching natural language and acronym queries to semantically similar metadata entities (pages, reports, queries)
+- Returning relevant results when you use synonyms, alternate phrasing, or common Business Central abbreviations
+- Integrating into the existing **Tell me** pane and Report Explorer through an **Advanced** tab alongside keyword results
+
+## What is the intended use of Advanced Tell Me?
+
+Advanced Tell Me is intended to:
+
+- Help you efficiently locate pages, reports, and queries in Business Central
+- Reduce reliance on exact keyword matching required by classic Tell Me
+- Provide intuitive, context-aware navigation
+
+It isn’t designed to search business data (records, transactions) or external content.
+
+## How was Advanced Tell Me evaluated? What metrics measure performance?
+
+Evaluation used 12,118 English test cases derived from application metadata variations, covering:
+
+- Single-word semantic matches to an object name
+- Multi-word phrases matching captions, additional search terms, or about/help text
+- Common Business Central abbreviations and acronyms
+- Paraphrased or synonym-rich queries
+
+Primary metric: target object appears within the top three results (precision@3). Quality gates required acceptable aggregate performance across all query classes.
+
+The feature is built in accordance with Microsoft's Responsible AI Standard. [Learn more about responsible AI from Microsoft](https://aka.ms/RAI).
+
+## How does Microsoft monitor quality and safety?
+
+Automated and manual evaluation pipelines monitor relevance, stability, and safety. Aggregated telemetry helps detect degradation or anomalous result patterns. User feedback supports iterative improvements.
+
+You can report poor or unexpected results through standard feedback and support channels.
+
+## What are the limitations of Advanced Tell Me and how can I mitigate them?
+
+### Limitations
+
+- **Language:** Validated and supported in English only; other languages might yield reduced quality.
+- **Metadata dependence:** Sparse or inaccurate captions, additional search terms, or about text lower result quality.
+- **Scope:** Doesn’t search live business data or external sources—only product metadata.
+- **Ranking variance:** The best match might not always appear first.
+- **Not a data exploration tool:** It doesn't retrieve specific records by value (use other search or filtering features instead).
+
+### Mitigations
+
+- Use clear, descriptive queries (short phrases or natural language).
+- Enrich metadata (captions, additional search terms, about text) for custom objects.
+- Rephrase with distinctive domain terms if results are weak.
+- Fall back to the keyword tab for exact label searches.
+
+## What operational factors affect responsible use?
+
+- **Feature management:** Advanced Tell Me can be turned on/off in **Feature Management**.
+- **Metadata stewardship:** Regularly review and enrich metadata for custom pages, reports, or queries to maintain high-quality results.
+- **User guidance:** Encourage users to review result context before navigating when similarly named objects exist.
+
+If prerequisites (like activation) aren’t met, the **Advanced** tab doesn't appear.
+
+## What data does Advanced Tell Me use? Does it train on my data?
+
+It works on product metadata already present in the environment (captions, descriptions, search terms). Query text and interaction signals might be logged for service quality and safety. Microsoft doesn't use your company business data to train foundational AI models for the benefit of others.
+
+Avoid entering sensitive data (passwords, secrets) into search queries.
+
+## What does Advanced Tell Me offer for security and compliance?
+
+- Runs under the signed-in user’s identity and respects existing permissions.
+- Surfaces only metadata for accessible objects.
+- Doesn’t expose restricted table data or bypass role-based security.
+- Doesn’t perform external web searches; processing stays within service boundaries.
+
+## How does Advanced Tell Me handle unsupported languages?
+
+Non-English queries receive best-effort matching, but relevance can degrade. If results are poor:
+
+- Rephrase in English.
+- Try more domain-specific terms.
+- Use the classic (keyword) tab.
+
+## How do I provide feedback on Advanced Tell Me?
+
+Use normal support or preview feedback channels to report:
+
+- Missing expected results
+- Irrelevant matches
+- Ranking issues (correct item too low)
+
+Include the exact query and the object you expected.
+
+## Related information
+
+[Finding pages and information with Tell Me](ui-search.md)  
+[Responsible AI FAQ for Chat with Copilot](faqs-chat-with-copilot.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-collect-payments-with-sepa-direct-debit

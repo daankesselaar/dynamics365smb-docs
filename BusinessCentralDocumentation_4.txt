@@ -1,3 +1,87 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-manage-user-settings-preferences
+---
+title: Manage user settings and preferences as the administrator
+description: Manage user settings and preferences in Dynamics 365 Business Central.
+author: sorenfriisalexandersen
+ms.topic: get-started
+ms.devlang: al
+ms.reviewer: bholtorf
+ms.search.keywords: user settings, preferences, language, region, time zone, regional settings
+ms.search.form: 9204, 9200
+ms.date: 07/27/2024
+ms.author: soalex
+ms.service: dynamics-365-business-central
+---
+# Manage user settings and preferences
+
+As an administrator, you can configure user settings in [!INCLUDE[prod_short](includes/prod_short.md)], similar to how individual users can manage their own preferences in the **My Settings** page.  
+
+Get an overview of all users in the **Users** list, and change individual settings by selecting the **User Settings** action for the relevant user.
+
+> [!TIP]
+> The **User Settings** list shows the current settings for each user. To view or edit individual users, select the **View** or **Edit** action.
+
+The **User Settings** card page is similar to the **My Settings** page that each user has access to, and it's a powerful tool for you as the administrator for setting default settings and clearing personalized pages, for example.  
+
+## Types of user settings
+
+*User settings* isn't the same as *user setup*, which is about the user as an entity and the user's access in the system. Furthermore, the user settings have nothing to do with a user's personalization, such as lightweight changes to the user interface. User settings determine the predefined settings for each user in various aspects of the way the application presents itself to the user. The following paragraph lists the five types of user settings and preferences that can be set by the individual or centrally by the administrator:
+
+* **Company**  
+
+  This setting determines the company to be logged into at the next sign-in. A user can have access to multiple companies and can be active in several companies.
+
+* **Role**  
+
+  The role, or profile, describes the user's function in the company, such as *Sales Manager*, *Bookkeeper*, or *Purchasing Agent*. The profile then determines the user's role center, the home page that users experience when they sign in. The profile doesn't impact access rights to functionality in [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+* **Language**  
+
+  Defines the application language that [!INCLUDE[prod_short](includes/prod_short.md)] presents text, captions, and error messages in. If [!INCLUDE[prod_short](includes/prod_short.md)] users are synchronized from Microsoft 365, the language settings from Microsoft 365 are used, assuming that the user wants to use the same settings in Office products and [!INCLUDE[prod_short](includes/prod_short.md)]. The administrator can change the default setting, and each user can choose between available languages in the My Settings page. But they'll be reset to the value from Microsoft 365 once the next synchronization is performed.
+
+  If the language setting from Microsoft 365 matches a supported language in [!INCLUDE[prod_short](includes/prod_short.md)], this language is chosen for the user.  
+
+  > [!NOTE]
+  > You may have to install a language app for [!INCLUDE[prod_short](includes/prod_short.md)] to properly display the language. Therefore, it's a good practice to install the necessary language apps before any user logs in the first time so that they have a good experience from their first day. For more information, see the list of [supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations).  
+  
+* **Region**  
+
+  Defines how dates and numbers are presented in the [!INCLUDE[prod_short](includes/prod_short.md)] client, such as whether to use European or American date formats, or how to display the decimal sign and thousand separators in amounts. If [!INCLUDE[prod_short](includes/prod_short.md)] users are synchronized from Microsoft 365, the regional settings from Microsoft 365 are used, assuming that the user wants to use the same settings in Office products and [!INCLUDE[prod_short](includes/prod_short.md)]. An administrator or user can change these settings manually in [!INCLUDE[prod_short](includes/prod_short.md)], but they'll be reset to the value from Microsoft 365 once the next synchronization is performed.
+
+* **Time zone**  
+
+  Defines the time zone in which the user is located. Currently this setting isn't synchronized from Microsoft 365 and must be set manually.  
+
+* **Teaching tips**
+
+  [!INCLUDE [ua-teachingtips](includes/ua-teachingtips.md)] As an administrator, you can switch off teaching tips for all users, such as if you are in process of onboarding users who are already familiar with [!INCLUDE [prod_short](includes/prod_short.md)].  
+
+> [!NOTE]
+> If a Microsoft 365 user synchronization is made while users are logged into [!INCLUDE[prod_short](includes/prod_short.md)], these users must refresh the browser or sign out and back in to [!INCLUDE[prod_short](includes/prod_short.md)] to see a potential different language set by the synchronization action.
+
+## Overview of all user-specific changes
+
+As the administrator, you can get an overview of individual changes to [!INCLUDE [prod_short](includes/prod_short.md)] that each user might have made to various pages in [!INCLUDE [prod_short](includes/prod_short.md)]. As users make changes to their experience in [!INCLUDE [prod_short](includes/prod_short.md)], these changes are reflected in the **Personalized Pages** list. <!--Administrators can also set these settings for users before they log in the first time, so users do not have to do it themselves, providing them a better *getting started* experience.-->
+
+<!-- >[!NOTE]
+> User personalizations do not have anything to do with the *personal* lightweight changes a user can make to the user experience.-->
+
+## Review or delete user personalizations
+
+1. Select the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Personalized Pages**, and then select the related link.
+2. This shows the list of users and their personalized pages. To clear a user's personalization, click the relevant row, or select **Manage**, and then select **Delete**.
+
+This task deletes the personalization, and the user's experience of the relevant page returns to the default state.
+
+## Related information
+
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Country/regional availability and supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations)  
+[Changing Language and Locale](about-locale-language.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-allowed-languages
 ---
 title: Specify available languages in your environment
@@ -6540,6 +6624,7 @@ The following table indicates which UI adjustments are roaming, local, or both. 
 |Other UI|Collapse or expand field section||X|
 ||Resize, collapse, or expand FactBox pane||X|
 ||Show FactBox pane attachments or details||X|
+||Resize, collapse, or expand Copilot, Help, and Page Scripting panes||X|
 ||Collapse or expand page inspection pane||X|
 ||Collapse or expand part on a page||X|
 ||Show or hide teaching tips|X||
@@ -7753,14 +7838,19 @@ Yes, all apps are multi-language for many of the languages that [!INCLUDE[prod_s
 
 ## Can I get a copy of the source code (.pbix files) for the apps?
 
-As of version 26.2, the source code (.pbix files) for the following apps is available:
+The source code (.pbix files) for the Power BI apps is available from the following versions.
 
-- Finance
-- Inventory
-- Inventory Valuation
-- Manufacturing
-- Subscription Billing
-- Sustainability
+| Power BI app for...            | Source code available from version | 
+|--------------------------------| -------------- | 
+| Finance                        | 26.2 and later | 
+| Inventory                      | 26.2 and later | 
+| Inventory Valuation            | 26.2 and later | 
+| Manufacturing                  | 26.2 and later | 
+| Purchasing                     | 27.0 and later | 
+| Projects                       | 27.0 and later | 
+| Sales                          | 27.0 and later | 
+| Subscription Billing           | 26.2 and later | 
+| Sustainability                 | 26.2 and later | 
 
 You can download the .pbix file by installing the app from AppSource and then download the source code from the installed app.
 
@@ -8859,8 +8949,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37038_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Invoiced Sales by Type (Power BI Report)
@@ -8879,16 +8970,15 @@ Project managers use the report to track the different type of sales entries. Yo
 
 The *Project Invoiced Sales by Type* report includes the following KPIs:
 
-- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
-- [**Quantity**](projects-powerbi-kpis.md#quantity)
-- [**Total Invoiced Price**](projects-powerbi-kpis.md#total-invoiced-price)
-- [**Total Billable Price**](projects-powerbi-kpis.md#total-billable-price)
-- [**Total Usage Price**](projects-powerbi-kpis.md#total-usage-price)
+- [Invoiced (%)](projects-powerbi-kpis.md#invoiced-)
+- [Quantity](projects-powerbi-kpis.md#quantity)
+- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-price)
+- [Total Billable Price](projects-powerbi-kpis.md#total-billable-price)
+- [Total Usage Price](projects-powerbi-kpis.md#total-usage-price)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
 
 ## Data used in the report
 
@@ -11977,7 +12067,7 @@ The agent helps categorize imported PDF documents when it's uncertain if the PDF
 
 ### Drafting invoice details
 
-When the agent considers a PDF document a valid vendor invoice with high confidence, it starts by identifying the vendor to create the purchase invoice draft. In this process, the agent might need help from an agent supervisor if it can't confidently identify the correct vendor. If the agent couldn't identify the vendor, the agent supervisor can instruct the agent to create the vendor on their behalf by using the **Additional instructions** field in the agent sidecar.
+When the agent considers a PDF document a valid vendor invoice with high confidence, it starts by identifying the vendor to create the purchase invoice draft. In this process, the agent might need help from an agent supervisor if it can't confidently identify the correct vendor. If the agent couldn't identify the vendor, the agent supervisor can instruct the agent to create the vendor on their behalf by using the **Give instructions to the agent** field in the agent sidecar.
 
 **The agent will stop when it cannot identify the vendor:**
 
@@ -11987,7 +12077,7 @@ When the agent considers a PDF document a valid vendor invoice with high confide
 
 ![Agent is instructed to create the vendor](media/payables-agent-vendor-not-identified-create.png)
 
-You can provide additional instructions by selecting one of the suggested actions or typing your own instructions by using the small ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. 
+You can provide more instructions by selecting one of the suggested actions or typing your own instructions in the **Type your instructions** box by using the ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. 
 
 **When the agent has created the vendor, it will ask the agent supervisor to review the newly created vendor:**
 
@@ -12022,7 +12112,7 @@ The agent is available in Business Central and is ready for you to use. To activ
 
 ## Billing for use
 
-The Payables Agent uses Microsoft Copilot Studio messages for AI interactions, which can incur charges based on interaction complexity. Before you use the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
+The Payables Agent uses Copilot Credits for AI interactions, which can incur charges based on interaction complexity. Before you use the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
 ## General agent operations
 
@@ -12045,7 +12135,7 @@ The agent works within the permissions and profile (role) the admin assigns. Lea
 ## Next steps
 
 - [Set up Payables Agent](payables-agent-setup.md)
-- [Use Payables Agent](use-payables-agent.md)
+- [Supervise agent activities](use-payables-agent.md)
 - [Responsible AI FAQ for Payables Agent](faqs-payables-agent.md)
 
 ## Related information
@@ -13244,14 +13334,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-role-explorer
 ---
-title: Exploring and navigating pages and reports per role
+title: Finding Pages and Reports with the Role Explorer
 description: You can get an overview of all the business features that are available for your role, and for other roles, with the Role Explorer.
 author: jswymer
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: role explorer, find features, navigate
 ms.search.form: RoleExplorer, 9020, 9022, 9027, 9024
-ms.date: 03/10/2025
+ms.date: 09/30/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
@@ -13259,9 +13349,13 @@ ms.reviewer: jswymer
 
 # Finding pages and reports with the role explorer
 
+
+By using preview, you agree to follow by the terms of use.
+By using preview, you agree to the terms of use.
+
 You can get an overview of the pages and reports that make up the features that people your business role often use. You can also explore what's available for other roles. This article refers to the overview of pages and reports as the *role explorer*.
 
-In addition to the overview, the role explorer provides actions that open pages or reports, for example, so you can explore the information that the page or report includes. You can also use the role explorer as a way to get around in [!INCLUDE[prod_short](includes/prod_short.md)].
+In addition to the overview, the role explorer lets you open pages or reports to explore the information they include. You can also use the role explorer as a way to get around in [!INCLUDE[prod_short](includes/prod_short.md)].
 
 [!INCLUDE [about-ui-learn](includes/about-ui-learn.md)]
 
@@ -13269,27 +13363,40 @@ In addition to the overview, the role explorer provides actions that open pages 
 
 You can open the role explorer from role centers, list pages, and the **Tell Me** window.
 
-- On your role center or any list page, choose the ![Menu button.](media/ui_menu_button.png "Menu button") button, or select <kbd>Shift</kbd>+<kbd>F12</kbd>.
-- In the **Tell Me** window, choose the **exploring pages** action.
+- On your role center or any list page, select the ![Menu button.](media/ui_menu_button.png "Menu button") button or select <kbd>Shift</kbd>+<kbd>F12</kbd>.
+- In the **Tell Me** window, select the **exploring pages** action.
 
 ## Open the role explorer filtered to show reports
 
 You can open the role explorer in a filtered view that only shows reports:
 
-- On your role center or any list page, choose the **All Reports** action.
-- In the **Tell Me** window, choose the **exploring reports** action.
+- On your role center or any list page, select the **All Reports** action.
+- In the **Tell Me** window, select the **exploring reports** action.
 
 ## Open pages and reports
 
 The actions that open pages or reports are organized under nodes that are named after application areas. You can collapse or expand each node individually, or all nodes together.
 
-- To expand/collapse an individual top-level or subnode, choose the node.
-- To expand/collapse all top-level nodes on the page, but leave the subnodes as they are, choose **...** at the top, then choose **Expand** or **Collapse**.
-- To expand/collapse all top-levels node and all subnodes under it, choose **...** at the top, then choose the **Expand All** or **Collapse All** action.
+- To expand/collapse an individual top-level or subnode, select the node.
+- To expand/collapse all top-level nodes on the page, but leave the subnodes as they are, select **...** at the top, then select **Expand** or **Collapse**.
+- To expand/collapse all top-levels node and all subnodes under it, select **...** at the top, then select the **Expand All** or **Collapse All** action.
 
 ## Search for pages and reports
 
-To quickly locate a page or report, select **Find**, and then enter a word or phrase for what you want to find. Role explorer highlights any matching text. If the page or report is hidden in a collapsed node, the collapsed node is marked with a dot.
+To quickly locate a page or report, select the **Find** box near the top of the explorer, and then enter a word or phrase for what you want to find. Role explorer highlights any matching text. If the page or report is hidden in a collapsed node, the collapsed node is marked with a dot.
+
+### Try advanced (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner-section.md)]
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+
+If you don't find a match or aren't sure of the exact name of what you're looking for, select **Try Advanced** (preview) under the **Find** box to open the **Advanced** tab in **Tell Me** window and get more results. The **Advanced** tab uses AI-powered semantic search, so it finds results based on the meaning of your search instead of just matching exact words. You can type short descriptive phrases or full sentences in plain, everyday language. For example, you can type in natural language like "report that shows my best customers" to find the **Customer - Top 10** report.
+
+Learn more about advanced Tell Me in [Finding pages and information with Tell Me](ui-search.md#get-started-with-tell-me).
+
+> [!NOTE]
+> **Advanced** is available in Business Central online only, not on-premises, and only when an admin enables **Feature: Advanced Tell Me (preview)** in the **Feature Management** page. Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).
 
 ## Explore other roles
 
@@ -13332,11 +13439,11 @@ Choose the **Explore more roles** action at the top of the role explorer to get 
 
 The actions that open pages or reports are organized under nodes named after the features or application areas. You can collapse or expand each node individually, and you can collapse or expand all nodes.
 
-- To expand or collapse a top-level or subnode, choose the node.
-- To expand or collapse all top-level nodes on the page, choose the **Expand** or **Collapse** action.
+- To expand or collapse a top-level or subnode, select the node.
+- To expand or collapse all top-level nodes on the page, select the **Expand** or **Collapse** action.
 - To expand or collapse all top-level nodes and their subnodes:
-  - Select the <kbd>Ctrl</kbd>+<kbd>Shift</kbd> keys while you choose the **Expand** or **Collapse** action.
-  - Choose **...**, and then choose the **Expand All** or **Collapse All** action.
+  - Select the <kbd>Ctrl</kbd>+<kbd>Shift</kbd> keys while you select the **Expand** or **Collapse** action.
+  - select **...**, and then select the **Expand All** or **Collapse All** action.
 
 ## Learn more about a page or report
 
@@ -13350,11 +13457,12 @@ Teaching tips are available for some pages and reports. When that's the case, wh
 
 [!INCLUDE[2025_releasewave1](includes/2025_releasewave1.md)]
 
-You can open the pages or reports in a new window while keeping the role explorer open. To explore an element, choose the **Open in a new window** icon to the left of the element's name. If the page or report has a teaching tip, the tip contains the **Open in a new window** icon.
+You can open the pages or reports in a new window while keeping the role explorer open. To explore an element, select the **Open in a new window** icon to the left of the element's name. If the page or report has a teaching tip, the tip contains the **Open in a new window** icon.
 
 ## Related information
 
 [Finding Pages and Information with Tell Me](ui-search.md)  
+[Responsible aI FAQ for advanced Tell Me](faqs-advanced-tell-me.md)  
 [Manage Profiles](admin-users-profiles-roles.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -15178,6 +15286,134 @@ In a ledger entry page, you can see whether there are global dimensions for the 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)    
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-esg-reporting
+---
+title: Handle External ESG reporting
+description: Learn how to set up, run and export External ESG reports.
+author: altotovi
+ms.author: altotovi
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: Sustainability, ESG, emission, GHG, certificate, green
+ms.search.form: 
+ms.date: 09/11/2025
+ms.service: dynamics-365-business-central
+
+---
+
+# Handle External ESG compliance reporting
+
+The European Union's (EU) Corporate Sustainability Reporting Directive (CSRD) specifies how, and when, companies report on sustainability matters. To learn more about CSRD, go to [CSRD Directive](https://csrd-directive.eu/).
+
+This article describes how to prepare your [!INCLUDE [prod_short](includes/prod_short.md)] to help your business meet CSRD requirements.
+
+## Prerequisites
+
+To use the features for External ESG reporting, you must have the following in place:
+
+- A valid license for Power Apps.
+- Deploy External ESG reporting. To learn more about how to deploy, go to [Deploy external reporting in Sustainability Manager](/industry/sustainability/external-reporting/deploy).
+
+## Use External ESG reporting
+
+External ESG reporting provides templates based on ESG standards or frameworks. The tool helps you create, complete, and manage approval of comprehensive reports across both quantitative and qualitative metrics.
+
+If you're new to ESG reporting, the following articles can help you get started:
+
+- To learn more about External ESG reporting, go to [Overview of external reporting in Sustainability Manager](/industry/sustainability/external-reporting/overview).
+- To learn more about standard and framework reporting templates for ESG reporting, go to [Review standards](/industry/sustainability/external-reporting/standards#review-standards-1).
+
+## Get started
+
+The following sections describe each step in the process of setting up External ESG reporting.
+
+### Integrate with Dataverse and enable data synchronization
+
+Connect your [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [cds_long_md](includes/cds_long_md.md)], and enable data synchronization. To learn more, go to [Integrate with Microsoft Dataverse via data sync](admin-common-data-service.md).
+
+For External ESG reporting, key parts of the integration with [!INCLUDE [cds_long_md](includes/cds_long_md.md)] are the integration table and field mappings. Integration table and field mappings specify the data that synchronizes and the direction of the synchronization. That is, whether data created in one app synchronizes to the other, or data synchronizes in both directions.
+
+When you turn on the **Enable Dataverse Integration** toggle on the **Sustainability Setup** page, [!INCLUDE [prod_short](includes/prod_short.md)] creates the integration table and field mappings listed in the following table. In [!INCLUDE [prod_short](includes/prod_short.md)], you can review the table and field mappings on the **Integration Table Mappings** page.
+
+| [!INCLUDE[prod_short](includes/prod_short.md)] | [!INCLUDE[prod_short](includes/cds_long_md.md)] | Synchronization Direction |
+|---------------------------------------------|----------------------------------------------|---------------------------|
+|ESG Concept|Concept|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Reporting Line|Assessment Requirement|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Reporting Name|Assessment|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|Posted ESG Report Line|Fact|[!INCLUDE[prod_short](includes/prod_short.md)] --> [!INCLUDE[prod_short](includes/cds_long_md.md)]|
+|ESG Range Period|Range Period|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Requirement Concept|Requirement Concept ID|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Standard Requirement|Standard Requirement ID|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Standard|Standard ID|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+|ESG Reporting Unit|Unit|[!INCLUDE[prod_short](includes/cds_long_md.md)] --> [!INCLUDE[prod_short](includes/prod_short.md)]|
+
+### Set up an assessment in External ESG reporting
+
+The next step is to set up assessments for your External ESG reporting. To learn more about how to set up an assessment in your External ESG reporting, go to [Create assessments](/industry/sustainability/external-reporting/assessments).
+
+## Set up External ESG reporting in Business Central
+
+The ESG report is automatically created in [!INCLUDE [prod_short](includes/prod_short.md)] from the assessment in your External ESG reporting. The next step is to connect the lines with the data sources in [!INCLUDE [prod_short](includes/prod_short.md)]. To do that, follow these steps.
+
+1. In [!INCLUDE [prod_short](includes/prod_short.md)], [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **ESG Reporting Aggregation**, and then choose the related link.
+1. In the **Name** field, choose the assessment you created in Power Apps.
+1. In the **Field Type** field, choose either **Table Field** or **Formula**, and then do one of the following:
+
+   To specify a data source, choose **Table Field**, and then follow these steps:  
+
+   1. For each line where you want to add an amount from [!INCLUDE [prod_short](includes/prod_short.md)], in the **Table No.** field, choose the table that contains the fields with the data you want to synchronize. When you choose a table, its fields are available in the **Field No.** field.
+   1. In the **Field No.** field, choose the field that you want to synchronize.
+   1. In the **Value Settings** field, specify whether you want to show values as a sum, or a total count.
+   1. In the **Account Filter** field, choose the account to post to in your sustainability chart of accounts.
+
+   To run a calculation on the values from the data source, choose **Formula**, and then enter the formula you want to use in the **Row Totaling** field. To learn more about formulas, go to [Working with row formulas](bi-row-definitions.md#working-with-row-formulas).
+
+   Continue with the next step in this procedure.
+
+1. In the **Reporting Unit of Measure** field, enter the unit of measure in which you want to calculate values in your ESG report.
+1. In the **Calculate With**, **Show**, and **Show With** fields, define how you want to display values.
+1. In the **Rounding** field, specify whether you want to round values to the nearest whole number. 
+1. To verify that the report works, choose the **Preview** action, and then verify the values.
+
+## Run the ESG compliance report
+
+When your setup is ready, you can run the ESG compliance report.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **ESG Reporting Aggregation**, and then select the related link.
+1. Choose the **Calculate and Post ESG Report**
+1. A confirmation dialog displays. Verify that the template and batch are correct, and then choose **Yes**.
+
+## Review your posted ESG compliance report
+
+You can review your posted ESG compliance reports in [!INCLUDE [prod_short](includes/prod_short.md)] and in External ESG reporting.
+
+To review your ESG report in [!INCLUDE [prod_short](includes/prod_short.md)], follow these steps:
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Posted ESG Reports**, and then select the related link.
+1. Open the posted report you want to review.
+1. The **Posted ESG Report** page shows the details about the posted report.
+
+To review the assessment (ESG compliance report) in your External ESG reporting, follow these steps:
+
+1. Open your External ESG reporting.
+1. Find your assessment, and choose the **Requirements** tab.
+1. To view details about a requirement, including its fact value, expand the requirement.
+
+## Export your assessment from External ESG reporting
+
+For example, if you want to share your ESG report, you can export it from External ESG reporting. To learn more about exports, go to [Export assessments](/industry/sustainability/external-reporting/exports).
+
+1. Open your External ESG reporting.
+1. Find your assessment, and choose the **Export** action.
+
+## Related information
+
+[Sustainability management overview](finance-manage-sustainability.md)  
+[Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
+
+[!INCLUDE [footer-banner](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-post-documents-journals
@@ -17348,7 +17584,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
@@ -17356,17 +17592,15 @@ ms.search.form: 456, 457, 458, 459, 460, 461, 16, 22, 25, 26, 27, 31, 143, 144, 
 ms.collection:
   - bap-ai-copilot
 ---
-# Analyze data in lists with Copilot (preview)
-
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+# Analyze data in lists with Copilot
 
 This article explains how to use *analysis assist* to help you analyze data on list pages.
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
-
 ## About analysis assist
 
-Analysis assist is a Copilot for the [analysis mode](analysis-mode.md) on list pages in [!INCLUDE [prod_short](includes/prod_short.md)]. Analysis mode provides an interactive and versatile way to calculate, summarize, and examine data. To analyze data in analysis mode, you create an *analysis* tab where you transform the data to display the desired aggregations and summarizations. For example, you arrange fields in rows and columns, specify filters, sort columns, and pivot on fields. With analysis assist, instead of doing this task manually, you achieve much of the same&mdash;or least as a start&mdash;by using words. By expressing the structure you want in natural language, like "sort on quantity from smallest to largest" or "show average cost per category," analysis assist uses AI to generate a suggested layout on an analysis tab.
+Analysis assist is a Copilot for the [analysis mode](analysis-mode.md) on list pages in [!INCLUDE [prod_short](includes/prod_short.md)]. Analysis mode provides an interactive and versatile way to calculate, summarize, and examine data. To analyze data in analysis mode, create an analysis tab where you transform the data to display the desired aggregations and summarizations—for example, arranging fields in rows and columns, specify filters, sorting columns, and pivot on fields.
+
+With analysis assist, instead of doing these tasks manually, you can express the structure you want in natural language and get a suggested layout as a starting point. Copilot can also help by adding fields from related tables (for example, showing items together with the purchasing vendor address). It can translate instructions like "sort on quantity from smallest to largest" or "show average cost per category" into the corresponding rows, columns, filters, and aggregations.
 
 ## Supported languages
 
@@ -17374,7 +17608,7 @@ Analysis assist is a Copilot for the [analysis mode](analysis-mode.md) on list p
 
 ## Prerequisites
 
-- An administrator must activate the **Analyze list** capability on the **Copilot & agent capabilities** page and grand users permissions to use analysis mode. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).  
+- An administrator activated the **Analyze list** capability on the **Copilot & agent capabilities** page and granted you the required permissions to use analysis mode. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).  
 
 ## Get started
 
@@ -17392,7 +17626,7 @@ Analysis assist is a Copilot for the [analysis mode](analysis-mode.md) on list p
     ![Shows the analysis assist Copilot](media/analysis-assist.svg)
 
     > [!TIP]
-    > For help in writing a prompt, select ![Shows the view prompt icon](media/prompt-guide-icon.png) **Prompt guide**, and choose one of the options to get you started. The text in brackets `[ ]` is shown only as an example and isn't included in the Copilot window.
+    > For help with writing a prompt, select ![Shows the view prompt icon](media/prompt-guide-icon.png) **Prompt guide**, and choose one of the options to get you started. The text in brackets `[ ]` is shown only as an example and isn't included in the Copilot window.
 
 1. Select **Generate** and then wait while Copilot generates the layout on new analysis tab.
 1. Review the results on the new analysis tab.
@@ -17439,22 +17673,33 @@ This prompt tries to show totals for all summable fields, grouped by brand and t
 
 Prompt: `Show items by type and uom`
 
-This prompt  shows totals for all summable fields, grouped by the **Type** field and **Base Unit of Measure** field. In this prompt, the abbreviation `uom` is used instead of writing out "unit of measure". Copilot is often able to interpret abbreviations or alternate names and match them to fields on the list.
+This prompt shows totals for all summable fields, grouped by the **Type** field and **Base Unit of Measure** field. In this prompt, the abbreviation `uom` is used instead of writing out "unit of measure". Copilot is often able to interpret abbreviations or alternate names and match them to fields on the list.
 
 Prompt: `Show total quantity per type per UoM`
 
 This prompt creates a pivot table on the **Quantity on Hand** field per **Base Unit of Measure** per **Type**.
 
+Prompt: `group items by vendor's country/region`
+
+This prompt groups items by the vendors' countries/regions. Because the country/region data is stored in the **Vendor** table, not the **Item** table, Copilot uses analysis mode to include fields from related tables. In this case, Copilot uses the vendor number from the item record to retrieve the country/region from the **Vendor** table and adds `Country/Region Code [Vendor, via: Vendor No. = No.]` in the **Row Groups** section of the **Columns** pane.
+
+> [!TIP]
+> Copilot performs better when you mention the related table from which you want to add more fields.
+
 ## How Copilot works with fields for analysis assist
 
 Copilot can use any of the visible or hidden fields on the list page and add them as columns to the analysis tab layout. Hidden fields are those fields that you would typically add to the list by personalizing the page.
 
-When Copilot determines that a hidden field is useful for your analysis tab, the field is shown as a column in the tab layout. It's also shown in the **Columns** pane so that you can hide or reorder it, or add it to any other analysis tabs for this list.  
+When Copilot determines that a hidden field is useful for your analysis tab, the field is shown as a column in the tab layout. It also appears in the **Columns** pane so that you can hide or reorder it or add it to any other analysis tabs for this list.  
 
 > [!NOTE]
-> If an administrator has turned off personalization for your profile (role), Copilot isn't able to use hidden fields from the list.
+> If an administrator turned off personalization for your profile (role), Copilot isn't able to use hidden fields from the list.
 
 Copilot can't reach fields that are on the table but not on the page, and it can't use fields from other pages.
+
+## Using tabs created by Copilot in preview
+
+If you used the **Analysis Assist** feature while in preview, you might have asked Copilot to create analysis tabs that include hidden fields from the list. These tabs are no longer compatible. When you next open one of these analysis tabs, a message indicates which hidden fields have been removed. You can add these fields again manually, or ask Copilot to create a new tab for you.
 
 ## Related information
 
@@ -19935,57 +20180,68 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-add-fields-word-report-layout
 ---
-title: How to Add Fields to a Word Report Layout
-description: This topic describes how to add fields of a report dataset to an existing Word report layout for a report.
+title: Work with Word Layouts
+description: This article describes how to add fields of a report dataset to an existing Word report layout for a report.
 author: jswymer
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords:
-ms.date: 10/01/2024
+ms.date: 09/30/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
 ---
+# Work with Word layouts
 
-# Work with Word Layouts
-
-A Word report layout determines the content and format of a report when it is previewed and printed from Business Central. You create and modify these layouts using Microsoft Word.
+A Word report layout determines the content and format of a report when it's previewed and printed from Business Central. You create and modify these layouts using Microsoft Word.
 
 [![Example of a word report layout document for Business Central.](media/word-layout.png)](media/word-layout.png#lightbox) 
 
-When you modify a Word report layout, you specify the fields of the report dataset to include on report and how the fields are arranged. You also define the general format of the report, such as text font and size, margins, and background images. You will typically arrange the content of the report by adding tables to the layout.
+When you modify a Word report layout, you specify the fields of the report dataset to include on report and how the fields are arranged. You also define the general format of the report, such as text font and size, margins, and background images. You typically arrange the content of the report by adding tables to the layout.
 
-To make general formatting and layout changes, such as changing text font, adding and modifying a table, or removing a data field, just use the basic editing features of Word, like you do with any Word document.
+To make general formatting and layout changes, such as changing text font, adding or modifying a table, or removing a data field, use the standard editing features available in Microsoft Word as you would with any Word document.
 
-If you're designing a Word report layout from scratch or adding new data fields, then start by adding a table that includes rows and columns that will eventually hold the data fields.
+If you're designing a Word report layout from scratch or adding new data fields, then start by adding a table that includes rows and columns for holding the data fields.
 
 > [!TIP]  
 > Show the table gridlines so that you see the boundaries of table cells. Remember to hide the gridlines when you're done editing. To show or hide table gridlines, select the table, and then under **Layout** on the **Table** tab, choose **View Gridlines**.
 
-## Embedding Fonts in Word Layouts for Consistency
+## Embedding fonts in Word layouts for consistency
 
 To ensure that reports always display and print with the intended fonts, wherever users open or print the reports, you can embed the fonts in the Word document. However, embedding fonts can significantly increase the size of the Word files. Learn more about embedding fonts in Word at [Embed fonts in Word, PowerPoint, or Excel](https://support.office.com/article/Embed-fonts-in-Word-PowerPoint-or-Excel-cb3982aa-ea76-4323-b008-86670f222dbc).
 
+## Quickstart: Modify a Word layout
+
+To customize a Word layout for a report, follow these steps:
+
+1. Get the .docx file for the Word layout.
+
+   In Business Central, you can export an existing layout from the **Report Layouts** page.
+1. Open the layout file in Word.
+1. Make the required changes to the Word layout as described in the [Adding data fields](#adding-data-fields) and [Adding image fields](#adding-image-fields) sections that follow.
+1. Save the file.
+1. In Business Central, return to the **Report Layouts** page, and then import the modified layout to replace an existing layout or create a new layout.
+
+Learn more in [Modify a report Layout](ui-get-started-layouts.md#modify-a-layout).
+
+> [!TIP]
+> Business Central offers an add-in to Word that lets you do several layout modifications, like adding data fields and labels, from a user-friendly task pane instead of the **XML Mapping Pane**. Learn more in [Use the Word add-in on report layouts](/dynamics365/business-central/dev-itpro/developer/word-layout-add-in).
+
 ## Adding data fields
 
-A report dataset can consist of fields that display labels, data, and images. This topic describes the procedure for adding fields of a report dataset to an existing Word report layout for a report. You add fields by using the Word custom XML part for the report and adding content controls that map to the fields of the report dataset. Adding fields requires that you have some knowledge of the report's dataset so that you can identify the fields that you want to add to the layout.  
+A report dataset can consist of fields that display labels, data, and images. This article describes the procedure for adding fields of a report dataset to an existing Word report layout for a report. You add fields by using the Word custom XML part for the report and adding content controls that map to the fields of the report dataset. Adding fields requires that you have some knowledge of the report's dataset so that you can identify the fields that you want to add to the layout.  
   
 > [!NOTE]  
-> You cannot modify built-in report layouts<!--Onprem. Built-in layouts can only be modified by using the development environment-->.  
+> You can't modify built-in report layouts<!--Onprem. Built-in layouts can only be modified by using the development environment-->.  
 
 ###  <a name="OpenXMLPart"></a> To open the Custom XML part for the Report in Word  
   
-1. If it's not already open, then open the Word report layout document in Word.  
+1. Display the **Developer** tab in the ribbon of Microsoft Word.  
   
-     For more information, see [Create and Modify a Custom Report Layout](ui-how-create-custom-report-layout.md).  
+     By default, the **Developer** tab isn't shown in the ribbon. Learn more at [Show the Developer Tab on the Ribbon](/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon).  
   
-2. Display the **Developer** tab in the ribbon of Microsoft Word.  
-  
-     By default, the **Developer** tab is not shown in the ribbon. Learn more at [Show the Developer Tab on the Ribbon](/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon).  
-  
-3. On the **Developer** tab, select **XML Mapping Pane**.  
-  
-4. In the **XML Mapping** pane, in the **Custom XML Part** dropdown list, choose the custom XML part for [!INCLUDE[prod_short](includes/prod_short.md)] report, which is typically last in the list. The name of the custom XML part has the following format:  
+1. On the **Developer** tab, select **XML Mapping Pane**.    
+1. In the **XML Mapping** pane, in the **Custom XML Part** dropdown list, choose the custom XML part for [!INCLUDE[prod_short](includes/prod_short.md)] report, which is typically last in the list. The name of the custom XML part has the following format:  
   
      `urn:microsoft-dynamics-nav/reports/<report_name>/<ID>`  
 
@@ -19997,31 +20253,26 @@ A report dataset can consist of fields that display labels, data, and images. Th
   
 ### To add a label or data field  
   
-1. Place your cursor in the document where you want to add the control.  
-  
-2. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Plain Text**.  
+1. Place your cursor in the document where you want to add the control.    
+1. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Plain Text**.  
   
     > [!NOTE]  
-    > You cannot add a field by manually typing the dataset field name in the content control. You must use the **XML Mapping** pane to map the fields.  
+    > You can't add a field by manually typing the dataset field name in the content control. You must use the **XML Mapping** pane to map the fields.  
   
 ### To add repeating rows of data fields to create a list  
   
 1. In a table, add a table row that includes a column for each field that you want repeated.  
   
-   This row will act as a placeholder for the repeating fields.  
+   This row acts as a placeholder for the repeating fields.  
   
-2. Select the entire row.  
+1. Select the entire row.    
+1. In the **XML Mapping** pane, right-click the control that corresponds to the report data item that contains the fields that you want repeated, choose **Insert Content Control**, and then choose **Repeating**.    
+1. Add the repeating fields to the row as follows:  
   
-3. In the **XML Mapping** pane, right-click the control that corresponds to the report data item that contains the fields that you want repeated, choose **Insert Content Control**, and then choose **Repeating**.  
-  
-4. Add the repeating fields to the row as follows:  
-  
-    1. Place your pointer in a column.  
-  
-    2. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Plain Text**.  
-  
-    3. For each field, repeat steps a and b.  
-  
+    1. Place your pointer in a column.
+    1. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Plain Text**.    
+    1. For each field, repeat steps a and b.
+
 ## Adding image fields
 
 A report dataset can include a field that contains an image, such as a company logo or a picture of an item. To add an image from the report dataset, you insert a **Picture** content control.  
@@ -20029,19 +20280,17 @@ A report dataset can include a field that contains an image, such as a company l
 Images align in the top-left corner of the content control and resize automatically in proportion to fit the boundary of the content control.  
   
 > [!IMPORTANT]  
-> You can only add images that have a format that is supported by Word, such as .bmp, .jpeg, and .png file types. If you add an image that has a format that is not supported by Word, you will get an error when you run the report from the [!INCLUDE[prod_short](includes/prod_short.md)] client.  
+> You can only add images that have a format that Word support, such as .bmp, .jpeg, and .png file types. If you add an image that has a format that Word doesn't support, you get an error when you run the report from the [!INCLUDE[prod_short](includes/prod_short.md)] client.  
   
 ### To add an image  
   
 1. Place your pointer in the document where you want to add the control.  
-  
-2. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Picture**.  
-  
-3. To increase or decrease the image size, drag a sizing handle away from or towards the center of the content control.  
+1. In the **XML Mapping** pane, right-click the control that you want to add, choose **Insert Content Control**, and then choose **Picture**.  
+1. To increase or decrease the image size, drag a sizing handle away from or towards the center of the content control.  
 
 ##  <a name="RemoveField"></a> Removing label and data fields
 
-Label and data fields of a report are contained in content controls in Word. The following figure illustrates a content control when it's selected in the Word document.  
+Label and data fields of a report are contained in content controls in Word. The following figure illustrates a content control when you selected it in the Word document.  
 
 ![Content control for field in Word report layout.](media/nav_wordreportlayouts_contentcontrol.png "NAV_WordReportLayouts_ContentControl")  
 
@@ -20052,8 +20301,7 @@ The name of the label or data field name displays in the content control. In the
 1. Right-click the field that you want to delete, and then choose **Remove Content Control**.  
 
      The content control is removed, but the field name remains as text.  
-
-2. Delete the remaining text as needed.
+1. Delete the remaining text as needed.
 
 ## Custom XML Part Overview
 
@@ -20076,7 +20324,7 @@ The following table provides a simplified overview of the XML of a custom XML pa
 
  In Word, you open the custom XML part in the **XML Mapping** pane, and then use the pane to map elements to content controls in the Word document. The **XML Mapping** pane is accessible from the **Developer** tab (learn more at [Show the Developer Tab on the Ribbon](/visualstudio/vsto/how-to-show-the-developer-tab-on-the-ribbon)).  
   
- The elements in the **XML Mapping** pane appear in a structure that is similar to the XML source. Label fields are grouped under a common **Labels** element and data item and columns are arranged in a hierarchal structure that corresponds to the XML source, with columns listed in alphabetical order. Elements are identified by their column name as defined in the report's dataset in AL code. Learn more in [Defining a Report Dataset](/dynamics365/business-central/dev-itpro/developer/devenv-report-dataset).  
+ The elements in the **XML Mapping** pane appear in a structure that is similar to the XML source. Label fields are grouped under a common **Labels** element and data item and columns are arranged in a hierarchical structure that corresponds to the XML source, with columns listed in alphabetical order. Elements are identified by their column name as defined in the report's dataset in AL code. Learn more in [Defining a Report Dataset](/dynamics365/business-central/dev-itpro/developer/devenv-report-dataset).  
   
  The following figure illustrates the simple custom XML part from the previous section in the **XML Mapping** pane of a Word document.  
   
@@ -20086,7 +20334,7 @@ The following table provides a simplified overview of the XML of a custom XML pa
   
 * To create repeating rows of columns, insert a **Repeating** content control for the parent data item element, and then add content control for the columns.  
   
-* For labels, the actual text that appears in the generated report is the value of the **Caption** property for the field in the data item table (if the label is related to the column in the report dataset) or a label in the Report Label Designer (if the label is not related to a column in the dataset).  
+* For labels, the actual text that appears in the generated report is the value of the **Caption** property for the field in the data item table (if the label is related to the column in the report dataset) or a label in the Report Label Designer (if the label isn't related to a column in the dataset).  
   
 * The language of the label that is displayed when you run the report depends on the language setting of the report object.  
   
@@ -20517,189 +20765,6 @@ The following table describes a sequence of tasks, with links to the articles th
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-items
----
-title: Service Items and Service Item Components
-description: Learn about the things you must set up before you can use service items, including default values such as response time and service price group.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.date: 06/25/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Set Up Service Items and Service Item Components
-To work with service items, you must set up the following
-
-* Service item groups.
-* Optional
-
-## To set up service item groups
-You can set up groups of items that are related in terms of repair and maintenance. You can define default values for service items in a service item group, such as response time, contract discount percent, and service price group. For items in a service item group, you can select whether you want them to be automatically registered as service items when they are sold.  
-
-You assign service item groups to items on the **Item** card, and to service items on the **Service Item** card.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Item Groups**, and then choose the related link.  
-2. Create a new service item group.  
-3. Fill in the **Code** and **Description** fields.  
-4. In the **Default Contract Discount %** field, enter the default contract discount percentage that you want the service items in the group to have.  
-5. In the **Default Serv. Price Group Code** field, enter the default service price group code that you want the service items in the group to have.  
-6. In the **Default Response Time (Hours)** field, enter the default response time in hours that you want the service items in the group to have.  
-7. If you want to register the items in the group as service items when they are sold, select the **Create Service Item** field.  
-
-## To set up service item components
-A service item can consist of several components, which can be replaced with spare parts when the item is serviced. These components are set up on the **Service Item Component List** page. Additionally, if you want to set up components for service items that are BOMs, you can copy the BOM items and create them as service item components.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items**, and then choose the related link.
-2. Open the service item for which you want to set up components.  
-3. Choose the **Components** action. The **Service Item Component List** page opens.  
-4. Add a new component.  
-5. In the **Type** field, choose **Service Item** if the component itself is a registered service item. Otherwise, select **Item**.  
-6. In the **No.** field, choose the item or service item that is a component of the service item.  
-
-## To set up service item components from a BOM
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items**, and then choose the related link.  
-2. Open the service item for which you want to set up components from a BOM.  
-3. Choose the **Components** action. The **Service Item Component List** page opens.  
-4. Choose the **Copy from BOM** action.  
-
-    If the item that the service item is linked to is a BOM, the components for all the items in the BOM are created automatically.  
-
-## To set up a service shelf
-You can set up service shelves that identify where you store your service items. You assign service shelves to service items on the **Service Order** and **Service Item Worksheet** pages.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Shelves**, and then choose the related link.
-2. Fill in the fields as necessary.
-
-## Related information
-[Set Up Codes for Standard Services](service-how-setup-service-coding.md)   
-[Set Up Troubleshooting](service-how-setup-troubleshooting.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-general-ledger
----
-title: Understand the general ledger and Chart of Accounts
-description: Describes the general ledger, chart of accounts, and account categories. Use the General Ledger Setup page to specify handling accounting issues in your company.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: analysis, history, track
-ms.search.form: 18, 20_Primary, 37, 65, 99, 118, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
-ms.date: 08/06/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Understand the general ledger and Chart of Accounts
-
-The general ledger (G/L) stores your financial data, and the chart of accounts (COA) shows the accounts that you post general ledger entries to. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts that's ready to support your business.
-
-## General ledger setup and general posting setup
-
-The setup of the general ledger is at the core of financial processes because it defines how you post data. Two pages in particular play an important part in configuring your finance processes:  
-
-* **General Ledger Setup**
-* **General Posting Setup**
-
-### The **General Ledger Setup** page
-
-Use the **General Ledger Setup** page to specify how to handle certain accounting issues in your company, such as:  
-
-* Invoice rounding details  
-* Address formats  
-* Financial reporting
-
-> [!TIP]
-> The **General Ledger Setup** page includes generic fields, and fields that are particular to your country or region. If you're unsure of the meaning of a field, we suggest you work with your accountant to determine whether it's relevant to your organization. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
-
-To open the page now, use the following link [General Ledger Setup](https://businesscentral.dynamics.com/?page=118).
-
-### The **General Posting Setup** page
-
-Use the **General Posting Setup** page to set up combinations of general business and general product posting groups. Posting groups map entities such as customers, vendors, items, resources, and sales and purchase documents to general ledger accounts. You fill in a line for each combination of business posting group and product posting group. But you can also open each line in its own posting setup card. Learn more at [Posting Group Setups](finance-posting-groups.md).  
-
-> [!TIP]
-> If you can't see the fields you're looking for in the **General Posting Setup** page, use the horizontal scroll bar at the bottom of the page to scroll to the right.  
-
-To open the page now, use the following link [General Posting Setup](https://businesscentral.dynamics.com/?page=314).
-
-## The chart of accounts
-
-The **Chart of Accounts** page shows all general ledger accounts. From the chart of accounts, you can do things like:  
-
-* View reports that show general ledger entries and balances.  
-* Close your income statement.  
-* Open the general ledger (G/L) account card to add or change settings.  
-* See a list of posting groups for that account.
-* View separate debit and credit balances for a single account.
-
-To learn more, go to [Understanding the Chart of Accounts](finance-chart-of-accounts.md).
-
-## Account categories
-
-You can personalize the structure of your financial statements by mapping general ledger accounts to account categories.  
-
-The **G/L Account Categories** page shows your categories and subcategories, and the general ledger accounts assigned to them. You can create new subcategories and assign those categories to existing accounts.  
-
-You can create a category group by indenting other subcategories under a line on the **G/L Account Categories** page. Category groups make it easy to get an overview because each grouping shows a total balance. For example, you can create subcategories for different types of assets, then create category groups for fixed assets versus current assets.  
-
-You can define whether specific types of reports must include the accounts in each subcategory. The account categories help define the layout of your financial statements.  
-
-### Example
-
-For example, the default balance statement has a subcategory for *Cash* under *Current Assets*. If you want the balance statement to consider petty cash and checking, take the following steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **G/L Account Categories**, then choose the related link.
-   1. Alternatively, [open the page here](https://businesscentral.dynamics.com/?page=790).
-2. Choose the **Edit List** action.
-3. Add two new subcategories: One for petty cash, and one for your checking account:
-   1. Select the **Current Assets** category.
-   2. Choose the **New** action.
-   3. Enter the subcategory name on the **Description** field.
-   4. On the **G/L Accounts in Category** field, select the appropriate G/L account.
-   5. On the **Additional Report Definition** field, select the **Cash Accounts** option.
-4. Indent them under the **Cash** subcategory.
-   1. Select the subcategory created in step 3.
-   2. Choose the **Indent** action.
-   3. Choose the **Move Down** action.
-   4. Choose the **Indent** action to indent under the **Cash** subcategory.
-
-When you choose the **Generate Financial Reports** action, or the next time the report is generated, your balance statement shows the following lines:
-
-* Total balance for cash.
-* Lines with balances for petty cash and the checking account.  
-
-> [!NOTE]
-> If you create a G/L account without assigning an account category, when you assign the account to a posting group [!INCLUDE[prod_short](includes/prod_short.md)] automatically assigns the account category from the G/L account immediately above the account in your chart of accounts. However, to include the new account in your financial reports, you must choose the **Generate Financial Reports** action on the **G/L Account Categories** page. Alternatively, open the G/L Account Card page, specify the account category, and then regenerate your financial report.
-
-## Access to create and edit G/L accounts and account categories
-
-In a small organization, such as the CRONUS demonstration company, most users can edit financial entities such as G/L accounts, account categories, and the chart of accounts, except those users with a TEAM MEMBER license. However, larger organizations typically use roles and permissions to limit access to editing these entities. If you're an administrator, or have the *Business Manager* or *Accountant* role, you can control user permissions to give the right people access to the relevant tables. To learn more, go to [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).  
-
-## Use dimensions to simplify your chart of accounts
-
-Dimensions are values that categorize entries so you can track and analyze them on documents, such as sales orders. Dimensions can, for example, indicate the project or department an entry came from. So, instead of setting up separate general ledger accounts for each department and project, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts.
-
-To learn more about dimensions, go to [Set up default dimensions for customers, vendors, and other accounts](finance-dimensions.md#to-set-up-default-dimensions-for-customers-vendors-and-other-accounts).
-
-## Related information
-
-[Understand the chart of accounts](finance-chart-of-accounts.md)  
-[Work with Dimensions](finance-dimensions.md)  
-[Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
-[Business Intelligence](bi.md)  
-[Finance](finance.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

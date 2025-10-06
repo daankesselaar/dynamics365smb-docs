@@ -5194,7 +5194,7 @@ ms.service: dynamics-365-business-central
 # Record special sales prices and discounts
 
 > [!NOTE]
-> 2020 release wave 2 introduced new, streamlined processes for setting up and managing prices and discounts. If you're a new customer using the latest version, you're using the new experience. If you're an existing customer, whether you are using the new experience depends on whether your administrator has enabled the **New sales pricing experience** feature update in **Feature Management**. Learn more at [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management) in the administration content.
+> 2020 release wave 2 introduced new, streamlined processes for setting up and managing prices and discounts. If you're a new customer using the latest version, you're using the new experience. If you're an existing customer, whether you're using the new experience depends on whether your administrator enabled the **New sales pricing experience** feature update in **Feature Management**. Learn more at [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management) in the administration content.
 
 [!INCLUDE[prod_short](includes/prod_short.md)] supports various pricing strategies, such as:
 
@@ -5206,7 +5206,7 @@ ms.service: dynamics-365-business-central
   * It's before a certain date
   * It includes a certain type of item  
 
-To use a basic pricing model, you only need to specify a unit price when you set up an item or resource. That price will always be used on sales documents. For more advanced models, for example, when you want to offer special prices for a sales campaign, you can specify criteria on the **Sales Prices** page. You can offer special prices based on a combination of the following information:  
+To use a basic pricing model, you only need to specify a unit price when you set up an item or resource. That price is always used for the item on sales documents. For more advanced models, for example, when you want to offer special prices for a sales campaign, you can specify criteria on the **Sales Prices** page. You can offer special prices based on a combination of the following information:  
 
 * Customer
 * Item
@@ -5220,21 +5220,21 @@ For sales discounts, you can set up two types:
 
 | Discount Type | Description |
 | --- | --- |
-| **Sales Line Discount** |Add an amount on sales lines that have a certain combination of customer, item, minimum quantity, unit of measure, or starting and ending date. This type works in the same way as for sales prices. |
+| **Sales Line Discount** |Add an amount on sales lines that have a specific combination of information. For example, customer, item, minimum quantity, unit of measure, or starting and ending date. This type works in the same way as for sales prices. |
 | **Invoice Discount** |A discount percentage that is subtracted from the sales document total if the sum of all lines on the document exceeds a certain minimum. |
 
 > [!TIP]  
-> If an item should never be sold with a discount, leave the discount fields on the item page empty, and do not include the item in any line discount setups.
+> If an item should never be sold with a discount, leave the discount fields on the item page empty, and don't include the item in any line discount setups.
 
 ## To set up a sales price for a customer
 
-These steps differ, depending on whether your administrator has turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab. 
+These steps differ, depending on whether your administrator turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab. 
 
 #### [Current experience](#tab/current-experience/)
 
 1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
 2. Choose the customer, and then choose the **Prices** action.
-3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that will grant a special sales price to the customer.
+3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that grants a special sales price to the customer.
 
 #### [New experience](#tab/new-experience/)  
 
@@ -5255,38 +5255,38 @@ By default, the status of new price lists is **Draft**. Draft price lists aren't
 ## Using sales and purchase price lists
 
 > [!NOTE]
-> Using price lists requires that your administrator has enabled the **New sales pricing experience** feature update in **Feature Management**. Learn more at [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management) in the administration content.
+> Using price lists requires that your administrator enabled the **New sales pricing experience** feature update in **Feature Management**. Learn more at [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management) in the administration content.
 
 Most of the new sales pricing experience is similar to the current experience, but there are a few differences. Those differences are described in the following sections.
 
-The **Applies-to Type** and **Applies-to No.** fields let you choose what a price list will apply to, such as customer or customer price group. Using **View Columns for**, you can show or hide columns relevant for setting prices, discounts, or prices and discounts.
+The **Applies-to Type** and **Applies-to No.** fields let you choose what a price list applies to, such as customer or customer price group. Using **View Columns for**, you can show or hide columns relevant for setting prices, discounts, or prices and discounts.
 
 ### Converting existing prices when you turn on the pricing feature update
 
 When you enable the **New sales pricing experience** feature update on the **Feature Management** page, the **Feature Data Update** guide opens. Use the **Use default prices** toggle as follows:
 
-* If you want to work with all prices on a single page, turn it on. Existing prices will be converted to one default price list for each of the following documents:
+* If you want to work with all prices on a single page, turn it on. Existing prices convert to one default price list for each of the following documents:
 
   * Sales
   * Purchases
   * Job sales
   * Job purchases
 
-  You can edit all prices for these areas on the **Prices Worksheet** page. The default price lists will be set on the **Sales & Receivables Setup**, **Purchases & Payables Setup,** and **Projects Setup** pages.
+  You can edit all prices for these areas on the **Prices Worksheet** page. You set the default price lists on the **Sales & Receivables Setup**, **Purchases & Payables Setup,** and **Projects Setup** pages.
 
 > [!NOTE]
-> If prices are set only on item or resource cards, default price lists will not be filled in with those prices during the data update. However, you can open any of the default price lists or the **Price Worksheet** page and use the **Suggest Lines** action to add the prices set on item or resource cards.
+> If prices are set only on item or resource cards, default price lists aren't updated with those prices during the data update. However, you can open any of the default price lists or the **Price Worksheet** page and use the **Suggest Lines** action to add the prices set on item or resource cards.
 
-* To use sales price lists, turn it off. Existing prices will be converted to a new price list for each combination of the following things:
+* To use sales price lists, turn it off. Existing prices convert to a new price list for each combination of the following things:
 
   * Customer
   * Customer group or campaign
   * Starting and ending dates
   * Currencies
 
-If you have many combinations, you'll have many price lists.
+If you have many combinations, you get many price lists.
 
-If you've already enabled the New Pricing Experience, you can create default price lists manually or specify an existing price list as the default. To set an existing price list as default, turn on the **Allow Updating Defaults** toggle on the price list. Then, on the **Sales & Receivables Setup**, **Purchase & Payables**, or **Projects Setup** pages, set the price list as the default.
+If you already enabled the New Pricing Experience, you can create default price lists manually or specify an existing price list as the default. To set an existing price list as default, turn on the **Allow Updating Defaults** toggle on the price list. Then, on the **Sales & Receivables Setup**, **Purchase & Payables**, or **Projects Setup** pages, set the price list as the default.
 
 ### Editing active price lists
 
@@ -5294,10 +5294,10 @@ To allow people to edit prices on active price lists for items, resources, custo
 
 When the **Allow Editing Active Price** toggle is turned off, to update prices in a price list you must change the status of the price list to **Draft**, make your change, and then reactivate the price list.
 
-The **Prices Overview** page provides an overview of all prices across price lists. You can set filters to narrow down the list of prices you may want to modify or add to. After you modify prices, you must use the **Verify Lines** action to verify the prices against other price list lines. Verifying prices helps avoid duplicates and ambiguity during price calculation.
+The **Prices Overview** page provides an overview of all prices across price lists. You can set filters to narrow down the list of prices you might want to modify or add to. After you modify prices, you must use the **Verify Lines** action to verify the prices against other price list lines. Verifying prices helps avoid duplicates and ambiguity during price calculation.
 
 > [!NOTE]
-> When you edit a line in an active price list the status of the line becomes **Draft**, and the line will not be considered during price calculation until you use the **Verify Lines** action. After you verify the price the line's status becomes **Active** and it will be considered in price calculations.
+> When you edit a line in an active price list the status of the line becomes **Draft**, and the line isn't considered during price calculation until you use the **Verify Lines** action. After you verify the price, the status of the line becomes **Active** and it is considered in price calculations.
 
 To add new prices, on the **Prices Overview** page, use the **Add New Lines** action. The **Prices Worksheet** page opens, and you can add price lines either by suggesting them based on criteria, copying them from other price lists, or manually entering them. Afterward, you can use the **Implement Price Change** action to compare the new prices with other price lists to avoid duplicates and ambiguity during price calculation.
 
@@ -5307,11 +5307,11 @@ To add new prices, on the **Prices Overview** page, use the **Add New Lines** ac
 2. On the **Price Lines - Create new** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 3. On the **Product filter** field, define filters for the selected **Product Type**.
 4. Choose the **Defaults** field to specify settings such as:
-   * Which entities the price list will be assigned to.
+   * Which entities the price list is assigned to.
    * Dates when the price is valid.
    * The currency code.
    * The amount type filter that defines the columns shown on the price list lines.
-5. Choose **OK**. New lines will be added to the **Price Worksheet** page with the selected settings and the unit prices from the item cards.
+5. Choose **OK**. New lines are added to the **Price Worksheet** page with the selected settings and the unit prices from the item cards.
 6. Edit the created lines with the new unit prices or discounts. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 #### Create sales price lines based on existing price lists
@@ -5320,17 +5320,17 @@ To add new prices, on the **Prices Overview** page, use the **Add New Lines** ac
 2. On the **Price Lines - Copy existing** page, select an existing price list on the **From Price List** field.
 3. On the **Price Line filter** field, define filters for the products on the selected price list.
 4. Choose the **Defaults** field to specify settings such as:
-   * Which entities the price list will be assigned to.
+   * Which entities the price list is assigned to.
    * Dates when the price is valid.
    * The currency code.
    * The amount type filter that defines the columns shown on the price list lines.
 5. Fill in the other fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-6. Choose **OK**. New lines will be added to the **Price Worksheet** page with the selected settings.
+6. Choose **OK**. New lines are added to the **Price Worksheet** page with the selected settings.
 7. Edit the created lines with the new unit prices or discounts. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 ## To copy sales prices
 
-These steps differ, depending on whether your administrator has turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
+These steps differ, depending on whether your administrator turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
 
 #### [Current experience](#tab/current-experience/)  
 
@@ -5344,11 +5344,11 @@ If you want to copy sales prices, such as an individual customer's sales prices 
 6. Choose the **OK** button to fill in the lines on the **Sales Price Worksheet** page with the suggested new prices, indicating that they're valid for the selected sales type.  
 
    > [!NOTE]  
-   > This batch job only creates suggestions and it does not implement the suggested changes. If you are satisfied with the suggestions and want to implement them, that is insert them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
+   > This batch job only creates suggestions and it doesn't implement the suggested changes. If you're satisfied with the suggestions and want to implement them, that is insert them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
 
 #### [New experience](#tab/new-experience/)  
 
-You can specify the settings that the price list will use:
+You can specify the settings that the price list uses:
 
 * Use the settings from the header on the list you're copying.
 * Use the settings from the list you're copying to. To use the settings from the price list you're copying prices to, turn on the **Use defaults from target** toggle.
@@ -5358,13 +5358,13 @@ You can specify the settings that the price list will use:
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
    > [!NOTE]
-   > You can't have two items that have the same settings but different prices. If that happens, a message will display when you activate the price list. You can choose the price to use by opening the list and deleting the incorrect price.  
+   > You can't have two items that have the same settings but different prices. If that happens, a message displays when you activate the price list. You can choose the price to use by opening the list and deleting the incorrect price.  
   
 ---
 
-## To bulk update item prices
+## Bulk update item prices
 
-These steps differ, depending on whether your administrator has turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
+These steps differ, depending on whether your administrator turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
 
 #### [Current experience](#tab/current-experience/)
 
@@ -5389,31 +5389,37 @@ To bulk update item prices, such as increase all prices by a percentage, you can
 5. If you want the batch job to automatically adjust suggested item prices, enter the adjustment in the **Adjustment Factor** field. For example, you would enter 1.15 in **Adjustment Factor** for a 15% increase in item price.  
 6. If you want the batch job to create new prices, turn on the **Create New Prices** toggle.  
 7. Choose the **OK** button to fill in the lines on the **Sales Price Worksheet** page with the suggested new prices.
-8. To implement the suggestions, use the **Implement Price Changes** action. The batch job creates suggestions but doesn't implement them. 
+8. To implement the suggestions, use the **Implement Price Changes** action. The batch job creates suggestions but doesn't implement them.
 
 #### [New experience](#tab/new-experience/)
 
 To update prices for multiple items, you must create a new price list, and then copy the lines from an existing price list. When you copy the lines you can use filters to specify what to copy, and you can specify an integer or decimal number in the **Adjustment Factor** field to increase or decrease prices. The price list must be in the **Draft** status. If needed, you can then deactivate the old price list.
 
 > [!NOTE]
-> You can't have two lines that have the same settings but different prices. If that happens, a message will display when you activate a price list. You can choose the price to use by opening the list and deleting the incorrect price.  
+> You can't have two lines that have the same settings but different prices. If that happens, a message displays when you activate a price list. You can choose the price to use by opening the list and deleting the incorrect price.  
+
+> [!TIP]
+> Another way to do bulk changes is to use the Edit in Excel action. If you use Excel, there are some specific steps to follow. To learn more, go to [Add or edit lines on price lists using Edit in Excel](#add-or-edit-lines-on-price-lists-using-edit-in-excel).
 
 ---
 
 ## Best price calculation
 
-After you record special prices and line discounts for sales and purchases, [!INCLUDE[prod_short](includes/prod_short.md)] calculates the best price on sales and purchase documents, and on project and item journal lines.
+After you record special prices and line discounts for sales and purchases, [!INCLUDE[prod_short](includes/prod_short.md)] calculates the best price on the following documents and journals:
+
+* Sales and purchase documents
+* Project and item journal lines
 
 The best price is the lowest price with the highest line discount allowed on a given date. [!INCLUDE[prod_short](includes/prod_short.md)] calculates best prices when it adds unit prices and the line discount percentages on document and journal lines.
 
 > [!NOTE]  
-> The following describes how the best price is calculated for sales. For purchases, the calculation is similar but is based on the available parameters. For example, item discount groups are not supported for purchasing.
+> The following steps describe how [!INCLUDE [prod_short](includes/prod_short.md)] calculates the best price for sales. For purchases, the calculation is similar but is based on the available parameters. For example, item discount groups aren't supported for purchasing.
 
 1. [!INCLUDE[prod_short](includes/prod_short.md)] checks the combination of the bill-to customer and the item and then calculates the applicable unit price and line discount percentage, using the following criteria:
 
     * Does the customer have a price/discount agreement, or does the customer belong to a group that does?
     * Is the item or the item discount group on the line included in any of these price/discount agreements?
-    * Is the date within the starting and ending date of the price/discount agreement? For invoices and credit memos, this is the date in the **Posting Date** field on the document header. For all other documents, it's the date in the **Order Date** field on their headers.
+    * Is the date within the starting and ending date of the price/discount agreement? For invoices and credit memos, this date is the date in the **Posting Date** field on the document header. For all other documents, it's the date in the **Order Date** field on their headers.
     * Is a unit of measure code specified? If so, [!INCLUDE[prod_short](includes/prod_short.md)] checks for prices/discounts with the same unit of measure code, and prices/discounts with no unit of measure code.
 
 2. [!INCLUDE[prod_short](includes/prod_short.md)] checks whether any price/discount agreements apply to information on the document or journal line. It then inserts the applicable unit price and line discount percentage using the following criteria:
@@ -5425,16 +5431,16 @@ If no special price can be calculated for the item on the line, then either the 
 
 ## Sales invoice discounts and service charges
 
-When you use invoice discounts, the total amount on the invoice determines the size of the discount that is granted. On the **Cust. Invoice Discounts** page, you can also add a service charge to invoices over a certain amount.  
+When you use invoice discounts, the total amount on the invoice determines the size of the discount that you grant. On the **Cust. Invoice Discounts** page, you can also add a service charge to invoices over a certain amount.  
 
 Before you can use invoice discounts with sales, you must specify certain information. You must make the following decisions:  
 
-* Which customers will be granted this type of discount?  
-* Which discount percentages you'll use?  
+* Which customers get this type of discount?  
+* Which discount percentages do you use?  
 
 If you want invoice discounts to be calculated automatically, on the **Sales & Receivables Setup** page, turn on the **Calc Inv. Discount** toggle.  
 
-You can specify whether you'll grant invoice discounts when an invoice meets certain criteria for each customer. For example, when the invoice amount is large enough. Invoice discounts can be in local currency for domestic customers, or in foreign currency for foreign customers.  
+You can specify whether you grant invoice discounts when an invoice meets certain criteria for each customer. For example, when the invoice amount is large enough. Invoice discounts can be in local currency for domestic customers, or in foreign currency for foreign customers.  
 
 You link discount percentages to specific invoice amounts on the **Cust. Invoice Discounts** page for each customer. You can enter any number of percentages. Each customer can have their own page, or you can link several customers to the same page.  
 
@@ -5443,7 +5449,7 @@ In addition to, or instead of, a discount percentage, you can link a service cha
 > [!TIP]  
 > Before you enter this information, it's a good idea to prepare an outline of the discount structure that you want to use. The structure makes it easier to determine which customers can be linked to the same invoice discount page. The fewer pages you have to set up, the faster you can enter the basic information.
 
-For training in discounts in sales, see [Set up discounts for your customers](/training/modules/customer-discounts-dynamics-365-business-central/index).
+To learn more about discounts in sales, go to [Set up discounts for your customers](/training/modules/customer-discounts-dynamics-365-business-central/index).
 
 ### Calculating invoice discounts on sales
 
@@ -5451,18 +5457,18 @@ For training in discounts in sales, see [Set up discounts for your customers](/t
 
 ## To set up a sales line discount for a customer
 
-These steps differ, depending on whether your administrator has turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
+These steps differ, depending on whether your administrator turned on the **New sales pricing experience** feature update. If the feature update isn't turned on, follow the steps on the Current Experience tab.
 
 #### [Current experience](#tab/current-experience/)  
 
 1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
 2. Open the relevant customer card, and then choose the **Line Discounts** action.
-3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that will grant a sales line discount to the customer.
+3. Fill in the fields on the line as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Fill a line for each combination that grants a sales line discount to the customer.
 
 > [!NOTE]
 > When you open the **Sales Prices** and **Sales Line Discounts** pages from a specific customer, the **Sales Type Filter** and **Sales Code Filter** fields are set for the customer and can't be changed or removed.
 >
-> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. Learn more at [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#to-bulk-update-item-prices).  
+> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. Learn more at [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#bulk-update-item-prices).  
 
 #### [New experience](#tab/new-experience/)  
 
@@ -5477,7 +5483,7 @@ These steps differ, depending on whether your administrator has turned on the **
     > If you're editing an existing line, you can filter the lines by choosing the appropriate option in the **View Columns for** field.
 
     > [!NOTE]  
-    > Invoice discount codes are represented by existing customer cards. This enables you to quickly assign invoice discount terms to customers by picking the name of another customer who will have the same terms. To set up customer-specific invoice discount terms, set the **Invoice Disc. Code** field to the customer's customer code, and then proceed to the next step.
+    > Invoice discount codes are represented by existing customer cards. This connection enables you to quickly assign invoice discount terms to customers by picking the name of another customer with the same terms. To set up customer-specific invoice discount terms, set the **Invoice Disc. Code** field to the customer's customer code, and then proceed to the next step.
 
 ---
 
@@ -5486,11 +5492,11 @@ These steps differ, depending on whether your administrator has turned on the **
 After you decide which customers are eligible for invoice discounts, enter the invoice discount code on the Customer Card pages. Then set up the terms for each code.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Customers**, and then choose the related link.
-2. Open the customer page for a customer that will be eligible for invoice discounts.
+2. Open the customer page for a customer that's eligible for invoice discounts.
 3. In the **Invoice Disc. Code** field, select a code for the relevant invoice discount terms to use to calculate invoice discounts for the customer.
 
 > [!NOTE]  
-> Invoice discount codes are represented by existing customer cards. This enables you to quickly assign invoice discount terms to customers by picking the name of another customer who will have the same terms.
+> Invoice discount codes are represented by existing customer cards. This connection enables you to quickly assign invoice discount terms to customers by picking the name of another customer with the same terms.
 
 Proceed to set up the new sales invoice discount terms.
 
@@ -5498,7 +5504,19 @@ Proceed to set up the new sales invoice discount terms.
 2. In the **Currency Code** field, enter the code for a currency that the invoice discount terms on the line apply to. Leave the field blank to set up invoice discount terms in USD.
 3. In the **Minimum Amount** field, enter the minimum amount that an invoice must have to be eligible for the discount.
 4. In the **Discount %** field, enter the invoice discount as a percentage of the invoice amount.
-5. Repeat steps 5 through 7 for each currency that the customer will receive a different invoice discount for.
+5. Repeat steps 5 through 7 for each currency that you give the customer a different invoice discount for.
+
+## Add or edit lines on price lists using Edit in Excel
+
+The Edit in Excel action lets you use Excel to quickly edit and add lines, and then publish your changes back to [!INCLUDE [prod_short](includes/prod_short.md)]. For example, the action is useful when you want to make many changes. To learn more about the Edit in Excel action, go to [Edit in Excel](across-work-with-excel.md#edit-in-excel).
+
+> [!NOTE]
+> If you want to add lines to a price list, you must update the Excel spreadsheet as follows:
+>
+> 1. Choose the price list you want to update, and then use the **Edit in Excel** action to open it in Excel.
+> 1. On the new lines for the new price information, fill in the **Line No.** and **Price List Code** fields only. Don't add any other information on the line.
+> 1. In the **Microsoft Dynamics Office Add-in** pane, choose **Publish**. After the add-in successfully publishes the change, choose **Refresh**.
+> 1. Fill in the remaining fields on the lines. When you're done, choose **Publish** again.
 
 ## Related information
 
@@ -9472,7 +9490,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Responsible AI FAQ for Autofill (preview)
 description: Learn about the AI technology of Autofill in Business Central, considerations, details about how AI is used, tested, evaluated, and limitations.
-ms.date: 07/24/2025
+ms.date: 09/15/2025
 ms.custom: 
   - responsible-ai-faqs
 ms.topic: faq
@@ -9491,9 +9509,9 @@ ms.search.keywords: copilot, AI, chat
 
 These frequently asked questions (FAQ) describe the AI effect of Copilot’s Autofill feature in [!INCLUDE [prod_short](includes/prod_short.md)].
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
-<!--[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]-->
+<!-- [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]-->
 
 ## What is Autofill?
 
@@ -9506,14 +9524,13 @@ Microsoft Copilot is an AI-powered assistant that sparks creativity, boosts prod
 [!INCLUDE[autofill-suggestions-source](includes/autofill-suggestions-source.md)]
 
 > [!IMPORTANT]
-> Copilot runs under your user context. It only has access to data that you already have access to. Your assigned permissions and all other security and compliance controls also apply when you use Copilot.
-
-> [!IMPORTANT]
-> Web Search is available from version 26.4 and above. The feature requires that you turn on **Bing Search** on the **Copilot & agent capabilities** page. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
+>
+> - Copilot runs under your user context. It only has access to data that you already have access to. Your assigned permissions and all other security and compliance controls also apply when you use Copilot.
+> - Web search is available from version 26.4 and above. The feature requires that you turn on **Bing Search** on the **Copilot & agent capabilities** page. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
 
 ## What is the intended use of Autofill?
 
-Autofill is an assistive feature intended to help people enter data into Business Central. It isn't designed to run autonomously and enter data on behalf of others. Since the suggestions aren't automatically saved to Business Central, you must review and accept each field for it to be saved. 
+Autofill is an assistive feature intended to help people enter data into Business Central. It isn't designed to run autonomously and enter data on behalf of others. Since the suggestions aren't automatically saved to Business Central, you must review and accept each field for it to be saved.
 
 When you choose to keep a suggestion, you're saving the change to Business Central as if you entered that value yourself without the assistance of Copilot.
 
@@ -10430,19 +10447,19 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: solsen
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 09/30/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ms.search.form: 456, 457, 458, 459, 460, 461, 16, 22, 25, 26, 27, 31, 143, 144, 9300, 9301, 9303, 9304, 9305, 9306, 9307, 9309, 9310, 9311
 ---
 # Analyze list page and query data using data analysis feature
 
-> **APPLIES TO:** Public preview in [!INCLUDE [prod_short](includes/prod_short.md)] 2023 release wave 1 for analyzing list pages. Generally available in [!INCLUDE [prod_short](includes/prod_short.md)] 2023 release wave 2 for analyzing data from list pages and queries.
+> **APPLIES TO:** [!INCLUDE [prod_short](includes/prod_short.md)] 2023 release wave 2 and later
 
 This article explains how to use the data analysis feature from list pages and queries. The data analysis lets you analyze data directly from the page, without having to run a report or open another application, such as Excel. The feature provides an interactive and versatile way to calculate, summarize, and examine data. Instead of running reports using different options and filters, you can add multiple tabs that represent different tasks or views on the data. Some examples are: "My customers," "Follow up items," "Recently added vendors," "Sales statistics," or any other view you can imagine.
 
 > [!TIP]
-> A good thing about the data analysis feature is that it doesn't change the underlying data of a list page or query. It also doesn't change the layout of the page or query when it isn't in analysis mode. So the best way to learn about what you can do in analysis mode is to try things out.
+> A good thing about the data analysis feature is that it doesn't change the underlying data of a list page or query. It also doesn't change the layout of the page or query when it isn't in analysis mode. So, the best way to learn about what you can do in analysis mode is to try out things.
 
 ## Prerequisites
 
@@ -10478,7 +10495,7 @@ Follow these steps to start using the analysis mode.
    The analysis tabs that you added remain until you delete them. If you return to the analysis mode again, you see them exactly as you left them.
 
 > [!NOTE]
-> The data shown in analysis mode is controlled by the filters or views set on the list page. This allows you to pre-filter data before entering analysis mode.
+> The data shown in analysis mode is controlled by the filters or views set on the list page. This capability allows you to prefilter data before entering analysis mode.
 
 ## Work with analysis mode
 
@@ -10498,10 +10515,10 @@ The data area is where the rows and columns of the list page query are shown and
 - To access several actions that you can do on columns, right-click the column or hover over it and select the menu icon ![Shows the icon on a column in analysis mode that opens a menu of actions](media/analysis-mode-column-menu-icon.png). For example:
 
   - To pin a column to the data area so that it doesn't move off the screen when you scroll, select ![Shows the icon on a column in analysis mode that opens a menu of actions](media/analysis-mode-column-menu-icon.png) > **Pin column** > **Pin left** the column part.
-  - Define data filters directly on the column definition instead of going to the **Analysis Filters** panes. You can still peek in on details about related data and for each line, and open the card to learn more about a given entity.   
+  - Define data filters directly on the column definition instead of going to the **Analysis Filters** panes. You can still peek in on details about related data and for each line, and open the card to learn more about a given entity.
 - Use the data area to interact with the data. For columns that contain numeric, summable values, you can get descriptive statistics on a set of fields by marking them. The statistics appear in the status bar (2) along the bottom of the page.
 
-Note that in the data area, you can filter on all columns, including totals such as sum or count. 
+In the data area, you can filter on all columns, including totals such as sum or count. 
 
 :::image type="content" source="media/analysis-mode-filter-on-totals.png" alt-text="Screenshot of how to filter on totals in analysis mode" lightbox="media/analysis-mode-filter-on-totals.png":::
 
@@ -10545,17 +10562,17 @@ To move a field from one area to another, select the grab icon ![Shows the butto
 #### Add fields from related tables
 
 > [!NOTE]
-> Adding fields from related tables is available from version 26.2 and to use it, you must have the **Add Related Fields** permission set. 
+> Adding fields from related tables is available from version 26.2 and to use it, you must have the **Add Related Fields** permission set.
 >
-> The feature is enabled with the feature key `Add fields from related tables in analysis mode`. Learn more in [Add fields from related tables in analysis mode feature key](analysis-mode-feature-key.md).
+> Before version 27.0, the feature is enabled with the feature key `Add fields from related tables in analysis mode`. Learn more in [Add fields from related tables in analysis mode feature key](analysis-mode-feature-key.md).
 
-Starting with [!INCLUDE [prod_short](includes/prod_short.md)] version 26.2, analysis mode allows you to add fields from related tables to your analysis view. For example, if you're analyzing the **Customer** page, you can add fields from the **Location** table. You can then group data by these related fields, enabling a more comprehensive and advanced data analysis.
+Analysis mode allows you to add fields from related tables to your analysis view. For example, if you're analyzing the **Customer** page, you can add fields from the **Location** table. You can then group data by these related fields, enabling a more comprehensive and advanced data analysis.
 
-To add fields from related tables, you select the **Add columns from** option from the **Analysis** context menu. Now, you see the tables related to the current page's source table as suggestions. When you choose the related table, an **Insert column(s) from** dialog opens with all the fields that are available in that table. You can also use the **Choose a source page** dropdown to navigate through and find fields that you'd like to see in your analysis view. When you have chosen the field or fields to add, these are added to the **Columns** pane and to the data area. Use the **Remove related columns** option to remove the related fields from the analysis tab. 
+To add fields from related tables, you select the **Add columns from** option from the **Analysis** context menu. Now, you see the tables related to the current page's source table as suggestions. When you choose the related table, an **Insert column(s) from** dialog opens with all the fields that are available in that table. You can also use the **Choose a source page** dropdown to navigate through and find fields that you'd like to see in your analysis view. After you choose the field or fields to add, they're added to the **Columns** pane and to the data area. Use the **Remove related columns** option to remove the related fields from the analysis tab. 
 
 :::image type="content" source="media/analysis-view-add-columns.png" alt-text="Add columns from option":::
 
-If you want to see all table suggestions, choose **Other source...** from the **Add columns from** menu. This opens an **Insert column(s)** dialog, where you pick the source and related table, the source page they are available on, and then the field or fields to show on your analysis view.
+If you want to see all table suggestions, choose **Other source...** from the **Add columns from** menu. This action opens an **Insert column(s)** dialog, where you pick the source and related table, the source page they're available on, and then the field or fields to show on your analysis view.
 
 :::image type="content" source="media/analysis-view-other-source.png" alt-text="Add columns from another source":::
 
@@ -10564,12 +10581,11 @@ If you want to see all table suggestions, choose **Other source...** from the **
 If you don't find the table or field that you're looking for, there are a few things to check:
 
 - The table must be related to the source table of the page you're analyzing. 
-- You must have permission to access the table or field. If you don't have permission, the field won't be available in the list of fields to add.
+- You must have permission to access the table or field. If you don't have permission, the field isn't available in the list of fields to add.
 - The field must be a field that can be added to the analysis. For example, you can't add fields that are internal or not allowed in customizations.
-- The table or field must have a page associated with it. If the table or field doesn't have a page, you won't be able to add it to the analysis.
+- The table or field must have a page associated with it. If the table or field doesn't have a page, you can't add it to the analysis.
 - Certain types of fields, such as Media fields, aren't supported in analysis mode.
-- When you add related fields, all calculated fields are lost. 
-
+- All calculated fields are lost when you add related fields.
 
 ### Analysis filters (4)
 
@@ -10578,7 +10594,7 @@ The **Analysis filters** pane lets you set further data filters on columns to li
 :::image type="content" source="media/analysis-mode-filters-2.png" alt-text="Shows an overview of the filters pane in the analysis mode" lightbox="media/analysis-mode-filters-2.png":::
 
 > [!NOTE]
-> The additional filters only apply to the current analysis tab. This allows you to define exactly the extra data filters that are needed for a specific analysis.
+> The added filters only apply to the current analysis tab, allowing you to define exactly the extra data filters that are needed for a specific analysis.
 
 ### Tabs (5)
 
@@ -10592,10 +10608,10 @@ Here are some pointers on working with multiple analysis tabs:
    - **Delete** deletes the tab you currently have open. **Delete All** deletes all tabs that you added, except the default **Analysis 1** tab.
 - You can't completely remove the **Analysis 1**, but you can rename it by using the **Rename** action and clear the changes you made by using **Delete** or **Delete All**.  
 
-- The analysis tabs that you add and configure remain until you delete them. If you return to the analysis mode, they're exactly as you left them.
+- The analysis tabs that you add and configure remain until you delete them. If you return to the analysis mode, the tabs are exactly as you left them.
 
    > [!TIP]
-   > The tabs that you set up are only visible to you. Other users will only see tabs they've set up.
+   > The tabs that you set up are only visible to you. Other users only see the tabs that they set up.
 - You can copy analysis tabs. Copying can be useful, for example, for experimenting with changing a tab without changing the original. Copying is also useful if you want to create different variations of the same analysis.
 
 ## Date hierarchies
@@ -10633,17 +10649,17 @@ Right-click on the data area or a selection of cells to export data.
 
 :::image type="content" source="media/data-analysis-export-to-excel.png" alt-text="Screenshot of how to export data from an analysis to Excel":::
 
-
 ## Analyze large amounts of data
 
-If the dataset you want to analyze exceeds 100,000 rows, we suggest you enter an analysis mode that's optimized for large datasets. There are currently two limitations if you switch to this mode: 
+If the dataset you want to analyze exceeds 100,000 rows, we recommend that you use an analysis mode that's optimized for large datasets. However, there are some limitations if you switch to this mode.
 
-- Formatting of fields of the following four data types might change: 
+- The formats in fields of the following four data types might change:
 
-   - currency 
-   - decimals (always shown with two decimals) 
-   - dates (always shown in the format YYYY-MM-DD)
-   - timezones
+  - Currency
+  - Decimals (always shown with two decimals)
+  - Dates (always shown in the format YYYY-MM-DD)
+  - Timezones
+- In [!INCLUDE [prod_short](includes/prod_short.md)] versions earlier than [!INCLUDE [prod_short](includes/2025-releasewave2-short.md)], you couldn't use date hierarchy fields for column labels in Pivot mode. In [!INCLUDE [prod_short](includes/2025-releasewave2-short.md)] and later, this limitation is removed.
 - Fields that are used in pivot mode and added to column labels must have a low number of distinct values.
 
    If you enable pivot mode and drag a field into the **Column labels** area, where the underlying data for that field has too many distinct values, your browser tab might become unresponsive. The browser eventually closes, requiring you to start over in a new session. In this case, either don't pivot on that field or set a filter on the field before you add it to the **Column labels** area.
@@ -10671,7 +10687,7 @@ After you prepare an analysis on a tab, you can share it as a link with coworker
 Use the **Data Analysis** feature for quick fact checking and ad hoc analysis:
 
 - If you don't want to run a report.
-- If a report for your specific need doesn't exist.
+- If a report for your specific needs doesn't exist.
 - If you want to quickly iterate to get a good overview on a part of your business.
 
 The following sections provide examples of scenarios for many of the functional areas in [!INCLUDE [prod_short](includes/prod_short.md)].
@@ -10698,13 +10714,13 @@ Many of the functional areas in [!INCLUDE[prod_short](includes/prod_short.md)] h
 
 The public preview of this feature has the following limitations:
 
-- The analysis mode view has a limit of 100,000 rows. If you exceed this, you get a message telling you so. To work around this limitation, set filters on the page before you switch to analysis mode, if possible. For example, you want to analyze a certain group of customers or only want data from the current year. You can also choose a predefined view if it would work for your analysis.
+- The analysis mode view has a limit of 100,000 rows. If you exceed this limit, you get a message telling you so. To work around this limitation, set filters on the page before you switch to analysis mode, if possible. For example, you want to analyze a certain group of customers or only want data from the current year. You can also choose a predefined view if it would work for your analysis.
 - The share data analysis feature isn't available.
 - The ability to save preferred data analysis choices on list pages and save analysis menus per analysis tab are currently not available.
 
 ## Related information
 
-[Ad-hoc data analysis by functional area](ad-hoc-data-analysis-by-functional-area.md)   
+[Ad-hoc data analysis by functional area](ad-hoc-data-analysis-by-functional-area.md)  
 [Ad hoc data analysis](reports-adhoc-analysis.md)  
 [View and Edit in Excel](across-work-with-excel.md)  end of article
 
@@ -11041,6 +11057,77 @@ Try the report here: [Period-Over-Period Growth](https://businesscentral.dynamic
 [Sales overview](sales-manage-sales.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-inventory-forecasting
+---
+title: Inventory Forecasting (Power BI report)
+description: The Inventory Forecasting report provides insights into your organization's inventory trends and future stock requirements.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37110_Primary
+ms.date: 9/30/2025
+ms.service: dynamics-365-business-central
+---
+
+# Inventory Forecasting (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Inventory Forecasting** report predicts future inventory trends based on historical data. It uses advanced techniques to project quantity values across location, item and entry type dimensions, helping users optimize inventory levels.
+
+The inventory forecasting visualization predicts the next three months of quantity based on the previous six months, assuming a monthly seasonality.
+
+> [!NOTE]
+> The default forecasting options can be customized through the Forecast section in the Analytics Pane in Power BI Desktop. This includes modifying the forecast length, seasonality, period and confidence interval.
+
+:::image type="content" source="media/inventory/inventory-forecasting.png" alt-text="Screenshot of the Inventory Forecasting Power BI Report" lightbox="media/inventory/inventory-forecasting.png":::
+
+## Use the report
+
+The *Inventory Forecasting* report is designed for inventory managers and procurement officers to track projected stock levels.
+
+As an inventory manager, you can use this report to monitor projected inventory and anticipate significant stock movements. For example, using the quantity by location forecasting, you identify a future period with increased incoming stock. In response, you proactively schedule warehouse employees to ensure adequate staffing to optimize shipping and receiving processes.
+
+As a procurement officer, this report provides key insights into inventory supply and demand, helping users make informed decisions about stock levels and procurement. For example, you recognize a trend of decreased quantity in the same period each month. Using this information, you coordinate replenishment accordingly to ensure stock availability and optimal inventory levels.
+
+## Key Performance Indicators (KPIs)
+
+The *Inventory Forecasting* report includes the following KPIs:  
+
+- [**Quantity**](inventory-powerbi-kpis.md#quantity)
+- [**Quantity (Forecasting)**](inventory-powerbi-kpis.md#quantity-forecasting)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Item Ledger Entries
+- Location
+- Item
+
+## Try the report
+
+Try the report here: [Inventory Forecasting](https://businesscentral.dynamics.com?page=37110)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory app](inventory-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-printer-setup-email
@@ -12880,7 +12967,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-ms.search.form: 37064_Primary, 37022, 37024, 37023, 37025, 37026, 37027, 37028, 37029, 37030, 37031, 37032
+ms.search.form: 37064_Primary, 37022, 37024, 37023, 37025, 37026, 37027, 37028, 37029, 37030, 37031, 37032, 37110
 ms.date: 10/28/2024
 ms.service: dynamics-365-business-central
 ---
@@ -12947,6 +13034,7 @@ The following table provides descriptions on how you can use each report in the 
 |View inventory quantities based on serial numbers. | [Inventory by Serial No.](https://businesscentral.dynamics.com?page=37030) | [About Inventory by Serial No.](inventory-powerbi-inventory-by-serial-no.md)|
 |Analyze inventory levels across different bins and identify bins that have active picks. | [Bin Contents](https://businesscentral.dynamics.com?page=37031) | [About Bin Contents](inventory-powerbi-bin-contents.md)|
 |Analyze inventory levels across bins and tracking information for the items. | [Bin Contents by Item Tracking](https://businesscentral.dynamics.com?page=37032) | [About Bin Contents by Item Tracking](inventory-powerbi-bin-contents-by-item-tracking.md)|
+|Analyze forecasted inventory quantities across location, item and entry type. | [Inventory Forecasting](https://businesscentral.dynamics.com?page=37110) | [About Inventory Forecasting](inventory-powerbi-inventory-forecasting.md)|
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -16336,7 +16424,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-create-custom-report-layout
 ---
-title: Create and modify custom layouts for reports and documents
+title: (Obsolete) Create and modify custom report layouts
 description: Learn how to create customized layouts to personalize the appearance of a report when viewed, printed, or saved.
 author: brentholtorf
 ms.author: bholtorf
@@ -17059,7 +17147,7 @@ ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: reporting
 ms.search.form: 37033_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
 ---
 
@@ -17081,22 +17169,21 @@ People on leadership teams use the report to get a bird's eye view of your organ
 
 Project managers use the report to gain a better understanding of the health of all your projects. The report helps them understand what's going well and what isn't, and where to make changes.
 
-
 ## Key Performance Indicators (KPIs)
 
 The *Project Overview* report includes the following KPIs:
 
-- [**Completed (%)**](projects-powerbi-kpis.md#-completed-)
-- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
-- [**Realization (%)**](projects-powerbi-kpis.md#realization-)
-- [**Total Usage Profit**](projects-powerbi-kpis.md#total-usage-profit)
-- [**Total Invoiced Profit**](projects-powerbi-kpis.md#total-invoiced-profit)
-- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
-- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
-- [**Project Count**](projects-powerbi-kpis.md#project-count)
-- [**No. of Completed Projects**](projects-powerbi-kpis.md#no-of-completed-projects)
+- [Completed (%)](projects-powerbi-kpis.md#completed-)
+- [Invoiced (%)](projects-powerbi-kpis.md#invoiced-)
+- [Realization (%)](projects-powerbi-kpis.md#realization-)
+- [Actual Profit](projects-powerbi-kpis.md#actual-profit)
+- [Actual Profit Margin %](projects-powerbi-kpis.md#actual-profit-margin-)
+- [Actual (Total Cost)](projects-powerbi-kpis.md#actual-total-cost)
+- [Budget (Total Cost)](projects-powerbi-kpis.md#budget-total-cost)
+- [Project Count](projects-powerbi-kpis.md#project-count)
+- [No. of Completed Projects](projects-powerbi-kpis.md#no-of-completed-projects)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -17124,7 +17211,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-change-layout-currently-used-report
 ---
-title: Change the Way a Report Looks by Selecting a Different Layout
+title: (Obsolete) Set the Layout Used by a Report
 description: You can use different layouts for a report, and switch between layouts to change how a report looks.
 author: jswymer
 ms.topic: how-to
@@ -19040,8 +19127,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37037_Primary
-ms.date: 10/28/2024
+ms.date: 09/25/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Project Performance to Budget (Power BI Report)
@@ -19060,14 +19148,14 @@ Project managers want a clear view of projects to ensure they're on budget. The 
 
 The *Project Performance to Budget* report includes the following KPIs:
 
-- [**Total Usage Cost**](projects-powerbi-kpis.md#total-usage-cost)
-- [**Total Budget Cost**](projects-powerbi-kpis.md#total-budget-cost)
-- [**Total Cost Variance to Budget**](projects-powerbi-kpis.md#total-cost-variance-to-budget)
-- [**Total Cost Variance to Budget %**](projects-powerbi-kpis.md#total-cost-variance-to-budget-)
-- [**Completed (%)**](projects-powerbi-kpis.md#completed-)
-- [**Invoiced (%)**](projects-powerbi-kpis.md#invoiced-)
+- [Completed (%)](projects-powerbi-kpis.md#completed-)
+- [Invoiced (%)](projects-powerbi-kpis.md#invoiced-)
+- [Total Usage Cost](projects-powerbi-kpis.md#total-usage-cost)
+- [Total Budget Cost](projects-powerbi-kpis.md#total-budget-cost)
+- [Total Cost Variance to Budget](projects-powerbi-kpis.md#total-cost-variance-to-budget)
+- [Total Cost Variance to Budget %](projects-powerbi-kpis.md#total-cost-variance-to-budget-)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -19300,7 +19388,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.service: dynamics-365-business-central
 ms.collection: bap-ai-copilot
@@ -19315,16 +19403,14 @@ Copilot's autofill feature assists you by automatically filling in editable blan
 
 When Copilot generates suggestions, it only accesses the business data you can access. Copilot never saves suggestions automatically but presents them for you to decide what to keep. Copilot uses AI, and suggestions might not be correct.
 
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
-<!--[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]-->
-
-<!--Suggestions are based on Business Central that only you have access to.-->
+<!-- [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]-->
 
 ## Prerequisites
 
 - Autofill is activated, and you have the required permissions to use it. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
-- (Sandbox environments on update 26.4 or later only) To enhance suggestions with results from the web, turn on **Enable Bing Search** in the **Copilot and agent capabilities** page. Learn more in [Searching the web with Copilot](ai-search-web-copilot.md).
+- To enhance suggestions with results from the web, turn on **Enable Bing Search** in the **Copilot and agent capabilities** page. Learn more in [Searching the web with Copilot](ai-search-web-copilot.md).
 
 ## Supported languages
 
@@ -19356,9 +19442,10 @@ The autofill feature isn't available on these fields regardless of the page type
 - Multiline text fields.
 - Masked fields like passwords and secrets.
 - Date and time fields.
-- Toggle switches.
+- Currency code fields.
 - Fields that uniquely identify a record like IDs and numbers from a series.
 - Certain fields depending on your Business Central environment settings. For example, Copilot can't make suggestions for address fields until your admin enables Bing Search with Copilot.
+- Toggle switches.
 
 ## Use autofill on fields
 
@@ -19952,7 +20039,7 @@ The following table lists the permissions needed to use the different Copilot an
 
 | Copilot or agent | Required permissions |
 |---|---|
-| Analysis assist | **DATA ANALYSIS - EXEC** permission set or execute permission on system object 9640 **Allow Data Analysis mode**. These permissions are the same ones that are required to access the analysis mode. |
+| Analysis assist | <ul><li>**Copilot Sys Features** permission set or execute permission on system object 9710 **Allow Copilot Analysis Assist**.</li><li>**Data Analysis - Exec.** permission set or include execute permission on the system object for permission to analysis mode.</li><li>**Add Related Fields** permission set for permission to add fields from related tables. |
 | Autofill | **Copilot Sys Features** permission set or execute permission on system object 9700 **Allow Copilot Autofill**. |
 | Bank reconciliation assist | Permission on page 7250 **Bank Acc. Rec. AI Proposal** and page 7252 **Trans. To GL Acc. AI Proposal**. |
 | Chat |**Copilot Sys Features** permission set or execute permission on system object 9690 **Allow Copilot Chat**. |
@@ -20229,90 +20316,6 @@ You can create various put-away templates and then apply them as you see fit. Th
 [Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-manage-user-settings-preferences
----
-title: Manage user settings and preferences as the administrator
-description: Manage user settings and preferences in Dynamics 365 Business Central.
-author: sorenfriisalexandersen
-ms.topic: get-started
-ms.devlang: al
-ms.reviewer: bholtorf
-ms.search.keywords: user settings, preferences, language, region, time zone, regional settings
-ms.search.form: 9204, 9200
-ms.date: 07/27/2024
-ms.author: soalex
-ms.service: dynamics-365-business-central
----
-# Manage user settings and preferences
-
-As an administrator, you can configure user settings in [!INCLUDE[prod_short](includes/prod_short.md)], similar to how individual users can manage their own preferences in the **My Settings** page.  
-
-Get an overview of all users in the **Users** list, and change individual settings by selecting the **User Settings** action for the relevant user.
-
-> [!TIP]
-> The **User Settings** list shows the current settings for each user. To view or edit individual users, select the **View** or **Edit** action.
-
-The **User Settings** card page is similar to the **My Settings** page that each user has access to, and it's a powerful tool for you as the administrator for setting default settings and clearing personalized pages, for example.  
-
-## Types of user settings
-
-*User settings* isn't the same as *user setup*, which is about the user as an entity and the user's access in the system. Furthermore, the user settings have nothing to do with a user's personalization, such as lightweight changes to the user interface. User settings determine the predefined settings for each user in various aspects of the way the application presents itself to the user. The following paragraph lists the five types of user settings and preferences that can be set by the individual or centrally by the administrator:
-
-* **Company**  
-
-  This setting determines the company to be logged into at the next sign-in. A user can have access to multiple companies and can be active in several companies.
-
-* **Role**  
-
-  The role, or profile, describes the user's function in the company, such as *Sales Manager*, *Bookkeeper*, or *Purchasing Agent*. The profile then determines the user's role center, the home page that users experience when they sign in. The profile doesn't impact access rights to functionality in [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-* **Language**  
-
-  Defines the application language that [!INCLUDE[prod_short](includes/prod_short.md)] presents text, captions, and error messages in. If [!INCLUDE[prod_short](includes/prod_short.md)] users are synchronized from Microsoft 365, the language settings from Microsoft 365 are used, assuming that the user wants to use the same settings in Office products and [!INCLUDE[prod_short](includes/prod_short.md)]. The administrator can change the default setting, and each user can choose between available languages in the My Settings page. But they'll be reset to the value from Microsoft 365 once the next synchronization is performed.
-
-  If the language setting from Microsoft 365 matches a supported language in [!INCLUDE[prod_short](includes/prod_short.md)], this language is chosen for the user.  
-
-  > [!NOTE]
-  > You may have to install a language app for [!INCLUDE[prod_short](includes/prod_short.md)] to properly display the language. Therefore, it's a good practice to install the necessary language apps before any user logs in the first time so that they have a good experience from their first day. For more information, see the list of [supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations).  
-  
-* **Region**  
-
-  Defines how dates and numbers are presented in the [!INCLUDE[prod_short](includes/prod_short.md)] client, such as whether to use European or American date formats, or how to display the decimal sign and thousand separators in amounts. If [!INCLUDE[prod_short](includes/prod_short.md)] users are synchronized from Microsoft 365, the regional settings from Microsoft 365 are used, assuming that the user wants to use the same settings in Office products and [!INCLUDE[prod_short](includes/prod_short.md)]. An administrator or user can change these settings manually in [!INCLUDE[prod_short](includes/prod_short.md)], but they'll be reset to the value from Microsoft 365 once the next synchronization is performed.
-
-* **Time zone**  
-
-  Defines the time zone in which the user is located. Currently this setting isn't synchronized from Microsoft 365 and must be set manually.  
-
-* **Teaching tips**
-
-  [!INCLUDE [ua-teachingtips](includes/ua-teachingtips.md)] As an administrator, you can switch off teaching tips for all users, such as if you are in process of onboarding users who are already familiar with [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-> [!NOTE]
-> If a Microsoft 365 user synchronization is made while users are logged into [!INCLUDE[prod_short](includes/prod_short.md)], these users must refresh the browser or sign out and back in to [!INCLUDE[prod_short](includes/prod_short.md)] to see a potential different language set by the synchronization action.
-
-## Overview of all user-specific changes
-
-As the administrator, you can get an overview of individual changes to [!INCLUDE [prod_short](includes/prod_short.md)] that each user might have made to various pages in [!INCLUDE [prod_short](includes/prod_short.md)]. As users make changes to their experience in [!INCLUDE [prod_short](includes/prod_short.md)], these changes are reflected in the **Personalized Pages** list. <!--Administrators can also set these settings for users before they log in the first time, so users do not have to do it themselves, providing them a better *getting started* experience.-->
-
-<!-- >[!NOTE]
-> User personalizations do not have anything to do with the *personal* lightweight changes a user can make to the user experience.-->
-
-## Review or delete user personalizations
-
-1. Select the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Personalized Pages**, and then select the related link.
-2. This shows the list of users and their personalized pages. To clear a user's personalization, click the relevant row, or select **Manage**, and then select **Delete**.
-
-This task deletes the personalization, and the user's experience of the relevant page returns to the default state.
-
-## Related information
-
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Country/regional availability and supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations)  
-[Changing Language and Locale](about-locale-language.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
