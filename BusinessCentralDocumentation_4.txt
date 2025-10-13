@@ -1,3 +1,48 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-how-to-set-up-put-away-templates
+---
+title: Set Up Put-away Templates
+description: Use Put-away templates to have the most appropriate bins for your items suggested to you at any given time.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.form: 7312, 7313, 7314, 7321, 7322, 7323, 7329
+ms.date: 10/04/2023
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Set Up Put-away Templates
+
+With directed put-away and pick functionality, the most appropriate bin for your items at any given time is suggested, according to the put-away template that you have set up for the warehouse, the bin rankings you have given to the bins, and the minimum and maximum quantities that you have set up for fixed bins.  
+
+You can set up a number of put-away templates and select one of them to govern put-aways in general in your warehouse. You can also select a put-away template for any item or stockkeeping unit that might have special put-away requirements.  
+
+## To set up put-away templates
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Put-away Templates**, and then choose the related link.  
+2. Choose the **New** action.  
+3. Enter a code that is the unique identifier of the template you are about to create.  
+4. Enter a short description, if you wish.  
+5. Fill in the first line with the bin requirements that you want fulfilled first and foremost when suggesting a put-away.
+
+    For example, if want the default put-away method to be based on fixed bins, then choose the **Find Fixed Bin** field. [!INCLUDE[tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
+6. Fill in the second line with the bin requirements that would be your second choice to fulfill in finding a bin for put-away. The second line is used only if a bin that meets the requirements of the first line cannot be found.  
+7. Continue to fill in the lines until you have described all the acceptable bin placements that you want to use in the put-away process.  
+8. On the last line in the put-away template, select the **Find Floating Bin** check box.  
+
+You can create various put-away templates and then apply them as you see fit. The put-away template that you selected for the item or stockkeeping unit, if any is used first. If these fields are not filled in, then the put-away template that you selected for the warehouse on the **Bin Policies** FastTab on the location card is used.  
+
+## Related information
+
+[Warehouse Management Overview](design-details-warehouse-management.md)
+[Inventory](inventory-manage-inventory.md)                                
+[Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-manage-user-settings-preferences
 ---
 title: Manage user settings and preferences as the administrator
@@ -1461,8 +1506,9 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 37005_Primary
-ms.date: 10/26/2024
+ms.date: 10/07/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Sales by Customer (Power BI Report)
@@ -1487,25 +1533,30 @@ For salespeople, the report you help can tailor your onsite visits to your custo
 
 The report includes the following key performance indicators (KPIs) and measures:
 
-- [**Sales Amount**](sales-powerbi-sales-kpis.md#sales-amount)
-- [**Sales Quantity**](sales-powerbi-sales-kpis.md#sales-quantity)
-- [**Cost Amount**](sales-powerbi-sales-kpis.md#cost-amount)
-- [**Cost Amount Non-Inv**](sales-powerbi-sales-kpis.md#cost-amount-non-inv)
-- [**Gross Profit**](sales-powerbi-sales-kpis.md#gross-profit)
-- [**Gross Profit Margin**](sales-powerbi-sales-kpis.md#gross-profit-margin)
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Adjusted Cost (LCY)](sales-powerbi-sales-kpis.md#adjusted-cost-lcy)
+- [Cost Amount Non-Inv](sales-powerbi-sales-kpis.md#cost-amount-non-inv)
+- [Adjusted Profit (LCY)](sales-powerbi-sales-kpis.md#adjusted-profit-lcy)
+- [Adjusted Profit Margin](sales-powerbi-sales-kpis.md#adjusted-profit-margin)
+- [Pareto Cumulative Adjusted Profit %](sales-powerbi-sales-kpis.md#pareto-cumulative-adjusted-profit-)
+- [Pareto Cutoff Adjusted Profit %](sales-powerbi-sales-kpis.md#pareto-cutoff-adjusted-profit-)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+The report uses data from the following tables:
 
 - Customer
 - Item
-- Value Entry
-- Sales Line
+- G/L Account
+- Resource
+- Sales Value Entries
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
 
 ## Try the report
 
@@ -2334,11 +2385,12 @@ description: Get an overview of all tables and fields in the Sales App Semantic 
 author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: reporting
-ms.search.form: 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, 37066, 37100, 37101, 37102, 37103, 37104, 37105
-ms.date: 05/20/2025
+ms.search.form: 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, 37066, 37100, 37101, 37102, 37103, 37104, 37105, 37109, 37119
+ms.date: 10/07/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Power BI Sales app semantic model
@@ -2353,15 +2405,19 @@ The dimension tables provide more context and attributes to the transactional da
 
 ## Fact tables
 
-Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. There are three fact tables in the Power BI Sales app:
+Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. There are several fact tables in the Power BI Sales app:
 
 - [Opportunity Entries](#opportunity-entries)
-- [Sales](#sales)
 - [Sales Budget](#sales-budget)
+- [Project Ledger Entries](#project-ledger-entries)
+- [Sales Credit Lines](#sales-credit-lines)
+- [Sales Invoice Lines](#sales-invoice-lines)
+- [Sales Lines](#sales-lines)
+- [Sales Value Entries](#sales-value-entries)
 
 ### Opportunity entries
 
-Data from the following table is used:
+The app uses data from the following table:
 
 - Opportunity Entries
 
@@ -2376,7 +2432,91 @@ Data from the following table is used:
 | Opportunity Entry No. | Entry No. | Specifies the opportunity entry's number. |
 | Opportunity No. | Opportunity No. | Specifies the opportunity's number. |
 
+### Project Ledger Entries
+
+The app uses data from the following table:
+
+- Project Ledger Entries
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Description | Description | Specifies the description of the project ledger entry. |
+| Project Ledger Entry No. | Entry No. | Specifies the number of the entry, as assigned from the specified number series when the entry was created. |
+| Reason Code | Reason Code | Specifies the reason code, a supplementary source code that enables you to trace the entry. |
+| Unit Cost (LCY) | Unit Cost (LCY) | Specifies the cost, in LCY, of one unit of the item or resource on the line. |
+
+### Sales Credit Lines
+
+The app uses data from the following table:
+
+- Sales Cr. Memo Line
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Description | Description | Specifies the name of the item or general ledger account, or some descriptive text. |
+| Sales Credit Line No. | Line No. | Specifies the line number of the posted sales credit memo line. |
+
+### Sales Invoice Lines
+
+The app uses data from the following table:
+
+- Sales Invoice Line
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Description | Description | Specifies the name of the item or general ledger account, or some descriptive text. |
+| Sales Invoice Line No. | Line No. | Specifies the line number of the posted sales invoice line. |
+
+### Sales Lines
+
+The app uses data from the following tables:
+
+- Sales Line
+- Sales Header
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Campaign No. |Campaign No. | Specifies the campaign number the document is linked to. |
+| Description | Description | Specifies a description of the entry of the product to be sold. |
+| Document Date | Document Date | Specifies the date when the related document was created. |
+| Due Date | Due Date | Specifies when the sales invoice must be paid. |
+| Order Date | Order Date | Specifies the order date on the sales document |
+| Planned Delivery Date | Planned Delivery Date | Specifies the planned delivery date on the sales line. |
+| Planned Shipment Date | Planned Shipment Date | Specifies the planned shipment date on the sales line. |
+| Posting Date | Posting Date | Specifies the date when the posting of the sales document will be recorded. |
+| Promised Delivery Date | Promised Delivery Date | Specifies the promised delivery date on the sales document. |
+| Quote No. | Quote No. | Specifies the number of the sales quote that the sales order was created from. |
+| Requested Delivery Date | Requested Delivery Date | Specifies the date that the customer has asked for the order to be delivered. |
+| Sales Line No. | Line No. | Specifies the line number of the sales line. |
+
+### Sales Value Entries
+
+The app uses data from the following tables:
+
+- Value Entries
+- Item Ledger Entries
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry Type | Entry Type | Specifies the type of value described in this entry. |
+| Item Ledger Entry No. | Entry No. | Specifies the number of the entry, of the related item ledger entry. |
+| Item Ledger Entry Type | Entry Type | From the related Item Ledger Entry, specifies which type of transaction that the entry is created from. |
+| Value Entry No. | Entry No. | Specifies the number of the entry on the value entry table. |
+
 ### Sales
+
+> [!NOTE]
+> This fact table is deprecated in Business Central 2025 release wave 2 and is no longer available.
 
 The app uses data from the following tables:
 
@@ -2417,13 +2557,18 @@ The star schema model uses dimension tables and allows you to filter and group.
 - [Close Opportunity Code](#close-opportunity-code)
 - [Contact](#contact)
 - [Customer](#customer)
+- [Documents](#documents)
+- [G/L Accounts](#gl-accounts)
 - [Item](#item)
-- [Item Category](#item-category) 
+- [Item Category](#item-category)
 - [Location](#location)
 - [Opportunities](#opportunities)
+- [Project](#project)
 - [Reason Code](#reason-codes)
+- [Resources](#resources)
 - [Sales Cycle Stage](#sales-cycle-stages)
 - [Salesperson](#salesperson)
+- [Type](#type)
 
 ### Close Opportunity Code
 
@@ -2484,6 +2629,40 @@ The app uses data from the following table:
 | Customer Posting Group | Customer Posting Group | Specifies the posting group. |
 | Customer Price Group |  Customer Price Group | Specifies the price group. |
 | Customer Disc. Group |  Customer Disc Group | Specifies the discount group. |
+
+### Documents
+
+The app uses data from the following tables:
+
+- Sales Lines
+- Value Entries
+- Invoice Lines
+- Sales Cr. Memo Lines
+- Project Ledger Entries
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Document No. | Document No. | Specifies the document number from the related fact table. |
+| Document Type | Document Type | Specifies the type of document related to the fact. |
+| Source Table | - | Specifies the source table where the document record originated from. |
+
+### G/L Accounts
+
+The app uses data from the following tables:
+
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Account Income/Balance | Income/Balance | Specifies whether a general ledger account is an income statement account or a balance sheet account. |
+| G/L Account Name | Name | Specifies the name of the general ledger account. |
+| G/L Account No. | No. | Specifies the no. of the general ledger account. |
+| G/L Account No. and Name | - | Specifies a concatenated name generated by combining the G/L Account No. and Name columns |
+| G/L Account Type | Type | Specifies the purpose of the account such as Posting, Heading, Total, Begin-Total or End-Total. |
 
 ### Item
 
@@ -2547,6 +2726,29 @@ The app uses data from the following table:
 | Sales Document Type | Sales Document Type | Specifies the type of the sales document assigned to the opportunity. |
 | Status | Status | Specifies the status for the opportunity. |
 
+### Project
+
+The app uses data from the following table:
+
+- Job
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Project Bill to Customer No. | Bill-to Customer No. | Specifies the number of the customer who pays for the project. |
+| Project Blocked | Blocked | Specifies that the related Project is blocked from being posted in transactions. |
+| Project Complete | Complete | Specifies if the current status of the project is complete. |
+| Project Creation Date | Creation Date | Specifies the date on which the project was set up.' |
+| Project Description | Description | Specifies a short description of the project. |
+| Project Ending Date | Ending Date | Specifies the date on which the project is expected to be completed. |
+| Project No. | No. | Specifies the number of Project record. |
+| Project No. & Description | - | Specifies a concatenated name generated by combining the resource no. and name. | 
+| Project Posting Group | Job Posting Group | Specifies the posting group that links transactions made for the project with the appropriate general ledger accounts according to the general posting setup. |
+| Project Project Manager | Project Manager | Specifies the person who is assigned to manage the project. |
+| Project Starting Date | Starting Date | Specifies the date on which the project actually starts. |
+| Project Status | Status | Specifies a current status of the project. |
+
 ### Reason Codes
 
 The app uses data from the following table:
@@ -2559,6 +2761,23 @@ The app uses data from the following table:
 | ------ | -------------- | ---------- |
 | Return Reason Code | Code | Specifies the code for the return reason. |
 | Return Reason Description |  Description | Specifies the description for the return reason. |
+
+### Resources
+
+The app uses data from the following table:
+
+- Resource
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Resource Base Unit of Measure | Base Unit of Measure | Specifies the base unit used to measure the resource. |
+| Resource Name | Name | Specifies a description of the resource. |
+| Resource No. | No. | Specifies the number of the resource record. |
+| Resource No. and Name | - | Specifies a concatenated name generated by combining the resource no. and name |
+| Resource Unit Cost | Unit Cost | Specifies the cost of one unit of resource. |
+| Resource Unit Price | Unit Price | Specifies the price of one unit of the resource. |
 
 ### Sales Cycle Stages
 
@@ -2586,6 +2805,22 @@ The app uses data from the following table:
 | ------ | -------------- | ---------- |
 | Salesperson Code | Code | Specifies the ID of the salesperson. |
 | Salesperson Name |  Name | Specifies the name of the salesperson. |
+
+### Type
+
+The app uses data from the following tables:
+
+- Item
+- Resource
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| No. | No. or Account No. | Specifies the code of the item, resource, or G/L account. |
+| Type |  - | Specifies the type of object being sold |
+| Type Key | - | Specifies a concatenated value generated by combining the No and Type columns. |
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
@@ -5881,6 +6116,8 @@ We defined a set of categories and scenarios and created test cases for each as 
 - All actions done by the agent, including creating and modifying records and calling actions, carry the agent's user ID. This user ID appears in the same places and in the same way as it does with other users, such as in list views, history, posted documents, notifications, and more.  
 - Approval workflows can be used to add an extra layer of control to the tasks done by the agent, as they do with other users. You can set up approval workflows to make the agent create a request for approval for a specific change—for example, to mark the quote as released. The change isn't allowed until another user approves the request. Learn more in [Use Approval Workflows](across-how-use-approval-workflows.md).
 
+[!INCLUDE[ai-data-collection](includes/ai-data-collection.md)]
+
 ## Is this capability extensible?
 
 Currently, this capability isn't extensible by partners.
@@ -6705,15 +6942,16 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-overview
 ---
 title: Sales Overview (Power BI report)
-description: The *Sales Overview* report provides a high-level summary of your organization's sales activities.
+description: The Sales Overview report provides a high-level summary of your organization's sales activities.
 author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: reporting
 ms.search.form: 36998_Primary
-ms.date: 10/26/2024
+ms.date: 10/07/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 
@@ -6744,7 +6982,7 @@ The report is intended for the following roles:
 CEOs regularly monitor the organization's sales operations to ensure the business is meeting its goals and operating efficiently. To get a quick, high-level overview, you turn to the Power BI Sales Overview Report to review:
 
 - [Number of Outstanding Sales Orders](sales-powerbi-sales-kpis.md#no-of-outstanding-sales-orders)
-- [Number of Shipped Not Invoiced Sales Orders](sales-powerbi-sales-kpis.md#no-of-shipped-not-invoiced-sales)
+- [Number of Shipped Not Invoiced Sales Orders](sales-powerbi-sales-kpis.md#no-of-shipped-not-invoiced-sales-orders)
 - [Number of Posted Sales Invoices](sales-powerbi-sales-kpis.md#no-of-posted-sales-invoices)
 
 It shows the monetary values for each KPI.
@@ -6755,31 +6993,33 @@ It shows the monetary values for each KPI.
 
 The report includes the following KPIs and measures:
 
-- [**Sales Amount**](sales-powerbi-sales-kpis.md#sales-amount)
-- [**Outstanding Amount**](sales-powerbi-sales-kpis.md#outstanding-amount)
-- [**Shipped Not Invoiced Amount**](sales-powerbi-sales-kpis.md#shipped-not-invoiced-amount)
-- [**Invoiced Amount**](sales-powerbi-sales-kpis.md#invoiced-amount)
-- [**Gross Profit**](sales-powerbi-sales-kpis.md#gross-profit)
-- [**Gross Profit Margin**](sales-powerbi-sales-kpis.md#gross-profit-margin)
-- [**No. of New Customers**](sales-powerbi-sales-kpis.md#no-of-new-customers)
-- [**No. of Outstanding Sales Orders**](sales-powerbi-sales-kpis.md#no-of-outstanding-sales-orders)
-- [**No. of Shipped Not Invoiced Orders**](sales-powerbi-sales-kpis.md#no-of-shipped-not-invoiced-sales)
-- [**No. of Posted Sales Invoices**](sales-powerbi-sales-kpis.md#no-of-posted-sales-invoices)
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Adjusted Cost (LCY)](sales-powerbi-sales-kpis.md#adjusted-cost-lcy)
+- [Adjusted Profit (LCY)](sales-powerbi-sales-kpis.md#adjusted-profit-lcy)
+- [Adjusted Profit Margin](sales-powerbi-sales-kpis.md#adjusted-profit-margin)
+- [Outstanding Invoices (LCY)](sales-powerbi-sales-kpis.md#outstanding-invoices-lcy)
+- [No. of Outstanding Sales Orders](sales-powerbi-sales-kpis.md#no-of-outstanding-sales-orders)
+- [No. of Shipped Not Invoiced Orders](sales-powerbi-sales-kpis.md#no-of-shipped-not-invoiced-sales-orders)
+- [Outstanding Orders (LCY)](sales-powerbi-sales-kpis.md#outstanding-orders-lcy)
+- [Shipped Not Invoiced (LCY)](sales-powerbi-sales-kpis.md#shipped-not-invoiced-lcy)
+- [No. of Outstanding Invoices](sales-powerbi-sales-kpis.md#no-of-outstanding-invoices)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+The report uses data from the following tables:
 
 - Sales Line
 - Value Entry
-- Customer
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
 - Item
-- Location
 - Salesperson
+- Customer
 
 ## Try the report
 
@@ -11766,6 +12006,8 @@ No. Use of Copilot is optional. [!INCLUDE[prod_short](includes/prod_short.md)] o
 
 Each time that Copilot provides matches or suggestions, you can provide feedback to Microsoft directly from the Copilot window by using the like (thumbs up) and dislike (thumbs down) controls. Your feedback remains anonymous, and we use this data to improve the quality of the service.
 
+[!INCLUDE[ai-data-collection](includes/ai-data-collection.md)]
+
 ## Related information
 
 [Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md)  
@@ -11983,7 +12225,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Payables Agent overview (preview)
 description: Payables Agent automates vendor invoice processing in Business Central. Speed up accounts payable, reduce bottlenecks, and simplify invoice management.
-ms.date: 06/18/2025
+ms.date: 10/10/2025
 ms.update-cycle: 180-days
 ms.topic: overview
 author: dmc-dk
@@ -12046,15 +12288,20 @@ The agent uses an internal email dispatcher running as a background task to cont
 
 Each PDF document found in an email becomes an entry in **Inbound E-Documents**. Thus, if there are multiple PDF attachments in the same email, an entry in **Inbound E-Documents** is created for each of them. A distinct agent task processes each entry.
 
+#### Use a shared mailbox to curate invoices and minimize noise
+
+The agent processes any email sent to the monitored mailbox. We recommend you use a shared mailbox that you keep as an internal-only mailbox and don't expose this mailbox to your vendors. The choice is yours. However, by not exposing invoices to vendors, your employees become the first to review and identify potential fraud, while also minimizing unnecessary information for the agent to handle. We recommend you set up a shared mailbox in Microsoft 365, add your accounts payable team members to that mailbox, and use that as the mailbox monitored by the Payables Agent. Learn more in [Create a shared mailbox](/microsoft-365/admin/email/create-a-shared-mailbox).
+
 > [!NOTE]
 > Use a designated mailbox for receiving vendor invoices. If other agents, like the Sales Order Agent, use the same mailbox, it can cause conflicts with ownership of incoming emails.
 >
 > [!CAUTION]
 > A fundamental principle of the Payables Agent is to import **all** emails, not just the ones that contain PDF files. Take steps to ensure that the agent has full ownership of the mailbox, process wise, and users can't accidentally read or remove emails:
-> 
+>
 > - The monitored mailbox should only be attended from within Business Central
 > - Users shouldn't access the monitored mailbox from Outlook.
-> 
+> - Use a shared mailbox if possible.
+>
 > As a consequence, emails with no PDFs show up as agent tasks and need agent overseers to decide how to handle them. PDF files that aren't recognized as invoices are marked as *unknown document type*. You can filter these documents by choosing the **Unknown Document Type** view on the **Inbound E-Documents** page and then remove them. You can also remove unsupported files received in this mailbox this way.
 
 > ![Shows the Unknown Document Type view on the Inbound E-Documents page](media/unknown-document-type-view.png)
@@ -12063,11 +12310,11 @@ Each PDF document found in an email becomes an entry in **Inbound E-Documents**.
 
 The PDF is sent for OCR (Optical Character Recognition) data extraction with Azure Document Intelligence, and the result is stored in the same E-Document record. 
 
-The agent helps categorize imported PDF documents when it's uncertain if the PDF is a vendor invoice. You can identify these documents in **Inbound E-Documents** using the **Unknown Document Type**. 
+The agent helps categorize imported PDF documents when it's uncertain if the PDF is a vendor invoice. You can identify these documents in **Inbound E-Documents** using the **Unknown Document Type**.
 
 ### Drafting invoice details
 
-When the agent considers a PDF document a valid vendor invoice with high confidence, it starts by identifying the vendor to create the purchase invoice draft. In this process, the agent might need help from an agent supervisor if it can't confidently identify the correct vendor. If the agent couldn't identify the vendor, the agent supervisor can instruct the agent to create the vendor on their behalf by using the **Give instructions to the agent** field in the agent sidecar.
+When the agent considers a PDF document a valid vendor invoice with high confidence, it starts by identifying the vendor to create the purchase invoice draft. In this process, the agent might need help from an agent supervisor if it can't confidently identify the correct vendor. If the agent couldn't identify the vendor, the agent supervisor can instruct the agent to create the vendor on their behalf by using the **Give instructions to the agent** field in the agent **Tasks** tab in the Copilot pane.
 
 **The agent will stop when it cannot identify the vendor:**
 
@@ -12075,9 +12322,9 @@ When the agent considers a PDF document a valid vendor invoice with high confide
 
 **Agent supervisors can instruct the agent to go create the vendor using the OCR data as input:**
 
-![Agent is instructed to create the vendor](media/payables-agent-vendor-not-identified-create.png)
+![Agent is instructed to create the vendor](media/payables-agent-vendor-not-identified-create-v2.png)
 
-You can provide more instructions by selecting one of the suggested actions or typing your own instructions in the **Type your instructions** box by using the ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. 
+You can provide more instructions by selecting one of the suggested actions or typing your own instructions in the **Type your instructions** box<!-- by using the ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon-->. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. Learn more in [Give instructions to the agent](use-payables-agent.md#give-instructions-to-the-agent).
 
 **When the agent has created the vendor, it will ask the agent supervisor to review the newly created vendor:**
 
@@ -12088,9 +12335,9 @@ When the agent supervisor opens the vendor card, they can easily identify the fi
 > [!NOTE]
 > When the agent creates a new vendor, the **Blocked** field on the vendor card is set to **All**. This behavior ensures that proper vendor approval processing can take place. Usually, vendors and their bank accounts are approved by having communication with the vendor and doing human callbacks to the vendor's finance department. In many places, this action is a requirement for a successful audit. Thus, leaving the newly created vendor in a blocked state ensures no invoicing processing can happen until the vendor is unblocked. The agent itself doesn't provide any capabilities for vendor approvals.
 
-After you select **Confirm** in the agent sidecar, the agent tries again to identify the vendor, which should now succeed because it was just created, given that you unblocked the vendor.
+After you select **Confirm** in the agent **Tasks** tab in the Copilot pane, the agent tries again to identify the vendor, which should now succeed because it was just created, given that you unblocked the vendor.
 
-After the agent identifies the vendor, it starts line-level processing of the invoice details. The agent uses different methods to draft the best possible details. For example, it might use AI, vendor invoice history, mapping text to G/L accounts, Item References, and more. The agent records all draft details for the specific vendor invoice in a **Purchase document draft** related to the **Inbound E-Document**. You can access this draft from the **Inbound E-Document** when not interacting with the agent. It's also linked in the agent **Tasks** tab of the Copilot pane when an agent supervisor is involved. 
+After the agent identifies the vendor, it starts line-level processing of the invoice details. The agent uses different methods to draft the best possible details. For example, it might use AI, vendor invoice history, mapping text to G/L accounts, Item References, and more. The agent records all draft details for the specific vendor invoice in a **Purchase document draft** related to the **Inbound E-Document**. You can access this draft from the **Inbound E-Document** when not interacting with the agent. It's also linked in the agent **Tasks** tab of the Copilot pane when an agent supervisor is involved.
 
 ### Finalizing the purchase document draft
 
@@ -17584,7 +17831,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 10/07/2025
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
@@ -17594,11 +17841,11 @@ ms.collection:
 ---
 # Analyze data in lists with Copilot
 
-This article explains how to use *analysis assist* to help you analyze data on list pages.
+Copilot makes it even easier to use [analysis mode](analysis-mode.md) on list pages in Business Central *analysis assist*. 
 
 ## About analysis assist
 
-Analysis assist is a Copilot for the [analysis mode](analysis-mode.md) on list pages in [!INCLUDE [prod_short](includes/prod_short.md)]. Analysis mode provides an interactive and versatile way to calculate, summarize, and examine data. To analyze data in analysis mode, create an analysis tab where you transform the data to display the desired aggregations and summarizations—for example, arranging fields in rows and columns, specify filters, sorting columns, and pivot on fields.
+Analysis assist is a Copilot for the analysis mode on list pages in [!INCLUDE [prod_short](includes/prod_short.md)]. Analysis mode provides an interactive and versatile way to calculate, summarize, and examine data. To analyze data in analysis mode, create an analysis tab where you transform the data to display the desired aggregations and summarizations—for example, arranging fields in rows and columns, specify filters, sorting columns, and pivot on fields.
 
 With analysis assist, instead of doing these tasks manually, you can express the structure you want in natural language and get a suggested layout as a starting point. Copilot can also help by adding fields from related tables (for example, showing items together with the purchasing vendor address). It can translate instructions like "sort on quantity from smallest to largest" or "show average cost per category" into the corresponding rows, columns, filters, and aggregations.
 
@@ -17690,16 +17937,16 @@ This prompt groups items by the vendors' countries/regions. Because the country/
 
 Copilot can use any of the visible or hidden fields on the list page and add them as columns to the analysis tab layout. Hidden fields are those fields that you would typically add to the list by personalizing the page.
 
-When Copilot determines that a hidden field is useful for your analysis tab, the field is shown as a column in the tab layout. It also appears in the **Columns** pane so that you can hide or reorder it or add it to any other analysis tabs for this list.  
+When Copilot determines that a hidden field is useful for your analysis tab, the field is shown as a column in the tab layout. It also appears in the **Columns** pane so that you can hide or reorder it or add it to any other analysis tabs for this list.
+
+Copilot can only access fields that are visible or hidden on the current page or that appear on related pages. It can't access fields that exist only in the source table.  
 
 > [!NOTE]
 > If an administrator turned off personalization for your profile (role), Copilot isn't able to use hidden fields from the list.
 
-Copilot can't reach fields that are on the table but not on the page, and it can't use fields from other pages.
-
 ## Using tabs created by Copilot in preview
 
-If you used the **Analysis Assist** feature while in preview, you might have asked Copilot to create analysis tabs that include hidden fields from the list. These tabs are no longer compatible. When you next open one of these analysis tabs, a message indicates which hidden fields have been removed. You can add these fields again manually, or ask Copilot to create a new tab for you.
+If you used the **Analysis Assist** feature while in preview, you might have asked Copilot to create analysis tabs that include hidden fields from the list. These tabs are no longer compatible. When you next open one of these analysis tabs, a message indicates which hidden fields were removed. You can add these fields again manually, or ask Copilot to create a new tab for you.
 
 ## Related information
 
@@ -19051,7 +19298,6 @@ Microsoft has various systems in place to ensure Copilot capabilities remain ope
 
     ![Shows an item card with Marketing Text pane](media/create-with-copilot-window-feedback.svg)
 
-- The Azure OpenAI Service stores prompts and completions from the service to monitor for abusive use and to develop and improve the quality of Azure OpenAI's content management systems. Learn more about our content management and filtering at [].](/azure/cognitive-services/openai/concepts/content-filter). Your company data isn't used to train AI models in the Azure OpenAI service.
 - The Azure OpenAI Service stores prompts and completions from the service to monitor for abusive use and to develop and improve the quality of Azure OpenAI's content management systems. Learn more about our content management and filtering at [Content filtering](/azure/cognitive-services/openai/concepts/content-filter). Your company data isn't used to train AI models in the Azure OpenAI service.
 
    Authorized Microsoft employees can access prompt and completion data that has triggered our automated systems for the purposes of investigating and verifying potential abuse; for customers using [!INCLUDE[prod_short](includes/prod_short.md)] in the European Union, the authorized Microsoft employees are located in the European Union. This data may be used to improve our content management systems. In the event of a confirmed policy violation, we may ask you to take immediate action to remediate the issue and to prevent further abuse. Failure to address the issue may result in suspension or termination of Azure OpenAI resource access.
@@ -19060,17 +19306,13 @@ Microsoft has various systems in place to ensure Copilot capabilities remain ope
 
 ## Is there a logging and human review process as part of Azure OpenAI Service, and if so, can I opt out?  
 
-As part of providing the Azure OpenAI service, Microsoft will process and store customer data submitted to the service, as well as output content, for purposes of monitoring for and preventing abusive or harmful uses or outputs of the service; and for developing, testing, and improving capabilities designed to prevent abusive use of or harmful outputs from the service. 
+As part of providing the Azure OpenAI service, Microsoft will process and store customer data submitted to the service, as well as output content, for purposes of monitoring for and preventing abusive or harmful uses or outputs of the service; and for developing, testing, and improving capabilities designed to prevent abusive use of or harmful outputs from the service.
 
 Authorized Microsoft personnel may review data that has triggered our automated systems to investigate and verify potential abuse, and may engage in limited random sampling of terms that aren't flagged by our automated systems to ensure the systems are working properly. Authorized Microsoft personnel may also access and use this data to improve our systems that monitor for and prevent abusive or harmful uses or outputs of the service. Learn more at [preview terms](https://go.microsoft.com/fwlink/?linkid=2189520).
 
 For Microsoft to safeguard the service and its customers, it's not possible to opt out of logging and human review processes.
 
-## What data does the capability collect? How is the data used?
-
-The marketing text suggestions capability collects the minimum data required by Business Central to offer the service. Learn more at [Dynamics 365 terms for Azure OpenAI-powered features](https://go.microsoft.com/fwlink/?linkid=2236010).
-
-The capability also collects data from the feedback user's can provide using the like (thumbs up) or dislike (thumbs down) icons at the top of the **Copilot** page. The data is anonymous and includes the choice of like ot dislike, the dislike reason if provided, and the Copilot feature the feedback applies to. We use this data to evaluate and improve the quality of the capability.
+[!INCLUDE[ai-data-collection](includes/ai-data-collection.md)]
 
 ## What are the limitations of [!INCLUDE[feature-marketing-text-suggestions](includes/feature-marketing-text-suggestions.md)]? How can users minimize the impact of the [!INCLUDE[feature-marketing-text-suggestions](includes/feature-marketing-text-suggestions.md)] limitations when using the system?
 
@@ -20123,8 +20365,9 @@ ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: reporting
 ms.search.form: 37000_Primary
-ms.date: 10/26/2024
+ms.date: 10/07/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Moving Average (Power BI Report)
@@ -20137,7 +20380,7 @@ The **Moving Average** report gives a clear picture of your organization's avera
 
 ## Use the report
 
-The **Moving Average** report is meant to help higher level employees identify key trends and make changes based on average sales.
+The **Moving Average** report can help identify key trends and so you can make changes based on average sales.
 
 Sales executives need to track the moving average of key sales metrics over a specific period. You can use this report to find recent performance trends and make strategic decisions for the short-term future.
 
@@ -20147,19 +20390,21 @@ Leaders of sales departments typically want to identify which items are selling 
 
 The report includes the following key performance indicators (KPIs) and measures:
 
-- [**Sales Amount**](sales-powerbi-sales-kpis.md#sales-amount)
-- [**Sales Amount Average 30D**](sales-powerbi-sales-kpis.md#sales-amount-avg-30d-fiscal)
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Sales Amount Average 30D](sales-powerbi-sales-kpis.md#sales-amount-avg-30d-fiscal)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+The report uses data from the following tables:
 
-- Value Entry
-- Sales Line
+- Sales Value Entries
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
 
 ## Try the report
 
@@ -20680,91 +20925,6 @@ For more information, see [Service management report overview](service-reports.m
 [Use reports in daily work](reports-use-reports.md)  
 [Analyze list and query data with analysis mode](analysis-mode.md)  
 [Analytics overview](reports-bi-reporting.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/intercompany-manage
----
-title: Manage intercompany transactions
-description: With the Intercompany functionality, you can simplify business processes and transactions between companies within the same organization.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.date: 06/10/2025
-ms.custom: bap-template
-ms.search.keywords: IC, group, consolidation, affiliate, subsidiary
-ms.search.form: 605, 611, 613, 615, 617, Report_512
-ms.service: dynamics-365-business-central
----
-
-# Manage intercompany transactions
-
-Businesses with more than one legal entity with separate accounting functions can benefit from intercompany transactions. For example, it's useful for businesses that have subsidiaries in multiple international markets or regions. Or, an organization might have several companies but lack the equivalent number of accounting and administrative teams. Intercompany transactions simplify and streamline business processes and transactions between companies in the intercompany partnership.
-
-After you specify the customer and vendor relationships for intercompany transactions, partners enter information one time in sales and purchase documents. A corresponding document is created at the other partner involved in the transaction. Mapping the chart of accounts and dimensions helps ensure that information appears in the right places.  
-
-There are four main benefits to the intercompany functionality:  
-
-* Increased productivity as a result of time saved and simplified transactions  
-* Minimized mistakes with one-time entry of information and system-wide, automated updates  
-* Transparent audit trail and full visibility into business activities and transaction histories  
-* Efficient transactions with affiliate and subsidiary companies  
-
-## Streamline the flow of business activities  
-
-Intercompany transactions let you distribute sales and purchasing documents and general journal entries to all of your satellite offices, sales offices, or subsidiary companies. Distributing transactions saves time and increases efficiency throughout the organization by reducing data entry. It cuts down on the need to send, receive, print, and archive sales and purchasing documents.  
-
-You're in full control of all transaction documents. For example, you can reject a document sent to you and use the **Reverse Journal Postings** and **Undo Receipts/Shipments** actions to make corrections. Or, when making a purchase from a partner or subsidiary company, you can update the purchase order as long as the selling company hasn't shipped the goods.  
-
-When you enter a transaction, you don't need to specify the accounts to use. You just choose the intercompany partner. The intercompany functionality creates general journal lines that balance the books of both companies involved in the transaction. In receivables and payables, you assign an intercompany partner code to any customer or vendor. From that moment on, all orders and invoices for transactions between these companies produce corresponding documents in the partner company. The result is correctly balanced accounts.  
-
-Intercompany focuses on sales and purchase documents and general journal lines, and allows transactions between multiple [!INCLUDE [prod_short](includes/prod_short.md)] databases. For example:
-
-* Different countries/regions
-* Multiple currencies
-* Different charts of accounts
-* Different dimensions
-* Different item numbers  
-
-Intercompany transactions use several types of entries and documents:  
-
-* General journal entries
-* Purchase and sales orders
-* Purchase and sales invoices
-* Credit memos
-* Return orders
-
-When you set up intercompany transactions, you create a list of intercompany partners, an intercompany chart of accounts, and intercompany dimensions. Afterward, you can create transactions in intercompany general journals.
-
-> [!NOTE]
-> The general journal by itself doesn't include currencies. It converts all amounts to the local currency at the current exchange rate.
-
-After you set up business partners as customers and vendors, and assign them intercompany partner codes, they can exchange intercompany purchase and sales documents, including items and item charges.
-
-> [!NOTE]
-> Companies can't use intercompany to exchange all types of data. Purchase invoices are not submitted to business partners through intercompany processes. However, sales invoices that are submitted through intercompany processes will be created as purchase invoices in the receiving company.
-
-Consolidating financial data might be relevant for intercompany processes. Learn more at [Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md).
-
-The following table describes a sequence of tasks, with links to the articles that describe them.
-
-|To... |Go to...|
-|---|---|
-|Create your intercompany vendors and customers as partners, and set up an intercompany chart of accounts.|[Set Up Intercompany](intercompany-how-setup.md)|
-|Use intercompany documents or journals to post transactions with your intercompany partners.|[Work with Intercompany Documents and Journals](intercompany-how-work-documents-journals.md)|
-|Organize and process incoming and outgoing transactions that you exchange with your intercompany partners.|[Manage the Intercompany Inbox and Outbox](intercompany-how-manage-intercompany-inbox.md)|
-|Use intercompany transactions to distribute costs between partner companies.|[Allocate Costs to Intercompany Partners](intercompany-allocate-costs.md)|
-
-## Related information
-
-[Finance](finance.md)  
-[Setting Up Finance](finance-setup-finance.md)  
-[Work with General Journals](ui-work-general-journals.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
