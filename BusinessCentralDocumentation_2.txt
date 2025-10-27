@@ -1530,19 +1530,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-multiple-contracts
 ---
-title: Multiple Contracts | Microsoft Docs
-description: Depending on your service level agreements with a customer, you may have to handle a service item under more than one service contract.
+title: Multiple contracts | Microsoft Docs
+description: You may need to manage a service item under multiple service contracts based on your agreements with customers.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
-ms.search.keywords:
-ms.date: 04/01/2021
+ms.search.keywords: service management, service item, service contract, service order, service level agreement, SLA, multiple contracts
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Multiple Contracts
+
+# Multiple contracts
+
 Depending on your service level agreements with a customer, you may have to handle a service item under more than one service contract.  
   
 By handling a service item under multiple contracts, you can do the following:  
@@ -1557,21 +1558,24 @@ By handling a service item under multiple contracts, you can do the following:
   
 You can consider the following examples of using the multiple contracts functionality.  
   
-## Creating Multiple Contracts per Service Item  
-You can manually create a service contract or contract quote for service items already registered in non-canceled contracts owned by the same customer. To do this, follow the standard procedure of creating service contracts and service contract quotes. For more information, see [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md).  
+## Create multiple contracts per service item
+
+You can manually create a service contract or contract quote for service items already registered in non-canceled contracts owned by the same customer. To do this, follow the standard procedure of creating service contracts and service contract quotes. Learn more in [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md).  
   
 When you add a service item on a contract line that is registered in other service contracts or contract quotes, a warning message is displayed stating that the service item already belongs to one or more service contracts or contract quotes. If you confirm this message, all relevant service item information is copied to a newly created contract line.  
   
-## Copying Documents  
+## Copy documents
+
 You can automatically create a service contract or contract quote for service items that are already registered in other service contracts or contract quotes by using the **Copy from Document** action.  
   
-## Creating Service Orders for Multiple Contracts  
+## Create service orders for multiple contracts
+
 You can manually create a service order for a service item that is registered in multiple active contracts. A service contract is active when it is signed and not expired.  
   
-## Related information  
-[Fulfilling Service Contracts](service-fulfill-service-contracts.md)  
-[Create Service Orders](service-how-to-create-service-orders.md)  
+## Related information
 
+[Fulfill Service Contracts](service-fulfill-service-contracts.md)  
+[Create Service Orders](service-how-to-create-service-orders.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -3556,39 +3560,39 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-contacts
 ---
 title: Create and manage company contacts
-description: You set up all external entities that you have a business relationship with (such as prospects, customers, vendors, and consultants) as contacts.
+description: Record every external person or organization you interact with—such as prospects, customers, vendors, and consultants—as contacts to track relationship details and communications.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: relationship, prospect
 ms.search.forms: 5054, 5050, 5051, 5052, 5104, 5053, 9130, 6701, 5055, 1604
-ms.date: 12/13/2023
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
 
-# Managing contacts
+# Manage contacts
 
-Employees in your company regularly meet prospective business relations that might develop into formal relationships. All such external contacts and their detailed information should be recorded in the system so that communication is more successful and so they can easily be converted to formal customer, vendor, or bank relationships.
+Employees in your company regularly meet prospective business relations that might develop into formal relationships. You can record details about external contacts so that communication is more successful, and so it's easier to convert them to formal customer, vendor, or bank relationships.
 
-Use the **Contacts** list to manage your contacts. From there, you can create opportunities and manage other interactions with individual contacts. You can also see statistics about a contact, and you can access a range of reports. For information about how to find the right contact in the list, see [Sorting, Searching, and Filtering](ui-enter-criteria-filters.md) .  
+Use the **Contacts** list to manage your contacts. From there, you can create opportunities and manage other interactions with individual contacts. You can also see statistics about a contact, and you can access a range of reports. Learn more at [Sorting, Searching, and Filtering](ui-enter-criteria-filters.md).
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
-| --- | --- |
-| Set up contact management prior to creating contacts. |[Set Up Contacts](marketing-setup-contacts.md) |
-| Create a contact card for each new person or company that you interact with, such as a customer or vendor. |[Create Contacts](marketing-create-contact-companies.md) |
-|Set up profile questionnaires that you want to use when entering information about your contacts' profiles.|[Use Profile Questionnaires to Classify Business Contacts](marketing-create-contact-profile-questionnaire.md)|
-|Resolve confusion when two or more records exist for the same contact.|[Merge Duplicate Records](sales-how-merge-duplicate-records.md)|
+| To | Go to |
+|--|--|
+| Set up contact management before you create contacts. | [Set Up Contacts](marketing-setup-contacts.md) |
+| Create a contact card for each new person or company that you interact with, such as a customer or vendor. | [Create Contacts](marketing-create-contact-companies.md) |
+| Set up profile questionnaires to use when entering information about your contacts' profiles. | [Use Profile Questionnaires to Classify Business Contacts](marketing-create-contact-profile-questionnaire.md) |
+| Resolve confusion when two or more records exist for the same contact. | [Merge Duplicate Records](sales-how-merge-duplicate-records.md) |
 
 ## Related information
 
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Sorting, Searching, and Filtering](ui-enter-criteria-filters.md)  
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Sort, Search, and Filter](ui-enter-criteria-filters.md)  
 [Work with Business Central](ui-work-product.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -3909,13 +3913,14 @@ description: Set up frequently used purchase lines to insert them on purchase do
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords: trade, purchase, replenishment
+ms.search.keywords: trade, purchase, replenishment, vendor order
 ms.search.form: 177
-ms.date: 03/21/2024
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Create recurring purchase lines
 
 If you often need to create purchase lines with similar information, you can set up standard lines that you can then insert on recurring purchase documents, for example, for recurring replenishment orders.
@@ -3928,7 +3933,7 @@ If you often need to create purchase lines with similar information, you can set
 4. On the **Lines** FastTab, enter the information in the fields that reflect the standard lines you expect to use as recurring lines on purchase documents.
 
 > [!NOTE]
-> You cannot define prices on recurring purchase lines because prices, discounts, etc. are calculated on the actual purchase documents after you insert the recurring purchase lines.
+> You can't define prices on recurring purchase lines because prices, discounts, etc. are calculated on the actual purchase documents after you insert the recurring purchase lines.
 
 [!INCLUDE [line-no-info](includes/line-no-info.md)]
 
@@ -3946,12 +3951,12 @@ Assign one or more recurring purchase lines to a vendor so that they're availabl
 |Option|Description|
 |------|-----------|
 |**Manual**|You must manually look up and insert a recurring purchase line that exists for the vendor.|
-|**Automatic**|If multiple recurring purchase lines exist for the vendor, you'll get a notification from where you can pick which one to insert. If only one recurring purchase line exists, it will be inserted automatically.<br /><br />This only works if the new document was created from a document list, for example by choosing the **New** action on the **Purchase Orders** page. It doesn't work if the document was created from a vendor card, for example.|
+|**Automatic**|If multiple recurring purchase lines exist for the vendor, you get a notification from where you can pick which one to insert. If only one recurring purchase line exists, it's inserted automatically.<br /><br />This only works if the new document was created from a document list, for example by choosing the **New** action on the **Purchase Orders** page. It doesn't work if the document was created from a vendor card, for example.|
 |**Always Ask**|A notification appears and all existing recurring purchase lines are shown so that you can select one.
 
 ## Insert recurring purchase lines on a purchase invoice
 
-If recurring purchase lines exist for the vendor, you can insert them, or have them automatically added, on all types of purchase documents, such as a purchase invoice. If you have activated the **Always Ask** options while assigning recurring purchase lines to vendors, you'll be informed if recurring purchase lines exist.
+If recurring purchase lines exist for the vendor, you can insert them, or have them automatically added, on all types of purchase documents, such as a purchase invoice. If you have activated the **Always Ask** options while assigning recurring purchase lines to vendors, you're informed if recurring purchase lines exist.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.
 2. Open the purchase invoice that you want to insert one or more standard purchase lines on.
@@ -5314,19 +5319,19 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-relationship-management
 ---
 title: Relationship management
-description: The relationship management features support your sales efforts and let you access information about contacts and prospects to serve customers efficiently.
+description: Use relationship management features to streamline sales, access detailed contact and prospect information, and improve customer service efficiency.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: concept-article
 ms.search.keywords: contact, prospect, client
 ms.search.forms: 9076, 9026
-ms.date: 06/17/2025
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
-
 ---
-# Managing relationships
+
+# Manage relationships
 
 The relationship management features of [!INCLUDE[prod_short](includes/prod_short.md)] help you manage and support your sales efforts. With these features, you have access to complete and accurate information so you can focus your interactions with customer and contact segments.
 
@@ -5335,19 +5340,19 @@ Good sales and marketing practices are all about how to make the best decisions 
 The following table describes a sequence of tasks, with links to the articles that describe them.  
 
 | To... | Go to... |
-| --- | --- |
-|Define default settings for the use of contacts and interactions and set up number series.|[Setting Up Relationship Management](marketing-setup-marketing.md)|
-|Define the external entities that you have business relations with. For example, customers, prospective customers, vendors, lawyers, and consultants, either as Person type or Company type.|[Managing Contacts](marketing-contacts.md)|
-|Analyze your relationship management data. | [Relationship management report overview](marketing-reports.md) |
-|Manage all types of communications between your company and your contacts, such as by email, letter, telephone, meetings.|[Managing Interactions](marketing-interactions.md)|
-|Define segments to select a group of contacts according to specific criteria, such as the industry that the contacts belong to.|[Managing Segments](marketing-segments.md)|
-|Process incoming leads by creating opportunities and associating them to salespeople so that you can keep track of potential sales.|[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)|
-|Create marketing plans to identify, attract, and retain customers.|[Managing Marketing Campaigns](marketing-campaigns.md)|
-|Use Dynamics 365 Sales for customer engagement and enjoy seamless integration in the lead-to-cash process. Use [!INCLUDE [prod_short](includes/prod_short.md)] for backend activities such as processing orders, managing inventory, and doing your finances.|[Integrating with Dynamics 365 Sales](marketing-integrate-dynamicscrm.md)|
+|--|--|
+| Define default settings for the use of contacts and interactions and set up number series. | [Setting Up Relationship Management](marketing-setup-marketing.md) |
+| Define the external entities that you have business relations with. For example, customers, prospective customers, vendors, lawyers, and consultants, either as Person type or Company type. | [Managing Contacts](marketing-contacts.md) |
+| Analyze your relationship management data. | [Relationship management report overview](marketing-reports.md) |
+| Manage all types of communications between your company and your contacts, such as by email, letter, telephone, meetings. | [Managing Interactions](marketing-interactions.md) |
+| Define segments to select a group of contacts according to specific criteria, such as the industry that the contacts belong to. | [Managing Segments](marketing-segments.md) |
+| Process incoming leads by creating opportunities and associating them to salespeople so that you can keep track of potential sales. | [Managing Sales Opportunities](marketing-manage-sales-opportunities.md) |
+| Create marketing plans to identify, attract, and retain customers. | [Managing Marketing Campaigns](marketing-campaigns.md) |
+| Use Dynamics 365 Sales for customer engagement and enjoy seamless integration in the lead-to-cash process. Use [!INCLUDE [prod_short](includes/prod_short.md)] for backend activities such as processing orders, managing inventory, and doing your finances. | [Integrating with Dynamics 365 Sales](marketing-integrate-dynamicscrm.md) |
 
 ## Related information
 
-[Relationship management reports in Business Central](marketing-reports.md)
+[Relationship management reports in Business Central](marketing-reports.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -7219,8 +7224,8 @@ Manufacturing workers use this report to optimize the use of resources. You can 
 
 The *Allocated Hours* report includes the following KPIs and measures:
 
-- [Allocated Time](manufacturing-powerbi-kpis.md#allocated-time)
-- [Prod Order Expected Capacity Need](manufacturing-powerbi-kpis.md#prod-order-expected-capacity-need)
+- [**Allocated Time**](manufacturing-powerbi-kpis.md#allocated-time)
+- [**Prod Order Expected Capacity Need**](manufacturing-powerbi-kpis.md#prod-order-expected-capacity-need)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -8765,52 +8770,63 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-campaigns
 ---
-title: Set Up Marketing Campaigns in Business Central| Microsoft Docs
+title: Set up marketing campaigns in Business Central
 description: Describes how you can set up and conduct marketing campaigns in Business Central to help you identify and attract prospects and retain customers.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: marketing, campaign, promo, prospect
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
-# Managing Marketing Campaigns
-Having a strong marketing plan in place enables you to identify, attract, and retain customers. A marketing plan consists of various campaigns and other interactions in connection with your sales and marketing activities. While planning a campaign, you need to decide which contacts to target, what type of campaign (such as trade show or direct mail), and what salespeople will perform each task.
 
-Each campaign consists of various activities or tasks. You can combine multiple task, for example tasks that each represent a step, in activities. Activity tasks are related to each other by a date formula. Individual tasks can only be assigned to salespeople. Activities can be assigned to opportunities, salespeople, groups of sales people, and contacts. For more information, see [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
+# Manage marketing campaigns
 
-## Defining individual campaigns
-Before you can create a campaign, you must set up *campaign status codes*. Using these codes will help you manage your campaigns by assigning a status to the campaign. As you work through the stages of a campaign, you are able to see what step a campaign is at and what step comes next. You set up campaign status codes on the **Campaign Status** page.
+Having a strong marketing plan in place enables you to identify, attract, and retain customers. A marketing plan consists of various campaigns and other interactions with your sales and marketing activities. While you plan a campaign, you make a few decisions:
+
+- Which contacts to target
+- What type campaign you want to run (such as trade shows or direct mail)
+- What tasks salespeople perform
+
+Each campaign has various activities or tasks. You can combine multiple tasks in activities. For example, when each task represents a step. Activity tasks are related to each other by a date formula. Individual tasks can only be assigned to salespeople. Activities can be assigned to opportunities, salespeople, groups of sales people, and contacts. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
+
+## Define individual campaigns
+
+Before you can create a campaign, you must set up *campaign status codes*. Using these codes help you manage your campaigns by assigning a status to the campaign. As you work through the stages of a campaign, you're able to see what step a campaign is at and what step comes next. You set up campaign status codes on the **Campaign Status** page.
 
 You can create a campaign card for each campaign that you want to keep track of. You can also view these campaign cards to view general information about your campaigns.
-You can delete campaign entries, such as if the entry records an action that has been canceled. Only canceled campaign entries can be deleted.
+You can delete campaign entries, such as if the entry records an action that is canceled. Only canceled campaign entries can be deleted.
 
-### Selecting the target audience
-After you have created a campaign, you can start creating segments that specify the target audience of the campaign. For more information, see [Managing Segments](marketing-segments.md).
+### Select the target audience
 
-### Registering discount percentages
-When you have set up your campaign, decided what segments you want the campaign to cover, and set the starting and ending dates, you register the discount percentage that the customer will receive on the individual items on the lines on the **Sales Line Discounts** page. You can also register the sales prices for the individual items on the lines on the **Sales Prices** page. You can access both pages from the campaign card.
+After you create a campaign, you can create segments that specify its target audience. Learn more at [Managing Segments](marketing-segments.md).
 
- When you have set up the sales prices/line discounts and the segments on the campaign card, you must activate them so that the campaign prices/discounts will be reflected on the lines.
+### Register discount percentages
+
+After you set up your campaign, you can register a discount percentage that the customer receives. You register the discount percentage on individual items on the **Sales Line Discounts** page. You can also register the sales prices for the individual items on the lines on the **Sales Prices** page. You can access both pages from the campaign card.
+
+After you set up the sales prices/line discounts and the segments on the campaign card, you must activate them so that the campaign prices/discounts are reflected on the lines.
 
 > [!NOTE]  
->   In order to activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
+> In order to activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
 
-If the sales prices/line discounts are not to be offered to all the contacts in the segment, you can clear the **Campaign Target** field for the relevant contacts. If you cannot see this field, you can add it to your view. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
+If the sales prices/line discounts aren't to be offered to all the contacts in the segment, you can clear the **Campaign Target** field for the relevant contacts. If you can't see this field, you can add it to your view. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
 
-## Conducting campaigns
+## Conduct campaigns
+
 As a campaign runs, all interactions with your contacts, or segment, are recorded so that you can get statistics and other information about the costs and success rates of the campaign.
 
-Campaigns are conducted by salespeople, and you must create activities to represent each task and assign them to the relevant salespeople. For more information, see [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
+Salespeople run campaigns, and you must create activities to represent each task and assign them to the relevant salespeople. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
 
 ## Related information
-[Managing Contacts](marketing-contacts.md)  
-[Managing Segments](marketing-segments.md)  
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Work with Business Central](ui-work-product.md)  
 
+[Manage Contacts](marketing-contacts.md)  
+[Manage Segments](marketing-segments.md)  
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Work with Business Central](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -9172,26 +9188,27 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-import-item-pictures
 ---
-title: Importing Many Item Pictures from a ZIP File
+title: Import Multiple Item Pictures
 description: To import multiple item pictures give picture files names corresponding to item numbers, compress them to a ZIP file, and use the Import Item Pictures page.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: product, image
 ms.search.form: 30, 461
-ms.date: 06/16/2021
+ms.date: 10/14/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Import Multiple Item Pictures
-You can import multiple item pictures in one go. Simply name your picture files with names corresponding to your item numbers, compress them to a zip file, and then use the Import Item Pictures page to manage which item pictures to import.
+# Import multiple item pictures
+
+You can import multiple item pictures in one go. Just name your picture files with names corresponding to your item numbers, compress them to a zip file, and then use the Import Item Pictures page to manage which item pictures to import.
 
 All common file formats are supported.
 
-## To name picture files by the item names and prepare the ZIP file
-1. At the location where your item pictures are stored, name each files according to the number of the related item. For example:
+## Name picture files by the item names and prepare the ZIP file
+
+1. At the location where your item pictures are stored, name each file according to the number of the related item. For example:
 
     |Item No.|File Name|
     |-|-|
@@ -9199,23 +9216,28 @@ All common file formats are supported.
     |1001|1001.bmp|
     |1002|1002.bmp|
 
-2. Collect all the files in a ZIP file. For example, in Windows Explorer, select the files, and then choose **Send to**, **Compressed (zipped) folder**.     
+1. Collect all the files in a ZIP file. For example, in Windows Explorer, select the files, and then choose **Send to**, **Compressed (zipped) folder**.
 
-## To import item pictures
+> [!NOTE]
+> File name can't include these characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`
+
+## Import item pictures
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Setup**, and then choose the related link.
-2. Choose the **Import Item Pictures** action.
-3. In the **Select a ZIP file** field, select the relevant ZIP folder, and then choose the **Open** button.
+1. Select the **Import Item Pictures** action.
+1. In the **Select a ZIP file** field, select the relevant ZIP folder, and then choose the **Open** button.
 
     A line for each item and picture is created on the **Import Item Pictures** page.
 
     > [!NOTE]
-    > For item cards that already have a picture, the **Picture Already Exists** check box is selected. If you do not want any existing pictures to be replaced, deselect the **Replace Pictures** check box. If you do not want individual existing pictures to be replaced, delete the lines in question.
+    > For item cards that already have a picture, the **Picture Already Exists** check box is selected. If you don't want any existing pictures to be replaced, deselect the **Replace Pictures** check box. If you don't want individual existing pictures to be replaced, delete the lines in question.
 
-3. Choose the **Import Pictures** action.
+1. Select the **Import Pictures** action.
 
-The **Import Status** field is updated to show if the picture import was skipped or completed.       
+The **Import Status** field is updated to show if the picture import was skipped or completed.
 
 ## Related information
+
 [Register New Items](inventory-how-register-new-items.md)  
 [Create Number Series](ui-create-number-series.md)  
 [Inventory](inventory-manage-inventory.md)  
@@ -9829,14 +9851,15 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-trans-split-combine
 ---
 title: Reclassify fixed assets
-description: You reclassify a fixed asset to transfer it to a different department, split it up, or combine it with other fixed assets.
+description: Reclassify a fixed asset to move it to another department, split acquisition cost and depreciation among multiple assets, or combine assets into one.
 author: brentholtorf
 ms.topic: how-to
 ms.search.form: 5638, 5636, 5640, 5637, Report_5606
-ms.date: 11/07/2024
+ms.search.keywords: reclassify, fixed assets, transfer, split, combine
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.custom: bap-template
 ---
 
@@ -9846,28 +9869,28 @@ You can reclassify a fixed asset to transfer it to a different department, split
 
 To explore the results of fixed asset reclassifications, use the [Fixed Asset Book Value 02](reports/report-5606.md) report.
 
-## To transfer a fixed asset to a different department
+## Transfer a fixed asset to a different department
 
 You might need to transfer a fixed asset to a different department. For example, when you put an asset in the production department for assembly and then move it to the administration department afterward.  
 
 1. Set up a new fixed asset. Enter the new department as a dimension.  
-2. Assign a fixed asset depreciation book to the new fixed asset. For more information, see [Acquire Fixed Assets](fa-how-acquire.md).
+2. Assign a fixed asset depreciation book to the new fixed asset. Learn more in [Acquire Fixed Assets](fa-how-acquire.md).
 3. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset Reclassification Journals**, and then choose the related link.
 4. Create a journal line where the **FA No.** field contains the original fixed asset, and the **New FA No.** field contains the new fixed asset to be moved. Fill in the other fields as appropriate.  
 5. Choose the **Reclassify** action.
 
-    Two lines are now created in the fixed asset G/L journal using the template and batch that you specify on the **FA Journal Setup** page for the depreciation book. For more information, see [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).
-6. [!INCLUDE[open-search](includes/open-search.md)], enter **FA G/L Journals**, and then choose the related link.    
+    Two lines are now created in the fixed asset G/L journal using the template and batch that you specify on the **FA Journal Setup** page for the depreciation book. Learn more in [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).
+6. [!INCLUDE[open-search](includes/open-search.md)], enter **FA G/L Journals**, and then choose the related link.
 7. On the **Fixed Asset G/L Journal** page, choose the **Post** action to post the reclassification that you performed in steps 4 and 5.
 
 If you posted an acquisition cost for an asset, you can use the fixed asset reclassification journal to split the acquisition cost among several assets.  
 
-## To split a fixed asset into three fixed assets
+## Split a fixed asset into three fixed assets
 
 You can split one fixed asset into multiple fixed assets. For example, when you need to distribute a fixed asset across three departments. In that case, you might move 25 percent of the acquisition cost and depreciation for the original fixed asset to the second fixed asset, and 45 percent to the third asset. The remaining 30 percent remains on the original fixed asset.
 
 1. Set up two new fixed assets. Enter the relevant departments as dimensions.  
-2. Assign fixed asset depreciation books to the new fixed assets. For more information, see [Acquire Fixed Assets](fa-how-acquire.md).
+2. Assign fixed asset depreciation books to the new fixed assets. Learn more in [Acquire Fixed Assets](fa-how-acquire.md).
 3. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset Reclassification Journals**, and then choose the related link.
 4. Create two reclassification journal lines, one for each new fixed asset.
 5. On the first line, enter the second fixed asset in the **New FA No.** field and **25** in the **Reclassify Acq. Cost %** field.
@@ -9875,12 +9898,11 @@ You can split one fixed asset into multiple fixed assets. For example, when you 
 7. On both lines, select the **Reclassify Acquisition Cost** and **Reclassify Depreciation** checkboxes.  
 8. Choose the **Reclassify** action.  
 
-    Two lines are now created in the fixed asset G/L journal using the template and batch that you specified on the **FA Journal Setup** page for the specified depreciation book. For more information, see [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).    
+    Two lines are now created in the fixed asset G/L journal using the template and batch that you specified on the **FA Journal Setup** page for the specified depreciation book. Learn more in [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).
 9. [!INCLUDE[open-search](includes/open-search.md)], enter **FA G/L Journals**, and then choose the related link.
 10. On the **Fixed Asset G/L Journal** page, choose the **Post** action to post the reclassification that you performed in steps 4 through 8.
 
-
-## To combine two fixed assets into one
+## Combine two fixed assets into one
 
 You can combine multiple fixed assets into one fixed asset, for example when you move distributed fixed assets into one department. If you posted acquisition costs and depreciation for the fixed asset to move, those values are combined in the single fixed asset.
 
@@ -9890,17 +9912,17 @@ You can combine multiple fixed assets into one fixed asset, for example when you
 4. Select the **Reclassify Acquisition Cost** and **Reclassify Depreciation** checkboxes.
 5. Choose the **Reclassify** action.
 
-    Two lines are now created in the fixed asset G/L journal using the template and batch that you specified on the **Fixed Asset Journal Setup** page for the specified depreciation book. For more information, see [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).  
+    Two lines are now created in the fixed asset G/L journal using the template and batch that you specified on the **Fixed Asset Journal Setup** page for the specified depreciation book. Learn more in [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md).  
 6. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset G/L Journals**, and then choose the related link.
 7. On the **Fixed Asset G/L Journal** page, choose the **Post** action to post the reclassification that you performed in steps 2 through 5.
 
-## To view changed depreciation book values due to fixed asset reclassification
+## View changed depreciation book values due to fixed asset reclassification
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset Book Value 02**, and then choose the related link.
 2. Fill in the fields as necessary.
 3. Choose the **Print** or **Preview** button.  
 
-For more information, see [Fixed Asset Book Value 02 (report)](reports/report-5606.md).
+Learn more in [Fixed Asset Book Value 02 (report)](reports/report-5606.md).
 
 ## Related information
 
@@ -9909,8 +9931,7 @@ For more information, see [Fixed Asset Book Value 02 (report)](reports/report-56
 [Setting Up Fixed Assets](fa-setup.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10942,7 +10963,7 @@ To calculate how much time a resource can spend on projects, you must set their 
 5. Alternatively, to detail the resource's capacity for a specific period, choose the **Set Capacity** action.
 
    > [!TIP]
-   > If you're setting capacity for a group of people who typically work the same hours, you can save a little time and ensure consistency by choosing a work hour template. For example, you might have one work hour template for full time technicians, and another for technicians that work part time. To learn more about work hour templates, go to [To set up work hour templates](service-how-setup-work-service-hours.md#to-set-up-work-hour-templates).
+   > If you're setting capacity for a group of people who typically work the same hours, you can save a little time and ensure consistency by choosing a work hour template. For example, you might have one work hour template for full time technicians, and another for technicians that work part time. To learn more about work hour templates, go to [Set up work hour templates](service-how-setup-work-service-hours.md#set-up-work-hour-templates).
 
 6. On the **Resource Capacity Settings** page, fill in the fields as necessary.
 7. Choose the **Update Capacity** action. The **Resource Capacity** page is updated with the entered capacity.
@@ -13010,19 +13031,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-set-up-email-logging
 ---
-title: Set Up Email Logging
+title: Set up email logging
 description: Learn how to turn email interactions between salespeople and customers into real sales opportunities.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.date: 11/14/2024
+ms.date: 10/03/2025
 ms.custom: bap-template
 ms.search.keywords: relationship, prospect, opportunity, email
 ms.search.form: 1680, 1811, 5076
 ms.service: dynamics-365-business-central
 ---
-# Track Email Message Exchanges Between Salespeople and Contacts
+
+# Track email message exchanges between salespeople and contacts
 
 [!INCLUDE[azure-ad-to-microsoft-entra-id](~/../shared-content/shared/azure-ad-to-microsoft-entra-id.md)]
 
@@ -13031,7 +13053,7 @@ Get more out of the communications between your salespeople and customers by tur
 > [!IMPORTANT]
 > For [!INCLUDE[prod_short](includes/prod_short.md)] online, [!INCLUDE[prod_short](includes/prod_short.md)] and Exchange Online must be on the same tenant.
 
-## To set up email logging
+## Set up email logging
 
 ### Set up public folders and rules for email logging in Exchange Online
 
@@ -13039,37 +13061,37 @@ Get more out of the communications between your salespeople and customers by tur
 
 Next, you connect [!INCLUDE[prod_short](includes/prod_short.md)] with Exchange Online.
 
-### Set Up a shared mailbox and rules for email logging in Exchange Online
+### Set up a shared mailbox and rules for email logging in Exchange Online
 
 > [!NOTE]
 > These steps require administrator access for Exchange Online.
 
-Prepare a shared mailbox in the Exchange admin center. Alternatively, you can also use Exchange Online PowerShell. For more information, see [Create a shared mailbox](/microsoft-365/admin/email/create-a-shared-mailbox) or [Exchange Online PowerShell](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true).
+Prepare a shared mailbox in the Exchange admin center. Alternatively, you can also use Exchange Online PowerShell. Learn more in [Create a shared mailbox](/microsoft-365/admin/email/create-a-shared-mailbox) or [Exchange Online PowerShell](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true).
 
 > [!NOTE]
 > If you use Exchange Management PowerShell, your changes are available in the Exchange admin center after a delay. The delay might be several hours.
 
 ### Add a user account for members of the shared mailbox
 
-The account that you use for email logging is an Exchange Online account. The scheduled job uses the account to connect to the shared mailbox and process emails. This account shouldn't be associated with a specific person. Add the email account to the members for the shared mailbox. For more information, see [Use the EAC to edit shared mailbox delegation](/exchange/collaboration-exo/shared-mailboxes#use-the-eac-to-edit-shared-mailbox-delegation).
+The account that you use for email logging is an Exchange Online account. The scheduled job uses the account to connect to the shared mailbox and process emails. This account shouldn't be associated with a specific person. Add the email account to the members for the shared mailbox. Learn more in [Use the EAC to edit shared mailbox delegation](/exchange/collaboration-exo/shared-mailboxes#use-the-eac-to-edit-shared-mailbox-delegation).
 
 ### Allow other users to see logged emails
 
-You can allow another user to open an email message in Exchange that is related to an interaction log entry from [!INCLUDE[prod_short](includes/prod_short.md)]. To do that, give the user ``Read`` permission to the **Archive** folder in the shared mailbox. For more information, see [Exchange Online PowerShell](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true).
+You can allow another user to open an email message in Exchange that is related to an interaction log entry from [!INCLUDE[prod_short](includes/prod_short.md)]. To do that, give the user ``Read`` permission to the **Archive** folder in the shared mailbox. Learn more in [Exchange Online PowerShell](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true).
 
 ### Create mail flow rules
 
-Mail flow rules look for specific conditions on messages and take action on them. Create two mail flow rules based on the information in the following table. For more information, see [Manage mail flow rules in Exchange Online](/exchange/security-and-compliance/mail-flow-rules/manage-mail-flow-rules?preserve-view=true) and [Mail flow rule actions in Exchange Online](/exchange/security-and-compliance/mail-flow-rules/mail-flow-rule-actions?preserve-view=true).
+Mail flow rules look for specific conditions on messages and take action on them. Create two mail flow rules based on the information in the following table. Learn more in [Manage mail flow rules in Exchange Online](/exchange/security-and-compliance/mail-flow-rules/manage-mail-flow-rules?preserve-view=true) and [Mail flow rule actions in Exchange Online](/exchange/security-and-compliance/mail-flow-rules/mail-flow-rule-actions?preserve-view=true).
 
-|Purpose  |Name  |Apply this rule if...  |Do the following...  |
-|---------|---------|---------|---------|
-|A rule for incoming email     |Log Email Sent to This Organization|The sender is located outside the organization, and the recipient is located inside the organization|BCC the email account that is specified for the shared mailbox.|
-|A rule for outgoing email     |Log Email Sent from This Organization|The sender is located inside the organization, and the recipient is located outside the organization.|BCC the email account that is specified for the shared mailbox.|
+| Purpose | Name | Apply this rule if... | Do the following... |
+|--|--|--|--|
+| A rule for incoming email | Log Email Sent to This Organization | The sender is located outside the organization, and the recipient is located inside the organization | BCC the email account that is specified for the shared mailbox. |
+| A rule for outgoing email | Log Email Sent from This Organization | The sender is located inside the organization, and the recipient is located outside the organization. | BCC the email account that is specified for the shared mailbox. |
 
 > [!NOTE]
-> [!INCLUDE[prod_short](includes/prod_short.md)] only processes messages in the Inbox folder in the shared mailbox. If a rule moves messages from the Inbox to another folder, those messages will not be processed. Additionally, messages in the Junk Mails folder are also ignored.
+> [!INCLUDE[prod_short](includes/prod_short.md)] only processes messages in the Inbox folder in the shared mailbox. If a rule moves messages from the Inbox to another folder, those messages aren't processed. Additionally, messages in the Junk Mails folder are also ignored.
 
-## Set Up [!INCLUDE[prod_short](includes/prod_short.md)] to log email messages
+## Set up [!INCLUDE[prod_short](includes/prod_short.md)] to log email messages
 
 Get started with email logging in two easy steps:
 
@@ -13085,11 +13107,11 @@ Get started with email logging in two easy steps:
 [!INCLUDE[prod_short](includes/prod_short.md)] creates an entry on the **Interaction Log** page each time a salesperson and a contact exchange an email message. To view the interaction log, open the **Contact** card for the person, choose **Related**, then **History**, and then **Interaction Log Entries**. There are a few things you can do with each entry in the log, for example:
 
 * View the content of the email message that was exchanged by selecting **Process** and then **Show Attachments**.
-* Turn an email exchange into a sales opportunity. If an entry looks promising, you can turn it into an opportunity and then manage its progress toward a sale. To turn an email exchange into an opportunity, choose the entry, then **Process**, and then **Create Opportunity**. For more information, see [Managing Sales Opportunities](marketing-manage-sales-opportunities.md).
+* Turn an email exchange into a sales opportunity. If an entry looks promising, you can turn it into an opportunity and then manage its progress toward a sale. To turn an email exchange into an opportunity, choose the entry, then **Process**, and then **Create Opportunity**. Learn more in [Managing Sales Opportunities](marketing-manage-sales-opportunities.md).
 
 ## Mailbox and folder limits in Exchange Online
 
-There are mailbox and folder limits in Exchange Online, such as limits for folder sizes and the number of messages. For more information, see [Exchange Online limits](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#storage-limits) and [Limits for public folders in Exchange Server](/Exchange/collaboration/public-folders/limits?view=exchserver-2019&preserve-view=true).
+There are mailbox and folder limits in Exchange Online, such as limits for folder sizes and the number of messages. Learn more in [Exchange Online limits](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#storage-limits) and [Limits for public folders in Exchange Server](/Exchange/collaboration/public-folders/limits?view=exchserver-2019&preserve-view=true).
 
 [!INCLUDE[prod_short](includes/prod_short.md)] stores logged email messages in a folder in Exchange Online. [!INCLUDE[prod_short](includes/prod_short.md)] also stores a link to each logged message. The links open the logged messages in Exchange Online from the Interaction Log Entries, Contact Card, and Salespersons Card pages in [!INCLUDE[prod_short](includes/prod_short.md)]. If a logged message is moved to another folder, the link is broken. For example, a message might be moved manually, or Exchange Online might automatically start AutoSplit when a storage limit is reached.
 
@@ -13118,21 +13140,21 @@ The new experience does not support connections to Exchange on-premises.
 -->
 ## Connect to Exchange Online
 
-To connect to Exchange Online, you must register an application in Microsoft Entra ID. Provide the application ID, key vault secret, and the redirect URL to use for the registration. The redirect URL is preset and should work for most installations. For more information, see [To register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online](#to-register-an-application-in-microsoft-entra-id-for-connecting-from-business-central-to-exchange-online). 
+To connect to Exchange Online, you must register an application in Microsoft Entra ID. Provide the application ID, key vault secret, and the redirect URL to use for the registration. The redirect URL is preset and should work for most installations. Learn more in [To register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online](#register-an-application-in-microsoft-entra-id-for-connecting-from-business-central-to-exchange-online).
 
-You must also use **OAuth2** as the **Authentication Type**. You must also register an application in Microsoft Entra ID. Provide the application ID, key vault secret, and the redirect URL to use for the registration. The redirect URL is prepopulated and should work for most installations. For more information, see [To register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online](#to-register-an-application-in-microsoft-entra-id-for-connecting-from-business-central-to-exchange-online).
+You must also use **OAuth2** as the **Authentication Type**. You must also register an application in Microsoft Entra ID. Provide the application ID, key vault secret, and the redirect URL to use for the registration. The redirect URL is prepopulated and should work for most installations. Learn more in [To register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online](#register-an-application-in-microsoft-entra-id-for-connecting-from-business-central-to-exchange-online).
 
-You must set up your installation to use HTTPS. For more information, see [Configuring SSL to Secure the Business Central Web Client Connection](/dynamics365/business-central/dev-itpro/deployment/configure-ssl-web-client-connection). If you're setting up your server to have a different home page, you can change the URL. The client secret is saved as an encrypted string in your database.
+You must set up your installation to use HTTPS. Learn more in [Configuring SSL to Secure the Business Central Web Client Connection](/dynamics365/business-central/dev-itpro/deployment/configure-ssl-web-client-connection). If you're setting up your server to have a different home page, you can change the URL. The client secret is saved as an encrypted string in your database.
 
-### To register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online
+### Register an application in Microsoft Entra ID for connecting from Business Central to Exchange Online
 
-The following steps assume that you use Microsoft Entra ID to manage identities and access. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app). 
+The following steps assume that you use Microsoft Entra ID to manage identities and access. Learn more in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 1. In the Azure portal, under **Manage**, choose **Authentication**.
 2. Under **Redirect URL**, add the redirect URL that is suggested on the **Email Logging** page in [!INCLUDE[prod_short](includes/prod_short.md)]. If the redirect URL field on the Email Logging page is empty, find the suggested redirect URL on the **Assisted Setup** page. To open the page, on the **Email Logging** page, choose **Actions**, and then **Assisted Setup**.
 
     > [!NOTE]
-    > If you do not specify the redirect URL, you can do so later by choosing **Add a platform**, and then choosing **Web** to add the web application and the redirect URL.
+    > If you don't specify the redirect URL, you can do so later by choosing **Add a platform**, and then choosing **Web** to add the web application and the redirect URL.
 
 3. Under **Manage**, choose **API permissions**, and choose **Microsoft Graph**, and then choose **Delegated permissions**.
 4. Use the search box to find and select **Mail**, and then add the **Mail.ReadWrite.Shared** permission.
@@ -13140,24 +13162,24 @@ The following steps assume that you use Microsoft Entra ID to manage identities 
 6. Choose **Overview**, and then find the **Application (client) ID** value. This value is the client ID of your application. You must enter it either in the **Client ID** field on the **Email Logging** page.
 7. In [!INCLUDE[prod_short](includes/prod_short.md)], set up email logging on the **Email Logging** page, or use the **Assisted Setup** guide for assistance.
 
-### Use Another Identity and Access Management Service
+### Use another identity and access management service
 
 If you aren't using Microsoft Entra ID to manage identities and access, you need some help from a developer. If you prefer to store the app ID and secret in a different location, you can leave the Client ID and Client Secret fields blank and write an extension to fetch the ID and secret from the location. You can provide the secret at runtime by subscribing to the OnGetEmailLoggingClientId and OnGetEmailLoggingClientSecret events in codeunit 1641 "Setup Email Logging."
 
-## To start logging email
+## Start logging email
 
 1. To start logging email, on the **Email Logging** page, turn on the **Enabled** toggle.
 2. Sign in with the Exchange Online account that the scheduled job uses to connect to the shared mailbox and process emails.
 
     > [!NOTE]
-    > If you are not prompted to sign in the the Exchange Online account, it might be because your browser is blocking pop-ups. To sign in, allow pop-ups from https://login.microsoftonline.com.
+    > If you aren't prompted to sign in the Exchange Online account, it might be because your browser is blocking pop-ups. To sign in, allow pop-ups from https://login.microsoftonline.com.
 
-## To stop logging email
+## Stop logging email
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Email Logging**, and then choose the related link.
 2. Turn off the **Enabled** toggle.
 
-## To change the user account used for email logging
+## Change the user account used for email logging
 
 ### [!INCLUDE[prod_short](includes/prod_short.md)] Online
 
@@ -13174,37 +13196,38 @@ If you aren't using Microsoft Entra ID to manage identities and access, you need
 
 ## Related information
 
-[Managing Relationships](marketing-relationship-management.md)
+[Manage Relationships](marketing-relationship-management.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-offerings
 ---
-title: Set Up Service Offerings
-description: When you set up service management, you must decide what services to offer customers and the schedule for those services.
+title: Set up service offerings
+description: Learn how to define the services your organization offers and schedule them for customers as part of service management setup.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: components, service item, service
-ms.date: 06/23/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Service Offerings
+# Set up service offerings
+
 When you set up service management, you must decide what services to offer customers and the schedule for those services. A service is a type of work performed by one or more resources and provided to a customer. For example, a service could be a type of computer repair. A service item is the equipment or item that needs servicing, for example, the computer that needs repair, installed at a specific customer. You can set up services as part of a group of related repair or maintenance items.  
   
-The following table describes a sequence of tasks, with links to the topics that describe them.  
+The following table describes a sequence of tasks, with links to the articles that describe them.  
   
-|**To**|**See**|  
+|**To**|**Go to**|  
 |------------|-------------|  
 |Enter information about the service items that your service organization is tracking.|[Create Service Items](service-how-to-create-service-items.md)|  
-|Establish a workflow for service when the service items consists of several components. The component list is always connected to a service item, but these components can also be based on bill of materials (BOMs).|[Set Up Service Items and Service Item Components](service-how-setup-service-items.md)|  
+|Establish a workflow for service when the service item consists of several components. The component list is always connected to a service item, but these components can also be based on bill of materials (BOMs).|[Set Up Service Items and Service Item Components](service-how-setup-service-items.md)|  
   
-## Related information  
-[Setting Up Service Management](service-setup-service.md)   
+## Related information
+
+[Set Up Service Management](service-setup-service.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13320,41 +13343,42 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-create-service-quotes
 ---
-title: How to Create Service Quotes
+title: How to create service quotes
 description: Learn how to use a service quote as a preliminary draft for a service order, and then convert the quote to a service order.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/23/2021
+ms.search.keywords: service management, service, service quote, service quotes, create service quote, create service quotes
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Create Service Quotes
-You can think of service quotes as the basis for service orders. In fact, they are almost identical. They both contain information such as who the customer is, the type of order, the item that needs service, billing and shipping information, and information about the actual service work.
- 
+
+# Create service quotes
+
+You can think of service quotes as the basis for service orders. In fact, they're almost identical. They both contain information such as who the customer is, the type of order, the item that needs service, billing and shipping information, and information about the actual service work.
+
 You can use a service quote as a preliminary draft for a service order, and then convert the quote to a service order.  
   
-## To create a service quote  
+## Create a service quote
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Quotes**, and then choose the related link.  
 2. Create a new service quote.  
 3. In the **No.** field, enter a number for the service quote. Alternatively, if you have set up a number series for service quotes on the **Service Mgt. Setup** page, you can select <kbd>Enter</kbd> to select the next available service quote number.  
 4. In the **Customer No.**  field, select the relevant customer from the list.  
 
   > [!Note]  
-  >  The customer fields are filled in automatically with information from the **Customer** card. If a **Customer** card does not exist for the customer, and you have set up a customer template, you can create the customer from the service quote. Fill in the relevant fields, and then choose the **Create Customer** action.  
+  > The customer fields are filled in automatically with information from the **Customer** card. If a **Customer** card does not exist for the customer, and you have set up a customer template, you can create the customer from the service quote. Fill in the relevant fields, and then choose the **Create Customer** action.  
   
 5. Depending on the settings on the **Mandatory Fields** FastTab on the **Service Mgt. Setup** page, you may need to fill in the **Service Order Type** field and the **Salesperson Code** field.  
 6. Fill in the service item lines.  
 7. Register estimated costs on the service lines.  
   
-## Related information  
+## Related information
+
 [Create Service Orders](service-how-to-create-service-orders.md)  
 [Work on Service tasks](service-how-to-work-on-service-tasks.md)  
-
- 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13486,14 +13510,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-setup-service-processes
 ---
-title: Set Up Service Management Processes
+title: Set up service management processes
 description: Learn how to set up processes that help ensure your customers are satisfied with your services.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: service, number sequences, setup, warnings, fee, contracts, warranties
-ms.date: 03/17/2025
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -13508,7 +13532,7 @@ The following are some examples of the settings you can apply to service managem
 * Settings for contracts, such as the maximum number of days that you can use for contract service orders, whether to use reason codes when a contract is canceled, standard texts for descriptions, and contract values.  
 * The number sequences to use for service-related documents and items.  
 
-## To enter general and mandatory settings
+## Enter general and mandatory settings
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Management Setup**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
@@ -13532,12 +13556,12 @@ This setting affects the following documents:
 
 The following table describes the effects on different documents.
 
-|Document  |Allow<br>Displays a series of options   |Prohibited<br>Conformation dialog  |Mandatory<br>Confirmation dialog  |
-|---------|---------|---------|---------|
-|Service order     | * Ship<br>* Invoice<br>* Ship and Invoice<br>* Ship and Consume         |* Ship<br>* Ship and Consume  |Do you want to post the shipment and invoice?         |
-|Warehouse Shipment     |* Ship<br>* Ship and Invoice         |Do you want to post the shipment?         | Do you want to post the shipment and invoice?        |
-|Service invoice     | Do you want to post the invoice?         | Error: you cannot post.       |Do you want to post the invoice?         |
-|Service credit memo     | Do you want to post the credit memo?         | Error: you cannot post.        |Do you want to post the credit memo?         |
+| Document | Allow<br>Displays a series of options | Prohibited<br>Conformation dialog | Mandatory<br>Confirmation dialog |
+|--|--|--|--|
+| Service order | * Ship<br>* Invoice<br>* Ship and Invoice<br>* Ship and Consume | * Ship<br>* Ship and Consume | Do you want to post the shipment and invoice? |
+| Warehouse Shipment | * Ship<br>* Ship and Invoice | Do you want to post the shipment? | Do you want to post the shipment and invoice? |
+| Service invoice | Do you want to post the invoice? | Error: you can't post. | Do you want to post the invoice? |
+| Service credit memo | Do you want to post the credit memo? | Error: you can't post. | Do you want to post the credit memo? |
 
 > [!NOTE]
 > When you post service invoices and credit memos, you don't have any posting options. The documents always post physical and financial transactions together. You can't partially post service invoices and credit memos.
@@ -13546,7 +13570,7 @@ The following table describes the effects on different documents.
 
 Your business probably deals with multiple customer and vendor contacts who are responsible for different areas of operation. For example, accountants, purchasers, and warehouse staff. Because their interests typically differ, you might want to generate and send different types of documents to them. You can save time when you send documents to different customer or vendor contacts by setting up specific contacts to use with specific documents. For example, send service invoices to accountant contacts and service orders to your customers' purchasers.
 
-You can use the **Document Layouts** page to specify who to send service quotes, orders, invoices, and credit memos to for vendors and customers based on settings on the **Report Selection** page. To send specific documents to specific company contacts, choose the company contacts to use for specific document layouts. To learn more about document layouts, go to [Define document layouts for customers and vendors](ui-define-customer-vendor-document-layouts.md).
+You can use the **Document Layouts** page to specify who to send service quotes, orders, invoices, and credit memos to for vendors and customers based on settings on the **Report Selection** page. To send specific documents to specific company contacts, choose the company contacts to use for specific document layouts. Learn more in [Define document layouts for customers and vendors](ui-define-customer-vendor-document-layouts.md) for information about document layouts.
 
 ## Related information  
 
@@ -13556,7 +13580,6 @@ You can use the **Document Layouts** page to specify who to send service quotes,
 [Set Up Additional Costs for Services](service-how-setup-service-costs-pricing.md)  
 [Set Up Troubleshooting](service-how-setup-troubleshooting.md)  
 [Service Management](service-service.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -14601,17 +14624,18 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-maintain
 ---
 title: Maintain fixed assets
-description: Record repairs and service on a fixed asset to preserve its value.
+description: Track and document repairs and maintenance for fixed assets to maintain their condition and value.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords: repair, service
+ms.search.keywords: repair, service, fixed assets, manage fixed assets, maintenance cost
 ms.search.form: 5642, 5625
-ms.date: 11/11/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Maintain fixed assets
 
 Maintenance costs are operating expenses for the things you do to preserve the condition of your fixed assets. Unlike capital improvements, maintenance doesn't increase the value of your assets.
@@ -14643,8 +14667,8 @@ Every time you do maintenance for an asset, such as a service visit, you can rec
 6. In the **FA Posting Type** field, select **Maintenance**.
 7. Choose the **Insert FA Bal. Account** action. A second journal line is created for the balancing account that is set up for maintenance posting.
 
-    > [!NOTE]  
-    > Step 7 only works if you set up the following: On the **FA Posting Group Card** page for the posting group of the fixed asset, the **Maintenance Account** field contains the general ledger debit account and the **Maintenance Bal. Account** field contains the general ledger account to which you want to post balancing entries for appreciation. For more information, see [To set up fixed asset posting groups](fa-how-setup-general.md#to-set-up-fixed-asset-posting-groups).
+   > [!NOTE]  
+   > Step 7 only works if you set up the following: On the **FA Posting Group Card** page for the posting group of the fixed asset, the **Maintenance Account** field contains the general ledger debit account and the **Maintenance Bal. Account** field contains the general ledger account to which you want to post balancing entries for appreciation. Learn more in [Set up fixed asset posting groups](fa-how-setup-general.md#set-up-fixed-asset-posting-groups).
 8. Choose the **Post** action.
 
 ## Record maintenance cost from a purchase invoice
@@ -14666,12 +14690,11 @@ You can print the **Maintenance - Next Service** report to list the assets that 
 2. Fill in the **Starting Date** and **Ending Date** fields.  
 3. Choose the **Print** or **Preview** button.
 
-
 ## Monitor maintenance costs
 
 [!INCLUDE[prod_short](includes/prod_short.md)] provides dedicated reports and statistics pages for use in analyzing fixed assets maintenance.  
 
-To learn more about the built-in reports for fixed asset maintenance, go to [Fixed assets maintenance reports](fa-reports.md#fixed-assets-maintenance-reports).
+Learn more in [Fixed assets maintenance reports](fa-reports.md#fixed-assets-maintenance-reports) for information about the built-in reports for fixed asset maintenance.
 
 ### Overview of maintenance costs
 
@@ -14692,7 +14715,7 @@ In the **Maintenance - Analysis** report, you can select to examine maintenance 
 2. Fill in the fields as necessary.
 3. Choose the **Print** or **Preview** button.
 
-To learn more, go to [Maintenance - Analysis](reports/report-5630.md).
+Learn more in [Maintenance - Analysis](reports/report-5630.md).
 
 ## View maintenance ledger entries
 
@@ -14718,8 +14741,7 @@ In the **Maintenance - Details** report, you can view or print maintenance ledge
 [Setting Up Fixed Assets](fa-setup.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -15738,8 +15760,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-# TODO correct page id must be added
-# ms.search.form: 37042_Primary 
+ms.search.form: 37107_Primary
 ms.date: 05/26/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -15776,11 +15797,11 @@ Together, these visuals provide both high-level and detailed perspectives on WIP
 
 The Production Order WIP report includes the following KPIs and measures:
 
-- [Beginning Balance Value](manufacturing-powerbi-kpis.md#beginning-balance-value)
-- [Consumption Value](manufacturing-powerbi-kpis.md#consumption-value)
-- [Output Value](manufacturing-powerbi-kpis.md#output-value)
-- [Capacity Value](manufacturing-powerbi-kpis.md#capacity-value)
-- [Ending Balance Value](manufacturing-powerbi-kpis.md#ending-balance-value)
+- [**Beginning Balance Value**](manufacturing-powerbi-kpis.md#beginning-balance-value)
+- [**Consumption Value**](manufacturing-powerbi-kpis.md#consumption-value)
+- [**Output Value**](manufacturing-powerbi-kpis.md#output-value)
+- [**Capacity Value**](manufacturing-powerbi-kpis.md#capacity-value)
+- [**Ending Balance Value**](manufacturing-powerbi-kpis.md#ending-balance-value)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -15795,7 +15816,7 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
   
 ## Try the report
 
-Try the report here: [Production Order WIP](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+Try the report here: [Production Order WIP](https://businesscentral.dynamics.com?page=37107)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
@@ -16819,38 +16840,39 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-how-create-segment
 ---
 title: Create Segments
-description: Describes how to create a segment for a group of contacts in Business Central, for example, in order to target several contacts with a direct mail.
+description: Describes how to create a segment for a group of contacts, for example, to target several contacts with a direct mail.
 author: jswymer
-
-
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: relationship, prospect
 ms.search.form: 5091, 5093
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: jswymer
-
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
-# Create Segments
+
+# Create segments
+
 You can create segments to select a group of contacts, for example, if you want to create an interaction involving several contacts, such as direct mail.
 
-## To create a segment
+## Create a segment
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Segments**, and then choose the related link.
 2. Choose the **New** action.
 3. In the **General** section, in the **No.** field, enter a number for the segment.
 
-    Alternatively, if you have set up number series for segments on the **Marketing Setup** page, you can select <kbd>Enter</kbd> to select the next available segment number.
+    Alternatively, if you set up number series for segments on the **Marketing Setup** page, you can select <kbd>Enter</kbd> to assign the next available segment number.
 4. Fill in the other fields on the header.
 
-You can now add contacts to the segment. For more information, see [Add Contacts to Segments](marketing-add-contact-segment.md).
+You can now add contacts to the segment. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Related information
-[Managing Segments](marketing-segments.md)  
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
+[Manage Segments](marketing-segments.md)  
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -16905,7 +16927,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Set up Payables Agent
 description: Payables Agent lets you automate vendor invoice processing in Business Central. Follow these steps to activate, configure, and manage user access.
-ms.date: 10/13/2025
+ms.date: 10/24/2025
 ms.update-cycle: 180-days
 ms.topic: how-to
 author: sorenfriisalexandersen
@@ -16939,7 +16961,7 @@ Before configuring and activating the Payables Agent, ensure the following prere
    The Payables Agent monitors incoming emails to this mailbox. The email account must be a **Microsoft 365** type (user mailbox or shared mailbox) in your organization. Learn more at [Set up email](admin-how-setup-email.md).
 
    > [!IMPORTANT]
-   > To activate and configure the agent, you need **Read and manage (Full Access)** and **Send as** permission on the mailbox, unless it's your personal mailbox. As an Exchange admin, delegate these permissions to all users who need to activate and configure the agent. Learn more in [Use the Exchange admin center to edit shared mailbox delegation](/microsoft-365/admin/email/create-a-shared-mailbox#use-the-eac-to-edit-shared-mailbox-delegation).
+   > To activate and configure the agent, you need **Read and manage (Full Access)** permission on the mailbox, unless it's your personal mailbox. As an Exchange admin, delegate these permissions to all users who need to activate and configure the agent. Learn more in [Use the Exchange admin center to edit shared mailbox delegation](/microsoft-365/admin/email/create-a-shared-mailbox#use-the-eac-to-edit-shared-mailbox-delegation).
    >
    > When a user activates the agent, it runs as a background task in the context of that user and needs access to the shared mailbox to process emails. It might take a few hours for Exchange to propagate the permissions to the selected users.
 - Set up the Business Central environment for billing agent capabilities in the Business Central Admin Center.
@@ -17442,21 +17464,20 @@ title: Fixed assets reports
 description: Explore the standard reports in Business Central that can help you track and manage your fixed assets.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: article
-ms.search.keywords: reporting
+ms.search.keywords: reporting, fixed assets, report explorer, maintenance reports
 ms.search.form: Report_5600, Report_5601, Report_5603, Report_5604, Report_5605, Report_5606, Report_5607, Report_5608, Report_5610, Report_5611
-ms.date: 10/29/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
-
 ---
+
 # Fixed assets reports in Business Central
 
 When you prepare a balance sheet and income statement, you might have to generate reports to analyze the depreciation, acquisition, disposal, and gain or loss values for an accounting period. You might also need reports that show:
 
 * Accumulated depreciation and book value at the end of a period.
 * List your fixed assets for inventory, insurance, and other management purposes.
-
 
 This article describes the built-in reports for fixed assets.
 
@@ -17475,7 +17496,6 @@ This article describes the built-in reports for fixed assets.
 ## Fixed assets maintenance reports
 
 [!INCLUDE [fa_maintenance_reports](includes/fa-maintenance-reports-include.md)]
-
 
 ## Related information
 
@@ -18029,7 +18049,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-ms.search.form: 37042_Primary 
+ms.search.form: 37096_Primary 
 ms.date: 05/26/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -18055,11 +18075,11 @@ Production supervisors use this report to analyze the load percentage and alloca
 
 The Machine Center Load report includes the following KPIs and measures:
 
-- [Machine Center Capacity Effective](manufacturing-powerbi-kpis.md#machine-center-capacity-effective)
-- [Machine Center Allocated Time](manufacturing-powerbi-kpis.md#machine-center-allocated-time)
-- [Machine Center Availability After Orders](manufacturing-powerbi-kpis.md#machine-center-availability-after-orders)
-- [Machine Center Load](manufacturing-powerbi-kpis.md#machine-center-load)
-- [Machine Center Expected Efficiency %](manufacturing-powerbi-kpis.md#machine-center-expected-efficiency-percent)
+- [**Machine Center Capacity (Effective)**](manufacturing-powerbi-kpis.md#machine-center-capacity-effective)
+- [**Machine Center Allocated Time**](manufacturing-powerbi-kpis.md#machine-center-allocated-time)
+- [**Machine Center Availability After Orders**](manufacturing-powerbi-kpis.md#machine-center-availability-after-orders)
+- [**Machine Center Load**](manufacturing-powerbi-kpis.md#machine-center-load)
+- [**Machine Center Expected Efficiency %**](manufacturing-powerbi-kpis.md#machine-center-expected-efficiency-percent)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -18075,7 +18095,7 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
   
 ## Try the report
 
-Try the report here: [Machine Center Load](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+Try the report here: [Machine Center Load](https://businesscentral.dynamics.com?page=37096)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
@@ -18090,13 +18110,13 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-post-service-orders
 ---
 title: How to post service orders
-description: When you have created a service order, filled in all the necessary information and made any modifications, you can post the service order. 
+description: After creating and updating a service order with all required details, you can proceed to post it.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords:
-ms.date: 03/07/2025
+ms.search.keywords: post service order, consumption, post consumption, undo consumption, service shipment, service lines
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -18110,7 +18130,7 @@ If you have a large number of service orders, you can save time by using a batch
 > [!Tip]
 > Before you post a service document, it's a good idea to use the **Test Report** action to to check for errors or missing information. If there are errors, you must correct the problem. You can print a new test report to verify the fix, and then post the document.
 
-## To post a service order
+## Post a service order
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Orders**, and then choose the related link.  
 2. Open the service order.  
@@ -18136,14 +18156,14 @@ You can post consumption only if the line contains a quantity that shipped but i
 
 When you post the order, [!INCLUDE [prod_short](includes/prod_short.md)] creates the corresponding ledger entries and posted documents and updates the service order.  
 
-## To batch post service orders
+## Batch post service orders
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Orders**, and then choose the related link.  
 2. Choose the **Post Batch** action.  
 3. You can set a filter to select specific service order numbers or an interval of order numbers for the batch job to process.  
 4. Choose **OK** to start the batch job.  
 
-## To post a service credit memo  
+## Post a service credit memo  
 
 After you create a service credit memo, you can post it when you're ready. If there are errors or a lack of information on the credit memo while posting, an error message displays and stops the process.  
 
@@ -18155,9 +18175,9 @@ After you create a service credit memo, you can post it when you're ready. If th
 6. To post several service credit memos at the same time, run the **Batch Post Service Cr. Memos** batch job. Using the batch job is helpful when you have to post a lot of credit memos.  
 
 > [!NOTE]  
-> It is important to enter all the necessary information on the credit memos before you batch post them. Otherwise, it is possible that they will not be posted. When the batch job finishes, a message shows how many of the service credit memos it posted.  
+> It's important to enter all the necessary information on the credit memos before you batch post them. Otherwise, it's possible that they aren't posted. When the batch job finishes, a message shows how many of the service credit memos it posted.  
 
-## To post consumption from a service order  
+## Post consumption from a service order  
 
 The following procedure describes how to post the items, resource hours, and costs used for a specific service operation for which you won't charge your customer. You can post consumed items, hours, or costs only for a posted shipment that has no posted invoices or consumption.  
 
@@ -18173,7 +18193,7 @@ The following procedure describes how to post the items, resource hours, and cos
 
 The service is posted as either partially or fully consumed, depending on the value in the **Qty. to Consume** field, and the relevant ledger entries are created. Also, previously posted service shipment documents are updated chronologically with the consumed quantities. The relevant quantities are updated on the service lines of the order.  
 
-## To post shipments from service orders  
+## Post shipments from service orders  
 
 After you specify the details of a service, you can adjust and post the quantities of items used, time spent, and costs incurred. As a result, [!INCLUDE[prod_short](includes/prod_short.md)] makes the necessary changes to reflect the new state of your inventory and current status of the specific order processing.  
 
@@ -18190,13 +18210,13 @@ The following procedure shows how to post shipment of service line items in loca
 
 [!INCLUDE[prod_short](includes/prod_short.md)] creates ledger entries (in the warranty ledger, item ledger, service ledger, or G/L), produces the posted service shipment document, and updates the relevant fields on the service lines of the service order.  
 
-If the location is set up to require warehouse handling, shipping and moving service line items works in the same way as they do for other source documents. The only difference is that service line items can be consumed either externally or internally, and therefore require two different release functions. To learn more about shipping service line items in advanced warehouse configurations, go to [Picking Items for Warehouse Shipments](warehouse-how-to-pick-items-for-warehouse-shipment.md).  
+If the location is set up to require warehouse handling, shipping and moving service line items works in the same way as they do for other source documents. The only difference is that service line items can be consumed either externally or internally, and therefore require two different release functions. Learn more in [Picking Items for Warehouse Shipments] (warehouse-how-to-pick-items-for-warehouse-shipment.md) for information about shipping service line items in advanced warehouse configurations.
 
 ## Combine shipments from multiple service orders into a single service invoice
 
-If needed, you can gather posted shipments that you haven't invoiced in a single invoice. For example, combining shipments can reduce the overall number of invoices to process, which can lower administrative costs and save time for your bookkeeping team. To learn more, go to [Combine shipments on a single invoice](sales-how-to-combine-shipments-on-a-single-invoice.md).
+If needed, you can gather posted shipments that you haven't invoiced in a single invoice. For example, combining shipments can reduce the overall number of invoices to process, which can lower administrative costs and save time for your bookkeeping team. Learn more in [Combine shipments on a single invoice](sales-how-to-combine-shipments-on-a-single-invoice.md).
 
-## To undo posted consumption  
+## Undo posted consumption  
 
 You can cancel the consumption on the service orders. For example, because it was posted by mistake.  
 
@@ -18208,16 +18228,16 @@ You can cancel the consumption on the service orders. For example, because it wa
  A balancing service shipment line is inserted with negative values in the quantity fields for the selected lines.  
   
 > [!NOTE]  
-> You can't undo service consumption if:  
-
+> You can't undo service consumption if:
+>
 > * The service order has been closed.  
 > * It was posted to a project, so there are project ledger entries linked to it.  
 
-## To post service lines  
+## Post service lines  
 
 If you have to work on a service order for a considerable time without posting it, you might want to post some of the service lines linked to it as a way, for example, of keeping your inventory updated. You can post by specifying the relevant quantities on the lines to be posted. You might choose to post the lines one by one or by selecting several lines at a time.  
 
-The following procedure describes shipment posting directly from a service order in locations without warehouse handling set up. If the location is set up to require warehouse handling, then shipment posting happens in a different warehouse document, depending on the location setup.
+The following procedure describes shipment posting directly from a service order in locations without warehouse handling setup. If the location is set up to require warehouse handling, then shipment posting happens in a different warehouse document, depending on the location setup.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Orders**, and then choose the related link.  
 2. Open the service order, and then choose the **Service Lines** action.  
@@ -19199,40 +19219,43 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-contracts
 ---
-title: Set Up Service Contracts
-description: Learn how to set up service contracts with required prerequisites including service contract groups, contract templates and customer templates.
+title: Set up service contracts
+description: Learn how to set up service contracts with required prerequisites including service contract groups, contract templates, and customer templates.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: service, cost, service order
-ms.date: 06/23/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Service Contracts
+# Set up service contracts
+
 Before you can work with contracts, you must set up the following: 
 
 * **Service contract groups**, which gather service contracts that are related in some way.
 * **Service contract account groups**, which are used to group the service contract accounts together for service invoices created for service contracts. You assign these groups to service contracts.  
 * **Contract templates** that define contract layouts of contracts that include the most commonly used service contract details. When you create service contract quotes, you can create them by using templates. When you create a contract quote, the fields automatically contain the contents of the template fields.
-* **Customer templates** that let you create quotes for contacts or potential customers who are not registered as customers in [!INCLUDE[prod_short](includes/prod_short.md)].  
+* **Customer templates** that let you create quotes for contacts or potential customers who aren't registered as customers in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-## To set up a service contract group  
+## Set up a service contract group
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Contract Groups**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 3. Choose the **Disc. on Contr. Orders Only** check box if you want contract or service discounts to be valid only for contract service orders, such as maintenance.  
 
-## To set up a service contract account group  
+## Set up a service contract account group
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Serv. Contract Account Groups**, and then choose the related link.  
 2. Create a new service contract account group.   
 3. Fill in the **Code** and **Description** fields. These fields describe the service account group.  
 4. Fill in the **Non-Prepaid Contract Acc.** field, choose general ledger account number for the non-prepaid account.  
 5. In the **Prepaid Contract Acc.** field, choose the general ledger account number for the prepaid account.  
 
-## To set up a contract template  
+## Set up a contract template
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Contract Templates**, and then choose the related link.  
 2. Create a new service contract template.  
 3. In the **No.** field, enter a number for the contract template.  
@@ -19242,7 +19265,8 @@ Before you can work with contracts, you must set up the following:
 4. On the **Invoice** FastTab, fill in the **Serv. Contract Acc. Group Code** field, the **Invoice Period**, and so on. Fill in the other fields if appropriate.  
 5. Choose the **Service Discounts** action to add contract discounts.  
 
-## To set up a customer template  
+## Set up a customer template
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customer Templates**, and then choose the related link.  
 2. Create a new customer template card.  
 3. On the **General** FastTab, enter a code and a description for the customer template in the **Code** and **Description** fields respectively. 
@@ -19250,7 +19274,8 @@ Before you can work with contracts, you must set up the following:
 5. Fill in the **Gen. Bus. Posting Group** and **Customer Posting Group** fields.  
 
 ## Related information
-[Setting Up Service Management](service-setup-service.md)
+
+[Set Up Service Management](service-setup-service.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

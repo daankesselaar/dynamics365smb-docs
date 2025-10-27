@@ -89,13 +89,15 @@ title: Service items and service item components
 description: Learn about the things you must set up before you can use service items, including default values such as response time and service price group.
 author: brentholtorf
 ms.topic: how-to
-ms.search.keywords:
+ms.devlang: al
+ms.search.keywords: service items, service item components, service item groups, service shelves
 ms.date: 10/10/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
 ms.custom: bap-template
+ms.reviewer: v-soumramani
 ---
+
 # Set up service items and service item components
 
 To work with service items, first set up the following information:
@@ -469,8 +471,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-# TODO correct page id must be added
-# ms.search.form: 37042_Primary 
+ms.search.form: 37099_Primary
 ms.date: 05/26/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -513,8 +514,9 @@ Production supervisors rely on the report to manage day-to-day production tasks 
 
 The Prod. Order Routing Gantt report includes the following KPIs and measures:
 
-- [Total Duration Hours](manufacturing-powerbi-kpis.md#total-duration-hours)
-- [Total Duration Days](manufacturing-powerbi-kpis.md#total-duration-days)
+- [**Total Duration Hours**](manufacturing-powerbi-kpis.md#total-duration-hours)
+- [**Total Duration Days**](manufacturing-powerbi-kpis.md#total-duration-days)
+- [**Posted Output Quantity**](manufacturing-powerbi-kpis.md#posted-output-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -529,7 +531,7 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
   
 ## Try the report
 
-Try the report here: [Prod. Order Routing Gantt](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+Try the report here: [Prod. Order Routing Gantt](https://businesscentral.dynamics.com?page=37099)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
@@ -544,79 +546,74 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-create-contact-profile-questionnaire
 ---
 title: Use profiles to classify contacts
-description: Red about how to set up profile questionnaires to help classify your business contacts' profiles.
+description: Learn how to set up profile questionnaires to help classify your business contacts' profiles.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: contacts, profiles
 ms.search.form: 5109, 5110
 ms.author: bholtorf
-ms.date: 05/20/2022
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
 
-# Use Profile Questionnaires to Classify Business Contacts
+# Use profile questionnaires to classify business contacts
 
 You can rate a prospect so you can identify the ideal prospects to focus your sales campaign on. You can set up profile questionnaires that you want to use when entering information about your contacts' profiles. Within each questionnaire, you can set up the different questions you intend to ask your contacts. This way, you can group contacts so that your campaigns are more likely to target the right people based on the criteria that you define with the questionnaires.  
 
-With the right questionnaires, you can rate your prospects and group them into categories. You can use existing questions and answers and combine them with new questions and answers to form the basis of your rating. Each answer in the rating is given a point value and, depending on the range you set up for the categories (*From Value* and *To Value*), the rating system will group your contacts in the categories you have defined. For example, *ABC* customers, *High/Low loyalty* vendors, or *Platinum/Gold/Silver* prospects.  
+With the right questionnaires, you can rate your prospects and group them into categories. You can use existing questions and answers and combine them with new questions and answers to form the basis of your rating. Each answer in the rating has a point value. Depending on the range you set for the categories (*From Value* and *To Value*), the rating system groups your contacts in the categories you defined. For example, *ABC* customers, *High/Low loyalty* vendors, or *Platinum/Gold/Silver* prospects.  
 
 You can also run the questionnaire to answer some of the questions based on contact, customer, or vendor data automatically.  
 
-## To add a profile questionnaire
+## Add a profile questionnaire
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Questionnaire Setup**, and then choose the related link.  
 2. Choose the **New** Action.  
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-## To add questions to a profile questionnaire
+## Add questions to a profile questionnaire
 
 1. Choose the relevant profile questionnaire, and then choose the **Edit Questionnaire Setup** action.  
-2. On the first empty line, in the **Type** field, choose **Question** and type your question in the **Description** field. Fill in the other fields on this line.  
+2. On the first empty line, in the **Type** field, choose **Question**, and type your question in the **Description** field. Fill in the other fields on this line.  
 
     Optionally, add details to the question.
 
     1. Choose the line with the question, and then, choose the **Line** menu, and then choose **Question Details**.  
-
     2. On the **Classification** FastTab in the **Profile Question Details** page, select the **Auto Contact Classification** field.  
-
     3. In the **Contact Class. Field** field, select the **Rating** option.  
-
-    4. Fill in the **Min. % Questions Answered** field. The default is **0**.  
-
-        This specifies the number of questions in percentage that must be answered for this rating to be calculated.
-
+    4. In the **Min. % Questions Answered** field, specify the percentage of questions that the participant must answer for this rating to be calculated. The default is **0**. 
     5. On the **Actions** tab, in the **Page** group, choose **Answer Points**. Enter the points you want to give each answer listed in the **Answer Points** page.
 
-        If you want to get an overview of the points you have given each answer, choose the **Answer Points** action.
+        To get an overview of the points for each answer, choose the **Answer Points** action.
 
     6. To run an update, return to the **Profile Questionnaire Setup** page. On the **Actions** menu, in the **Functions** group, choose **Update Classification**.
 
-    In the **Profile Questionnaire Setup** page, the number of contacts that meets this criteria is displayed in the **No. of Contacts** field, as well as on the **Contact Card** of each contact.
+    In the **Profile Questionnaire Setup** page, the number of contacts that meets this criteria is displayed in the **No. of Contacts** field, and on the **Contact Card** of each contact.
 
-3. On the next empty line, in the **Type** field, choose **Answer** and type your answer in the **Description** field.  
-4. In the **Priority** field, select the priority. In the **From Value** and **To Value** fields, define a point range. Contacts that receive points within the defined range will get the answer.  
+3. On the next empty line, in the **Type** field, choose **Answer**, and type your answer in the **Description** field.  
+4. In the **Priority** field, select the priority. In the **From Value** and **To Value** fields, define a point range. Contacts that receive points within the defined range get the answer.  
 
 Repeat these steps to enter all the questions and answers within the profile questionnaire.
 
-After you have created a questionnaire, you can use it to rate and classify your contacts. You can also set up questions that are rated automatically based on information in the contact card.  
+After you create a questionnaire, you can use it to rate and classify your contacts. You can also set up questions that are rated automatically based on information in the contact card.  
 
 > [!NOTE]
 > If you enter a question that is automatically answered, choose **Line**, and then choose **Question Details**, to enter the criteria to automatically answer the question.
 
 ## Apply questionnaires to contacts
 
-You can apply your questionnaires to contacts manually. Just open the relevant contact card, and then choose the **Profile** action. Then, once you have applied the questionnaires that you want to apply, you can start using the categories in your campaigns.  
+You can apply your questionnaires to contacts manually. Just open the relevant contact card, and then choose the **Profile** action. After you apply the questionnaires, you can start using the categories in your campaigns.  
 
-## The Automatic Classification of Contacts
+## Automatic classification of contacts
 
 You can automatically classify your contacts according to customer, vendor, and contact information, by setting up automatically answered profile questions on the **Profile Questionnaire Setup** page.  
 
 > [!NOTE]
-> Only contacts that are recorded as customers can be assigned a classification based on customer data and only contacts that are recorded as vendors can be assigned a classification based on vendor data. The automatic classification is not updated automatically. Consequently, you may want to update the profile questionnaires, after you have updated the customer, vendor or contact data they are based on.  
+> Only contacts that are recorded as customers can be assigned a classification based on customer data and only contacts that are recorded as vendors can be assigned a classification based on vendor data. Automatic classification doesn't update automatically. You might want to update the profile questionnaires after you update the customer, vendor, or contact data they're based on.  
 
-After you have set up automatically answered profile questions, if you assign the profile questionnaire containing these questions to a contact, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically assign the right answers for the contact.  
+After you set up automatically answered profile questions, if you assign the profile questionnaire that contains these questions to a contact, [!INCLUDE[prod_short](includes/prod_short.md)] assigns the correct answers for the contact.  
 
 ## Example
 
@@ -628,11 +625,11 @@ You can classify your contacts according to how much they bought from you:
 |B|contacts who bought for 100,000 up to 499,999 LCY|
 |C|contacts who bought for 99,999 LCY or less|
 
-To do this, fill on the **Profile Questionnaire Setup** page as follows:
+Fill on the **Profile Questionnaire Setup** page as follows:
 
 | Type     | Description        | Automatic Classification     | From Value | To Value |
 |----------|--------------------|------------------------------|------------|----------|
-| Question | ABC Classification | Click to insert a check mark |            |          |
+| Question | ABC Classification | Select to insert a check mark |            |          |
 | Answer   | A                  |                              | 500,000    |          |
 | Answer   | B                  |                              | 100,000    | 499,999  |
 | Answer   | C                  |                              |            | 99,999   |
@@ -648,8 +645,7 @@ When you assign the profile questionnaire containing this question to a contact,
 
 ## Related information
 
-[Creating Contacts](marketing-create-contact-companies.md)  
-
+[Create Contacts](marketing-create-contact-companies.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -2502,7 +2498,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-ms.search.form: 37042_Primary 
+ms.search.form: 37095_Primary 
 ms.date: 05/26/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -2556,20 +2552,20 @@ Production supervisors rely on this report to monitor machine center performance
 
 The Machine Center Statistics report includes the following KPIs and measures:
 
-- [Machine Center Total Capacity](manufacturing-powerbi-kpis.md#machine-center-capacity-total)
-- [Machine Center Capacity Effective](manufacturing-powerbi-kpis.md#machine-center-capacity-effective)
-- [Machine Center Expected Efficiency %](manufacturing-powerbi-kpis.md#machine-center-expected-efficiency-percent)
-- [Machine Center Actual Need](manufacturing-powerbi-kpis.md#machine-center-actual-need)
-- [Machine Center Actual Efficiency %](manufacturing-powerbi-kpis.md#machine-center-actual-efficiency-percent)
-- [Machine Center Actual Total Cost](manufacturing-powerbi-kpis.md#machine-center-actual-total-cost)
-- [Machine Center Allocated Time](manufacturing-powerbi-kpis.md#machine-center-allocated-time)
-- [Machine Center Output](manufacturing-powerbi-kpis.md#machine-center-output)
-- [Machine Center Scrap](manufacturing-powerbi-kpis.md#machine-center-scrap)
-- [Machine Center Scrap %](manufacturing-powerbi-kpis.md#machine-center-scrap-percent)
-- [Machine Center Run Time](manufacturing-powerbi-kpis.md#machine-center-run-time)
-- [Machine Center Stop Time](manufacturing-powerbi-kpis.md#machine-center-stop-time)
-- [Machine Center Stop %](manufacturing-powerbi-kpis.md#machine-center-stop-percent)
-- [Machine Center Load](manufacturing-powerbi-kpis.md#machine-center-load)
+- [**Machine Center Capacity (Total)**](manufacturing-powerbi-kpis.md#machine-center-capacity-total)
+- [**Machine Center Capacity (Effective)**](manufacturing-powerbi-kpis.md#machine-center-capacity-effective)
+- [**Machine Center Expected Efficiency %**](manufacturing-powerbi-kpis.md#machine-center-expected-efficiency-percent)
+- [**Machine Center Actual Need**](manufacturing-powerbi-kpis.md#machine-center-actual-need)
+- [**Machine Center Actual Efficiency %**](manufacturing-powerbi-kpis.md#machine-center-actual-efficiency-percent)
+- [**Machine Center Actual Total Cost**](manufacturing-powerbi-kpis.md#machine-center-actual-total-cost)
+- [**Machine Center Allocated Time**](manufacturing-powerbi-kpis.md#machine-center-allocated-time)
+- [**Machine Center Output**](manufacturing-powerbi-kpis.md#machine-center-output)
+- [**Machine Center Scrap**](manufacturing-powerbi-kpis.md#machine-center-scrap)
+- [**Machine Center Scrap %**](manufacturing-powerbi-kpis.md#machine-center-scrap-percent)
+- [**Machine Center Run Time**](manufacturing-powerbi-kpis.md#machine-center-run-time)
+- [**Machine Center Stop Time**](manufacturing-powerbi-kpis.md#machine-center-stop-time)
+- [**Machine Center Stop %**](manufacturing-powerbi-kpis.md#machine-center-stop-percent)
+- [**Machine Center Load**](manufacturing-powerbi-kpis.md#machine-center-load)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -2586,7 +2582,7 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
   
 ## Try the report
 
-Try the report here: [Machine Center Statistics](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+Try the report here: [Machine Center Statistics](https://businesscentral.dynamics.com?page=37095)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
@@ -2600,85 +2596,91 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-resource-allocation
 ---
-title: Set Up Resource Allocation | Microsoft Docs
+title: Set up resource allocation | Microsoft Docs
 description: Learn how the system can help ensure that you assign someone who has the skills required to provide a service.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: resource, skill, service, zones
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Resource Allocation
+# Set up resource allocation
+
 To ensure that a service task is performed well, it's important to find a resource who is qualified to do the work. You can set up [!INCLUDE[prod_short](includes/prod_short.md)] so that it's easy to allocate someone who has the right skills for the job. In [!INCLUDE[prod_short](includes/prod_short.md)], we call this _resource allocation_. You can allocate resources based on their skill, availability, or whether they are in the same service zone as the customer. 
 
 To use resource allocation, you must set up:  
   
 * The skills required to repair and maintain service items. You assign these to service items and resources.  
 * Geographic regions, called zones, that you define for your market. For example, East, West, Central, and so on. You assign these to customers and resources.  
-* Whether to display resource skills and zones, and whether to display a warning if someone chooses unqualified resource, or a resource that is not in the customer zone.  
+* Whether to display resource skills and zones, and whether to display a warning if someone chooses unqualified resource, or a resource that isn't in the customer zone.  
 
-## To set up skills
+## Set up skills
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Skills**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-## To assign skills to service items and resources
+## Assign skills to service items and resources
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items** or **Resources**, and then choose the related link.  
 2. Open the card for the service item or resource, and then choose one of the following:  
   
     * For service items, choose **Resource Skills**.  
     * For resources, choose **Skills**.  
 
-## To set up zones
+## Set up zones
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Zones**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-## To assign zones to customers and resources 
+## Assign zones to customers and resources
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers** or **Resources**, and then choose the related link.  
 2. Open the card for the service item or resource, and then choose one of the following:  
   
     * For customers, choose a zone in the **Service Zone Code** field.  
     * For resources, choose the **Service Zones** action.  
 
-## To specify what to show when a resource is chosen
+## Specify what to show when a resource is chosen
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Management Setup**, and then choose the related link. 
 2. In the **Resource Skills Option** field, choose one of the options described in the following table.  
   
     |**Option**|**Description**|  
     |------------|-------------|  
     |Code Shown | Displays the code only.|  
-    |Warning Displayed | Shows the information and displays a warning if you choose a resource that is not qualified.|  
-    |Not Used | Does not show this information.|  
+    |Warning Displayed | Shows the information and displays a warning if you choose a resource that isn't qualified.|  
+    |Not Used | Doesn't show this information.|  
 
-## To update resource capacity  
+## Update resource capacity
+
 You may need to change the capacity of resources.  
   
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Resource Capacity**, and then choose the related link.  
 2. Choose the resource, and then choose the **Set Capacity** action.  
 3. Make the changes, and then choose **Update Capacity**.  
 
-## To update skills for items, service items, or service item groups
+## Update skills for items, service items, or service item groups
+
 If you want to change the skill codes assigned to items, for example from **PC** to **PCS**, you can do so either for an item, service item, or for all items in a service item group.  
   
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items** or **Service Item**, or **Service Item Group**, and then choose the related link.  
 2. Choose the entity to update, and then choose the **Resource Skills** action.  
 3. On the line with the code to be changed, in the **Skill Code** field, choose the relevant skill code.  
-4.  If the item has associated service items, a dialog box opens with the following two options:  
+4. If the item has associated service items, a dialog box opens with the following two options:  
   
     * Change the skill codes to the selected value: Select this option if you want to replace the old skill code with the new one on all the related service items.  
     * Delete the skill codes or update their relation: Select this option if you want to change the skill code on this item only. The skill code on the related service items will be reassigned, that is, the **Assigned From** field will be updated.  
   
 ## Related information
+
 [Allocate Resources](service-how-to-allocate-resources.md)  
 [Set Up Work Hours and Service Hours](service-how-setup-work-service-hours.md)  
 [Set Up Fault Reporting](service-how-setup-fault-reporting.md)  
 [Set Up Codes for Standard Services](service-how-setup-service-coding.md)  
- 
-
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -3188,14 +3190,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-analytics-overview
 ---
 title: Analytics in purchasing
-description: Business Central contains many features to help you gather, analyze, and share valuable sales data for business intelligence and decision-making within the purchasing organization.
+description: Learn how to use Business Central's analytics features to monitor purchasing KPIs, perform ad-hoc analysis, and create financial reports.
 author: kennienp
 ms.author: kepontop
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: article
 ms.search.keywords: bi, power BI, analysis, KPI
 ms.search.form: 9306, 9307, 518, 29, 36996, 37009, 37010, 37011, 37012, 37013, 37014, 37015, 37016, 37017, 37018, 37019, 37020, 37021, 37025, Report_307, Report_308, Report_311, Report_312, Report_313, Report_409, Report_716, Report_319, Report_320, Report_707, Report_709, Report_714, Report_716, Report_720
-ms.date: 09/10/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -3215,7 +3217,7 @@ Businesses capture lots of data during daily activities that supports business i
 - Ad-hoc analysis of data in Excel (using open in Excel)
 - Built-in sales reports
 
-Each of these features has advantages and disadvantages, depending on the type of data analysis and the role of the user. To learn more, go to [Analytics, business intelligence, and reporting overview](reports-bi-reporting.md).
+Each of these features has advantages and disadvantages, depending on the type of data analysis and the role of the user. Learn more in [Analytics, business intelligence, and reporting overview](reports-bi-reporting.md).
 
 This article introduces how you can use these analytical features to gain purchasing insights.
 
@@ -3229,12 +3231,11 @@ People in different roles have different needs when it comes to data, and they u
 
 :::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg" alt-text="Illustration of how different personas have different analytics needs." lightbox="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg":::
 
-| Role              | Data aggregation  | Typical ways to consume data                          | 
-|-------------------|-------------------| ----------------------------------------------------- |
-|COO / CSO / CFO / CEO    | Performance data  | KPIs <br> Dashboards <br> Financial reports           |
-|Purchasing Manager      | Trends, summaries | Built-in managerial reports <br> Ad-hoc analysis      | 
-|Purchasing Officer / Purchasing Agent | Detailed data     | Built-in operational reports <br> On-screen task data |
-
+| Role | Data aggregation | Typical ways to consume data |
+|--|--|--|
+| COO / CSO / CFO / CEO | Performance data | KPIs <br> Dashboards <br> Financial reports |
+| Purchasing Manager | Trends, summaries | Built-in managerial reports <br> Ad-hoc analysis |
+| Purchasing Officer / Purchasing Agent | Detailed data | Built-in operational reports <br> On-screen task data |
 
 ## Using Power BI to monitor purchasing KPIs
 
@@ -3248,7 +3249,7 @@ A key performance indicator (KPI) is a measurable value that shows how effective
 
 :::image type="content" source="media/purchases/purchases-overview.png" alt-text="Screenshot of the Purchases Overview Power BI report" lightbox="media/purchases/purchases-overview.png":::
 
-These purchasing KPIs, and more, are available in the Power BI Purchasing app for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Power BI Purchasing app](purchases-powerbi-app.md).
+These purchasing KPIs, and more, are available in the Power BI Purchasing app for [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more in [Power BI Purchasing app](purchases-powerbi-app.md).
 
 [!INCLUDE [power-bi-purchasing-app](includes/power-bi-purchasing-app.md)]
 
@@ -3256,15 +3257,15 @@ These purchasing KPIs, and more, are available in the Power BI Purchasing app fo
 
 The **Financial Reporting** feature gives you insights into the financial data shown on your chart of accounts (COA). You can set up financial reports to analyze figures in general ledger (G/L) accounts, and compare general ledger entries with budget entries. Specifically for purchasing, you can set up financial reports on the general ledger (G/L) accounts that you use to track purchase postings.
 
-Dimensions play an important role in business intelligence. A dimension is data that you can add to an entry as a parameter. Dimensions let you group entries that have similar characteristics, such as customers, regions, and products, and easily retrieve these groups for analysis. Among other purposes, use dimensions when you define analysis views and create financial reports. To learn more, go to [Work with Dimensions](finance-dimensions.md).
+Dimensions play an important role in business intelligence. A dimension is data that you can add to an entry as a parameter. Dimensions let you group entries that have similar characteristics, such as customers, regions, and products, and easily retrieve these groups for analysis. Among other purposes, use dimensions when you define analysis views and create financial reports. Learn more in [Work with Dimensions](finance-dimensions.md).
 
-To learn more about financial reports, go to [Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md).
+Learn more about financial reports in [Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md).
 
 ## Finance reporting across business units or legal entities (related to purchasing)
 
 Some organizations use [!INCLUDE [prod_short](includes/prod_short.md)] in multiple business units or legal entities. Others use [!INCLUDE [prod_short](includes/prod_short.md)] in subsidiaries that report to parent organizations. [!INCLUDE [prod_short](includes/prod_short.md)] gives accountants tools that help them transfer general ledger entries from two or more companies (subsidiaries) into a consolidated company. Specifically for purchasing management, you might want to consolidate general ledger entries for your purchasing accounts to track sales KPIs across business units or legal entities.
 
-To learn more, go to [Company consolidation](finance-consolidated-company-reporting.md).
+Learn more in [Company consolidation](finance-consolidated-company-reporting.md).
 
 ## Ad-hoc analysis of purchasing data
 
@@ -3284,7 +3285,7 @@ Similarly, you can use the **Open in Excel** action to open a list page, filter 
 > [!TIP]
 > If you configure OneDrive for system features, the Excel workbook opens in your browser.
 
-To learn more about how to do ad-hoc analysis on purchasing data, go to [Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md).
+Learn more in [Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md) for information about how to do ad-hoc analysis on purchasing data.
 
 ## Built-in reports for purchasing
 
@@ -3312,7 +3313,7 @@ Specifically for purchasing, you can create a view on the Chart of Accounts page
 
 :::image type="content" source="media/chart-of-accounts-page.png" alt-text="Example of how the Chart of Accounts page shows finance insights" lightbox="media/chart-of-accounts-page.png":::
 
-To learn more, go to [Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts).
+Learn more in [Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts).
 
 ### Analyze data by dimensions (related to purchasing)
 
@@ -3320,7 +3321,7 @@ Dimensions are values that categorize entries so you can track and analyze them 
 
 So, instead of setting up separate general ledger accounts for each department or location, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts structure.
 
-To learn more, go to [Analyze Data by Dimensions](bi-how-analyze-data-dimension.md).
+Learn more in [Analyze Data by Dimensions](bi-how-analyze-data-dimension.md).
 
 ## Related information
 
@@ -4244,27 +4245,28 @@ title: Create business contacts
 description: Outlines the tasks needed to create contacts and define your business relationships on the Contact Card.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: relationship, prospect
-ms.date: 06/10/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Create contacts
 
-When you develop a business relationship with someone in another company, add them as a contact in [!INCLUDE[prod_short](includes/prod_short.md)]. Then, add any information about them, or their company, that could be useful in future communications. You can create the following types of contacts on the **Contact Card** page:
+When you develop a business relationship with someone in another company, add them as a contact in [!INCLUDE[prod_short](includes/prod_short.md)]. Then, add any information about them, or their company that could be useful in future communications. You can create the following types of contacts on the **Contact Card** page:
 
-* **Person** – Use this when you've had direct contact with someone and have their contact details.
-* **Company** – Use this for a contact that is not an individual person but rather an entity such as a contractor or a bank.
+* **Person** – Use this type when you had direct contact with someone and have their contact details.
+* **Company** – Use this type for a contact that isn't an individual person, but rather an entity such as a contractor or a bank.
 
 The information that's relevant for each type of contact differs, so the available fields and actions are different. For example, you can only assign job responsibilities to a person, and an industry group to a company.
 
-You can change the value of the **Type** field later. Alternatively, use the fields on the **Inheritance** FastTab on the **Marketing Setup** page to specify the data to share between a person and their company. Learn more at [Setting Up Contacts](marketing-setup-contacts.md).
+You can change the value of the **Type** field later. Alternatively, use the fields on the **Inheritance** FastTab on the **Marketing Setup** page to specify the data to share between a person and their company. Learn more at [Set Up Contacts](marketing-setup-contacts.md).
 
 When you convert a contact to a customer, vendor, or employee, for example, the contact person or contact company becomes the name of the customer. The record for the contact is kept, and you can link the contact and the customer so their data synchronizes going forward.
 
-## To create a contact manually
+## Create a contact manually
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Contacts**, then choose the related link.
 2. Choose the **New** action.
@@ -4273,14 +4275,14 @@ When you convert a contact to a customer, vendor, or employee, for example, the 
    Alternatively, if you have a number series for contacts on the **Marketing Setup** page, you can select <kbd>Enter</kbd> to insert the next available contact number.
 4. Fill in the remaining fields as required. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## To create a contact from a customer, vendor, or bank account
+## Create a contact from a customer, vendor, or bank account
 
-If you have existing customers, vendors, and bank accounts you want to create contact cards for, you can use the **Create Contacts from** batch jobs. When you create a contact this way, the contact information is later synchronized with the related customer, vendor, or bank account information. Learn more at [Synchronizing Contacts with Customers, Vendors, Employees, and Bank Accounts](marketing-create-contact-companies.md#synchronizing-contacts-with-customers-vendors-employees-and-bank-accounts).
+If you have existing customers, vendors, and bank accounts you want to create contact cards for, you can use the **Create Contacts from** batch jobs. When you create a contact this way, the contact information is later synchronized with the related customer, vendor, or bank account information. Learn more at [Synchronize Contacts with Customers, Vendors, Employees, and Bank Accounts](marketing-create-contact-companies.md#synchronize-contacts-with-customers-vendors-employees-and-bank-accounts).
 
 > [!NOTE]  
 > Before you can create contacts based on existing data, you must specify a business relation code for customers, vendors, or bank accounts on the **Interactions** FastTab on the **Marketing Setup** page. Learn more at [Set up Contacts](marketing-setup-contacts.md).
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter one of the following that matches the entity you want to create contacts from, then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter one of the following options that matches the entity you want to create contacts from, then choose the related link.
    * **Create Contacts from Customers**
    * **Create Contacts from Vendors**
    * **Create Contacts from Bank Accounts**
@@ -4290,14 +4292,14 @@ If you have existing customers, vendors, and bank accounts you want to create co
 The next contact numbers in the number series are assigned to the new contacts. The business relation code specified on the **Marketing Setup** page is assigned to the newly created contacts.
 
 > [!TIP]  
-> You can also do this the other way around, namely by creating a customer, vendor, employee, or bank account from a contact. Learn more in the [To create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#to-create-a-customer-vendor-employee-or-bank-account-from-a-contact) section.
+> You can also do this process the other way around, namely by creating a customer, vendor, employee, or bank account from a contact. Learn more at [Create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#create-a-customer-vendor-employee-or-bank-account-from-a-contact).
 
-## To create a customer, vendor, employee, or bank account from a contact
+## Create a customer, vendor, employee, or bank account from a contact
 
-If you have a customer, vendor, employee, or bank account for the company you want to create a contact for, use the **Create as** action. When you create a contact this way, the contact information is later synchronized with the related customer, vendor, employee, or bank account information. Learn more at [Synchronizing Contacts with Customers, Vendors, and Bank Accounts](marketing-create-contact-companies.md#synchronizing-contacts-with-customers-vendors-employees-and-bank-accounts).
+If you have a customer, vendor, employee, or bank account for the company you want to create a contact for, use the **Create as** action. When you create a contact this way, the contact information is later synchronized with the related customer, vendor, employee, or bank account information. Learn more at [Synchronize Contacts with Customers, Vendors, and Bank Accounts](marketing-create-contact-companies.md#synchronize-contacts-with-customers-vendors-employees-and-bank-accounts).
 
 > [!NOTE]  
-> Before you can create customers, vendors, employees, or bank accounts from contacts, you must specify a business relation code on the **Marketing Setup** page on the **Interactions** FastTab. Learn more at [Setting up Contacts](marketing-setup-contacts.md).
+> Before you can create customers, vendors, employees, or bank accounts from contacts, you must specify a business relation code on the **Marketing Setup** page on the **Interactions** FastTab. Learn more at [Set up Contacts](marketing-setup-contacts.md).
 >
 >Also, you must also have at least one template set up for each of them. For example, to create a customer from a contact, you must have a customer template.
 
@@ -4306,21 +4308,21 @@ If you have a customer, vendor, employee, or bank account for the company you wa
 3. Choose the **Create as** action, then choose either **Customer**, **Vendor**, **Bank**, or **Employee**.
 4. Choose **OK**.
 
-The contact information is transferred from the contact card to a new customer, vendor, employee, or bank account card. You may want to add specific information to each of the cards, such as invoicing and payment details. For an example, see [Register New Customers](sales-how-register-new-customers.md).
+The contact information is transferred from the contact card to a new customer, vendor, employee, or bank account card. You might want to add specific information to each of the cards, such as invoicing and payment details. For an example, see [Register New Customers](sales-how-register-new-customers.md).
 
-## To link a contact to an existing customer, vendor, employee, or bank account
+## Link a contact to an existing customer, vendor, employee, or bank account
 
 If you have a contact and either a customer, vendor, employee, or bank account for the same company, you can link the two entities to synchronize data.
 
 1. Open the contact you want to link.
 2. Choose the **Link with existing** action, then choose the **Customer**, **Vendor**, **Bank**, or **Employee** action.
 3. On the page that opens, select the customer, vendor, employee, or bank account to link to.
-4. In the **Current Master Fields** field, specify the fields to prioritize if there is conflicting information in fields common to both the existing contact and the customer, vendor, employee, or bank account. So, if the salesperson code differs between the contact and customer, you can choose to keep the one on the contact card by selecting **Contact**.
+4. In the **Current Master Fields** field, specify the fields to prioritize if there's conflicting information in fields common to both the existing contact and the customer, vendor, employee, or bank account. So, if the salesperson code differs between the contact and customer, you can choose to keep the one on the contact card by selecting **Contact**.
 5. Choose **OK**.
 
-## To remove a link between a contact and an existing customer, vendor, employee, or bank account
+## Remove a link between a contact and an existing customer, vendor, employee, or bank account
 
-If you linked a contact with a customer, vendor, employee, or bank account that you didn't intend to, remove the link between the entities so the data no longer synchronizes.
+If you linked a contact with a customer, vendor, employee, or bank account that you didn't intend to, remove the link between the entities.
 
 1. Open the contact that has the wrong link.  
 2. Choose the **Business Relations** action.  
@@ -4328,37 +4330,37 @@ If you linked a contact with a customer, vendor, employee, or bank account that 
 4. Choose the **Delete** action.  
 
 > [!NOTE]  
-> Do not use the **Business Relations** window to change existing relations. Instead, remove the relation and use the **Link with existing** action. Learn more in the [To link a contact to an existing customer, vendor, employee, or bank account](marketing-create-contact-companies.md#to-link-a-contact-to-an-existing-customer-vendor-employee-or-bank-account) section.
+> Don't use the **Business Relations** window to change existing relations. Instead, remove the relation and use the **Link with existing** action. Learn more at [Link a contact to an existing customer, vendor, employee, or bank account](marketing-create-contact-companies.md#link-a-contact-to-an-existing-customer-vendor-employee-or-bank-account) section.
 
-## Synchronizing contacts with customers, vendors, employees, and bank accounts
+## Synchronize contacts with customers, vendors, employees, and bank accounts
 
 If some of your contacts are also customers, vendors, employees, or bank accounts, you can synchronize them with data from the contact and gain the following benefits:
 
 * You only have to update information in one place. So, if you modify the phone number on the contact, the phone number for the customer, vendor, employee, or bank account is automatically updated.
-* If you have specified a number series for contacts, when you create a customer, vendor, employee, or bank account card, a contact is automatically created.
+* If you use a number series for contacts, when you create a customer, vendor, employee, or bank account, a contact is automatically created.
 * You can create sales quotes and orders, and purchase quotes and orders, from the contact.
 * You can record your interactions, such as printing orders, blanket orders, creating sales service orders, sending e-mails, and so on.
 * If you delete a contact linked to a customer, vendor, employee, or bank account, only the contact is removed. The customer, vendor, employee, or bank account remains.
 * Likewise, if you delete a customer, vendor, employee, or bank account that is linked to a contact, the contact remains.
 
 > [!NOTE]  
-> Certain details, such as invoicing and posting details, are not available for contacts. When you create contacts as customers, vendors, employees, or bank accounts, you may want to add that information manually.
+> Certain details, such as invoicing and posting details, aren't available for contacts. When you create contacts as customers, vendors, employees, or bank accounts, you might want to add that information manually.
 
 There are three ways to enable data synchronization between contacts and customers, vendors, employees, or bank accounts:
 
-* When you create contacts from customers, vendors, or bank accounts. Learn more in the [To create a contact from a customer, vendor, or bank account](marketing-create-contact-companies.md#to-create-a-contact-from-a-customer-vendor-or-bank-account) section.
-* When you create customers, vendors, employees, or bank accounts from contacts. Learn more in the [To create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#to-create-a-customer-vendor-employee-or-bank-account-from-a-contact) section.
-* When you link contacts to existing customers, vendors, employees, or bank accounts from the contact card. Learn more in the [To link a contact to an existing customer, vendor, employee, or bank account](marketing-create-contact-companies.md#to-link-a-contact-to-an-existing-customer-vendor-employee-or-bank-account) section.
+* When you create contacts from customers, vendors, or bank accounts. Learn more at [Create a contact from a customer, vendor, or bank account](marketing-create-contact-companies.md#create-a-contact-from-a-customer-vendor-or-bank-account) section.
+* When you create customers, vendors, employees, or bank accounts from contacts. Learn more at [Create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#create-a-customer-vendor-employee-or-bank-account-from-a-contact) section.
+* When you link contacts to existing customers, vendors, employees, or bank accounts from the contact card. Learn more at [Link a contact to an existing customer, vendor, employee, or bank account](marketing-create-contact-companies.md#link-a-contact-to-an-existing-customer-vendor-employee-or-bank-account) section.
 
-## To view which customer, vendor, employee, or bank account a contact is related to
+## View which customer, vendor, employee, or bank account a contact is related to
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Contacts**, and then choose the related link.
 2. Select the line for a contact, choose the **Related Information** action, and then choose the **Customer/Vendor/Bank Account/Employee** action.
 
 ## Related information
 
-[Managing Contacts](marketing-contacts.md)  
-[Setting Up Contacts](marketing-setup-contacts.md)  
+[Manage Contacts](marketing-contacts.md)  
+[Set Up Contacts](marketing-setup-contacts.md)  
 [Use Online Maps to Find Locations and Directions](across-online-maps.md)  
 [Work with Business Central](ui-work-product.md)  
 
@@ -4785,25 +4787,26 @@ title: Overview of tasks to manage purchasing
 description: Outlines tasks to manage your purchasing or procurement processes, including how purchase invoices and purchase orders work.
 author: brentholtorf
 ms.topic: overview
-ms.search.keywords: procurement, supply, vendor order
+ms.search.keywords: procurement, supply, vendor order, purchsing
 ms.search.form: 460, 9307
-ms.date: 05/19/2025
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.custom: bap-template
 ---
+
 # Purchasing
 
 You create a purchase invoice or purchase order to record the cost of purchases and to track accounts payable. If you need to control an inventory, purchase invoices are also used to dynamically update inventory levels so that you can minimize your inventory costs and provide better customer service. The purchasing costs, including service expenses, and inventory values that result from posting purchase invoices contribute to profit figures and other financial KPIs on your Role Center.
 
-You must use purchase orders if your purchasing process requires that you record partial receipts of an order quantity. For example, because the full quantity wasn't available at the vendor. If you sell items by delivering directly from your vendor to your customer, as a drop shipment, then you must also use purchase orders. To learn more, go to [Make Drop Shipments](sales-how-drop-shipment.md). In all other aspects, purchase orders work the same way as purchase invoices.
+You must use purchase orders if your purchasing process requires that you record partial receipts of an order quantity. For example, because the full quantity wasn't available at the vendor. If you sell items by delivering directly from your vendor to your customer, as a drop shipment, then you must also use purchase orders. Learn more in [Make Drop Shipments](sales-how-drop-shipment.md). In all other aspects, purchase orders work the same way as purchase invoices.
 
-You can have purchase invoices created automatically by using the OCR (Optical Character Recognition) service to convert PDF invoices from your vendors to electronic documents, which are then converted to purchase invoices by a workflow. To use this functionality, you must first sign up for the OCR service, and then perform various setups. To learn more, go to [Incoming Documents](across-income-documents.md).
+You can have purchase invoices created automatically by using the OCR (Optical Character Recognition) service to convert PDF invoices from your vendors to electronic documents, which are then converted to purchase invoices by a workflow. To use this functionality, you must first sign up for the OCR service, and then perform various setups. Learn more in [Incoming Documents](across-income-documents.md).
 
-Products can be both inventory items and services. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
+Products can be both inventory items and services. Learn more in [Register New Items](inventory-how-register-new-items.md).
 
-For all purchase processes, you can use an approval workflow, for example, to require that an accounting manager approves large purchases. To learn more, go to [Use Approval Workflows](across-how-use-approval-workflows.md).
+For all purchase processes, you can use an approval workflow, for example, to require that an accounting manager approves large purchases. Learn more in [Use Approval Workflows](across-how-use-approval-workflows.md).
 
 The following sections describe a sequence of tasks, with links to the articles that cover them.
 
@@ -4851,7 +4854,7 @@ If you need more complex purchase processes, the following table lists articles 
 
 The following table describes how to deal with canceled orders, refunds, and returns of goods that you purchase.
 
-| To... | Go to... |
+| To | Go to |
 | --- | --- |
 |Prepare to invoice multiple receipts from the same vendor once by combining the receipts on one invoice.|[Combine Receipts on a Single Invoice](purchasing-how-to-combine-receipts.md)|
 |Convert, for example, electronic invoices from your vendors to purchase invoices inside Business Central.|[Receive and Convert Electronic Documents](purchasing-how-to-receive-and-convert-electronic-documents.md)|
@@ -4872,13 +4875,12 @@ The following table describes how to deal with other purchase processes.
 
 [Setting Up Purchasing](purchasing-setup-purchasing.md)  
 [Register New Vendors](purchasing-how-register-new-vendors.md)  
-[Purchasing analytics overview](purchasing-analytics-overview.md)   
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
 [Managing Payables](payables-manage-payables.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[General Business Functionality](ui-across-business-areas.md)
+[General Business Functionality](ui-across-business-areas.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -6070,7 +6072,7 @@ With this option, you use a part of the advanced service management functionalit
 
 However, this option requires the Premium license. Setting up service management and maintaining it might not give huge advantages in simpler subscription scenarios.  
 
-For more information, see [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md) and [Invoice several service contracts](service-how-create-invoices.md#to-invoice-several-service-contracts).
+For more information, see [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md) and [Invoice several service contracts](service-how-create-invoices.md#invoice-several-service-contracts).
 
 ## Related features
 There are several related capabilities in [!INCLUDE[prod_short](includes/prod_short.md)].
@@ -6091,7 +6093,7 @@ For more information, see [Work with Blanket Sales Orders](sales-how-to-create-b
 ### Recurring Orders (Norway)
 
 You can use recurring orders to create blanket order templates so that sales orders can be created based on date intervals that you define. For example, if you deliver the same sales order every two weeks, you can use a blanket sales order and create recurring orders.
-You can use recurring groups to define a range of parameters that show how you make the orders. These groups are assigned to blanket orders that have to be created regularly. To create the recurring orders, you'll have to periodically run the create recurring orders process. 
+You can use recurring groups to define a range of parameters that show how you make the orders. These groups are assigned to blanket orders that have to be created regularly. To create the recurring orders, you'll have to periodically run the create recurring orders process.
 
 #### Why use this option
 
@@ -6113,7 +6115,7 @@ At [AppSource.microsoft.com](https://appsource.microsoft.com/), you can get exte
 [Create multiple project sales invoices](projects-how-invoice-jobs.md#to-create-multiple-project-sales-invoices)  
 [Create Recurring Sales and Purchase Lines](sales-how-work-standard-lines.md)  
 [Work with Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md)  
-[Invoice several service contracts](service-how-create-invoices.md#to-invoice-several-service-contracts)  
+[Invoice several service contracts](service-how-create-invoices.md#invoice-several-service-contracts)  
 [Demand Forecasts and Blanket Orders](design-details-central-concepts-of-the-planning-system.md#demand-forecasts-and-blanket-orders)  
 [Work with Blanket Sales Orders](sales-how-to-create-blanket-sales-orders.md)  
 [Recurring Orders (Norway)](LocalFunctionality/Norway/recurring-orders.md)  
@@ -6859,28 +6861,26 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-depreciation
 ---
 title: Set Up FA Depreciation
-description: There are various methods of depreciation. In Business Central you define an asset's depreciation method on the **Fixed Asset Card** page.
+description: Choose from multiple depreciation methods in Business Central, and configure each asset's depreciation method on the Fixed Asset Card page.
 author: brentholtorf
-
-
 ms.topic: how-to
-ms.search.keywords: write down
-ms.search.form: 5611_Primary, 
-ms.date: 06/28/2021
+ms.search.keywords: write down, fixed asset depreciation
+ms.search.form: 5611_Primary
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Fixed Asset Depreciation
+# Set up fixed asset depreciation
 
-You can use various methods of depreciation for preparing financial statements and income tax returns. Many large corporations use straight-line depreciation in their financial statements because this generally permits reporting higher earnings. For income tax purposes, however, many businesses use an accelerated depreciation method, such as declining-balance depreciation. You define an asset's depreciation method with the **Depreciation Method** field on the **Fixed Asset Card** page. For more information about what the different methods do, see [Depreciation Methods](fa-depreciation-methods.md).
+You can use various methods of depreciation for preparing financial statements and income tax returns. Many large corporations use straight-line depreciation in their financial statements because this generally permits reporting higher earnings. For income tax purposes, however, many businesses use an accelerated depreciation method, such as declining-balance depreciation. You define an asset's depreciation method with the **Depreciation Method** field on the **Fixed Asset Card** page. Learn more in [Depreciation Methods](fa-depreciation-methods.md) for information about what the different methods do.
 
 You set up depreciation books where you define the different ways depreciation must be calculated for different types of fixed assets. Each depreciation book specifies individual depreciation terms. For example, you can specify that a fixed asset should be depreciated over a period of three years in one book and over a period of five years in another book.
 
 When you have created the relevant depreciation books, you must assign one or more depreciation books to each fixed asset. A depreciation book that is assigned to a fixed asset is referred to as a fixed asset depreciation book. You can set up an unlimited number of depreciation books for a fixed asset.  
 
-## To create a depreciation book
+## Create a depreciation book
 
 In a fixed asset depreciation book, you specify how fixed assets are depreciated. To accommodate various methods of depreciation, you can set up multiple depreciation books.  
 
@@ -6896,9 +6896,9 @@ In a fixed asset depreciation book, you specify how fixed assets are depreciated
 > [!IMPORTANT]
 > Choose the **Use Rounding in Periodic Depr.** field to round the calculated periodic depreciation amounts to whole numbers. For example, if your company also uses invoice rounding to whole numbers in the **General Ledger Setup** page, rounding also depreciation amounts to whole numbers can help provide transparency.
 
-For example, if you dispose of a fixed asset where the depreciation book does not specify rounding, but your company's general ledger setup requires rounding, then, when you dispose of the fixed asset, you will see an error message that an amount must be rounded on a ledger entry.  
+For example, if you dispose of a fixed asset where the depreciation book doesn't specify rounding, but your company's general ledger setup requires rounding then when you dispose of the fixed asset, you see an error message that an amount must be rounded on a ledger entry.  
 
-## To assign a depreciation book to a fixed asset
+## Assign a depreciation book to a fixed asset
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.
 2. Select the fixed asset that you want to set up a fixed asset depreciation book for.
@@ -6907,12 +6907,11 @@ For example, if you dispose of a fixed asset where the depreciation book does no
 5. Alternatively, choose the **Depreciation Books** action to specify one or more fixed asset depreciation books.
 
     > [!NOTE]  
-    >   When you use the manual depreciation method, you must enter depreciation manually in the fixed asset G/L journal. The **Calculate Depreciation** function omits fixed assets that use the manual depreciation method. You can use this method for assets that are not subject to depreciation, such as land.
+    > - When you use the manual depreciation method, you must enter depreciation manually in the fixed asset G/L journal. The **Calculate Depreciation** function omits fixed assets that use the manual depreciation method. You can use this method for assets that aren't subject to depreciation, such as land.
+    >
+    > - When you use the user-defined depreciation method, you need to assign the depreciation book in a different way. Learn more in [Set Up User-Defined Depreciation Method](fa-how-setup-user-defined-depreciation-method.md).
 
-    > [!NOTE]  
-    > When you use the user-defined depreciation method, you need to assign the depreciation book in a different way. For more information, see [Set Up User-Defined Depreciation Method](fa-how-setup-user-defined-depreciation-method.md).
-
-## To assign a depreciation book to multiple fixed assets with a batch job
+## Assign a depreciation book to multiple fixed assets with a batch job
 
 If you want to assign a depreciation book to several fixed assets, you can use the **Create FA Depreciation Books** batch job to create fixed asset depreciation books.  
 
@@ -6922,11 +6921,11 @@ If you want to assign a depreciation book to several fixed assets, you can use t
 4. On the **Create FA Depreciation Books** page, fill in the **Depreciation Book** field.
 5. Choose the **Copy from FA No.** field, and then select the fixed asset number that you want to use as the basis for creating new fixed asset depreciation books.
 
-    If you fill in this field, the depreciation fields in the new fixed asset depreciation books will contain the same information as the corresponding fields in the fixed asset depreciation book that you copy from. Leave the field blank if you want to create new fixed asset depreciation books with empty depreciation fields.  
+   If you fill in this field, the depreciation fields in the new fixed asset depreciation books contain the same information as the corresponding fields in the fixed asset depreciation book that you copy from. Leave the field blank if you want to create new fixed asset depreciation books with empty depreciation fields.  
 6. On the **Fixed Asset** FastTab, you can set a filter to select the assets that you want to create the fixed asset depreciation books for.
 7. Choose the **OK** button.
 
-## To set up depreciation posting types
+## Set up depreciation posting types
 
 For each depreciation book, you must set up how you want [!INCLUDE[prod_short](includes/prod_short.md)] to handle various posting types. For example, whether posting should be debit or credit and whether the posting type should be included in the depreciable basis.  
 
@@ -6935,11 +6934,11 @@ For each depreciation book, you must set up how you want [!INCLUDE[prod_short](i
 3. On the **FA Posting Type Setup** page, fill in the fields as necessary.
 
     > [!NOTE]  
-    >   You cannot insert or delete lines on the **FA Posting Type Setup** page. You can only modify the existing lines.
+    > You can't insert or delete lines on the **FA Posting Type Setup** page. You can only modify the existing lines.
 
-We recommend that you do not change the setup for depreciation books for entries that have already been posted. Changes will not affect the entries that are already posted, which would make depreciation book statistics misleading.
+We recommend that you don't change the setup for depreciation books for entries that have already been posted. Changes don't affect the entries that are already posted, which would make depreciation book statistics misleading.
 
-## To set up default templates and batches for fixed asset depreciation
+## Set up default templates and batches for fixed asset depreciation
 
 For each depreciation book, you define a default setup of templates and batches. You use these defaults to duplicate lines from one journal to another, create journal lines using the **Calculate Depreciation** or **Index Fixed Assets** batch jobs, duplicate acquisition costs in the insurance journal.  
 
@@ -6948,11 +6947,11 @@ For each depreciation book, you define a default setup of templates and batches.
 3. If you want to have a default setup for each user, choose the **User ID** field to select from the **Users** page.  
 4. In the other fields, select the journal template or journal batch that must be used by default.  
 
-## Fiscal Year 365 Days Field Depreciation
+## Fiscal year 365 days field depreciation
 
 When the Calculate Depreciation batch job calculates depreciations, the batch job normally uses a standardized year of 360 days where each of the 12 months has 30 days.
 
-If you select this field, the Calculate Depreciation batch job uses the calendar year of 365 days instead, where each month is calculated with the same number of days as in the calendar. The only exception is February in leap years, which the batch job will treat as having 28 days and not 29. Because of that, all years, also leap years, are considered to have 365 days.
+If you select this field, the Calculate Depreciation batch job uses the calendar year of 365 days instead, where each month is calculated with the same number of days as in the calendar. The only exception is February in leap years, which the batch job treats as having 28 days and not 29. Because of that, all years, also leap years, are considered to have 365 days.
 
 ## Related information
 
@@ -6960,8 +6959,7 @@ If you select this field, the Calculate Depreciation batch job uses the calendar
 [Fixed Assets](fa-manage.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -7486,63 +7484,76 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-setup-marketing
 ---
-title: Set Up Marketing and Contact Management Information
-description: You can set up marketing and contact management in Business Central to optimize relationships with prospects or customers, and improve campaigns and promotions.
+title: Set up marketing and contact management information
+description: Set up marketing and contact management to strengthen relationships with prospects and customers, and enhance the effectiveness of your campaigns and promotions.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: relationship, prospect, client, customer, campaign, promo
 ms.search.forms: 5172, 5173, 5170, 5094, 429
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Setting Up Relationship Management
 
-Before you get started working with your contacts and marketing interests, there are a few decisions and steps that you should take to set up how the marketing area manages certain aspects of your contacts. For example, you can decide whether to synchronize the contact card with the customer card, vendor card, and bank account card, how number series are defined, or what the standard salutation should be when writing to your contacts.
+# Set up relationship management
 
-Managing your contacts and having a strategy in place to identify, attract, and retain customers will help optimize your business and increase customer satisfaction. Using a good contact management system will also help you create and maintain relationships with your customers. Communication is the key to these relationships. Being able to tailor communication with potential and existing customers, vendors, and business partners according to their needs, is necessary for companies to succeed. Establishing a strategy and defining how your company uses contact information is a primary step. This information will be viewed by many different groups in your company, so having a good system in place will help everyone be more productive.
+Before start to work with your contacts and marketing interests, there are a few decisions and steps that you should take. You must set up how the marketing area manages certain aspects of your contacts. For example, you can decide:
+
+- Whether to synchronize contact data with related customers, vendors, and bank accounts.
+- How you define number series.
+- What salutation to use when you write to your contacts.
+
+Managing your contacts and having a strategy in place to identify, attract, and retain customers helps optimize your business and increase customer satisfaction. Using a good contact management system also helps you create and maintain relationships with your customers. Communication is the key to these relationships. Being able to tailor communication with potential and existing customers, vendors, and business partners according to their needs, is necessary for companies to succeed. Establishing a strategy and defining how your company uses contact information is a primary step. Different groups in your company access this information, so having a good system in place helps everyone be more productive.
 
 You set up the marketing and contact management from the **Marketing Setup** page. To open the **Marketing Setup** page, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Marketing Setup**, and then choose the related link.
 
-## Automatically Copying Specific Information from Contact Companies to Contact Persons
-Some information about contact companies is identical to the information about the contact persons working within these companies, for example, the address details. In the **Inheritance** section of the **Marketing Setup** page, you can set the application to automatically copy specific fields from the contact company card to the contact person card each time you create a contact person for a contact company. For example, you can select to copy the salesperson code, address details (address, address 2, city, post code, and county), communication details (fax number, telex answer back, and phone number), and more.
+## Automatically copying specific information from contact companies to contact persons
 
-When you modify one of these fields on the contact company card, application will automatically modify the field on the contact person card (unless you have manually modified the field on the contact person card).
+Some information about contact companies is identical to the information about the contact persons working within these companies, for example, the address details. In the **Inheritance** section of the **Marketing Setup** page, you can set the application to automatically copy specific fields from the contact company card to the contact person card each time you create a contact person for a contact company. For example, you can copy:
 
-For more information, see [Create Contacts](marketing-create-contact-companies.md).
+- The salesperson code
+- Address details, such as address, address 2, city, post code, and county
+- Contact information
 
-## Use Predefined Defaults on New Contacts
-You can decide that the application automatically assigns a specific language code, territory code, salesperson code, and country/region code as defaults to each new contact you create. You can also enter a default sales cycle code that application automatically assigns to each new opportunity you create.
+When you modify one of these fields on the contact company card, [!INCLUDE [prod_short](includes/prod_short.md)] automatically modifies the field on the contact person card (unless you manually modified the field on the contact person card).
 
-The inheritance of fields overwrites the default values you have set up. For example, if you have set up English as the default language, but the contact company's language is German, application will automatically assign German as the language code for the contact persons recorded for that company.
+Learn more in [Create Contacts](marketing-create-contact-companies.md).
+
+## Use predefined defaults on new contacts
+
+[!INCLUDE [prod_short](includes/prod_short.md)] can automatically assign a language code, territory code, salesperson code, and country/region code as defaults to each contact you create. You can also enter a default sales cycle code that you automatically assign to each new opportunity.
+
+The inheritance of fields overwrites the default values you set up. For example, if English is the default language and the contact company's language is German, [!INCLUDE [prod_short](includes/prod_short.md)] assigns German as the language for contacts associated with that company.
 
 <!--You can also setup a default salutation that application automatically assigns to your contacts. You can use these salutations in your interaction template attachments (for example, Microsoft Word documents). When setting up a default salutation, you can enter a salutation text and a salutation format. For example, if the salutation text is Dear, and the salutation format is Salutation Text + Title + Name, application will automatically enter Dear Mr. John Smith as a salutation for a contact called John Smith.-->
 
-## Automatically Recording Interactions
+## Automatically recording interactions
+
 [!INCLUDE[prod_short](includes/prod_short.md)] can automatically record sales and purchase documents as interactions (for example, orders, invoices, receipts, and so on), as well as emails, phone calls, and cover sheets.
 
-For more information, see [Automatically Record Interactions with Contacts](marketing-auto-record-interactions.md).
+Learn more in [Automatically Record Interactions with Contacts](marketing-auto-record-interactions.md).
 
-## Synchronizing Contacts with Customers and More
-In order to synchronize the contact card with the customer card, the vendor card and the bank account card, you must select a business relation code for customers, vendors, and bank accounts. For example, you can only link a contact with an existing customer if you have selected a business relation code for customers on the **Marketing Setup** page.
+## Synchronize contacts with customers and more
 
-For more information, see [Synchronizing Contacts with Customers, Vendors, and Bank Accounts](marketing-create-contact-companies.md#synchronizing-contacts-with-customers-vendors-employees-and-bank-accounts).  
+To synchronize a contact with a customer, vendor, or bank account, you must select a business relation code for customers, vendors, and bank accounts. For example, you can only link a contact with an existing customer if you selected a business relation code for customers on the **Marketing Setup** page.
 
-## Assigning a Number Series to Contacts and Opportunities
-You can set up a number series for contacts and opportunities. If you have set up a number series for contacts, when you create a contact, and select <kbd>Enter</kbd> in the No. field on the contact card, application automatically enters the next available contact number.
+Learn more at [Synchronizing Contacts with Customers, Vendors, and Bank Accounts](marketing-create-contact-companies.md#synchronize-contacts-with-customers-vendors-employees-and-bank-accounts).  
 
-For more information about number series, see [Create Number Series](ui-create-number-series.md).
+## Assign a number series to contacts and opportunities
 
-## Searching for Duplicate Contacts when Contacts are Created
-You can choose to have application automatically search for duplicates each time you create a contact company, or you can choose to search manually after you have created contacts. You can also choose to have application update the search strings automatically each time you modify contact information or create a contact. You can decide the search hit percentage, that is, the percentage of identical strings two contacts must have for application to consider them as duplicates.
+You can set up a number series for contacts and opportunities. If you have a number series for contacts, when you create a contact, and select **Enter** in the **No.** field on the **Contact Card** page, [!INCLUDE [prod_short](includes/prod_short.md)] enters the next available contact number.
+
+Learn more about number series at [Create Number Series](ui-create-number-series.md).
+
+## Search for duplicate contacts when contacts are created
+
+You can choose to have application automatically search for duplicates each time you create a contact company, or you can choose to search manually after you created contacts. You can also choose to have application update the search strings automatically each time you modify contact information or create a contact. You can decide the search hit percentage, that is, the percentage of identical strings two contacts must have for application to consider them as duplicates.
 
 ## Related information
-[Managing Contacts](marketing-contacts.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
+[Manage Contacts](marketing-contacts.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10045,6 +10056,7 @@ This measure determines the indirect cost for capacity ledger entries by summing
 - [Operation Run Time](#operation-run-time)
 - [Operation Setup Time](#operation-setup-time)
 - [Operation Wait Time](#operation-wait-time)
+- [Posted Output Quantity](#posted-output-quantity)
 - [Prod Order Routing Expected Capacity Need](#prod-order-routing-expected-capacity-need)
 - [Prod Order Routing Expected Capacity Ovhd. Cost](#prod-order-routing-expected-capacity-ovhd-cost)
 - [Prod Order Routing Expected Operation Cost Amt.](#prod-order-routing-expected-operation-cost-amt)
@@ -10100,6 +10112,12 @@ This measure determines the indirect cost for capacity ledger entries by summing
 **Data Source**
 
 - Prod Order Routing Line
+
+#### Posted Output Quantity
+
+**Formula**
+
+- Sums Output Quantity column from the Capacity Ledger Entry table only for entries whose (Routing No., Order No., Operation No., Routing Reference No.) match the distinct Prod Order Routing Lines in the current filter context.
 
 #### Prod Order Routing Expected Capacity Need
 
@@ -11412,6 +11430,7 @@ Calculates the percentage of scrap relative to the total output for a work cente
 - [Work Center Capacity (Effective)](#work-center-capacity-effective)
 - [Work Center Capacity (Total)](#work-center-capacity-total)
 - [Work Center Expected Efficiency %](#work-center-expected-efficiency-percent)
+- [Work Center Needed Time](#work-center-needed-time)
 
 #### Work Center Actual Efficiency Percent
 
@@ -11482,6 +11501,16 @@ Calculates the actual efficiency of a work center by dividing the [Work Center A
 **Data Source**
 
 - Calendar Entry
+
+#### Work Center Needed Time
+
+**Formula**
+
+- Calculates the total required time for work centers by summing the **Needed Time** column in the **Prod Order Capacity Need** table, filtered to include only rows where **Requested Only** is **FALSE**.
+
+**Data Source**
+
+- Prod Order Capacity Need
 
 ## Related information
 
@@ -12014,10 +12043,12 @@ description: Outlines the tasks to specify information and codes, for example, a
 author: brentholtorf
 ms.topic: how-to
 ms.search.keywords: relationship, prospect
-ms.date: 06/13/2025
+ms.date: 10/03/2025
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
+
 # Set up information for contacts
 
 When you create contacts you can enter information about them, such as:
@@ -12038,7 +12069,7 @@ You can set up this information on their pages, or from the Contact Card page by
 
 This information helps you organize your contacts so they're easier to find when you want to communicate with them. For example, you can find all contacts based on a certain group.
 
-## To assign industry groups to a contact
+## Assign industry groups to a contact
 
 Industry groups indicate the type of industry that your contacts are in. For example, the retail industry or the automobile industry.
 
@@ -12055,7 +12086,7 @@ Repeat these steps to assign as many industry groups as you want. You can also a
 
 <!--The number of industry groups that you assigned to the contact displays in the **No. of Industry Groups** field in the **Segmentation** section on the **Contact Card** page. -->
 
-After you assign industry groups to your contacts, you can use this information to select contacts for your segments. To learn more, go to [Add Contacts to Segments](marketing-add-contact-segment.md).
+After you assign industry groups to your contacts, you can use this information to select contacts for your segments. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Assign mailing groups to a contact
 
@@ -12071,7 +12102,7 @@ Repeat these steps to assign as many mailing groups as you want. You can also as
 
 <!--The number of mailing groups you have assigned to the contact is displayed in the **No. of Mailing Groups** field in the **Segmentation** section on the **Contact Card** page.-->
 
-After you assign mailing groups to your contacts, you can use the information to select contacts for your segments. To learn more, go to [Add Contacts to Segments](marketing-add-contact-segment.md).
+After you assign mailing groups to your contacts, you can use the information to select contacts for your segments. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Define an alternate address for a contact
 
@@ -12102,7 +12133,7 @@ Repeat these steps to assign as many job responsibilities as you want. You can a
 
 <!--The number of job responsibilities you have assigned to the contact is displayed in the **No. of Job Responsibilities** field in the **Segmentation** section on the **Contact** page. -->
 
-After you assign job responsibilities to your contacts, you can use this information to select contacts for your segments. To learn more, go to [Add Contacts to Segments](marketing-add-contact-segment.md).
+After you assign job responsibilities to your contacts, you can use this information to select contacts for your segments. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Assign organizational levels to a contact
 
@@ -12118,7 +12149,7 @@ The organizational level code defines the type or category of the organizational
 
 After you assign organizational levels to your contacts, you can use this information to create segments.
 
-After you assign job responsibilities to your contacts, you can use this information to select contacts for your segments. To learn more, go to [Add Contacts to Segments](marketing-add-contact-segment.md).
+After you assign job responsibilities to your contacts, you can use this information to select contacts for your segments. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Assign web sources to a contact
 
@@ -12149,7 +12180,7 @@ Repeat these steps to assign as many business relations as you want.
 
 <!--The number of business relations you have assigned to the contact is displayed in the **No. of Business Relations** field in the **Segmentation** section on the **Contact** page. -->
 
-After you assign business relations to your contacts, you can use this information to select contacts for your segments. To learn more, go to [Add Contacts to Segments](marketing-add-contact-segment.md).
+After you assign business relations to your contacts, you can use this information to select contacts for your segments. Learn more at [Add Contacts to Segments](marketing-add-contact-segment.md).
 
 ## Copy information from contact companies to contact persons
 
@@ -12157,7 +12188,7 @@ Some information about contact companies is the same for their contact persons. 
 
 When you change the value in one of these fields on the contact company, the same fields update on the contact person. The exception is if you manually change the field on the contact person.
 
-To learn more, go to [Create Contacts](marketing-create-contact-companies.md).
+Learn more at [Create Contacts](marketing-create-contact-companies.md).
 
 ## Use predefined default settings on new contacts
 
@@ -12172,7 +12203,7 @@ The settings for inheritance overwrite the default values you set up. For exampl
 
 To synchronize the contact card with a linked customer, vendor, or bank account, fill in the relevant field in the **Bus. Relation Code for** section on the **Interactions** FastTab on the **Marketing Setup** page.  
 
-To learn more, go to [Synchronizing contacts with customers, vendors, and bank accounts](marketing-create-contact-companies.md#synchronizing-contacts-with-customers-vendors-employees-and-bank-accounts).
+Learn more at [Synchronizing contacts with customers, vendors, and bank accounts](marketing-create-contact-companies.md#synchronize-contacts-with-customers-vendors-employees-and-bank-accounts).
 
 ## Search for duplicate contacts
 
@@ -12188,15 +12219,14 @@ To manually search for duplicates, follow these steps:
 2. Choose the **Generate Duplicate Search String** action.
 3. On the **Generate Duplicate Search String** page, enter filter criteria that determine the match, and then choose **OK**.
 
-When you find a duplicate contact, you can use the **Merge Contacts** action to merge it with a contact record that you want to keep. To learn more, go to [Merge Duplicate Records](sales-how-merge-duplicate-records.md). That article describes the process from the Customer Card page, but the steps are the same for contacts.
+When you find a duplicate contact, you can use the **Merge Contacts** action to merge it with a contact record that you want to keep. Learn more at [Merge Duplicate Records](sales-how-merge-duplicate-records.md). That article describes the process from the **Customer Card** page, but the steps are the same for contacts.
 
 ## Related information
 
-[Managing Contacts](marketing-contacts.md)  
+[Manage Contacts](marketing-contacts.md)  
 [Create Contacts](marketing-create-contact-companies.md)  
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13333,30 +13363,32 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-purchase-products-sale
 ---
 title: Purchase items for a sale
-description: From a sales invoice, to purchase products, you can create a purchase invoice for a vendor or supplier.
+description: Create a purchase invoice for a vendor or supplier directly from a sales invoice to buy products needed for a sale.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: supply planning, sales demand, replenish
 ms.search.form: 50, 51, 56, 9308
-ms.date: 03/14/2024
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Purchase items for a sale by creating purchase invoices
 
 From sales orders and sales invoices, you can use functions to quickly create purchase documents for missing item quantities that are required by the sale. You can use two different functions depending on the document type.
 
 > [!Note]
-> This functionality is for replenishing sales items into your own inventory. To purchase items for direct delivery from your vendor to your customer, you must create a drop shipment. For more information, see [Make Drop Shipments](sales-how-drop-shipment.md).   
+> This functionality is for replenishing sales items into your own inventory. To purchase items for direct delivery from your vendor to your customer, you must create a drop shipment. Learn more in [Make Drop Shipments](sales-how-drop-shipment.md).
 
 |Function|Description|
 |--------|-----------|
 |**Create Purchase Orders**|From a sales order, this function creates a purchase order for each vendor of items on the sales order. You can edit the purchase quantity before you create the purchase orders. Only unavailable sales quantities are suggested.
 |**Create Purchase Invoice**|From a sales order and from a sales invoice, this function creates a purchase invoice for a selected vendor for all lines or selected lines on the sales document. The full sales quantity is suggested.|
 
-## To create one or more purchase orders from a sales order
+## Create one or more purchase orders from a sales order
+
 To create a purchase order for each unavailable item quantity on the sales order, you use the **Create Purchase Orders** function.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
@@ -13369,18 +13401,18 @@ To create a purchase order for each unavailable item quantity on the sales order
 4. To purchase another quantity than the unavailable sales quantity, edit the value in the **Quantity to Purchase** field.
 
     > [!NOTE]  
-    >   You can also change the **Quantity to Purchase** field on grayed lines even though they represent fully available sales quantities.
+    > You can also change the **Quantity to Purchase** field on grayed lines even though they represent fully available sales quantities.
 5. Choose the **OK** button.
 
     A purchase order is created for each vendor of items on the sales order, including any quantity changes that you made on the **Create Purchase Orders** page.
-7. Proceed to process the purchase order or orders, for example, by editing or adding purchase order lines. For more information, see [Record Purchases](purchasing-how-record-purchases.md).
+6. Proceed to process the purchase order or orders, for example, by editing or adding purchase order lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
 
+## Create a purchase invoice from a sales order or sales invoice
 
-## To create a purchase invoice from a sales order or sales invoice
 To create a single purchase invoice for one or more lines on a sales document by first selecting which vendor to buy from, you use the **Create Purchase Invoice** function.
 
 > [!NOTE]  
->   This function creates a purchase invoice for the exact item quantity on the selected sales document. To change the purchase quantity, you must edit the purchase invoice after it is created.  
+> This function creates a purchase invoice for the exact item quantity on the selected sales document. To change the purchase quantity, you must edit the purchase invoice after it's created.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
 2. Open a sales invoice that you want to purchase items for.
@@ -13389,16 +13421,16 @@ To create a single purchase invoice for one or more lines on a sales document by
 5. Select either **All Lines** or **Selected Lines**, and then choose the **OK** button.  
 6. In the list of vendors that appears, select the vendor that you want to buy all the items from, and then choose the **OK** button.
 
-    A purchase invoice is created that contains one, more than one, or all the lines on the sales invoice.
-7. Proceed to process the purchase invoice, for example, by editing or adding purchase invoice lines. For more information, see [Record Purchases](purchasing-how-record-purchases.md).
+   A purchase invoice is created that contains one, more than one, or all the lines on the sales invoice.
+7. Proceed to process the purchase invoice, for example, by editing or adding purchase invoice lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
 
 ## Related information
+
 [Purchasing](purchasing-manage-purchasing.md)  
 [Record Purchases](purchasing-how-record-purchases.md)  
 [Invoice Sales](sales-how-invoice-sales.md)  
 [Register New Vendors](purchasing-how-register-new-vendors.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13723,7 +13755,7 @@ After you create a template, you can use the **Apply Template** action to apply 
 > [!TIP]
 > It can be helpful to personalize the **Customer Template** page when you create a template. For example, you might want to add the **Credit Limit** field to a template. To learn more, go to [Personalize your workspace](/dynamics365/business-central/ui-personalization-user#start-personalizing-by-using-the-personalization-mode).
 
-You can also create a customer from a contact. To learn more, go to [To create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#to-create-a-customer-vendor-employee-or-bank-account-from-a-contact).  
+You can also create a customer from a contact. To learn more, go to [Create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#create-a-customer-vendor-employee-or-bank-account-from-a-contact).  
 
 ### To create a new customer card
 
@@ -14758,19 +14790,19 @@ Production supervisors use this report to track the progress of production order
 
 The *Finished Production Order Breakdown* report includes the following KPIs and measures:
 
-- [Planned Quantity](manufacturing-powerbi-kpis.md#planned-quantity)
-- [Finished Quantity](manufacturing-powerbi-kpis.md#finished-quantity)
-- [Variance Quantity](manufacturing-powerbi-kpis.md#variance-quantity)
-- [Actual Material Cost](manufacturing-powerbi-kpis.md#actual-material-cost)
-- [Actual Capacity Cost](manufacturing-powerbi-kpis.md#actual-capacity-cost)
-- [Actual Capacity Overhead Cost](manufacturing-powerbi-kpis.md#actual-capacity-overhead-cost)
-- [Actual Manufacturing Overhead Cost](manufacturing-powerbi-kpis.md#actual-manufacturing-overhead-cost)
-- [Actual Subcontracted Cost](manufacturing-powerbi-kpis.md#actual-subcontracted-cost)
-- [Total Actual Cost](manufacturing-powerbi-kpis.md#total-actual-cost)
-- [Total Expected Cost Variance](manufacturing-powerbi-kpis.md#total-expected-cost-variance)
-- [Total Standard Cost Variance](manufacturing-powerbi-kpis.md#total-standard-cost-variance)
-- [Total Expected Cost Dev %](manufacturing-powerbi-kpis.md#total-expected-cost-dev-percent)
-- [Total Standard Cost Dev %](manufacturing-powerbi-kpis.md#total-standard-cost-dev-percent)
+- [**Planned Quantity**](manufacturing-powerbi-kpis.md#planned-quantity)
+- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
+- [**Variance Quantity**](manufacturing-powerbi-kpis.md#variance-quantity)
+- [**Actual Material Cost**](manufacturing-powerbi-kpis.md#actual-material-cost)
+- [**Actual Capacity Cost**](manufacturing-powerbi-kpis.md#actual-capacity-cost)
+- [**Actual Capacity Overhead Cost**](manufacturing-powerbi-kpis.md#actual-capacity-overhead-cost)
+- [**Actual Manufacturing Overhead Cost**](manufacturing-powerbi-kpis.md#actual-manufacturing-overhead-cost)
+- [**Actual Subcontracted Cost**](manufacturing-powerbi-kpis.md#actual-subcontracted-cost)
+- [**Total Actual Cost**](manufacturing-powerbi-kpis.md#total-actual-cost)
+- [**Total Expected Cost Variance**](manufacturing-powerbi-kpis.md#total-expected-cost-variance)
+- [**Total Standard Cost Variance**](manufacturing-powerbi-kpis.md#total-standard-cost-variance)
+- [**Total Expected Cost Dev %**](manufacturing-powerbi-kpis.md#total-expected-cost-dev-percent)
+- [**Total Standard Cost Dev %**](manufacturing-powerbi-kpis.md#total-standard-cost-dev-percent)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -16279,68 +16311,68 @@ ms.service: dynamics-365-business-central
 
 # Integrate with Microsoft Dataverse via data sync
 
-Business apps often use data from more than one source. [!INCLUDE[prod_short](includes/cds_long_md.md)] combines data into a single set of logic that makes it easier to connect [!INCLUDE[prod_short](includes/prod_short.md)] to other Dynamics 365 applications. For example, [!INCLUDE[crm_md](includes/crm_md.md)] or your own application built on [!INCLUDE[prod_short](includes/cds_long_md.md)]. To learn more about [!INCLUDE[prod_short](includes/cds_long_md.md)], go to [What is Dataverse?](/power-apps/maker/data-platform/data-platform-intro).
+Business apps often use data from more than one source. [!INCLUDE[cds_long](includes/cds_long_md.md)] combines data into a single set of logic that makes it easier to connect [!INCLUDE[prod_short](includes/prod_short.md)] to other Dynamics 365 applications. For example, [!INCLUDE[crm_md](includes/crm_md.md)] or your own application built on [!INCLUDE[cds_long](includes/cds_long_md.md)]. To learn more about [!INCLUDE[cds_long](includes/cds_long_md.md)], go to [What is Dataverse?](/power-apps/maker/data-platform/data-platform-intro).
 
-The following steps provide an overview of the steps to integrate [!INCLUDE[prod_short](includes/cds_long_md.md)] with [!INCLUDE[prod_short](includes/prod_short.md)].
+The following steps provide an overview of the steps to integrate [!INCLUDE[cds_long](includes/cds_long_md.md)] with [!INCLUDE[prod_short](includes/prod_short.md)].
 
 > [!Note]  
-> These tasks require the **System Administrator** security role in [!INCLUDE[prod_short](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)].  
+> These tasks require the **System Administrator** security role in [!INCLUDE[cds_long](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-1. Assign licenses for [!INCLUDE[prod_short](includes/cds_long_md.md)] to the [!INCLUDE[prod_short](includes/prod_short.md)] users who will use the integrated apps.
+1. Assign licenses for [!INCLUDE[cds_long](includes/cds_long_md.md)] to the [!INCLUDE[prod_short](includes/prod_short.md)] users who will use the integrated apps.
 
-2. Set up a connection to [!INCLUDE[prod_short](includes/cds_long_md.md)]. To learn more, go to [Connect to Dataverse](admin-how-to-set-up-a-dynamics-crm-connection.md).  
+2. Set up a connection to [!INCLUDE[cds_long](includes/cds_long_md.md)]. To learn more, go to [Connect to Dataverse](admin-how-to-set-up-a-dynamics-crm-connection.md).  
 
 3. Synchronize data between the apps. To learn more, go to [Synchronizing Business Central and Dataverse](admin-synchronizing-business-central-and-sales.md).
 
-## Get started with [!INCLUDE[prod_short](includes/cds_long_md.md)]
+## Get started with [!INCLUDE[cds_long](includes/cds_long_md.md)]
 
-To get started with [!INCLUDE[prod_short](includes/cds_long_md.md)], you'll need a Microsoft Power Apps account. If you don't already have a Power Apps account, you can get one for free by visiting [powerapps.com](https://make.powerapps.com/?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) and choosing the **Get started free** link. To learn more about how to get started with [!INCLUDE[prod_short](includes/cds_long_md.md)], go to the [Get started with Dataverse](/training/modules/get-started-with-powerapps-common-data-service/) module from Microsoft training.
+To get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], you'll need a Microsoft Power Apps account. If you don't already have a Power Apps account, you can get one for free by visiting [powerapps.com](https://make.powerapps.com/?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) and choosing the **Get started free** link. To learn more about how to get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], go to the [Get started with Dataverse](/training/modules/get-started-with-powerapps-common-data-service/) module from Microsoft training.
 
 ## Bi-directional or uni-directional data synchronization
 
-You can synchronize data either to or from one Dynamics 365 business app to another, or in both directions in near-real time, through [!INCLUDE[prod_short](includes/cds_long_md.md)]. For example, if you integrate [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[crm_md](includes/crm_md.md)], a salesperson can create a sales order in [!INCLUDE[crm_md](includes/crm_md.md)] and the order synchronizes to [!INCLUDE[prod_short](includes/prod_short.md)]. Conversely, from [!INCLUDE[crm_md](includes/crm_md.md)], the salesperson can check the availability of the item on the order in [!INCLUDE[prod_short](includes/prod_short.md)]. 
+You can synchronize data either to or from one Dynamics 365 business app to another, or in both directions in near-real time, through [!INCLUDE[cds_long](includes/cds_long_md.md)]. For example, if you integrate [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[crm_md](includes/crm_md.md)], a salesperson can create a sales order in [!INCLUDE[crm_md](includes/crm_md.md)] and the order synchronizes to [!INCLUDE[prod_short](includes/prod_short.md)]. Conversely, from [!INCLUDE[crm_md](includes/crm_md.md)], the salesperson can check the availability of the item on the order in [!INCLUDE[prod_short](includes/prod_short.md)]. 
 
 ## Standard and custom entities
 
-[!INCLUDE[prod_short](includes/cds_long_md.md)] securely stores data in a set of tables, which are sets of records similar to how a table stores data within a database. [!INCLUDE[prod_short](includes/cds_long_md.md)] includes a base set of standard tables that cover typical scenarios, but you can also create custom tables specific to your organization. In [!INCLUDE[prod_short](includes/prod_short.md)], you can view standard and custom tables being synchronized on the Integration Table Mappings page.
+[!INCLUDE[cds_long](includes/cds_long_md.md)] securely stores data in a set of tables, which are sets of records similar to how a table stores data within a database. [!INCLUDE[cds_long](includes/cds_long_md.md)] includes a base set of standard tables that cover typical scenarios, but you can also create custom tables specific to your organization. In [!INCLUDE[prod_short](includes/prod_short.md)], you can view standard and custom tables being synchronized on the Integration Table Mappings page.
 
 ## About the Business Central Base Integration Solution
 
-The Base Integration Solution is a key component of the integration. The solution adds the required roles and access levels to the user accounts for the integration, and it creates tables needed to map [!INCLUDE[prod_short](includes/prod_short.md)] company to business unit in [!INCLUDE[prod_short](includes/cds_long_md.md)].
+The Base Integration Solution is a key component of the integration. The solution adds the required roles and access levels to the user accounts for the integration, and it creates tables needed to map [!INCLUDE[prod_short](includes/prod_short.md)] company to business unit in [!INCLUDE[cds_long](includes/cds_long_md.md)].
 
-By default, the **Set up [!INCLUDE[prod_short](includes/cds_long_md.md)] connection** assisted setup guide imports the solution. To do that, the setup guide uses an administrator user account that you specify. This account must be a valid user in [!INCLUDE[prod_short](includes/cds_long_md.md)] with the **System Administrator** security role.  
+By default, the **Set up [!INCLUDE[cds_long](includes/cds_long_md.md)] connection** assisted setup guide imports the solution. To do that, the setup guide uses an administrator user account that you specify. This account must be a valid user in [!INCLUDE[cds_long](includes/cds_long_md.md)] with the **System Administrator** security role.  
 
 To learn more about user accounts, go to the following articles:
 
-* [Setting Up User Accounts for Integrating with [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md)
+* [Setting Up User Accounts for Integrating with [!INCLUDE[cds_long](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md)
 * [Create users in Microsoft Dynamics 365 (online) and assign security roles](/dynamics365/customer-engagement/admin/create-users-assign-online-security-roles)
 
-The administrator account is used only one time during the setup for the configuration changes that the Base Integration Solution makes in [!INCLUDE[prod_short](includes/cds_long_md.md)]. After the solution imports, the account is no longer needed. Integration will continue to use the user account that is automatically created specifically for the integration.
+The administrator account is used only one time during the setup for the configuration changes that the Base Integration Solution makes in [!INCLUDE[cds_long](includes/cds_long_md.md)]. After the solution imports, the account is no longer needed. Integration will continue to use the user account that is automatically created specifically for the integration.
 
 In addition to customizing [!INCLUDE [cds_long_md](includes/cds_long_md.md)], the solution also creates a security role in [!INCLUDE [cds_long_md](includes/cds_long_md.md)] for the integration:
 
-* **Business Central Dataverse Integration** - Allows you to manage the connection between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. Typically, this role is assigned only to the user account that's automatically created for synchronization. To learn more about this role, go to [Setting Up User Accounts for Integrating with [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md).
+* **Business Central Dataverse Integration** - Allows you to manage the connection between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. Typically, this role is assigned only to the user account that's automatically created for synchronization. To learn more about this role, go to [Setting Up User Accounts for Integrating with [!INCLUDE[cds_long](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md).
 
-When you set up the connection, you create the integration table mappings that you need to synchronize data. Entities in [!INCLUDE[prod_short](includes/cds_long_md.md)] are mapped to tables and table fields in [!INCLUDE [prod_short](includes/prod_short.md)] through integration tables. To learn more about mappings, go to [Standard Entity Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization).
+When you set up the connection, you create the integration table mappings that you need to synchronize data. Entities in [!INCLUDE[cds_long](includes/cds_long_md.md)] are mapped to tables and table fields in [!INCLUDE [prod_short](includes/prod_short.md)] through integration tables. To learn more about mappings, go to [Standard Entity Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization).
 
 ## Handle differences in local and base transaction currencies
 
-You can connect to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a different base currency than the local currency in [!INCLUDE[prod_short](includes/prod_short.md)]. You make the connection in [!INCLUDE[prod_short](includes/prod_short.md)] on the **Dataverse Connection Setup** page or by using the **Set up connection to Dataverse** assisted setup guide.
+You can connect to a [!INCLUDE[cds_long](includes/cds_long_md.md)] environment that has a different base currency than the local currency in [!INCLUDE[prod_short](includes/prod_short.md)]. You make the connection in [!INCLUDE[prod_short](includes/prod_short.md)] on the **Dataverse Connection Setup** page or by using the **Set up connection to Dataverse** assisted setup guide.
 
-To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[prod_short](includes/cds_long_md.md)] has the currency that is set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
+To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[cds_long](includes/cds_long_md.md)] has the currency that is set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
 
-Here's an example. You're connecting [!INCLUDE[prod_short](includes/cds_long_md.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[prod_short](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
+Here's an example. You're connecting [!INCLUDE[prod_short](includes/prod_short.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[cds_long](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
 
-When you enable the connection to [!INCLUDE[prod_short](includes/cds_long_md.md)], [!INCLUDE [prod_short](includes/prod_short.md)] adds its local currency to the **Currency** entity in [!INCLUDE[prod_short](includes/cds_long_md.md)] with the exchange rate from the **Currency Factor** field on the **Currency Exchange Rates** page.
+When you enable the connection to [!INCLUDE[cds_long](includes/cds_long_md.md)], [!INCLUDE [prod_short](includes/prod_short.md)] adds its local currency to the **Currency** entity in [!INCLUDE[cds_long](includes/cds_long_md.md)] with the exchange rate from the **Currency Factor** field on the **Currency Exchange Rates** page.
 
-Currency synchronization is unidirectional, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [!INCLUDE[prod_short](includes/cds_long_md.md)], monetary amounts convert and synchronize as follows:
+Currency synchronization is unidirectional, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [!INCLUDE[cds_long](includes/cds_long_md.md)], monetary amounts convert and synchronize as follows:
 
-* Amounts in the [!INCLUDE[prod_short](includes/cds_long_md.md)] base currency convert to the [!INCLUDE [prod_short](includes/prod_short.md)] local currency based on the latest exchange rate synchronized from [!INCLUDE [prod_short](includes/prod_short.md)].
-* Amounts in the [!INCLUDE [prod_short](includes/prod_short.md)] local currency synchronize with the [!INCLUDE [prod_short](includes/prod_short.md)] local currency in one of the other (non-base) currencies in [!INCLUDE[prod_short](includes/cds_long_md.md)].
+* Amounts in the [!INCLUDE[cds_long](includes/cds_long_md.md)] base currency convert to the [!INCLUDE [prod_short](includes/prod_short.md)] local currency based on the latest exchange rate synchronized from [!INCLUDE [prod_short](includes/prod_short.md)].
+* Amounts in the [!INCLUDE [prod_short](includes/prod_short.md)] local currency synchronize with the [!INCLUDE [prod_short](includes/prod_short.md)] local currency in one of the other (non-base) currencies in [!INCLUDE[cds_long](includes/cds_long_md.md)].
 
 ## What happens when you copy a company
 
-You can safely copy companies that integrate with [!INCLUDE[prod_short](includes/cds_long_md.md)] or [!INCLUDE[crm_md](includes/crm_md.md)]. Copying companies helps reduce the risk of data inconsistencies and can save you valuable time. To learn more about copying companies, go to [Copy a company](about-new-company.md#copy-a-company).
+You can safely copy companies that integrate with [!INCLUDE[cds_long](includes/cds_long_md.md)] or [!INCLUDE[crm_md](includes/crm_md.md)]. Copying companies helps reduce the risk of data inconsistencies and can save you valuable time. To learn more about copying companies, go to [Copy a company](about-new-company.md#copy-a-company).
 
 [!INCLUDE [dataverse-copy-company](includes/dataverse-copy-company.md)]
 
@@ -16354,47 +16386,53 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-service-posting
 ---
-title: Service Posting
-description: Service posting functionality lets you process your documents efficiently and maintain successful customer service policy.
+title: Service posting
+description: Service posting enables efficient processing of service documents and helps maintain a strong customer service policy.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/23/2021
+ms.search.keywords: service posting, post service order, post service invoice, post service shipment, post service consumption
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Service Posting
+
+# Service posting
+
 Service posting functionality lets you process your documents efficiently and maintain successful customer service policy. You can create and update posted documents, and create ledger entries both in the service area and in other modules to ensure the correct update.  
 
 > [!NOTE]  
->  The following describes service posting regardless of how items are physically handled in the warehouse.  
->   
->  In a location that is not set up to require warehouse handling, you perform the posting actions directly from the **Service Lines** page. In locations that involve warehouse handling, the described posting actions, except Ship and Consume, are performed indirectly through varying warehouse ship functions, depending on setup. For more information, see [Pick Items with Inventory Picks](warehouse-how-to-pick-items-with-inventory-picks.md).  
+> The following describes service posting regardless of how items are physically handled in the warehouse.  
+>
+> In a location that isn't set up to require warehouse handling, you perform the posting actions directly from the **Service Lines** page. In locations that involve warehouse handling, the described posting actions, except Ship and Consume, are performed indirectly through varying warehouse ship functions, depending on setup. Learn more in [Pick Items with Inventory Picks](warehouse-how-to-pick-items-with-inventory-picks.md).  
 
-## Ship  
+## Ship
+
 The ship option lets you register the relevant items and time entered on the lines of a service order after you complete the service. A posted shipment is created and updates occur in the Inventory module and other modules in [!INCLUDE[prod_short](includes/prod_short.md)] to reflect that the items have been taken out of the inventory and sent to the customer. In particular, the item ledger entries, value ledger entries, service ledger entries, and warranty ledger entries are produced.  
 
 If the location is set up to require warehouse handling, then the shipping and moving of service line items functions in the same ways as for other source documents. The only difference is that service line items can be consumed either externally or internally, which requires two different release functions.
 
-## Invoice  
-You have to use the invoice option to issue an invoice to the customer you want to charge for the service. Usually, it is the difference between the shipped quantity registered by the **Post Shipment** function and the consumed quantity registered by the **Post Consumption** function that is subject to invoice. You cannot invoice what has not been shipped. When you run the **Post Invoice** function, you create a posted service invoice and update the documents posted before to make them consistent with the quantities that are contained in the issued invoice. Like in other posting procedures, the relevant ledger entries that includes general ledger entries, are generated.  
+## Invoice
 
-## Ship and Invoice  
+You have to use the invoice option to issue an invoice to the customer you want to charge for the service. Usually, it's the difference between the shipped quantity registered by the **Post Shipment** function and the consumed quantity registered by the **Post Consumption** function that's subject to invoice. You can't invoice what hasn't been shipped. When you run the **Post Invoice** function, you create a posted service invoice and update the documents posted before to make them consistent with the quantities that are contained in the issued invoice. Like in other posting procedures, the relevant ledger entries that include general ledger entries, are generated.  
+
+## Ship and invoice
+
 The ship and invoice option lets you issue both a service shipment and an invoice at the same time.  
 
-## Ship and Consume  
-With the ship and consume option, you can register and post items, costs, or hours that have been used for servicing but that cannot be included in the invoice to the customer. An invoice is not issued, but you can issue both a service shipment and service consumption at the same time to reflect the fact that some items or hours have been given to the customer free of charge. The corresponding ledger entries are also created to register consumption.  
+## Ship and consume
+
+With the ship and consume option, you can register and post items, costs, or hours that have been used for servicing but that can't be included in the invoice to the customer. An invoice isn't issued, but you can issue both a service shipment and service consumption at the same time to reflect the fact that some items or hours have been given to the customer free of charge. The corresponding ledger entries are also created to register consumption.  
 
 > [!NOTE]  
->  The service posting procedure enables you to perform partial posting. You can create a partial shipment or a partial invoice by filling in the **Qty. to Ship** and **Qty. to Invoice** fields on the individual service lines of the service orders before you post. Note that you cannot create an invoice for something that is not shipped. That is, before you can invoice, you must have registered a shipment, or you must choose to ship and invoice at the same time.  
+> The service posting procedure enables you to perform partial posting. You can create a partial shipment or a partial invoice by filling in the **Qty. to Ship** and **Qty. to Invoice** fields on the individual service lines of the service orders before you post. Note that you can't create an invoice for something that isn't shipped. That is, before you can invoice, you must have registered a shipment, or you must choose to ship and invoice at the same time.  
 
-After the posting has been completed, you will be able to view the posted service documents from the corresponding **Posted Service Shipment** and **Posted Service Invoice** pages. The posted entries created can be seen in various pages that contain posted entries, such as **G/L Entries**, **Item Ledger Entries**, **Warehouse Entries**, **Service Ledger Entries**, **Project Ledger Entries**, and **Warranty Ledger Entries**.  
+After the posting has been completed, you'll be able to view the posted service documents from the corresponding **Posted Service Shipment** and **Posted Service Invoice** pages. The posted entries created can be seen in various pages that contain posted entries, such as **G/L Entries**, **Item Ledger Entries**, **Warehouse Entries**, **Service Ledger Entries**, **Project Ledger Entries**, and **Warranty Ledger Entries**.  
 
-## To view information about a posted service document  
-When you post a service invoice, a service shipment, or a service credit memo, the information on the document is transferred to the **Posted Service Invoice**, **Posted Service Shipment**, or **Posted Service Credit Memo** pages respectively. You cannot enter, change, or delete anything in these pages. You can print a shipment, invoice, or credit memo from these pages.  
+## View information about a posted service document
+
+When you post a service invoice, a service shipment, or a service credit memo, the information on the document is transferred to the **Posted Service Invoice**, **Posted Service Shipment**, or **Posted Service Credit Memo** pages respectively. You can't enter, change, or delete anything in these pages. You can print a shipment, invoice, or credit memo from these pages.  
 
 The following procedure uses a posted service invoice as an example, but the same procedure can apply to posted service shipments and posted credit memos.  
 
@@ -16402,51 +16440,50 @@ The following procedure uses a posted service invoice as an example, but the sam
 2. Open the posted service invoice you want to view.  
 3. To get an overview of the posted invoice, choose the **Statistics** action.  
 
-    The **Service Order Statistics** page opens. The page displays information such as quantity, amount, VAT, cost, profit, and customer credit limit for the posted document.
+   The **Service Order Statistics** page opens. The page displays information such as quantity, amount, VAT, cost, profit, and customer credit limit for the posted document.
 
-## Related information  
-[Post Service Orders](service-how-to-post-service-orders.md)   
-[Create Service Orders](service-how-to-create-service-orders.md)
+## Related information
 
+[Post Service Orders](service-how-to-post-service-orders.md)  
+[Create Service Orders](service-how-to-create-service-orders.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-manage-sales-opportunities
 ---
-title: Manage Sales Opportunities and Leads
-description: Describes managing any incoming lead or sales opportunity in Business Central,  and associating the opportunity with a salesperson to keep track of potential sales.
-documentationcenter: ''
+title: Manage sales opportunities and leads
+description: Explains how to capture and manage incoming leads and sales opportunities in Business Central, assign them to salespeople, and track expected value and likelihood of conversion.
 author: jswymer
-
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: relationship, prospect
 ms.search.forms: 5132, 5101, 5103, 5102, 5146, 5199, 5197, 5198, 5137, 5086, 5089, 5087, 5088, 5090, 5128, 5133, 5114, 5151, 5145, 5126, 5189, 5191, 5097, 5135, 5188, 5187, 5154, 5147, 5131, 9257, 5124, 782, 5130, 5123, 5127, 5174, 5125, 5115, 5112, 5111, 5110, 5109, 5149, 5169, 5190, 783, 505, 5118, 5072, 781, 5152, 5153, 5155, 5098, 5196, 5096, 5099, 9255, 5129, 5136
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: jswymer
-
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
-# Managing Sales Opportunities
+
+# Manage sales opportunities
+
 Any incoming lead can be considered a sales opportunity. You can create opportunities and associate them to a salesperson so that you can keep track of potential sales.
 
-Before you can start using opportunity management, you must set up sales cycles and sales cycle stages. As you create opportunities, you should provide information about the contact, salesperson, sales cycle, and dates, as well as your estimates for the sales value of the opportunity and your estimation of the chances of its success.
+Before you can start using opportunity management, you must set up sales cycles and sales cycle stages. When you create opportunities, provide information about the contact, salesperson, sales cycle, and dates. You can also include estimates for the sales value of the opportunity and the chances of its success.
 
-The following table describes a sequence of tasks, with links to the topics that describe them.
+The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
-| --- | --- |
-| Set up the sales cycles that you usually follow, and the different stages within each opportunity sales cycle. |[Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md) |
-| Create sales opportunities that you have from your contacts. |[Create Opportunities](marketing-how-create-opportunities.md) |
-| Move a sales opportunity through the sales cycle to completion. |[Process Sales Opportunities](marketing-processing-sales-opportunities.md) |
+| To | Go to |
+|--|--|
+| Set up the sales cycles that you usually follow, and the different stages within each opportunity sales cycle. | [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md) |
+| Create sales opportunities that you have from your contacts. | [Create Opportunities](marketing-how-create-opportunities.md) |
+| Move a sales opportunity through the sales cycle to completion. | [Process Sales Opportunities](marketing-processing-sales-opportunities.md) |
 
 ## Related information
-[Sales](sales-manage-sales.md)  
-[Creating and Managing Contacts](marketing-contacts.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
+[Sales](sales-manage-sales.md)  
+[Create and Manage Contacts](marketing-contacts.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -16796,11 +16833,12 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: rfq
 ms.search.form: 49, 97, 9306, 9346
-ms.date: 03/14/2024
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Request quotes
 
 A purchase quote can be used as a preliminary draft for a purchase order, which can then be converted to a purchase invoice.
@@ -16808,18 +16846,18 @@ A purchase quote can be used as a preliminary draft for a purchase order, which 
 ## Create a purchase quote
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Quotes**, then choose the related link.
-2. Create a new document, in the same way as you make a purchase order. Learn more at [Record Purchases](purchasing-how-record-purchases.md).
+2. Create a new document, in the same way as you make a purchase order. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
 
 ## Convert a purchase quote to a purchase order
 
-When you have accepted the vendor's quote, you can convert it to a purchase order to process the purchase.
+When you accept the vendor's quote, you can convert it to a purchase order to process the purchase.
 
-1. Open the purchase quote you want to convert, then choose the **Make Order** action.
+Open the purchase quote you want to convert, then choose the **Make Order** action.
 
 The purchase quote is removed from the database. A purchase order is created based on the information in the purchase quote, which you can use to process the purchase, and then post a purchase invoice. In the **Quote No.** field on both the purchase order and purchase invoice you can see the number of the purchase quote they were made from.
 
 > [!NOTE]
-> It is not possible to convert a purchase quote to a purchase invoice directly, like it is possible with sales quotes. For details on how to create a purchase invoice, read [Record Purchases with Purchase Invoices](purchasing-how-record-purchases.md).
+> It isn't possible to convert a purchase quote to a purchase invoice directly. But it's possible with sales quotes. Learn more in [Record Purchases with Purchase Invoices](purchasing-how-record-purchases.md) for details on how to create a purchase invoice.
 
 ## Related information
 

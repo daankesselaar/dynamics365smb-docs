@@ -373,11 +373,11 @@ title: Manage fixed assets
 description: Learn about the fixed assets functionality and get an overview of how to work with and manage your fixed assets.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords: machinery, buildings
+ms.search.keywords: machinery, buildings, fixed assets
 ms.search.form: 5601_Primary, 5604, 5606, 5664, 5601, 5602, 5658, 5603, 5671, 5641, 5629, 5633, 5634, 5649, 5622, 5650
-ms.date: 06/10/2025
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -388,7 +388,7 @@ The fixed assets functionality in [!INCLUDE[prod_short](includes/prod_short.md)]
 
 ## What is a fixed asset?
 
-Fixed assets differ from other items in your warehouse. A fixed asset, also known as a capital asset, is a tangible piece of property, plant, or equipment (PP&E) that you own or manage with the expectation that it will continue to help generate income. An asset is fixed when it’s an item that your business won’t consume, sell, or convert to cash within the next calendar year. Fixed assets are different than current assets, which are in cash or slated to be converted to cash within the next 12 months. Fixed assets also differ from your inventory, because inventory is typically consumed within a short time.
+Fixed assets differ from other items in your warehouse. A fixed asset, also known as a capital asset, is a tangible piece of property, plant, or equipment (PP&E) that you own or manage with the expectation that it continues to help generate income. An asset is fixed when it’s an item that your business won’t consume, sell, or convert to cash within the next calendar year. Fixed assets are different than current assets, which are in cash or slated to be converted to cash within the next 12 months. Fixed assets also differ from your inventory, because inventory is typically consumed within a short time.
 
 ## Types of fixed assets
 
@@ -405,8 +405,8 @@ Businesses typically invest in a few types of fixed assets. Some examples are:
 Fixed asset accounting means keeping precise financial records about your capital assets. These records include details about the five stages in an asset's lifecycle. After your initial purchase, each fixed asset’s lifecycle includes at least three of the following stages:
 
 - Acquisition: You add a new fixed asset to your books.
-- Depreciation: You record an asset's periodic decline in value, which you use a depreciation method to calculate. To learn more, go to [FA Depreciation Calculation](LocalFunctionality/India/FA_Depreciation.md).
-- Revaluation: You record an assessment of the current fair market value of an asset. To learn more, go to [Revalue Fixed Assets](fa-how-revalue.md).
+- Depreciation: You record an asset's periodic decline in value, which you use a depreciation method to calculate. Learn more in [FA Depreciation Calculation](LocalFunctionality/India/FA_Depreciation.md).
+- Revaluation: You record an assessment of the current fair market value of an asset. Learn more in [Revalue Fixed Assets](fa-how-revalue.md).
 - Impairment: You record a reduction in value due to events or circumstances.
 - Disposal: You sell, scrap, or use another way dispose of an asset at the end of its service life.
 
@@ -428,27 +428,27 @@ Before you can manage fixed assets, you must complete the following setups:
 - Allocation keys
 - Fixed asset journals
 
-To learn more, go to [Setting Up Fixed Assets](fa-setup.md).
+Learn more in [Setting Up Fixed Assets](fa-setup.md).
 
 ## Fixed assets analytics
 
 This section describes the analytical tools you can use to get insights into data about your fixed assets.
 
-| To... | See |
-| --- | --- |
+| To... | Go to... |
+|--|--|
 | Learn about capabilities for analyzing data about fixed assets. | [Fixed assets analytics overview](fa-analytics-overview.md) |
 | Do ad-hoc analysis of fixed assets data directly on list pages and queries. | [Ad-hoc analysis of fixed assets data](ad-hoc-analysis-fa.md) |
 | Explore built-in reports for fixed assets. | [Built-in fixed assets reports](fa-reports.md) |
-| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
-| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
-| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
-| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
+| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs) |
+| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#monitor-insurance-coverage) |
+| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#view-disposal-ledger-entries) |
+| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#view-projected-disposal-values) |
 
 ## Register fixed assets
 
 For each fixed asset, you must set up a card that contains information about them. For example, you can set up buildings or production equipment as main assets with a component list. You can group assets in various ways, such as by class, department, or location. Then you can acquire, maintain, and sell the fixed assets. You can also set up budgeted assets. Budgeting lets you include any anticipated acquisitions and sales in reports.
 
-| To  | See |
+| To  | Go to... |
 | --- | --- |
 | Manage fixed asset budgets, budget acquisition costs, budget disposals of fixed assets, and budget depreciation. |[Manage Budgets for Fixed Assets](fa-how-manage-budgets.md) |
 | Create fixed assets, assign depreciation methods, post acquisitions, salvage values, and print fixed asset lists. |[Acquire Fixed Assets](fa-how-acquire.md) |
@@ -461,35 +461,35 @@ To track fixed asset depreciations and other financial transactions for fixed as
 1. Fill in a journal with the resulting entries.
 1. Post the journal.
 
-[!INCLUDE[prod_short](includes/prod_short.md)] supports several depreciation methods. To learn more, go to [Depreciation Methods](fa-depreciation-methods.md). You can set up multiple depreciation books for each fixed asset for different purposes, such as one for tax reporting and another for internal reporting.
+[!INCLUDE[prod_short](includes/prod_short.md)] supports several depreciation methods. Learn more in [Depreciation Methods](fa-depreciation-methods.md). You can set up multiple depreciation books for each fixed asset for different purposes, such as one for tax reporting and another for internal reporting.
 
-| To  | See |
-| --- | --- |
-| Learn about different fixed asset depreciation methods. |[Depreciation Methods](fa-depreciation-methods.md) |
-| Calculate depreciation, post depreciation, and analyze depreciation in fixed assets reports. |[Depreciate or Amortize Fixed Assets](fa-how-depreciate-amortize.md) |
-| View changed depreciation book values. | [View changed depreciation book values](fa-how-trans-split-combine.md#to-view-changed-depreciation-book-values-due-to-fixed-asset-reclassification) |
+| To | Go to... |
+|--|--|
+| Learn about different fixed asset depreciation methods. | [Depreciation Methods](fa-depreciation-methods.md) |
+| Calculate depreciation, post depreciation, and analyze depreciation in fixed assets reports. | [Depreciate or Amortize Fixed Assets](fa-how-depreciate-amortize.md) |
+| View changed depreciation book values. | [View changed depreciation book values](fa-how-trans-split-combine.md#view-changed-depreciation-book-values-due-to-fixed-asset-reclassification) |
 | Manually record fixed asset transactions on the **Fixed Asset G/L Journal** page or on the **Fixed Asset Journal** page, depending on whether the transactions are for financial reporting or for internal management. | [Set Up Fixed Asset Depreciation](fa-how-setup-depreciation.md) |
 
 ## Fixed assets maintenance and insurance
 
 You can record maintenance costs and the next service date for each asset. Tracking maintenance expenses can be important for budgeting purposes and deciding whether to replace a fixed asset. You can attach each fixed asset to one or more insurance policies, and verify that policy premiums align with the value of the assets.
 
-| To  | See |
-| --- | --- |
-| Record service visits, post maintenance costs, and monitor maintenance costs. |[Maintain Fixed Assets](fa-how-maintain.md) |
-| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs)|
-| Update insurance information, post acquisition costs to insurance policies, modify insurance coverage, view insurance statistics, and list insurance policies. |[Insure Fixed Assets](fa-how-insure.md) |
-| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#to-monitor-insurance-coverage) |
+| To | Go to... |
+|--|--|
+| Record service visits, post maintenance costs, and monitor maintenance costs. | [Maintain Fixed Assets](fa-how-maintain.md) |
+| Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs) |
+| Update insurance information, post acquisition costs to insurance policies, modify insurance coverage, view insurance statistics, and list insurance policies. | [Insure Fixed Assets](fa-how-insure.md) |
+| Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#monitor-insurance-coverage) |
 
 ## Reclassify, transfer, split up/combine, adjust value, write-down, and dispose fixed assets
 
-| To  | See |
-| --- | --- |
-| Reclassify fixed assets, transfer fixed assets to different locations, split up or combine assets. |[Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md) |
-| Adjust values of fixed assets, post appreciation, and post write-down transactions. |[Revalue Fixed Assets](fa-how-revalue.md) |
-| Post disposal transactions, view disposal ledger entries, and post partial disposals. |[Dispose of or Retire Fixed Assets](fa-how-dispose-retire.md) |
-| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#to-view-disposal-ledger-entries) |
-| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#to-view-projected-disposal-values) |
+| To | Go to... |
+|--|--|
+| Reclassify fixed assets, transfer fixed assets to different locations, split up or combine assets. | [Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md) |
+| Adjust values of fixed assets, post appreciation, and post write-down transactions. | [Revalue Fixed Assets](fa-how-revalue.md) |
+| Post disposal transactions, view disposal ledger entries, and post partial disposals. | [Dispose of or Retire Fixed Assets](fa-how-dispose-retire.md) |
+| View disposal ledger entries. | [View disposal ledger entries](fa-how-dispose-retire.md#view-disposal-ledger-entries) |
+| View projected disposal values. | [View projected disposal values](fa-how-manage-budgets.md#view-projected-disposal-values) |
 
 ## Tips for improving your fixed asset accounting
 
@@ -502,12 +502,12 @@ There are a few things you can implement in your accounting strategy for fixed a
 
 ## Related information
 
-[Setting Up Fixed Assets](fa-setup.md)  
-[Fixed assets analytics overview](fa-analytics-overview.md)  
-[Finance overview](finance.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)  
+- [Setting Up Fixed Assets](fa-setup.md)  
+- [Fixed assets analytics overview](fa-analytics-overview.md)  
+- [Finance overview](finance.md)  
+- [Getting Ready for Doing Business](ui-get-ready-business.md)  
+- [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+- [Change Which Features are Displayed](ui-experiences.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
 
@@ -815,49 +815,49 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-dispose-retire
 ---
 title: Dispose or retire FA
-description: When you sell or otherwise dispose of a fixed asset, the disposal value must be posted to calculate and record the gain or loss. 
+description: Post the disposal value when selling or retiring a fixed asset to calculate and record any gain or loss.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords: scrap
+ms.search.keywords: scrap, dispose fixed assets, retire fixed assets
 ms.search.form: 5628, 5610, 5611, 5629, 5633
-ms.date: 06/10/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
-
 ---
+
 # Dispose of or retire fixed assets
 
 When you sell or otherwise dispose of a fixed asset, you must post the disposal value to calculate and record the gain or loss. A disposal entry must be the last entry posted for a fixed asset. For partially disposed fixed assets, you can post more than one disposal entry. The total of all posted disposal amounts must be a credit amount.  
 
 > [!NOTE]  
-> If you trade-in a fixed asset for another one, you must record both the sale of the old asset (disposal) and the purchase of the new one (acquisition). For more information, see [Acquire Fixed Assets](fa-how-acquire.md).  
+> If you trade-in a fixed asset for another one, you must record both the sale of the old asset (disposal) and the purchase of the new one (acquisition). Learn more in [Acquire Fixed Assets](fa-how-acquire.md).  
 
-The following steps assume that your posting groups are set up on the **FA Posting Groups** page. For more information, see [To set up fixed asset posting groups](fa-how-setup-general.md#to-set-up-fixed-asset-posting-groups).  
+The following steps assume that your posting groups are set up on the **FA Posting Groups** page. Learn more in [Set up fixed asset posting groups](fa-how-setup-general.md#set-up-fixed-asset-posting-groups).  
 
-## To post a disposal from the fixed asset G/L journal
+## Post a disposal from the fixed asset G/L journal
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Asset G/L Journals**, and then choose the related link.  
-2. Create an initial journal line and fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
-3. In the **FA Posting Type** field, select **Disposal**.  
-4. Choose the **Insert FA Bal. Account** action. A second journal line is created for the balancing account that is set up for disposal posting.  
+1. Create an initial journal line and fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
+1. In the **FA Posting Type** field, select **Disposal**.  
+1. Choose the **Insert FA Bal. Account** action. A second journal line is created for the balancing account that is set up for disposal posting.  
 
-    > [!NOTE]  
-    >  Step 4 only works if you have set up the following: On the **FA Posting Group Card** page for the posting group of the fixed asset, the **Disposal Account** field contains the general ledger debit account and the **Disposal Bal. Account** field contains the general ledger account to which you want to post balancing entries for appreciation. For more information, see [To set up fixed asset posting groups](fa-how-setup-general.md#to-set-up-fixed-asset-posting-groups).  
-5. Choose the **Post** action.  
+   > [!NOTE]  
+   > Step 4 only works if you have set up the following: On the **FA Posting Group Card** page for the posting group of the fixed asset, the **Disposal Account** field contains the general ledger debit account and the **Disposal Bal. Account** field contains the general ledger account to which you want to post balancing entries for appreciation. Learn more in [Set up fixed asset posting groups](fa-how-setup-general.md#set-up-fixed-asset-posting-groups).  
+1. Choose the **Post** action.  
 
-If you sell or dispose of part of a fixed asset, you must split up the asset before you can record the disposal transaction. For more information, see [Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md).  
+If you sell or dispose of part of a fixed asset, you must split up the asset before you can record the disposal transaction. Learn more in [Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md).  
 
-## To view disposal ledger entries
+## View disposal ledger entries
 
 When you sell or dispose of a fixed asset, the disposal value is posted to the general ledger where you can view the result.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.  
-2. Select the fixed asset that you want to view entries for, and then choose the **Depreciation Books** action.  
-3. Select the depreciation book that you want to view entries for, and then choose the **Ledger Entries** action.  
-4. Select a line with **Disposal** in the **FA Posting Category** field, and then choose the **Find Entries** action.  
-5. On the **Find Entries** page, select the general ledger entry line, and then choose the **Show Related Entries** action.  
+1. Select the fixed asset that you want to view entries for, and then choose the **Depreciation Books** action.  
+1. Select the depreciation book that you want to view entries for, and then choose the **Ledger Entries** action.  
+1. Select a line with **Disposal** in the **FA Posting Category** field, and then choose the **Find Entries** action.  
+1. On the **Find Entries** page, select the general ledger entry line, and then choose the **Show Related Entries** action.  
 
 The **General Ledger Entries** page opens where you can see the entries that the disposal posting resulted in.  
 
@@ -865,12 +865,11 @@ The **General Ledger Entries** page opens where you can see the entries that the
 
 [Fixed Assets](fa-manage.md)  
 [Setting Up Fixed Assets](fa-setup.md)  
-[To set up fixed asset posting groups](fa-how-setup-general.md#to-set-up-fixed-asset-posting-groups).  
+[To set up fixed asset posting groups](fa-how-setup-general.md#set-up-fixed-asset-posting-groups)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Find Entries](ui-find-entries.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -2005,11 +2004,12 @@ Manufacturing managers use the report to understand the capacity of machine and 
 
 The *Current Utilization* report includes the following KPIs and measures:
 
-- [Work Center Load](manufacturing-powerbi-kpis.md#work-center-load)
-- [Work Center Allocated Time](manufacturing-powerbi-kpis.md#work-center-allocated-time)
-- [Work Center Availability After Orders](manufacturing-powerbi-kpis.md#work-center-availability-after-orders)
-- [Work Center Capacity (Total)](manufacturing-powerbi-kpis.md#work-center-capacity-total)
-- [Work Center Capacity (Effective)](manufacturing-powerbi-kpis.md#work-center-capacity-effective)
+- [**Work Center Load**](manufacturing-powerbi-kpis.md#work-center-load)
+- [**Work Center Allocated Time**](manufacturing-powerbi-kpis.md#work-center-allocated-time)
+- [**Work Center Needed Time**](manufacturing-powerbi-kpis.md#work-center-needed-time)
+- [**Work Center Availability After Orders**](manufacturing-powerbi-kpis.md#work-center-availability-after-orders)
+- [**Work Center Capacity (Total)**](manufacturing-powerbi-kpis.md#work-center-capacity-total)
+- [**Work Center Capacity (Effective)**](manufacturing-powerbi-kpis.md#work-center-capacity-effective)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -2340,40 +2340,42 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-plan-service
 ---
-title: Planning Service Processes
-description: This topic outlines various tasks to set up rules and values to define your service policies and processes.
+title: Planning service processes
+description: Learn how to configure rules and values to establish your organization's service policies and processes.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: service, work hours, configure, price, pricing
-ms.date: 06/23/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Planning Services
-With [!INCLUDE[prod_short](includes/prod_short.md)], you can set up the standard tasks that you need to fulfill your customer service requirements. To do this, you must determine what service items and offerings your service organization supports, and at what price.   
+
+# Plan services
+
+With [!INCLUDE[prod_short](includes/prod_short.md)], you can set up the standard tasks that you need to fulfill your customer service requirements. To do this, you must determine what service items and offerings your service organization supports, and at what price.
 
 [!INCLUDE[prod_short](includes/prod_short.md)] also provides some statistics tools that you can use to determine how well things are going, and identify areas where you can improve.
   
-The following table describes a sequence of tasks, with links to the topics that describe them.   
+The following table describes a sequence of tasks, with links to the articles that describe them.   
   
-|**To**|**See**|  
-|------------|-------------|  
-|Establish pricing for the services you provide.|[Managing Service Pricing](service-service-price-management.md)|
-|Set up and customize service items and service groups. This includes establishing which skills a service requires and troubleshooting guidance.| [Create Service Items](service-how-to-create-service-items.md)|  
-|Know how to manage the status of repairs on service orders, and how to identify their priority.|[Understanding Service Order and Repair Status](service-service-order-status-and-repair-status.md)|  
-|Understand the relationship between the status of a repair, and the effect they have on allocated resources, and vice versa.|[Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md)|  
-|Use statistics to analyze your service processes. | [Viewing Service Statistics](service-service-statistics.md) |
+| **To** | **See** |
+|--|--|
+| Establish pricing for the services you provide. | [Managing Service Pricing](service-service-price-management.md) |
+| Set up and customize service items and service groups. This includes establishing which skills a service requires and troubleshooting guidance. | [Create Service Items](service-how-to-create-service-items.md) |
+| Know how to manage the status of repairs on service orders, and how to identify their priority. | [Understanding Service Order and Repair Status](service-service-order-status-and-repair-status.md) |
+| Understand the relationship between the status of a repair, and the effect they have on allocated resources, and vice versa. | [Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md) |
+| Use statistics to analyze your service processes. | [Viewing Service Statistics](service-service-statistics.md) |
 
 ## Related information
-[Fulfilling Service Contracts](service-fulfill-service-contracts.md)  
-[Delivering Service](service-deliver-service.md)  
+
+[Fulfill Service Contracts](service-fulfill-service-contracts.md)  
+[Deliver Service](service-deliver-service.md)  
 [Set Up Pricing and Additional Costs for Services](service-how-setup-service-costs-pricing.md)  
 [Set Up Service Items and Service Item Components](service-how-setup-service-items.md)  
 [Set Up Statuses for Service Orders and Repairs](service-order-repair-status.md)  
-[Setting Up Service Management](service-setup-service.md)  
-
+[Set Up Service Management](service-setup-service.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4562,44 +4564,45 @@ title: Amend or cancel unpaid purchase invoices
 description: Explains how to correct, cancel, or undo a posted purchase invoice and automatically create a purchase credit memo.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: undo, credit memo, return
 ms.search.form: 138, 140, 146
-ms.date: 04/19/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ---
+
 # Correct or cancel unpaid purchase invoices
 
 You can correct or cancel a posted purchase invoice. This is useful if you want to correct a typing mistake, or if you want to change the purchase early in the order process.
 
-If you have already paid for products on the posted purchase invoice, you can't correct or cancel it from the posted purchase invoice itself. Instead, you must manually create a purchase credit memo to reverse the purchase, optionally managed with a purchase return order. The same applies if you want to modify a posted purchase invoice that was based on combined purchase receipts. For more information, see [Process Purchase Returns or Cancellations](purchasing-how-process-purchase-returns-cancellations.md).
+If you have already paid for products on the posted purchase invoice, you can't correct or cancel it from the posted purchase invoice itself. Instead, you must manually create a purchase credit memo to reverse the purchase, optionally managed with a purchase return order. The same applies if you want to modify a posted purchase invoice that was based on combined purchase receipts. Learn more in [Process Purchase Returns or Cancellations](purchasing-how-process-purchase-returns-cancellations.md).
 
 On the **Posted Purchase Invoice** page, you can choose the **Correct** button or the **Cancel** button. When you correct or cancel a posted purchase invoice, the corrective purchase credit memo is applied to all general ledger and inventory ledger entries that were created when the initial purchase invoice was posted. This reverses the posted purchase invoice in your financial records and leaves the corrective posted purchase credit memo for your audit trail. The video describes the use of **Correct** and **Cancel**.
 <br><br>
 > [!Video https://learn-video.azurefd.net/vod/player?id=a840d10b-557c-4c8d-8186-87f962d876e8]
 
-## To correct a posted purchase invoice
+## Correct a posted purchase invoice
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Purchase Invoices**, and then choose the related link.  
 2. Select the posted purchase invoice that you want to correct.  
 
     > [!NOTE]  
-    >   If the **Canceled** check box is selected, then you cannot correct the posted purchase invoice because it has already been corrected or canceled.
+    > If the **Canceled** check box is selected, then you cannot correct the posted purchase invoice because it has already been corrected or canceled.
 3. On the **Posted Purchase Invoice** page, choose **Correct**.
 
-    A new purchase invoice with the same information is created where you can make the correction. For more information, see [Record Purchases](purchasing-how-record-purchases.md). The **Canceled** field on the initial posted purchase invoice is changed to **Yes**.
+    A new purchase invoice with the same information is created where you can make the correction. Learn more in [Record Purchases](purchasing-how-record-purchases.md). The **Canceled** field on the initial posted purchase invoice is changed to **Yes**.
 
     A purchase credit memo is automatically created and posted to void the initial posted purchase invoice.
 4. Choose **Show Corrective Credit Memo** to view the posted purchase credit memo that voids the initial posted purchase invoice.
 
-## To cancel a posted purchase invoice
+## Cancel a posted purchase invoice
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Purchase Invoices**, and then choose the related link.  
 2. Select the posted purchase invoice that you want to cancel.
 
     > [!NOTE]  
-    >   If the **Canceled** check box is selected, then you cannot cancel the posted purchase invoice because it has already been canceled or corrected.
+    > If the **Canceled** check box is selected, then you cannot cancel the posted purchase invoice because it has already been canceled or corrected.
 3. On the **Posted Purchase Invoice** page, choose **Cancel**.
 
     A purchase credit memo is automatically created and posted to void the initial posted purchase invoice. The **Canceled** field on the initial posted purchase invoice is changed to **Yes**.
@@ -4613,8 +4616,7 @@ If the cancellation is related to a partial invoice posting, then the originatin
 
 [Purchasing](purchasing-manage-purchasing.md)  
 [Record Purchases](purchasing-how-record-purchases.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -6135,54 +6137,57 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-interaction-segments
 ---
-title: Keep Track of Segments and Related Interactions
+title: Keep track of segments and related interactions
 description: Learn about creating segments to define groups of contacts and specifying interactions for segments.
 author: jswymer
-
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: relationship, prospect
-ms.search.forms: 5091, 5139,
-ms.date: 04/01/2021
+ms.search.forms: 5091, 5139
+ms.date: 10/03/2025
 ms.author: jswymer
-
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
-# Manage Interactions for Segments
+
+# Manage interactions for segments
+
 The **Segment** page is a type of worksheet where you can:
 
 * Create segments.
-* Save the segmentation criteria you have used to select contacts.
+* Save the segmentation criteria you used to select contacts.
 * Log the segment and record interactions involving the contacts within the segment.
 
 ## Segmenting
+
 There are several ways to create segments:
 
-* You can manually enter the contacts you want to include in the segment in the segment lines.
+* You can manually enter the contacts you want to include in the segment lines.
 * You can select contacts.
 * You can reuse a logged segment as the basis to create a new one.
 * You can reuse saved segmentation criteria.
 
 ## Interactions
+
 On the **Segment** page, you can create interactions for several contacts simultaneously. For example, you can merge a segment with a Microsoft Word document, so that you can send a letter to all the contacts in the segment.
 
-You can specify information about the interaction for the segment on the **Segment** header. For example, you can decide which interaction template you want to use for all the contacts, specify a description, a correspondence type, and so on. However, you can modify this information in the segment line for each particular contact, for example, by specifying another description for one contact. If you are merging a segment with a Microsoft Word document, you can personalize the document to be sent for one or several of the contacts within the segment, for example, by adding individualized comments to the document.
+You can specify information about the interaction for the segment on the **Segment** header. For example, you can decide which interaction template you want to use for all the contacts, specify a description, a correspondence type, and so on. However, you can modify this information in the segment line for each particular contact, for example, by specifying another description for one contact. If you're merging a segment with a Microsoft Word document, you can personalize the document for one or several contacts in the segment. For example, you might add individualized comments to the document.
 
 ## Logging
-On the **Segment** page, when you choose **Log**, the application records the interactions on the **Interaction Log Entry** page, and logs the segment. After you have logged the segment, you can only find it on the **Logged Segments** page.
 
-On the **Logged Segments** page, you can decide to create a follow-up segment containing the same contacts as the segment you have logged.
+On the **Segment** page, when you choose **Log**, the application records the interactions on the **Interaction Log Entry** page, and logs the segment. After you log the segment, you can only find it on the **Logged Segments** page.
+
+On the **Logged Segments** page, you can decide to create a follow-up segment containing the same contacts as the segment you logged.
 
 ## Related information
+
 [Create Segments](marketing-how-create-segment.md)  
 [Create Interactions for Segments](marketing-how-create-interactions.md)  
-[Managing Segments](marketing-segments.md)  
-[Recording Interactions With Contacts](marketing-interactions.md)  
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Creating and Managing Contacts](marketing-contacts.md)  
-[Work with Business Central](ui-work-product.md)
-
+[Manage Segments](marketing-segments.md)  
+[Record Interactions With Contacts](marketing-interactions.md)  
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Create and Manage Contacts](marketing-contacts.md)  
+[Work with Business Central](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -6234,16 +6239,16 @@ For manufacturing managers, this report reveals important measures about capacit
 
 The Production Scrap report includes the following KPIs and measures:
 
-- [Production Order Scrap %](manufacturing-powerbi-kpis.md#production-order-scrap-percent)
-- [Finished Quantity](manufacturing-powerbi-kpis.md#finished-quantity)
-- [Scrap Quantity](manufacturing-powerbi-kpis.md#scrap-quantity)
-- [Work Center Scrap %](manufacturing-powerbi-kpis.md#work-center-scrap-percent)
-- [Work Center Scrap](manufacturing-powerbi-kpis.md#work-center-scrap)
-- [Work Center Output](manufacturing-powerbi-kpis.md#work-center-output)
-- [Machine Center Scrap %](manufacturing-powerbi-kpis.md#machine-center-scrap-percent)
-- [Machine Center Scrap](manufacturing-powerbi-kpis.md#machine-center-scrap)
-- [Machine Center Output](manufacturing-powerbi-kpis.md#machine-center-output)
-- [Expected Production Order Scrap Quantity](manufacturing-powerbi-kpis.md#expected-production-order-scrap-quantity)
+- [**Production Order Scrap %**](manufacturing-powerbi-kpis.md#production-order-scrap-percent)
+- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
+- [**Scrap Quantity**](manufacturing-powerbi-kpis.md#scrap-quantity)
+- [**Work Center Scrap %**](manufacturing-powerbi-kpis.md#work-center-scrap-percent)
+- [**Work Center Scrap**](manufacturing-powerbi-kpis.md#work-center-scrap)
+- [**Work Center Output**](manufacturing-powerbi-kpis.md#work-center-output)
+- [**Machine Center Scrap %**](manufacturing-powerbi-kpis.md#machine-center-scrap-percent)
+- [**Machine Center Scrap**](manufacturing-powerbi-kpis.md#machine-center-scrap)
+- [**Machine Center Output**](manufacturing-powerbi-kpis.md#machine-center-output)
+- [**Expected Production Order Scrap Quantity**](manufacturing-powerbi-kpis.md#expected-production-order-scrap-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -6357,11 +6362,11 @@ In most cases, you send sales quotes to prospective customers. You often have a 
 
     Alternatively, if your organization prefers that process, choose the **Make Invoice** action.  
     > [!NOTE]
-    > If you added a customer in step 2, confirm the conversion of the quote to an order.  
+    > - If you added a customer in step 2, confirm the conversion of the quote to an order.  
     >
-    > If you added a contact from a prospective customer in step 2, take the following steps:
+    > - If you added a contact from a prospective customer in step 2, take the following steps:
     >
-    >  - Convert the contact or prospect to a customer by choosing one of contact conversion templates. To learn more, go to [To create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#to-create-a-customer-vendor-employee-or-bank-account-from-a-contact).  
+    > - Convert the contact or prospect to a customer by choosing one of contact conversion templates. To learn more, go to [Create a customer, vendor, employee, or bank account from a contact](marketing-create-contact-companies.md#create-a-customer-vendor-employee-or-bank-account-from-a-contact).  
     > - Confirm the conversion of the quote to an order.
 
 The conversion removes the sales quote from the database. A sales invoice or a sales order is created based on the information in the sales quote so that you can process the sale. The **Quote No.** field on the sales invoice or sales order shows the ID of the sales quote that it was made from. To learn more, go to [Invoice Sales](sales-how-invoice-sales.md) or [Sell Products](sales-how-sell-products.md).  
@@ -6616,36 +6621,36 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-manage-budgets
 ---
 title: Manage FA Budgets
-description: You set up information about future investments, disposals, and depreciation of fixed assets to help prepare budgets and forecasts.
+description: Set up details for future investments, disposals, and depreciation of fixed assets to support budget planning and forecasting.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords: forecast
+ms.search.keywords: forecast, manage budgets, fixed assets
 ms.search.form: 5610, 5611
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Manage Budgets for Fixed Assets
+
+# Manage budgets for fixed assets
 
 You can set up budgeted fixed assets. For example, this lets you include anticipated acquisitions and sales in reports.  
 
-To prepare your budgeted income statement, budgeted balance sheet, and cash budget, you need information about future investments, disposals and depreciation of fixed assets. You can get this information from the **Fixed Asset - Projected Value** report. Before you print this report, you must prepare the budget.  
+To prepare your budgeted income statement, budgeted balance sheet, and cash budget, you need information about future investments, disposals, and depreciation of fixed assets. You can get this information from the **Fixed Asset - Projected Value** report. Before you print this report, you must prepare the budget.  
 
-## To budget the acquisition cost of a fixed asset
+## Budget the acquisition cost of a fixed asset
 
 To prepare a budget, you have to set up fixed asset cards for fixed assets that you intend to buy in the future. The budget fixed assets are set up as ordinary fixed assets, but it must be set up to not post to the general ledger.
 
-When you post the acquisition cost, you enter the number of the budgeted fixed asset in the **Budgeted FA No.** field. This will post an acquisition cost with an opposite sign for the budgeted asset. This means that the total acquisition cost on the budgeted asset is the difference between the budgeted and the actual acquisition cost.
+When you post the acquisition cost, you enter the number of the budgeted fixed asset in the **Budgeted FA No.** field. This posts an acquisition cost with an opposite sign for the budgeted asset. This means that the total acquisition cost on the budgeted asset is the difference between the budgeted and the actual acquisition cost.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.
 2. Choose the **New** action to create a new fixed asset card for the budgeted fixed asset.
 3. Select the **Budgeted Asset** check box to prevent posting to the general ledger.
-4. Fill in the remaining fields, assign a depreciation book, and then post the first acquisition cost with the budgeted fixed asset entered in the **Budgeted FA No.** field on the journal line. For more information, see [Acquire Fixed Assets](fa-how-acquire.md).
+4. Fill in the remaining fields, assign a depreciation book, and then post the first acquisition cost with the budgeted fixed asset entered in the **Budgeted FA No.** field on the journal line. Learn more in [Acquire Fixed Assets](fa-how-acquire.md).
 
-## To budget the disposal of a fixed asset
+## Budget the disposal of a fixed asset
 
 If you plan to sell assets within the budget period, you can enter information about sales price and sales date.
 
@@ -6653,7 +6658,7 @@ If you plan to sell assets within the budget period, you can enter information a
 2. Select the fixed asset to be disposed of, and then choose the **Depreciation Books** action.
 3. On the **FA Depreciation Books** page, fill in the **Projected Disposal Date** and **Projected Proceeds on Disposal** fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## To view projected disposal values
+## View projected disposal values
 
 To see the projected disposal values and have the gain and loss calculated, you can use the **FA Projected Value** report.
 
@@ -6661,7 +6666,7 @@ To see the projected disposal values and have the gain and loss calculated, you 
 2. Fill in the fields as necessary.
 3. Choose the **Print** or **Preview** button.
 
-## To budget depreciation
+## Budget depreciation
 
 You can use the **Fixed Asset - Projected Value** report to calculate future depreciation. The report shows the book value and accumulated depreciation at the start of the selected period, changes during the period, and the book value and accumulated depreciation at the end of the selected period.
 
@@ -6674,12 +6679,11 @@ You can use the **Fixed Asset - Projected Value** report to calculate future dep
 ## Related information
 
 [Fixed Assets](fa-manage.md)  
-[Fixed assets analytics overview](fa-analytics-overview.md)   
+[Fixed assets analytics overview](fa-analytics-overview.md)  
 [Setting Up Fixed Assets](fa-setup.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -6875,33 +6879,32 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-service-coding
 ---
-title: Set Up Codes for Standard Services
+title: Set up codes for standard services
 description: Learn how to set up codes for regularly performed service activities with a predefined set of service lines.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: service, service item, service order, repairs, maintenance
-ms.date: 06/23/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Standard Service Codes
+# Set up standard service codes
 
 When you perform typical service, you often have to create service documents that use service lines that contain similar information. To make it easy to create these lines, you can set up standard service codes that have a predefined set of service lines. When you choose the code on a service document, the lines are entered automatically. You can set up any number of standard service codes, and each code can have an unlimited number of service lines of different types, including item, resource, cost, or standard text linked to it. You create service lines of each standard service code on the **Standard Service Code** card. You then assign standard service codes to service item groups on the **Standard Serv. Item Gr. Codes** page. Later, when you create a service document, you can use the **Get Standard Service Codes** action to add service lines.  
   
 > [!Tip]
-> You can use the same concept to create lines on sales and purchase documents. For more information, see [Create Recurring Sales and Purchase Lines](sales-how-work-standard-lines.md).  
+> You can use the same concept to create lines on sales and purchase documents. Learn more in [Create Recurring Sales and Purchase Lines](sales-how-work-standard-lines.md).  
   
-## To set up a standard service code
+## Set up a standard service code
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Standard Service Codes**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 3. Fill in the service lines linked to this service code.  
 
-## To assign a standard service code to a service item group
+## Assign a standard service code to a service item group
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service item Groups**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
@@ -6909,7 +6912,7 @@ When you perform typical service, you often have to create service documents tha
 
 ## Related information
 
-[Service Management](service-service.md)
+[Service Management](service-service.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -7042,49 +7045,54 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-maintenance
 ---
 title: Set Up FA Maintenance
-description: To manage fixed asset repairs and service, you specify general maintenance information, codes for the type of work, and a posting account for costs.
+description: Specify general maintenance information, maintenance codes for types of work, and a maintenance-expense posting account to manage fixed asset repairs and service.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: repair, service
 ms.search.form: 5600, 5642
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up Fixed Asset Maintenance
+
+# Set up fixed asset maintenance
+
 To manage fixed asset maintenance, you must first set up some general maintenance information, a posting account for maintenance costs, and maintenance codes for types of work, such as Routine Service or Repair.
 
-## To set up general maintenance information
+## Set up general maintenance information
+
 If you set up the fields for maintenance, you can post maintenance expenses from the fixed asset journal.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets**, and then choose the related link.
 2. Select the fixed asset that you to define insurance coverage for, and then choose the **Edit** action.
 3. On the **Maintenance** FastTab, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## To set up maintenance codes
+## Set up maintenance codes
+
 When you post maintenance costs from a general journal, you fill in the **Maintenance Code** field to record what kind of maintenance has been performed, such as routine service or repair.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Maintenance**, and then choose the related link.
 2. On the **Maintenance** page, set up codes for different types of maintenance work.
 
-## To set up maintenance expense accounts
+## Set up maintenance expense accounts
+
 To post maintenance costs, you must first enter an account number on the **FA Posting Groups** page.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.
 2. Fill in the **Maintenance Expense Account** field for each posting group.
 
 > [!NOTE]  
->   To define that maintenance costs are allocated to departments or projects, set up an allocation keys. For more information, see [Set Up General Fixed Assets Features](fa-how-setup-general.md).
+> To define that maintenance costs are allocated to departments or projects, set up an allocation keys. Learn more in [Set Up General Fixed Assets Features](fa-how-setup-general.md).
 
 ## Related information
+
 [Setting Up Fixed Assets](fa-setup.md)  
 [Fixed Assets](fa-manage.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -8055,13 +8063,25 @@ No. [!INCLUDE [powerbi-apps-per-company-include](includes/powerbi-apps-per-compa
 
 To learn more, go to [Get the latest data (refresh the semantic model)](./across-powerbi-install-business-central-apps.md#get-the-latest-data-refresh-the-semantic-model).
 
-## My semantic model does not refresh. How do I see what is wrong?
+## My semantic model doesn't refresh. How do I figure out what's wrong?
 
 [!INCLUDE [powerbi-refresh-tsg-include](includes/powerbi-refresh-tsg-include.md)]
 
 ## I can't see any dimension data in my reports
 
-Check whether the job queue entry for updating dimension set data is stopped.
+All Power BI semantic models read dimension records from **PowerBI Flat Dim. Set Entry** (Table 36954). This is a different table from the standard **Dimension Set Entries** table.
+
+The **PowerBI Flat Dim. Set Entry** table has flattened dimension set entry records that are purpose-built for PBI reporting. The **Update Dim. Set Entries** job queue entry (Codeunit 36952) periodically updates the table.
+
+This job queue entry is created automatically when you finish the **Connect to Power BI** assisted setup guide. If you haven't finished the guide, you can go to the **Power BI Report Setup** page and choose the **Schedule Power BI Dimension Refresh** action.
+
+### Troubleshooting Dimension Data
+
+1. Ensure the **Update Dim. Set Entries** job queue entry is present.
+1. Ensure it has run successfully. You can ensure this by clicking run once in the foreground.
+1. Run the PowerBI Flat Dim. Set Entry table in your browser to ensure records are present.
+
+If data is present in the flat dim table, you can refresh the semantic model and see the results.
 
 To learn more, go to [Job queue entry for updating dimension set entries](across-powerbi-install-business-central-apps.md#job-queue-entry-for-updating-dimension-set-entries).
 
@@ -8726,7 +8746,7 @@ author: brentholtorf
 ms.topic: get-started
 ms.custom: template-trial-faq
 ms.author: bholtorf
-ms.date: 04/07/2025
+ms.date: 10/13/2025
 ms.reviewer: jswymer
 ms.service: dynamics-365-business-central
 ---
@@ -8770,7 +8790,7 @@ You can't. If you accidentally delete sample data, ask your admin to create a ne
 
 ### How do I cancel the trial?
 
-As an admin, you can remove the Business Central trial subscription in the Microsoft 365 admin center. Learn more in [Removing a subscription](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions#removing-a-subscription).
+[!INCLUDE [cancel-trial](includes/cancel-trial.md)]
 
 ## Related information
 
@@ -8786,18 +8806,18 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/hr-manage-human-resources
 ---
 title: Manage human resources
-description: You can register new personnel, edit information about existing staff, and record and analyze absence.
+description: Register and manage employee records, maintain employment details, and track and analyze absences.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: personnel, people, employee, staff, HR
 ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212, 5221, 5228
-ms.date: 06/06/2024
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
-
 ---
+
 # Manage human resources
 
 In [!INCLUDE[prod_short](includes/prod_short.md)], you can keep detailed records of your employees. You can register and maintain employee information, such as employment contracts, confidential information, qualifications, and employee contacts.
@@ -8808,17 +8828,16 @@ To start using the Human Resources functionality, you must set up employees and 
 
 The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
-| --- | --- |
-| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. |[Register Employees](hr-how-register-employees.md) |
-| Record employees' absence and view absence statistics by various filters. |[Manage Employee Absence](hr-how-manage-absence.md) |
+| To | Go to |
+|--|--|
+| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. | [Register Employees](hr-how-register-employees.md) |
+| Record employees' absence and view absence statistics by various filters. | [Manage Employee Absence](hr-how-manage-absence.md) |
 
 ## Related information
 
 [Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)        
-
+[Change Which Features are Displayed](ui-experiences.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -8915,30 +8934,34 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-interactions-overview
 ---
 title: Create and Manage Interactions with Contacts
-description: In Business Central, interactions are all types of communications between your company and your contacts. Read about the ways to create and manage your contacts.
+description: Learn how to manage and record interactions with your contacts in Business Central to improve sales and marketing efforts.
 author: brentholtorf
 ms.topic: overview
 ms.devlang: al
 ms.search.keywords: relationship, prospect
-ms.date: 06/22/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Managing Interactions with your Contacts
+
+# Manage interactions with your contacts
+
 In [!INCLUDE[prod_short](includes/prod_short.md)], interactions are all types of communications between your company and your contacts. For example, communications can be email, letter, telephone, meetings, and so on.
 
-You can record all the interactions that you have with your contacts in order to keep track of the sales and marketing efforts you have directed at your contacts and to improve your future business interactions with them.
+You can record interactions with your contacts to keep track of your sales and marketing efforts, and improve future business interactions.
 
-The following table describes a sequence of tasks, with links to the topics that describe them.
+The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
-| --- | --- |
-| Set up your system to record interactions. |[Set Up Contacts](marketing-setup-contacts.md) |
-|Create interactions to record all the interactions and communications you have with your contacts and segments, such as emailing.|[Create Interactions on Contacts and Segments](marketing-how-create-interactions.md)|
-|Set up your system to automatically record interactions for sales, purchase, and service documents, such as when a documented is created, posted, or printed.|[Automatically Record Interactions with Contacts](marketing-auto-record-interactions.md)|
+| To | Go to |
+|--|--|
+| Set up [!INCLUDE [prod_short](includes/prod_short.md)] to record interactions. | [Set Up Contacts](marketing-setup-contacts.md) |
+| Create interactions to record all the interactions and communications you have with your contacts and segments, such as emailing. | [Create Interactions on Contacts and Segments](marketing-how-create-interactions.md) |
+| Set up [!INCLUDE [prod_short](includes/prod_short.md)] to automatically record interactions for sales, purchase, and service documents. For example, record when documents are created, posted, or printed. | [Automatically Record Interactions with Contacts](marketing-auto-record-interactions.md) |
 
+## Related information
+
+[Record interactions with contacts](marketing-interactions.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
@@ -9490,28 +9513,29 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-create-service-items
 ---
 title: How to Create Service Items
-description: Read about the different ways you can create service items in Business Central, for example within a service order or when shipping items.
+description: Learn about the different ways you can create service items in Business Central, for example within a service order or when shipping items.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords:
-ms.date: 03/22/2024
+ms.search.keywords: service items, create service items, new service items, add service items
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Create service items
 
 In [!INCLUDE[prod_short](includes/prod_short.md)], the term "service item" refers to equipment or items that require service. When you create a service order, you specify the items that need service. In the order, you can link a service item to an item in inventory or a service item group.
 
 When you receive an item that needs service, you can register it as a service item. There are several ways to do so. For example, you can create a service item on the **Service Items** page, or as part of another process, such as when working with a service order.
 
-## To create a service item
+## Create a service item
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Items**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-## To create service items within a service order
+## Create service items within a service order
 
 When you receive items for service that you want to register as service items, you can create them as service items in the **Service Order** or **Service Quote** pages.  
 
@@ -9521,7 +9545,7 @@ When you receive items for service that you want to register as service items, y
 
     A number is assigned to the service item and a service item card is created. The **Service Item No.** field is filled in with the number of the new service item.
 
-## To create a service item when shipping items
+## Create a service item when shipping items
 
 When you ship items by posting either sales orders or sales invoices, the shipped items are automatically registered as service items if the following condition is met. The items must belong to a service item group with the **Create Service Item** check box selected. If the items have serial numbers registered in the Item Tracking Lines page, this information is copied automatically to the **Serial No.** field on the service item card when creating service items.  
 
@@ -9531,14 +9555,14 @@ The following procedure shows how to create service items when you ship items on
 2. Open the relevant sales order.  
 3. Choose the **Post** or **Post and Print** action.  
 4. Choose the **Ship** or **Ship and Invoice** action.  
-5. The service items are automatically created for the items on the order, provided these belong to a service item group that you have set up to create service items. If you registered specific serial numbers on the **Item Tracking Lines** page, they will be assigned to these service items.  
+5. The service items are automatically created for the items on the order, provided these belong to a service item group that you have set up to create service items. If you registered specific serial numbers on the **Item Tracking Lines** page, they are assigned to these service items.  
 
 > [!NOTE]  
 > If an item is a BOM and you have exploded the BOM, the exploded BOM items are processed in the same way as regular items. Service items are created based on the service items group condition and, optionally, the serial numbers condition. Additionally, if a service item is created for an exploded BOM item that is made up of other BOM components, these items are created as service item components for the exploded BOM service item.  
 >
-> If an item is a BOM and you have not exploded the BOM, a service item is created for it based on the service item group condition and, optionally, the serial numbers condition.  
+> If an item is a BOM and you haven't exploded the BOM, a service item is created for it based on the service item group condition and, optionally, the serial numbers condition.  
 
-## To insert a starting fee for a service item
+## Insert a starting fee for a service item
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Tasks**, and then choose the related link.
 2. Choose the **Item Worksheet** action.
@@ -9559,7 +9583,7 @@ When an item or an item variant is service blocked, it isn't available for selec
 - Service Contract Line
 - Standard Service Line
 
-If you manually enter an item number or variant that's blocked, you'll get an error message that states, "The field contains a value that cannot be found in the related table."
+If you manually enter an item number or variant that's blocked, you'll get an error message that states, "The field contains a value that can't be found in the related table."
 
 Additionally, if you have service contracts, service contract quotes, or service orders that include blocked service items or item variants, you can't use the following actions:
 
@@ -9581,14 +9605,14 @@ When a service item is blocked, you can't select it on the following pages:
 - Service Contract Line (if blocked for service contract, or all)
 - Service Item Line (except for service credit memos, if blocked for all)
 
-If you manually enter a service item number for a blocked service item, an error message displays "The field contains a value that cannot be found in the related table."
+If you manually enter a service item number for a blocked service item, an error message displays "The field contains a value that can't be found in the related table."
 
 Additionally, if you have service contracts, service contract quotes, or service orders that include blocked service items, you can't use the following actions:
 
 - **Lock** and **Make Contract** on the **Service Contract Quote** page (if blocked for service contract, or all).
 - **Lock Contract**, **Sign Contract**, or **Change Customer** on the **Service Contract** page (if blocked for service contract, or all).
 - **Make Order** on the **Service Quote** (if blocked for all).
-- **Release to Ship**, **Post** on the **Service Order** (if blocked for all. If service order documents contain multiple service items, and some are blocked and others are not, you can release and post non-blocked lines. Consider whether to turn on the **One Service Item Line/Order** toggle on the **Service Management Setup** page).
+- **Release to Ship**, **Post** on the **Service Order** (if blocked for all. If service order documents contain multiple service items, and some are blocked and others aren't, you can release and post non-blocked lines. Consider whether to turn on the **One Service Item Line/Order** toggle on the **Service Management Setup** page).
 - **Post** on the **Service Invoice** page (if blocked for all).
 
 You can also view the blocked service items by applying a filter to the following reports:
@@ -9607,9 +9631,8 @@ This feature doesn't require additional setup. However, if you upgrade your [!IN
 ## Related information
 
 [Set Up Service Items and Service Item Components](service-how-setup-service-items.md)  
-[Setting Up Service Management](service-setup-service.md)  
+[Set Up Service Management](service-setup-service.md)  
 [Service Management](service-service.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10407,37 +10430,37 @@ description: Describes how to use the Human Resources functionality to register 
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords: personnel, people, employee, staff, HR
+ms.search.keywords: personnel, people, employee, staff, HR, register employees
 ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5221, 5228
-ms.date: 06/16/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Register Employees
+
+# Register employees
 
 To use the Human Resources functionality, you must first add each employee by filling out the fields on the **Employee Card** page.
 
 ## Adding new employees
 
-You can add new employees manually, by filling out the fields on the **Employee Card** page, or you can use templates that contain predefined information. For example, you can create a templates for different types of employee profiles. Using templates saves time when adding new employees, and helps ensure that the information is correct each time. If you create templates for more than one type of employee, you can choose the template to use when you add an employee. If you create only one template it will be used for all new employees. After you create a template, you can use the **Apply Template** action to apply it to one or more selected employees. To create a template, you fill in the information that you want to reuse on the Employee Card page, and then save it as a template.
+You can add new employees manually, by filling out the fields on the **Employee Card** page, or you can use templates that contain predefined information. For example, you can create a template for different types of employee profiles. Using templates saves time when adding new employees, and helps ensure that the information is correct each time. If you create templates for more than one type of employee, you can choose the template to use when you add an employee. If you create only one template, it's used for all new employees. After you create a template, you can use the **Apply Template** action to apply it to one or more selected employees. To create a template, you fill in the information that you want to reuse on the Employee Card page, and then save it as a template.
 
 > [!TIP]
-> It can be helpful to personalize the **Employee Template** page when you create a template. For example, you might want to add a field that is not already displayed on the page. For more information, see [Personalize Your Workspace](ui-personalization-user.md#start-personalizing-by-using-the-personalization-mode).
+> It can be helpful to personalize the **Employee Template** page when you create a template. For example, you might want to add a field that isn't already displayed on the page. Learn more in [Personalize Your Workspace](ui-personalization-user.md#start-personalizing-by-using-the-personalization-mode).
 
 You can modify an employee's details at any time. Keeping employee records up-to-date can simplify personnel-related tasks. For example, if an employee's address changes, you register this on the Employee Card page.
 
 > [!NOTE]  
-> You can reimburse employees for their expenses during business activities. For this purpose, you must fill in the fields on the **Payments** FastTab on the **Employee Card** page. For more information, see [Record and Reimburse Employees' Expenses](finance-how-record-reimburse-employee-expenses.md).
+> You can reimburse employees for their expenses during business activities. For this purpose, you must fill in the fields on the **Payments** FastTab on the **Employee Card** page. Learn more in [Record and Reimburse Employees' Expenses](finance-how-record-reimburse-employee-expenses.md).
 
-## To set up an employee
+## Set up an employee
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Employees**, and then choose the related link.
 2. Choose the **New** action.
 3. On the **Employee Card** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## To insert a picture of an employee
+## Insert a picture of an employee
 
 If you have a picture of an employee, you can insert it on the employee card.
 
@@ -10450,11 +10473,11 @@ If you have a picture of an employee, you can insert it on the employee card.
 
 The picture is inserted in the **Employee Picture** FactBox.
 
-## To register various information about an employee
+## Register various information about an employee
 
-On the employee card, you can set up information, such as union membership, relatives, and contracts for the employee. The following describes how to set up an alternate address. The steps are similar for all other information that you can set up from an employee card.
+On the employee card, you can set up information, such as union membership, relatives, and contracts for the employee. The following steps describe how to set up an alternate address. The steps are similar for all other information that you can set up from an employee card.
 
-You can use alternate addresses to keep track of your employees’ location, for example if they are stationed abroad, on a long business trip, or residing at a summer residence.
+You can use alternate addresses to keep track of your employees’ location. For example, if they're stationed abroad, on a long business trip, or residing at a summer residence.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Employees**, and then choose the related link.
 2. Open the card for the relevant employee.
@@ -10467,8 +10490,7 @@ You can use alternate addresses to keep track of your employees’ location, for
 [Record and Reimburse Employees' Expenses](finance-how-record-reimburse-employee-expenses.md)  
 [Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)
-
+[Change Which Features are Displayed](ui-experiences.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10748,25 +10770,26 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-fault-reporting
 ---
-title: Set Up Fault Reporting in Service Management
-description: Fault reporting lets you establish standards for recording fault information for service items with fault codes and more.
+title: Set up fault reporting in Service Management
+description: Set up fault reporting to standardize how you record faults, symptoms, reasons, and resolutions for service items using fault codes and related codes.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/23/2021
+ms.search.keywords: fault reporting, fault codes, symptom codes, fault area codes, fault reason codes, service management
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Set Up Fault Reporting
+# Set up fault reporting
+
 Fault reporting lets you establish standards for recording fault information for service items. For example, you can specify what the problem is, the symptoms you see, the reason for the problem, and how to resolve it.  
 
-Fault codes describe the typical service item faults or the actions taken on service items. Depending on the level of fault reporting in your company, you might need to set up fault area codes and symptom codes before you set up fault codes. Fault areas describe areas of service item faults. Fault reason codes describe the reason for service item faults and, if needed, whether to exclude warranty and contract discounts. For example, you might want to exclude warranty and contract discounts if the customer was somehow responsible for the fault in the service item. You assign fault reason codes to service orders. For more information, see [Work on Service Tasks](service-how-to-work-on-service-tasks.md).  
+Fault codes describe the typical service item faults or the actions taken on service items. Depending on the level of fault reporting in your company, you might need to set up fault area codes and symptom codes before you set up fault codes. Fault areas describe areas of service item faults. Fault reason codes describe the reason for service item faults and, if needed, whether to exclude warranty and contract discounts. For example, you might want to exclude warranty and contract discounts if the customer was somehow responsible for the fault in the service item. You assign fault reason codes to service orders. Learn more in [Work on Service Tasks](service-how-to-work-on-service-tasks.md).  
 
-## To specify the overall level of fault reporting
+## Specify the overall level of fault reporting
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Setup**, and then choose the related link.
 2. In the **Fault Reporting Level** field, choose one of the options described in the following table.  
 
@@ -10779,7 +10802,7 @@ Fault codes describe the typical service item faults or the actions taken on ser
 
 To complete the setup of fault reporting, you can also specify what repairs or resolutions are associated with a fault or defect. You set that up on the **Fault/Resolution Code Relationships** page, where you set up combinations of codes for the service item group of the service item from which you accessed the window and the number of occurrences for each one.
 
-## To create fault and resolution code relationships
+## Create fault and resolution code relationships
 <!--this needs to go in a working with topic-->
 To be able to see the most common methods of repair for particular item faults when you are servicing the items, you need to build up information on fault/resolution codes relationships. Use the **Insert Fault/Resol. Codes Relationships** batch job to find all the combination of fault and resolution codes in posted service orders and record them on the **Fault/Resol. Codes Relationships** page.
 
@@ -10789,9 +10812,9 @@ To be able to see the most common methods of repair for particular item faults w
 4. To retain the records that you have already inserted manually on the **Fault/Resol. Codes Relationships** page, choose the **Retain Manually Inserted Rec.** check box.  
 
 ## Related information
-[Setting Up Service Management](service-setup-service.md)  
-[Service Management](service-service.md)  
 
+[Set Up Service Management](service-setup-service.md)  
+[Service Management](service-service.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11152,8 +11175,7 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: conceptual
 ms.search.keywords: reporting
-# TODO correct page id must be added
-# ms.search.form: 37042_Primary 
+ms.search.form: 37098_Primary
 ms.date: 04/22/2024
 ms.service: dynamics-365-business-central
 ---
@@ -11213,17 +11235,17 @@ Together, these visuals offer a comprehensive snapshot of production health, emp
 
 The Machine Center Load report includes the following KPIs and measures:
 
-- [Actual Capacity Cost](manufacturing-powerbi-kpis.md#actual-capacity-cost)
-- [Actual Capacity Cost Overhead](manufacturing-powerbi-kpis.md#actual-capacity-overhead-cost)
-- [Actual Manufacturing Overhead Cost](manufacturing-powerbi-kpis.md#actual-manufacturing-overhead-cost)
-- [Actual Material Cost](manufacturing-powerbi-kpis.md#actual-material-cost)
-- [Actual Subcontracted Cost](manufacturing-powerbi-kpis.md#actual-subcontracted-cost)
-- [Total Actual Cost](manufacturing-powerbi-kpis.md#total-actual-cost)
-- [Total Expected Cost](manufacturing-powerbi-kpis.md#total-expected-cost)
-- [Total Standard Cost](manufacturing-powerbi-kpis.md#total-standard-cost)
-- [No. of Production Orders](manufacturing-powerbi-kpis.md#no-of-production-orders)
-- [Finished %](manufacturing-powerbi-kpis.md#finished-percent)
-- [Remaining %](manufacturing-powerbi-kpis.md#remaining-percent)
+- [**Actual Capacity Cost**](manufacturing-powerbi-kpis.md#actual-capacity-cost)
+- [**Actual Capacity Cost Overhead**](manufacturing-powerbi-kpis.md#actual-capacity-overhead-cost)
+- [**Actual Manufacturing Overhead Cost**](manufacturing-powerbi-kpis.md#actual-manufacturing-overhead-cost)
+- [**Actual Material Cost**](manufacturing-powerbi-kpis.md#actual-material-cost)
+- [**Actual Subcontracted Cost**](manufacturing-powerbi-kpis.md#actual-subcontracted-cost)
+- [**Total Actual Cost**](manufacturing-powerbi-kpis.md#total-actual-cost)
+- [**Total Expected Cost**](manufacturing-powerbi-kpis.md#total-expected-cost)
+- [**Total Standard Cost**](manufacturing-powerbi-kpis.md#total-standard-cost)
+- [**No. of Production Orders**](manufacturing-powerbi-kpis.md#no-of-production-orders)
+- [**Finished %**](manufacturing-powerbi-kpis.md#finished-percent)
+- [**Remaining %**](manufacturing-powerbi-kpis.md#remaining-percent)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -11242,7 +11264,7 @@ The report uses data from the following tables in [!INCLUDE[prod_short](includes
   
 ## Try the report
 
-Try the report here: [Production Order Overview](https://businesscentral.dynamics.com?page=)<!-- TODO Set page ID for link -->
+Try the report here: [Production Order Overview](https://businesscentral.dynamics.com?page=37098)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
@@ -13722,26 +13744,30 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-troubleshooting-fa-ledger-entries
 ---
 title: The Troubleshooting FA Ledger Entries Extension
-description: It's easier to work with whole numbers. Use this extension to round amounts for fixed assets in the FA ledger.
+description: Use the FA Ledger Entries extension to round fixed-asset ledger amounts to whole numbers for easier reconciliation and reporting.
 documentationcenter: ''
 author: brentholtorf
 ms.topic: troubleshooting-general
 ms.devlang: al
-ms.search.keywords: machinery, buildings
-ms.date: 10/01/2021
+ms.search.keywords: machinery, buildings, troubleshooting fixed assets, ledger entries
+ms.date: 10/03/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# The Troubleshooting FA Ledger Entries Extension
+
+# Troubleshooting FA Ledger Entries extension
+
 Use the Troubleshooting FA Ledger Entries extension to round depreciation and acquisition amounts in fixed asset ledger entries to whole numbers. For example, to round an amount of 30,000.44 to 30,000. Typical causes of rounding issues are data migration, suddenly starting to post amounts to the general ledger, or customizations you've made to your [!INCLUDE[prod_short](includes/prod_short.md)].
 
-The Troubleshooting FA Ledger Entries extension is pre-installed and ready to go. If you remove the extension, but want to install it again, you can find it on AppSource.
+The Troubleshooting FA Ledger Entries extension is preinstalled and ready to go. If you remove the extension, but want to install it again, you can find it on AppSource.
 
-## Troubleshooting Fixed Asset Ledger Entries
+## Troubleshooting fixed asset ledger entries
+
 When you open the **Fixed Asset Card** page for the first time, the **FA Ledger Entries Scan** job queue entry is scheduled to monitor amounts every Sunday. If it finds amounts that you might want to round, a notification will display the next time you open the Fixed Asset Card page. The notification provides a **See more** option that opens the **FA Ledger Entries with Rounding Issues** page, which lists the entries with amounts that you might want to round. To round the amounts, choose the entries, and then choose the **Accept Selection** action. You can use the **Find entries with issues** action to update the list with new issues that occurred after the job queue entry ran on the previous Sunday.
 
 ## Related information
+
 [Fixed Assets](fa-manage.md)  
 [Managing Fixed Assets](fa-manage.md)  
 [Maintain Fixed Assets](fa-how-maintain.md)  
@@ -13750,11 +13776,7 @@ When you open the **Fixed Asset Card** page for the first time, the **FA Ledger 
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Working with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
-
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-
-
-
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-merge-duplicate-records
@@ -14114,9 +14136,9 @@ Production supervisors use this report to monitor the production time for a part
 
 The *Average Production Times* report includes the following KPIs and measures:
 
-- [Average Production Time Per Finished Quantity](manufacturing-powerbi-kpis.md#average-production-time-per-finished-quantity)
-- [Actual Time Used](manufacturing-powerbi-kpis.md#actual-time-used)
-- [Finished Quantity](manufacturing-powerbi-kpis.md#finished-quantity)
+- [**Average Production Time Per Finished Quantity**](manufacturing-powerbi-kpis.md#average-production-time-per-finished-quantity)
+- [**Actual Time Used**](manufacturing-powerbi-kpis.md#actual-time-used)
+- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -14178,11 +14200,11 @@ Production supervisors use this report to analyze the load percentage and alloca
 
 The *Work Center Load* report includes the following KPIs and measures:
 
-- [Work Center Capacity Total](manufacturing-powerbi-kpis.md#work-center-capacity-total)
-- [Work Center Capacity Effective](manufacturing-powerbi-kpis.md#work-center-capacity-effective)
-- [Work Center Allocated Time](manufacturing-powerbi-kpis.md#work-center-allocated-time)
-- [Work Center Load](manufacturing-powerbi-kpis.md#work-center-load)
-- [Work Center Availability After Orders](manufacturing-powerbi-kpis.md#work-center-availability-after-orders)
+- [**Work Center Capacity Total**](manufacturing-powerbi-kpis.md#work-center-capacity-total)
+- [**Work Center Capacity Effective**](manufacturing-powerbi-kpis.md#work-center-capacity-effective)
+- [**Work Center Allocated Time**](manufacturing-powerbi-kpis.md#work-center-allocated-time)
+- [**Work Center Load**](manufacturing-powerbi-kpis.md#work-center-load)
+- [**Work Center Availability After Orders**](manufacturing-powerbi-kpis.md#work-center-availability-after-orders)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -15787,29 +15809,31 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-create-service-orders
 ---
-title: How to Create Service Orders
+title: How to create service orders
 description: Learn the different tasks involved in creating service orders in Business Central such as creating a new service order or orders based on a service contract.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/23/2021
+ms.search.keywords: service order, create service order, service management, service management setup, service item, service contract, service quote
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Create Service Orders
+
+# Create service orders
+
 You can use the **Service Order** page to create documents where you enter information about a service, such as repairs and maintenance, on service items by customer request.  
 
 When creating a service order, you only have to fill in a few fields. Some fields are optional and many are automatically filled in when you fill in related fields.  
 
-## To create a service order    
+## Create a service order
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Orders**, and then choose the related link.  
 2. Create a new service order.  
 3. In the **No.** field, enter a number for the service order.  
 
-     Alternatively, if you have set up number series for service orders on the **Service Management Setup** page, you can select <kbd>Enter</kbd> to select the next available service order number.  
+    Alternatively, if you have set up number series for service orders on the **Service Management Setup** page, you can select <kbd>Enter</kbd> to select the next available service order number.  
 
 4. In the **Customer No.** field, select the relevant customer from the list. The customer-relevant fields are filled in with information from the **Customer** table.  
 
@@ -15817,7 +15841,8 @@ When creating a service order, you only have to fill in a few fields. Some field
 6. Optionally, fill in the rest of the fields.  
 7. Register the service item lines.  
 
-## To create a service order from a contract  
+## Create a service order from a contract
+
 You can automatically create service orders for the maintenance of service items based on service contracts.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Create Contract Service Orders**, and then choose the related link.  
@@ -15825,33 +15850,36 @@ You can automatically create service orders for the maintenance of service items
 3. On the **Options** FastTab, fill in the **Starting Date** and **Ending Date** fields with the starting date and ending date for the period that you want to create contract service orders for. The batch job creates service orders that include service items in service contracts with next planned service dates within this period.  
 
     > [!NOTE]  
-    >  There is a limit to the number of days you can use as the date range each time you use this batch job. You set this limit in the **Contract Serv. Ord. Max. Days** field on the **Service Management Setup** page.  
+    > There's a limit to the number of days you can use as the date range each time you use this batch job. You set this limit in the **Contract Serv. Ord. Max. Days** field on the **Service Management Setup** page.  
 
 4. In the **Action** field, choose **Create Service Order**.  
     > [!NOTE]  
-    >  You will not be able to create order with multiple service item, if you set **One Service Item Line/Order** field on the **Service Management Setup** page. 
+    > You can't create order with multiple service item, if you set **One Service Item Line/Order** field on the **Service Management Setup** page.
 
-## To convert a service quote to a service order
-When a customer has accepted a service quote, you convert it to a service order. The quote is deleted and a new service order is set up with the same description as the service quote. The response date and time are recalculated for the service order and the status is set to **Pending**. The repair status of the service items in the order are changed to **Initial**.  
+## Convert a service quote to a service order
 
-[!INCLUDE[prod_short](includes/prod_short.md)] searches for allocation entries for all the service items in the service quote that have the status **Active**. If it finds such allocation entries, their allocation status is updated to **Reallocation Needed**. When you reallocate the service items in the service order, the status of the allocation entries registered for the quote are updated to **Finished**.   
+When a customer has accepted a service quote, you convert it to a service order. The quote is deleted and a new service order is set up with the same description as the service quote. The response date and time are recalculated for the service order and the status is set to **Pending**. The repair statuses of the service items in the order are changed to **Initial**.  
+
+[!INCLUDE[prod_short](includes/prod_short.md)] searches for allocation entries for all the service items in the service quote that have the status **Active**. If it finds such allocation entries, their allocation status is updated to **Reallocation Needed**. When you reallocate the service items in the service order, the status of the allocation entries registered for the quote are updated to **Finished**.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Contract Quotes**, and then choose the related link.  
 2. Choose the service quote to convert to a service order.  
 3. Choose the **Make Order** action.  
 
-## To check item availability for one or more orders  
-You can check and see if an item you need to fulfill an order is in stock, and if it is not, when the item will be in stock. In addition, if an item is available to reserve, you can reserve it to make sure it is available for your use. You can check availability for a particular order, or for all orders.  
+## Check item availability for one or more orders
 
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Dispatch Board**, and then choose the related link.  
+You can check and see if an item you need to fulfill an order is in stock, and if it isn't, when the item is in stock. In addition, if an item is available to reserve, you can reserve it to make sure it's available for your use. You can check availability for a particular order, or for all orders.  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Dispatch Board**, and then choose the related link.  
 2. Do one of the following:  
 
     * For a particular order, choose the order, and then choose the **Demand Overview** action.  
     * For all orders, choose **Show Document**. The **Service Order** page opens.  
 
-3. On the **Demand Overview** page, expand the item grouping, and view information about the availability of the item. For example, you can see how many items are in inventory. You can also see if and when an item will be available if it is on back order, that is, Source Type = Purchase, or whether it has been reserved.
+3. On the **Demand Overview** page, expand the item grouping, and view information about the availability of the item. For example, you can see how many items are in inventory. You can also see if and when an item is available if it is on back order, that is, Source Type = Purchase, or whether it has been reserved.
 
-## To reserve an item for a service order
+## Reserve an item for a service order
+
 If you need to be sure that an item is available for a service order, you can reserve the item.
 
 1. In the **Search** box, enter **Service Orders**, and then choose the related link.  
@@ -15860,8 +15888,9 @@ If you need to be sure that an item is available for a service order, you can re
 4. On the **Service Lines** page, choose the item to reserve, and then choose the **Reserve** action.  
 5. On the **Reservation** page, choose **Reserve from Current Line**.
 
-## To insert lines based on standard service codes  
-If you have set up standard service codes and assigned them to service item groups, you can insert the standard lines linked to the standard service codes on service documents. For more information, see [Set Up Standard Service Codes](service-how-setup-service-coding.md).   
+## Insert lines based on standard service codes
+
+If you have set up standard service codes and assigned them to service item groups, you can insert the standard lines linked to the standard service codes on service documents. Learn more in [Set Up Standard Service Codes](service-how-setup-service-coding.md).
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Orders**, and then choose the related link.  
 2. Create a new service order.  
@@ -15871,28 +15900,29 @@ If you have set up standard service codes and assigned them to service item grou
 6. Choose the appropriate code, and choose the **OK** button to enter standard service lines.  
 
 > [!NOTE]  
->  If the **Service Item Group Code** field on the service item line of the document is blank, this means that the service item does not belong to any service item group. In this case, the **Standard Serv. Item Gr. Codes** page will contain a list of all standard service codes. You should select from the list to insert standard service lines in the document. You may also select from the list of standard service codes assigned to a specific service item group. To view the list, select the relevant code in the **Service Item Group Code** field on the **Standard Serv. Item Gr. Codes** page.  
+> If the **Service Item Group Code** field on the service item line of the document is blank, this means that the service item doesn't belong to any service item group. In this case, the **Standard Serv. Item Gr. Codes** page contains a list of all standard service codes. You should select from the list to insert standard service lines in the document. You may also select from the list of standard service codes assigned to a specific service item group. To view the list, select the relevant code in the **Service Item Group Code** field on the **Standard Serv. Item Gr. Codes** page.  
 
-## To register internal or public comments
-You can add comments that will be printed on service orders and service quotes to provide additional information. You can add up to 80 characters, including spaces. If you need to enter additional text, choose another line. To register a comment, choose a line, and then choose the **Comments** action.  
+## Register internal or public comments
 
-## To delete invoiced service orders  
-Orders are usually deleted automatically after having been fully invoiced. When an invoice is posted, a corresponding entry is created on the **Posted Service Invoices** page. The posted document can be viewed on the **Posted Service Invoice** page.  
+You can add comments that are printed on service orders and service quotes to provide additional information. You can add up to 80 characters, including spaces. If you need to enter additional text, choose another line. To register a comment, choose a line, and then choose the **Comments** action.  
 
-Service orders are not deleted automatically, however, if the total quantity on the order has been posted not from the service order itself, but from the **Service Invoice** page. Then you may need to delete invoiced orders that were not deleted. You can do this by running the **Delete Invoiced Service Orders** batch job.  
+## Delete invoiced service orders
+
+Orders are deleted automatically after having been fully invoiced. When an invoice is posted, a corresponding entry is created on the **Posted Service Invoices** page. The posted document can be viewed on the **Posted Service Invoice** page.  
+
+Service orders aren't deleted automatically, however, if the total quantity on the order has been posted not from the service order itself, but from the **Service Invoice** page. Then you may need to delete invoiced orders that weren't deleted. You can do this by running the **Delete Invoiced Service Orders** batch job.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Delete Invoiced Service Orders**, and then choose the related link. The **Delete Invoiced Service Orders** batch job request page opens.  
 2. To select the orders to be deleted, you can set filters in the **No.**, **Customer No.**, and **Bill-to Customer No.** fields.  
 3. Choose **OK**.  
 
+## Related information
 
-## Related information  
 [Service Posting](service-service-posting.md)  
 [Post a Service Order](service-how-to-post-service-orders.md)  
-[Setting Up Service Management](service-setup-service.md)  
+[Set Up Service Management](service-setup-service.md)  
 [Work on Service Tasks](service-how-to-work-on-service-tasks.md)  
 [Allocate Resources](service-how-to-allocate-resources.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -15984,13 +16014,13 @@ Production supervisors use this report to track the consumption costs of product
 
 The *Consumption Variance* report includes the following KPIs and measures:
 
-- [Actual Material Cost](manufacturing-powerbi-kpis.md#actual-material-cost)
-- [Expected Material Cost](manufacturing-powerbi-kpis.md#expected-material-cost)
-- [Standard Material Cost](manufacturing-powerbi-kpis.md#standard-material-cost)
-- [Expected Material Cost Variance](manufacturing-powerbi-kpis.md#expected-material-cost-variance)
-- [Expcted Material Cost Dev %](manufacturing-powerbi-kpis.md#expected-material-cost-dev-percent)
-- [Standard Material Cost Variance](manufacturing-powerbi-kpis.md#standard-material-cost-variance)
-- [Standard Material Cost Dev %](manufacturing-powerbi-kpis.md#standard-material-cost-dev-percent)
+- [**Actual Material Cost**](manufacturing-powerbi-kpis.md#actual-material-cost)
+- [**Expected Material Cost**](manufacturing-powerbi-kpis.md#expected-material-cost)
+- [**Standard Material Cost**](manufacturing-powerbi-kpis.md#standard-material-cost)
+- [**Expected Material Cost Variance**](manufacturing-powerbi-kpis.md#expected-material-cost-variance)
+- [**Expected Material Cost Dev %**](manufacturing-powerbi-kpis.md#expected-material-cost-dev-percent)
+- [**Standard Material Cost Variance**](manufacturing-powerbi-kpis.md#standard-material-cost-variance)
+- [**Standard Material Cost Dev %**](manufacturing-powerbi-kpis.md#standard-material-cost-dev-percent)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -16219,9 +16249,9 @@ Production supervisors use this report to understand the workload on your work c
 
 The *Expected Capacity Need* report includes the following KPIs and measures:
 
-- [Prod Order Expected Capacity Need](manufacturing-powerbi-kpis.md#prod-order-expected-capacity-need)
-- [Prod Order Actual Capacity Need](manufacturing-powerbi-kpis.md#prod-order-actual-capacity-need)
-- [Prod Order Capacity Need Dev %](manufacturing-powerbi-kpis.md#prod-order-capacity-need-dev-percent)
+- [**Prod Order Expected Capacity Need**](manufacturing-powerbi-kpis.md#prod-order-expected-capacity-need)
+- [**Prod Order Actual Capacity Need**](manufacturing-powerbi-kpis.md#prod-order-actual-capacity-need)
+- [**Prod Order Capacity Need Dev %**](manufacturing-powerbi-kpis.md#prod-order-capacity-need-dev-percent)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -16543,37 +16573,37 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-insurance
 ---
 title: Set Up FA Insurance
-description: You set up an insurance card and general insurance policy information to manage fixed asset insurance coverage.
+description: Configure insurance cards and policy details to manage fixed-asset insurance coverage.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords: policy, coverage
+ms.search.keywords: policy, coverage, fixed asset, insurance
 ms.search.form: 5607, 5648, 5644, 5651
-ms.date: 04/01/2021
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up Fixed Asset Insurance
+
+# Set up fixed asset insurance
 
 To manage fixed asset insurance coverage, you must first set up some general insurance information and an insurance card per policy.
 
-## To set up general insurance information
+## Set up general insurance information
 
 To use the insurance features in [!INCLUDE[prod_short](includes/prod_short.md)], you must set up some general insurance information.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Setups**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
 
-## To set up insurance types
+## Set up insurance types
 
 You can group your insurance policies into categories, such as insurance against theft or fire insurance. The insurance types are used on the insurance card.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Types**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
-## To set up insurance cards
+## Set up insurance cards
 
 You may accumulate information about each insurance policy on the insurance card.  
 
@@ -16581,23 +16611,23 @@ You may accumulate information about each insurance policy on the insurance card
 2. On the **Insurance** page, choose the **New** action to create a  new insurance card.  
 3. Fill in the fields as necessary.
 
-## To set up insurance journal templates
+## Set up insurance journal templates
 
-[!INCLUDE[prod_short](includes/prod_short.md)] automatically creates an insurance journal template the first time that you open the **Insurance Journal** page, but you can set up additional journal templates. For more information, see [Work with General Journals](ui-work-general-journals.md).  
+[!INCLUDE[prod_short](includes/prod_short.md)] automatically creates an insurance journal template the first time that you open the **Insurance Journal** page, but you can set up additional journal templates. Learn more in [Work with General Journals](ui-work-general-journals.md).  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Journal Templates**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
-## To set up insurance journal batches
+## Set up insurance journal batches
 
-You can set up batches in an insurance journal template. The values in the journal batch are used as default values if the fields are not filled in on the journal lines. For more information, see [Work with General Journals](ui-work-general-journals.md)  
+You can set up batches in an insurance journal template. The values in the journal batch are used as default values if the fields aren't filled in on the journal lines. Learn more in [Work with General Journals](ui-work-general-journals.md)  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Insurance Journal Templates**, and then choose the related link.  
 2. Select an insurance journal template, and then choose the **Batches** action.
 3. On the **Insurance Journal Batches** page, fill in the fields as necessary.
 
 > [!NOTE]  
->   Numbers have a special function in journal names. If a journal template name or journal batch name contains a number, the number automatically advances by one every time that the journal is posted. For example, if HH1 is entered in the **Name** field, the journal name will change to HH2 after the journal named HH1 has been posted.
+> Numbers have a special function in journal names. If a journal template name or journal batch name contains a number, the number automatically advances by one every time that the journal is posted. For example, if HH1 is entered in the **Name** field, the journal name will change to HH2 after the journal named HH1 has been posted.
 
 ## Related information
 
@@ -16605,8 +16635,7 @@ You can set up batches in an insurance journal template. The values in the journ
 [Fixed Assets](fa-manage.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -17209,13 +17238,13 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-enter-criteria-filters
 ---
 title: Sort, search, and filter data in lists, reports, or XMLports
-description: Learn how to work efficiently in lists by searching across your data, sorting columns, and refining results by using filter symbols and keyboard shortcuts.
+description: Learn to work efficiently in lists by searching across your data, sorting columns, and refining results using filter symbols and keyboard shortcuts.
 author: jswymer
 ms.author: jswymer
 ms.topic: article
 ms.search.keywords: delimit, FlowFilter, totals, limit, advanced
 ms.search.form:
-ms.date: 02/12/2025
+ms.date: 10/13/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ms.reviewer: jswymer
@@ -17249,7 +17278,7 @@ To sort a list, follow one of these steps:
 
 ## Searching
 
-At the top of each list page is a ![Search list.](media/ui-search/search-list.png "Search list icon") **Search** button that provides a quick and easy way to reduce the number of records in a list and show only those records that contain the data that you're interested in.
+The ![Search list.](media/ui-search/search-list.png "Search list icon") **Search** button at the top of each list page provides a quick and easy way to reduce the number of records in a list and show only those records that contain the data that you're interested in.
 
 To search, select the **Search** button or the <kbd>F3</kbd> key on your keyboard. Then enter the text that you're looking for in the search field. The search text that you enter can include letters, numbers, and other symbols.
 
@@ -17270,7 +17299,7 @@ On the most common pages, such as **Customers**, **Contacts**, and **Items**, yo
 
 ![Screenshot that shows the Use modern search and Use legacy search options on the dropdown menu for a search field.](media/ui-search/search-modern-legacy-options.png)
 
-*Legacy search* is the older search method. It's the only method that is available in Business Central 2024 release wave 1 and earlier. *Modern search* is a newer, faster, and more flexible search method. The key difference is that legacy search finds only records that contain the exact words that you enter, in the exact order that you enter them in, whereas modern search finds records that contain matching words in any order.
+*Legacy search* is the older search method and is available in Business Central 2024 release wave 1 and earlier. *Modern search* is a newer, faster, and more flexible search method that's available in later releases if enabled. The key difference is that legacy search finds only records that contain the exact words that you enter, in the exact order that you enter them in. Whereas modern search finds records that contain matching words in any order.
 
 For example, the CRONUS demo company has an item that is named **LONDON Swivel Chair, blue**. If you enter `London chair` as the search text, legacy search doesn't return any results, because that exact text doesn't match any part of the item name. However, modern search finds the item by matching the words "London" and "chair" separately.
 
@@ -17278,7 +17307,7 @@ If you want to find all blue chairs in the CRONUS demo company, you might enter 
 
 If you want to mimic the behavior of legacy search when you use modern search, you can enclose your search text in quotation marks, just as you can do in popular search engines. In this way, you refine the results by excluding any that aren't exact matches. For example, if you enter `"blue chair"` as the search text, modern search returns no results, because that exact text doesn't occur in any item name in the demo data.
 
-Another difference is that modern search finds words that *start* with the letters you have entered. If you enter 'hair', it won't find the word 'chair'.
+Another difference is that modern search finds words that *start* with the letters you entered. If you enter 'hair', it doesn't find the word 'chair'.
 
 > [!NOTE]
 >
@@ -17369,7 +17398,7 @@ Both in the filter pane and on a request page, you enter your filter criteria in
 
 The type of the filter field determines which criteria you can enter. For example, to filter a field that has fixed values, you can select only among those values. Learn more about special filter symbols in the [Filter criteria and operators](#FilterCriteria) and [Filter tokens](#FilterTokens) sections.
 
-Columns that already have filters are indicated by the ![Filter icon.](media/ui-search/filter-icon.png "Filter icon") symbol in the column heading. To remove a filter, select the dropdown arrow, and then select the **Clear Filter** action.
+The ![Filter icon.](media/ui-search/filter-icon.png "Filter icon") symbol in the column heading indicates columns that already have filters. To remove a filter, select the dropdown arrow, and then select the **Clear Filter** action.
 
 > [!TIP]
 > By learning to use key combinations (keyboard shortcuts), you can find and analyze your data more quickly. For example, select a field, select <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F3</kbd> to add that field to the filter pane, enter the filter criteria, select <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to return to the rows, select another field, and then select <kbd>Alt</kbd>+<kbd>F3</kbd> to filter to that value. Learn more in [Search and filter lists](keyboard-shortcuts.md#KeyboardFilter).
@@ -17454,7 +17483,7 @@ When you enter criteria, you can use all the numbers and letters that you normal
 | Sample expression | Records that are shown |
 |---|---|
 | `'man'` | Text that exactly matches **man** and is case-sensitive |
-| `''` | Text that is empty |
+| `''` | Text that's empty |
 
 #### (@) Case-insensitive
 
@@ -17481,8 +17510,8 @@ When you enter criteria, you can use all the numbers and letters that you normal
 | Sample expression | Records that are shown |
 |---|---|
 | `5999|8100..8490` | Any records that have the number 5999 or a number in the range from 8100 through 8490 |
-| `..1299|1400..` | Records that have a number that is less than or equal to 1299, or a number that is greater than or equal to 1400 (that is, all numbers except 1300 through 1399) |
-| `>50&<100 `| Records that have a number that is greater than 50 and less than 100 (that is, all numbers from 51 through 99) |
+| `..1299|1400..` | Records that have a number that's less than or equal to 1299, or a number that's greater than or equal to 1400 (that is, all numbers except 1300 through 1399) |
+| `>50&<100 `| Records that have a number that's greater than 50 and less than 100 (that is, all numbers from 51 through 99) |
 
 ### <a name="symbols"></a>Filter on values that contain symbols
 
@@ -17503,7 +17532,7 @@ This requirement applies only to the five symbols in the preceding list.
 When you enter filter criteria, you can also enter *filter tokens*, which are words that have special meaning. After you enter a filter token, it's replaced by the value or values that it represents. Filter tokens make filtering easier, because you don't have to open other pages to look up values that you want to add to your filter. The following sections describe some of the tokens that you can enter as filter criteria.
 
 > [!TIP]
-> Your organization might use custom tokens. To learn about the complete set of tokens that is available to you, or to add more custom tokens, contact your administrator. Learn about the technical aspects of filter tokens in [Adding Custom Filter Tokens](/dynamics365/business-central/dev-itpro/developer/devenv-adding-filter-tokens).
+> Your organization might use custom tokens. To learn about the complete set of tokens that's available to you, or to add more custom tokens, contact your administrator. Learn about the technical aspects of filter tokens in [Adding Custom Filter Tokens](/dynamics365/business-central/dev-itpro/developer/devenv-adding-filter-tokens).
 
 #### (%me or %user) Records assigned to you
 
@@ -17536,6 +17565,12 @@ In the vendor number (**No**) field, use the `%myvendors` filter token to show a
 | Sample expression | Records that are shown |
 |---|---|
 | `%myvendors` | Vendors in the **My Vendors** list on your Role Center |
+
+## Save filters
+
+Your filters and adjustments to predefined filters are remembered throughout the session (while you remain signed in), even if you navigate away from the page. You can permanently save filters as a named view of the list by choosing the ![Save View](media/save_view_icon.png "Save View") icon in the filter pane. Learn more in [List Views FAQ](ui-views-faq.yml). Unlike filters, search text isn't kept when you leave a page and isn't saved when you save a view.
+
+On report request pages, you can also save filters or use predefined filters. Learn more in [Use Saved Settings](ui-work-report.md#SavedSettings).
 
 ## Related information
 
@@ -17965,23 +18000,26 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212
-ms.date: 06/16/2021
+ms.search.keywords: employee absence, absence registration
+ms.date: 10/03/2025
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Manage Employee Absence
+
+# Manage employee absence
+
 To manage an employee's absence, you must record the absence on the **Absence Registration** page. It can then be viewed in different ways for analysis and reporting needs.
 
 You can view employee absence in two different pages:
 
 * The **Absence Registration** page, where you register all employee absences with a line for each absence.
-* The **Employee Absences** page, where the absences for one employee only is shown. This is the information that you entered on the **Absence Registration** page, filtered by the particular employee.
+* The **Employee Absences** page, where the absences for one employee only are shown. This is the information that you entered on the **Absence Registration** page, filtered by the particular employee.
 
 To obtain meaningful statistics, you should always use the same unit of measure (hour or day) when registering employee absences.
 
-## To register employee absence
+## Register employee absence
+
 You can register employee absences on a daily basis or at some other interval that meets your organizational needs.
 
 1. In the top right corner, choose the **Search for Page or Report** icon, enter **Absence Registration**, and then choose the related link.
@@ -17992,20 +18030,23 @@ You can register employee absences on a daily basis or at some other interval th
     > [!Tip]
     > To obtain meaningful statistics, always use the same unit of measure, hour or day, when registering employee absences.
 
-## To view an individual employee's absence
+## View an individual employee's absence
+
 1. In the top right corner, choose the **Search for Page or Report** icon, enter **Employees**, and then choose the related link.
 2. Select the relevant employee, and then choose the **Absences** action.
 
-    The **Employee Absences** page opens showing all the absences and the date on which they started and ended.
+   The **Employee Absences** page opens showing all the absences and the date on which they started and ended.
 
-## To view an employee's absence by categories
+## View an employee's absence by categories
+
 1. In the top right corner, choose the **Search for Page or Report** icon, enter **Employees**, and then choose the related link.
 2. Select the relevant employee, and then choose the **Absences by Categories** action.
 3. On the **Empl. Absences by categories** page, fill in the filter fields as necessary, and then choose the **Show Matrix** action.
 
     The **Empl. Absences by Cat. Matrix** page opens showing all absences, broken down by causes of absence.
 
-## To view all employee absences by category
+## View all employee absences by category
+
 1. In the top right corner, choose the **Search for Page or Report** icon, enter **Absence Registration**, and then choose the related link.
 2. On the **Absence Registration** page, choose the **Overview by Categories** action.
 3. On the **Absence Overview by Categories** page, set a filter in the **Employee No. Filter** field to view employee absences for individual or a defined group of employees.
@@ -18013,7 +18054,8 @@ You can register employee absences on a daily basis or at some other interval th
 
     The **Absence Overview by Categories Matrix** page opens showing all employees’ absences broken down by the various causes of absence.
 
-## To view all employee absences by period
+## View all employee absences by period
+
 1. In the top right corner, choose the **Search for Page or Report** icon, enter **Absence Registration**, and then choose the related link.
    On the **Absence Registration** page, choose the **Overview by Periods** action.
 2. On the **Absence Overview by Periods** page, set a filter in the **Cause of Absence Filter** field to view employee absences for specified causes of absence.
@@ -18022,11 +18064,11 @@ You can register employee absences on a daily basis or at some other interval th
     The **Abs. Overview by Periods Matrix** page opens showing employee absences broken down by periods.
 
 ## Related information
+
 [Manage Human Resources](hr-manage-human-resources.md)  
 [Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)
-
+[Change Which Features are Displayed](ui-experiences.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -19149,20 +19191,21 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-segments
 ---
-title: Manage Segments and Select Contacts
-description: This topic outlines how to create a segment by selecting a group of contacts according to specific criteria to later target that segment with a campaign.
-documentationcenter: ''
+title: Manage segments and select contacts
+description: Learn how to create and manage segments by selecting groups of contacts based on specific criteria, enabling you to effectively target these segments in future campaigns.
 author: jswymer
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: relationship, prospect
 ms.search.forms: 5150, 5142, 5140, 5141, 5144, 5091, 5143, 5093, 5092
-ms.date: 10/04/2023
+ms.date: 10/03/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
+ms.custom: bap-template
 ---
-# Managing Segments
+
+# Manage segments
+
 You create segments to select a group of contacts according to specific criteria. For example, a segment could be the industry that the contacts belong to or your business relationship with the contacts. You can create a segment to select the contacts you want to target with a campaign.
 
 There are two main tasks in creating a segment:
@@ -19170,19 +19213,19 @@ There are two main tasks in creating a segment:
 * Enter general information about the segment. Before you can select the contacts within the segment, you must first create the segment.
 * Select the contacts to be included within the segment.
 
-The following table describes a sequence of tasks, with links to the topics that describe them.
+The following table describes a sequence of tasks, with links to the articles that describe them.
 
-| To | See |
-| --- | --- |
-| Create segments which allow you to select a group of contacts. For example, direct mail. |[Create Segments](marketing-how-create-segment.md) |
-| Manage the contacts that are assigned to segments. |[Add Contacts to Segments](marketing-add-contact-segment.md) |
-| Learn about using interactions for segments, including logging. |[Managing Interactions for Segments](marketing-interaction-segments.md) |
+| To | Go to |
+|--|--|
+| Create segments, which allow you to select a group of contacts. For example, direct mail. | [Create Segments](marketing-how-create-segment.md) |
+| Manage the contacts that are assigned to segments. | [Add Contacts to Segments](marketing-add-contact-segment.md) |
+| Learn about using interactions for segments, including logging. | [Managing Interactions for Segments](marketing-interaction-segments.md) |
 
 ## Related information
-[Managing Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Managing Contacts](marketing-contacts.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Manage Contacts](marketing-contacts.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -19867,13 +19910,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-general
 ---
 title: Set Up General Fixed Assets (FA) Information
-description: Before you work with fixed assets, you must set up default G/L accounts, posting groups, allocation keys, journal templates and batches, and class codes.
+description: Configure default G/L accounts, FA posting groups, allocation keys, journal templates and batches, and class and subclass codes before using fixed assets.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.form: 5623, 5615_Primary, 5616_Primary, 5661, 5662, 5627, 5620, 5629, 5633, 5609, 5631, 5630, 5617, 5612, 5613, 5608, 5609, 5635, 9277
-ms.date: 03/25/2024
+ms.search.keywords: fixed assets, G/L accounts, posting groups, allocation keys, journal templates, journal batches, class codes, subclass codes
+ms.date: 10/03/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -19882,14 +19926,14 @@ ms.custom: bap-template
 
 Before you can manage fixed assets (FA), you must set up default G/L accounts, allocation keys, and journal templates and batches to post and reclassify fixed assets. Also, define a classification hierarchy (classes and sub classes) to structure your assets and, if needed, define the locations where you store assets.
 
-## To set up general behavior for fixed assets functionality
+## Set up general behavior for fixed assets functionality
 
 Define the general behavior of the fixed asset functionality and its document number series on the **Fixed Assets Setup** page.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets Setup**, and then choose the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
-## To set up fixed asset posting groups
+## Set up fixed asset posting groups
 
 Use posting groups to define groups of fixed assets. Entries for these posting groups post to the same general ledger accounts.
 
@@ -19898,21 +19942,21 @@ Use posting groups to define groups of fixed assets. Entries for these posting g
 3. On the **FA Posting Group Card** page, fill in the fields as necessary.
 
     > [!NOTE]  
-    >   To make sure that balancing accounts for different fixed assets postings are automatically inserted when you choose the **Insert FA Bal. Account** action on journal lines, follow the next step, based on appreciation posting.
+    > To make sure that balancing accounts for different fixed assets postings are automatically inserted when you choose the **Insert FA Bal. Account** action on journal lines, follow the next step, based on appreciation posting.
 4. On the **Balancing Account** FastTab, in the **Appreciation Bal. Account** field, select the general ledger account to which you want to post balancing entries for appreciation.
 
-For more information about using the **Insert FA Bal. Account** action on fixed asset G/L journal lines, see [Revalue Fixed Assets](fa-how-revalue.md).
+Learn more in [Revalue Fixed Assets](fa-how-revalue.md) for information about using the **Insert FA Bal. Account** action on fixed asset G/L journal lines.
 
-## To set up fixed asset journal templates
+## Set up fixed asset journal templates
 
-A template is a predefined layout for a journal. The template contains information about trace codes, reports, and number series. For more information, see [Work with General Journals](ui-work-general-journals.md).
+A template is a predefined layout for a journal. The template contains information about trace codes, reports, and number series. Learn more in [Work with General Journals](ui-work-general-journals.md).
 
 [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset journal template the first time that you open the **Fixed Asset Journal** page, but you can set up other journal templates.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
-## To set up fixed asset class and subclass codes
+## Set up fixed asset class and subclass codes
 
 In fixed assets, you can define a classification hierarchy that can be used to group assets. The hierarchy has two levels: classes and subclasses.
 
@@ -19955,16 +19999,16 @@ depreciation books.
 
 If the fixed assets aren't integrated with the general ledger, skip steps six and eight.
 
-## To set up fixed asset location codes (optional)
+## Set up fixed asset location codes (optional)
 
 Fixed asset location codes define identifiers for where assets can be located, such as sales department, reception, administration, production, or warehouse. You can use them to register the location of a fixed asset. This information is useful for insurance and inventory purposes.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA locations**, and then choose the related link.
 2. Enter codes and names for the fixed asset locations that you want to create.
 
-## To set up fixed asset allocation keys (optional)
+## Set up fixed asset allocation keys (optional)
 
-Use allocation keys to allocate transactions to various departments or projects. For example, you can set up an allocation key to allocate vehicle depreciation costs with 35 percent to the administration department and 65 percent to the sales department. For more information, see [Allocate Costs and Income](year-allocate-costs-income.md).
+Use allocation keys to allocate transactions to various departments or projects. For example, you can set up an allocation key to allocate vehicle depreciation costs with 35 percent to the administration department and 65 percent to the sales department. Learn more in [Allocate Costs and Income](year-allocate-costs-income.md).
 
 Allocation keys apply to fixed asset classes, not to individual assets.
 
@@ -19973,24 +20017,24 @@ Allocation keys apply to fixed asset classes, not to individual assets.
 3. On the **FA Allocations** page, fill in the fields as necessary.
 4. Repeat steps 2 and 3 for each posting type that you want to define allocation keys for.
 
-## To set up fixed asset journal batches (optional)
+## Set up fixed asset journal batches (optional)
 
-You can set up multiple journal batches, which are individual journals for each journal template. For example, employees can have their own journal batch that uses the employee’s initials as the journal batch name. For more information, see [Work with General Journals](ui-work-general-journals.md).  
+You can set up multiple journal batches, which are individual journals for each journal template. For example, employees can have their own journal batch that uses the employee’s initials as the journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
 2. Select the relevant journal template, and then choose the **Batches** action.
 3. On the **FA Journal Batches** page, fill in the fields as necessary.
 
-## To set up fixed asset reclassification journal templates (optional)
+## Set up fixed asset reclassification journal templates (optional)
 
-Use dedicated reclassification journals to transfer, split, or combine fixed assets. [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset reclassification journal template the first time you open the **FA Reclass. Journal** page, but you can set up other reclassification journal templates. For more information, see [Work with General Journals](ui-work-general-journals.md).  
+Use dedicated reclassification journals to transfer, split, or combine fixed assets. [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset reclassification journal template the first time you open the **FA Reclass. Journal** page, but you can set up other reclassification journal templates. Learn more in [Work with General Journals](ui-work-general-journals.md).  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
 2. Fill in the fields as necessary.
 
-## To set up fixed asset reclassification journal batches (optional)
+## Set up fixed asset reclassification journal batches (optional)
 
-You can set up multiple journal batches, which are individual journals for each reclassification journal template. For example, employees can have their own reclassification journal batch that uses the employee’s initials as the reclassification journal batch name. For more information, see [Work with General Journals](ui-work-general-journals.md).
+You can set up multiple journal batches, which are individual journals for each reclassification journal template. For example, employees can have their own reclassification journal batch that uses the employee’s initials as the reclassification journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
 2. Select the relevant journal template, and then choose the **Batches** action.
@@ -20002,7 +20046,7 @@ You can set up multiple journal batches, which are individual journals for each 
 [Fixed Assets overview](fa-manage.md)  
 [Finance](finance.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
