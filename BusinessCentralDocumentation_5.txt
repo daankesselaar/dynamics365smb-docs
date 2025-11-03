@@ -3009,23 +3009,24 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-online-maps-setup
 ---
-title: Set Up Online Maps
+title: Set up online maps
 description: Learn how to configure Business Central to offer directions and location information with an online map service.
 author: brentholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
 ms.search.form: 800, 804
-ms.date: 07/15/2022
+ms.date: 10/17/2025
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up Online Maps
+
+# Set up online maps
 
 When you plan a visit to an address saved on a card, such as a customer, you can get a map from an online service with route directions described in the language you select. To make sure this online map service finds the right map and directions, you need to set it up in [!INCLUDE[prod_short](includes/prod_short.md)].
 
 ## Set up the online map feature
 
-1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Online Map Setup**,  then choose the related link.
+1. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Online Map Setup**,  then choose the related link.
 2. On the **Online Map Setup** page, fill in the fields. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 3. Turn on the **Enabled** toggle.
 
@@ -3036,12 +3037,13 @@ To customize the online map feature beyond the options listed on the **Online Ma
 1. On the **Online Map Setup** page, choose the **Parameter Setup** action.
 2. On the **Online Map Parameter Setup** page, choose the **New** action.
 3. Fill in the fields to customize how [!INCLUDE[prod_short](includes/prod_short.md)] will generate the URLs for the available services. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-   * Refer to the **Online Map Substitution Parameter** list on the **FactBox** pane for the data available to generate URLs.
+
+   Refer to the **Online Map Substitution Parameter** list on the **FactBox** pane for the data available to generate URLs.
 
 ## Related information
 
 [Use Online Maps to Find Locations and Directions](across-online-maps.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
 [Administration](admin-setup-and-administration.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -5181,21 +5183,22 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-edit-posted-document
 ---
-title: Edit Posted Sales and Purchase Documents
-description: This topic explains how to update information on a posted document like a  sales shipment or purchase invoice when relevant information has changed. 
+title: Edit posted sales and purchase documents
+description: Learn how to update posted sales and purchase documents, such as shipments or invoices, when details like tracking numbers or payment references need to be changed.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.reviewer: bholtorf
-ms.search.keywords: Posted document, editable, posted sales shipment, posted purchase invoice, posted return shipment, posted return receipt, Business Central, business document
+ms.reviewer: v-soumramani
+ms.search.keywords: Posted document, editable, posted sales shipment, posted purchase invoice, posted return shipment, posted return receipt, edit posted document, update posted document, change posted document
 ms.search.form: 130, 138, 142, 146, 6660, 6662, 6650, 6652
-ms.date: 06/10/2021
+ms.date: 10/14/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ---
-# Edit Posted Documents
 
-Sometimes you have to update a posted document because information that is relevant to the document has changed. On a posted sales document, this can be the shipping agent's package tracking number, for example. On a posted purchase document, this can be a payment reference text.
+# Edit posted documents
+
+Sometimes you have to update a posted document because information that's relevant to the document has changed. On a posted sales document, this can be the shipping agent's package tracking number, for example. On a posted purchase document, this can be a payment reference text.
 
 You perform the change on an editable version of the original document, indicated by "**- Update**" in the page title. The page contains a subset of the fields on the original document, of which some are non-editable fields that are shown for information only.
 
@@ -5215,7 +5218,7 @@ The following additional documents can be edited in the specified countries or r
 
 ## To edit a posted sales shipment
 
-The following explains how to edit a posted sales shipment. The steps are similar for the other supported documents.
+The following steps explain how to edit a posted sales shipment. The steps are similar for the other supported documents.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.
 2. Select the document that you want to edit, and then choose the **Update Document** action. Alternatively, open the document and then choose the action.
@@ -5882,44 +5885,45 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-assign-base-calendars
 ---
-title: Set Up Base Calendars
-description: You can assign a base calendar to your company and its business partners, to calculate delivery and receipt dates according to the specified working days.
+title: Set up base calendars
+description: Assign a base calendar to your company and business partners to calculate delivery and receipt dates based on defined working days.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 7600, 7601, 7602, 5703
-ms.date: 06/11/2021
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up Base Calendars
+
+# Set up base calendars
 
 You can assign a base calendar to your company and its business partners, such as customers, vendors, or locations. Delivery and receipt dates on future sales order, purchase order, transfer order, and production order lines are calculated according to the calendar’s specified working days. The main task in setting up a new base calendar is to specify and define the non-working days that you want to apply.  
 
 ## To set up a base calendar
 
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Base Calendar**, and then choose the related link.  
-2.  Choose the **New** action.  
-3.  Fill in the **Code** field.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Base Calendar**, and then choose the related link.  
+2. Choose the **New** action.  
+3. Fill in the **Code** field.  
 4. Choose the **Maintain Base Calendar Changes** action.
 5. On the **Base Calendar Changes** page, use the **Recurring System** field to mark a particular date or day as a recurring nonworking day. You can select either the **Annual Recurring** or **Weekly Recurring** option.  
 
-    If you select **Annual Recurring**, you must also enter the relevant date in the **Date** field.  
+   If you select **Annual Recurring**, you must also enter the relevant date in the **Date** field.  
 
-    If you select **Weekly Recurring**, you must also select the relevant day of the week in the **Day** field. If you leave the field empty, you must fill in the **Date** field. The **Day** field is filled in automatically.  
+   If you select **Weekly Recurring**, you must also select the relevant day of the week in the **Day** field. If you leave the field empty, you must fill in the **Date** field. The **Day** field is filled in automatically.  
 
 When you make an entry, the **Nonworking** field is selected. You can choose to clear the check mark to make it a working day.  
- When you return to the base calendar card, you will observe that the nonworking day entries that you made have been updated. These entries now appear in red and the **Nonworking** field is selected.  
+
+When you return to the base calendar card, you'll observe that the nonworking day entries that you made have been updated. These entries now appear in red and the **Nonworking** field is selected.  
 
 > [!NOTE]  
->  When setting up a new base calendar, you can select and copy lines from an existing calendar. You do this in the relevant **Base Calendar Changes** page.  
-
+> When setting up a new base calendar, you can select and copy lines from an existing calendar. You do this in the relevant **Base Calendar Changes** page.
 > [!IMPORTANT]  
->  Any base calendar defined for the vendor or the location affects how the dates are calculated and rounded to working days.
-Specifies a date formula for the time that it takes to replenish the item. It is used to calculate the **Planned Receipt Date** field, if calculating forward, and **Order Date** field, if calculating backwards. See [Lead Time Calculation](across-how-to-assign-base-calendars.md#lead-time-calculation).
+> Any base calendar defined for the vendor or the location affects how the dates are calculated and rounded to working days.
+Specifies a date formula for the time that it takes to replenish the item. It's used to calculate the **Planned Receipt Date** field, if calculating forward, and **Order Date** field, if calculating backwards. Learn more in [Lead Time Calculation](across-how-to-assign-base-calendars.md#lead-time-calculation).
 
-## Lead Time Calculation
+## Lead time calculation
 
 Any base calendar defined for the vendor or the location affects how the dates are calculated and rounded to working days. Accordingly, the two date fields on purchase order lines are calculated as follows under different conditions.
 
@@ -5929,14 +5933,14 @@ Any base calendar defined for the vendor or the location affects how the dates a
 |Backward|order date = planned receipt date - vendor lead time (per the vendor calendar and rounded to the previous working day in first the vendor calendar and then the location calendar)|order date = planned receipt date - vendor lead time (per the location calendar)|
 
 > [!NOTE]
-> In addition to the lead time calculation that affects the planned receipt date and order date, as shown in the above table, warehouse handling time and safety lead time may be added to the formulas to make up the value in the **Expected Receipt Date** field, as follows: Planned Receipt Date + Safety Lead Time + Inbound Warehouse Handling Time = Expected Receipt Date.
-
+> In addition to the lead time calculation that affects the planned receipt date and order date, as shown in the above table, warehouse handling time, and safety lead time may be added to the formulas to make up the value in the **Expected Receipt Date** field, as follows: Planned Receipt Date + Safety Lead Time + Inbound Warehouse Handling Time = Expected Receipt Date.
 > [!Important]
-> If your location uses a significantly different calendar than your vendors do, then it is important that you set up specific calendars for those vendors, to calculate optimal vendor lead times. For information about how to set up vendor calendars, see [To assign a base calendar](across-how-to-assign-base-calendars.md#to-assign-a-base-calendar).
+> If your location uses a significantly different calendar than your vendors do, then it's important that you set up specific calendars for those vendors, to calculate optimal vendor lead times. Learn more in [To assign a base calendar](across-how-to-assign-base-calendars.md#to-assign-a-base-calendar) for information about how to set up vendor calendars.
 
 The contents of the **Lead Time Calculation** field is copied from either the item card or the SKU card, if the lead time is defined for the item, or on the **Item Vendor Catalog** page, if the lead time is defined for the vendor.
 
 ## To customize a calendar
+
 The main task in customizing a base calendar for your company, or one of its business partners, is to enter any changes to working and nonworking day status.
 
 For example, while a base calendar would typically list all Saturdays as non-working days, the customized calendar for a particular location may list all Saturdays during the months of November and December, and leading up to the holiday season, as working days.
@@ -5948,55 +5952,54 @@ The following procedure uses the case of the location as an example. Note that a
 3. On the **Customized Calendar Entries** page opens, choose the **Maintain Customized Calendar Changes** action.
 4. In the **Customized Calendar Changes**, add lines for customized calendar entries.
 
-    When you enter a line, the **Nonworking** check box is selected. You can clear the check box if you want to change the status to a working day.
+   When you enter a line, the **Nonworking** check box is selected. You can clear the check box if you want to change the status to a working day.
 
-    You can use the **Recurring System** field to set a particular date or day as a recurring nonworking day. You can select either the **Annual Recurring** or **Weekly Recurring** option.
+   You can use the **Recurring System** field to set a particular date or day as a recurring nonworking day. You can select either the **Annual Recurring** or **Weekly Recurring** option.
 
-    If you select **Annual Recurring**, you must also enter the relevant date in the **Date** field. If you select **Weekly Recurring**, you must also select the relevant day of the week in the **Day** field. If you leave the field empty, you must fill in the **Date** field. The **Day** field is then filled in automatically. This could be useful if you want to mark an individual date as a nonworking or working day.
+   If you select **Annual Recurring**, you must also enter the relevant date in the **Date** field. If you select **Weekly Recurring**, you must also select the relevant day of the week in the **Day** field. If you leave the field empty, you must fill in the **Date** field. The **Day** field is then filled in automatically. This could be useful if you want to mark an individual date as a nonworking or working day.
 
 5. Choose the **OK** button.
 
-On the **Customized Calendar Entries** page, you will observe that the date entries are updated with the changes that you made.
+On the **Customized Calendar Entries** page, you'll observe that the date entries are updated with the changes that you made.
 
-On the Location card, you will observe that the **Customized Calendar** field contains **Yes**, indicating that a customized calendar has been set up.
+On the Location card, you'll observe that the **Customized Calendar** field contains **Yes**, indicating that a customized calendar has been set up.
 
 > [!Important]
 > If you do not fill in the **Location Code** field on an order line, your company’s calendar is used.
 
-
-If you do not fill in the **Shipping Agent Code** field on the order line, your company’s calendar is used.
+If you don't fill in the **Shipping Agent Code** field on the order line, your company’s calendar is used.
 
 > [!NOTE]  
 > If you make changes to a base calendar for which customized calendar changes exist, all existing customized calendars are updated automatically.
 
-## To assign a base calendar  
+## To assign a base calendar
+
 The following procedure schedules delivery dates on sales order lines for a customer as an example.
 
 Base calendars are assigned to your own company, customers, vendors, locations, and shipping agents as follows:  
 
--   On the **Company Information** and **Customer** cards, the base calendar is assigned on the **Shipping** FastTab.  
--   On the **Vendor** card, the base calendar is assigned on the **Receiving** FastTab.  
--   On the **Location** card, the base calendar is assigned on the **Warehouse** FastTab.  
--   On the **Shipping Agents** page, the base calendar is assigned on the **Shipping Agent Services** page.  
+- On the **Company Information** and **Customer** cards, the base calendar is assigned on the **Shipping** FastTab.  
+- On the **Vendor** card, the base calendar is assigned on the **Receiving** FastTab.  
+- On the **Location** card, the base calendar is assigned on the **Warehouse** FastTab.  
+- On the **Shipping Agents** page, the base calendar is assigned on the **Shipping Agent Services** page.  
 
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.  
-2.  Open the **Customer** card for whom you will assign a base calendar.  
-3.  On the **Shipping** FastTab, in the **Base Calendar Code** field, select the base calendar that you want to assign.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customers**, and then choose the related link.  
+2. Open the **Customer** card for whom you will assign a base calendar.  
+3. On the **Shipping** FastTab, in the **Base Calendar Code** field, select the base calendar that you want to assign.  
 
-> [!IMPORTANT]  
->  -   If you do not assign a base calendar to a company, all dates are calculated as working days.  
-> -   If you enter a blank location on an order line, all dates are calculated as working days.  
-> -   Any base calendar defined for the vendor or the location affects how the dates are calculated and rounded to working days.
-
+> [!IMPORTANT]
+> - If you don't assign a base calendar to a company, all dates are calculated as working days.
+> - If you enter a blank location on an order line, all dates are calculated as working days.  
+> - Any base calendar defined for the vendor or the location affects how the dates are calculated and rounded to working days.
 > [!NOTE]  
->  Before you can make customized calendar entries, you must first assign a base calendar to the company.  
+> Before you can make customized calendar entries, you must first assign a base calendar to the company.  
 
 ## Related information
-[Purchasing](purchasing-manage-purchasing.md)  
-[Manufacturing](production-manage-manufacturing.md)    
-[Inventory](inventory-manage-inventory.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
+[Purchasing](purchasing-manage-purchasing.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -7794,19 +7797,20 @@ title: Updating document dates with posting dates
 description: Learn how to make sure that document dates on sales and purchase documents match their posting dates.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: concept-article
-ms.date: 11/14/2023
+ms.date: 10/16/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
+
 # Update document dates with posting dates
 
 [!INCLUDE [document-posting-date](includes/document-posting-date.md)]
 
 ## Related information
 
-[Setting Up Sales](sales-setup-sales.md)
+[Set Up Sales](sales-setup-sales.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-manage-report-layouts
@@ -8131,17 +8135,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-income-documents
 ---
 title: Work with incoming documents
-description: You can manage incoming external business documents, such as payment receipts or PDFs, manage OCR tasks, and convert files to electronic documents and records.
+description: Manage incoming external business documents, such as payment receipts or PDFs, manage OCR tasks, and convert files to electronic documents and records.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
-ms.date: 03/12/2025
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
-
 ---
+
 # Incoming documents
 
 External business documents can come into your company as an email attachment or a paper copy that you scan to file. This scenario is typical of purchases, where such incoming document files represent payment receipts for expenses or small purchases.
@@ -8155,12 +8159,12 @@ You can register files or paper copies received from your trading partners in [!
 Upload the received files, or use your device's camera to take a photo, and create entries to represent the external documents. Optionally, with PDF or image files, you can have an external optical character recognition (OCR) service generate electronic documents that can then be converted to records inside [!INCLUDE[prod_short](includes/prod_short.md)].
 
 > [!NOTE]
-> The OCR feature is provided by external providers. Choose a service package that is appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
+> The OCR feature is provided by external providers. Choose a service package that's appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
 
 For example, when you receive an invoice in PDF format from your vendor, you can send it to the OCR service from the **Incoming Documents** page. Alternatively, some OCR providers offer the option of processing files forwarded to a dedicated email address, which then automatically creates a related incoming document record. After some seconds, you receive the file back from the OCR service as an electronic invoice that can be converted to a purchase invoice for the vendor.
 
 > [!TIP]
-> Create incoming document records in [!INCLUDE[prod_short](includes/prod_short.md)] directly from emails sent by vendors using the Outlook add-in. To learn more, go to [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md).
+> Create incoming document records in [!INCLUDE[prod_short](includes/prod_short.md)] directly from emails sent by vendors using the Outlook add-in. Learn more in [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md).
 
 ## Incoming document features
 
@@ -8173,7 +8177,7 @@ The incoming document process can consist of the following main activities:
     * From a tablet or phone, use the **Create from Camera** button to create a new incoming document record using the device's built-in camera.
 
       > [!NOTE]
-      > To use a mobile phone, you must install the [!INCLUDE [prod_short](includes/prod_short.md)] mobile app. The app is available on the App Store and on Google Play. To learn more, go to [Getting Business Central on your mobile device](install-mobile-app.md).
+      > To use a mobile phone, you must install the [!INCLUDE [prod_short](includes/prod_short.md)] mobile app. The app is available on the App Store and on Google Play. Learn more in [Getting Business Central on your mobile device](install-mobile-app.md).
 
   * Automatically, by receiving the document from the OCR service as an electronic document after you've uploaded or emailed the related PDF or image file to an OCR service. The **Financial Information** FastTab is automatically filled on the **Incoming Document** page.
 * Use an external OCR service to have PDF or image files turned into electronic documents that can be converted to document records in [!INCLUDE[prod_short](includes/prod_short.md)].
@@ -8182,9 +8186,9 @@ The incoming document process can consist of the following main activities:
 * View incoming document records and their attachments from any purchase and sales document or entry, or find all general ledger entries without incoming document records from the **Chart of Accounts** page.
 
 > [!NOTE]
-> Files attached to cards and documents on the **Attachments** tab aren't included on the **Incoming Documents** page. To learn more, go to [Manage Attachments, Links, and Notes on Cards and Documents](ui-how-add-link-to-record.md).
+> Files attached to cards and documents on the **Attachments** tab aren't included on the **Incoming Documents** page. Learn more in [Manage Attachments, Links, and Notes on Cards and Documents](ui-how-add-link-to-record.md).
 
-| To | See |
+| To | Go to |
 | --- | --- |
 | Set up the **Incoming Documents** feature and set up the OCR service. |[Set Up Incoming Documents](across-how-setup-income-documents.md) |
 | Create incoming document records manually or automatically by taking a photo of a paper receipt, for example. |[Create Incoming Document Records](across-how-create-income-document-records.md) |
@@ -8196,13 +8200,12 @@ The incoming document process can consist of the following main activities:
 ## Related information
 
 [Purchasing](purchasing-manage-purchasing.md)  
-[Editing Posted Documents](across-edit-posted-document.md)  
-[Exchanging Data Electronically](across-data-exchange.md)  
+[Edit Posted Documents](across-edit-posted-document.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
 [Business Central and OneDrive for Business Integration](across-onedrive-overview.md)  
 [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md)  
 [Send Documents and Emails](ui-how-send-documents-email.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11944,26 +11947,26 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-restrict-and-allow-usage-of-a-record
 ---
 title: How to restrict and allow usage of a record
-description: To restrict a record from being used, you can incorporate two workflow responses in a workflow that controls the usage of the record.
+description: Learn how to use workflow responses to restrict or allow the usage of a record in Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 04/26/2024
+ms.search.keywords: restrict record usage, allow record usage, using records, record usage
+ms.date: 10/15/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Restrict and allow usage of a record
 
 If you want to restrict a record from being used in certain activities, for example, until the record has been approved, you can add two workflow responses in the workflow that controls the use of the record. One workflow response restricts usage of the record as defined by the workflow event and conditions. The other workflow response allows the use of the record as defined by the workflow event and conditions. Two responses exist in the default version of [!INCLUDE[prod_short](includes/prod_short.md)] for this purpose: **Add record restriction** and **Remove record restriction**.
 
 > [!NOTE]  
-> The default version of [!INCLUDE[prod_short](includes/prod_short.md)] offers support for restricting a record from being posted, from being exported as a payment, and from being printed as a check. To support other restrictions, a Microsoft partner must customize the application code.  
-
+> The default version of [!INCLUDE[prod_short](includes/prod_short.md)] offers support for restricting a record from being posted, from being exported as a payment, and from being printed as a check. To support other restrictions, a Microsoft partner must customize the application code.
 > [!NOTE]  
-> The workflow functionality to restrict and allow records from being used is not related to the functionality to block item, customer, and vendor records from being posted.
+> The workflow functionality to restrict and allow records from being used isn't related to the functionality to block item, customer, and vendor records from being posted.
 
 The following procedure describes how to restrict purchase orders from being posted until they've been approved. The new workflow is based on the *Purchase Invoice Approval Workflow* template.  
 
@@ -11973,8 +11976,9 @@ The following procedure describes how to restrict purchase orders from being pos
 2. On the **Workflows** page, choose the **New Workflow from Template** action. Learn more at [Create Workflows from Workflow Templates](across-how-to-create-workflows-from-workflow-templates.md).
 3. On the **Workflow Templates** page, choose the *Purchase Invoice Approval Workflow* template.  
 
-   Note that the first two workflow steps are about restricting and then allowing usage of purchase invoices. Change the event condition on the first step of the new workflow to specify that it applies to purchase orders.  
-4. On the **Workflow Steps** FastTab, choose the **On Condition** field for the first step, then, for the **Document Type** filter, select **Order**.  
+   > [!NOTE]
+   > The first two workflow steps are about restricting and then allowing usage of purchase invoices. Change the event condition on the first step of the new workflow to specify that it applies to purchase orders.  
+4. On the **Workflow Steps** FastTab, choose the **On Condition** field for the first step then for the **Document Type** filter, select **Order**.  
 5. Proceed to edit, delete, or add other workflow steps to reflect a business process that begins by restricting unapproved purchase orders from being posted.  
 
 ## Related information
@@ -12463,18 +12467,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-set-up-workflow-users
 ---
-title: How to Set Up Workflow Users
-description: Before you can create workflows, you must set up the users who take part in them.
+title: How to set up workflow users
+description: Set up users who participate in workflows before creating workflow processes.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords: reject, delegate, request
+ms.search.keywords: reject, delegate, request, workflow users
 ms.search.form: 1533_Primary
-ms.date: 06/10/2025
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Set up a sequence of workflow users
 
 Before you can create approval workflows, you must set up the users who can submit requests and their approvers. For example, you can specify who receives a notification to act on a workflow step. You set up approval workflow participants on the **Approval User Setup** page. Learn more at [Set Up Approval Users](across-how-to-set-up-approval-users.md).
@@ -12497,13 +12502,13 @@ On the **Workflow User Groups** page, you can specify where a participant engage
    |**Sequence No.**|Specify the order in which the workflow user engages in a workflow relative to other users. This field can specify, for example, when the user approves relative to other approvers by setting up the **Workflow User Group** option in the **Approver Type** field on the related workflow response.|
 
    > [!NOTE]
-   > Typically, sequence numbers are sequential for users in a workflow user group. However, multiple users can have the same sequence number. When that's the case, only one of the users must approve a request before the workflow goes to the next step. For example, if user A and user B are both number two in the sequence, the workflow goes to the step three when when either user A or user B approves the request.
+   > Typically, sequence numbers are sequential for users in a workflow user group. However, multiple users can have the same sequence number. When that's the case, only one of the users must approve a request before the workflow goes to the next step. For example, if user A and user B are both number two in the sequence, the workflow goes to the step 3 when either user A or user B approves the request.
 6. Repeat step 5 to add more workflow users to the workflow user group.  
 
 ## Related information
 
 [Set Up Approval Users](across-how-to-set-up-approval-users.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Use Approval Workflows](across-use-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
 [Workflow](across-workflow.md)  
@@ -12747,18 +12752,19 @@ description: Publish objects as web services to make them immediately available 
 author: brentholtorf
 ms.topic: how-to
 ms.search.form: 810_Primary
-ms.date: 01/31/2025
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Publish a web service
 
 Web services are a lightweight way to make application functionality available to different kinds of external systems and users. By default, [!INCLUDE[prod_short](includes/prod_short.md)] exposes several objects as web services for better integration with other Microsoft services. You can add other web services as your business requires.  
 
 Set up a web service in [!INCLUDE[prod_short](includes/prod_short.md)], and then publish the web service so that it's available to authenticated users. All authorized users can access metadata for web services, but only users who have sufficient permissions can access actual data.  
 
-## Creating and Publishing a Web Service
+## Create and publish a web service
 
 The following steps explain how to create and publish a web service.  
 
@@ -12769,7 +12775,7 @@ The following steps explain how to create and publish a web service.
 
     > [!NOTE]  
     > **Codeunit** and **Page** are valid types for SOAP web services. **Page** and **Query** are valid types for OData web services. Starting with version 16.3, **Codeunit** is also a valid type for OData v4 web services, but then no URL is shown in the user interface. 
-    > Also, if the database contains multiple companies, you can choose an object ID that is specific to one of the companies.  
+    > Also, if the database contains multiple companies, you can choose an object ID that's specific to one of the companies.  
     > Finally, the service name is visible to consumers of your web service and is the basis for identifying and distinguishing web services, so you should make the name meaningful.
 
 3. Select the check box in the **Published** column.  
@@ -12779,7 +12785,7 @@ When you publish the web service, the **OData URL** and **SOAP URL** fields show
 You can test the web service immediately by choosing the links in the **OData URL** and **SOAP URL** fields. Optionally, copy the value of the field and save it for later use. To test codeunits that are exposed as OData v4 unbound actions, follow the instructions in the [Verifying web service availability](/dynamics365/business-central/dev-itpro/developer/devenv-creating-and-interacting-with-odatav4-unbound-action#verifying-web-service-availability) section in the developer content.
 
 > [!NOTE]
-> If the objects that you expose as web services must not be accessible from [!INCLUDE[prod_short](includes/prod_short.md)] online, you must mark the methods exposed in the code as `[Scope('OnPrem')]`. For more information, see [Scope Attribute](/dynamics365/business-central/dev-itpro/developer/methods/devenv-scope-attribute).
+> If the objects that you expose as web services must not be accessible from [!INCLUDE[prod_short](includes/prod_short.md)] online, you must mark the methods exposed in the code as `[Scope('OnPrem')]`. Learn more in [Scope Attribute](/dynamics365/business-central/dev-itpro/developer/methods/devenv-scope-attribute).
 
 After you publish a web service, it's available to external parties. You can verify the availability of that web service by using a browser, or choose the link in the **OData URL** and **SOAP URL** fields on the **Web Services** page. The following procedure illustrates how you can verify the availability of the web service for later use.  
 
@@ -12810,7 +12816,6 @@ https://api.businesscentral.dynamics.com/v1.0/OData/Customer?company='CRONUS Int
 [Administration](admin-setup-and-administration.md)  
 [Business Central Web Services for developers](/dynamics365/business-central/dev-itpro/webservices/web-services)  
 [OData request limits](/dynamics365/business-central/dev-itpro/administration/operational-limits-online#ODataServices)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13296,14 +13301,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-onedrive-overview
 ---
 title: Business Central and OneDrive for Business Integration
-description: You can use OneDrive for Business to store, manage, and share files, such as reports or file attachments. Also if you spell it One Drive. 
+description: Learn how to use OneDrive for Business to store, manage, and share files—such as reports and attachments—in Business Central. Also covers scenarios where OneDrive may be spelled as "One Drive."
 author: jswymer
 ms.topic: overview
-ms.search.keywords:
-ms.date: 06/13/2024
+ms.search.keywords: OneDrive, OneDrive integration
+ms.date: 10/17/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.custom: sfi-image-nochange
 ---
 
@@ -13321,10 +13326,9 @@ If you're using [!INCLUDE[prod_short](includes/prod_short.md)] online, we've alr
 
 On most pages where files are available, such as the Report Inbox or files that are attached to records, you'll find an **Open in OneDrive** and **Share** actions.
 
-:::image type="content" source="media/onedrive-overview-report-inbox-w-outline.png" alt-text="The Open in OneDrive and Share actions for reports":::
+:::image type="content" source="media/onedrive-overview-report-inbox-w-outline.png" alt-text="The Open in OneDrive and Share actions for reports.":::
 
-
-:::image type="content" source="media/one-drive-attachments-w-outline.png" alt-text="The Open in OneDrive and Share actions for attachments":::
+:::image type="content" source="media/one-drive-attachments-w-outline.png" alt-text="The Open in OneDrive and Share actions for attachments.":::
 
 |Select...|To...|See more info...|
 |---------|-----|----------------|
@@ -13335,8 +13339,8 @@ On most pages where files are available, such as the Report Inbox or files that 
 
 With OneDrive integration set up, a couple other familiar features will automatically use OneDrive for saving files instead of saving files on your device:
 
-- The **Open in Excel** and **Edit in Excel** actions on list pages will automatically copy the Excel file to OneDrive, then open it in Excel Online. For more information, see [Viewing and Editing in Excel](across-work-with-excel.md).
-- Sending a report to an Excel or Word file will automatically copy the file to OneDrive, then open it in the Excel or Word online. For more information, see [Saving a report to a file](ui-work-report.md#save-a-report-to-a-file).
+- The **Open in Excel** and **Edit in Excel** actions on list pages will automatically copy the Excel file to OneDrive, then open it in Excel Online. Learn more in [Viewing and Editing in Excel](across-work-with-excel.md).
+- Sending a report to an Excel or Word file will automatically copy the file to OneDrive, then open it in the Excel or Word online. Learn more in [Saving a report to a file](ui-work-report.md#save-a-report-to-a-file).
 
 These features aren't turned on by default. But as an administrator, you can easily turn them on by using the **OneDrive Setup** assisted setup guide.
 
@@ -13351,12 +13355,12 @@ The folder and its content are private until you decide to share them with other
 -->
 
 > [!NOTE]
-> You can also connect your [!INCLUDE[prod_short](includes/prod_short.md)] on-premises to OneDrive. However, there are a few things to do to make it work. For more information, see [Configuring Business Central On-Premises](admin-onedrive-integration-onpremises.md).
+> You can also connect your [!INCLUDE[prod_short](includes/prod_short.md)] on-premises to OneDrive. However, there are a few things to do to make it work. Learn more in [Configuring Business Central On-Premises](admin-onedrive-integration-onpremises.md).
 
 ## Related information
 
-[Managing OneDrive Integration with Business Central](admin-onedrive-integration.md)  
-[Opening Business Central Files in OneDrive](across-share-onedrive.md)  
+[Manage OneDrive Integration with Business Central](admin-onedrive-integration.md)  
+[Open Business Central Files in OneDrive](across-share-onedrive.md)  
 [OneDrive FAQ](admin-onedrive-faq.md)  
 end of article
 
@@ -13438,22 +13442,23 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-log-changes
 ---
 title: Auditing changes
-description: You can activate a user log so that you have a history of any changes made to data in tracked tables. You can also track activities with certain types of activity logs.
+description: Track changes to data in selected tables and monitor user activities with change logs and activity logs in Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords: user log, user activity, tracking
+ms.search.keywords: user log, user activity, tracking, audit changes
 ms.search.form: 592, 593, 594, 595, 710, 1366, 1367, 1368, 1369
-ms.date: 01/10/2025
+ms.date: 10/16/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
-# Auditing changes
+
+# Audit changes
 
 A common challenge in many business management applications is avoiding unwanted changes in data. It could be anything from an incorrect customer telephone number to an incorrect posting to the general ledger. This article describes the capabilities for finding out what changed, who changed it, and when the change was made.
 
-## About the Change Log
+## About the change log
 
 The change log lets you track all direct modifications a user makes to data in the database. You specify each table and field that you want the system to log, and then you activate the change log. The change log is based on changes that are made to data in the tables that you track. On the **Change Log Entries** page, entries are chronologically ordered and show all changes that are made to the values in fields on the tables you specify.
 
@@ -13475,22 +13480,22 @@ Also for performance reasons, the change log is turned off during the process of
 > - The user selected another company or Role Center.
 > - The user signed out and signed in again.
 
-## Setting up the Change Log
+## Set up the change log
 
 On the **Change Log Setup** page, you can turn on or turn off the change log. When you do, the activity is logged, so you can always see who made the change.
 
 On the **Change Log Setup** page, if you choose the **Tables** action, you can specify which tables you want to track changes for, and which changes to track. [!INCLUDE[prod_short](includes/prod_short.md)] also tracks several system tables.
 
 > [!NOTE]
-> You can monitor specific fields for changes, such as fields that contain sensitive data, by setting up field monitoring. If you do, to avoid redundancy the table that contains the field will not be available for the change log setup. For more information, see [Monitor Sensitive Fields](across-log-changes.md#monitor-sensitive-fields).
+> You can monitor specific fields for changes, such as fields that contain sensitive data, by setting up field monitoring. If you do, to avoid redundancy the table that contains the field will not be available for the change log setup. Learn more in [Monitor Sensitive Fields](across-log-changes.md#monitor-sensitive-fields).
 
-After you set up the change log, activated it, and made a change to data, you can view and filter the changes on the **Change Log Entries** page. If you want to delete entries, set up a retention policy, where you can set filters based on dates and time. To learn more about retention policies, go to [Define Retention Policies](admin-data-retention-policies.md).  
+After you set up the change log, activated it, and made a change to data, you can view and filter the changes on the **Change Log Entries** page. If you want to delete entries, set up a retention policy, where you can set filters based on dates and time. Learn more in [Define Retention Policies](admin-data-retention-policies.md) for information about retention policies.  
 
-## Analyze data in the Change Log
+## Analyze data in the change log
 
-You can use the **Data Analysis** feature to analyze data in the Change Log from the [Change Log Entries](https://businesscentral.dynamics.com/?page=595) page. You don't have to run a report or open another application, such as Excel. The feature provides an interactive and versatile way to calculate, summarize, and examine data. Instead of running reports using options and filters, you can add multiple tabs that represent different tasks or views on the data. Some examples are "Who changed what data, and when," or "Data changes by table/field," or any other view you can imagine. To learn more about how to use the **Data Analysis** feature, go to [Analyze list and query data with analysis mode](analysis-mode.md).
+You can use the **Data Analysis** feature to analyze data in the Change Log from the [Change Log Entries](https://businesscentral.dynamics.com/?page=595) page. You don't have to run a report or open another application, such as Excel. The feature provides an interactive and versatile way to calculate, summarize, and examine data. Instead of running reports using options and filters, you can add multiple tabs that represent different tasks or views on the data. Some examples are "Who changed what data, and when," or "Data changes by table/field," or any other view you can imagine. Learn more in [Analyze list and query data with analysis mode](analysis-mode.md) for information about how to use the **Data Analysis** feature.
 
-### Change Log ad-hoc analysis scenarios
+### Change log ad-hoc analysis scenarios
 
 The following sections provide examples of scenarios where analyzing change log can help you monitor and audit important changes.
 
@@ -13553,16 +13558,16 @@ The information is displayed on the **Activity Log** page according to the conte
 Keeping sensitive data secure and private is a core concern for most businesses. To add a layer of security, you can monitor important fields and get an email when someone changes a value. For example, you might want to be notified if someone changes your company's IBAN number.
 
 > [!NOTE]
-> Sending notifications by email requires that you set up the email feature in [!INCLUDE[prod_short](includes/prod_short.md)]. For more information, see [Set Up Email](admin-how-setup-email.md).
+> Sending notifications by email requires that you set up the email feature in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more in [Set Up Email](admin-how-setup-email.md).
 
 ### Set up field monitoring
 
-You can use the **Monitor Field Change Setup** assisted setup guide to specify the fields that you want to monitor based on filter criteria, such as the data sensitivity classification for the fields. For more information, see [Classifying Data Sensitivity](admin-classifying-data-sensitivity.md). The guide also lets you specify the person who receives an email notification when a change occurs, and the email account that sends the notification. Specify both the user to notify and the account from which to send the notification. After you finish the guide, you can manage settings for field monitoring on the **Field Monitoring Setup** page.
+You can use the **Monitor Field Change Setup** assisted setup guide to specify the fields that you want to monitor based on filter criteria, such as the data sensitivity classification for the fields. Learn more in [Classifying Data Sensitivity](admin-classifying-data-sensitivity.md). The guide also lets you specify the person who receives an email notification when a change occurs, and the email account that sends the notification. Specify both the user to notify and the account from which to send the notification. After you finish the guide, you can manage settings for field monitoring on the **Field Monitoring Setup** page.
 
 > [!NOTE]
-> When you specify the email account from which to send notifications, you must add either the **Microsoft 365** or **SMTP** account types. Notifications should be sent from an account that is not associated with an actual user. Therefore you cannot choose the **Current User** account type. If you do, notifications will not be sent.
+> When you specify the email account from which to send notifications, you must add either the **Microsoft 365** or **SMTP** account types. Notifications should be sent from an account that isn't associated with an actual user. Therefore you can't choose the **Current User** account type. If you do, notifications will not be sent.
 
-Over time, the list of entries on the **Monitored Fields Log Entries** page will grow. To reduce the number of entries, you can create a retention policy that will delete entries after a specified period of time. For more information, see [Define Retention Policies](admin-data-retention-policies.md).
+Over time, the list of entries on the **Monitored Fields Log Entries** page will grow. To reduce the number of entries, you can create a retention policy that will delete entries after a specified period of time. Learn more in [Define Retention Policies](admin-data-retention-policies.md).
 
 When you set up field monitoring, or change something in the setup, entries are created for your changes. You can specify whether to display entries related to the monitoring setup by showing or hiding them.
 
@@ -13583,23 +13588,23 @@ To further investigate a change, choose a value to open the page where it was ma
 
 ### View field monitoring telemetry
 
-You can set up [!INCLUDE[prod_short](includes/prod_short.md)] to send field monitoring activity to an Application Insights resource in Microsoft Azure. Then, using Azure Monitor, you create reports and set up alerts on the gathered data. For more information, see the following articles in the [!INCLUDE[prod_short](includes/prod_short.md)] Developer and IT Pro help:
+You can set up [!INCLUDE[prod_short](includes/prod_short.md)] to send field monitoring activity to an Application Insights resource in Microsoft Azure. Then, using Azure Monitor, you create reports and set up alerts on the gathered data. Refer to the following articles in the [!INCLUDE[prod_short](includes/prod_short.md)] Developer and IT Pro help:
 
 - [Monitoring and Analyzing Telemetry - Enabling Application Insights](/dynamics365/business-central/dev-itpro/administration/telemetry-overview?toc=/dynamics365/business-central/toc.json#enable)
 - [Analyzing Field Monitoring Telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-field-monitoring-trace?toc=/dynamics365/business-central/toc.json)
 
 ## Define retention policies
 
-You can create retention policies to delete unneeded data in logs after a period of time that you specify. For example, over time the number of entries in a log can build up. By cleaning up old entries you can make it easier to focus on more recent, and probably more relevant, entries. To learn more about retention policies, go to [Define Retention Policies](admin-data-retention-policies.md).
+You can create retention policies to delete unneeded data in logs after a period of time that you specify. For example, over time the number of entries in a log can build up. By cleaning up old entries you can make it easier to focus on more recent, and probably more relevant, entries. Learn more in [Define Retention Policies](admin-data-retention-policies.md) for information about retention policies.
 
 ## Related information
 
 [Monitor Sensitive Fields](across-log-changes.md#monitor-sensitive-fields)  
-[Analyzing Field Monitoring Telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-field-monitoring-trace?toc=/dynamics365/business-central/toc.json)  
+[Analyze Field Monitoring Telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-field-monitoring-trace?toc=/dynamics365/business-central/toc.json)  
 [Define Retention Policies](admin-data-retention-policies.md)  
 [Change Basic Settings](ui-change-basic-settings.md)  
-[Sorting, Searching, and Filtering](ui-enter-criteria-filters.md)  
-[Finding Pages and Information with Tell Me](ui-search.md)  
+[Sort, Search, and Filter](ui-enter-criteria-filters.md)  
+[Find Pages and Information with Tell Me](ui-search.md)  
 [Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -13679,7 +13684,7 @@ author: kennieNP
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: analysis, reporting, business intelligence, KPI, installation, administration
-ms.date: 05/28/2024
+ms.date: 10/17/2025
 ms.author: kepontop
 ms.service: dynamics-365-business-central
 ---
@@ -13714,7 +13719,7 @@ A culture name is usually a lower-case language identifier and an upper-case loc
 
 ## Related information
 
-[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
+[Install Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
 [Introduction to Business Central and Power BI](admin-powerbi.md)  
 [Work with Power BI reports](across-working-with-powerbi.md)  
 end of article
@@ -14237,21 +14242,22 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-working-with-business-central-in-powerbi
 ---
 title: Connect to Power BI from Business Central on-premises| Microsoft Docs
-description: Getting insight, business intelligence, and KPIs from your Business Central data on-premises using Power BI.
+description: Get insight, business intelligence, and KPIs from your Business Central data on-premises using Power BI.
 author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 01/27/2025
+ms.date: 10/23/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
+
 # Connect to Power BI from Business Central on-premises
 
 ## Get started
 
-[!INCLUDE [prod_short](includes/prod_short.md)] on-premises must be enabled for Power BI integration. This task is typically done by an administrator. For more information about enabling Power BI integration with Business Central online, see [Set up Business Central on-premises for Power BI integration](admin-powerbi-setup.md).
+[!INCLUDE [prod_short](includes/prod_short.md)] on-premises must be enabled for Power BI integration. This task is typically done by an administrator. Learn more about enabling Power BI integration with Business Central online in [Set up Business Central on-premises for Power BI integration](admin-powerbi-setup.md).
 
 Some features are only available with Business Central online, not on-premises. Learn more in [Introduction to Business Central and Power BI](admin-powerbi.md#get-ready-to-use-power-bi)
 
@@ -14309,7 +14315,7 @@ The first task in creating reports is to add [!INCLUDE[prod_short](includes/prod
 1. Start Power BI Desktop.
 1. Select **Get Data**.
 
-    If you don't see **Get Data**, select the **File** menu, then **Get Data**.
+   If you don't see **Get Data**, select the **File** menu, then **Get Data**.
 1. On the **Get Data** page, select **Online Services**.
 1. In the **Online Services** pane, connect to  [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, select **Dynamics 365 Business Central (on-premises)**, then **Connect**.
 1. Sign-in to [!INCLUDE [prod_short](includes/prod_short.md)] (one-time only).
@@ -14468,17 +14474,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-share-data-features
 ---
-title: Sharing Data
+title: Sharing data
 description: Learn about the different ways to share business data from Business Central. 
 author: jswymer
 ms.topic: concept-article
-ms.search.keywords:
-ms.date: 09/21/2022
+ms.search.keywords: business data, data sharing
+ms.date: 10/21/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
-# Sharing Business Data from Business Central
+
+# Share business data from Business Central
 
 Collaboration among people inside and outside an organization is integral part of most businesses. [!INCLUDE[prod_short](includes/prod_short.md)] offers several features for sharing business data, like a list of records, specific records, or documents. <!--, with others&mdash;even those people who don't have a Business Central license in some cases.-->
 
@@ -14495,7 +14502,7 @@ When you paste the URL into a rich text editor like Word, Outlook, or Teams, ins
 |Pattern|Page example|Link name|
 |-|-|-|
 |List pages|**Items** list page | **Items**|
-|List view|	**Open** filtered view on **Sales Orders** list|**Sales Orders - Open**|
+|List view|**Open** filtered view on **Sales Orders** list|**Sales Orders - Open**|
 | Single record|Item card showing single record|"Item Card - 1896 ∙ ATHENS Desk"|
 |Draft records|	New customer card|**New - Customer card**|
 |Company that uses badge|**Items** list page for company with badge **CRONUS**| **Items (CRONUS)**|
@@ -14504,7 +14511,8 @@ When you paste the URL into a rich text editor like Word, Outlook, or Teams, ins
 > A similar naming convention is used on browser tabs.
 
 ### Share data analysis
-If you're viewing a page or query in the data analysis mode, you can share a specific analysis tab by selecting the down arrowhead on the tab, and then selecting **Copy link**. [Learn more about data analysis mode](analysis-mode.md). 
+
+If you're viewing a page or query in the data analysis mode, you can share a specific analysis tab by selecting the down arrowhead on the tab, and then selecting **Copy link**. [Learn more about data analysis mode](analysis-mode.md).
 
 ### Modify the page link
 
@@ -14518,15 +14526,15 @@ Using the filter pane on list pages, you can apply filters to narrow-down the re
 
 [Learn more about sorting, searching, and filtering](ui-enter-criteria-filters.md).
 
-## Sharing to Teams
+## Share to Teams
 
 ![Supported](media/check.png) Business Central Online ![Not Supported](media/x-icon.png) Business Central On-premises
 
-Directly from most collection pages and details pages, you can send a link to the page to people, group chats or channels. For example, share a link to a filtered view of your records. If you've installed the [!INCLUDE[prod_short](includes/prod_short.md)] app for Teams, the link will automatically expand into a compact card for you to include with your message. Recipients then select the link or card to open the page in Business Central.
+Directly from most collection pages and details pages, you can send a link to the page to people, group chats, or channels. For example, share a link to a filtered view of your records. If you've installed the [!INCLUDE[prod_short](includes/prod_short.md)] app for Teams, the link will automatically expand into a compact card for you to include with your message. Recipients then select the link or card to open the page in Business Central.
 
 [Learn more about sharing records and page links in Teams](across-working-with-teams.md).
 
-## Sharing Through OneDrive
+## Share through OneDrive
 
 ![Supported](media/check.png) Business Central Online ![Supported](media/check.png) Business Central On-premises
 
@@ -14534,7 +14542,7 @@ Business Central makes it easy to store, manage, and share files with other peop
 
 [Learn more about sharing files in OneDrive](across-share-onedrive.md).
 
-## Opening in Excel
+## Open in Excel
 
 ![Supported](media/check.png) Business Central Online ![Supported](media/check.png) Business Central On-premises
 
@@ -14542,7 +14550,7 @@ For list pages and lists embedded on a page, you can use the **Open in Excel** a
 
 [Learn more about viewing and editing in Excel](across-work-with-excel.md).
 
-## Sharing rows or tables
+## Share rows or tables
 
 ![Supported](media/check.png) Business Central Online ![Supported](media/check.png) Business Central On-premises
 
@@ -14553,8 +14561,8 @@ You can share one or more records in a list. Just select the <kbd>Ctrl</kbd>+<kb
 ## Related information
 
 [Business Central and OneDrive Integration](across-onedrive-overview.md)  
-[Managing OneDrive Integration with Business Central](admin-onedrive-integration.md)  
-[OneDrive FAQ](admin-onedrive-faq.md)
+[Manage OneDrive Integration with Business Central](admin-onedrive-integration.md)  
+[OneDrive FAQ](admin-onedrive-faq.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-analytics-overview

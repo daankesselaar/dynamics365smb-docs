@@ -1170,22 +1170,23 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-financials-data-source-powerapps
 ---
-title: Use Your Data to Create an App| Microsoft Docs
-description: You can make your Business Central data available as a data source and specify an OData URL of your web services to build a business app using Power Apps.
+title: Use your data to create an app| Microsoft Docs
+description: Make your Business Central data available as a data source in Power Apps by specifying the OData URL of your web services to build custom business apps.
 author: jswymer
 ms.topic: how-to
 ms.service: dynamics-365-business-central
 ms.search.keywords: OData, Power App, SOAP
-ms.date: 05/15/2023
+ms.date: 10/16/2025
 ms.author: jswymer
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
-# Connecting to Your Business Central Data to Build a Business App Using Power Apps
+
+# Connect to your Business Central Data to build a business app using Power Apps
 
 You can make your [!INCLUDE[prod_short](includes/prod_short.md)] data available as a data source in Power Apps.  
 
 > [!TIP]  
-> Business Central now offers development and operations support for Power Platform in AL-Go and samples to get you started creating your own apps with Power Apps. These features are currently in preview. To learn more, go to [Business Central and Power Apps](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-overview) in the developer and IT pro help.
+> Business Central now offers development and operations support for Power Platform in AL-Go and samples to get you started creating your own apps with Power Apps. These features are currently in preview. Learn more in [Business Central and Power Apps](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-overview) in the developer and IT pro help.
 
 ## Prerequisites
 
@@ -1219,7 +1220,7 @@ These so-called tables are exposed as endpoints by the [!INCLUDE[prod_short](inc
 
 At this point, you have successfully connected to your [!INCLUDE[prod_short](includes/prod_short.md)] data and are ready to begin building your Power App. You can always add more screens and connect to more data. Learn more at [Create a canvas app from a sample in Power Apps](/powerapps/maker/canvas-apps/open-and-run-a-sample-app).  
 
-When you have designed and built your app, you can share it with your colleagues. For more information, see [Save and publish a canvas app in Power Apps](/powerapps/maker/canvas-apps/save-publish-app).  
+When you have designed and built your app, you can share it with your colleagues. Learn more in [Save and publish a canvas app in Power Apps](/powerapps/maker/canvas-apps/save-publish-app).  
 
 <!--
 ## Sample apps to get started
@@ -1228,42 +1229,43 @@ As a preview version, Business Central offers several sample apps that you can u
 
 ## Develop and maintain apps application lifecycle management
 
-As an app developer, you may already be familiar with Business Central AL-Go. AL-Go is set of tools on GiHub that enables you to maintain professional DevOps processes for your Business Central AL projects. AL-Go supports source control and activities, like building, testing, and deploying. As a preview, Business Central now offers an Al-Go version that supports for Power Platform solutions. The preview, for example, includes workflows that let you push and pull Power Platfrom changes to and from enviroments. You can access the tools at [https://github.com/BusinessCentralDemos/AL-Go-PTE](https://github.com/BusinessCentralDemos/AL-Go-PTE). For more information, see [Application lifecycle management for Power Apps in Business Central](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-alm).-->
+As an app developer, you may already be familiar with Business Central AL-Go. AL-Go is set of tools on GiHub that enables you to maintain professional DevOps processes for your Business Central AL projects. AL-Go supports source control and activities, like building, testing, and deploying. As a preview, Business Central now offers an Al-Go version that supports for Power Platform solutions. The preview, for example, includes workflows that let you push and pull Power Platfrom changes to and from enviroments. You can access the tools at [https://github.com/BusinessCentralDemos/AL-Go-PTE](https://github.com/BusinessCentralDemos/AL-Go-PTE). Learn more in [Application lifecycle management for Power Apps in Business Central](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-alm).-->
 
 ## Related information
 
 [Create a canvas app from a template in Power Apps](/powerapps/maker/canvas-apps/get-started-test-drive)  
-[Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Setting Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
-[Getting Started Developing Connect Apps for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/developer/devenv-develop-connect-apps)  
+[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Get Started Developing Connect Apps for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/developer/devenv-develop-connect-apps)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-manage-many-income-document-records
 ---
-title: Define Which Incoming Docs to See
+title: Define Which incoming docs to see
 description: Adjust the default view of incoming documents, such as e-invoices, to improve your overview of processed and unprocessed records.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
-ms.date: 06/14/2022
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Manage Many Incoming Document Records
+
+# Manage many incoming document records
 
 As you create or process incoming document records, the number of lines on the **Incoming Documents** page may grow to an extent where you lose overview. Therefore, you can set incoming document records to *Processed* to remove them from the default view. When you choose the **Show All** action, you can view both processed and unprocessed records.
 
 > [!NOTE]  
-> You cannot edit information, attach files, or perform other processes on incoming document records that are set to *Processed*. You must first set it to *Unprocessed*.
+> You can't edit information, attach files, or perform other processes on incoming document records that are set to *Processed*. You must first set it to *Unprocessed*.
 
 The **Processed** check box is automatically selected on incoming document records that have been processed, but you can also select or deselect the check box manually. Depending on your business process, an incoming document record may be processed when a related document has been created for it or a file has been attached.
 
 > [!NOTE]  
-> When you open the **Incoming Documents** page with the **My Incoming Documents** action on the Role Center, only unprocessed incoming document records are shown by default. This is referred to in this topic as "the default view".
+> When you open the **Incoming Documents** page with the **My Incoming Documents** action on the Role Center, only unprocessed incoming document records are shown by default. This is referred to in this article as "the default view".
 
 ## To remove incoming document records from the default view
 
@@ -1292,12 +1294,11 @@ All incoming document records are displayed, including records where the **Proce
 
 ## Related information
   
-[Create Incoming Document Records](across-how-create-income-document-records.md)
-[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)
+[Create Incoming Document Records](across-how-create-income-document-records.md)  
+[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)  
 [Incoming Documents](across-income-documents.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -1989,16 +1990,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-set-up-workflows
 ---
 title: Set up approval workflows
-description: Set up workflows, workflow users and approval users to connect business-process system tasks performed by these different users.
+description: Set up workflows, workflow users, and approval users to connect business-process system tasks performed by these different users.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: overview
-ms.search.keywords:
-ms.date: 06/12/2025
+ms.search.keywords: workflow, approval workflow, workflow users
+ms.date: 10/20/25
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Set up approval workflows
 
 You can set up and use workflows that connect business-process tasks performed by different users. System tasks, such as automatic posting, can be included as steps in workflows, preceded or followed by user tasks. Requesting and granting approval to create new records are typical workflow steps. Learn more at [Use Approval Workflows](across-use-workflows.md).
@@ -2031,6 +2033,7 @@ This video shows how to set up a workflow requiring a user to request someone el
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=271a3685-6a23-425f-aaa2-3bada2104290]
 -->
+
 ## Related information
 
 [Use Approval Workflows](across-use-workflows.md)  
@@ -3940,19 +3943,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-financials-data-source-powerbi
 ---
-title: Building Reports in Power BI Desktop to Display Business Central Data
+title: Building reports in Power BI Desktop to display Business Central data
 description: Learn how to make your data a Power BI source and build insightful business reports.
 author: jswymer
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: business intelligence, KPI, Odata, Power App, SOAP, analysis
-ms.date: 07/03/2025
+ms.date: 10/16/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: solsen
+ms.reviewer: v-soumramani
 ---
 
-# Building [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for displaying [!INCLUDE [prod_long](includes/prod_long.md)] data
+# Build [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for displaying [!INCLUDE [prod_long](includes/prod_long.md)] data
 
 You can make your [!INCLUDE[prod_long](includes/prod_long.md)] data available as a data source in [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)] and build powerful reports about the state of your business.
 
@@ -3990,16 +3993,16 @@ This article describes how to start using [!INCLUDE [powerbi-desktop-name](inclu
 The first task in creating reports is to add [!INCLUDE[prod_short](includes/prod_short.md)] as a data source in [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)]. Once connected, you can start to build the report.
 
 1. Start [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)].
-1. Select **Get Data**.
+2. Select **Get Data**.
 
-    If you don't see **Get Data**, select the **File** menu, then **Get Data**.
-1. On the **Get Data** page, select **Online Services**.
-1. In the **Online Services** pane, do one of the following steps:
+   If you don't see **Get Data**, select the **File** menu, then **Get Data**.
+3. On the **Get Data** page, select **Online Services**.
+4. In the **Online Services** pane, do one of the following steps:
 
     - To connect to [!INCLUDE [prod_short](includes/prod_short.md)] online, select **Dynamics 365 Business Central**, then **Connect**.
     <!--- To connect to  [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, select **Dynamics 365 Business Central (on-premises)**, then **Connect**.-->
 
-1. Sign in to [!INCLUDE [prod_short](includes/prod_short.md)] (one-time only).
+5. Sign in to [!INCLUDE [prod_short](includes/prod_short.md)] (one-time only).
 
     If you aren't signed in to [!INCLUDE [prod_short](includes/prod_short.md)] from [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)], you're prompted to sign in.
 
@@ -4038,15 +4041,15 @@ The first task in creating reports is to add [!INCLUDE[prod_short](includes/prod
 Once the data is loaded, you can see it in the right navigation on the page. At this point, you're connected to your [!INCLUDE[prod_short](includes/prod_short.md)] data, and you can begin building your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] report.  
 
 > [!TIP]
-> For more information about using [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)], go to [Get started with Power BI Desktop](/power-bi/fundamentals/desktop-getting-started).
+> Learn more in [Get started with Power BI Desktop](/power-bi/fundamentals/desktop-getting-started) and for information about using [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)].
 
-## Creating accessible reports
+## Create accessible reports
 
-It's important to make your reports usable for as many people as possible. Try to design reports so that they don't require any special adaptation to meet the specific needs of different users. Make sure the design lets users take advantage of assistive technologies, like screen readers. [!INCLUDE [powerbi-name](includes/powerbi-name.md)] includes various accessibility features, tools, and guidelines to help. To learn more, go to [Design Power BI reports for accessibility](/power-bi/create-reports/desktop-accessibility-creating-reports) in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] documentation.
+It's important to make your reports usable for as many people as possible. Try to design reports so that they don't require any special adaptation to meet the specific needs of different users. Make sure the design lets users take advantage of assistive technologies, like screen readers. [!INCLUDE [powerbi-name](includes/powerbi-name.md)] includes various accessibility features, tools, and guidelines to help. Learn more in [Design Power BI reports for accessibility](/power-bi/create-reports/desktop-accessibility-creating-reports) in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] documentation.
 
-## Creating reports to display data associated with a list in [!INCLUDE [prod_short](includes/prod_short.md)]
+## Create reports to display data associated with a list in [!INCLUDE [prod_short](includes/prod_short.md)]
 
-You can create reports that display in a FactBox on a [!INCLUDE [prod_short](includes/prod_short.md)] list page, and change when different rows are selected in the list. Creating these reports is similar to other reports, except there are a few things to do to make sure the reports display as expected. To learn more, go to [Creating Power BI Reports for Displaying List Data in [!INCLUDE[prod_short](includes/prod_short.md)]](across-how-use-powerbi-reports-factbox.md).
+You can create reports that display in a FactBox on a [!INCLUDE [prod_short](includes/prod_short.md)] list page, and change when different rows are selected in the list. Creating these reports is similar to other reports, except there are a few things to do to make sure the reports display as expected. Learn more in [Creating Power BI Reports for Displaying List Data in [!INCLUDE[prod_short](includes/prod_short.md)]](across-how-use-powerbi-reports-factbox.md).
 
 ## <a name="theme"></a>Using the [!INCLUDE [prod_short](includes/prod_short.md)] report theme (optional)
 
@@ -4078,11 +4081,11 @@ There are a couple of ways to share reports:
 
 - Share a report from your [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)] (recommended)
 
-    If you have a [!INCLUDE [powerbi-pro-license-name](includes/powerbi-pro-license-name.md)] license or use [!INCLUDE [powerbi-premium-capacity-name](includes/powerbi-premium-capacity-name.md)], you can share the report directly from your [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)]. To learn more, go to [Power BI - Share a dashboard or report](/power-bi/collaborate-share/service-share-dashboards#share-a-dashboard-or-report).
+    If you have a [!INCLUDE [powerbi-pro-license-name](includes/powerbi-pro-license-name.md)] license or use [!INCLUDE [powerbi-premium-capacity-name](includes/powerbi-premium-capacity-name.md)], you can share the report directly from your [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)]. Learn more in [Power BI - Share a dashboard or report](/power-bi/collaborate-share/service-share-dashboards#share-a-dashboard-or-report).
 
 - Distribute reports as .pbix files.
 
-    Reports are stored on your computer as .pbix files. You can distribute the .pbix file to users, like any other file. Then, the people you shared the file with can upload it to their [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)]. To learn more, go to [Upload reports from files](across-working-with-powerbi.md#upload).
+    Reports are stored on your computer as .pbix files. You can distribute the .pbix file to users, like any other file. Then, the people you shared the file with can upload it to their [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)]. Learn more in [Upload reports from files](across-working-with-powerbi.md#upload).
 
     > [!NOTE]
     > Distributing reports in this way means that refreshing data for reports is done individually by each user. This situation might impact [!INCLUDE[prod_short](includes/prod_short.md)] performance.
@@ -4093,7 +4096,7 @@ The [!INCLUDE[prod_short](includes/prod_short.md)] API endpoints all have the pr
 
 To set up a query to load data for multiple companies, follow these steps:
 
-1. Take the PowerQuery query that loads data for a single company. Convert it to a custom Power Query function that takes the company ID (or maybe the environment name) as parameters. To learn more, go to [Using custom Power Query functions](/power-query/custom-function).
+1. Take the PowerQuery query that loads data for a single company. Convert it to a custom Power Query function that takes the company ID (or maybe the environment name) as parameters. Learn more in [Using custom Power Query functions](/power-query/custom-function).
 1. Now use the new custom function in a PowerQuery query, where you map the function over a list of companies and then merge the datasets using the [Table.Combine](/powerquery-m/table-combine) Power Query function.
 
 ## Customize the Power Query code that connects to your [!INCLUDE [prod_short](includes/prod_short.md)] data source
@@ -4108,21 +4111,21 @@ To do that, follow these steps:
    # [Edit existing report](#tab/existing)
 
    1. Select **File** > **Open**.
-   1. Browse for and select the report (.pbix). 
-   1. In the ribbon, select **Transform Data** to open the **Power Query Editor**.
+   2. Browse for and select the report (.pbix).
+   3. In the ribbon, select **Transform Data** to open the **Power Query Editor**.
 
    # [Create new report](#tab/new)
 
    1. In the ribbon, select **Get Data**. If you don't see **Get Data**, select the **File** menu, then **Get Data**.
-   1. On the **Get Data** page, select **Online Services** > **Dynamics 365 Business Central** > **Connect**.
-   1. In the **Navigator** window, select the API endpoint that you want to load data from.
-   1. Select **Transform Data** instead of **Load** as you might normally do. This step opens **Power Query Editor**.
+   2. On the **Get Data** page, select **Online Services** > **Dynamics 365 Business Central** > **Connect**.
+   3. In the **Navigator** window, select the API endpoint that you want to load data from.
+   4. Select **Transform Data** instead of **Load** as you might normally do. This step opens **Power Query Editor**.
 
    ---
 
 3. In **Power Query Editor**, select **Advanced Editor** from the ribbon.
 
-This will display the Power Query code that the system autogenerated when you made your selections in the navigator. For example, let's assume you selected the [!INCLUDE [prod_short](includes/prod_short.md)] environment named **Production**, the company called **CRONUS USA, Inc.**, the API folder called **Standard APIs v2.0**, and the table called **customers**. Navigating to the Advanced Editor would show a query similar to this one:
+This displays the Power Query code that the system autogenerated when you made your selections in the navigator. For example, let's assume you selected the [!INCLUDE [prod_short](includes/prod_short.md)] environment named **Production**, the company called **CRONUS USA, Inc.**, the API folder called **Standard APIs v2.0**, and the table called **customers**. Navigating to the Advanced Editor would show a query similar to this one:
 
 ```powerquery
 let
@@ -4137,18 +4140,18 @@ in
 
 You can now manually edit this query to make the changes that suite your needs.
 
-### The function `Dynamics365BusinessCentral.ApiContentsWithOptions`
+### Function `Dynamics365BusinessCentral.ApiContentsWithOptions`
 
-In the query above, the function `Dynamics365BusinessCentral.ApiContentsWithOptions` is responsible for connecting to [!INCLUDE [prod_short](includes/prod_short.md)] and retrieve the data. This function has 4 optional parameters, that aren't provided in the default query.
+In the query above, the function `Dynamics365BusinessCentral.ApiContentsWithOptions` is responsible for connecting to [!INCLUDE [prod_short](includes/prod_short.md)] and retrieve the data. This function has 4 optional parameters that aren't provided in the default query.
 
-Here's a break down of the different parameters:
+Here's a breakdown of the different parameters:
 
 |Parameter|Examples|Description|
 |-|-|-|
 |Environment|`"Production"`|This parameter allows you to specify the [!INCLUDE [prod_short](includes/prod_short.md)] environment to connect to. If not specified, the function returns a list of all environments, and you need to select the appropriate environment in the subsequent steps of your Power Query code|
 |Company|`"CRONUS USA, Inc."`|This parameter allows you to specify the [!INCLUDE [prod_short](includes/prod_short.md)] company to connect to, inside your selected environment. This parameter is ignored if the **Environment** parameter isn't specified. If not specified, the function returns a list of all companies in your selected environent (or environments), and you need to select the appropriate company in the subsequent steps of your Power Query code|
 |API category (or API route)|`"microsoft/runtime/beta"`, `"v2.0"`|This parameter allows you to specify the API route connect to in [!INCLUDE [prod_short](includes/prod_short.md)], inside your selected environment and company. This parameter is ignored if the **Environment** and **Company** parameters aren't specified. If not specified, the function returns a list of all API categories (also called API routes) in your selected environment/environments and company/companies, and you need to select the appropriate API category in the subsequent steps of your Power Query code|
-|Advanced Options||This parameter allows you to specify some advanced options to connect to your [!INCLUDE [prod_short](includes/prod_short.md)] data source. Notice that in the vast majority of cases, the default values are optimized and don't need to be changed. For more information about these parameters, consult the following section.|
+|Advanced Options||This parameter allows you to specify some advanced options to connect to your [!INCLUDE [prod_short](includes/prod_short.md)] data source. Notice that in the vast majority of cases, the default values are optimized and don't need to be changed. Consult the following section for more information about these parameters.|
 
 For example, the query shown above in this section is completely equivalent to the following query:
 
@@ -4174,30 +4177,30 @@ The [!INCLUDE [powerbi-connector-name](includes/powerbi-connector-name.md)] supp
 ### Configure the advanced options
 
 1. Follow the steps to view the Power Query code from Power BI Advanced Editor
-1. In **Advanced Editor**, locate the line that starts with `Source =`:
+2. In **Advanced Editor**, locate the line that starts with `Source =`:
 
    ```powerquery
    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
    ```
 
-1. In the line, replace the fourth parameter of `Dynamics365BusinessCentral.ApiContentsWithOptions` with a Power Query record of properties and values you want to set, for example:
+3. In the line, replace the fourth parameter of `Dynamics365BusinessCentral.ApiContentsWithOptions` with a Power Query record of properties and values you want to set, for example:
 
    ```powerquery
    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, [UseReadOnlyReplica = true, Timeout = Duration.From("00:07:00"), ODataMaxPageSize = 10000, AcceptLanguage = "it-it"])
    ```
 
-6. Select **Done** to close **Advanced Editor**.
-7. Select **Close & Apply** to save the changes and close Power Query Editor.
+4. Select **Done** to close **Advanced Editor**.
+5. Select **Close & Apply** to save the changes and close Power Query Editor.
 
-## Fixing problems
+## Fix problems
 
-### "Expression.Error: The environment 'Production' does not exist." error when specifying a Business Central environment
+### "Expression.Error: The environment 'Production' doesn't exist." error when specifying a Business Central environment
 
 > **APPLIES TO:** [!INCLUDE [prod_short](includes/prod_short.md)] online
 
 When you connect to [!INCLUDE [prod_short](includes/prod_short.md)] online from [!INCLUDE [powerbi-name](includes/powerbi-name.md)], or when you install a [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)] app from Microsoft AppSource that uses [!INCLUDE [prod_short](includes/prod_short.md)] data, you might be prompted to input the [!INCLUDE [prod_short](includes/prod_short.md)] environment you want to connect to.
 
-If you get an error similar to "Expression.Error: The environment 'Production' does not exist.", follow these steps to troubleshoot:
+If you get an error similar to "Expression.Error: The environment 'Production' doesn't exist.", follow these steps to troubleshoot:
 
 1. Make sure you're using the right credentials to access [!INCLUDE [prod_short](includes/prod_short.md)]. These credentials might not be the same credentials you use to access [!INCLUDE [powerbi-name](includes/powerbi-name.md)]. [How do I change or clear the account I'm currently using to connect to Business Central from Power BI Desktop?](/dynamics365/business-central/power-bi-faq?tabs=designer#perms)
 2. If your environment is an embedded ISV environment, you need to specify the embedded ISV name in parenthesis as part of the environment name. For example, if you want to connect to an environment named Production from the embedded ISV named Fabrikam, you must specify "PRODUCTION (fabrikam)" as environment name.
@@ -4214,11 +4217,11 @@ If you're using a custom API, we recommend you rework the AL code to make sure i
 
 ## Related information
 
-[Enabling Your Business Data for Power BI](admin-powerbi-setup.md)  
+[Enable Your Business Data for Power BI](admin-powerbi-setup.md)  
 [Business Intelligence](bi.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Setting Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
 [Finance](finance.md)  
 [Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
 
@@ -5684,42 +5687,43 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-data-exchange
 ---
 title: Electronic documents in Business Central
-description: This is an overview of how to use the Data Exchange Framework to manage the exchange of data in business documents like bank files and currency exchange rates.
+description: Overview of using the Data Exchange Framework in Business Central to exchange business documents, including bank files and currency exchange rates.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
-ms.search.keywords: Data exchange framework, data files, data exchange, electronic document, invoice, Business Central, business document, standard-compliant file
-ms.date: 06/10/2021
+ms.search.keywords: Data exchange framework, data files, data exchange, electronic document, invoice, standard-compliant file
+ms.date: 10/13/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-# Exchanging Data Electronically
+# Exchanging data electronically
+
 You can use the Data Exchange Framework to manage the exchange of business documents, bank files, currency exchange rates, and any other data files with your business partners.
 
-In the standard version of [!INCLUDE[prod_short](includes/prod_short.md)], the Data Exchange Framework is used in processes such as exchanging electronic documents, importing and exporting bank files, and updating exchange rates for currencies. For more information, see [About the Data Exchange Framework](across-about-the-data-exchange-framework.md).
+In the standard version of [!INCLUDE[prod_short](includes/prod_short.md)], the Data Exchange Framework is used in processes such as exchanging electronic documents, importing and exporting bank files, and updating exchange rates for currencies. Learn more in [About the Data Exchange Framework](across-about-the-data-exchange-framework.md).
 
-As an administrator or Microsoft partner, you can use the framework in new integration features by specifying the data to exchange, and how to exchange it. For more information, see [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
+As an administrator or Microsoft partner, you can use the framework in new integration features by specifying the data to exchange, and how to exchange it. Learn more in [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
 
-The following table describes a sequence of tasks, with links to the topics that describe them.  
+The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-|To|See|  
+|To|Go to|  
 |--------|---------|  
 |Learn how the Data Exchange Framework works.|[About the Data Exchange Framework](across-about-the-data-exchange-framework.md)|  
 |Prepare to exchange data in a file by reusing the file’s XML schema. Set up data exchange definitions. Set up master data for electronic document sending. Set up various bank import/export fields.|[Setting Up Data Exchange](across-set-up-data-exchange.md)|  
 |Based on data exchange definitions, send PEPPOL invoices, receive PEPPOL invoices, import bank statements, and export bank payment files.|[Exchanging Data](across-exchange-data.md)|  
 
-## Related information  
+## Related information
+
 [About the Data Exchange Framework](across-about-the-data-exchange-framework.md)  
 [Use XML Schemas to Prepare Data Exchange Definitions](across-how-to-use-xml-schemas-to-prepare-data-exchange-definitions.md)  
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchanging Data](across-exchange-data.md)  
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
+[Exchange Data](across-exchange-data.md)  
 [Incoming Documents](across-income-documents.md)  
-[General Business Functionality](ui-across-business-areas.md)
+[General Business Functionality](ui-across-business-areas.md)  
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
+[!INCLUDE[footer-include](includes/footer-banner.md)]  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-setup-salespeople
@@ -5913,16 +5917,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-create-workflows-from-workflow-templates
 ---
 title: How to create workflows from workflow templates
-description: To save time when creating new approval workflows, you can create workflows from workflow templates.
+description: Create new approval workflows quickly by using workflow templates as a starting point.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords:
-ms.date: 05/19/2025
+ms.search.keywords: workflows, workflow templates, create workflow
+ms.date: 10/15/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Create workflows from workflow templates
 
 On the **Workflow** page, you create a workflow by creating a series of workflow steps on the lines. Each step consists of a workflow event (When Event), moderated by event conditions (On Condition), and a workflow response (Then Response), moderated by response options. The fields on workflow lines provide fixed lists of event and response values that represent the scenarios that [!INCLUDE [prod_short](includes/prod_short.md)] supports. Learn more at [Create Workflows](across-how-to-create-workflows.md).
@@ -5954,10 +5959,9 @@ Another way to quickly create a workflow is to import it, for example, if you ex
 [View Archived Workflow Step Instances](across-how-to-view-archived-workflow-step-instances.md)  
 [Delete Approval Workflows](across-how-to-delete-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Use Approval Workflows](across-use-workflows.md)  
 [Workflow](across-workflow.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -8141,17 +8145,18 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-about-the-data-exchange-framework
 ---
 title: About the Data Exchange Framework
-description: This article explains how to use the Data Exchange Framework to manage the exchange of data in business documents like invoices with your business partners.
+description: Learn how the Data Exchange Framework enables you to exchange business documents, such as invoices, with partners and authorities in Business Central.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
-ms.search.keywords: Data exchange framework, data files, data exchange, electronic document, invoice, Business Central, business document, standard-compliant file, OCR
-ms.search.form: 189, 
-ms.date: 01/06/2025
+ms.search.keywords: Data exchange framework, data files, data exchange, electronic document, invoice, standard-compliant file, OCR
+ms.search.form: 189
+ms.date: 10/13/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # About the Data Exchange Framework
 
 You can use the Data Exchange Framework to manage the exchange of business documents, bank files, currency exchange rates, and any other data files with your business partners or authorities.
@@ -8166,11 +8171,11 @@ As an administrator or Microsoft partner, you can use the framework in new integ
 
 ## Electronic documents
 
-As an alternative to emailing business documents as file attachments, you can send and receive them electronically. An "electronic document" is a standard-compliant file representing a business document, such as an invoice from a vendor that you can receive and convert to a purchase invoice in [!INCLUDE[prod_short](includes/prod_short.md)]. Trading partners exchange electronic documents through external document exchange services. By default, [!INCLUDE[prod_short](includes/prod_short.md)] supports sending and receiving electronic invoices and credit memos in the PEPPOL format, which is supported by the largest providers of document exchange services. Currently, Avalara and Pagero exchange services are pre-configured and ready to be set up for your company (Microsoft will support more exchange services in near future). To provide support for other electronic document formats, you must check if they're already delivered in your localization to create new data exchange definitions.  
+As an alternative to emailing business documents as file attachments, you can send and receive them electronically. An "electronic document" is a standard-compliant file representing a business document, such as an invoice from a vendor that you can receive and convert to a purchase invoice in [!INCLUDE[prod_short](includes/prod_short.md)]. Trading partners exchange electronic documents through external document exchange services. By default, [!INCLUDE[prod_short](includes/prod_short.md)] supports sending and receiving electronic invoices and credit memos in the PEPPOL format, which is supported by the largest providers of document exchange services. Currently, Avalara and Pagero exchange services are preconfigured and ready to be set up for your company (Microsoft will support more exchange services in near future). To provide support for other electronic document formats, you must check if they're already delivered in your localization to create new data exchange definitions.  
 
 From PDF or image files representing incoming documents, you can have an external OCR service (Optical Character Recognition) create electronic documents that you can then convert to document records in [!INCLUDE[prod_short](includes/prod_short.md)], like for electronic PEPPOL documents. For example, when you receive an invoice in PDF format from your vendor, you can send it to the OCR service from the **Incoming Documents** page. After a few seconds, you receive the file back as an electronic invoice that can be converted to a purchase invoice for the vendor. If you send the file to the OCR service by email, then a new incoming document record is automatically created when you receive the electronic document back.  
 
-To send, for example, a sales invoice as an electronic PEPPOL document, read this [instruction](finance-how-use-edocuments.md). The data conversion and sending of the PEPPOL sales invoice are performed by dedicated codeunits and XMLports.  
+To send, for example, a sales invoice as an electronic PEPPOL document, read this [instruction](finance-how-use-edocuments.md). Dedicated codeunits and XMLports perform the data conversion and send the PEPPOL sales invoice.
 
 To receive, for example, an invoice from a vendor as an electronic PEPPOL document, read the following [instruction](finance-how-use-edocuments-purchase.md). You can either set up the Job Queue feature to process such files regularly or you can start the process manually. For both sales and purchase processes, first, [you must set up](finance-how-setup-edocuments.md) various master data, such as services, company information, vendors, items, and units of measure. These are used to identify the business partners and items when you convert data in elements in the incoming document file to fields in [!INCLUDE[prod_short](includes/prod_short.md)]. The receiving and data conversion of PEPPOL invoices are performed by the Data Exchange Framework.  
 
@@ -8178,7 +8183,7 @@ To receive, for example, an invoice as an electronic OCR document, you process i
 
 ## Bank files
 
-The formats of files for exchanging bank data with business management applications vary depending on the supplier of the file and the country or region. [!INCLUDE[prod_short](includes/prod_short.md)] supports import and export of Single Euro Payments Area (SEPA) bank files. Additionally, the AMC Banking 365 Fundamentals extension lets you connect to a AMC Banking 365 Fundamentals extension provided by an external provider, AMC Consult. For more information, see [Make Payments with the AMC Banking 365 Fundamentals extension or SEPA Credit Transfer](finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer.md). To provide support for other electronic document formats, you use the Data Exchange Framework.  
+The formats of files for exchanging bank data with business management applications vary depending on the supplier of the file and the country or region. [!INCLUDE[prod_short](includes/prod_short.md)] supports import and export of Single Euro Payments Area (SEPA) bank files. Additionally, the AMC Banking 365 Fundamentals extension lets you connect to a AMC Banking 365 Fundamentals extension provided by an external provider, AMC Consult. Learn more in [Make Payments with the AMC Banking 365 Fundamentals extension or SEPA Credit Transfer](finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer.md). To provide support for other electronic document formats, you use the Data Exchange Framework.  
 
 To export SEPA credit transfers, you choose **Export Payments to File** button on the **Payment Journal** page and then upload the file to process the payments in your bank. First you must set up various master data, such as bank account, vendors, and payment methods. The data conversion and export of SEPA bank data is performed by a dedicated codeunit and XMLport, represented by the **SEPA Credit Transfer** bank export/import setup. Alternatively, you can set up the AMC Banking 365 Fundamentals extension to perform the export, represented by the **AMC Banking 365 Fundamentals extension - Credit Transfer** data exchange definition.  
 
@@ -8186,13 +8191,13 @@ To export SEPA credit transfers, you choose **Export Payments to File** button o
 
  To import SEPA bank statements, you choose the Import Bank Statement button in the **Payment Reconciliation Journal** and **Bank Acc. Reconciliation** pages and then you proceed to apply each bank statement entry to payments or bank ledger entries, manually or automatically. First you must set up bank accounts. The import and data conversion of SEPA bank data is performed by the Data Exchange Framework, represented by the **SEPA CAMT** data exchange definition. Alternatively, you can set up the AMC Banking 365 Fundamentals extension to perform the import, represented by the **AMC Banking 365 Fundamentals extension – Bank Statement** data exchange definition.  
 
- In addition, the local versions of [!INCLUDE[prod_short](includes/prod_short.md)] support various other file formats for importing and exporting bank data, payroll transactions, and other data. For more information, see the [Local Functionality](about-localization.md) landing page for your country/region in the Help.  
+ In addition, the local versions of [!INCLUDE[prod_short](includes/prod_short.md)] support various other file formats for importing and exporting bank data, payroll transactions, and other data. Learn more on the [Local Functionality](about-localization.md) landing page for your country/region in the Help.  
 
 ## Currency exchange rates
 
 You can set up an external service to keep your for currency exchange rates up to date. The service that provides updated currency exchange rates is enabled by a data exchange definition. Accordingly, the **Exch. Rate Update Setup Card** page is a condensed view of the **Data Exchange Definition** page for the data exchange definition in question.  
 
-For all exchanges of data in XML files, you can prepare the data exchange setup by loading the related XML schema file on the **XML Schema Viewer** page. Here you select the data elements that you want to exchange with [!INCLUDE[prod_short](includes/prod_short.md)]  and then you either initialize a data exchange definition or generate an XMLport.
+For all exchanges of data in XML files, you can prepare the data exchange setup by loading the related XML schema file on the **XML Schema Viewer** page. Here you select the data elements that you want to exchange with [!INCLUDE[prod_short](includes/prod_short.md)] and then you either initialize a data exchange definition or generate a XMLport.
 
 ## Intrastat
 
@@ -8200,14 +8205,13 @@ For all exchanges of data in XML files, you can prepare the data exchange setup 
 
 ## Related information
 
-[Exchanging Data Electronically](across-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
 [Use XML Schemas to Prepare Data Exchange Definitions](across-how-to-use-xml-schemas-to-prepare-data-exchange-definitions.md)  
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
 [Incoming Documents](across-income-documents.md)  
 [General Business Functionality](ui-across-business-areas.md)  
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
+[!INCLUDE[footer-include](includes/footer-banner.md)]  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-accounting
@@ -10130,18 +10134,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-find-posted-documents-without-income-document-records
 ---
-title: Find Posted Documents without Incoming Documents
-description: You can search for general ledger entries for posted purchase and sales documents that don't have incoming electronic documents, such as imported invoices.
+title: Find posted documents without incoming documents
+description: Search for general ledger entries of posted purchase and sales documents that lack associated incoming electronic documents, such as imported invoices.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
-ms.date: 06/14/2022
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Find Posted Documents without Incoming Document Records
+
+# Find posted documents without incoming document records
 
 From the **Chart of Accounts** and **General Ledger Entries** pages, you can use a search function to find general ledger entries for posted purchase and sales documents that don't have incoming document records and then centrally link to existing records or create new ones with attached document files.
 
@@ -10164,13 +10169,12 @@ If a relevant incoming document record doesn't exist on the **Incoming Documents
 
 ## Related information
 
-[Create Incoming Document Records](across-how-create-income-document-records.md)
-[Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md)
-[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)
+[Create Incoming Document Records](across-how-create-income-document-records.md)  
+[Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md)  
+[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)  
 [Incoming Documents](across-income-documents.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10181,10 +10185,10 @@ title: Power BI apps/reports for functional areas
 description: Get an overview of the landing pages for the Power BI apps available in functional areas in Business Central.
 author: kennienp
 ms.author: kepontop
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: get-started
 ms.search.keywords: feature overview
-ms.date: 11/07/2024
+ms.date: 10/17/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -10201,48 +10205,48 @@ ms.custom: bap-template
 
 [!INCLUDE [power-bi-finance-app](includes/power-bi-finance-app.md)]
 
-To learn more, go to [Power BI finance app](finance-powerbi-app.md).
+Learn more in [Power BI finance app](finance-powerbi-app.md).
 
 ## Reports in the [!INCLUDE [power-bi-sales-app-name](includes/power-bi-sales-app-name.md)]
 
 [!INCLUDE [power-bi-sales-app](includes/power-bi-sales-app.md)]
 
-To learn more, go to [Power BI sales app](sales-powerbi-app.md).
+Learn more in [Power BI sales app](sales-powerbi-app.md).
 
 ## Reports in the [!INCLUDE [power-bi-purchasing-app-name](includes/power-bi-purchasing-app-name.md)]
 
 [!INCLUDE [power-bi-purchasing-app](includes/power-bi-purchasing-app.md)]
 
-To learn more, go to [Power BI Purchasing app](purchases-powerbi-app.md).
+Learn more in [Power BI Purchasing app](purchases-powerbi-app.md).
 
 ## Reports in the Power BI Inventory app
 
 [!INCLUDE [power-bi-inventory-app](includes/power-bi-inventory-app.md)]
 
-To learn more, go to [Power BI Inventory app](inventory-powerbi-app.md).
+Learn more in [Power BI Inventory app](inventory-powerbi-app.md).
 
 ## Reports in the Power BI Inventory Valuation app
 
 [!INCLUDE [power-bi-inventory-valuation-app](includes/power-bi-inventory-valuation-app.md)]
 
-To learn more, go to [Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md).
+Learn more in [Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md).
 
 ## Reports in the Power BI Projects app
 
 [!INCLUDE [power-bi-projects-app](includes/power-bi-projects-app.md)]
 
-To learn more, go to [Power BI Projects app](projects-powerbi-app.md).
+Learn more in [Power BI Projects app](projects-powerbi-app.md).
 
 ## Reports in the Power BI Manufacturing app
 
 [!INCLUDE [power-bi-manufacturing-app](includes/power-bi-manufacturing-app.md)]
 
-For more information, see [Power BI Manufacturing app](manufacturing-powerbi-app.md).
+Learn more in [Power BI Manufacturing app](manufacturing-powerbi-app.md).
 
 ## Related information
 
-[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
-[Power BI apps FAQ](across-powerbi-apps-faq.md)   
+[Install Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
+[Power BI apps FAQ](across-powerbi-apps-faq.md)  
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Introduction to Business Central and Power BI](admin-powerbi.md)  
 [Work with Power BI reports](across-working-with-powerbi.md)  
@@ -10346,16 +10350,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-archive-documents
 ---
 title: Archive sales, purchase, project, and service documents
-description: You can archive orders, quotes, return orders, and blanket orders.
+description: Archive sales, purchase, project, and service documents such as orders, quotes, return orders, and blanket orders.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 10/15/2025
 ms.custom: bap-template
 ms.search.form: 42, 49, 50, 459, 460, 5159, 5162, 5164, 5167, 6627, 6630, 6644, 9305, 9306, 9346, 9347, 9348, 9349
 ms.service: dynamics-365-business-central
 ---
+
 # Archive documents
 
 You can archive sales, purchase, and service orders, quotes, return orders, and blanket orders. If you're using Project Management features, you can also archive your projects. You can archive documents and projects several times. A different archived version saves each time.
@@ -10418,7 +10423,7 @@ The contents of the original sales order or project are replaced with the archiv
 
 ## To delete archived versions
 
-Use a retention policy to clean up archived versions that you no longer need. Retention policies let administrators define how long they want to store data. For example, they can set up a policy that deletes data after an expiration date. To learn more, go to [Define Retention Policies](admin-data-retention-policies.md).
+Use a retention policy to clean up archived versions that you no longer need. Retention policies let administrators define how long they want to store data. For example, they can set up a policy that deletes data after an expiration date. Learn more in [Define Retention Policies](admin-data-retention-policies.md).
 
 There are a few things to note about creating retention policies for archived documents and projects:
 
@@ -10431,7 +10436,7 @@ There are a few things to note about creating retention policies for archived do
 [Track Document Lines](across-how-to-track-document-lines.md)  
 [Sales](sales-manage-sales.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11677,19 +11682,20 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-powerbi-business-central-apps
 ---
 title: Use the Business Central apps in Power BI
-description: Getting insight, business intelligence, and KPIs from your Business Central data is easy with the Business Central apps for Power BI.
+description: Easily gain insights, business intelligence, and KPIs from your Business Central data using the Business Central apps for Power BI.
 author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 09/07/2023
+ms.date: 10/17/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
+
 # Use the [!INCLUDE [prod_short](includes/prod_short.md)] apps in Power BI
 
-> **APPLIES TO:** [!INCLUDE [prod_long](includes/prod_long.md)] online 
+> **APPLIES TO:** [!INCLUDE [prod_long](includes/prod_long.md)] online
 
 [!INCLUDE [prod_long](includes/prod_long.md)] publishes the following Power BI apps, which provide detailed dashboards for viewing data:
 
@@ -11704,25 +11710,25 @@ Each app includes several reports that you can drill into for data, including th
 - Choose any visual on the dashboard to bring up one of the underlying reports.  
 - Filter the report or add fields that you want to monitor.  
 - Pin a customized view to the dashboard to continue tracking.  
-  You can refresh data manually, and you can set up a refresh schedule. For more information, see [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).  
+  You can refresh data manually, and you can set up a refresh schedule. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).  
 
 The apps are designed to work with data from any company in [!INCLUDE[prod_short](includes/prod_short.md)]. When you install the Power BI app, you specify one or more parameters to connect to your [!INCLUDE [prod_short](includes/prod_short.md)].  
 
 > [!NOTE]
-> You can also build your own reports and dashboards in Power BI based on your [!INCLUDE[prod_short](includes/prod_short.md)] data. For more information, see [Connecting Your Business Data to Power BI](across-how-use-financials-data-source-powerbi.md). 
+> You can also build your own reports and dashboards in Power BI based on your [!INCLUDE[prod_short](includes/prod_short.md)] data. Learn more in [Connecting Your Business Data to Power BI](across-how-use-financials-data-source-powerbi.md).
 
 ## Prerequisites
 
 Power BI apps require permissions to the tables where data is retrieved and the web services used to retrieve data. The following table lists the web services required for each Power BI app:
-    
+
 |App|Web services |
 |--|-------------|
 |[!INCLUDE[prod_short](includes/prod_short.md)] – CRM| <ul><li>Sales Opportunities</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
 |[!INCLUDE[prod_short](includes/prod_short.md)] – Finance| <ul><li>PowerBIFinance</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
 |[!INCLUDE[prod_short](includes/prod_short.md)] – Sales| <ul><li>Item Sales by Customer</li><li>Sales Dashboard</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
 
-> [!TIP] 
-> An easy way to find the web services is to search for *web services* in [!INCLUDE[prod_short](includes/prod_short.md)]. In the **Web Services** page, make sure that the **Publish** field is selected for the web services listed above. For more information, see [Publishing a Web Service](across-how-publish-web-service.md).
+> [!TIP]
+> An easy way to find the web services is to search for *web services* in [!INCLUDE[prod_short](includes/prod_short.md)]. In the **Web Services** page, make sure that the **Publish** field is selected for the web services listed above. Learn more in [Publishing a Web Service](across-how-publish-web-service.md).
 
 ## Get ready
 
@@ -11732,29 +11738,29 @@ Sign up for the Power BI service. If you haven't already signed up, go to [https
 
 1. Open your browser, navigate to [https://powerbi.microsoft.com](https://powerbi.microsoft.com), and sign in to your account.
 2. Select **Apps** on the navigation pane.
-    
+
     The **Apps** page appears.
 
 3. On the **Apps** page, select **Get apps** from the upper right corner of the page.
-    
+
     The **Power BI apps** page opens, where you can browse for the apps that are available for [!INCLUDE[prod_short](includes/prod_short.md)].
 
     ![Navigating to Get apps.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-get-data.png)
 
-> [!TIP] 
-> You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft AppSource will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
+    > [!TIP]
+    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft AppSource will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
 
-5. In the **Search** box, enter **Dynamics 365 Business Central**.
-6. Select app that you want to use, select **Get it now**, and then **Install**.  
+4. In the **Search** box, enter **Dynamics 365 Business Central**.
+5. Select app that you want to use, select **Get it now**, and then **Install**.  
 
-    When completed, the app will be available from **Apps** on the navigation menu in Power BI.
+    When completed, the app is available from **Apps** on the navigation menu in Power BI.
 
 ## Connect the [!INCLUDE[prod_short](includes/prod_short.md)] app to your data
 
 1. Under **Apps**, select the Business Central app, then **Connect**.
 2. When prompted, fill in the **Company Name** and **Environment** with information about the [!INCLUDE[prod_short](includes/prod_short.md)] instance that you want to connect to.
 
-    - For **Company Name**, make sure to use the full name, not the display name. You can find the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)]. 
+    - For **Company Name**, make sure to use the full name, not the display name. You can find the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
     - For **Environment**, if you haven't created multiple environments, enter **Production**.
 
 3. Select **Next**.
@@ -11764,7 +11770,7 @@ Sign up for the Power BI service. If you haven't already signed up, go to [https
 
     ![Select Dynamics 365 Business Central  and select Get it now.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-workspace-dashboard-report-dataset.png)
 
-## Fixing problems
+## Fix problems
 
 The Power BI dashboard relies on the published web services that are listed above. It shows data from the demonstration company or your own company if you import data from your current finance solution. However, if something goes wrong, this section provides a workaround for the most typical issues.  
 
@@ -11772,13 +11778,13 @@ The Power BI dashboard relies on the published web services that are listed abov
 
 A Power BI account hasn't been set up. You must have a license to get a valid Power BI account. Also, you must have previously signed into Power BI to create your Power BI workspace.  
 
-### Message: There are no enabled reports. Select report to see a list of reports that you can display.
+### Message: There are no enabled reports. Select report to see a list of reports that you can display
 
 This message appears if the default report failed to deploy to your Power BI workspace. Or the report deployed but didn't successfully refresh. If this problem happens, navigate to the report in your Power BI workspace, select **Dataset**, **Settings**, and then manually update the credentials. Once the dataset successfully refreshes, navigate back to [!INCLUDE[prod_short](includes/prod_short.md)] and manually select the report from the **Select Reports** page.
 
 ### You need a Power BI Pro license to install the [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
 
-You need a [Power BI Pro license](/power-bi/service-features-license-type) to share your content, and the people you share it with do too. The content must be in a workspace in a [Premium capacity](/power-bi/service-premium-what-is). For more information, see [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).  
+You need a [Power BI Pro license](/power-bi/service-features-license-type) to share your content, and the people you share it with do too. The content must be in a workspace in a [Premium capacity](/power-bi/service-premium-what-is). Learn more in [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).  
 
 ### "Parameter validation failed, please make sure all parameters are valid"
 
@@ -11822,14 +11828,14 @@ The Power BI app will only display data from the [!INCLUDE[prod_short](includes/
 - Try [asking a question in the Q&A box](/power-bi/service-q-and-a-tips) at the top of the dashboard.
 - [Change the tiles](/power-bi/service-dashboard-edit-tile) in the dashboard.  
 - [Select a tile](/power-bi/service-dashboard-tiles) to open the underlying report.  
-- By default, your dataset isn't scheduled to refresh. You can change the refresh schedule or try refreshing it on demand using **Refresh Now**. For more information, see [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).
+- By default, your dataset isn't scheduled to refresh. You can change the refresh schedule or try refreshing it on demand using **Refresh Now**. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).
 
 ## Related information
 
 [Business Central and Power BI](admin-powerbi.md)  
 [Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
 [Connect to Power BI from [!INCLUDE [prod_short](includes/prod_short.md)] on-premises](across-working-with-business-central-in-powerbi.md)  
-[Building Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
+[Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
 [Business Intelligence](bi.md)  
 [Get Ready for Doing Business](ui-get-ready-business.md)  
 [Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
@@ -11842,7 +11848,6 @@ The Power BI app will only display data from the [!INCLUDE[prod_short](includes/
 [Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
 [Introduction to datamarts](/power-bi/transform-model/datamarts/datamarts-overview)  
 [Introduction to dataflows and self-service data prep](/power-bi/transform-model/dataflows/dataflows-introduction-self-service)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -12283,16 +12288,15 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-install-app-for-teams
 ---
 title: Install the Business Central app in Microsoft Teams
-description: How to install the Business Central app for Microsoft Teams.
+description: Learn how to install the Business Central app for Microsoft Teams using different methods.
 author: jswymer
-
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: Teams, MS Teams, Microsoft Teams, Skype, Link, Microsoft 365, collaborate, collaboration, teamwork
-ms.date: 04/12/2021
+ms.date: 10/16/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
 
 # Install the [!INCLUDE [prod_short](includes/prod_short.md)] App for Microsoft Teams
@@ -12302,13 +12306,13 @@ ms.reviewer: jswymer
 In this article, you learn how to install the [!INCLUDE [prod_short](includes/prod_short.md)] App for [Microsoft Teams](https://www.microsoft.com/microsoft-teams/). The app is available on the Teams marketplace, and you can use it with the Teams web, desktop, or mobile app.
 
 > [!NOTE]
-> Your administrator may have set things up so that the app is automatically installed for you. To check whether the app is installed, open Teams, then choose **Apps**. Search for **Business Central**, then choose it when you find it. If you see **Open** on the **Business Central** page, the app is already installed.  
+> Your administrator may have set up things so that the app is automatically installed for you. To check whether the app is installed, open Teams, then choose **Apps**. Search for **Business Central**, then choose it when you find it. If you see **Open** on the **Business Central** page, the app is already installed.  
 
 ## Prerequisites
 
 - A [!INCLUDE [prod_short](includes/prod_short.md)] online user account is required for [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams.
 
-    If you’re not sure whether you have an account, or if you don’t know your credentials for signing in, contact your company administrator to help you get started.
+  If you’re not sure whether you have an account, or if you don’t know your credentials for signing in, contact your company administrator to help you get started.
 
 - Access to the Teams desktop app or Teams in the browser. You can't install the [!INCLUDE [prod_short](includes/prod_short.md)] by using Teams mobile app.
 
@@ -12339,12 +12343,12 @@ This option is the quickest way to install the app.
 5. Choose **Add**.
 
 > [!TIP]
-> If you paste a link to a Business Central page into a Team conversation, and you don't have the app installed, you'll get a message like: **Business Central wants to show a preview of this link.** To install the app, select **Show Preview** and follow the instructions.
+> If you paste a link to a Business Central page into a Team conversation, and you don't have the app installed, you get a message like: **Business Central wants to show a preview of this link.** To install the app, select **Show Preview** and follow the instructions.
 
 **Option 3: From Business Central**
 
 1. Open Business Central.
-2. Choose the ![Magnifying glass that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Get the Business Central app for Teams**, and then choose the related link.  
+2. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Get the Business Central app for Teams**, and then choose the related link.  
 3. Choose **Get the app from store**.
 4. Wait for Teams to open and the Business Central app to appear, then choose **Add**.
 
@@ -12353,19 +12357,17 @@ This option is the quickest way to install the app.
 
 ## Next step
 
-You're now ready to use the app in Teams to search for contacts or share Business Central records. For more information, see [Searching for Customers, Vendors, and Other Contacts from Microsoft Teams](across-search-contacts-teams.md) or [Share Records in Microsoft Teams](across-working-with-teams.md).
+You're now ready to use the app in Teams to search for contacts or share Business Central records. Learn more in [Searching for Customers, Vendors, and Other Contacts from Microsoft Teams](across-search-contacts-teams.md) or [Share Records in Microsoft Teams](across-working-with-teams.md).
 
 ## Related information
 
 [Business Central and Microsoft Teams Integration Overview](across-teams-overview.md)  
 [Teams FAQ](teams-faq.md)  
-[Troubleshooting Teams](admin-teams-troubleshooting.md)  
-[Changing Company and Other Settings in Teams](across-teams-settings.md)  
-[Developing for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
-
+[Troubleshoot Teams](admin-teams-troubleshooting.md)  
+[Change Company and Other Settings in Teams](across-teams-settings.md)  
+[Develop for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
@@ -13057,18 +13059,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-enable-workflows
 ---
-title: How to Enable Approval Workflows
-description: When you've created a workflow and are sure that it's ready to start, you must enable the workflow.
+title: How to enable approval workflows
+description: After creating a workflow and confirming it is ready, you must enable it to begin using the workflow.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 09/08/2022
+ms.search.keywords: approval workflow, enable workflow, enable approval workflow
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Enable Approval Workflows
+
+# Enable approval workflows
 
 When you've created an approval workflow and you're sure it's good to go, you must enable it.  
 
@@ -13086,7 +13089,7 @@ On the **Workflow** page, create a workflow by listing the involved steps on the
 [Use Approval Workflows](across-use-workflows.md)  
 [View Archived Workflow Step Instances](across-how-to-view-archived-workflow-step-instances.md)  
 [Delete Approval Workflows](across-how-to-delete-workflows.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
 [Workflow](across-workflow.md)  
 
@@ -13976,14 +13979,15 @@ author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 05/19/2025
+ms.date: 10/23/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
+
 # Work with [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)]
 
-This article helps you learn some of the basics about working with reports. Learn about viewing [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)] (including scorecards and dashboards) and editing [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports that use [!INCLUDE [prod_short](includes/prod_short.md)] as a data source. The article discusses some aspects that help you get started as a [!INCLUDE[prod_short](includes/prod_short.md)] user. To learn more about general guidelines and instructions about using Power BI, go to [Power BI documentation for consumers](/power-bi/consumer).
+This article helps you learn some of the basics about working with reports. Learn about viewing [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)] (including scorecards and dashboards) and editing [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports that use [!INCLUDE [prod_short](includes/prod_short.md)] as a data source. The article discusses some aspects that help you get started as a [!INCLUDE[prod_short](includes/prod_short.md)] user. Learn more about general guidelines and instructions about using Power BI in [Power BI documentation for consumers](/power-bi/consumer).
 
 ## Overview
 
@@ -14034,8 +14038,7 @@ The connection process starts. During the process, [!INCLUDE [prod_short](includ
 
 [!INCLUDE [powerbi-apps-overview-table](includes/powerbi-apps-overview-table.md)]
 
-The [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps are free to install and use. The only requirement is that users must have a paid Power BI license. To learn more, go to [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md).
-
+The [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps are free to install and use. The only requirement is that users must have a paid Power BI license. Learn more in [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md).
 
 <!--#### From [!INCLUDE [prod_short](includes/prod_short.md)] on-premises
 
@@ -14063,7 +14066,7 @@ Learn more in [Configure scheduled refresh](/power-bi/connect-data/refresh-sched
 
 [!INCLUDE[prod_long](includes/prod_long.md)] includes a Power BI FactBox on several key list pages. This FactBox provides extra insight into the data in the list. As you move between rows in the list, the report is updated and filtered for the selected entry.
 
-To learn more about how to create reports for list pages, go to [Creating [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for Displaying List Data in [!INCLUDE[prod_short](includes/prod_short.md)]](across-how-use-powerbi-reports-factbox.md).
+Learn more about how to create reports for list pages in [Creating [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for Displaying List Data in [!INCLUDE[prod_short](includes/prod_short.md)]](across-how-use-powerbi-reports-factbox.md).
 
 > [!TIP]
 > If the Power BI FactBox isn't available, it might be hidden on your workspace by personalization. Select the ![Settings.](media/ui-experience/settings_icon_small.png "Settings icon for role center") icon, and then select **Personalize** action. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
@@ -14113,7 +14116,7 @@ After the report uploads to your Power BI workspace, it automatically uploads to
 [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports can be distributed among users as .pbix files. If you have a .pbix file, you can upload the file to a workspace. To upload a report, do the following steps:
 
 1. In your new workspace, select **Get Data**.
-1. In the Files box, select **Get**.
+2. In the Files box, select **Get**.
 
 3. Select **Local File**, navigate to where you saved the file, and select **Open**.
 
@@ -14135,7 +14138,7 @@ To share a report, in a list reports, or in an open report, select **Share**. In
 > [!NOTE]
 > Sharing requires that both you and the people you're sharing the report with have [Power BI Pro license](/power-bi/service-features-license-type). Otherwise, the content must be in [Premium capacity](/power-bi/service-premium-what-is). Learn more in [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).
 
-## Fixing problems
+## Fix problems
 
 However, if something goes wrong, this section provides a workaround for the most typical issues.  
 
@@ -14143,7 +14146,7 @@ However, if something goes wrong, this section provides a workaround for the mos
 
 A [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account isn't set up for you. To get a valid [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account, you must have a license, and you must have signed in to Power BI before to create a Power BI workspace.
 
-### Message: There are no enabled reports. Choose Select Report to see a list of reports that you can display.
+### Message: There are no enabled reports. Choose Select Report to see a list of reports that you can display
 
 This message appears if the default report failed to deploy to your Power BI workspace. Or it deployed but didn't refresh successfully. Navigate to the report in your Power BI workspace, select **Dataset**, **Settings**, and then manually update the credentials. Once the dataset successfully refreshes, navigate back to [!INCLUDE[prod_short](includes/prod_short.md)], and manually select the report from the **Select Reports** page.
 
@@ -14154,7 +14157,7 @@ It's probably because the report's name doesn't contain the name of the list pag
 ## Related information
 
 [Business Central and Power BI](admin-powerbi.md)  
-[Building [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
+[Build [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
 [Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
 [Connect to Power BI from [!INCLUDE [prod_short](includes/prod_short.md)] on-premises](across-working-with-business-central-in-powerbi.md)  
 [Power BI for consumers](/power-bi/consumer/end-user-consumer)  
@@ -14162,9 +14165,9 @@ It's probably because the report's name doesn't contain the name of the list pag
 [Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
 [Power BI documentation](/power-bi/)  
 [Business Intelligence](bi.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Setting Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
 [Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerapps.md)  
 [Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power Apps Data Source](across-how-use-financials-data-source-powerapps.md)  
 [Use [!INCLUDE[prod_short](includes/prod_short.md)] in Power Automate](across-how-use-financials-data-source-flow.md)  
@@ -17406,36 +17409,36 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-set-up-electronic-document-sending-and-receiving
 ---
-title: How to Set Up Electronic Document Sending and Receiving | Microsoft Docs
-description: As an alternative to emailing as file attachments, you can send and receive business documents electronically.
+title: How to set up electronic document sending and receiving | Microsoft Docs
+description: Send and receive business documents electronically, providing an alternative to emailing file attachments.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 04/01/2021
+ms.search.keywords: electronic document, e-document, edocuments
+ms.date: 10/16/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up Electronic Document Sending and Receiving
+
+# Set up electronic document sending and receiving
 
 > [!NOTE]
-> The content in this article is only applicable for versions of Dynamics 365 Business Central that were released before 2023 release wave 2. In 2023 release wave 2, new functionality for E-Documents is included. To learn more, see [Set up e-documents](finance-how-setup-edocuments.md). 
-
+> The content in this article is only applicable for versions of Dynamics 365 Business Central that were released before 2023 release wave 2. In 2023 release wave 2, new functionality for E-Documents is included. Learn more in [Set up e-documents](finance-how-setup-edocuments.md).
 
 As an alternative to emailing as file attachments, you can send and receive business documents electronically. By electronic document is meant a standard\-compliant file representing a business document, such as an invoice from a vendor that can be received and converted to a purchase invoice in [!INCLUDE[prod_short](includes/prod_short.md)]. The exchange of electronic documents between two trading partners is performed by an external provider of document exchange services. The generic version of [!INCLUDE[prod_short](includes/prod_short.md)] supports sending and receiving electronic invoices and credit memos in the PEPPOL format, which is supported by the largest providers of document exchange services. A major provider of document exchange services is preconfigured and ready to be set up for your company.  
 
 From PDF or image files representing incoming documents, you can have an external OCR service (Optical Character Recognition) create electronic documents that you can then convert to document records in [!INCLUDE[prod_short](includes/prod_short.md)], like for electronic PEPPOL documents. For example, when you receive an invoice in PDF format from your vendor, you can send it to the OCR service from the **Incoming Documents** page. After a few seconds, you receive the file back as an electronic invoice that can be converted to a purchase invoice for the vendor. If you send the file to the OCR service by email, then a new incoming document record is automatically created when you receive the electronic document back.  
 
-The **PEPPOL** electronic document format is preconfigured to enable you to send electronic invoices and credit memos in the PEPPOL format. First, you must set up various master data, such as company information, customers, items, and units of measure. These are used to identify the business partners and items when converting data in fields in [!INCLUDE[prod_short](includes/prod_short.md)] to elements in the outgoing document file. Last, you must select the format on the **Electronic Document Format** page for each customer who you will send electronic PEPPOL documents to. For more information, see [Send Electronic Documents](sales-how-to-send-electronic-documents.md).  
+The **PEPPOL** electronic document format is preconfigured to enable you to send electronic invoices and credit memos in the PEPPOL format. First, you must set up various master data, such as company information, customers, items, and units of measure. These are used to identify the business partners and items when converting data in fields in [!INCLUDE[prod_short](includes/prod_short.md)] to elements in the outgoing document file. Last, you must select the format on the **Electronic Document Format** page for each customer who you will send electronic PEPPOL documents to. Learn more in [Send Electronic Documents](sales-how-to-send-electronic-documents.md).  
 
 The **PEPPOL – Invoice** and **PEPPOL – Credit Memo** data exchange definitions are preconfigured to enable you to receive electronic invoices and credit memos in the PEPPOL format. First, you must set up various master data, such as company information, vendors, items, and units of measure. These are used to identify the business partners and items when converting data in elements in the incoming document file to fields in [!INCLUDE[prod_short](includes/prod_short.md)]. Last, you must select the data exchange definition on the **Incoming Documents** page for each incoming electronic document that you want to convert to a purchase document in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-The **OCR – Invoice** data exchange definition is preconfigured to enable you to receive electronic documents that are generated by the OCR service. To receive, for example, an invoice as an electronic OCR document, you set up master date and then process the document just as when receiving an electronic PEPPOL document. For more information, see [Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md).  
+The **OCR – Invoice** data exchange definition is preconfigured to enable you to receive electronic documents that are generated by the OCR service. To receive, for example, an invoice as an electronic OCR document, you set up master date and then process the document just as when receiving an electronic PEPPOL document. Learn more in [Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md).  
 
-The preconfigured services for document exchange and OCR must be enabled before you send or receive. For more information, see [Set Up a Document Exchange Service](across-how-to-set-up-a-document-exchange-service.md).  
+The preconfigured services for document exchange and OCR must be enabled before you send or receive. Learn more in [Set Up a Document Exchange Service](across-how-to-set-up-a-document-exchange-service.md).  
 
-The topic contains the following procedures:  
+The article contains the following procedures:  
 
 * To set up the company for electronic document sending and receiving  
 * To set up VAT posting for electronic document sending and receiving  
@@ -17462,7 +17465,7 @@ The topic contains the following procedures:
 ### To set up VAT posting for electronic document sending and receiving
 
 1. In the **Search** box, enter **VAT Posting Setup**, and then choose the related link.  
-2. For each VAT posting setup line that you will use for electronic documents, fill the field as described in the following table.  
+2. For each VAT posting setup line that you'll use for electronic documents, fill the field as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
@@ -17471,11 +17474,11 @@ The topic contains the following procedures:
 ### To set up countries/regions for electronic document sending and receiving
 
 1. In the **Search** box, enter **Country/Regions**, and then choose the related link.  
-2. For each country/region that you will exchange electronic documents with, fill the field as described in the following table.  
+2. For each country/region that you'll exchange electronic documents with, fill the field as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
-    |**VAT Scheme**|Identify the national body that issues the VAT registration number for the country\/region in connection with electronic document sending.<br /><br /> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **SchemeID** attribute for the **EndPointID** element under both the **AccountingSupplierParty** node and the **AccountingCustomerParty** in the file.<br /><br /> The **VAT Scheme** field is only used if the **GLN** field on the **Company Information** page is not filled. **Note:**  The value in the **Code** field on the **Countries\/Regions** page must comply with ISO 3166\-1:Alpha2.|  
+    |**VAT Scheme**|Identify the national body that issues the VAT registration number for the country\/region with electronic document sending.<br /><br /> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **SchemeID** attribute for the **EndPointID** element under both the **AccountingSupplierParty** node and the **AccountingCustomerParty** in the file.<br /><br /> The **VAT Scheme** field is only used if the **GLN** field on the **Company Information** page isn't filled. **Note:**  The value in the **Code** field on the **Countries\/Regions** page must comply with ISO 3166\-1:Alpha2.|  
 
 ### To set up items for electronic document sending and receiving
 
@@ -17484,16 +17487,16 @@ The topic contains the following procedures:
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
-    |**GTIN**|Identifies the item in connection with electronic document sending and receiving. For the PEPPOL format, the field is used as follows:<br /><br /> If the **StandardItemIdentification\/ID** element has the **SchemeID** attribute set to **GTIN**, then the element is mapped to the **GTIN** field on the item card.|  
+    |**GTIN**|Identifies the item with electronic document sending and receiving. For the PEPPOL format, the field is used as follows:<br /><br /> If the **StandardItemIdentification\/ID** element has the **SchemeID** attribute set to **GTIN**, then the element is mapped to the **GTIN** field on the item card.|  
 
 ### To set up units of measure for electronic document sending and receiving
 
 1. In the **Search** box, enter **Units of Measure**, and then choose the related link.  
-2. For each unit of measure that you will use for items on electronic documents, fill the field as described in the following table.  
+2. For each unit of measure that you'll use for items on electronic documents, fill the field as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
-    |**International Standard Code**|Specify the unit of measure code expressed according to the UNECERec20 standard in connection with sending of electronic documents.<br /><br /> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **unitCode** attribute of the **InvoicedQuantity** element under the **InvoiceLine** node. **Note:**  If the **Unit of Measure** field on the sales line is empty, the UNECERe20 standard value for "Piece" \(H87\) is inserted by default. For more information and a list of valid unit of measure codes, see [Recommendation No. 20 \- Units of Measure used in International Trade](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex2e.pdf).|  
+    |**International Standard Code**|Specify the unit of measure code expressed according to the UNECERec20 standard with sending of electronic documents.<br /><br /> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **unitCode** attribute of the **InvoicedQuantity** element under the **InvoiceLine** node. **Note:**  If the **Unit of Measure** field on the sales line is empty, the UNECERe20 standard value for "Piece" \(H87\) is inserted by default. Learn more and find a comprehensive list of valid unit of measure codes by visiting [Recommendation No. 20 \- Units of Measure used in International Trade](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex2e.pdf).|  
 
 ### To set up customers for electronic document sending
 
@@ -17502,28 +17505,30 @@ The topic contains the following procedures:
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
-    |**GLN**|Identify the customer.<br /><br /> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **EndPointID** element under the **AccountingCustomerParty** node in the file. The number is based on the GS1 standard, which is compliant with ISO 6523.<br /><br /> If the **GLN** field is blank, the value in the **VAT Registration No.** field is used.|  
+    |**GLN**|Identify the customer.<br/><br/> For example, when you send electronic invoices in the PEPPOL format, the value in this field is used to populate the **EndPointID** element under the **AccountingCustomerParty** node in the file. The number is based on the GS1 standard, which is compliant with ISO 6523.<br/><br/> If the **GLN** field is blank, the value in the **VAT Registration No.** field is used.|  
     |**VAT Registration No.**|Specify the customer's VAT registration number. **Tip:** In supported localized versions, choose the DrillDown button to use the web service that verifies if the number exists in the national company register.|  
     |**Responsibility Center**|If the customer is set up with a responsibility center, make sure that the **Country/Region Code** field is filled.|  
 
-    You can set up each customer with a preferred method of sending business documents, so that you do not have to select a sending option every time that you send a document to the customer. For more information, see [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
+    You can set up each customer with a preferred method of sending business documents, so that you don't have to select a sending option every time that you send a document to the customer. Learn more in [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
 
-### To select the PEPPOL electronic document format for electronic document sending  
-1. In the **Search** box, enter **Document Sending Profiles**, and then choose the related link.  
-2. Open an existing document sending profile, or create a new one. For more information, see [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
+### To select the PEPPOL electronic document format for electronic document sending
+
+1. In the **Search** box, enter **Document Sending Profiles**, and then choose the related link.
+2. Open an existing document sending profile, or create a new one. Learn more in [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
 3. On the **Document Sending Profile** page, choose the **Electronic Format**, select the line for PEPPOL, and then choose **OK**.  
 4. In the **Electronic Document** field, select **Yes (Through Document Exchange Service)**.  
 
     > [!NOTE]  
-    >  [!INCLUDE[prod_short](includes/prod_short.md)] automatically detects if the document is an invoice or a credit memo and applies the PEPPOL format accordingly.  
+    > [!INCLUDE[prod_short](includes/prod_short.md)] automatically detects if the document is an invoice or a credit memo and applies the PEPPOL format accordingly.  
 
-5. To make this document sending profile apply to all customers, select the **Default** check box on the **General** FastTab. To make it apply to specific customers only, fill the **Document Sending Profile** field on the customer cards in question. For more information, see [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
+5. To make this document sending profile apply to all customers, select the **Default** check box on the **General** FastTab. To make it apply to specific customers only, fill the **Document Sending Profile** field on the customer cards in question. Learn more in [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).  
 
-    You can now send the electronic document containing the converted data. For more information, see [Send Electronic Documents](sales-how-to-send-electronic-documents.md).  
+    You can now send the electronic document containing the converted data. Learn more in [Send Electronic Documents](sales-how-to-send-electronic-documents.md).  
 
-### To set up vendors for electronic document receiving  
+### To set up vendors for electronic document receiving
+
 1. In the **Search** box, enter **Vendors**, and then choose the related link.  
-2. For each vendor that you will receive electronic documents from, fill the fields as described in the following table.  
+2. For each vendor that you receive electronic documents from, fill the fields as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
@@ -17531,27 +17536,29 @@ The topic contains the following procedures:
     |**VAT Registration No.**|Specify the vendor's VAT registration number. **Tip:** In supported localized versions, choose the DrillDown button to use the web service that verifies if the number exists in the national company register.|  
     |**Responsibility Center**|If the vendor is set up with a responsibility center, make sure that the **Country/Region Code** field is filled.|  
 
-### To select the PEPPOL - Invoice data exchange definition for electronic document receiving  
+### To select the PEPPOL - Invoice data exchange definition for electronic document receiving
+
 1. In the **Search** box, enter **Incoming Documents**, and then choose the related link.  
 2. On the line for the electronic document that you want to receive and convert, choose the **Data Exchange Type** field, and then select **PEPPOLINVOICE**.  
 
      If the document to receive is a credit memo, select **PEPPOLCREDITMEMO**.  
 
-    You can now receive the electronic document by starting the data conversion process on the **Incoming Documents** page. For more information, see [Receive and Convert Electronic Documents](purchasing-how-to-receive-and-convert-electronic-documents.md).  
+    You can now receive the electronic document by starting the data conversion process on the **Incoming Documents** page. Learn more in [Receive and Convert Electronic Documents](purchasing-how-to-receive-and-convert-electronic-documents.md).  
 
-### To set up the G/L account to use on new purchase invoice lines for non-identifiable items and non-items  
+### To set up the G/L account to use on new purchase invoice lines for non-identifiable items and non-items
+
 1. In the **Search** box, enter **Purchases & Payables Setup**, and then choose the related link.  
 2. On the **Default Accounts** FastTab, fill the field as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
-    |**G/L Account for Non-Item Lines**|Specifies the G/L account that is automatically inserted on purchase lines that are created from electronic documents when the incoming document line does not contain an identifiable item. Any incoming document line that does not have a GTIN or the vendor's item number will be converted to a purchase line of type **G/L Account**, and the **No.** field on the purchase line will contain the account that you select in the **G/L Account for Non-Item Lines** field.<br /><br /> If you leave the **G/L Account for Non-Item Lines** field blank, and the incoming document has lines without identifiable items, then the purchase document will not be created. An error message will instruct you to fill the **G/L Account for Non-Item Lines** field before you can complete the task.|  
+    |**G/L Account for Non-Item Lines**|Specifies the G/L account that is automatically inserted on purchase lines that are created from electronic documents when the incoming document line doesn't contain an identifiable item. Any incoming document line that doesn't have a GTIN or the vendor's item number will be converted to a purchase line of type **G/L Account**, and the **No.** field on the purchase line will contain the account that you select in the **G/L Account for Non-Item Lines** field.<br /><br /> If you leave the **G/L Account for Non-Item Lines** field blank, and the incoming document has lines without identifiable items, then the purchase document isn't created. An error message instructs you to fill the **G/L Account for Non-Item Lines** field before you can complete the task.|  
 
-## Related information  
-[Exchanging Data Electronically](across-data-exchange.md)   
-[Invoice Sales](sales-how-invoice-sales.md)   
-[Record Purchases](purchasing-how-record-purchases.md)
+## Related information
 
+[Exchange Data Electronically](across-data-exchange.md)  
+[Invoice Sales](sales-how-invoice-sales.md)  
+[Record Purchases](purchasing-how-record-purchases.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -18305,14 +18312,15 @@ title: Approve or reject documents in workflows
 description: Request, reject, or delegate an approval of, for example, a purchase or sales document, as part of a workflow.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords: reject, delegate, request
-ms.search.form: 654, 662, 1500, 
-ms.date: 06/10/2025
+ms.search.keywords: reject, delegate, request, approval, approval workflows, record approval, approval requests
+ms.search.form: 654, 662, 1500
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # How to use approval workflows
 
 When someone must approve a record, such as a new purchase document or customer, you can send an approval request as part of a workflow. Based on how you set up the workflow, the appropriate approver is notified that the record requires their approval.
@@ -18401,9 +18409,9 @@ author: kennieNP
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: analysis, reporting, business intelligence, KPI, installation, administration
-ms.date: 06/11/2025
+ms.date: 10/17/2025
 ms.author: kepontop
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -18427,18 +18435,18 @@ To install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUD
 
 - Entitlements/permissions in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] to:
 
-    - Install template apps from AppSource.
-    - Use shared workspaces.
+  - Install template apps from AppSource.
+  - Use shared workspaces.
 
 The prerequisites for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] can be met with a [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] license for the following users:
 
-   - The user who installs the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app.
-   - The user who refreshes the data.
-   - Each user who accesses the reports, either in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] service or embedded in [!INCLUDE [prod_short](includes/prod_short.md)].
+- The user who installs the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app.
+- The user who refreshes the data.
+- Each user who accesses the reports, either in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] service or embedded in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 An alternative to using [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] licenses is to use [!INCLUDE [powerbi-name](includes/powerbi-name.md)] or [!INCLUDE [fabric-name](includes/fabric-name.md)] Premium capacity.
 
-To learn more, go to [Get started with [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)]](across-working-with-powerbi.md#get-started).
+Learn more in [Get started with [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)]](across-working-with-powerbi.md#get-started).
 
 ## Installing a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] app
 
@@ -18500,7 +18508,6 @@ When you install the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] templat
 | Subscription Billing           | 26.2 to 26.5 | https://aka.ms/bc-pbi-subscription-billing-app     |
 | Sustainability                 | 26.2 to 26.5 | https://aka.ms/bc-pbi-sustainability-app-26-2      |
 
-
 #### Power BI apps (version 25.2 to 26.1)
 
 | To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
@@ -18512,7 +18519,6 @@ When you install the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] templat
 | Purchasing                     | 25.2 to 26.1 | https://aka.ms/bc-pbi-purchase-app-25.2            |
 | Projects                       | 25.2 to 26.1 | https://aka.ms/bc-pbi-projects-app-25-2            |
 | Sales                          | 25.2 to 26.1 | https://aka.ms/bc-pbi-sales-app-25-2               |
-
 
 ### Need Power BI apps for multiple companies?
 
@@ -18600,7 +18606,7 @@ To set or change values for the parameters, open the app workspace in your [!INC
 
 Each [!INCLUDE [powerbi-name](includes/powerbi-name.md)] app is based on a semantic model (also known as a dataset) that gets data from [!INCLUDE [prod_short](includes/prod_short.md)] APIs. Make sure that the data in your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports is up to date with the data in [!INCLUDE [prod_short](includes/prod_short.md)]. This concept is referred to as *refreshing* the model. Depending on your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] setup, refreshing might not happen automatically. You can refresh data manually, or by scheduling a refresh. You can do a manual refresh at any time. A scheduled refresh lets you refresh data automatically at defined time intervals.
 
-To learn more, go to [Refresh [!INCLUDE [powerbi-name](includes/powerbi-name.md)] semantic models](/dynamics365/business-central/across-working-with-powerbi#work-with-power-bi-reports).
+Learn more in [Refresh [!INCLUDE [powerbi-name](includes/powerbi-name.md)] semantic models](/dynamics365/business-central/across-working-with-powerbi#work-with-power-bi-reports).
 
 ## Job queue entry for updating dimension set entries
 
@@ -18623,11 +18629,11 @@ For the embedded pages in [!INCLUDE [prod_short](includes/prod_short.md)], there
 
 ## Governance of [!INCLUDE [powerbi-name](includes/powerbi-name.md)] workspaces
 
-Consider having the template app workspaces highly governed and not used directly for the embedded experience. To learn more, go to [Workspace governance level](/power-bi/guidance/powerbi-implementation-planning-workspaces-tenant-level-planning#workspace-governance-level).
+Consider having the template app workspaces highly governed and not used directly for the embedded experience. Learn more in [Workspace governance level](/power-bi/guidance/powerbi-implementation-planning-workspaces-tenant-level-planning#workspace-governance-level).
 
-Instead, consider having a single workspace per company that you use for the embed experience. In this workspace, keep copies or custom versions of the template reports. This helps mitigate the problem of losing report customizations when you upgrade the template app workspace. To learn more about how to copy a report to another workspace, go to [Copy reports from other workspaces](/power-bi/connect-data/service-datasets-copy-reports).
+Instead, consider having a single workspace per company that you use for the embed experience. In this workspace, keep copies or custom versions of the template reports. This helps mitigate the problem of losing report customizations when you upgrade the template app workspace. Learn more in [Copy reports from other workspaces](/power-bi/connect-data/service-datasets-copy-reports) for information about how to copy a report to another workspace.
 
-## Updating a Power BI app
+## Update a Power BI app
 
 The [!INCLUDE [prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps are available as template app on AppSource. When a new version of a template app becomes available, we notify you in two ways:
 
@@ -18640,7 +18646,7 @@ When you update a template app, it's important that you're aware of your options
 - Update workspace content only, without updating the app.
 - Install another copy of the app in a new workspace.
 
-To learn more, go to [Install, share, and update template apps in your organization](/power-bi/connect-data/service-template-apps-install-distribute#update-a-template-app).
+Learn more in [Install, share, and update template apps in your organization](/power-bi/connect-data/service-template-apps-install-distribute#update-a-template-app).
 
 ## Related information
 
@@ -20734,23 +20740,23 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-search-contacts-teams
 ---
-title: Searching for Contacts from Microsoft Teams 
+title: Searching for contacts from Microsoft Teams 
 description: Learn how to look up Business Central customers, vendors, and other contacts from Microsoft Teams.
 author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: Teams, MS Teams, Microsoft Teams, Skype, Link, Microsoft 365, contacts, search, messaging extensions
-ms.date: 08/14/2024
+ms.date: 10/20/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
 
-# Searching for Customers, Vendors, and Other Contacts from Microsoft Teams
+# Search for Customers, Vendors, and Other Contacts from Microsoft Teams
 
 [!INCLUDE [online_only](includes/online_only.md)]. Introduced in 2021 release wave 1.
 
-[!INCLUDE [prod_short](includes/prod_short.md)] has a comprehensive business contact management system that is essential for users in sales, operations, or other departmental roles. If you're a user in one of these roles, you'll often need to look up, meet, or start a conversation with your vendors, customers, and other contacts. With the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams, you can do these tasks directly from Teams, without having to switch to [!INCLUDE [prod_short](includes/prod_short.md)]. From within Teams, you can:
+[!INCLUDE [prod_short](includes/prod_short.md)] has a comprehensive business contact management system that's essential for users in sales, operations, or other departmental roles. If you're a user in one of these roles, you'll often need to look up, meet, or start a conversation with your vendors, customers, and other contacts. With the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams, you can do these tasks directly from Teams, without having to switch to [!INCLUDE [prod_short](includes/prod_short.md)]. From within Teams, you can:
 
 - Look up [!INCLUDE [prod_short](includes/prod_short.md)] contacts from the Teams command box or from the message compose area. Contacts can include prospects, vendors, customers, or other business relationships.
 - Share a contact as a card in a Teams conversation.
@@ -20775,7 +20781,7 @@ The command box is at the top of every screen in Teams. It lets you search, take
 
 2. In the **Business Central** box, start typing search text, like a name, address, or phone number.
 
-    As you type, matching results will appear.
+    As you type, matching results appear.
 
     ![Search Business Central contacts from command box in Teams.](media/teams-contacts-command-3.png)
 3. Select a contact from the results.
@@ -20796,7 +20802,7 @@ The advantage of using the message compose box is that you can add a contact car
 
 2. In the **Business Central** box, start typing search text, like a name, address, or phone number.
 
-    As you type, matching results will appear.
+    As you type, matching results appear.
 
     ![Search for Business Central contacts from message box.](media/teams-contacts-6.png)
 3. Select a contact from the results.
@@ -20806,7 +20812,7 @@ The advantage of using the message compose box is that you can add a contact car
 > [!NOTE]
 > The contact card isn't sent to the conversation right away for others to see. You have the opportunity to review the contents of the card, and add text before or after it as you like. Then, send your message to the chat when ready.
 
-## Viewing contact card details
+## View contact card details
 
 The contact card in Teams gives you a quick overview of the customer, vendor, or contact. The card is interactive&mdash;meaning you can view more information or even modify a contact by using the **Details** or **Pop-out** buttons.
 
@@ -20815,20 +20821,19 @@ The **Details** button opens a window within Teams that displays more informatio
 The contact card works just like cards for records, like items, customers, or sales orders. Learn more in [View card details](across-working-with-teams.md#view-card-details).
 
 > [!NOTE]
-> All participants in a Teams conversation will be able to view cards for Business Central contact that you submit to a conversation. But to view more details about records, by using the **Details** or **Pop out** buttons on a card, they'll need access to [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more in [Managing Microsoft Teams Integration](admin-teams-integration.md#minimum-requirements-1).
+> All participants in a Teams conversation can view cards for Business Central contact that you submit to a conversation. But to view more details about records, by using the **Details** or **Pop out** buttons on a card, they need access to [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more in [Managing Microsoft Teams Integration](admin-teams-integration.md#minimum-requirements-1).
 
 ## Related information
 
 [Business Central and Microsoft Teams Integration Overview](across-teams-overview.md)  
 [Install the [!INCLUDE [prod_short](includes/prod_short.md)] App for Microsoft Teams](across-install-app-for-teams.md)  
 [Teams FAQ](teams-faq.md)  
-[Changing Company and Other Settings in Teams](across-teams-settings.md)  
+[Change Company and Other Settings in Teams](across-teams-settings.md)  
 [Share Records in Microsoft Teams](across-working-with-teams.md)  
-[Troubleshooting Teams](admin-teams-troubleshooting.md)  
-[Developing for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
+[Troubleshoot Teams](admin-teams-troubleshooting.md)  
+[Develop for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 

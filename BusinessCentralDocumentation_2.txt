@@ -665,31 +665,28 @@ title: Opening Business Central Files in OneDrive
 description: Learn how you can share Business Central data through OneDrive for Business. 
 author: jswymer
 ms.topic: how-to
-ms.search.keywords:
-ms.date: 08/03/2022
+ms.search.keywords: open files, share files, OneDrive
+ms.date: 10/21/2025
 ms.author: jswymer
-
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
-# Opening and Sharing Business Central Files in Microsoft OneDrive
+
+# Open and share Business Central files in Microsoft OneDrive
 
 [!INCLUDE[prod_short](includes/prod_short.md)] makes it easy to store, manage, and share files with other people through Microsoft OneDrive for Business. On most pages with available files, such as the Report Inbox or when files are attached to records, you'll find **Open in OneDrive** and **Share** actions.
 
+:::image type="content" source="media/onedrive-overview-report-inbox-w-outline.png" alt-text="The Open in OneDrive and Share actions for reports.":::
 
-:::image type="content" source="media/onedrive-overview-report-inbox-w-outline.png" alt-text="The Open in OneDrive and Share actions for reports":::
-
-
-:::image type="content" source="media/one-drive-attachments-w-outline.png" alt-text="The Open in OneDrive and Share actions for attachments":::
-
+:::image type="content" source="media/one-drive-attachments-w-outline.png" alt-text="The Open in OneDrive and Share actions for attachments.":::
 
 ## Open in OneDrive
 
-The **Open in OneDrive** action copies the file to your OneDrive and then opens the file in an application such as Microsoft Excel online, Microsoft Word online, or Microsoft PowerPoint online. 
+The **Open in OneDrive** action copies the file to your OneDrive and then opens the file in an application such as Microsoft Excel online, Microsoft Word online, or Microsoft PowerPoint online.
 
 <!--## Working with different types of files-->
 
-When you choose **Open in OneDrive**, [!INCLUDE[prod_short](includes/prod_short.md)] identifies Excel, Word, and PowerPoint files and opens them in their online applications, that is, Excel online, Word online and PowerPoint online. 
+When you choose **Open in OneDrive**, [!INCLUDE[prod_short](includes/prod_short.md)] identifies Excel, Word, and PowerPoint files and opens them in their online applications, that is, Excel online, Word online and PowerPoint online.
 
 Using the online versions of these applications, you can annotate, edit, and collaborate with others without leaving the browser.
 
@@ -697,16 +694,16 @@ For other popular file types, such as PDFs, text files, and images, OneDrive pro
 
 ## Share
 
-The **Share** action copies the file to your OneDrive so you can see with whom you've already shared it as well as share the file with other people. When you select the **Share** action, the following page opens.
+The **Share** action copies the file to your OneDrive so you can see with whom you've already shared it and share the file with other people. When you select the **Share** action, the following page opens.
 
-:::image type="content" source="media/share-to-onedrive-dialog-v2.PNG" alt-text="Share file in OneDrive":::
+:::image type="content" source="media/share-to-onedrive-dialog-v2.PNG" alt-text="Share file in OneDrive.":::
 
 If you're familiar with OneDrive, you may recognize the above-referenced page. You'll see you have two options for sharing the file: **Send link** and **Copy link**.
 
-- **Send link** let's you share the files with specific people. The people you share the file will get an email with a link to the file. The file will also appear in the **Shared** section of their OneDrive. Start by typing the email addresses or contact names in the **Name, group or email field**. Include a message below the  **Name, group or email field**, if you want.
+- **Send link** let's you share the files with specific people. The people you share the file get an email with a link to the file. The file also appears in the **Shared** section of their OneDrive. Start by typing the email addresses or contact names in the **Name, group or email field**. Include a message below the  **Name, group or email field**, if you want.
 
   > [!TIP]
-  > If you want to compose your message in Outlook, select the **Outlook** button. The link will be inserted into a draft email and everyone you entered to share with will be in the **To** list. With this option, you can author emails using all of Outlook's features, including formatting text, adding other attachments, inserting pictures or tables, and adding CC or BCC recipients.
+  > If you want to compose your message in Outlook, select the **Outlook** button. The link is inserted into a draft email and everyone you entered to share with will be in the **To** list. With this option, you can author emails using all of Outlook's features, including formatting text, adding other attachments, inserting pictures or tables, and adding CC or BCC recipients.
 
 - **Copy link** copies a file link you can use to share the file through applications such as Facebook, Twitter, or email. 
 
@@ -728,11 +725,11 @@ When you use the **Open in OneDrive** or **Share** action for the first time, [!
 
 Then, the next time you use the **Open in OneDrive** or **Share** action, [!INCLUDE[prod_short](includes/prod_short.md)] only copies and opens the file. 
 
-## Managing multiple copies of a file
+## Manage multiple copies of a file
 
 When you choose **Open in OneDrive** or **Share**, the file is copied from [!INCLUDE[prod_short](includes/prod_short.md)] to your folder in OneDrive. If you edit the file in OneDrive, that file will be different from the [!INCLUDE[prod_short](includes/prod_short.md)] file. To update [!INCLUDE[prod_short](includes/prod_short.md)] with the latest file version, remove the existing file from [!INCLUDE[prod_short](includes/prod_short.md)] and upload the latest copy.
 
-If a file with the same name already exists in OneDrive, you'll be given the following choices:
+If a file with the same name already exists in OneDrive, you're given the following choices:
 
 - **Use existing**
 
@@ -760,8 +757,8 @@ You can create an extension and connect it to... For more information, see...-->
 ## Related information
 
 [Business Central and OneDrive Integration](across-onedrive-overview.md)  
-[Managing OneDrive Integration with Business Central](admin-onedrive-integration.md)  
-[OneDrive FAQ](admin-onedrive-faq.md)
+[Manage OneDrive Integration with Business Central](admin-onedrive-integration.md)  
+[OneDrive FAQ](admin-onedrive-faq.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-column-definitions
@@ -1386,22 +1383,23 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-enter-external-document-numbers
 ---
 title: Enter external document numbers
-description: You can enter external document numbers for customers and vendors in all sales and purchase orders, invoices, and credit memos. You can use these numbers to search for posted sales and purchase lines later.
+description: Enter external document numbers for customers and vendors in sales and purchase orders, invoices, and credit memos. Use these numbers to easily find posted sales and purchase lines.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 03/21/2024
+ms.search.keywords: external document numbers, vendor invoice numbers, purchase order, sales order
+ms.date: 10/14/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Enter external document numbers
 
 You can enter external document numbers for customers and vendors in all sales and purchase orders, invoices, and credit memos. You can use these numbers to search for posted sales and purchase lines later.  
 
 > [!NOTE]
-> Specify the document number that your customer or vendor has specified. [!INCLUDE [prod_short](includes/prod_short.md)] does not check if these external document numbers are unique or duplicates.
+> Specify the document number that your customer or vendor has specified. [!INCLUDE [prod_short](includes/prod_short.md)] doesn't check if these external document numbers are unique or duplicates.
 
 The following procedure explains how to specify an external document number on a sales order, but similar steps apply to other sales and purchase documents.
 
@@ -3753,27 +3751,28 @@ description: Learn how to assign tasks to users, including your accountant, and 
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
-ms.search.keywords: tasks, work
-ms.search.form:  1164, 1170, 1171, 1172, 1175, 1176, 1177
-ms.date: 08/23/2024
+ms.search.keywords: tasks, work, user tasks, assign tasks
+ms.search.form: 1164, 1170, 1171, 1172, 1175, 1176, 1177
+ms.date: 10/21/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Define user tasks
 
 In [!INCLUDE[prod_short](includes/prod_short.md)], you can create tasks to remind you of work to be done. You can create tasks for yourself, but you can also assign tasks to others or be assigned a task by someone else in your organization.  
 
-Some usage scenarios for User Tasks are 
+Some usage scenarios for User Tasks are as follows:
 
 | If you work with... | Set up user tasks to track or follow-up on... |
-| ------------------- | ---------------------------- |
-| Finance             | Month-end checklist activities, such as:<br><br>* Adjust cost<br>* Set a posting date range<br>* Close an inventory period<br>* Reconcile accounts payable (AP)<br>* Reconcile accounts receivable (AR)<br>* Recurring journals<br>* Bank reconciliation |
-| Finance             | Year-close checklist activities, such as:<br><br>* Financial reporting (prepare and finalize annual financial statements)<br>* Audit preparation (gather necessary documents and information for external auditors)<br>* Budget review (compare actual performance against budget and analyze variances)<br>* Budget planning (develop the budget for the next fiscal year)<br>* Accounts receivable (follow up on outstanding invoices for the fiscal year and write off bad debts if necessary)<br>* Accounts payable (ensure all bills and expenses for the fiscal year are recorded and paid)<br>* Check whether fixed assets depreciations for the fiscal year are posted |
-| Sales               | * Daily/weekly follow-ups on lead generation (identifying and contacting potential customers)<br>* Track communications with potential customers<br>* Sales calls/meetings (scheduling and conducting meetings with prospects)<br>* Proposal and quote creation (preparing and sending pricing and service details to prospects)<br>* Sales closing (finalizing deals and signing contracts)<br>* Customer relationship management (maintaining relationships with existing customers for up-selling or cross-selling opportunities)
-| Sales               | * Daily/weekly follow-ups on sales target tracking (monitoring progress towards sales goals)<br>* Follow-up on sales activities such as recurring updates on sales targets |
-| Sales               |* Weekly/Monthly follow-ups on revenue forecasting (predicting future sales based on current data)<br>* Competitor analysis (keeping an eye on competitor products, prices, and marketing strategies)<br>* Sales reporting (preparing sales reports for management review) |
-| Sales               | * Monthly/Quarterly follow-ups on market research (understanding industry trends and customer needs)<br>* Training and development (improving sales skills and product knowledge) |
+|--|--|
+| Finance | Month-end checklist activities, such as:<br><br>* Adjust cost<br>* Set a posting date range<br>* Close an inventory period<br>* Reconcile accounts payable (AP)<br>* Reconcile accounts receivable (AR)<br>* Recurring journals<br>* Bank reconciliation |
+| Finance | Year-close checklist activities, such as:<br><br>* Financial reporting (prepare and finalize annual financial statements)<br>* Audit preparation (gather necessary documents and information for external auditors)<br>* Budget review (compare actual performance against budget and analyze variances)<br>* Budget planning (develop the budget for the next fiscal year)<br>* Accounts receivable (follow up on outstanding invoices for the fiscal year and write off bad debts if necessary)<br>* Accounts payable (ensure all bills and expenses for the fiscal year are recorded and paid)<br>* Check whether fixed assets depreciations for the fiscal year are posted |
+| Sales | * Daily/weekly follow-ups on lead generation (identifying and contacting potential customers)<br>* Track communications with potential customers<br>* Sales calls/meetings (scheduling and conducting meetings with prospects)<br>* Proposal and quote creation (preparing and sending pricing and service details to prospects)<br>* Sales closing (finalizing deals and signing contracts)<br>* Customer relationship management (maintaining relationships with existing customers for up-selling or cross-selling opportunities) |
+| Sales | * Daily/weekly follow-ups on sales target tracking (monitoring progress towards sales goals)<br>* Follow-up on sales activities such as recurring updates on sales targets |
+| Sales | * Weekly/Monthly follow-ups on revenue forecasting (predicting future sales based on current data)<br>* Competitor analysis (keeping an eye on competitor products, prices, and marketing strategies)<br>* Sales reporting (preparing sales reports for management review) |
+| Sales | * Monthly/Quarterly follow-ups on market research (understanding industry trends and customer needs)<br>* Training and development (improving sales skills and product knowledge) |
 
 The list of sample user tasks for sales in the table was generated by AI using Microsoft Copilot. If you want to generate similar lists for your work domain, consider copying and modifying the following prompt:
 
@@ -3783,11 +3782,11 @@ Come up with a list of common tasks for people working in a sales team that woul
 Format the list in bullet form
 ```
 
-## Managing user task groups
+## Manage user task groups
 
 You can use **User Task Groups** to group related tasks and assign them to a group of users instead of individual users. For example, you could create a group for "Month-end" activities and then assign membership to users in the accounting department. This way, anyone in the team can pick up tasks.
 
-## Managing user tasks
+## Manage user tasks
 
 The **User Tasks** page shows all tasks, and you can easily create and assign new tasks. When you create a task, you can specify the start date and due date, and you can add a link to the page or report in [!INCLUDE[prod_short](includes/prod_short.md)] where the user must do the work.  
 
@@ -3800,13 +3799,13 @@ For example, you can create a task for yourself or a coworker to view all posted
 >
 > You can link to any page, but you can't link to individual entries, so make the description as explicit as possible. For example, write "Please take a look at customer no. 10000 and make sure they don't have overdue payments.".
 
-### Picking up user tasks
+### Pick up user tasks
 
 In the Business Manager, Bookkeeper, and Accountant Role Centers, a tile shows pending tasks that are assigned to that user. To pick up a task, choose it from the list of pending user tasks. In the ribbon, the link **Go to Task Item** opens the page where you can do the work.  
 
 After you complete a task, mark it as completed.  
 
-### Deleting user tasks
+### Delete user tasks
 
 If you want to bulk delete all or some user tasks, use the **Delete User Tasks** report. In the request page, you can set filters to determine which tasks to delete.  
 
@@ -3818,9 +3817,8 @@ If you want to bulk delete all or some user tasks, use the **Delete User Tasks**
 
 ## Related information
 
-[Searching for a Page or Report](ui-search.md)  
+[Search for a Page or Report](ui-search.md)  
 [Accountant Experiences in [!INCLUDE[prod_short](includes/prod_short.md)]](finance-accounting.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -3876,12 +3874,13 @@ author: kennienp
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: Excel, Word, Outlook, Onedrive, Power BI
-ms.date: 01/03/2025
+ms.date: 10/20/2025
 ms.author: kepontop
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.custom: bap-template
 ---
+
 # Connect Excel, Outlook, Word, OneDrive, Power BI, and more products to Business Central
 
 [!INCLUDE [prod_short](includes/prod_short.md)] supports integrations to other Microsoft products. The following table provides links to articles that describe how to set up the integrations.
@@ -3901,7 +3900,7 @@ ms.custom: bap-template
 
 [Overview of tasks to set up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
 [Integration overview for Business Central](/dynamics365/business-central/dev-itpro/developer/integration-overview)  
-[Integrating with Office apps and Microsoft 365](/dynamics365/business-central/dev-itpro/developer/m365-integration-overview)
+[Integrate with Office apps and Microsoft 365](/dynamics365/business-central/dev-itpro/developer/m365-integration-overview)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -4678,19 +4677,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-comments
 ---
-title: Add Comments to Cards and Documents
+title: Add comments to cards and documents
 description: Add extra information to accounts, customers cards, or sales orders to communicate agreements, such as a special price or delivery method, to other users.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: tasks, work
 ms.search.form: 124, 30
-ms.date: 04/01/2021
+ms.date: 10/16/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Add Comments to Cards and Documents
+
+# Add comments to cards and documents
 
 You can add extra information to G/L accounts, customers cards, or sales orders to communicate exceptions or special agreements to other users.
 Practically all cards and document have a **Comments** action, which opens the **Comment Sheet** page where you can write or read comments. On documents, you can also add comments to individual lines.
@@ -4700,11 +4700,11 @@ Comments on ongoing documents are transferred to the related posted document. Fo
 In addition, you can specify if you want comments to be transferred from one type of document to another resulting type of document, such as from a sales order to a sales invoice. You do this in the **Sales & Receivables** and the **Purchases & Payables** pages respectively.
 
 > [!NOTE]
-> Comments are not printed or output to reports or externally-facing documents.
+> Comments aren't printed or output to reports or externally-facing documents.
 
-The following describes how to add a comment to an item card. The steps are similar for all other cards and documents, except on document lines, the **Comments** action is placed on a lines action menu.
+The following procedure describes how to add a comment to an item card. The steps are similar for all other cards and documents, except on document lines, the **Comments** action is placed on a lines action menu.
 
-## To add a comments to an item card
+## To add a comment to an item card
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.
 2. Open the relevant item card.
@@ -4714,8 +4714,7 @@ The following describes how to add a comment to an item card. The steps are simi
 ## Related information
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[General Business Functionality](ui-across-business-areas.md)
-
+[General Business Functionality](ui-across-business-areas.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -5363,13 +5362,14 @@ title: Create approval workflows to connect tasks
 description: Learn how to create workflows that connect tasks performed by different people in business processes.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 10/15/2025
+ms.search.keywords: workflows, create workflow, connect tasks, business process
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
-
 ---
+
 # Create workflows to connect tasks in business processes
 
 You can create workflows that connect tasks that different people do in business processes. You can include system tasks, such as automatic posting, as steps in workflows that user tasks precede or follow. Requesting and granting approval to create new records are typical workflow steps.  
@@ -5432,8 +5432,8 @@ The options for events and responses are system-defined. To add new options, you
 
     1. To specify options for a workflow response that involves sending a notification, fill the fields as described in the following table.  
 
-    > [!NOTE]
-    > These fields vary, depending on the response you chose.
+       > [!NOTE]
+       > These fields vary, depending on the response you chose.
 
        |Field|Description|
        |-----|-----------|
@@ -5473,7 +5473,6 @@ The options for events and responses are system-defined. To add new options, you
 
 > [!NOTE]  
 > Don't enable a workflow until you're sure it's ready.  
-
 > [!TIP]  
 > To explore the relations between the tables used in workflows, [!INCLUDE[open-search](includes/open-search-lowercase.md)], then enter **Workflow – Table Relations**.  
 
@@ -5485,49 +5484,49 @@ The following example creates a workflow to approve a change to the name of a ve
 2. Choose the **New** action. The **Workflow** page opens.
 3. In the workflow section, fill in the fields as described in the following table.
 
-    |Field  |Value  |
-    |---------|---------|
-    |**Code**|**VENDAPN-01**|
-    |**Description**|**Vendor Name Change Approval** |
-    |**Category**|**PURCH**|
+   |Field  |Value  |
+   |---------|---------|
+   |**Code**|**VENDAPN-01**|
+   |**Description**|**Vendor Name Change Approval** |
+   |**Category**|**PURCH**|
 
 4. To create the first workflow step, do the following.
 
-    1. In the **When Event** field, specify *A vendor record is changed*.  
-    2. In the **On Condition** field, choose the word **Always**. Then, on the **Event Conditions** page, choose the **Add a condition for when a field value changes** link, then select the **Name** field. The result of this step is that the condition reads as *Name is Changed*.  
-    3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Revert the value of the \<Field\> field on the record and save the change** response. Then, in the **Options for the Selected Response** section, specify the **Name** field.  
-    4. Choose the **Add More Responses** link, then add an entry for the **Create an approval request for the record using approver type <%1> and <%2>** response.  
-    5. In the **Options for the Selected Response** section for the new response, change the **Approver type** field to **Workflow User Group**. Then, in the **Workflow User Group** field, specify the user group. Learn more at [Set Up Approval Users](across-how-to-set-up-approval-users.md).  
-    6. Add a third response, **Send approval request for the record and create a notification**.  
-    7. Add a fourth response, **Show message "%1"**. Then, in the **Options for the Selected Response** section, in the **Message** field, specify **An approval request has been sent**.  
-    8. Choose **OK** to return to the workflow step.  
+   1. In the **When Event** field, specify *A vendor record is changed*.  
+   2. In the **On Condition** field, choose the word **Always**. Then, on the **Event Conditions** page, choose the **Add a condition for when a field value changes** link, then select the **Name** field. The result of this step is that the condition reads as *Name is Changed*.  
+   3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Revert the value of the \<Field\> field on the record and save the change** response. Then, in the **Options for the Selected Response** section, specify the **Name** field.  
+   4. Choose the **Add More Responses** link, then add an entry for the **Create an approval request for the record using approver type <%1> and <%2>** response.  
+   5. In the **Options for the Selected Response** section for the new response, change the **Approver type** field to **Workflow User Group**. Then, in the **Workflow User Group** field, specify the user group. Learn more at [Set Up Approval Users](across-how-to-set-up-approval-users.md).  
+   6. Add a third response, **Send approval request for the record and create a notification**.  
+   7. Add a fourth response, **Show message "%1"**. Then, in the **Options for the Selected Response** section, in the **Message** field, specify **An approval request has been sent**.  
+   8. Choose **OK** to return to the workflow step.  
 
 5. In the next line, add a new workflow step for the **An approval request is approved** event.
 
-    1. In the **When Event** field, specify **An approval request is approved**.  
-    2. Choose the line menu, then choose **Increase Indent**.  
-    3. In the **On Condition** field, choose **Always**. Then, in the **Pending Approvals** field, specify **0**. The condition reads as **Pending Approvals:0** to indicate that the request doesn't require more approvers.  
-    4. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
-    5. Choose **OK**.  
+   1. In the **When Event** field, specify **An approval request is approved**.  
+   2. Choose the line menu, then choose **Increase Indent**.  
+   3. In the **On Condition** field, choose **Always**. Then, in the **Pending Approvals** field, specify **0**. The condition reads as **Pending Approvals:0** to indicate that the request doesn't require more approvers.  
+   4. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
+   5. Choose **OK**.  
 6. In the next line, add a second workflow step for the **An approval request is approved** event.  
 
-    1. In the **When Event** field, specify **An approval request is approved**.
-    2. In the **On Condition** field, choose **Always**. Then, in the **Pending Approvals** field, specify **>0**. The condition reads as **Pending Approvals:>0** to indicate that this isn't the last approver.  
-    3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
-    4. Choose **OK**.  
+   1. In the **When Event** field, specify **An approval request is approved**.
+   2. In the **On Condition** field, choose **Always**. Then, in the **Pending Approvals** field, specify **>0**. The condition reads as **Pending Approvals:>0** to indicate that this isn't the last approver.  
+   3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
+   4. Choose **OK**.  
 7. In the next line, add a workflow step for the **An approval request is delegated** event.  
 
-    1. In the **When Event** field, specify **An approval request is delegated**.  
-    2. In the **On Condition** field, leave the value as **Always**.  
-    3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
-    4. Choose **OK**.  
+   1. In the **When Event** field, specify **An approval request is delegated**.  
+   2. In the **On Condition** field, leave the value as **Always**.  
+   3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Send approval request for the record and create a notification** response.  
+   4. Choose **OK**.  
 8. In the next line, add a second workflow step for the **An approval request is rejected** event.  
 
-    1. In the **When Event** field, specify **An approval request is rejected**.  
-    2. In the **On Condition** field,  leave the value as **Always**.  
-    3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Discard the new values** response.  
-    4. Choose the **Add More Responses** link, then add an entry for the **Reject the approval request for the record and create a notification** response
-    5. Choose **OK**.  
+   1. In the **When Event** field, specify **An approval request is rejected**.  
+   2. In the **On Condition** field,  leave the value as **Always**.  
+   3. In the **Then Response** field, choose the **Select Response** link. Then, on the **Workflow Responses** page, in the **Select Response** field, choose the **Discard the new values** response.  
+   4. Choose the **Add More Responses** link, then add an entry for the **Reject the approval request for the record and create a notification** response
+   5. Choose **OK**.  
 9. To enable the workflow, turn on the **Enabled** toggle.  
 
 The following illustration provides an overview of the result of this procedure.  
@@ -5540,11 +5539,11 @@ Next, test the workflow by opening an existing vendor card and changing their na
 
 [Create Workflows from Workflow Templates](across-how-to-create-workflows-from-workflow-templates.md)  
 [Set Up Approval Users](across-how-to-set-up-approval-users.md)  
-[Setting Up Approval Workflow Notifications](across-setting-up-workflow-notifications.md)  
+[Set Up Approval Workflow Notifications](across-setting-up-workflow-notifications.md)  
 [View Archived Workflow Step Instances](across-how-to-view-archived-workflow-step-instances.md)  
 [Delete Approval Workflows](across-how-to-delete-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Use Approval Workflows](across-use-workflows.md)  
 [Workflow](across-workflow.md)  
 
@@ -7510,20 +7509,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-teams-settings
 ---
-title: Changing Company and Other Settings in Teams 
-description: Learn about how to change Business Central connection settings from Microsoft Teams.
+title: Changing company and other settings in Teams 
+description: Learn how to change Business Central connection settings from Microsoft Teams.
 author: jswymer
-
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: Teams, MS Teams, Microsoft Teams, Skype, Link, Microsoft 365, settings, search
-ms.date: 08/14/2024
+ms.date: 10/21/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
 
-# Changing Company and Other Settings in Teams
+# Change company and other settings in Teams
 
 [!INCLUDE [online_only](includes/online_only.md)]
 
@@ -7533,7 +7531,7 @@ There are two ways to open the **Settings** page: 1) from the message compose bo
 
 1. Next to the message compose box, select **+**, right-click the [!INCLUDE [prod_short](includes/prod_short.md)] app icon, then select **Settings**.
 
-    ![Settings for Business Central from command box.](media/teams-settings-message-box-2.png)
+   ![Settings for Business Central from command box.](media/teams-settings-message-box-2.png)
 
 2. From the command box at the top, search for **/Business Central** and then select the [!INCLUDE [prod_short](includes/prod_short.md)] app icon. Then, in the message that appears the under the **[search for business contacts]** box, select **... (More options)** and then **Settings**. If the message isn't displayed, click the **[search for business contacts]** box.
 
@@ -7543,14 +7541,13 @@ There are two ways to open the **Settings** page: 1) from the message compose bo
 
 [Business Central and Microsoft Teams Integration Overview](across-teams-overview.md)  
 [Install the [!INCLUDE [prod_short](includes/prod_short.md)] App for Microsoft Teams](across-install-app-for-teams.md)  
-[Searching for Customers, Vendors, and Other Contacts from Microsoft Teams](across-search-contacts-teams.md)  
+[Search for Customers, Vendors, and Other Contacts from Microsoft Teams](across-search-contacts-teams.md)  
 [Share Records in Microsoft Teams](across-working-with-teams.md)  
 [Teams FAQ](teams-faq.md)  
-[Troubleshooting Teams](admin-teams-troubleshooting.md)  
-[Developing for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
+[Troubleshoot Teams](admin-teams-troubleshooting.md)  
+[Develop for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
@@ -7855,17 +7852,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-report-selections
 ---
 title: Report selection in Business Central
-description: Learn about how to set up the reports that you use to print various types of documents in Business Central.
+description: Learn how to set up the reports used for printing different types of documents in Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: article
 ms.search.keywords: setup, reporting
 ms.search.form: 306, 307, 347, 385, 524, 865, 5932, 7401, 7355, 99000917
-ms.date: 08/26/2025
+ms.date: 10/20/2025
 ms.service: dynamics-365-business-central
-
 ---
+
 # Report selection for documents in Business Central
 
 You can set up default reports to use to print sales, purchases, and service documents, such as orders, quotes, and invoices, and which layout is used. For example, if you have a specific layout for sales invoices, you can specify that report in the **Report Selections - Sales** page. You can then use the report when you send or print sales invoices.  
@@ -7918,34 +7915,33 @@ For example, on the **Report Selection - Sales** and **Report Selection - Purcha
 
 ## Report selection for finance reports
 
-Similar to document reports, you can also configure the financial report definition for core finance reports such as Balance Sheet, Income Statement, and Retained Earnings. To learn more, go to [Report selection for finance reports](finance-financial-reporting-report-selection.md).
+Similar to document reports, you can also configure the financial report definition for core finance reports such as Balance Sheet, Income Statement, and Retained Earnings. Learn more in [Report selection for finance reports](finance-financial-reporting-report-selection.md).
 
 ## Related information
 
 [Set Up Reusable Email Texts and Layouts](admin-how-setup-email.md#set-up-reusable-email-texts-and-layouts)  
 [Select a Check Layout](finance-how-define-check-layouts.md)  
 [Set Up Reports for VAT and Intrastat (Germany)](LocalFunctionality/Germany/how-to-set-up-reports-for-vat-and-intrastat.md)  
-[Managing Report and Document Layouts](ui-manage-report-layouts.md)  
+[Manage Report and Document Layouts](ui-manage-report-layouts.md)  
 [Define Document Layouts for Customers and Vendors](ui-define-customer-vendor-document-layouts.md)  
 [Set Up Printers](ui-specify-printer-selection-reports.md)  
-[Report selection for finance reports](finance-financial-reporting-report-selection.md)
-
+[Report selection for finance reports](finance-financial-reporting-report-selection.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-video-under-construction
 ---
-title: Content Under Construction
-description: Occasionally we make a change to a feature that makes a video misleading, so we take the video down while we're updating the content. 
+title: Content under construction
+description: Sometimes, updates to features can make a video outdated or inaccurate, so we temporarily remove it while we update the content.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: video, library, how to
-ms.date: 06/11/2021
+ms.date: 10/22/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
 # Sorry, this content is under construction
@@ -7959,9 +7955,8 @@ We're constantly adding to and improving [!INCLUDE[prod_short](includes/prod_sho
 Check back again soon though, and in the meantime you can explore other subjects on the [Dynamics 365 channel on YouTube](https://www.youtube.com/playlist?list=PLcakwueIHoT-wVFPKUtmxlqcG1kJ0oqq4).
 
 ## Related information
-[Visit our video library](across-videos.md)
 
- 
+[Visit our video library](across-videos.md)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-to-reserve-items
@@ -9139,18 +9134,19 @@ The following steps are a simple scenario that illustrates how it works:
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-export-and-import-workflows
 ---
-title: How to Export and Import Approval Workflows
-description: To transfer workflows to other Business Central databases, for example to save time when creating new workflows, you can export and import workflows.
+title: How to export and import approval workflows
+description: Export and import workflows to easily transfer them between Business Central databases and streamline the creation of new workflows.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 09/08/2022
+ms.search.keywords: export approval workflow, import approval workflow, export workflow, import workflow, 
+ms.date: 10/15/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Export and Import Approval Workflows
+
+# Export and import approval workflows
 
 To transfer workflows to other [!INCLUDE[prod_short](includes/prod_short.md)] databases, for example to save time when creating new workflows, you can export and import workflows.  
 
@@ -9170,7 +9166,7 @@ On the **Workflow** page, you create a workflow by listing the involved steps on
 3. On the **Import** page, select **Choose**, choose the XML file containing the workflow, then select **Open**.  
 
 > [!CAUTION]  
-> If the workflow code already exists in the database, the workflow steps will be overwritten with the steps in the imported workflow.  
+> If the workflow code already exists in the database, the workflow steps are overwritten with the steps in the imported workflow.  
 
 ## Related information
 
@@ -9179,7 +9175,7 @@ On the **Workflow** page, you create a workflow by listing the involved steps on
 [View Archived Workflow Step Instances](across-how-to-view-archived-workflow-step-instances.md)  
 [Delete Approval Workflows](across-how-to-delete-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Use Approval Workflows](across-use-workflows.md)  
 [Workflow](across-workflow.md)  
 
@@ -9627,22 +9623,23 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-field-mapping-when-exporting-payment-files-using-bank-data-conversion-service
 ---
 title: Field mapping for exporting bank payment files | Microsoft Docs
-description: When you export payment files using the AMC Banking 365 Fundamentals extension, the data that you export is exposed to the service provider.
+description: Exporting payment files with the AMC Banking 365 Fundamentals extension exposes your data to the service provider.
 author: brentholtorf
-ms.topic: article
+ms.topic: article 
 ms.devlang: al
-ms.search.keywords:
-ms.date: 04/01/2021
+ms.search.keywords: field mapping, bank data conversion service, AMC banking fundamentals, export payment files
+ms.date: 10/14/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Field Mapping When Exporting Payment Files Using the AMC Banking 365 Fundamentals extension
-When you export payment files using the AMC Banking 365 Fundamentals extension, the data that you export is exposed to the service provider. The service provider is responsible for the privacy of this data. For more information about the AMC Banking 365 Fundamentals extension, see [Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md).  
+
+# Field mapping when exporting payment files using the AMC Banking 365 Fundamentals extension
+
+When you export payment files using the AMC Banking 365 Fundamentals extension, the data that you export is exposed to the service provider. The service provider is responsible for the privacy of this data. Learn more in [Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md) for more information about the AMC Banking 365 Fundamentals extension.  
 
 > [!CAUTION]  
->  When you export payment files by using the AMC Banking 365 Fundamentals extension, some of your business data will be exposed to the provider of the service. The service provider, AMC Consult A/S, is responsible for the privacy of this data. For more information, see [AMC Privacy Policy](https://go.microsoft.com/fwlink/?LinkId=510158).  
-
+> When you export payment files by using the AMC Banking 365 Fundamentals extension, some of your business data will be exposed to the provider of the service. The service provider, AMC Consult A/S, is responsible for the privacy of this data. Learn more in [AMC Privacy Policy](https://go.microsoft.com/fwlink/?LinkId=510158).  
 > [!NOTE]
 > In the generic version of [!INCLUDE[prod_short](includes/prod_short.md)], a global provider of services to convert bank data to any file format that your bank requires is set up and connected. In North American versions, the same service can be used to send payment files as electronic funds transfer (EFT), for example the commonly used Automated Clearing House (ACH) network, however with a slightly different process.
 
@@ -9690,12 +9687,12 @@ The following table lists the fields in [!INCLUDE[prod_short](includes/prod_shor
 |General Journal Batch Name|Journal Batch Name|General Journal Line|The general journal batch name that is used for the payment line|  
 |Sender Bank Name - Data Conv.|Bank Name – Data Conv.|Bank Account|The sender bank account name that is requested by the AMC Banking 365 Fundamentals extension and specified on the bank account card|  
 
-## Related information  
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchanging Data Electronically](across-data-exchange.md)
-[Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md)   
-[Make Payments with AMC Banking 365 Fundamentals extension or SEPA Credit Transfer](finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer.md)   
+## Related information
 
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
+[Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md)  
+[Make Payments with AMC Banking 365 Fundamentals extension or SEPA Credit Transfer](finance-make-payments-with-bank-data-conversion-service-or-sepa-credit-transfer.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11659,11 +11656,12 @@ ms.topic: article
 ms.devlang: al
 ms.search.keywords: video, library, how to
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 01/27/2025
+ms.date: 10/22/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Visit our video library
 
 You found our documentation. But some people prefer to watch content rather than read it. To that end, we're producing short, easily digestible videos. Most videos supplement our user assistance, and some of them can be viewed on their own.  
@@ -11681,7 +11679,7 @@ View our "how to" videos and more on the [!INCLUDE[prod_short](includes/prod_sho
 
 ## Related information
 
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
 [Dynamics 365 Business Central channel on YouTube](https://aka.ms/BCYouTube)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -12985,11 +12983,12 @@ ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: feature overview
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 11/13/2024
+ms.date: 10/13/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Business functionality
 
 [!INCLUDE[prod_short](includes/prod_short.md)] provides functionality for common business processes in small and medium-sized companies, mainly within wholesale and professional services. However, more complex processes, such as assembly, manufacturing, service, and directed warehouse management are also supported. Learn how to get a free trial [here](trial-signup.md).  
@@ -13022,8 +13021,8 @@ ms.reviewer: bholtorf
 
 [Administration](admin-setup-and-administration.md)  
 [Explore Dynamics 365 Business Central capabilities](https://dynamics.microsoft.com/business-central/capabilities/)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Setting Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -13445,8 +13444,8 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-track-document-lines
 ---
-title: Track Order Lines to Related Documents
-description: View documents related to sales and purchase order lines, like quotes, shipments, receipts, and blanket orders, to identify documents used to process orders.
+title: Track order lines to related documents
+description: Track and view related documents—such as quotes, shipments, receipts, and blanket orders—for sales and purchase order lines to identify documents involved in order processing.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
@@ -13454,27 +13453,30 @@ ms.search.form: 6560, 42, 50, 507, 509
 ms.date: 06/11/2021
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Track Document Lines
+
+# Track document lines
+
 You can view documents that are related to sales order lines and purchase order lines, including from archived order lines. Related documents that you can track include quotes, shipments, receipts, and blanket orders. This helps you to identify documents used to process orders.  
 
 ## To track documents related to a sales order line
+
 The following procedure describes how to track from a sales order line. The steps are similar for purchase order and blanket order lines.
 
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.  
-2.  Open a sales order that you want to track from.  
-3.  Select a line, and then choose the **Document Line Tracking** action.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.  
+2. Open a sales order that you want to track from.  
+3. Select a line, and then choose the **Document Line Tracking** action.
 4. On the **Document Lines Tracking** page, select the document that you want to view, and then choose the **Show** action to see the related line.
 5. To view the entire document for the selected document line, choose the **Show Document** action.
 
 [!INCLUDE [line-no-info](includes/line-no-info.md)]
 
 ## Related information
+
 [Sales](sales-manage-sales.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -14752,11 +14754,11 @@ title: Audit changes to your setup
 description: Learn how to track the changes people make to your setup.
 author: kennienp
 ms.author: kepontop
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 10/20/2025
 ms.custom: bap-template
-ms.search.keywords: auditing
+ms.search.keywords: auditing, audit changes, set up changes
 ms.search.form: 103, 108, 488
 ms.service: dynamics-365-business-central
 ---
@@ -14765,11 +14767,11 @@ ms.service: dynamics-365-business-central
 
 [!INCLUDE[prod_short](includes/prod_short.md)] allows you to configure your system in many ways. This article explains ways to monitor changes to your setup for financial auditing.
 
-## Set up the Change Log to capture changes
+## Set up the change log to capture changes
 
 You can use the Change Log feature to capture changes to your setup. For example, you can find out what changed, who changed it, and when the change was made.
 
-To use the Change Log to monitor your setup, you must specify the tables you want it to monitor. The following table lists some examples of finance setup tables where you might want to setup change tracking. To learn more about the Change Log, go to [Log changes](across-log-changes.md).
+To use the Change Log to monitor your setup, you must specify the tables you want it to monitor. The following table lists some examples of finance setup tables where you might want to setup change tracking. Learn more in [Log changes](across-log-changes.md) to know about the Change Log.
 
 | If you want to audit changes to... | Table | Table ID | Learn more... |
 | ---------------------------------- | ----- | -------- | ------------- |
@@ -14786,15 +14788,14 @@ To use the Change Log to monitor your setup, you must specify the tables you wan
 | Posting groups       | FA Posting Group | 5606 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
 | Posting groups       | Vendor Posting Group | 93 | [Audit changes to posting groups](finance-posting-groups.md#audit-changes-to-posting-groups) |
 
-
-To learn more about setting up the finance area, go to [Setting Up Finance](finance-setup-finance.md).
+Learn more in [Setting Up Finance](finance-setup-finance.md) for information on setting up the finance area.
 
 > [!TIP]
-> If you want to track changes to data that isn't shown in the table, you can use the page inspection tool on the page that shows the data to find the corresponding table name and ID. To learn more, go to [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages?tabs=table) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)].
+> If you want to track changes to data that isn't shown in the table, you can use the page inspection tool on the page that shows the data to find the corresponding table name and ID. Learn more in [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages?tabs=table) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)].
 
 ## Get notified when system setup change
 
-To add an extra layer of security to your setup, you can monitor changes to fields and get an email when someone changes a value. To learn more, go to [Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields).
+To add an extra layer of security to your setup, you can monitor changes to fields and get an email when someone changes a value. Learn more in [Monitor sensitive fields](across-log-changes.md#monitor-sensitive-fields).
 
 ## Analyze changes to your setup
 
@@ -14805,7 +14806,7 @@ You can use the Data Analysis feature to answer questions such as:
 
 :::image type="content" source=" media/data-analysis-change-log-entries-Who-changed-What-data-When.png" alt-text="Example of how to do data analysis on the Change Log Entries page (Who changed What data When)." lightbox="media/data-analysis-change-log-entries-Who-changed-What-data-When.png":::
 
-To learn more, go to [Analyze data in the Change Log](across-log-changes.md#analyze-data-in-the-change-log).
+Learn more in [Analyze data in the Change Log](across-log-changes.md#analyze-data-in-the-change-log).
 
 ## Related information
 
@@ -16145,20 +16146,19 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-quickbooks-to-business-edition
 ---
 title: Transfer data from a QuickBooks app
-description: You can migrate data such as customers, vendors, inventory items, and G/L accounts from QuickBooks apps to Business Central.
+description: Migrate your customers, vendors, inventory items, and general ledger accounts from QuickBooks Desktop or Online to Dynamics 365 Business Central.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: app, import, migrate, data, transfer, QuickBooks, customize
 ms.search.form: 1808 
-ms.date: 12/12/2023
+ms.date: 10/17/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
 
-
-# Changing from a QuickBooks app to Dynamics 365 Business Central
+# Change from a QuickBooks app to Dynamics 365 Business Central
 
 More growing businesses are changing from finance apps like QuickBooks Desktop and QuickBooks Online, which are designed for startups and other small businesses, to [!INCLUDE[prod_short](includes/prod_short.md)], which also supports larger, more complex organizations. 
 
@@ -16167,7 +16167,7 @@ As they transition, companies typically want to bring their business data with t
 * QuickBooks Data Migration 
 * QuickBooks Online Data Migration
 
-For more information, read about the extension that suits your QuickBooks app:   
+Learn more about the extension that suits your QuickBooks app in the following articles:
 
 * [The QuickBooks Desktop Data Migration Extension](ui-extensions-quickbooks-data-migration.md)
 * [The QuickBooks Online Data Migration Extension](ui-extensions-quickbooks-online-data-migration.md)
@@ -16178,9 +16178,8 @@ If you're ready to get started now, [!INCLUDE[open-search](includes/open-search-
 
 ## Related information
 
-[Importing Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Customizing Business Central Using Extensions](ui-extensions.md)   
-
+[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
+[Customize Business Central Using Extensions](ui-extensions.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -16511,11 +16510,11 @@ title: Business Central and Microsoft Teams Integration
 description: Share Business Central records directly in a Teams conversation.
 author: jswymer
 ms.author: jswymer
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ms.topic: overview
 ms.search.keywords: Teams, MS Teams, Microsoft Teams, Skype, Link, Microsoft 365, collaborate, collaboration, teamwork
-ms.date: 08/14/2024
+ms.date: 10/21/2025
 ms.custom: bap-template
 ---
 
@@ -16535,11 +16534,11 @@ The [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams offers the fol
 
 No matter where you are in Teams, you can look up details about customers, vendors, and other [!INCLUDE [prod_short](includes/prod_short.md)] contacts. This feature not only lets you view general information about contacts, but also gives access to interaction history, related documents, and more.
 
- [![Look up Business Central contacts from Teams command box.](media/teams-contacts-overview-2.png)](media/teams-contacts-overview-2.png#lightbox)
+[![Look up Business Central contacts from Teams command box.](media/teams-contacts-overview-2.png)](media/teams-contacts-overview-2.png#lightbox)
 
 You can also share contact details in a conversation. From there, participants have access to even more details about the contact as well.
 
- [![Look up Business Central contacts from Teams compose box.](media/teams-contacts-2.png)](media/teams-contacts-2.png#lightbox)
+[![Look up Business Central contacts from Teams compose box.](media/teams-contacts-2.png)](media/teams-contacts-2.png#lightbox)
 
 Learn more in [Searching for Contacts from Microsoft Teams](across-search-contacts-teams.md).
 
@@ -16575,24 +16574,23 @@ Learn more in [Add a Business Central tab in Teams](across-teams-tab.md).
 
 1. A [!INCLUDE [prod_short](includes/prod_short.md)] online user account is required for [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams.
 
-    If you’re not sure whether you have an account, or if you don’t know your credentials for signing in, contact your company administrator to help you get started.
+   If you’re not sure whether you have an account, or if you don’t know your credentials for signing in, contact your company administrator to help you get started.
 
-    > [!TIP]
-    > If your organization doesn't have a [!INCLUDE [prod_short](includes/prod_short.md)] subscription, you can sign up for a free trial. Learn more at [Sign up for a free Dynamics 365 Business Central trial](trial-signup.md).
+   > [!TIP]
+   > If your organization doesn't have a [!INCLUDE [prod_short](includes/prod_short.md)] subscription, you can sign up for a free trial. Learn more at [Sign up for a free Dynamics 365 Business Central trial](trial-signup.md).
 
-2. As an administrator, see [Managing Microsoft Teams Integration with Business Central](admin-teams-integration.md) for information about getting users set up to work with [!INCLUDE [prod_short](includes/prod_short.md)] and Teams.
+2. As an administrator, refer to [Managing Microsoft Teams Integration with Business Central](admin-teams-integration.md) for information about getting users set up to work with [!INCLUDE [prod_short](includes/prod_short.md)] and Teams.
 3. Install [!INCLUDE [prod_short](includes/prod_short.md)] app in Teams. See [Install the [!INCLUDE [prod_short](includes/prod_short.md)] App for Microsoft Teams](across-install-app-for-teams.md).
 4. Once the app is installed, you're ready to go. Learn more in [Searching for Customers, Vendors, and Other Contacts from Microsoft Teams](across-search-contacts-teams.md) and [Share Records in Microsoft Teams](across-working-with-teams.md).
 
 ## Related information
 
 [Teams FAQ](teams-faq.md)  
-[Troubleshooting Teams](admin-teams-troubleshooting.md)  
-[Changing Company and Other Settings in Teams](across-teams-settings.md)  
-[Developing for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)
+[Troubleshoot Teams](admin-teams-troubleshooting.md)  
+[Change Company and Other Settings in Teams](across-teams-settings.md)  
+[Develop for Teams Integration](/dynamics365/business-central/dev-itpro/developer/devenv-develop-for-teams)  
   
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -16763,19 +16761,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-use-workflows
 ---
-title: Using Approval Workflows
-description: You can set up and use workflows to connect business-process tasks such as automatic posting or requesting and granting approval for new records. 
+title: Using approval workflows
+description: Set up and use workflows to connect business-process tasks such as automatic posting or requesting and granting approval for new records. 
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: concept-article
-ms.search.keywords: 
+ms.search.keywords: workflow, approval workflow
 ms.search.form: 1500, 1501, 1503, 1504, 1505
-ms.date: 02/20/2024
+ms.date: 10/21/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
-# Use Approval Workflows
+
+# Use approval workflows
 
 A workflow is a sequence of tasks triggered by an action, a condition, or a rule. Workflows are usually implemented to integrate business logic into an organization, such as the separation of duties, unifying processes, or to apply best practices.
 
@@ -16816,11 +16815,11 @@ You can set up and use workflows that connect business-process tasks performed b
 Before you can begin using workflows, you must set up workflow users, create the workflows (potentially preceded by code customization), and specify how users receive notifications. Learn more at [Setting Up Workflows](across-set-up-workflows.md).
 
 > [!NOTE]  
-> Typical workflow steps involve users requesting approval of tasks and approvers accepting or rejecting approval requests. That's why many topics about how to use workflows refer to approvals.  
+> Typical workflow steps involve users requesting approval of tasks and approvers accepting or rejecting approval requests. That's why many articles about how to use workflows refer to approvals.  
 
  The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-| **To** | **See** |
+| **To** | **Go to** |
 |--|--|
 | Set up an approval workflow to start when the first entry-point event occurs. | [Enable Approval Workflows](across-how-to-enable-workflows.md) |
 | Request approval of a task; as an approver, accept, decline, or delegate approvals; and send or view approval notifications. | [How To Use Approval Workflows](across-how-use-approval-workflows.md) |
@@ -16830,7 +16829,7 @@ Before you can begin using workflows, you must set up workflow users, create the
 
 ## Related information
 
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Workflow](across-workflow.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -17852,24 +17851,25 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-powerbi-reports-factbox
 ---
 title: Display custom Power BI reports
-description: You can use Power BI FactBox to display Power BI reports and gain extra insight into records data in key lists.
+description: Use the Power BI FactBox to display interactive Power BI reports and gain deeper insights into data on key list pages.
 author: jswymer
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: business intelligence, KPI, Odata, Power App, SOAP, analysis
-ms.date: 12/13/2023
+ms.date: 10/16/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
-# Creating Power BI reports for displaying list data in [!INCLUDE[prod_short](includes/prod_short.md)]
+
+# Create Power BI reports for displaying list data in [!INCLUDE[prod_short](includes/prod_short.md)]
 
 [!INCLUDE[prod_long](includes/prod_long.md)] includes a Power BI FactBox control element on many key list pages. The purpose of this FactBox is to display Power BI reports that are related to records in the lists, providing extra insight into the data. The idea is that as you move between rows in the list, the report updates for the selected entry.
 
 [!INCLUDE[prod_long](includes/prod_long.md)] comes ready with some of these reports. You can also create your own custom reports that display in this FactBox. Creating these reports is similar to other reports. But there are a few design rules you have to follow to make sure the reports display as expected. These rules are explained in this article.
 
 > [!NOTE]
-> For general information about creating and publishing Power BI reports for Business Central, see [Building Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md). 
+> Refer to [Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md) for general information about creating and publishing Power BI reports for Business Central.
 
 ## Prerequisites
 
@@ -17886,7 +17886,7 @@ For more information about getting started, see [Use [!INCLUDE[prod_short](inclu
 
     Specify the Business Central list pages that contain the data that you want in the report. For example, to create a report for the **Sales Invoices** list, include pages related to sales.
 
-    For more information, follow the instructions [Add [!INCLUDE[prod_short](includes/prod_short.md)] as a data source in Power BI Desktop](across-how-use-financials-data-source-powerbi.md#getdata).
+    Follow the instructions [Add [!INCLUDE[prod_short](includes/prod_short.md)] as a data source in Power BI Desktop](across-how-use-financials-data-source-powerbi.md#getdata) for more information.
 
 3. Set the report filter.
 
@@ -17898,10 +17898,10 @@ For more information about getting started, see [Use [!INCLUDE[prod_short](inclu
     2. Drag the field to **Filters** pane and drop it in the **Filters on all pages** box.
     3. Set the **Filter type** to **Basic filtering**. It can't be page, visual, or advanced filter.
 
-    ![Setting the report filter for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-filter-v3.png)
+    ![Set the report filter for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-filter-v3.png)
 4. Design the report layout.
 
-    Create the layout by dragging fields and adding visualizations. For more information, see, [Work with Report view in Power BI Desktop](/power-bi/create-reports/desktop-report-view) in the Power BI documentation.
+    Create the layout by dragging fields and adding visualizations. Learn more in [Work with Report view in Power BI Desktop](/power-bi/create-reports/desktop-report-view) in the Power BI documentation.
 
 5. See the next sections about sizing the report and using multiple pages.
 
@@ -17913,7 +17913,7 @@ For more information about getting started, see [Use [!INCLUDE[prod_short](inclu
 
 7. When you're done, publish the report as usual.
 
-    For more information, see [Publishing a Report](across-how-use-financials-data-source-powerbi.md#publish-reports).
+    Learn more in [Publishing a Report](across-how-use-financials-data-source-powerbi.md#publish-reports).
 
 8. Test the report.
 
@@ -17931,20 +17931,20 @@ For more information about getting started, see [Use [!INCLUDE[prod_short](inclu
 
 The size of the report must be set to 325 pixels by 310 pixels. This size provides the proper scaling of the report in the available space of the Power BI FactBox control in [!INCLUDE[prod_short](includes/prod_short.md)]. To define the size of the report, place focus outside of the report layout area, and then choose the paint roller icon.
 
-![Setting the report width and height for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-sizing-v3.png)
+![Set the report width and height for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-sizing-v3.png)
 
 You can change the width and height of the report by choosing **Custom** in the **Type** field.
 
 If you want the background of the report to blend with the background color of the Power BI FactBox control, set report background color to *#FFFFFF* (white). 
 
 > [!TIP]
-> Use the [!INCLUDE [prod_short](includes/prod_short.md)] theme file to build reports with the same color styling as the [!INCLUDE [prod_short](includes/prod_short.md)] apps. For more information, see [Use the [!INCLUDE [prod_short](includes/prod_short.md)] report theme](across-how-use-financials-data-source-powerbi.md#theme).
+> Use the [!INCLUDE [prod_short](includes/prod_short.md)] theme file to build reports with the same color styling as the [!INCLUDE [prod_short](includes/prod_short.md)] apps. Learn more in [Use the [!INCLUDE [prod_short](includes/prod_short.md)] report theme](across-how-use-financials-data-source-powerbi.md#theme).
 
 ## Reports with multiple pages
 
 With Power BI, you can create a single report with multiple pages. However, for reports that display with list pages, we recommend that they don't have more than one page. The Power BI FactBox only shows the first page of your report.
 
-## Fixing problems
+## Fix problems
 
 This section explains how to fix problems that you might run into when you try to view a Power BI report for a list page in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
@@ -17970,12 +17970,11 @@ Verify that the report size is set to 325 pixels x 310 pixels. Save the report, 
 
 ## Related information
 
-[Enabling Your Business Data for Power BI](admin-powerbi.md)  
+[Enable Your Business Data for Power BI](admin-powerbi.md)  
 [Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Setting Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
 [Finance](finance.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -18466,22 +18465,23 @@ title: Set up prices and discounts
 description: Describes how to define standard and special price and discount agreements for sales and purchases.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: price, pricing, discount, discounting, rebate, sale, purchase, invoice
 ms.search.form: 459, 460, 7001, 7011, 7015, 7016, 7017, 7018
-ms.date: 03/27/2025
+ms.date: 10/17/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Set up prices and discounts
 
 > [!NOTE]
-> In 2020 release wave 2, we released streamlined processes for setting up and managing prices and discounts. If you're a new customer using that version, you're using the new experience. If you're an existing customer, whether you're using the new experience depends on whether your admin enabled the **New sales pricing experience** feature update on the **Feature Management** page. To learn more, go to [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
+> In 2020 release wave 2, we released streamlined processes for setting up and managing prices and discounts. If you're a new customer using that version, you're using the new experience. If you're an existing customer, whether you're using the new experience depends on whether your admin enabled the **New sales pricing experience** feature update on the **Feature Management** page. Learn more in [Enable Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
 
 Price and discount strategies for the purchase and sale of items and services are fundamental tools for successful businesses. After you set up the items and services your company buys and sells, you can define what you pay or charge for them. When you select the item or service on sales and purchase documents, [!INCLUDE [prod_short](includes/prod_short.md)] adds the amounts.
 
-## Setting up prices and discounts
+## Set up prices and discounts
 
 Before you create price lists, you must define your pricing and discount strategies on the **Sales & Receivables Setup** and **Purchase & Payables Setup** pages.
 
@@ -18535,8 +18535,6 @@ To review price lists and prices that apply for specific customers or vendors, o
    * To add items manually, in the **Product Type** field, choose the type of product that the price list is for. Depending on your selection, fill in the remaining fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 6. To start using the price list, in the **Status** field, choose **Active**.  
 
----
-
 ## To set up a sales line discount for a customer
 
 These steps differ, depending on whether your administrator turned on the **New sales pricing experience** feature update.
@@ -18549,7 +18547,7 @@ These steps differ, depending on whether your administrator turned on the **New 
 
 > [!Note]
 >
-> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. To learn more, go to [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#bulk-update-item-prices).  
+> To set up prices or line discounts for all customers, a customer price group, or a campaign, you must open the pages from an item card. Alternatively, for sales prices, use the **Sales Price Worksheet** page. Learn more in [To bulk update item prices](sales-how-record-sales-price-discount-payment-agreements.md#bulk-update-item-prices).  
 
 ### [New Experience](#tab/new-experience/)  
 
@@ -18563,8 +18561,6 @@ These steps differ, depending on whether your administrator turned on the **New 
 
    > [!TIP]
    > If you're editing an existing line, you can filter the lines by choosing the appropriate option in the **View Columns for** field.
-
----
 
 ## Work with invoice discounts and service charges
 
@@ -18581,7 +18577,7 @@ You link discount percentages to specific invoice amounts on the **Invoice Disco
 In addition to (or instead of) a discount percentage, you can link a service charge amount to a specific invoice amount.  
 
 > [!TIP]  
-> Before you start entering this information, it's a good idea to prepare your discount structure beforehand, so it's easier to see which customers to link to the same invoice discount page. For more information about discounts in sales, see [Set up discounts for your customers](/training/modules/customer-discounts-dynamics-365-business-central/index).
+> Before you start entering this information, it's a good idea to prepare your discount structure beforehand, so it's easier to see which customers to link to the same invoice discount page. Learn more in [Set up discounts for your customers](/training/modules/customer-discounts-dynamics-365-business-central/index) for information about discounts in sales.
 
 ### To set up an invoice discount for a customer
 
@@ -18632,8 +18628,6 @@ The status of the price list must be **Draft**.
 
    > [!NOTE]
    > You can't have two lines that have the same settings but different prices. If that happens, a message displays when you activate a price list. You can choose the price to use by opening the list and deleting the incorrect price.  
-  
----
 
 ## To bulk update item prices
 
@@ -18663,15 +18657,13 @@ To update prices for multiple items, you must create a new price list, and then 
 
 [!INCLUDE [edit-in-excel-price-list](includes/edit-in-excel-price-list.md)]
 
----
+## Calculate the best price
 
-## Calculating the best price
-
-When you record special prices and line discounts for sales and purchases, [!INCLUDE[d365fin](includes/d365fin_md.md)] optimizes your profit. It automatically calculates the best price on sales and purchase documents, and on job and item journal lines. To learn more, go to [Best Price Calculation](sales-how-record-sales-price-discount-payment-agreements.md#best-price-calculation).
+When you record special prices and line discounts for sales and purchases, [!INCLUDE[d365fin](includes/d365fin_md.md)] optimizes your profit. It automatically calculates the best price on sales and purchase documents, and on job and item journal lines. Learn more in [Best Price Calculation](sales-how-record-sales-price-discount-payment-agreements.md#best-price-calculation).
 
 ## Related information
 
-[Setting Up Sales](sales-setup-sales.md)  
+[Set Up Sales](sales-setup-sales.md)  
 [Sales](sales-manage-sales.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -18684,34 +18676,35 @@ title: Use Excel to import data
 description: Use the default configuration package to add customer data in Excel and import the data back into Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: article
-ms.search.keywords: migration, Excel
-ms.date: 05/19/2025
+ms.search.keywords: migration, Excel, business data import
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Import business data from other finance systems
 
 When you sign up for [!INCLUDE[prod_short](includes/prod_short.md)], you can choose to create an empty company so that you can upload your own data and to test your new [!INCLUDE[prod_short](includes/prod_short.md)] company. Depending on the finance solution that your business uses today, you can transfer information about customers, vendors, inventory, and bank accounts.  
 
 From the Role Center, you can start an assisted setup guide that helps you transfer the business data from an Excel file or from other formats. The type of files you can upload depends on the extensions that are available. For example, you can migrate data from QuickBooks because [!INCLUDE[prod_short](includes/prod_short.md)] includes an extension that handles the conversion from QuickBooks. If you want to migrate data from other finance solutions, you must either check if an extension is available for that solution or import from Excel.  
 
-[!INCLUDE[prod_short](includes/prod_short.md)] includes templates for accounts, customers, vendors, and inventory items that you can choose to apply when you import your data. To import item pictures, you can use a dedicated function on the **Inventory Setup** page. To learn more, go to [Import Multiple Item Pictures](inventory-how-import-item-pictures.md).
+[!INCLUDE[prod_short](includes/prod_short.md)] includes templates for accounts, customers, vendors, and inventory items that you can choose to apply when you import your data. To import item pictures, you can use a dedicated function on the **Inventory Setup** page. Learn more in [Import Multiple Item Pictures](inventory-how-import-item-pictures.md).
 
 > [!TIP]  
-> We recommend that you use data migration wizards to import data from Dynamics GP, Dynamics NAV, or QuickBooks. To learn more, go to [Migrate On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data) in the administration content, or [QuickBooks Data Migration](ui-extensions-quickbooks-data-migration.md).
+> We recommend that you use data migration wizards to import data from Dynamics GP, Dynamics NAV, or QuickBooks. Learn more in [Migrate On-Premises Data to Business Central Online](/dynamics365/business-central/dev-itpro/administration/migrate-data) in the administration content, or [QuickBooks Data Migration](ui-extensions-quickbooks-data-migration.md).
 
-## Work with Data in Excel
+## Work with data in Excel
 
-You can use the Excel add-in to prepare existing content for use in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Viewing and Editing in Excel From Business Central](across-work-with-excel.md).  
+You can use the Excel add-in to prepare existing content for use in [!INCLUDE [prod_short](includes/prod_short.md)]. Learn more in [Viewing and Editing in Excel From Business Central](across-work-with-excel.md).  
 
-## Import Data from Configuration Packages
+## Import data from configuration packages
 
-For larger implementation work, you can set up solution-specific configuration packages. To learn more, go to [Set Up Company Configuration Packages](/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) (in English only) in the administration content.  
+For larger implementation work, you can set up solution-specific configuration packages. Learn more in [Set Up Company Configuration Packages](/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) (in English only) in the administration content.  
 
 > [!NOTE]  
-> Working with configuration packages is advanced functionality, and we recommend that you contact your reselling partner. To learn more, go to [Set Up Company Configuration Packages](/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) (in English only).
+> Working with configuration packages is advanced functionality, and we recommend that you contact your reselling partner. Learn more in [Set Up Company Configuration Packages](/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages) (in English only).
 
 You can import master data and some transactional data from other finance systems based on the default configuration package in [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Configuration Packages** page, you can work with the package to import and validate the data before you apply the package. For example, you can export the configuration package to Excel and set up your data there. Then, you can import the data from Excel again. The package consists of 27 tables, including master data such as customers, vendors, items, and accounts. The package also contains other basic setup tables such as shipping methods, and transactions tables such as sales header and lines.  
 
@@ -18723,7 +18716,7 @@ When you export the default configuration package to Excel, the generated workbo
 > [!NOTE]
 > Fields of type Blob can't be exported/imported using Excel.
 
-### Tables in the Default Configuration Package
+### Tables in the default configuration package
 
 The default configuration package supports the following tables:
 
@@ -18756,7 +18749,7 @@ The default configuration package supports the following tables:
 
 ## Related information
 
-[Migrating On-Premises Data to Business Central Online (in English only)](/dynamics365/business-central/dev-itpro/administration/migrate-data)  
+[Migrate On-Premises Data to Business Central Online (in English only)](/dynamics365/business-central/dev-itpro/administration/migrate-data)  
 [Set Up Company Configuration Packages](/dynamics365/business-central/dev-itpro/administration/set-up-standard-company-configuration-packages)  
 [QuickBooks Data Migration](ui-extensions-quickbooks-data-migration.md)  
 [Import Multiple Item Pictures](inventory-how-import-item-pictures.md)

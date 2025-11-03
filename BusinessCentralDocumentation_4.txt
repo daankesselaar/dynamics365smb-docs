@@ -713,17 +713,18 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-display-lists-different-views
 ---
 title: Adjust the amount of detail in lists
-description: You can display lists as detailed rows that provide most information, or as tiles that are easy to visually scan.
+description: Choose between detailed rows for comprehensive information or compact tiles for quick visual scanning in list views.
 author: brentholtorf
 ms.topic: concept-article
-ms.search.keywords: personalization
-ms.search.form: 31,
-ms.date: 07/17/2025
+ms.search.keywords: personalization, display lists, list views
+ms.search.form: 31
+ms.date: 10/14/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.custom: bap-template
 ---
+
 # Display lists in different ways
 
 List pages in [!INCLUDE[prod_short](includes/prod_short.md)] let you choose how to display the records. A list can display as detailed rows, which is ideal when you need to work with many fields or edit fields in the list. But, you can also switch to display records as tiles, which is more compact and shows fewer fields on the specific record. Tiles are useful for an overview of several entries and are helpful on smaller devices because they're compact and easier to tap.
@@ -732,13 +733,12 @@ List pages in [!INCLUDE[prod_short](includes/prod_short.md)] let you choose how 
 
 On the **Items** page, having pictures helps you get a quick overview of what you sell and switching to the tiles gives you an item catalog to browse through. For lists that include pictures, such as the **Items** page, you have a third option to display as large tiles. This displays large pictures for each record but also shows few fields.
 
-You can import item pictures, either one by one or for multiple items in one go. For more information, see [Import Multiple Item Pictures](inventory-how-import-item-pictures.md).  
+You can import item pictures, either one by one or for multiple items in one go. Learn more in [Import Multiple Item Pictures](inventory-how-import-item-pictures.md).  
 
 ## Related information
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Register New Items](inventory-how-register-new-items.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -1857,16 +1857,18 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-set-up-approval-users
 ---
 title: Set up approval users
-description: Before you can create workflows that involve approval steps, you must set up the workflow users involved in the approval processes.
+description: Set up users for approval workflows by assigning approvers, setting amount limits, and defining substitutes.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.form: 663_Primary
-ms.date: 06/10/2025
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
+ms.search.keywords: approval users, setup approval users, configure approval users
 ---
+
 # Set up approval users
 
 Before you can create workflows that involve approval steps, you must set up the users who are involved in approval processes on the **Approval User Setup** page. You can also set amount limits for different types of requests, define substitute approvers, and set up notifications.  
@@ -1894,7 +1896,7 @@ After you set up approval users, you can create workflow responses for approval 
    |**Unlimited Purchase Approval**|Specify that the person identified in the **User ID** field can approve all purchase requests regardless of the amount.<br /><br /> If you select this checkbox, you can't fill in the **Purchase Amount Approval Limit** field.|
    |**Request Amount Approval Limit**|Specify the maximum amount in LCY that the person identified in the **User ID** field can approve for purchase quotes.<br /><br /> To use this field, you must select the **Approver Chain** option in the **Approver Limit Type** field on the **Workflow Response** page.|
    |**Unlimited Request Approval**|Specify that the person identified in the **User ID** field can approve all purchase quotes regardless of the amount.<br /><br /> If you select this checkbox, you can't fill in the **Request Amount Approval Limit** field.|
-   |**Substitute**|Select the user ID of the person who will approve requests made by the person identified in the **User ID** field if the user in the **Approver ID** isn't available. <br /><br />**Note:**  The substitute can either be the user in the **Substitute** field, the direct approver, or the approval administrator, in that order of priority. Learn more at [Use Approval Workflows](across-how-use-approval-workflows.md).|
+   |**Substitute**|Select the user ID of the person who approves requests made by the person identified in the **User ID** field if the user in the **Approver ID** isn't available. <br /><br />**Note:**  The substitute can either be the user in the **Substitute** field, the direct approver, or the approval administrator, in that order of priority. Learn more at [Use Approval Workflows](across-how-use-approval-workflows.md).|
    |**Email**|Specify the email address of the person in the **User ID** field.|
    |**Approval Administrator**|Specify the user who has permission to unblock approval workflow, such as by delegating approval requests to new substitute approvers or deleting overdue approval requests.<br /><br />**Note** Only one person can be the approval administrator.|
 
@@ -1906,9 +1908,9 @@ The next step is to specify how you want [!INCLUDE [prod_short](includes/prod_sh
 ## Related information
 
 [Set Up Workflow Users](across-how-to-set-up-workflow-users.md)  
-[Setting Up Workflow Notifications](across-setting-up-workflow-notifications.md)  
+[Set Up Workflow Notifications](across-setting-up-workflow-notifications.md)  
 [Create Approval Workflows](across-how-to-create-workflows.md)  
-[Setting Up Approval Workflows](across-set-up-workflows.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
 [Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
 [Workflow](across-workflow.md)  
 
@@ -4141,16 +4143,17 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-setting-up-workflow-notifications
 ---
 title: Setting up approval workflow notifications
-description: This article explains how to set up workflow notifications to alert a user to an event that they must react to. 
+description: Learn how to set up workflow notifications to alert a user to an event that they must react to. 
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: concept-article
-ms.search.keywords:
-ms.date: 06/10/2025
+ms.search.keywords: workflow, approval workflow, workflow notifications
+ms.date: 10/20/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Approval workflow notifications
 
 Set up your workflows to automatically notify users when their attention is required for a step in a workflow. Many workflow responses involve notifying a user an event they must act on has occurred.
@@ -4159,7 +4162,6 @@ For example, you can set it so User 2, the approver user, receives a notificatio
 
 > [!NOTE]  
 > The default version of [!INCLUDE[prod_short](includes/prod_short.md)] supports notifications in email or as internal notes.  
-
 > [!IMPORTANT]  
 > All workflow notifications are sent through a job queue. Make sure the job queue in your installation is set up to handle workflow notifications, and that you've selected the **Start Automatically From Server** check box. Learn more at [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
 
@@ -4190,7 +4192,7 @@ You can set up different aspects of workflow notifications in the following plac
   
 * Notify sender
 
-  For approval workflows, add a workflow response step to notify the sender when the request has been approved or rejected. Learn more from step 9 in the [Create Workflows](across-how-to-create-workflows.md#to-create-a-workflow) section.   
+  For approval workflows, add a workflow response step to notify the sender when the request has been approved or rejected. Learn more from step 9 in the [Create Workflows](across-how-to-create-workflows.md#to-create-a-workflow) section.
 
 ## Related information
 
@@ -6737,12 +6739,14 @@ title: Workflows in Dynamics 365 Business Central
 description: Use built-in workflow capabilities to set up approval workflows to supplement automated workflows based on Power Automate.
 author: jswymer
 ms.author: jswymer
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
+ms.search.keywords: workflows, approval workflows, approval workflow, automate 
 ms.topic: article
-ms.date: 06/12/2025
+ms.date: 10/22/2025
 ms.custom: bap-template 
 ---
+
 # Workflows in Business Central
 
 You can set up and use workflows to connect business-process tasks performed by different users. System tasks, such as automatic posting, can be included as steps in workflows. System tasks can be preceded or followed by user tasks. Requesting and granting approval to create new records are typical workflow steps.
@@ -6760,7 +6764,7 @@ The default version of [!INCLUDE [prod_short](includes/prod_short.md)] supports 
 
   On the **Workflow Templates** page, you can see all available workflows. The trial version of [!INCLUDE[prod_short](includes/prod_short.md)] includes many preconfigured workflows represented by workflow templates you can copy to create new ones. When you open a template from the **Workflow Templates** page, and the workflow name starts with *MS-*, then the template was added by Microsoft.
 
-## Power Automate flows
+## Power automate flows
 
 With [!INCLUDE [prod_short](includes/prod_short.md)] online, you can sign up for Power Automate to build powerful automated workflows. You run those workflows from inside [!INCLUDE [prod_short](includes/prod_short.md)]. The flows can connect internal and external data sources and tools, without coding knowledge.
 
@@ -6795,7 +6799,7 @@ Examples of approval workflow events include the creation of sales or purchase o
 
 [Sales](sales-manage-sales.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Managing Projects](projects-manage-projects.md)  
+[Manage Projects](projects-manage-projects.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 [Troubleshoot Your [!INCLUDE[prod_short](includes/prod_short.md)] Automated Workflows](across-flow-troubleshoot.md)  
 
@@ -7366,12 +7370,12 @@ title: Use Power Automate flows in Business Central
 description: Use Power Automate flows to create, edit, and manage business processes. Boost productivity with easy automation.
 author: jswymer
 ms.author: jswymer
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.search.keywords: workflow, OData, Power App, SOAP, Power Automate, 
-ms.search.form: 1500, 
-ms.date: 06/20/2025
+ms.search.keywords: workflow, OData, Power App, SOAP, Power Automate, instant flow
+ms.search.form: 1500
+ms.date: 10/16/2025
 ms.custom: bap-template 
 ---
 
@@ -7384,7 +7388,7 @@ Power Automate flows run when an event occurs, like when a record is created, ch
 > [!NOTE]
 > Administrators can restrict access to Power Automate. If you find that you don't have access to some or all of the features described in this article, talk to your admin. If you want to learn how you can control Power Automate access as an admin, see [Set Up Power Automate Integration](/dynamics365/business-central/dev-itpro/powerplatform/power-automate-setup).
 
-<!-- You must have a valid account with both [!INCLUDE[prod_short](includes/prod_short.md)] and Power Automate. --> 
+<!-- You must have a valid account with both [!INCLUDE[prod_short](includes/prod_short.md)] and Power Automate. -->
 
 > [!TIP]
 > In addition to Power Automate, you can use approval workflow templates in [!INCLUDE[prod_short](includes/prod_short.md)]. Although they're two separate workflow systems, any approval workflow template you create with Power Automate is added to the list of workflows within [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more at [Workflows](across-workflow.md).
@@ -7413,13 +7417,12 @@ To explore all Power Automate flows currently available to you, sign in to [Powe
 
 - Instant flows are also made available for running directly from most list, card, and document pages in [!INCLUDE[prod_short](includes/prod_short.md)]. You find the instant flows in the **Automate** action group in the action bar of pages. To run a flow, select it, and follow the instructions presented to you. Learn more in the sections that follow.
 
-- With automated flows in [!INCLUDE[prod_short](includes/prod_short.md)], there's nothing for you to do, unless you want to change them, or turn them off. Otherwise, they just work when triggered. 
-<!--
+- With automated flows in [!INCLUDE[prod_short](includes/prod_short.md)], there's nothing for you to do, unless you want to change them, or turn them off. Otherwise, they just work when triggered.
 
+<!--
 ## Automated flows
 
 With Power Automate, you can create business flows directly in-house and rely on citizen developers. Automated workflows can be started by both internal and external events in [!INCLUDE[prod_short](includes/prod_short.md)], and also be set to run periodically. Learn more and get instructions on how to create flows in the [Set Up Automated Workflows](/dynamics365/business-central/dev-itpro/powerplatform/automate-workflows) article in the administration content.
-
 -->
 
 ## Run instant flows
@@ -7428,9 +7431,9 @@ Instant flows open inside [!INCLUDE [prod_short](includes/prod_short.md)] online
 
 1. In the action bar, select **Automate**, then choose a flow from the list of available flows under the **Power Automate** action.
 
-    :::image type="content" source="media/power-automate-instant-menu.svg" alt-text="Shows the Automate action with instant flow actions.":::
+  :::image type="content" source="media/power-automate-instant-menu.svg" alt-text="Shows the Automate action with instant flow actions.":::
 
-    On some pages, **Automate** is nested under **More options (...)**. 
+  On some pages, **Automate** is nested under **More options (...)**. 
 2. In the **Run Flow** pane, fill in any required fields, then select **Continue** to run the flow.
 
 > [!NOTE]
@@ -7470,8 +7473,8 @@ These tasks are typically done by an admin or super user. The tasks require a br
 - [Create automated flows](/dynamics365/business-central/dev-itpro/powerplatform/automate-workflows) (also covers approval flows)
 - [Create instant flows](/dynamics365/business-central/dev-itpro/powerplatform/instant-flows)
 - [Manage Power Automate flows](/dynamics365/business-central/dev-itpro/powerplatform/manage-power-automate-flows)
-<!-- 
 
+<!-- 
 ## Add more automated flows and instant flows
 
 You can create flows through the [powerautomate.microsoft.com](https://powerautomate.microsoft.com) website. However, if your admin has switched on the capability to run Power Automate flows from inside [!INCLUDE [prod_short](includes/prod_short.md)] online, you can start the process of building a flow from the **Automate** action on the relevant pages, which can be found under the **More Options** menu depending on the page. Then choose the **Power Automate** menu item, and then choose the **Create a flow** action. Power Automate then opens in a new browser tab, and you're signed in automatically.
@@ -8009,9 +8012,9 @@ author: kennieNP
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: analysis, reporting, business intelligence, KPI, installation, administration
-ms.date: 06/11/2025
+ms.date: 10/29/2025
 ms.author: kepontop
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -8032,7 +8035,7 @@ To use the Power BI apps, you need [!INCLUDE [powerbi-pro-license-name](includes
 
 Alternatively, you can use [!INCLUDE [powerbi-premium-capacity-name](includes/powerbi-premium-capacity-name.md)].
 
-To learn more, go to [Installing Power BI apps for Business Central (prerequisites)](across-powerbi-install-business-central-apps.md#prerequisites).
+Learn more in [Installing Power BI apps for Business Central (prerequisites)](across-powerbi-install-business-central-apps.md#prerequisites).
 
 ## Why do I need [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licenses?
 
@@ -8061,7 +8064,7 @@ No. [!INCLUDE [powerbi-apps-per-company-include](includes/powerbi-apps-per-compa
 
 ## How do I refresh the data in an app?
 
-To learn more, go to [Get the latest data (refresh the semantic model)](./across-powerbi-install-business-central-apps.md#get-the-latest-data-refresh-the-semantic-model).
+Learn more in [Get the latest data (refresh the semantic model)](./across-powerbi-install-business-central-apps.md#get-the-latest-data-refresh-the-semantic-model).
 
 ## My semantic model doesn't refresh. How do I figure out what's wrong?
 
@@ -8083,35 +8086,35 @@ This job queue entry is created automatically when you finish the **Connect to P
 
 If data is present in the flat dim table, you can refresh the semantic model and see the results.
 
-To learn more, go to [Job queue entry for updating dimension set entries](across-powerbi-install-business-central-apps.md#job-queue-entry-for-updating-dimension-set-entries).
+Learn more in [Job queue entry for updating dimension set entries](across-powerbi-install-business-central-apps.md#job-queue-entry-for-updating-dimension-set-entries).
 
 ## How do I change the connection parameters for an app?
 
-To learn more, go to [Connect the Power BI semantic models to Business Central](across-powerbi-install-business-central-apps.md#connect-the-power-bi-semantic-models-to-business-central).
+Learn more in [Connect the Power BI semantic models to Business Central](across-powerbi-install-business-central-apps.md#connect-the-power-bi-semantic-models-to-business-central).
 
 ## How do I update an app?
 
-To learn more, go to [Updating a Power BI app](across-powerbi-install-business-central-apps.md#updating-a-power-bi-app).
+Learn more in [Updating a Power BI app](across-powerbi-install-business-central-apps.md#updating-a-power-bi-app).
 
 ## Are the apps available in multiple languages?
 
-Yes, all apps are multi-language for many of the languages that [!INCLUDE[prod_short](includes/prod_short.md)] supports. To learn more, go to [Multi-language Power BI apps for Business Central](across-powerbi-business-central-apps-multi-language.md).
+Yes, all apps are multi-language for many of the languages that [!INCLUDE[prod_short](includes/prod_short.md)] supports. Learn more in [Multi-language Power BI apps for Business Central](across-powerbi-business-central-apps-multi-language.md).
 
 ## Can I get a copy of the source code (.pbix files) for the apps?
 
 The source code (.pbix files) for the Power BI apps is available from the following versions.
 
-| Power BI app for...            | Source code available from version | 
-|--------------------------------| -------------- | 
-| Finance                        | 26.2 and later | 
-| Inventory                      | 26.2 and later | 
-| Inventory Valuation            | 26.2 and later | 
-| Manufacturing                  | 26.2 and later | 
-| Purchasing                     | 27.0 and later | 
-| Projects                       | 27.0 and later | 
-| Sales                          | 27.0 and later | 
-| Subscription Billing           | 26.2 and later | 
-| Sustainability                 | 26.2 and later | 
+| Power BI app for...            | Source code available from version |
+|--------------------------------| -------------- |
+| Finance                        | 26.2 and later |
+| Inventory                      | 26.2 and later |
+| Inventory Valuation            | 26.2 and later |
+| Manufacturing                  | 26.2 and later |
+| Purchasing                     | 27.0 and later |
+| Projects                       | 27.0 and later |
+| Sales                          | 27.0 and later |
+| Subscription Billing           | 26.2 and later |
+| Sustainability                 | 26.2 and later |
 
 You can download the .pbix file by installing the app from AppSource and then download the source code from the installed app.
 
@@ -8121,7 +8124,7 @@ No. At the moment, the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps 
 
 ## Related information
 
-[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
+[Install Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
 [Power BI apps by functional area](across-powerbi-apps-by-functional-area.md)  
 [Introduction to Business Central and Power BI](admin-powerbi.md)  
 [Work with Power BI reports](across-working-with-powerbi.md)  
@@ -8844,25 +8847,27 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-exchange-data
 ---
-title: Exchanging Data
+title: Exchanging data
 description: Exchange electronic business documents, for example bank files, between Business Central and external parties. 
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: exchange data, external files, electronic documents, AMC Banking, OCT, SEPA
-ms.date: 06/10/2021
+ms.date: 10/14/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Exchanging Data
+
+# Exchange data
+
 You can exchange data between [!INCLUDE[prod_short](includes/prod_short.md)] and external files or streams in connection with common business tasks, such as sending and receiving electronic documents and importing and exporting bank files.  
 
-Before you can send and receive electronic documents or import and export bank files, you must set up the data exchange framework to process the data files or streams. In addition, you must set up related areas, such as the customers that you send electronic invoices to, and the AMC Banking 365 Fundamentals extension if you distribute bank file conversions to an external service provider. For more information, see [Setting Up Data Exchange](across-set-up-data-exchange.md).  
+Before you can send and receive electronic documents or import and export bank files, you must set up the data exchange framework to process the data files or streams. In addition, you must set up related areas, such as the customers that you send electronic invoices to, and the AMC Banking 365 Fundamentals extension if you distribute bank file conversions to an external service provider. Learn more in [Set Up Data Exchange](across-set-up-data-exchange.md).  
 
- The following table describes a sequence of tasks, with links to the topics that describe them.  
+ The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-|**To**|**See**|  
+|**To**|**Go to**|  
 |------------|-------------|  
 |Convert sales document records in [!INCLUDE[prod_short](includes/prod_short.md)] to a standardized format and send them as electronic documents that your customers can receive into their system.|[Send Electronic Documents](sales-how-to-send-electronic-documents.md)|  
 |Send PDF or image files to a provider of OCR services, and receive them back as electronic documents that can be converted to document records in [!INCLUDE[prod_short](includes/prod_short.md)].|[Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md)|  
@@ -8876,14 +8881,14 @@ Before you can send and receive electronic documents or import and export bank f
 |Export data for Intrastat reporting in [!INCLUDE[prod_short](includes/prod_short.md)].|[Set Up Intrastat Reporting](finance-how-setup-report-intrastat.md)|
 |View which fields in [!INCLUDE[prod_short](includes/prod_short.md)] are mapped to file elements when exporting payment files by using the AMC Banking 365 Fundamentals extension.|[Field Mapping When Exporting Payment Files Using the AMC Banking 365 Fundamentals extension](across-field-mapping-when-exporting-payment-files-using-bank-data-conversion-service.md)|  
 
-## Related information  
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchanging Data Electronically](across-data-exchange.md)  
-[Invoice Sales](sales-how-invoice-sales.md)   
+## Related information
+
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
+[Invoice Sales](sales-how-invoice-sales.md)  
 [Record Purchases](purchasing-how-record-purchases.md)  
 [Incoming Documents](across-income-documents.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -9639,64 +9644,64 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-set-up-a-document-exchange-service
 ---
-title: How to Set Up a Document Exchange Service | Microsoft Docs
-description: You use an external service provider to exchange electronic documents with your trading partners.
+title: How to set up a document exchange service | Microsoft Docs
+description: Use an external service provider to securely exchange electronic documents with your trading partners.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/11/2021
+ms.search.keywords: document exchange service, exchange service, document exchange, data exchange framework, data exchange
+ms.date: 10/16/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Set Up a Document Exchange Service
 
-As part of the Data Exchange Framework, you can exchange sales and purchase documents with your trading partners without extra steps, such as attaching the documents to email messages as PDF files. For example, when you're ready to invoice a customer, you can post the invoice and send it for payment as a file that your customer can receive in their business management application. For more information, see [Exchanging Data Electronically](across-data-exchange.md).
+# Set Up a document exchange service
+
+As part of the Data Exchange Framework, you can exchange sales and purchase documents with your trading partners without extra steps, such as attaching the documents to email messages as PDF files. For example, when you're ready to invoice a customer, you can post the invoice and send it for payment as a file that your customer can receive in their business management application. Learn more in [Exchanging Data Electronically](across-data-exchange.md).
 
 > [!NOTE]
-> Setting up a document exchange service for Business Central on-premises requires some additional steps for authorization. For more information, see [Settings for Business Central On-Premises](#settings-for-business-central-on-premises).
+> Setting up a document exchange service for Business Central on-premises requires some additional steps for authorization. Learn more in [Settings for Business Central On-Premises](#settings-for-business-central-on-premises).
 
-## Connecting with Trading Partners
+## Connecting with trading partners
 
 > [!IMPORTANT]
-> Tradeshift integration is no longer supported in Business Central and is planned for deprecation. Instead, please try using the new E-Document functionality in Business Central https://aka.ms/bcedocuments.  
+> Tradeshift integration is no longer supported in Business Central and is planned for deprecation. Instead, try using the new E-Document functionality in Business Central https://aka.ms/bcedocuments.  
 
-Exchanging electronic documents requires a connection to your trading partners. To make it easy to create a secure connection, [!INCLUDE[prod_short](includes/prod_short.md)] online is configured to use the Business Central Integration app. The app is available on the Tradeshift App Store, and all you and your business partners need to do is create a Tradeshift account and then enable the app. The Business Central Integration app comes in production and sandbox versions. For example, using the sandbox version is good for testing the document exchange. You can switch between production and sandbox versions by turning the **Sandbox** toggle on or off on the **Doc. Exch. Service Setup** page. When you do, the information on the **Service** FastTab is updated for you.
+Exchanging electronic documents requires a connection to your trading partners. To make it easy to create a secure connection, [!INCLUDE[prod_short](includes/prod_short.md)] online is configured to use the Business Central Integration app. The app is available on the Tradeshift App Store, and all you and your business partners need to do is to create a Tradeshift account and then enable the app. The Business Central Integration app comes in production and sandbox versions. For example, using the sandbox version is good for testing the document exchange. You can switch between production and sandbox versions by turning the **Sandbox** toggle on or off on the **Doc. Exch. Service Setup** page. When you do, the information on the **Service** FastTab is updated for you.
 
-Alternatively, if you want to use another service, you must provide information to make the connection. For more information, see [To connect to a document exchange service](across-how-to-set-up-a-document-exchange-service.md#to-connect-to-a-document-exchange-service).
+Alternatively, if you want to use another service, you must provide information to make the connection. Learn more in [To connect to a document exchange service](across-how-to-set-up-a-document-exchange-service.md#to-connect-to-a-document-exchange-service).
 
 ### To connect to the Business Central Integration app on Tradeshift
 
 You can quickly create a Tradeshift account and get started with the Business Central Integration app from the **Doc. Exch. Service Setup** page. Choose either the **Activate App** link in the notification or the **App URL** field to go to the app in the Tradeshift app store. On the Login page for Tradeshift, either sign in or sign up.
 
 > [!NOTE]
-> After you sign in to your Tradeshift account, the site might not take you to the page where you activate the app. To do that, you can click the link on the **Doc. Exch. Service Setup** page in Business Central again to go directly to the app.
+> After you sign in to your Tradeshift account, the site might not take you to the page where you activate the app. To do that, you can select the link on the **Doc. Exch. Service Setup** page in Business Central again to go directly to the app.
 
-If you decide to stop using the Business Central Integration app, you should disable it in the Tradeshift app store. 
+If you decide to stop using the Business Central Integration app, you should disable it in the Tradeshift app store.
 
 ## To connect to a document exchange service
 
 If you prefer to use another document exchange service, you must provide some information to connect to the service.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Document Exchange Service Setup**, and then choose the related link.  
+1. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Document Exchange Service Setup**, and then choose the related link.  
 2. Fill the fields as described in the following table.  
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
     |**User Agent**|Enter text that can be used to identify your company in document exchange processes.|  
     |**Enabled**|Specify whether the connection to the service is enabled.<br><br> **Note:**  When you enable the service at least two job queue entries are created to send and receive electronic documents. When you disable the service, the job queue entries are deleted.|  
-    |**Sandbox**|Specify whether you are connecting to a sandbox version of the document exchange service.|
+    |**Sandbox**|Specify whether you're connecting to a sandbox version of the document exchange service.|
     |**Sign-up URL**|Specify the web page where you sign up for the document exchange service.|  
     |**App URL**|Choose the link to open the app store and turn the Business Central Integration app on or off.|
-    |**Service URL**|Specify the address of the document exchange service, which will be called when you send and receive electronic documents.|  
+    |**Service URL**|Specify the address of the document exchange service, which is called when you send and receive electronic documents.|  
     |**Sign-in URL**|Specify the URL for the page you use to sign in to the document exchange service. This is the page where you enter your company’s user name and password.|  
-    
-    > [!NOTE]  
-    > Your sign in credentials are automatically encrypted. You cannot turn off encryption.
 
+    > [!NOTE]  
+    > Your sign in credentials are automatically encrypted. You can't turn off encryption.
     > [!NOTE]
-    > If you cannot connect to the document exchange service because of an authorization issue, it might be because [!INCLUDE[prod_short](includes/prod_short.md)] cannot automatically renew the access token. For example, this might occur if you have not used the service for some time. You can renew the token manually by using the **Renew Token** action.
+    > If you can't connect to the document exchange service because of an authorization issue, it might be because [!INCLUDE[prod_short](includes/prod_short.md)] can't automatically renew the access token. For example, this might occur if you have not used the service for some time. You can renew the token manually by using the **Renew Token** action.
 
 ### Settings for Business Central On-Premises
 
@@ -9706,9 +9711,8 @@ If you prefer to store the app ID and secret in a different location, you can le
 
 ## Related information
 
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchanging Data Electronically](across-data-exchange.md)
-
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10688,29 +10692,30 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-create-income-document-records
 ---
-title: Create Incoming Document Records
+title: Create incoming document records
 description: Use different functions on the Incoming Documents page to review expense receipts, manage OCR tasks, convert incoming document files and attach external files.
 author: jswymer
 ms.topic: how-to
 ms-service: dynamics-365-business-central
 ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
-ms.date: 02/27/2024
+ms.date: 10/15/2025
 ms.author: jswymer
 ms.custom: bap-template
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ---
+
 # Create incoming document records
 
 On the **Incoming Documents** page, you can use different functions to review expense receipts, manage OCR tasks, and convert incoming document files, manually or automatically, to the relevant documents or journal lines. The external files can be attached at any process stage, including to posted documents and to the resulting vendor, customer, and general ledger entries.
 
 To record an external document in [!INCLUDE[prod_short](includes/prod_short.md)], first create or complete an incoming document record. You can do those tasks manually, or you can take a photo of the external document to create the incoming document record with the image file attached.
 
-Before you can use the **Incoming Documents** feature, you must perform the required setup. For more information, see [Set Up Incoming Documents](across-how-setup-income-documents.md).
+Before you can use the **Incoming Documents** feature, you must perform the required setup. Learn more in [Set Up Incoming Documents](across-how-setup-income-documents.md).
 
 ## Approve or reject an incoming document
 
-If you have set up the **Incoming Documents** feature to require approval to create documents, users with the appropriate rights must approve the records before they're processed. For more information, see [Set up approvers of incoming document records](across-how-setup-income-documents.md#to-set-up-approvers-of-incoming-document-records).
+If you have set up the **Incoming Documents** feature to require approval to create documents, users with the appropriate rights must approve the records before they're processed. Learn more in [Set up approvers of incoming document records](across-how-setup-income-documents.md#to-set-up-approvers-of-incoming-document-records).
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Incoming Documents**, and then choose the related link.
 2. Select the line with the document that you want to approve or reject, and then choose the **Approve** or **Reject** actions.
@@ -10727,7 +10732,7 @@ If you approve the incoming document record, the **Released** check box on the i
 3. On the **Incoming Documents** page, choose **New**, and then choose **Create from Camera**. The camera on the tablet or phone is activated.
 4. Take a photo of a document, such as a purchase receipt, that you want to process as an incoming document, and then choose the **Use** button.
 
-    A new incoming document record is created with the image attached.
+   A new incoming document record is created with the image attached.
 
 ## Attach an image to an incoming document record by taking a photo
 
@@ -10757,13 +10762,12 @@ If you approve the incoming document record, the **Released** check box on the i
 
 ## Related information
 
-[Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md)
-[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)
-[Find Posted Documents without Incoming Document Records](across-how-find-posted-documents-without-income-document-records.md)
+[Use OCR to Turn PDF and Image Files into Electronic Documents](across-how-use-ocr-pdf-images-files.md)  
+[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)  
+[Find Posted Documents without Incoming Document Records](across-how-find-posted-documents-without-income-document-records.md)  
 [Incoming Documents](across-income-documents.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -11824,50 +11828,53 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-controladdin-resiliency
 ---
-title: "Control add-in resiliency in Business Central"
-description: What to if control add-ins or custom controls are resulting in reduced functionality in Business Central.
+title: Control add-in resiliency in Business Central
+description: Guidance for addressing issues when control add-ins or custom controls cause reduced functionality in Business Central.
 ms.topic: article
 author: brentholtorf
 ms.author: bholtorf
-ms.date: 12/12/2023
+ms.date: 10/13/2025
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.search.keywords: resiliency, control add-in, custom control, performance, slow, unresponsive
 ---
 
 # Control add-in resiliency in Business Central
 
-From update 20.0 of [!INCLUDE[prod_short](includes/prod_short.md)], control add-ins that perform slowly are automatically detected and a dialog similar to the following is displayed.
+From update 20.0 of [!INCLUDE[prod_short](includes/prod_short.md)], control add-ins that perform slowly are automatically detected and a dialog similar to the following example is displayed.
 
 ![Busy control add-in.](media/controladdin-resiliency.png "Busy control add-in.")
 
 An unhealthy control add-in might affect your Business Central experience and cause the page you're working on to start slowly. It has no impact on data and your changes are always saved. If you see the warning as shown above, you can hide it, but it might come back and if the problem persists, you should contact your administrator.
 
 ## Related information
+
 [Control add-in performance best practices](/dynamics365/business-central/dev-itpro/developer/devenv-control-addin-bestpractices)  
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-set-up-data-exchange
 ---
 title: Set up data exchange to send and receive files
-description: Set up the data exchange framework in order to exchange data with external files; to send and receive electronic documents or import and export bank files.
+description: Set up the data exchange framework to send, receive, import, and export electronic documents and bank files in Business Central.
 author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
-ms.search.keywords:
-ms.date: 06/11/2021
+ms.search.keywords: data exchange, e-documents, electronic documents, bank files
+ms.date: 10/20/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
-# Setting Up Data Exchange
 
-Before you can send and receive electronic documents or import and export bank files, you must set up the data exchange framework to process the involved files. In addition, you must set up related areas, such as the customers that you send electronic invoices to, or the AMC Banking 365 Fundamentals extension if you use the external service provider to convert your bank files. For more information, see [Exchanging Data Electronically](across-data-exchange.md).  
+# Set up Data Exchange
+
+Before you can send and receive electronic documents or import and export bank files, you must set up the data exchange framework to process the involved files. In addition, you must set up related areas, such as the customers that you send electronic invoices to, or the AMC Banking 365 Fundamentals extension if you use the external service provider to convert your bank files. Learn more in [Exchanging Data Electronically](across-data-exchange.md).  
 
  When [!INCLUDE[prod_short](includes/prod_short.md)] is set up to exchange data with external files, users can use the setup in common business tasks, such as sending and receiving electronic documents and importing and exporting bank files.  
 
- The following table describes a sequence of tasks, with links to the topics that describe them.  
+ The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-|**To**|**See**|  
+|**To**|**Go to**|  
 |------------|-------------|  
 |Set up the preconfigured document exchange service to enable sending and receiving electronic documents from and to [!INCLUDE[prod_short](includes/prod_short.md)].|[Set Up a Document Exchange Service](across-how-to-set-up-a-document-exchange-service.md)|  
 |Set up the preconfigured OCR service to turn PDF or image files into electronic documents that can be converted to document records in [!INCLUDE[prod_short](includes/prod_short.md)]|[Set Up Incoming Documents](across-how-setup-income-documents.md)|  
@@ -11884,33 +11891,31 @@ Before you can send and receive electronic documents or import and export bank f
 
 ## Related information
 
-[Exchanging Data Electronically](across-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
 [Incoming Documents](across-income-documents.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-inspect-page
 ---
-title: "Inspecting pages in Business Central"
-description: Use the page inspection feature to zoom into details about the page design and data source. Page inspector is ideal for troubleshooting issues with your data.
+title: Inspecting pages in Business Central
+description: Use page inspection feature to view page design and data source details. Ideal for troubleshooting and understanding data in Business Central.
 ms.topic: concept-article
-
 author: jswymer
 ms.author: jswymer
-ms.date: 09/15/2023
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
+ms.reviewer: v-soumramani
 ---
 
-# Inspecting pages in Business Central
+# Inspect pages in Business Central
 
 The page inspection feature enables you to get details about a page, providing insight into the page design, the different elements that comprise the page, and the source behind the data it displays. Page inspection is especially designed for administrators, power users, support personnel, and developers. It's ideal for learning the data model behind a page and troubleshooting. For example, if you're experiencing a problem with a page, you can use page inspection to get information to pass on to your system administrator or support personnel.
 
 > [!NOTE]  
-> With [!INCLUDE [prod_short](includes/prod_short.md)] 2023 release wave 2, through page inspection, you can start Visual Studio Code from within the web client to further investigate and debug source code of an extension. For more information, see [Troubleshoot in Visual Studio Code directly from the web client](/dynamics365/business-central/dev-itpro/developer/devenv-troubleshoot-vscode-webclient) in the Business Central Developer and IT Pro help.
+> With [!INCLUDE [prod_short](includes/prod_short.md)] 2023 release wave 2, through page inspection, you can start Visual Studio Code from within the web client to further investigate and debug source code of an extension. Learn more in [Troubleshoot in Visual Studio Code directly from the web client](/dynamics365/business-central/dev-itpro/developer/devenv-troubleshoot-vscode-webclient) in the Business Central Developer and IT Pro help.
 
 [!INCLUDE [send-report-excel](includes/send-report-excel.md)]
 
@@ -11922,15 +11927,15 @@ The **Page inspection** pane opens on the side. When the pane first opens, it sh
 
 Use the keyboard or pointing device to move focus to different elements on the page. When you select a FactBox or a part on the main page, the bounding area is highlighted by a border, and the **Page Inspection** pane shows information about the selected element. For example, the previous figure shows information about the list part in the **Sales Order** page. As you navigate to other pages in the application, the **Page Inspection** pane will automatically update with page information as you move along.
 
-For more information about what is shown in page inspection, see [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)].
+Refer to [Inspecting and Troubleshooting Pages](/dynamics365/business-central/dev-itpro/developer/devenv-inspecting-pages) in the [!INCLUDE[dev-itpro-docs](includes/dev-itpro-docs.md)] for information about what is shown in page inspection.
 
 If you don't see the details that you expect to see in the **Page Inspection** pane, you probably don't have the required permissions, as described in the next section.
 
-## Controlling access to page inspection details
+## Control access to page inspection details
 
-As an administrator, you can control access to the full details that are shown in the **Page Inspection** pane by configuring the permissions that users have. To grant a user permission to the full details, give users **Execute** permission on the **System** object **5330**. You can grant this permission by using a permission set (such as **D365 Troubleshoot**) or a user group (such as **D365 Troubleshoot**). For more information about permissions, see [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+As an administrator, you can control access to the full details that are shown in the **Page Inspection** pane by configuring the permissions that users have. To grant a user permission to the full details, give users **Execute** permission on the **System** object **5330**. You can grant this permission by using a permission set (such as **D365 Troubleshoot**) or a user group (such as **D365 Troubleshoot**). Learn more in [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information about permissions.
 
-Users who aren't granted permissions on **System object 5330** can still access the **Page Inspection** pane, but they will only see the **Page** and **Table** fields, which display basic details that they can pass on to their support team.
+Users who aren't granted permissions on **System object 5330** can still access the **Page Inspection** pane, but they'll only see the **Page** and **Table** fields, which display basic details that they can pass on to their support team.
 
 ## Related information
 
@@ -16288,11 +16293,12 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
-ms.date: 05/05/2025
+ms.date: 10/16/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ---
+
 # Use OCR to turn PDF and image files into electronic documents
 
 From PDF or image files that you receive from your trading partners, you can have an external OCR service (Optical Character Recognition) generate electronic documents that can be converted to document records in [!INCLUDE[prod_short](includes/prod_short.md)]. For example, when you receive an invoice in PDF format from your vendor, you can [send it to the OCR service from the Incoming Documents page](#to-send-a-pdf-or-image-file-to-the-ocr-service-from-the-incoming-documents-page).
@@ -16301,17 +16307,17 @@ As an alternative to sending the file from the **Incoming Documents** page, the 
 
 After some seconds, the OCR service sends the processed file to the **Incoming Documents** page as an electronic document record that can be [converted to a purchase invoice for the vendor](#to-receive-the-resulting-electronic-document-from-the-ocr-service), a sales invoice, credit memo, or a journal entry.
 
-Because OCR is based on optical recognition, it's likely that the OCR service interprets characters in your PDF or image files wrongly when it first processes a certain vendor's documents, for example. It might not interpret the company logo as the vendor's name or it might misinterpret the total amount on a receipt because of its layout. To avoid these errors going forward, you can correct the errors in a separate version of the **Incoming Document** page. Then you send the corrections back to the OCR service to train it to interpret the specific characters and fields correctly next time it processes a PDF or image document for the same vendor. To learn more, go to [Train the OCR service to avoid errors](across-how-use-ocr-pdf-images-files.md#to-train-the-ocr-service-to-avoid-errors).
+Because OCR is based on optical recognition, it's likely that the OCR service interprets characters in your PDF or image files wrongly when it first processes a certain vendor's documents, for example. It might not interpret the company logo as the vendor's name or it might misinterpret the total amount on a receipt because of its layout. To avoid these errors going forward, you can correct the errors in a separate version of the **Incoming Document** page. Then you send the corrections back to the OCR service to train it to interpret the specific characters and fields correctly next time it processes a PDF or image document for the same vendor. Learn more in [Train the OCR service to avoid errors](across-how-use-ocr-pdf-images-files.md#to-train-the-ocr-service-to-avoid-errors).
 
-A dedicated job queue entry processes the traffic of files to and from the OCR service. This job queue is created automatically when you enable the external OCR service connection. To learn more, go to [Set Up Incoming Documents](across-how-setup-income-documents.md).
+A dedicated job queue entry processes the traffic of files to and from the OCR service. This job queue is created automatically when you enable the external OCR service connection. Learn more in [Set Up Incoming Documents](across-how-setup-income-documents.md).
 
 > [!NOTE]
-> The OCR feature is provided by external providers. Choose a service package that is appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
+> The OCR feature is provided by external providers. Choose a service package that's appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
 
 ## To send a PDF or image file to the OCR service from the Incoming Documents page
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Incoming Documents**, and then choose the related link.
-2. Create a new incoming document record and attach the file. For more information, see [Create Incoming Document Records](across-how-create-income-document-records.md).  
+2. Create a new incoming document record and attach the file. Learn more in [Create Incoming Document Records](across-how-create-income-document-records.md).  
 3. On the **Incoming Documents** page, select one or more lines, and then choose the **Send to Job Queue** action.
 
    The value in the **OCR Status** field changes to **Ready**. The attached PDF or image file is sent to the OCR service by the job queue according to the schedule, if no errors exist.
@@ -16321,12 +16327,12 @@ A dedicated job queue entry processes the traffic of files to and from the OCR s
 
 ## To send a PDF or image file to the OCR service by email
 
-From your email application, you can forward an email to the OCR service provider with the PDF or image file attached. For information about the email address to send to, see the OCR service provider's web site.
+From your email application, you can forward an email to the OCR service provider with the PDF or image file attached. Refer to the OCR service provider's web site for information about the email address to send to.
 
-Since no incoming document record exists for the file, a new record is created automatically on the **Incoming Documents** page when the OCR service sends the resulting electronic document. To learn more, go to [Create Incoming Document Records](across-how-create-income-document-records.md).
+Since no incoming document record exists for the file, a new record is created automatically on the **Incoming Documents** page when the OCR service sends the resulting electronic document. Learn more in [Create Incoming Document Records](across-how-create-income-document-records.md).
 
 > [!NOTE]  
-> If you work on a tablet or phone, you can send the file to the OCR service as soon as you take a photo of the document, or you can create an incoming document directly. To learn more, go to [Create an incoming document record by taking a photo](across-how-create-income-document-records.md#create-an-incoming-document-record-by-taking-a-photo).
+> If you work on a tablet or phone, you can send the file to the OCR service as soon as you take a photo of the document, or you can create an incoming document directly. Learn more in [Create an incoming document record by taking a photo](across-how-create-income-document-records.md#create-an-incoming-document-record-by-taking-a-photo).
 
 ## To receive the resulting electronic document from the OCR service
 
@@ -16338,33 +16344,33 @@ If you aren't using a job queue, or you want to receive a finished OCR document 
 > If the OCR service is set up to require manual verification of processed documents, the **OCR Status** field contains **Awaiting Verification**. In that case, do the following steps to sign in to the OCR service website to manually verify an OCR document.
 
 1. In the **OCR Status** field, choose the **Awaiting Verification** hyperlink.
-2. On the OCR service website, sign in using the credentials of your OCR service account. To learn more, go to [Set up an OCR service](across-how-setup-income-documents.md#to-set-up-an-ocr-service).
+2. On the OCR service website, sign in using the credentials of your OCR service account. Learn more in [Set up an OCR service](across-how-setup-income-documents.md#to-set-up-an-ocr-service).
 
    Information for the OCR document displays, showing both the source content of the PDF or image file and the resulting OCR field values.
 3. Review the field values and manually edit or enter values in fields that the OCR service tagged as uncertain.
 4. Choose the **OK** button. The OCR process is completed and the resulting electronic document is sent to the **Incoming Documents** page in [!INCLUDE[prod_short](includes/prod_short.md)], according to the job queue schedule.
 5. Repeat steps 2 through 4 for any other OCR document to be verified.
 
-Now you can proceed to create document records for the received electronic documents in [!INCLUDE[prod_short](includes/prod_short.md)], manually or automatically. For more information, go to the next procedure. You can also [connect the new incoming document record to existing posted or nonposted documents](across-how-connect-disconnect-income-document-records.md) so that the source file is easy to access from [!INCLUDE[prod_short](includes/prod_short.md)].
+Now you can proceed to create document records for the received electronic documents in [!INCLUDE[prod_short](includes/prod_short.md)], manually or automatically. Learn more in the next procedure. You can also [connect the new incoming document record to existing posted or nonposted documents](across-how-connect-disconnect-income-document-records.md) so that the source file is easy to access from [!INCLUDE[prod_short](includes/prod_short.md)].
 
 ## To create a purchase invoice from an electronic document received from the OCR service
 
 The following procedure describes how to create a purchase invoice record from a vendor invoice received as an electronic document from the OCR service. The procedure is the same when you create, for example, a general journal line from an expense receipt or a sales return order from a customer.
 
 > [!NOTE]  
-> The **Description** and **No.** fields on the created document lines are filled in only if you mapped text found on the OCR document to the two fields in [!INCLUDE[prod_short](includes/prod_short.md)]. You can do this mapping as item references for document lines of the type Item. To learn more, go to [Use Item References](inventory-how-use-item-cross-refs.md). You can also use the **Text-to-Account Mapping** function. To learn more, go to [Map text on an incoming document to a specific vendor, G/L, or bank account](across-how-use-ocr-pdf-images-files.md#to-map-text-on-an-incoming-document-to-a-specific-vendor-account).
+> The **Description** and **No.** fields on the created document lines are filled in only if you mapped text found on the OCR document to the two fields in [!INCLUDE[prod_short](includes/prod_short.md)]. You can do this mapping as item references for document lines of the type Item. Learn more in [Use Item References](inventory-how-use-item-cross-refs.md). You can also use the **Text-to-Account Mapping** function. Learn more in [Map text on an incoming document to a specific vendor, G/L, or bank account](across-how-use-ocr-pdf-images-files.md#to-map-text-on-an-incoming-document-to-a-specific-vendor-account).
 
 1. Select the line for the incoming document, and then choose the **Create Document** action.
 
 A purchase invoice is created in [!INCLUDE[prod_short](includes/prod_short.md)] based on the information in the electronic vendor document that you received from the OCR service. Information is added in the new purchase invoice based on the mapping that you defined as a reference or as text-to-account mapping.
 
-Any validation errors, typically related to wrong or missing data in [!INCLUDE[prod_short](includes/prod_short.md)], show on the **Errors and Warnings** FastTab. To learn more, go to [Handle errors when receiving electronic documents](across-how-use-ocr-pdf-images-files.md#to-handle-errors-when-receiving-electronic-documents).
+Any validation errors, typically related to wrong or missing data in [!INCLUDE[prod_short](includes/prod_short.md)], show on the **Errors and Warnings** FastTab. Learn more in [Handle errors when receiving electronic documents](across-how-use-ocr-pdf-images-files.md#to-handle-errors-when-receiving-electronic-documents).
 
 ### To map text on an incoming document to a specific vendor account
 
 For incoming documents, you typically use the **Map Text to Account** action to define that a certain text on a vendor invoice received from the OCR service is mapped to a certain vendor account. Going forward, any part of the incoming document description that exists as a mapping text means that the **Vendor No.** field on resulting document or journal lines of type *G/L Account* are filled with the vendor in question.
 
-In addition to mapping to a vendor account or G/L accounts, you can also map text to a bank account. This option is useful, for example, for electronic documents for expenses that are already paid, and for which you want to create a general journal line that is ready to post to a bank account.
+In addition to mapping to a vendor account or G/L accounts, you can also map text to a bank account. This option is useful, for example, for electronic documents for expenses that are already paid, and for which you want to create a general journal line that's ready to post to a bank account.
 
 1. Select the relevant incoming document line, and then choose the **Map Text to Account** action. The **Text-to-Account Mapping** page opens.
 2. In the **Mapping Text** field, enter any text that occurs on vendor invoices that you want to create purchase documents or journal lines for. You can enter up to 50 characters.
@@ -16373,7 +16379,7 @@ In addition to mapping to a vendor account or G/L accounts, you can also map tex
 5. In the **Credit Acc. No.** field, enter the credit-type G/L account to insert on resulting purchase document or journal line of type G/L Account.
 
    > [!NOTE]
-   > Don't use the **Bal. Source Type** and **Bal. Source No.** fields with incoming documents. They're used for automatic payment reconciliation only. To learn more, go to [Map Text on Recurring Payments to Accounts for Automatic Reconciliation](receivables-how-map-text-recurring-payments-accounts-auto-reconcilliation.md).
+   > Don't use the **Bal. Source Type** and **Bal. Source No.** fields with incoming documents. They're used for automatic payment reconciliation only. Learn more in [Map Text on Recurring Payments to Accounts for Automatic Reconciliation](receivables-how-map-text-recurring-payments-accounts-auto-reconcilliation.md).
 6. Repeat steps 2 through 5 for all text on incoming documents that you want to automatically create documents for.
 
 ## To handle errors when receiving electronic documents
@@ -17625,14 +17631,15 @@ title: Define how data is exchanged electronically
 description: Define how Business Central exchange data with external files like electronic documents, bank data, item catalogs and more.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
 ms.topic: how-to
-ms.search.keywords:
+ms.search.keywords: data exchange, data exchange definition, data exchange mapping
 ms.search.form: 1210, 1211, 1213, 1214, 1215, 1216, 1217
-ms.date: 06/10/2025
+ms.date: 10/16/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
+
 # Set up data exchange definitions
 
 You can set up [!INCLUDE[prod_short](includes/prod_short.md)] to exchange data in specific tables with data on external files. For example to send and receive electronic documents, import and export bank data or other data, such as payroll, and item catalogs. Learn more at [Exchanging Data Electronically](across-data-exchange.md).  
@@ -17642,7 +17649,7 @@ To create a data exchange definition for a data file or stream, you can use the 
 Normally, you set up data exchange definitions on the **Data Exchange Definition** page. However, for updating currency exchange rates, it's faster to use a currency exchange rate service. Learn more at [Update Currency Exchange Rates](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service).
 
 > [!NOTE]  
-> If the file that is being converted is in the XML format, the term *"column"* in this article should be interpreted as an *"XML element containing data"*.  
+> If the file that's being converted is in the XML format, the term *"column"* in this article should be interpreted as an *"XML element containing data"*.  
 
 This article includes the following procedures:  
 
@@ -17659,7 +17666,7 @@ Creating a data exchange definition involves two tasks:
 
 ### <a name=formatlinescolumns></a>To describe the formatting of lines and columns in the file
 
-1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
+1. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
 2. Choose the **New** action.  
 3. On the **General** FastTab, describe the data exchange definition and the data file type by filling the fields as described in the following table.  
 
@@ -17750,7 +17757,7 @@ You can also group by any field, use the key index to sort results, and the new 
     |**Key Index**|Specify the key index to sort the source records before exporting.|
     |**Pre-Mapping Codeunit**|Specify the codeunit that prepares the mapping between fields in [!INCLUDE[prod_short](includes/prod_short.md)] and external data.|  
     |**Mapping Codeunit**|Specify the codeunit that is used to map the specified columns or XML data elements to fields in [!INCLUDE[prod_short](includes/prod_short.md)].|  
-    |**Post-Mapping Codeunit**|Specify the codeunit that completes the mapping between fields in [!INCLUDE[prod_short](includes/prod_short.md)] and external data. **Note:** When you use the AMC Banking 365 Fundamentals extension, the codeunit converts exported data from [!INCLUDE[prod_short](includes/prod_short.md)] to a generic format that's ready for export. For import, the codeunit converts external data to a format that is ready for import into [!INCLUDE[prod_short](includes/prod_short.md)].|
+    |**Post-Mapping Codeunit**|Specify the codeunit that completes the mapping between fields in [!INCLUDE[prod_short](includes/prod_short.md)] and external data. **Note:** When you use the AMC Banking 365 Fundamentals extension, the codeunit converts exported data from [!INCLUDE[prod_short](includes/prod_short.md)] to a generic format that's ready for export. For import, the codeunit converts external data to a format that's ready for import into [!INCLUDE[prod_short](includes/prod_short.md)].|
 
 3. On the **Field Mapping** FastTab, specify which columns map to which fields in [!INCLUDE[prod_short](includes/prod_short.md)] by filling the fields as described in the following tables, depending on whether the **Use as Intermediate Table** field is enabled.  
    * With the **Use as Intermediate Table** toggle off:
@@ -17835,7 +17842,7 @@ After you define your rules, you can test them. In the **Test** FastTab, enter a
 
 After you create the data exchange definition for a specific data file, you can export the data exchange definition as an XML file that you can import. This task is described in the following procedure.  
 
-1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
+1. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
 2. Select the data exchange definition that you want to export.  
 3. Choose the **Export Data Exchange Definition** action.  
 4. Save the XML file that represents the data exchange definition in an appropriate location.  
@@ -17845,7 +17852,7 @@ After you create the data exchange definition for a specific data file, you can 
 ## Import an existing data exchange definition
 
 1. Save the XML file that represents the data exchange definition in an appropriate location.  
-2. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
+2. Choose the ![Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Data Exchange Definitions**, then choose the related link.  
 3. Choose the **Import Data Exchange Definition** action.  
 4. Choose the file that you saved in step 1.  
 
@@ -18624,23 +18631,25 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-field-mapping-when-importing-sepa-camt-files
 ---
-title: Field Mapping When Importing SEPA CAMT Files | Microsoft Docs
-description: In European markets, you can import bank statement files in the regional SEPA standards (Single Euro Payments Area).
+title: Field mapping when importing SEPA CAMT files | Microsoft Docs
+description: Import bank statement files in the regional SEPA (Single Euro Payments Area) format for European markets.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: bholtorf
+ms.reviewer: v-soumramani
+ms.search.keywords: field mapping, SEPA CAMT, SEPA bank statements, CAMT format, data exchange definition
 ms.service: dynamics-365-business-central
 ms.topic: article
-ms.date: 01/06/2023
+ms.date: 10/14/2025
 ms.custom: bap-template
 ---
-# Field Mapping When Importing SEPA CAMT Files
 
-[!INCLUDE[prod_short](includes/prod_short.md)] supports the regional SEPA standards (Single Euro Payments Area) for importing SEPA bank statements (CAMT format). For more information, see [Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md).  
+# Field mapping when importing SEPA CAMT files
+
+[!INCLUDE[prod_short](includes/prod_short.md)] supports the regional SEPA standards (Single Euro Payments Area) for importing SEPA bank statements (CAMT format). Learn more in [Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md).  
 
  The SEPA CAMT standard itself has local variations. Therefore, you may have to modify the generic data exchange definition (represented by the **SEPA CAMT** code on the **Data Exchange Definitions** page) to adapt it to a local variation of the standard. The following tables show the element-to-field mapping for tables 81, 273, and 274 in the SEPA CAMT implementation in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
- For information about creating or adjusting a data exchange definition, see [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).  
+ Learn more in [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md) for information about creating or adjusting a data exchange definition.  
 
 ## CAMT data mapping to fields in the General Journal table (81)  
 
@@ -18675,19 +18684,18 @@ ms.custom: bap-template
 |Stmt/Ntry/NtryDtls/TxDtls/RmtInf/Ustrd|Unstructured|Text|Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts-receivable system, in an unstructured form||6|Description|  
 |Stmt/Ntry/AddtlNtryInf|AdditionalEntryInformation|Text|Additional information about the entry||16|Transaction Information|  
 
- Elements in the **Ntry** node that are imported into [!INCLUDE[prod_short](includes/prod_short.md)] but not mapped to any fields are stored in the **Posting Exch. Column Def** table. Users can view these elements from the **Payment Reconciliation Journal**, **Payment Application**, and **Bank Acc. Reconciliation** pages by choosing the **Bank Statement Line Details** action. For more information, see [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).
+ Elements in the **Ntry** node that are imported into [!INCLUDE[prod_short](includes/prod_short.md)] but not mapped to any fields are stored in the **Posting Exch. Column Def** table. Users can view these elements from the **Payment Reconciliation Journal**, **Payment Application**, and **Bank Acc. Reconciliation** pages by choosing the **Bank Statement Line Details** action. Learn more in [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).
 
 > [!IMPORTANT]
 > In an import of CAMT bank statements, [!INCLUDE[prod_short](includes/prod_short.md)] expects each transaction to be unique, which means that the **Transaction ID** field that comes from the *Stmt/Ntry/NtryDtls/TxDtls/Refs/EndToEndId* tag in the CAMT file, must be unique within the open bank account reconciliation. If the information is not present, [!INCLUDE[prod_short](includes/prod_short.md)] ignores the payment. If an earlier bank reconciliation on the same bank account was posted with the same transaction ID as on the current import, the current transaction will not automatically reconcile but can still be imported.
 
 ## Related information  
 
-[Setting Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchanging Data Electronically](across-data-exchange.md)  
+[Set Up Data Exchange](across-set-up-data-exchange.md)  
+[Exchange Data Electronically](across-data-exchange.md)  
 [Use the AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md)  
 [Use XML Schemas to Prepare Data Exchange Definitions](across-how-to-use-xml-schemas-to-prepare-data-exchange-definitions.md)  
 [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
