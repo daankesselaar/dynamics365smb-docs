@@ -9717,12 +9717,12 @@ title: Flush components according to operation output
 description: This article describes how to flush components according to operation output and other flushing methods involved.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 03/04/2025
+ms.date: 11/06/2025
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Flush components according to operation output
@@ -16373,7 +16373,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/use-payables-agent
 ---
-title: Supervise agent activities for processing orders and payables (preview)
+title: Supervise agent activities for processing orders and payables
 description: Monitor Payables and Sales Order agents in Copilot Tasks, review drafts, confirm steps, and keep invoices and orders accurate.
 author: jswymer
 ms.author: jswymer
@@ -16390,16 +16390,11 @@ ms.custom:
   - ai-seo-date:06/18/2025
 ms.search.form: 4400, 4410
 ---
-# Supervise agent activities in Copilot pane (preview)
-
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+# Supervise agent activities in Copilot pane
 
 You interact with Business Central agents, such as sales order and payables agents, directly in Copilot's **Tasks** tab. You can monitor task status, review agent-generated drafts and suggestions, and provide confirmations or input to help tasks complete responsibly and accurately.
 
 The process flow is different for each agent. This article explains the common aspects of working in the **Tasks** tab for all agents and answers frequently asked questions.
-
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
-<!--[!INCLUDE [limited-public-preview](includes/limited-public-preview.md)]-->
 
 ## Prerequisites
 
@@ -19840,10 +19835,9 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
 ms.search.form: 6774, 6775, 6776
-ms.date: 03/04/2025
+ms.date: 11/06/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -19895,7 +19889,7 @@ The following procedures are based on setting up basic warehouse activities arou
 3. On the **Bins** FastTab, in the **Open Shop Floor Bin Code** field, enter the code of the bin in the production area with plenty of components that the machine operator can consume from without requesting a warehouse activity to bring them to the bin. Items that are placed in this bin are typically set up for automatic posting, or flushing. This setup means that the **Flushing Method** field contains **Forward**, **Backward**, or **Manual**.  
 
    > [!TIP]
-   > You can also record flushing without requiring a pick. For example, skipping the pick might be useful for components which, due to their nature, you store in the shop floor zone so there's no need to pick. However, you might still have to manually post consumption, for example, because the consumed quantity can vary or require item tracking. To flush without picking, the item must use the **Pick + Manual** flushing method. To learn more, go to [Flushing methods](production-how-to-flush-components-according-to-operation-output.md#flushing-methods).
+   > You can also record flushing without requiring a pick. For example, skipping the pick might be useful for components which, due to their nature, you store in the shop floor zone so there's no need to pick. However, you might still have to manually post consumption, for example, because the consumed quantity can vary or require item tracking. To start using this feature, on the **Feature Management** page, activate **Feature Update: 'Manual' flushing method without requiring pick**. Existing records upgrade from **Manual** to the **Pick + Manual** flushing method. The **Pick + Manual** option is added immediately and works, regardless of whether you enable the feature key. If the feature isn't enabled, **Manual** and **Pick + Manual** both require picking due to the original behavior. When the feature key is enabled, the **Manual** option doesn't require picking. To learn more, go to [Flushing methods](production-how-to-flush-components-according-to-operation-output.md#flushing-methods).
 
 4. In the **To-Production Bin Code** field, enter the code of the bin in the production area where components that are picked for production at this location are placed by default before they can be consumed. Items that are placed in this bin are typically set up for manual picking. The **Flushing Method** field contains **Pick + Forward**, **Pick + Backward**, or **Pick + Manual** for warehouse picks and inventory movements.  
 
