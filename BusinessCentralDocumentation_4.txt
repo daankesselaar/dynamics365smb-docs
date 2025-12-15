@@ -1,3 +1,69 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-inventory-by-lot
+---
+title: Inventory by Lot No. (Power BI report)
+description: The Inventory by Lot No. report shows total inventory broken down per lot.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37029_Primary
+ms.date: 10/28/2024
+ms.service: dynamics-365-business-central
+---
+
+# Inventory by Lot No. (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Inventory by Lot No.** report shows total inventory broken down per lot where items are lot tracked. Use this information to identify different lots and track performance on a lot-by-lot basis.
+
+:::image type="content" source="media/inventory/inventory-by-lot.png" alt-text="Screenshot of the Inventory by Lot No Power BI Report" lightbox="media/inventory/inventory-by-lot.png":::
+
+## Use the report
+
+Inventory managers and warehousing staff can key track inventory per lot number.
+
+Inventory managers use the report to ensure each lot has an optimized stock level. This information can also help you identify slow-moving inventory to take corrective action, and track lots that are due to expire.
+
+The report helps warehouse staff members by providing a way to check inventory amounts in each lot. This information can help you make key decisions, ensure that inventory is properly managed, and avoid stock-outs.
+
+## Key Performance Indicators (KPIs)
+
+The *Inventory by Lot No.* report includes the following KPIs:
+
+- [**Quantity**](inventory-powerbi-kpis.md#quantity)
+- [**Inventory (Quantity)**](inventory-powerbi-kpis.md#inventory-quantity)
+- [**Expired Inventory**](inventory-powerbi-kpis.md#expired-inventory)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Item
+- Item Ledger Entries
+
+## Try the report
+
+Try the report here: [Inventory by Lot No.](https://businesscentral.dynamics.com?page=37029)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory app](inventory-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-how-to-set-up-put-away-templates
 ---
 title: Set Up Put-away Templates
@@ -20843,133 +20909,6 @@ When you're closing an accounting period, you might want to prevent new posts fr
 [Completing Period-End Processes](year-how-complete-period-end-processes.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/reports-available-reports
----
-title: Report overview
-description: Explore reports across all functional areas of the standard version of Business Central.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.date: 11/11/2024
-ms.custom: bap-template
-ms.service: dynamics-365-business-central
----
-# Report overview
-
-[!INCLUDE [prod_short](includes/prod_short.md)] comes with many built-in reports that businesses can use out-of-the-box.  
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Financial reports
-
-[!INCLUDE [finance_reports](includes/finance-reports-include.md)]
-
-
-[!INCLUDE [finance_reports_deferrals](includes/finance-reports-deferrals-include.md)]
-
-
-[!INCLUDE [finance_reports_consolidation](includes/finance-reports-consolidation-include.md)]
-
-
-[!INCLUDE [finance_reports_cost_accounting](includes/finance-reports-cost-accounting-include.md)]
-
-
-To learn more, go to [Financial Reports and Analytics in Business Central](finance-reports.md).
-
-## Accounts receivable reports
-
-[!INCLUDE [receivable_reports](includes/receivable-reports-include.md)]
-
-To learn more, go to [Accounts Receivable Reports and Analytics in Business Central](receivables-reports.md).
-
-## Accounts payable reports
-
-[!INCLUDE [payables_reports](includes/payables-reports-include.md)]
-
-To learn more, go to [Accounts Payable Reports and Analytics in Business Central](payables-reports.md).
-
-## Sustainability reports
-
-[!INCLUDE [sustainability_reports](includes/sustainability-reports-include.md)]
-
-To learn more, go to [Sustainability reports](sustainability-reports.md).
-
-## Sales reports
-
-[!INCLUDE [sales_reports](includes/sales-reports-include.md)]
-
-To learn more, go to [Sales Reports and Analytics in Business Central](sales-reports.md).
-
-## Purchase reports
-
-[!INCLUDE [purchase_reports](includes/purchase-reports-include.md)]
-
-To learn more, go to [Purchasing Reports and Analytics in Business Central](purchase-reports.md).
-
-## Inventory and warehouse reports
-
-[!INCLUDE [inventory_WMS_reports](includes/inventory-WMS-reports-include.md)]
-
-To learn more, go to [Inventory and Warehouse Reports and Analytics in Business Central](inventory-wms-reports.md).
-
-## Project reports
-
-[!INCLUDE [project_reports](includes/project-reports-include.md)]
-
-To learn more, go to [Project Reports and Analytics in Business Central](project-reports.md).
-
-## Fixed assets reports
-
-To learn more about analytics on fixed assets, go to [Fixed Assets Reports and Analytics in Business Central](fa-reports.md).
-
-### Fixed assets core reports
-
-[!INCLUDE [fa_reports](includes/fa-reports-include.md)]
-
-### Fixed assets insurance reports
-
-[!INCLUDE [fa_insurance_reports](includes/fa-insurance-reports-include.md)]
-
-### Fixed assets maintenance reports
-
-[!INCLUDE [fa_maintenance_reports](includes/fa-maintenance-reports-include.md)]
-
-## Relationship management reports
-
-[!INCLUDE [marketing_reports](includes/marketing-reports-include.md)]
-
-To learn more, go to [Relationship management report overview](marketing-reports.md).
-
-## Assembly reports
-
-[!INCLUDE [assembly_reports](includes/assembly-reports-include.md)]
-
-To learn more, go to [Assembly Management Reports and Analytics in Business Central](assembly-reports.md).
-
-## Production reports
-
-[!INCLUDE [production_reports](includes/production-reports-include.md)]
-
-To learn more, go to [Production Reports and Analytics in Business Central](production-reports.md).
-
-## Service Management reports
-
-[!INCLUDE [service_reports](includes/service-reports-include.md)]
-
-For more information, see [Service management report overview](service-reports.md).
-
-
-## Related information
-
-[Use reports in daily work](reports-use-reports.md)  
-[Analyze list and query data with analysis mode](analysis-mode.md)  
-[Analytics overview](reports-bi-reporting.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
