@@ -14606,6 +14606,41 @@ The following table provides links to articles that describe typical tasks in pr
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/personal-security
+---
+title: Personal Security Best Practices for Business Central Users
+description: "Learn essential personal security practices for Business Central users to protect data, prevent phishing, and secure your organization. Start safeguarding today."
+#customer intent: As a Business Central user, I want to learn how to recognize phishing attempts so that I can avoid falling victim to scams.
+author: jswymer
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: concept-article
+ms.date: 12/04/2025
+ms.custom: bap-template
+---
+
+# Personal security best practices for Business Central users
+
+As a Business Central user, your personal security practices play a crucial role in protecting both your own data and your organization's information. While Business Central provides robust security features, the human element remains one of the most important factors in maintaining a secure environment. This article outlines essential security practices that every user should follow to minimize risks and protect against common threats like phishing, unauthorized access, and data loss.
+
+## Key practices
+
+- **Think before you click:** Emphasize phishing awareness: Don't trust unsolicited emails or links that seem "too good" or urgent; if something feels off, double-check with IT.
+- **Enable MFA everywhere:** Enable two factor authentication on your accounts (Business Central and others) for improved security.
+- **Keep software updated** Apply updates to their devices and apps regularly (via official channels) to patch vulnerabilities.
+- **Use a password manager:** Use a reputable password manager to generate and store strong unique passwords, rather than reusing or writing them down.
+- **Avoid Using Admin Accounts Daily:** If you have a privileged account like an admin or SUPER user, create a separate regular user account for day-to-day work.
+- **Remove unneeded apps/extensions:** Uninstall software or browser add-ons you don't need, to reduce attack surface.
+- **Backup important data:** Use a "3-2-1" backup rule: at least one local backup, one cloud backup, and one offline (disconnected) backup. Also note that services like OneDrive have ransomware detection and recovery features&mdash;but you should still test your backups periodically.
+- **Protect devices:** Use measures like enabling full-disk encryption (BitLocker on Windows, FileVault on Mac), using strong passcodes for mobile devices (and biometric unlock for convenience + security), and even covering webcams when not in use (as an extra privacy precaution).
+- **Safe browsing habits:** Use ad-blockers or privacy filters to avoid malicious ads, and use a secure network (VPN when on public Wi-Fi, but avoid free VPNs).
+
+## Related information
+
+[Security and protection overview](/dynamics365/business-central/dev-itpro/security/security-and-protection)
+
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/about-localization
 ---
 title: Local functionality and localization strategy
@@ -20461,101 +20496,5 @@ For other Copilot features, you're ready to try them out. Learn more in the foll
 [FAQ for sales line suggestions](faq-sales-suggest-sales-lines-with-copilot.md)  
 [FAQ for suggest substitute items](faq-suggest-item-substitutions-with-copilot.md)  
 [Marketing text suggestions overview](ai-overview.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-power-automate-flow-dataverse
----
-title: Use a Power Automate flow to timely synchronize Dataverse entity changes
-description: Learn how to create a flow in Power Automate that will alert you when an entity is changed in Dataverse environment. 
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: Power Automate, Flow, Dataverse
-ms.search.form: 
-ms.date: 09/05/2022
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Use a Power Automate flow to timely synchronize Dataverse entity changes
-
-Administrators can create an automated flow in Power Automate that notifies your [!INCLUDE[prod_short](includes/prod_short.md)] about changes to records in your [!INCLUDE [cds_long_md](includes/cds_long_md.md)] organization.
-
-> [!NOTE]
-> This article assumes you've connected your online version of [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE [cds_long_md](includes/cds_long_md.md)] and scheduled synchronization between the two applications.
-
-## Import the Flow Template
-
-> [!TIP]
-> To make it easier to set up the flow, we've created a template that will define the flow trigger and flow condition for you. To use the template, follow the steps in this section. To create the flow yourself, skip this section and start with the steps in [Define the Flow Trigger](#define-the-flow-trigger).
-
-1. Sign in to [Power Automate](https://powerautomate.microsoft.com).
-2. Choose **Templates**, and then search for **Notify Business Central**.
-
-:::image type="content" source="media/power-automate-import-template.png" alt-text="Keywords to find the flow template.":::
-3. Choose the **Notify Business Central when an account changes** template.
-4. Continue with the steps in the [Notify Business Central about a change](#notify-business-central-about-a-change) section.
-
-## Define the Flow Trigger
-
-1. Sign in to [Power Automate](https://flow.microsoft.com).
-2. Create an automated cloud flow that starts when a row for a [!INCLUDE [cds_long_md](includes/cds_long_md.md)] entity is added, modified, or deleted. For more information, see [Trigger flows when a row is added, modified, or deleted](/power-automate/dataverse/create-update-delete-trigger). This example uses the **Accounts** entity. The following image shows the settings for the first step in defining a flow trigger.
-
-:::image type="content" source="media/power-automate-flow-dataverse-trigger.png" alt-text="Settings for the flow's trigger":::
-3. Use the **AssistEdit (...)** button in the upper right corner to add the connection to your [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment.
-4. Choose **Show advanced options**, and in the **Filter Rows** field, enter **customertypecode eq 3** or **customertypecode eq 11** and **statecode eq 0**. These values mean that the trigger will react only when changes are made to active accounts of the type **customer** or **vendor**.
-
-## Define the Flow Condition
-
-Data is synchronized between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)] through an integration user account. To ignore the changes made by the synchronization, create a condition step in your flow that excludes changes made by the integration user account.  
-
-1. Add a **Get a row by ID from Dataverse** step after the flow trigger with the following settings. For more information, see [Get a row by ID from Dataverse](/power-automate/dataverse/get-row-id).
-
-    1. In the **Table name** field, choose **Users**
-    2. In the **Row ID** field, choose the **Modified By (Value)** from the flow trigger.  
-
-2. Add a condition step with the following **or** settings to identify the integration user account.
-    1. The user's **Primary Email Address** contains **contoso.com**
-    2. The user's **Full Name** contains **[!INCLUDE[prod_short](includes/prod_short.md)]**.
-
-3. Add a Terminate control to stop the flow if the entity was changed by the integration user account.
-
-The following image shows how to define the flow trigger and the flow condition.
-
-:::image type="content" source="media/power-automate-flow-dataverse.png" alt-text="Overview of flow trigger and condition settings":::
-
-## Notify Business Central About a Change
-
-If the flow isn't stopped by the condition, you must notify [!INCLUDE[prod_short](includes/prod_short.md)] that a change occurred. Use the [!INCLUDE[prod_short](includes/prod_short.md)] Connector to do that.
-
-1. In the **No** fork of the condition step, add an action and search for **Dynamics 365 [!INCLUDE[prod_short](includes/prod_short.md)]**. Choose the connector icon in the list.
-2. Choose the **Create record (V3)** action.
-
-:::image type="content" source="media/power-automate-flow-dataverse-connector.png" alt-text="Settings for the [!INCLUDE[prod_short](includes/prod_short.md)] Connector":::
-
-3. Use the **assist edit (...)** button in the upper right corner to add the connection to your [!INCLUDE[prod_short](includes/prod_short.md)].
-4. When connected, fill in the **Environment name** and **Company name** fields.
-5. In the **API category** field, enter **microsoft/dataverse/v1.0**.
-6. In the **Table name** field, enter **dataverseEntityChanges**.
-7. In the **entityName** field, enter **account**.
-8. Save the flow.
-
-The following image shows how your flow should look.
-
-:::image type="content" source="media/power-automate-flow-dataverse-summary.png" alt-text="Overview of all settings for the flow":::
-
-When you add, delete, or modify an account in your [!INCLUDE [cds_long_md](includes/cds_long_md.md)] environment, this flow will do the following actions:
-
-1. Call the [!INCLUDE[prod_short](includes/prod_short.md)] environment that you specified in the [!INCLUDE[prod_short](includes/prod_short.md)] Connector.
-2. Use the [!INCLUDE[prod_short](includes/prod_short.md)] API to insert a record with the **entityName** set to **account** in the **Dataverse Entry Change** table. This parameter is the exact name of the Dataverse entity that you're creating the flow for.
-3. [!INCLUDE[prod_short](includes/prod_short.md)] will start the job queue entry that synchronizes customers with accounts.
-
-## Related information
-
-[Use Business Central in Power Automate Flows](across-how-use-financials-data-source-flow.md)  
-[Set Up Automated Workflows](/dynamics365/business-central/dev-itpro/powerplatform/automate-workflows)  
-[Integrating with Microsoft Dataverse](admin-common-data-service.md)  
-[Synchronizing Data in Business Central with Microsoft Dataverse](admin-synchronizing-business-central-and-sales.md)  
 end of article
 
