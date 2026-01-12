@@ -1228,6 +1228,7 @@ ms.service: dynamics-365-business-central
 ### [Sustainability scorecards and goals overview](sustainability-scorecards-goals.md)
 ### [Work with carbon credit](sustainability-carbon-credit.md)
 ### [Sustainability certificates](sustainability-certificates.md)
+### [Use CBAM and EPR calculations](sustainability-cbam-epr-calculations.md)
 ### Sustainability Value Chain
 #### [Sustainability Value Chain](value-chain-howto-overview.md)
 #### [Value Chain Setup](value-chain-howto-setup.md)
@@ -2409,6 +2410,7 @@ ms.service: dynamics-365-business-central
 ### Power BI and Business Central
 #### [Power BI overview](admin-powerbi.md)
 #### [Work with Power BI reports](across-working-with-powerbi.md)
+#### [Use Power BI semantic models with Excel](powerbi-use-semantic-models-in-excel.md)
 #### [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)
 ### Power BI apps for Business Central
 #### [Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)
