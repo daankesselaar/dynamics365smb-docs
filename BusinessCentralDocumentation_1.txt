@@ -4204,7 +4204,7 @@ The [!INCLUDE [powerbi-connector-name](includes/powerbi-connector-name.md)] supp
 
 > **APPLIES TO:** [!INCLUDE [prod_short](includes/prod_short.md)] online
 
-When you connect to [!INCLUDE [prod_short](includes/prod_short.md)] online from [!INCLUDE [powerbi-name](includes/powerbi-name.md)], or when you install a [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)] app from Microsoft AppSource that uses [!INCLUDE [prod_short](includes/prod_short.md)] data, you might be prompted to input the [!INCLUDE [prod_short](includes/prod_short.md)] environment you want to connect to.
+When you connect to [!INCLUDE [prod_short](includes/prod_short.md)] online from [!INCLUDE [powerbi-name](includes/powerbi-name.md)], or when you install a [!INCLUDE [powerbi-desktop-name](includes/powerbi-desktop-name.md)] app from Microsoft Marketplace that uses [!INCLUDE [prod_short](includes/prod_short.md)] data, you might be prompted to input the [!INCLUDE [prod_short](includes/prod_short.md)] environment you want to connect to.
 
 If you get an error similar to "Expression.Error: The environment 'Production' doesn't exist.", follow these steps to troubleshoot:
 
@@ -5040,7 +5040,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: hub-and-spoke, multi-site, headquarter, sites
-ms.date: 06/17/2025
+ms.date: 01/19/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -5062,14 +5062,14 @@ The following diagram is an example of different sites integrated with a headqua
 
 ![Diagram Description automatically generated.](media/multisite-headquarter-sites.png)
 
-## Meet the Needs of Domestic and International Sites
+## Meet the needs of domestic and international sites
 
-Business needs at sites often differ based on industry, business methods, or their relationship to the headquarter company. [!INCLUDE[prod_short](includes/prod_short.md)] can be easily adapted and extended for various types of businesses and locales. Microsoft AppSource offers a wealth of apps from Microsoft and our partners, and partners can quickly deploy [!INCLUDE[prod_short](includes/prod_short.md)] with minimal disruption to daily operations.
+Business needs at sites often differ based on industry, business methods, or their relationship to the headquarter company. [!INCLUDE[prod_short](includes/prod_short.md)] can be easily adapted and extended for various types of businesses and locales. Microsoft Marketplace offers a wealth of apps from Microsoft and our partners, and partners can quickly deploy [!INCLUDE[prod_short](includes/prod_short.md)] with minimal disruption to daily operations.
 
 For multi-national organizations, [!INCLUDE[prod_short](includes/prod_short.md)] supports local legal requirements and business practices.
 
-* For online versions, there are more than [40 localized country/region versions](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations?toc=/dynamics365/business-central/toc.json) that you can install as extensions from Microsoft AppSource.  
-* For on-premises versions, [country/region versions](/azure/architecture/solution-ideas/articles/business-central) are available either as Microsoft-localized versions or partner-led add-on localizations.
+* For online versions, there are more than [40 localized versions](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations?toc=/dynamics365/business-central/toc.json) that you can install as extensions from Microsoft Marketplace.  
+* For on-premises versions, [localized versions](/azure/architecture/solution-ideas/articles/business-central) are available either as Microsoft-localized versions or partner-led add-on localizations.
 
 A network of more than 4,000 Microsoft partners world-wide provides local expertise.
 
@@ -5599,7 +5599,7 @@ The following table indicates the connections to Microsoft services that are aut
 >
 > - You consent to your data being shared with that Microsoft service. If your organization deployed these services in a different country or region, connecting to the service might result in your data crossing data residency boundaries. Make sure to confirm your organization’s policies and government compliance requirements for data residency before proceeding to use these features.
 > - You might affect services that aren't trials. If your organization uses these services in production and aren't being evaluated together with Business Central, other users of these services who aren't participating in this trial of [!INCLUDE[prod_short](includes/prod_short.md)] might be affected.
-> - [!INCLUDE[prod_short](includes/prod_short.md)] might also connect to Microsoft services or third-party services depending on the customizations and extensions that you or your administrator installed in your [!INCLUDE[prod_short](includes/prod_short.md)] trial. For information about how your extensions process your data, contact the extension developer or follow the privacy link for the extension on AppSource.
+> - [!INCLUDE[prod_short](includes/prod_short.md)] might also connect to Microsoft services or third-party services depending on the customizations and extensions that you or your administrator installed in your [!INCLUDE[prod_short](includes/prod_short.md)] trial. For information about how your extensions process your data, contact the extension developer or follow the privacy link for the extension on Marketplace.
 > - For features in preview, you consent to the [preview terms](https://go.microsoft.com/fwlink/?linkid=2189520).
 
 Your privacy is important to us. To learn more about how Microsoft processes your data, view the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?linkid=521839).
@@ -11747,7 +11747,7 @@ Sign up for the Power BI service. If you haven't already signed up, go to [https
     ![Navigating to Get apps.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-get-data.png)
 
     > [!TIP]
-    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft AppSource will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
+    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft Marketplace will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
 
 4. In the **Search** box, enter **Dynamics 365 Business Central**.
 5. Select app that you want to use, select **Get it now**, and then **Install**.  
@@ -14083,7 +14083,7 @@ The **[!INCLUDE [powerbi-name](includes/powerbi-name.md)] Reports Selection** pa
 If you don't have any reports on the **[!INCLUDE [powerbi-name](includes/powerbi-name.md)] Reports Selection** page, or can't find the report you want, choose **Get Reports**. This action lets you look for reports from two locations: *My Organization* or from *Services*.
 
 - Select **My Organization** to go to the [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)]s. From here, you can view the reports within your organization that you have rights to view. You can then add them to your workspace.
-- Select **Services** to go to Microsoft AppSource where you can install Power BI apps.  
+- Select **Services** to go to Microsoft Marketplace where you can install Power BI apps.  
 
 > [!TIP]
 > If you have Power BI Desktop, you can also create new [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports. Then, once those reports are published to your Power BI workspace, they appear on the **[!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports Selection** page.  
@@ -14888,7 +14888,7 @@ Intrastat reporting is based on basic EU regulations that apply to all countries
 > [!NOTE]  
 > Intrastat information doesn't apply to the movement of services between countries/regions, but only goods (Items and Fixed Assets). If the local government requires registering the movement of services between countries/regions, it can be done using the **Service Declaration** feature.
 >
-> This feature is available as an app on [AppSource](https://go.microsoft.com/fwlink/?linkid=2081646). To use this feature, you must first install it on the **Extension Management** page. To learn more about this feature, go to [The Service Declaration Extension](finance-how-setup-use-service-declaration.md).  
+> This feature is available as an app on [Marketplace](https://go.microsoft.com/fwlink/?linkid=2081646). To use this feature, you must first install it on the **Extension Management** page. To learn more about this feature, go to [The Service Declaration Extension](finance-how-setup-use-service-declaration.md).  
 
 > [!IMPORTANT]  
 > This article describes the new Intrastat experience available in [!INCLUDE[prod_short](includes/prod_short.md)] starting in the 2022 release wave 2, which includes extended features. If you haven't upgraded your solution, read the previous version's Intrastat setup and usage article at [Set Up and Report Intrastat](finance-how-setup-report-intrastat-v20.md).
@@ -15786,10 +15786,10 @@ For example, Microsoft provides an app that lets you integrate with PayPal Payme
 
 To use an app, you must have the permissions to the installed objects.
 
-To install or uninstall apps from AppSource or add per-tenant extensions, you must have the right permissions. You must either be a member of the **D365 Extension Mgt.** user group, or you must have the **EXTEN. MGT. - ADMIN** permission set explicitly. If you're an administrator, you can assign user groups and permissions to other users in your company. Learn more in [Create Users According to Licenses](ui-how-users-permissions.md).  
+To install or uninstall apps from Marketplace or add per-tenant extensions, you must have the right permissions. You must either be a member of the **D365 Extension Mgt.** user group, or you must have the **EXTEN. MGT. - ADMIN** permission set explicitly. If you're an administrator, you can assign user groups and permissions to other users in your company. Learn more in [Create Users According to Licenses](ui-how-users-permissions.md).  
 
 > [!IMPORTANT]  
-> For [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, you cannot upload per-tenant extensions or install AppSource apps through the **Extension Management** page. You cannot install AppSource apps on-premises, including in Docker-based deployments.
+> For [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, you cannot upload per-tenant extensions or install Marketplace apps through the **Extension Management** page. You cannot install Marketplace apps on-premises, including in Docker-based deployments.
 
 You manage the apps on the **Extension Management** page. You can access this page from Home. Alternatively, choose the **Search for Page or Report** icon ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") in the top right corner, enter **Extension**, and then choose the related link. Learn more in [Install and Uninstall apps](ui-extensions-install-uninstall.md).
 
@@ -15797,18 +15797,18 @@ You manage the apps on the **Extension Management** page. You can access this pa
 > If you think you should have access to an app but you cannot find its functionality, check the **Extension Management** page - if the app is not listed there, you can install it as described in the following section.  
 
 > [!NOTE]  
-> Sign in to [AppSource.microsoft.com](https://appsource.microsoft.com/) using the email account that you use for [!INCLUDE[prod_short](includes/prod_short.md)] online. Use the same email account for other services and products for a smooth experience.  
+> Sign in to [Marketplace.microsoft.com](https://marketplace.microsoft.com/) using the email account that you use for [!INCLUDE[prod_short](includes/prod_short.md)] online. Use the same email account for other services and products for a smooth experience.  
 
-You can also get to AppSource from [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Extension Management** page, you can see the apps that are currently installed, and you can open the **Microsoft AppSource Apps** page that shows the [!INCLUDE[prod_short](includes/prod_short.md)] apps that are currently available in AppSource. If you choose the **View AppSource** action, you're taken to [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). Learn more in [Manage AppSource apps](admin-manage-appsource-apps.md).
+You can also get to Marketplace from [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Extension Management** page, you can see the apps that are currently installed, and you can open the **Microsoft Marketplace Apps** page that shows the [!INCLUDE[prod_short](includes/prod_short.md)] apps that are currently available in Marketplace. If you choose the **View Marketplace** action, you're taken to [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). Learn more in [Manage Marketplace apps](admin-manage-appsource-apps.md).
 
-If you choose an app, you can read about what the app does, and you can access Help for the app to learn more. When you choose to get an app, you must agree to the terms of use. If you get the app from the AppSource website, sign in to [!INCLUDE[prod_short](includes/prod_short.md)] to complete the installation.  
+If you choose an app, you can read about what the app does, and you can access Help for the app to learn more. When you choose to get an app, you must agree to the terms of use. If you get the app from the Marketplace website, sign in to [!INCLUDE[prod_short](includes/prod_short.md)] to complete the installation.  
 
 When you install an app, you might have to set it up, such as specifying an account for use with the **PayPal Payments Standard for [!INCLUDE[prod_short](includes/prod_short.md)]** extension. Other apps add fields to an existing page, or they add a new page, for example.
 
 If you uninstall an app, and you then change your mind, you can install it again. When you uninstall an app, your data is preserved. If you install the app again, it's still available. There are some apps that are required, and you can't uninstall them from the **Extension Management** page.
 
 > [!NOTE]  
-> You can keep an eye out for new apps from Microsoft and other suppliers at [AppSource.microsoft.com](https://appsource.microsoft.com/marketplace/apps?product=dynamics-365%3Bdynamics-365-business-central&page=1).
+> You can keep an eye out for new apps from Microsoft and other suppliers at [Marketplace.microsoft.com](https://marketplace.microsoft.com/marketplace/apps?product=dynamics-365%3Bdynamics-365-business-central&page=1).
 
 ## Understanding the risks of installing apps
 
@@ -15834,7 +15834,7 @@ Starting in 2022 release wave 2, [!INCLUDE [prod_short](includes/prod_short.md)]
 View the list of suggested apps by choosing the **Connectivity Apps** action in the **Extension Management** page.  
 
 > [!NOTE]
-> The first person to open the **Connectivity Apps** page must allow the extension to connect to an external service. Allow the connection once or always. If you choose to block the connection, you must find the relevant apps on AppSource. If you allow the connection once or always, be aware that your information might be shared with third parties. Learn more in the section [Understanding the risks of installing apps](#understanding-the-risks-of-installing-apps).
+> The first person to open the **Connectivity Apps** page must allow the extension to connect to an external service. Allow the connection once or always. If you choose to block the connection, you must find the relevant apps on Marketplace. If you allow the connection once or always, be aware that your information might be shared with third parties. Learn more in the section [Understanding the risks of installing apps](#understanding-the-risks-of-installing-apps).
 
 This external service generates a list of relevant apps based on your country or region.
 
@@ -15843,7 +15843,7 @@ This external service generates a list of relevant apps based on your country or
 Microsoft partners and resellers can create an app that they can use to compile lists of apps that they often recommend to their customers. If they do, and they deployed the app to your tenant, the apps are available on the **Recommended Apps** page. There you can read about each app and decide whether to install them.
 
 > [!NOTE]
-> If you are a Microsoft partner or reseller, and you're interested in providing a list of recommended apps, see [Recommend Apps from AppSource](/dynamics365/business-central/dev-itpro/administration/recommend-apps) in the administration content.
+> If you are a Microsoft partner or reseller, and you're interested in providing a list of recommended apps, see [Recommend Apps from Marketplace](/dynamics365/business-central/dev-itpro/administration/recommend-apps) in the administration content.
 
 ## Related information
 
@@ -16380,7 +16380,7 @@ ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 11/23/2025
+ms.date: 01/05/2026
 ms.update-cycle: 180-days
 ms.custom:
   - bap-template
@@ -16727,7 +16727,7 @@ author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: Power BI, reports, faq, errors
-ms.date: 10/23/2024
+ms.date: 01/19/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
@@ -16757,7 +16757,7 @@ Yes. Learn more at [Download a report from the Power BI service to Power BI Desk
 <!-- 27 -->
 ### Can I download the apps as pbix files?
 
-No. Currently, we don’t offer downloading pbix files for the official Power BI apps, because they're published on AppSource.
+No. Currently, we don’t offer downloading pbix files for the official Power BI apps, because they're published on Marketplace.
 
 <!-- ## [User access and licensing](#tab/license) -->
 ## Questions about user access and licensing
@@ -16937,7 +16937,7 @@ If you have old reports based on Business Central data, they don't connect to th
 
 Reports that use Business Central data connect to a read-only replica of the Business Central database by default. In rare cases, this behavior might cause the error "Current connection intent is Read-Only.". This error typically happens because your custom API is making modifications to Business Central records while Power BI tries to get the data. In particular, it happens as part of the AL triggers: OnInit, OnOpenPage, OnFindRecord, OnNextRecord, OnAfterGetRecord, and OnAfterGetCurrRecord.
 
-To fix this issue by forcing the Business Central connector to allow this behavior, see [Building Power BI Reports to Display Business Central Data - Fixing Problems](across-how-use-financials-data-source-powerbi.md#fixing-problems).
+To fix this issue by forcing the Business Central connector to allow this behavior, see [Building Power BI Reports to Display Business Central Data - Fix Problems](across-how-use-financials-data-source-powerbi.md#fix-problems).
 
 <!--
 In general, we recommend avoiding any database modifications in API pages when they're opening or loading records, because they cause performance issues and might cause your report refresh to fail. In some cases, you might still need to make a database modification when your custom API page opens or loads records. You can force the Business Central connector to allow this behavior. Do the following steps when getting data from Business Central for the report in Power BI Desktop:
@@ -17582,23 +17582,40 @@ This article explains how to configure your Microsoft 365 tenant so that [!INCLU
 
 This article also covers how to enable cross-tenant scenarios. For example, where you have an app registration in Azure portal in one Microsoft Entra tenant but you use it to send emails from another tenant.
 
-In the following procedures, we refer to the Microsoft Entra tenant where you have the app registration as "Tenant A," and the tenant where you use it for SMTP as "Tenant B." Tenant B contains your [!INCLUDE [prod_short](includes/prod_short.md)].
+## Tenant roles used in the example in this article
+
+The examples in this article involve two Microsoft Entra tenants, as described in the following table.
+
+|Tenant name in this article  |Description |
+|---------|---------|
+|Tenant A (App / Mailbox tenant) | The tenant where the app registration is created and where the Exchange Online mailbox used for sending emails exists. |
+|Tenant B (Business Central tenant)   | The tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and where SMTP is configured. |
+
+> [!NOTE]
+> Here are a couple of key rules to remember:
+>
+> * Business Central configuration is set in Tenant B.
+> * Mailbox permissions and Exchange Online configuration are set in Tenant A.
 
 > [!IMPORTANT]
-> Exchange Online is deprecating use of Basic authentication for SMTP. This change doesn't affect tenants that currently use SMTP AUTH. However, we recommend that you use the latest version, and set up OAuth 2.0 authentication for SMTP. If you can't set up OAuth 2.0 authentication, we encourage you to explore non-Microsoft alternatives if you want to use SMTP email in earlier versions.
+> Exchange Online is deprecating Basic authentication for SMTP. This change doesn't affect tenants that currently use SMTP AUTH. However, we recommend that you use the latest version, and set up OAuth 2.0 authentication for SMTP. If you can't set up OAuth 2.0 authentication, we encourage you to explore non-Microsoft alternatives if you want to use SMTP email in earlier versions.
 >
 > [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support certificate-based authentication.
 
-The following list gives an overview of the steps to use OAuth 2.0 with the SMTP connector. This article describes each step.
+## Overview of the process and the tenant used in each step
 
-1. [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal)
-1. [Grant API permissions](#grant-api-permissions)
-1. [Create a client secret or certificate](#create-a-client-secret-or-certificate)
-1. [Register the service principal in Exchange Online](#register-the-service-principal-in-exchange-online)
-1. [Grant the app permission to send as your mailbox](#grant-the-app-permission-to-send-as-your-mailbox)
-1. [Verify your SMTP OAuth configuration](#verify-your-smtp-oauth-configuration)
+The following list gives an overview of the steps to use OAuth 2.0 with the SMTP connector, and links to descriptions of each step. This is a long article, so it can serve as a mini table of contents.
 
-> [!NOTE]
+|Step  |Action  |Tenant  |
+|------|---------|---------|
+|1     | [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal)  | Tenant A (App / Mailbox tenant)        |
+|2     |[Grant API permissions](#grant-api-permissions)|  Tenant A (App / Mailbox tenant)       |
+|3     |    [Create a client secret or certificate](#create-a-client-secret-or-certificate)     |Tenant A (App / Mailbox tenant)|
+|4     | [Register the service principal in Exchange Online](#register-the-service-principal-in-exchange-online)  | Tenant A (App / Mailbox tenant)        |
+|5     |[Grant the app permission to send as your mailbox](#grant-the-app-permission-to-send-as-your-mailbox)| Tenant A (App / Mailbox tenant)        |
+|6     | [Verify your SMTP OAuth configuration](#verify-your-smtp-oauth-configuration) | Tenant A (App / Mailbox tenant)        |
+|7     | [Set up the SMTP connector in Business Central](#set-up-the-smtp-connector-in-business-central) | Tenant B (Business Central tenant)        |
+
 > Some of the steps require that you run one or more commands in PowerShell. Be sure to run the commands as an administrator.
 
 ## Prerequisites
@@ -17607,13 +17624,15 @@ Before you start, ensure that you have:
 
 - A Microsoft 365 tenant with Exchange Online.  
 - Global Administrator or Exchange Administrator permissions.  
-- A mailbox, for example, service@yourdomain.com, that you use as the "From" address.  
-- A [!INCLUDE [prod_short](includes/prod_short.md)] online or on-premises environment.
-- (Optional) Python 3.10+ or any other environment that supports OAuth-based SMTP authentication for testing.
+- A mailbox, for example, service@yourdomain.com, that you use as the "From" address in Tenant A(App / Mailbox tenant).  
+- A [!INCLUDE [prod_short](includes/prod_short.md)] online or on-premises environment in Tenant B(Business Central tenant).
 
 ## Create an application registration in Azure portal
 
-The first step is to create an app registration for the app you have in "Tenant A" in Microsoft Entra ID. The app registration lets [!INCLUDE [prod_short](includes/prod_short.md)] send email from a mailbox that's in another Microsoft Entra tenant.
+The first step is to create an app registration for the app you have in "Tenant A" (App / Mailbox tenant) in Microsoft Entra ID. The app registration lets [!INCLUDE [prod_short](includes/prod_short.md)] send email from a mailbox that's in another Microsoft Entra tenant.
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator account for Tenant A.
 
 1. Go to [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, choose **Microsoft Entra ID**.
@@ -17623,7 +17642,9 @@ The first step is to create an app registration for the app you have in "Tenant 
 
     1. In the **Name** field, enter a name for your app. For example, **SMTP_OAuth_App**.
     1. Under **Supported account types**, choose **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. This setting is required for cross-tenant consent.
-    1. Under **Redirect URI (optional)**, for the platform, choose **Web**, and then enter the URI.
+    1. Under **Redirect URI (optional)**, for the platform, choose **Web**, and then enter the URI:
+       1. Business Central online (SaaS): https://businesscentral.dynamics.com/oauthlanding.htm
+       2. Business Central on-premises: Specify a redirect URI appropriate for your on-premises deployment.
 
 1. Choose **Register**.
 
@@ -17638,7 +17659,10 @@ The first step is to create an app registration for the app you have in "Tenant 
 
 ## Grant API permissions
 
-The next step is to give the app permission to send email.
+The next step is to give the app permission to send email. In this example, this is Tenant A (the app / mailbox tenant).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator account for Tenant A.
 
 1. In Azure portal, on the app page, choose **API permissions**, and then choose **Add a permission**.
 1. Choose **APIS my organization uses**.
@@ -17650,6 +17674,9 @@ The next step is to give the app permission to send email.
 
 ## Create a client secret or certificate
 
+> * Tenant: Tenant A (App / Mailbox tenant)
+> * Sign in with: Tenant A Global Administrator
+
 1. In Azure portal, on the app page, choose **Certificates & secrets**.
 1. In the **Client secret** field, choose **New client secret**, give it a name and define an expiry period.
 
@@ -17660,23 +17687,26 @@ The next step is to give the app permission to send email.
 
 To learn more about the service principal, go to [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 
-1. In PowerShell, use the following link to consent. Replace the tenant ID and client ID (App ID) with the values for your "Tenant B."
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A. 
 
-   `https://login.microsoftonline.com/<TenantB_ID>/oauth2/v2.0/authorize?client_id=<Client_ID>&scope=https://graph.microsoft.com/.default&response_type=code&response_mode=query&prompt=consent`
+1. Open your browser, use the following link to consent. Replace the `TenantA_ID` and `Client_ID from Tenant A` (App ID) with the values for your "Tenant A."
 
-1. In Microsoft Entra admin center, go to **Enterprise apps**, find your app, and then copy the value in the **Object ID** field. The object ID is used as the service ID in the command in the next step in this process.
-1. To create a new service principal in your tenant, in PowerShell, run the following command as an administrator.
+   `https://login.microsoftonline.com/<TenantA_ID>/oauth2/v2.0/authorize?client_id=<Client_ID from Tenant A>&scope=https://graph.microsoft.com/.default&response_type=code&response_mode=query&prompt=consent`
+
+2. In Microsoft Entra admin center of **Tenant A**, go to **Enterprise apps**, find your app, and then copy the value in the **Object ID** field. The object ID is used as the service ID in the command in the next step in this process.
+3. To create a new service principal in your tenant, in PowerShell, run the following command as an administrator.
 
    ```powershell
 
    Install-Module ExchangeOnlineManagement -Scope CurrentUser
 
    Import-Module ExchangeOnlineManagement
-   Connect-ExchangeOnline -UserPrincipalName yourname@yourdomain.com
-
-   $AppId     = \<your app ID>
-   $ServiceId = \<your service ID> # The object id of the enterprise app 
-   $Display   = "SMTP_OAuth_App" # The name of the service principal you want to create
+   # Login with Tenant A admin
+   
+   $AppId     = <your app ID> # The App ID of the enterprise app in Tenant A's Microsoft Entra admin center.
+   $ServiceId = <your service ID> # The object ID of the enterprise app in Tenant A's Microsoft Entra admin center.
+   $Display   = "SMTP_OAuth_App" # The name of the service principal you want to create.
 
    New-ServicePrincipal -AppId $AppId -ServiceId $ServiceId -DisplayName $Display
 
@@ -17687,29 +17717,41 @@ To learn more about the service principal, go to [Register a Microsoft Entra app
 
 ## Grant the app permission to send as your mailbox
 
-Azure portal hides the SMTP option, so you must use PowerShell to grant permission to send as your mailbox.
+Sometimes Azure portal hides the SMTP option, so you must use PowerShell to grant permission to send as your mailbox. Do this in Tenant A ([!INCLUDE [prod_short](includes/prod_short.md)] tenant).
 
-1. In PowerShell, run the following command:
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
+
+1. Retrieve the service principal Object ID from the Microsoft Entra admin center (Enterprise applications), and use that Object ID in the following commands. Then go to PowerShell, run the following command:
 
    ```powershell
-
-      $sp = Get-ServicePrincipal | Where-Object { $_.AppId -eq "{AppID}" }
-
        # Replace this with the mailbox you use as the from_addr / user= in XOAUTH2.
       $Mailbox = "someuser@xxx.onmicrosoft.com"
+      $ObjectID = "{Your object ID}"
 
       Add-MailboxPermission -Identity $Mailbox `
-          -User $sp.ObjectId `
+          -User $ObjectId `
           -AccessRights FullAccess `
           -AutoMapping:$false
+
+      Add-RecipientPermission -Identity $Mailbox `
+          -Trustee $ObjectId `
+          -AccessRights SendAs `
+          -Confirm:$false 
+                
 
        # If you have multiple users, create a group for them and then assign them.
       Get-DistributionGroupMember "Your group name" |
         ForEach-Object {
             Add-MailboxPermission -$_.PrimarySmtpAddress `
-                -User $sp.ObjectId `
+                -User $ObjectId `
                 -AccessRights FullAccess `
                 -AutoMapping:$false
+
+            Add-RecipientPermission -Identity $Mailbox `
+                -Trustee $ObjectId `
+                -AccessRights SendAs `
+                -Confirm:$false             
         }
 
       ```
@@ -17720,41 +17762,53 @@ Azure portal hides the SMTP option, so you must use PowerShell to grant permissi
    Get-MailboxPermission  -Identity $Mailbox | ? {$_.User -eq $Display}
    ```
 
-   You should have either **AccessRights**, **SendAs**, or both.
+   You should have **FullAccess**, or **SendAs**.
 
 ## Verify your SMTP OAuth configuration
 
-1. In PowerShell, run the following command to verify your SMTP configuration:
+Do this step in Tenant A (App / Mailbox tenant).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
+
+1. In PowerShell, connect to Exchange Online in Tenant A and verify that SMTP AUTH and OAuth2 are enabled:
 
    ```powershell
    
    Import-Module ExchangeOnlineManagement
-   Connect-ExchangeOnline -UserPrincipalName admin@yourtenant.onmicrosoft.com
-   Get-CASMailbox -Identity admin@yourtenant.onmicrosoft.com | Select SmtpClientAuthenticationDisabled
+   Connect-ExchangeOnline -UserPrincipalName admin@yourtenantA.onmicrosoft.com
 
-   # If the output is false, it's enabled. But if it's true, SMTP is disabled and you must run the following command to enable it:
+   # Organization-level settings (recommended starting point)
+   Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+   Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
 
-   Set-CASMailbox -Identity admin@yourtenant.onmicrosoft.com -SmtpClientAuthenticationDisabled $false
-
-   ```
-
-1. Optionally, if you want to enable SMTP for your entire organization level, run the following command:
-
-   ```powershell
-
-   Get-TransportConfig | Select SmtpClientAuthenticationDisabled
-
-   # If the output is false it's enabled. If it's true, SMTP is disabled and you must run the following command to enable it:
-
+   # If SMTP AUTH is disabled at the organization level, enable it (false means enabled):
    Set-TransportConfig -SmtpClientAuthenticationDisabled $false
 
+   # If OAuth2 client profiles are not enabled, enable them (true means enabled):
+   Set-OrganizationConfig -OAuth2ClientProfileEnabled $true
+
+
    ```
 
-1. To verify that OAuth 2.0 is globally enabled for SMTP, run the following command:
+1. If you need to enable SMTP AUTH for a specific mailbox (mailbox-level override), verify and update the mailbox setting:
 
    ```powershell
 
-   Get-TransportConfig | fl SmtpClientAuthenticationDisabled,OAuth2ClientProfileEnabled
+   Get-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com | Format-List SmtpClientAuthenticationDisabled
+
+   # If SMTP AUTH is disabled for the mailbox, enable it:
+
+   Set-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com -SmtpClientAuthenticationDisabled $false
+
+   ```
+
+1. Verify the expected values:
+
+   ```powershell
+
+    Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+    Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
 
    ```
 
@@ -17763,15 +17817,9 @@ Azure portal hides the SMTP option, so you must use PowerShell to grant permissi
    - `SmtpClientAuthenticationDisabled` is `False`.
    - `OAuth2ClientProfileEnabled` is `True`.
 
-   If `SmtpClientAuthenticationDisabled` is `True`, SMTP isn't enabled. To enable it, run the following command:
-
-   ```powershell
-
-   Set-TransportConfig -SmtpClientAuthenticationDisabled $false
-
-   ```
-
 ## Set up the SMTP connector in Business Central
+
+Do this step in Tenant B (Business Central tenant).
 
 To learn more about the SMTP connector, go to [Set up email](admin-how-setup-email.md).
 
@@ -17785,12 +17833,12 @@ To learn more about the SMTP connector, go to [Set up email](admin-how-setup-ema
    |Server Port     |  587       |         |
    |Authentication Type     | OAuth 2.0        |         |
    |Client ID | 00001111-aaaa-2222-bbbb-3333cccc4444 | The application ID from Tenant A. |
-   |Client Secret     |         | The secret generated in the app.        |
-   |Tenant ID     | aaaabbbb-0000-cccc-1111-dddd2222eeee  | The ID of Tenant B, where you host the email account.  |
+   |Client Secret     |         | The secret generated in the app from Tenant A.        |
+   |Tenant ID     | aaaabbbb-0000-cccc-1111-dddd2222eeee  | The ID of Tenant A (App / Mailbox tenant). |
    |Redirect URI     |         | This URI is only relevant for [!INCLUDE [prod_short](includes/prod_short.md)] on-premises. You can customize the value, but if you do, you must update your app registration in Azure portal.     |
    |Use custom app registration| | If you want to use a custom app registration, turn on the toggle. |
 
-1. To complete the account setup, choose **Next**, and then give consent.
+2. To complete the account setup, choose **Next**, and then give consent.
 
 ## Send a test email
 
@@ -17798,12 +17846,21 @@ The following example shows a way to test OAuth 2.0 for the SMTP connector.
 
 ```powershell
 param(
-    [string]$TenantId     = "your tenant id here",  
-    [string]$ClientId     = "your client id here",  
-    [string]$ClientSecret = "your client secret here",
-    [string]$From         = "your from address here",
-    [string]$To           = "your to address here",
+    [string]$TenantId     = "<Tenant A ID>",  
+    # Tenant A (App registration tenant)
+    # Application (Client) ID of the app registered in Tenant A
+    [string]$ClientId     = "<Tenant A Client ID>",  
+    # Tenant A (App registration tenant)
+    # Client Secret created for the app in Tenant A
+    [string]$ClientSecret = "<Tenant A Client Secret>",
+    # Tenant B (Business Central tenant)
+    # Must be a mailbox that exists in Tenant A and has SendAs permission granted
+    [string]$From         = "<Tenant A mailbox address>",
+    # Any valid email address (internal or external)
+    [string]$To           = "<Recipient email address>",
+    # Email subject
     [string]$Subject      = "SMTP OAuth Test",
+    # Email body
     [string]$Body         = "Hello! This is a test email using SMTP OAuth."
 )
 
@@ -18003,8 +18060,9 @@ This section lists some typical issues, their causes, and provides suggestions f
 
 ### 535 Authentication unsuccessful
 
-- Cause: SMTP AUTH is disabled or has an incorrect tenant ID.
-- Resolution: Check `Get-TransportConfig` to be sure that `SmtpClientAuthentidationDisabled` is `False`.
+- Cause: SMTP AUTH is disabled, has an incorrect tenant ID or OAuth2ClientProfileEnabled is not enabled in the Exchange Online organization.
+
+- Resolution: Check `Get-TransportConfig` to be sure that `SmtpClientAuthentidationDisabled` is `False` and `OAuth2ClientProfileEnabled` is `true`.
 
 ### 530 5.7.57 Client not authenticated
 
@@ -18023,7 +18081,8 @@ This section lists some typical issues, their causes, and provides suggestions f
 
 ## Related information
 
-[Set up email](admin-how-setup-email.md)end of article
+[Set up email](admin-how-setup-email.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-general-journal-post-line
 ---
@@ -18897,7 +18956,7 @@ To install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUD
 
 - Entitlements/permissions in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] to:
 
-  - Install template apps from AppSource.
+  - Install template apps from Marketplace.
   - Use shared workspaces.
 
 The prerequisites for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] can be met with a [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] license for the following users:
@@ -18927,9 +18986,9 @@ The connector apps are preinstalled with [!INCLUDE [prod_short](includes/prod_sh
 
 ### Installing a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app
 
-Template apps are available to install from Microsoft AppSource. To install or update one or more of the template apps, go to one of the install links in the following tables below and select **Get it now**.
+Template apps are available to install from Microsoft Marketplace. To install or update one or more of the template apps, go to one of the install links in the following tables below and select **Get it now**.
 
-Sign in to Microsoft AppSource using your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account credentials. Follow the instructions to install the app in [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
+Sign in to Microsoft Marketplace using your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account credentials. Follow the instructions to install the app in [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
 
 In the authentication step, choose **OAuth2** and set the **Privacy level setting for this data source** field to **Organizational**.
 
@@ -19097,7 +19156,7 @@ Instead, consider having a single workspace per company that you use for the emb
 
 ## Update a Power BI app
 
-The [!INCLUDE [prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps are available as template app on AppSource. When a new version of a template app becomes available, we notify you in two ways:
+The [!INCLUDE [prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps are available as template app on Marketplace. When a new version of a template app becomes available, we notify you in two ways:
 
 - An update banner displays in the [!INCLUDE [powerbi-service-name](includes/powerbi-service-name.md)] informing you that a new version is available.
 - A notification displays in Power BI's notification pane.
@@ -22406,7 +22465,7 @@ author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords: German version, local functionality
-ms.date: 06/30/2025
+ms.date: 01/20/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -22459,8 +22518,9 @@ The following articles describe local functionality that is unique to the German
 
 ## Future legislation requirements being investigated
 
-- GDPdU/GoDB update - based on Audit Files Export **Planned for 2026 release wave 2**
+- VAT VIES Declaration Export in XML **Planned for February 2026**
 - Electronically supported tax audit (euBP) **Planned for 2026 release wave 2**
+- GDPdU/GoDB update - based on Audit Files Export **Planned for 2027 release wave 1**
 
 If you're aware of any upcoming regulatory features, submit a [Regulatory Feature Alert](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRwkeauYiJKZOpJ0CtKuVmJlURURaMlQ4Rk05UFY4NkVEOTA0MUU5WThXSC4u).
 

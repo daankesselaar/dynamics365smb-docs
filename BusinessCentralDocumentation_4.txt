@@ -304,7 +304,7 @@ ms.custom: bap-template
 
 # Specify the languages that are available in your Business Central environment
 
-To let people work in their preferred language, the user interface (UI) in [!INCLUDE [prod_short](includes/prod_short.md)] is translated by apps that Microsoft provides, or by language apps that our partners provide on AppSource. Administrators install the language apps in their [!INCLUDE [prod_short](includes/prod_short.md)] environment. Afterward, on the **My Settings** page, people can choose the language in which they want to use [!INCLUDE [prod_short](includes/prod_short.md)].
+To let people work in their preferred language, the user interface (UI) in [!INCLUDE [prod_short](includes/prod_short.md)] is translated by apps that Microsoft provides, or by language apps that our partners provide on Marketplace. Administrators install the language apps in their [!INCLUDE [prod_short](includes/prod_short.md)] environment. Afterward, on the **My Settings** page, people can choose the language in which they want to use [!INCLUDE [prod_short](includes/prod_short.md)].
 
 The **Languages** page lists all languages that [!INCLUDE [prod_short](includes/prod_short.md)] supports. However, to use [!INCLUDE [prod_short](includes/prod_short.md)] in a selected language, the language app must be installed in the environment. If someone chooses a language that a language app isn't installed for, they might be confused when the UI doesn't change.
 
@@ -4851,7 +4851,7 @@ ms.custom: bap-template
 
 [!INCLUDE[prod_short](includes/prod_short.md)] is designed to help you run your business regardless of the size and complexity. At the core of the product, you find essential features, such as financial reporting, sales, purchasing, and inventory management. As business complexity increases, you can turn on functionality for manufacturing and service management, for example.
 
-You can define the product complexity level, and thereby which features the company's users get access to, by changing the **Experience** setting on the **Company Information** page. Note that the experience setting can also be changed by adding certain extensions from AppSource. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
+You can define the product complexity level, and thereby which features the company's users get access to, by changing the **Experience** setting on the **Company Information** page. Note that the experience setting can also be changed by adding certain extensions from Marketplace. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
 
 The following table lists the experiences that are currently available.
 
@@ -8216,7 +8216,7 @@ Learn more in [Installing Power BI apps for Business Central (prerequisites)](ac
 
 You must have [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licenses for the following reasons:
 
-1. You must install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template apps from Microsoft AppSource.
+1. You must install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template apps from Microsoft Marketplace.
 2. You must share a [!INCLUDE [powerbi-name](includes/powerbi-name.md)] workspace.
 
 The use of free license alternative for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] allows you to embed your own reports. Anything in the free [!INCLUDE [powerbi-name](includes/powerbi-name.md)] license must be present in your personal [!INCLUDE [powerbi-name](includes/powerbi-name.md)] workspace. So, the free license alternative does not work with the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps.
@@ -8269,7 +8269,7 @@ Learn more in [Connect the Power BI semantic models to Business Central](across-
 
 ## How do I update an app?
 
-Learn more in [Updating a Power BI app](across-powerbi-install-business-central-apps.md#updating-a-power-bi-app).
+Learn more in [Update a Power BI app](across-powerbi-install-business-central-apps.md#update-a-power-bi-app).
 
 ## Are the apps available in multiple languages?
 
@@ -8291,7 +8291,7 @@ The source code (.pbix files) for the Power BI apps is available from the follow
 | Subscription Billing           | 26.2 and later |
 | Sustainability                 | 26.2 and later |
 
-You can download the .pbix file by installing the app from AppSource and then download the source code from the installed app.
+You can download the .pbix file by installing the app from Marketplace and then download the source code from the installed app.
 
 ## Are the apps available for on-premises installations?
 
@@ -11477,7 +11477,7 @@ ms.reviewer: jswymer
 
 ### About the add-in
 
-The add-in is called **Microsoft Dynamics Office Add-in** and it's available for installation from the [Office Store (AppSource)](https://appsource.microsoft.com/). With the add-in installed, the **Edit in Excel** action is available on most list and list part pages from the **Share** icon ![Share a page in another app.](media/share-icon.png). Learn more about using the add-in at [View and Edit in Excel From Business Central](across-work-with-excel.md).
+The add-in is called **Microsoft Dynamics Office Add-in** and it's available for installation from the [Office Store (Marketplace)](https://marketplace.microsoft.com/). With the add-in installed, the **Edit in Excel** action is available on most list and list part pages from the **Share** icon ![Share a page in another app.](media/share-icon.png). Learn more about using the add-in at [View and Edit in Excel From Business Central](across-work-with-excel.md).
 
 > [!NOTE]
 > The add-in works on Windows only.
@@ -11526,7 +11526,7 @@ In this task, you work in both [!INCLUDE[prod_short](includes/prod_short.md)] an
 3. Sign in to the [Microsoft 365 admin center](https://go.microsoft.com/fwlink/?linkid=2163967) and go to **Integrated Apps**<!--**Add-ins**-->.
 
     Complete the following steps to configure the add-in to deploy from the Office Store: 
-    1. Choose **Get apps** to open Office Store (AppSource). <!--**Deploy Add-in** 5. In the **Deploy a new add-in**, select **Choose from the store**.-->
+    1. Choose **Get apps** to open Office Store (Marketplace). <!--**Deploy Add-in** 5. In the **Deploy a new add-in**, select **Choose from the store**.-->
     2. Search for **Microsoft Dynamics Office Add-in**, then select **Get it now**. <!--On the **Select add-in** page, search for and select **Microsoft Dynamics Office Add-in** > **Add** > **Continue**.-->
     3. On the **Add Users** page, specify the users that you want to deploy the add-in for, then choose **Next**.<!--On the **Configure add-in**, specify the users that you want to deploy the add-in for.-->
     4. Review the **Accept permissions requests**, then choose **Next** > **Finish Deployment**.
@@ -11779,7 +11779,7 @@ For [!INCLUDE [prod_short](includes/prod_short.md)] online, the administrator ca
 
 ### To deploy the Excel add-in for all users
 
-1. As the administrator, sign in to the Microsoft commercial website and find the add-in at [https://appsource.microsoft.com/product/office/WA104379629](https://appsource.microsoft.com/product/office/WA104379629).
+1. As the administrator, sign in to the Microsoft commercial website and find the add-in at [https://marketplace.microsoft.com/product/office/WA104379629](https://marketplace.microsoft.com/product/office/WA104379629).
 2. Choose the **Get it now** button.
 
     You'll be redirected to the Microsoft 365 admin center.
@@ -12392,7 +12392,7 @@ Although Copilot in Business Central is available in all geographic areas where 
 
 Depending on where your environment is hosted, you might need to allow data to move outside of your primary data residency to an Azure OpenAI endpoint located in another geography. You provide consent in the **Copilot & agent capabilities** page. If you don't provide consent, Copilot won't be available to your organization. Learn how to provide consent in [Allow data movement across geographies](enable-ai.md#allow-data-movement-across-geographies).
 
-Individual Copilot features might not be available in all geographies. Learn more about geographic and language availability at [Copilot international availability](https://aka.ms/bapcopilot-intl-report-external). Copilot and generative AI features from non-Microsoft publishers, such as those originating from customizations or AppSource apps you install, each define their own specific Azure OpenAI Service regions. Consult with the extension publisher to understand which regional Azure services are used by the extension.
+Individual Copilot features might not be available in all geographies. Learn more about geographic and language availability at [Copilot international availability](https://aka.ms/bapcopilot-intl-report-external). Copilot and generative AI features from non-Microsoft publishers, such as those originating from customizations or Marketplace apps you install, each define their own specific Azure OpenAI Service regions. Consult with the extension publisher to understand which regional Azure services are used by the extension.
 
 ## How data movement across geographies works
 
@@ -12428,7 +12428,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Payables Agent Overview
 description: Payables Agent automates vendor invoice processing in Business Central. Speed up accounts payable, reduce bottlenecks, and simplify invoice management.
-ms.date: 12/10/2025
+ms.date: 01/19/2026
 ms.update-cycle: 180-days
 ms.topic: overview
 author: dmc-dk
@@ -12473,23 +12473,29 @@ The dashed steps in the image represent steps that&mdash;in time&mdash;are inten
 
 The agent uses an internal email dispatcher running as a background task to continuously monitor a designated mailbox for incoming vendor invoices as PDF documents. The dispatcher triggers the agent to perform tasks and then imports the PDF document into **Inbound E-Documents**.
 
-Each PDF document found in an email becomes an entry in **Inbound E-Documents**. Thus, if there are multiple PDF attachments in the same email, an entry in **Inbound E-Documents** is created for each of them. A distinct agent task processes each entry.
+> [!IMPORTANT]
+> The agent only processes emails that have PDF attachments. It doesn't process emails without PDF attachments, and the emails appear as agent tasks that require manual attention.
+>
+> If an email contains more than 10 attachments, the agent skips that email entirely. Keep the number of attachments per email to 10 or fewer to ensure the agent processes them.
+
+Each PDF document found in an email becomes an entry in **Inbound E-Documents**. Thus, if there are multiple PDF attachments in the same email (up to a maximum of 10), an entry in **Inbound E-Documents** is created for each of them. A distinct agent task processes each entry.
 
 #### Use a shared mailbox to curate invoices and minimize noise
 
 The agent processes any email sent to the monitored mailbox. We recommend you use a shared mailbox that you keep as an internal-only mailbox and don't expose this mailbox to your vendors. The choice is yours. However, by not exposing invoices to vendors, your employees become the first to review and identify potential fraud, while also minimizing unnecessary information for the agent to handle. We recommend you set up a shared mailbox in Microsoft 365, add your accounts payable team members to that mailbox, and use that as the mailbox monitored by the Payables Agent. Learn more in [Create a shared mailbox](/microsoft-365/admin/email/create-a-shared-mailbox).
 
 > [!NOTE]
-> Use a designated mailbox for receiving vendor invoices. If other agents, like the Sales Order Agent, use the same mailbox, it can cause conflicts with ownership of incoming emails.
+> Use a mailbox that's designated to receive vendor invoices. If other agents, like the Sales Order Agent, use the same mailbox, it can cause conflicts with ownership of incoming emails.
 >
 > [!CAUTION]
-> A fundamental principle of the Payables Agent is to import **all** emails, not just the ones that contain PDF files. Take steps to ensure that the agent has full ownership of the mailbox, process wise, and users can't accidentally read or remove emails:
+> The Payables Agent processes only emails that contain PDF attachments. Ensure that the agent has full ownership of the mailbox, and that users can't accidentally read or remove emails:
 >
-> - The monitored mailbox should only be attended from within Business Central
+> - The monitored mailbox should only be attended from within [!INCLUDE [prod_short](includes/prod_short.md)].
 > - Users shouldn't access the monitored mailbox from Outlook.
-> - Use a shared mailbox if possible.
+> - Use a shared mailbox, if possible.
+> - Ensure emails contain 10 or fewer attachments. The agent skips emails that have more than 10 attachments.
 >
-> As a consequence, emails with no PDFs show up as agent tasks and need agent overseers to decide how to handle them. PDF files that aren't recognized as invoices are marked as *unknown document type*. You can filter these documents by choosing the **Unknown Document Type** view on the **Inbound E-Documents** page and then remove them. You can also remove unsupported files received in this mailbox this way.
+> PDF files that aren't recognized as invoices are marked as *unknown document type*. You can filter these documents by choosing the **Unknown Document Type** view on the **Inbound E-Documents** page, and then remove them. You can also remove unsupported files received in this mailbox this way.
 
 > ![Shows the Unknown Document Type view on the Inbound E-Documents page](media/unknown-document-type-view.png)
 
@@ -12582,6 +12588,8 @@ The Payables Agent currently doesn't support the following features:
 
 The following constraints apply to document processing and daily usage:
 
+- The agent only processes emails with PDF attachments. Emails without PDF attachments are not processed for invoice creation.
+- The agent skips emails with more than 10 attachments. Each email should contain 10 or fewer attachments.
 - The agent doesn't process PDFs with more than 10 pages.
 - The agent doesn't process PDFs larger than 5 MB.
 - The agent doesn't process more than 100 emails per day.
@@ -12955,7 +12963,7 @@ If you set up multiple assets as vendors and you post transactions to them, eith
 This difference is important when you assess whether G/L revaluation is the right feature to you for your reporting needs.
 
 > [!TIP]
-> We recommend that you ask your accountant or auditor which type of account is best for your business. Also, there might be an app for [!INCLUDE [prod_short](includes/prod_short.md)] on [AppSource](https://appsource.microsoft.com/en-us/marketplace/apps?page=1&product=dynamics-365-business-central) that's just right for your business scenarios.
+> We recommend that you ask your accountant or auditor which type of account is best for your business. Also, there might be an app for [!INCLUDE [prod_short](includes/prod_short.md)] on [Marketplace](https://marketplace.microsoft.com/en-us/marketplace/apps?page=1&product=dynamics-365-business-central) that's just right for your business scenarios.
 
 ## Related information
 
@@ -13101,7 +13109,7 @@ The following table describes available features.
 |Embedded experience for viewing a given report inside a FactBox in [!INCLUDE[prod_short](includes/prod_short.md)]|Both. Requires configuration to display reports for on-premises.|
 |Power BI report management from [!INCLUDE[prod_short](includes/prod_short.md)]|Online|
 |Default Power BI reports on role centers deployed to Power BI|Online|
-|Power BI Apps on Microsoft AppSource|Online|
+|Power BI Apps on Microsoft Marketplace|Online|
 
 ## Architecture
 
@@ -13536,7 +13544,7 @@ After you create a company, you can't change its name. You can, however, change 
 
 ## Add Contoso Coffee
 
-The Contoso Coffee app provides demonstration data to help you explore the advanced capabilities of [!INCLUDE [prod_short](includes/prod_short.md)]. Find the app in AppSource, and install it in an empty company, for example a company in a sandbox environment. For more information, see [Introduction to Contoso Coffee Demo Data](contoso-coffee/contoso-coffee-intro.md).  
+The Contoso Coffee app provides demonstration data to help you explore the advanced capabilities of [!INCLUDE [prod_short](includes/prod_short.md)]. Find the app in Marketplace, and install it in an empty company, for example a company in a sandbox environment. For more information, see [Introduction to Contoso Coffee Demo Data](contoso-coffee/contoso-coffee-intro.md).  
 
 ## Related information
 
@@ -14101,7 +14109,7 @@ ms.reviewer: v-soumramani
 
 Use the Troubleshooting FA Ledger Entries extension to round depreciation and acquisition amounts in fixed asset ledger entries to whole numbers. For example, to round an amount of 30,000.44 to 30,000. Typical causes of rounding issues are data migration, suddenly starting to post amounts to the general ledger, or customizations you've made to your [!INCLUDE[prod_short](includes/prod_short.md)].
 
-The Troubleshooting FA Ledger Entries extension is preinstalled and ready to go. If you remove the extension, but want to install it again, you can find it on AppSource.
+The Troubleshooting FA Ledger Entries extension is preinstalled and ready to go. If you remove the extension, but want to install it again, you can find it on Marketplace.
 
 ## Troubleshooting fixed asset ledger entries
 
@@ -16791,7 +16799,7 @@ Because OCR is based on optical recognition, it's likely that the OCR service in
 A dedicated job queue entry processes the traffic of files to and from the OCR service. This job queue is created automatically when you enable the external OCR service connection. Learn more in [Set Up Incoming Documents](across-how-setup-income-documents.md).
 
 > [!NOTE]
-> The OCR feature is provided by external providers. Choose a service package that's appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [AppSource.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
+> The OCR feature is provided by external providers. Choose a service package that's appropriate for your organization and/or country/region. Find services compatible with [!INCLUDE[prod_short](includes/prod_short.md)] and details on available features at [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).
 
 ## To send a PDF or image file to the OCR service from the Incoming Documents page
 
@@ -18664,7 +18672,7 @@ If you're a reselling partner, you might want to have an environment that you ca
 
 ### Does the [!INCLUDE [prod_short.md](includes/prod_short.md)] app for Teams cater to my customization and personalization?
 
-The [!INCLUDE [prod_short.md](includes/prod_short.md)] app for Teams can display cards for links to customer pages and tables in [!INCLUDE [prod_short.md](includes/prod_short.md)], such as those pages and tables from your own custom extensions or AppSource.
+The [!INCLUDE [prod_short.md](includes/prod_short.md)] app for Teams can display cards for links to customer pages and tables in [!INCLUDE [prod_short.md](includes/prod_short.md)], such as those pages and tables from your own custom extensions or Marketplace.
 
 The fields shown on a card in Teams can also be affected by [!INCLUDE [prod_short.md](includes/prod_short.md)] customizations installed for your organization. Cards don't consider any role-specific customizations or user personalization. However, the card details window shows record details as you would see them in [!INCLUDE [prod_short.md](includes/prod_short.md)], including extensions, role customizations, and user personalization.
 
@@ -20592,7 +20600,7 @@ ms.author: bholtorf
 ms.topic: get-started
 ms.search.keywords: SMTP, email, Office 365, connector
 ms.search.form: 1805, 9813, 9814, 1262, 1263, 8898_Primary, 8897_Primary
-ms.date: 06/15/2025
+ms.date: 01/23/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -20657,8 +20665,7 @@ If you want to use SMTP protocol to send emails from [!INCLUDE[prod_short](inclu
 > To use Auth 2.0 for SMTP authentication, consider the following:
 >
 > - All users must be on the same Microsoft Entra tenant.
-> - You can't use **Specific User** for the **Sender type**, as you can with Basic authentication. The reason is that OAUTH 2.0 uses the credentials of the current (signed-in) user.
-> - For Business Central on-premises, you must create an application registration in the Azure portal, and then run the **Set up Microsoft Entra ID** assisted setup guide in [!INCLUDE[prod_short](includes/prod_short.md)] to connect to Microsoft Entra ID. Learn more at [Create an App Registration for Business Central in Azure Portal](admin-how-setup-email.md#create-an-app-registration-for-business-central-in-azure-portal).
+> - For [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, you must create an application registration in the Azure portal, and then run the **Set up Microsoft Entra ID** assisted setup guide in [!INCLUDE[prod_short](includes/prod_short.md)] to connect to Microsoft Entra ID. Learn more at [Create an App Registration for Business Central in Azure Portal](admin-how-setup-email.md#create-an-app-registration-for-business-central-in-azure-portal).
 >
 > Exchange Online is deprecating use of Basic authentication for SMTP. Tenants that are currently using SMTP AUTH won't be affected by this change. However, we strongly recommend using the latest version of [!INCLUDE [prod_short](includes/prod_short.md)] and setting up OAuth 2.0 authentication for SMTP. We currently don't support certificate-based authentication. If you can't set up OAuth 2.0 authentication, we encourage you to explore third-party alternatives if you want to use SMTP email in earlier versions.
 
