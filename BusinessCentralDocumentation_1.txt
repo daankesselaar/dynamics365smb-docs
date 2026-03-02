@@ -4460,7 +4460,7 @@ Yes, Copilot in Business Central is included with your Business Central license 
 
 ## Is Copilot in Business Central available worldwide?
 
-Copilot includes a constantly expanding set of capabilities that help users in different roles and tasks. Each Copilot capability defines its own list of supported regions and supported languages. Although most features might be available only in English at first, we aim to unlock more languages and regions over time. Learn more at [Copilot international availability](https://aka.ms/bapcopilot-intl-report-external).
+Copilot includes a constantly expanding set of capabilities that help users in different roles and tasks. Each Copilot capability defines its own list of supported regions and supported languages. Although most features might be available only in English at first, we aim to unlock more languages and regions over time. Learn more in [Copilot geographic and language availability in Business Central](copilot-agents-region-language-availability.md).
 
 ## Is Copilot available for Business Central online only?
 
@@ -12537,7 +12537,7 @@ author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 12/12/2025
+ms.date: 02/27/2026
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: 103_Primary, 104_Primary, 108, 195, 196, 197, 198, 489, 490, 764, 765, 766
@@ -12578,6 +12578,13 @@ To edit the content of a row definition, follow these steps:
 
 A powerful feature in Financial Reporting is that you can use values computed in previous rows in row formulas defined in subsequent rows. Set the **Totaling Type** to **Formula**, and then write your calculation in the **Totalling** field on the same row.
 
+> [!TIP]
+> The formula language supports basic arithmetic operations such as addition (+), subtraction (-), multiplication (*), and division (/). You can also use parenthesis to group terms in the calculation.
+> 
+> The *Row No.* referenced in these formulas are filters, so you can also write terms like 'R|L', and 'L..R'. If multiple lines share the same *Row No.*, you can sum them by writing that value (refer to the example in the table below).
+>
+> But, you can also calculate one value as a percentage of another using the syntax **A%B** (read A as a percentage of B).
+
 The following excerpt of a row definition illustrates how row formulas work. Your chart of accounts structure might differ from the accounts shown.
 
 | Row No. | Description | Totaling Type | Totaling | ... | Show |
@@ -12590,8 +12597,9 @@ The following excerpt of a row definition illustrates how row formulas work. You
 | L       | Total liabilities  | Account Category     | Liabilities                  | | Yes |
 |         | Revenue to liabilities | Formula      | F1 / L                          | | Yes |
 
-The example illustrates some different tips and tricks:
+The example illustrates some tips and tricks:
 
+* Not all lines need to have a *Row No.*
 * You can use a formula row as a code comment. Remember to set the **Show** option to **No**.
 * The formula in row F1 summarizes all numbers from rows with **R** in the **Row No.** field (the Row No. setting doesn't have to be unique).
 * You can use results from previous calculations in new row formulas.
@@ -21268,7 +21276,7 @@ author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 01/14/2026
+ms.date: 02/27/2026
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: 103, 104, 108, 195, 196, 197, 198, 488_Primary, 489_Primary, 490, 764, 765, 766
@@ -21364,8 +21372,8 @@ An accounting period doesn't need to match the calendar. However, each fiscal ye
 
 [!INCLUDE[prod_short](includes/prod_short.md)] uses the period formula to calculate the duration of the comparison period in relation to the period represented by the date filter on the report. The comparison period is based on the period of the start date of the date filter. The following table shows the abbreviations for period specifications.
 
-| Abbreviation | Description                                                                           |
-| ------------ | ------------------------------------------------------------------------------------- |
+| Abbreviation |Description                                                                  |
+| ------------ | ----------------------------------------------------------------- |
 | P            | Period.                                                                                |
 | LP           | Last period of a fiscal year, half-year, or quarter.                                   |
 | CP           | Current period of a fiscal year, half-year, or quarter. Use CP in formulas to set the period that starts or ends the formula. For example, FY\[1..CP\] denotes the time from the beginning of the current fiscal year to the current period.|
@@ -21386,7 +21394,10 @@ Examples of formulas:
 To calculate by regular time periods, enter a formula in the **Comparison Date Formula** field instead. For example, if the field is set to -1Y, [!INCLUDE [prod_short](includes/prod_short.md)] compares to the same period one year earlier.
 
 > [!NOTE]
-> It isn't always obvious which periods you're comparing on a report. For example, a date filter might spans dates that are different than the accounting periods in your chart of accounts. So, if you create a financial report where you want to compare this period to the same period last year, set the **Comparison Date Formula** field to **-1FY**. Then, run the report on **February 28th** and set the date filter to **January and February**. As a result, the financial report compares January and February this year to January last year, which is the only completed accounting period of the two for last year.  
+> It isn't always obvious which periods you're comparing on a report. For example, a date filter might spans dates that are different than the accounting periods in your chart of accounts. So, if you create a financial report where you want to compare this period to the same period last year, set the **Comparison Date Formula** field to **-1FY**. Then, for example, run the report on **February 28th** and set the date filter to **January and February**. As a result, the financial report compares January and February this year to January last year, which is the only completed accounting period of the two for last year.  
+
+> [!WARNING]
+> You can't use both a **Comparison Date Formula** and **Comparison Period Formula** on the same line in the column definition.
 
 Learn more at [Work with Calendar Dates and Times](ui-enter-date-ranges.md).
 
