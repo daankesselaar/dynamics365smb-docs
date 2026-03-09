@@ -1,3 +1,290 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-cancel
+---
+title: Unsubscribe or Remove Business Central
+description: Learn how to remove or delete your Business Central experience if you have a trial subscription, or if you have a paid subscription.
+author: brentholtorf
+ms.topic: reference
+ms.devlang: al
+ms.search.keywords: remove, delete
+ms.date: 06/08/2022
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Unsubscribe or Remove [!INCLUDE[prod_short](includes/prod_short.md)]
+
+If you want to stop using [!INCLUDE[prod_short](includes/prod_short.md)], you can close your account or get the license removed from your account. The steps to take are different if you're currently using the free trial, or if you have a subscription.  
+
+If you want to end a trial, your administrator can learn more about the different types of trials and how to end them [here](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions)  
+
+If you want to end a subscription, your administrator must remove the subscription in the Microsoft 365 admin center. For more information, see [here](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions?#removing-a-subscription).  
+
+> [!TIP]
+> We recommend that you export any data before you close your account.
+
+You can read about how to export data to Excel in the [Exporting Data to Other Finance Systems](about-export-data.md#exporting-data-to-other-finance-systems). If you would rather export all data to an Azure storage container, your Microsoft 365 administrator can do that in the admin center. For more information, see [Exporting Databases in the Admin Center](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-database-export).  
+
+## Removing [!INCLUDE[prod_short](includes/prod_short.md)] from your app launcher
+
+If you want to hide [!INCLUDE[prod_short](includes/prod_short.md)] from your app launcher, you can unpin it. No data is lost, and the step doesn't cancel your subscription.  
+
+## Related information
+
+[Business Central Trial FAQ](trial-faq.md)  
+[Trials and Subscriptions (for admins)](/dynamics365/business-central/dev-itpro/administration/trials-subscriptions)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Create New Companies](about-new-company.md)  
+[Export Your Business Data to Excel](about-export-data.md)  
+[Microsoft 365 admin center](https://admin.microsoft.com/)  
+[Export Your Business Data to Excel](about-export-data.md)  
+[Export Databases in the Admin Center](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-database-export)  
+[Microsoft 365 Business subscriptions and billing documentation](/microsoft-365/commerce/)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-inventory-by-lot
+---
+title: Inventory by Lot No. (Power BI report)
+description: The Inventory by Lot No. report shows total inventory broken down per lot.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37029_Primary
+ms.date: 10/28/2024
+ms.service: dynamics-365-business-central
+---
+
+# Inventory by Lot No. (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Inventory by Lot No.** report shows total inventory broken down per lot where items are lot tracked. Use this information to identify different lots and track performance on a lot-by-lot basis.
+
+:::image type="content" source="media/inventory/inventory-by-lot.png" alt-text="Screenshot of the Inventory by Lot No Power BI Report" lightbox="media/inventory/inventory-by-lot.png":::
+
+## Use the report
+
+Inventory managers and warehousing staff can key track inventory per lot number.
+
+Inventory managers use the report to ensure each lot has an optimized stock level. This information can also help you identify slow-moving inventory to take corrective action, and track lots that are due to expire.
+
+The report helps warehouse staff members by providing a way to check inventory amounts in each lot. This information can help you make key decisions, ensure that inventory is properly managed, and avoid stock-outs.
+
+## Key Performance Indicators (KPIs)
+
+The *Inventory by Lot No.* report includes the following KPIs:
+
+- [**Quantity**](inventory-powerbi-kpis.md#quantity)
+- [**Inventory (Quantity)**](inventory-powerbi-kpis.md#inventory-quantity)
+- [**Expired Inventory**](inventory-powerbi-kpis.md#expired-inventory)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Item
+- Item Ledger Entries
+
+## Try the report
+
+Try the report here: [Inventory by Lot No.](https://businesscentral.dynamics.com?page=37029)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory app](inventory-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-reconciliation-with-copilot
+---
+title: Reconcile bank accounts with Copilot (preview)
+description: Learn how to use Copilot to reconcile bank accounts in Business Central.
+author: jswymer 
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: how-to 
+ms.collection:
+  - get-started
+  - bap-ai-copilot
+ms.date: 09/28/2025
+ms.update-cycle: 180-days
+ms.custom: bap-template 
+---
+
+# Reconcile bank accounts with Copilot
+
+This article explains how bank account reconciliation assist can help you reconcile bank transactions with ledger entries in Microsoft Dynamics 365 Business Central.
+
+## About bank account reconciliation assist
+
+Bank account reconciliation assist is a set of AI-powered features that help you reconcile bank accounts. It offers two distinct tasks through Copilot:
+
+- Improved matching of transactions with ledger entries
+
+    As you might already know, the **Match Automatically** button on the **Bank Acc. Reconciliation** page automatically matches most bank transactions with ledger entries. We refer to this operation as *automatch*. Although automatch works well, the algorithms that it uses can sometimes result in many unmatched transactions. Copilot uses AI technology to inspect those unmatched transactions and identify more matches, based on the dates, amounts, and descriptions. For example, if a customer paid multiple invoices in one lump sum that you have registered as individually paid invoices, Copilot reconciles the single bank statement line with the multiple bank ledger entries.
+
+    [Learn more about this task](#reconcile-bank-accounts-with-copilot).
+
+- Suggested general ledger (G/L) accounts
+
+    For residual bank transactions that can't be matched to any ledger entries, Copilot compares the transaction description with G/L account names and then suggests the most likely G/L account to post to. For example, if unmatched transactions have the narrative *Fuel Stop 24*, Copilot might suggest that you post them to the *Transportation* account.
+
+    [Learn more about this task](#post-unmatched-bank-transaction-amounts-to-suggested-gl-accounts).
+
+## Supported languages
+
+[!INCLUDE[copilot-language-support](includes/copilot-language-support.md)]
+
+## Operational limits
+
+Depending on the version of [!INCLUDE [prod_short](includes/prod_short.md)] you have, this feature has operational limits. The following table describes the limits.
+
+|Version  |Description  |
+|---------|---------|
+|2025 release wave 1 and earlier     | The number of open bank account ledger entries with posting date between the bank statement minimum transaction date (minus one day) and the bank statement maximum transaction date can't exceed around 1000. This number can vary, depending on the length of the description texts on the bank account ledger entries.   |
+|2025 release wave 2 and later     | The number of open bank account ledger entries with posting dates between the bank statement minimum transaction date (minus one day) and bank statement maximum transaction date can't exceed around 3000. This number can vary, depending on the length of the description texts on the bank account ledger entries.  |
+
+## Prerequisites
+
+- The **Bank account reconciliation** capability is activated. An administrator must complete this task. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
+- You're familiar with bank account reconciliation in Business Central. Learn more in [Reconcile Bank Accounts](bank-how-reconcile-bank-accounts-separately.md).
+
+## Reconcile bank accounts with Copilot
+
+<!-- Similar to the **Match Automatically** capability on the **Bank Acc. Reconciliation** page, Bank account reconciliation assist can also automatically matches transactions in banks statements with bank entries. The difference is that **Match Automatically** uses a native rules-based algorithm, while Bank account reconciliation assist is based AI technology though Copilot. Bank account reconciliation assist is intended to supplement the **Match Automatically** capability. While **Match Automatically** is fairly successful at matching transactions, there are some instances where it can't&mdash;which is where Bank account reconciliation assist comes. By using the **Reconcile with Copilot** action on **Bank Acc. Reconciliation** page, you can find even more matches.-->
+
+Copilot in bank account reconciliation is intended to supplement the automatch operation. Therefore, when you use Copilot, the automatch operation runs first to make the initial matches. Then Copilot runs to try to match transactions that the automatch operation didn't handle.
+
+You can use two approaches to reconcile bank accounts with Copilot:
+
+- Use Copilot to start a new reconciliation on a bank account, directly from the **Bank Account Reconciliations** list.
+- Use Copilot on a new or existing reconciliation on a **Bank Acc. Reconciliation** card.
+
+# [From the Bank Account Reconciliation list](#tab/fromlist)
+
+For this approach, you create and reconcile a new bank account reconciliation from scratch. This approach requires that you select the bank account. If the bank account isn't linked to an online account, you must also import the bank statement file.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Account Reconciliations**, and then select the related link.
+1. Select ![Shows the copilot icon](media/copilot-icon.png) **Start a Copilot prompt action** > **Reconcile** to open the **Reconcile with Copilot** window.
+1. Set the **Perform reconciliation for this bank account** field to the bank account that you want to reconcile.
+
+    ![Screenshot that shows the Reconcile with Copilot window for reconciling from scratch.](media/reconcile-bank-accounts-new-copilot.svg)
+
+1. If the selected bank account isn't linked to an online bank account, you must import the bank statement file. To import the file, either select the value in the **Use transaction data from** field or select the paper clip button next to the **Generate** button. Then use **Select the file to import** to import the bank statement file by either dragging it from your device or browsing your device.
+1. To reconcile with Copilot, select **Generate**.
+
+    Copilot starts to generate proposed matches. When it finishes, the **Reconcile with Copilot** window shows the results of the matching process.
+
+1. Review the proposed matches as described in the next section.
+
+# [From a Bank Acc. Reconciliation card](#tab/fromcard)
+
+For this approach, you use Copilot either on a new bank account reconciliation that you manually create or by editing an existing reconciliation.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Account Reconciliations**, and then select the related link.
+1. Follow one of these steps:
+
+    - Select **New** to start a new reconciliation. Add the statement lines, either manually or by using **Suggest Lines** action to get a copy of the bank ledger entries as a starting point.
+    - Select and open an existing reconciliation in the list.
+
+1. On the **Bank Acc. Reconciliation** card, select ![Shows the Copilot icon](media/copilot-icon-rainbow.png) > **Reconcile with Copilot** in the upper-right corner.
+
+    ![Screenshot that shows the Reconcile with Copilot button on a Bank Acc. Reconciliation card.](media/bank-reconciliation-copilot-card.png)
+
+    Copilot starts to generate proposed matches. When it finishes, the **Reconcile with Copilot** window shows the results of the matching process.
+
+1. Review the proposed matches as described in the next section.
+---
+
+### Review, save, or discard proposed matches
+
+After you run Copilot, the **Reconcile with Copilot** window shows the detailed results, including any proposed matches. At this point, no match that Copilot proposed has been saved. Therefore, you have an opportunity to inspect the proposals and save or discard them as you want.
+
+![Screenshot that shows proposed matches in the Reconcile with Copilot window.](media/bank-reconciliation-copilot-window.png)
+
+The **Reconcile with Copilot** window is divided into two sections. The upper section provides some general details about the result. The lower section, **Match proposals**, lists the matches that Copilot proposed.
+
+The following table describes the fields in the upper section.
+
+| Field | Description |
+|---|---|
+| Auto-matched | The number of bank statement lines that the automatch operation matched. Select the value to view the reconciliation card. |
+| Copilot matched | The number of bank statement lines that Copilot proposed matches for. You can view details of the matches in the **Match proposals** section. |
+| Statement Ending Balance | The ending balance that is shown on the bank statement that you're reconciling with. |
+| Post if fully applied | Turn on this option to automatically post the bank account reconciliation when all lines (100 percent) are matched and you select **Keep it**. |
+
+In the **Match proposals** section, review the proposed matches line by line. Then take the appropriate action:
+
+- To discard a single proposed match, select it in the list, and then select **Delete Line**.
+- To discard all proposed matches and close the **Reconcile with Copilot** window, select the ![Discard button.](media/copilot-delete-trash-can.png) **Discard it** button next to the **Keep it** button at the bottom of the window.
+- To automatically post the fully matched reconciliation when you save it, turn on the **Post if fully applied** option.
+- To save the matches that are currently shown in the **Reconcile with Copilot** window, select **Keep it**.
+
+## Post unmatched bank transaction amounts to suggested G/L accounts
+
+This section explains how to use Copilot to post unreconciled bank account statement line amounts (as specified in the **Difference** field) to a G/L account. This task can be done only from an existing reconciliation.
+
+1. Go to the **Bank Account Reconciliations** list, and open the existing reconciliation that includes the unreconciled lines.
+
+    This step gives you a clear view of any unreconciled bank statement lines that must be transferred to the G/L account.
+
+1. In the **Bank statement lines** pane, identify the unmatched bank statement lines, and select one or more lines that you want to reconcile.
+
+    Copilot focuses on the selected lines to post new payments to the G/L account.
+
+1. Select ![Shows the Copilot icon](media/copilot-icon-rainbow.png) > **Post Difference to G/L Account** to start the process.
+
+    ![Screenshot that shows the Post Difference to G/L Account button on the Bank Acc. Reconciliation card.](media/bank-reconciliation-transfer-gl-copilot-card.png)
+
+    Copilot starts to generate proposals for posting new payments.
+
+1. After Copilot finishes generating proposals, the **Copilot Proposals for Posting Differences to G/L Accounts** window appears.
+
+    The **Match proposals** section of this window shows the proposals. The experience resembles the experience for reconciling with Copilot.
+
+    ![Screenshot that shows Copilot Proposals for Posting Differences to G/L Accounts window.](media/bank-reconciliation-gl-transfer-proposed-matches-v2.png)
+
+    To post the differences as regular journal entries, you must specify the general journal template and batch to use. This allows you to reverse the transaction if you need to later.
+
+1. Review the proposals line by line to ensure the accuracy of the suggested payments for posting.
+
+    - If you drill down on the proposal by selecting it in the list, you're taken to a list of accounts. From there, you can select another account. You can do this type of manual correction only when you use the **Post Difference to G/L Account** flow, not the matching flow.
+    - If you select **Save** next to a proposal, you can add the mapping to the **Text-to-Account Mapping** page. Then, the next time that this text appears during matching, it's mapped to the proposed account.
+
+1. Discard or save proposals.
+
+    - To discard a specific proposal, select it in the list, and then select **Delete Line**. To discard all proposals and close Copilot, select the ![Discard button.](media/copilot-delete-trash-can.png) **Discard it** button next to the **Keep it** button at the bottom of the window.
+    - If the proposals meet your requirements, and you want to save them, select **Keep it**.
+
+         This step confirms the transfer of the currently selected proposals from the bank account ledger to the G/L account. It posts new payments to the proposed G/L accounts and applies corresponding lines to the resulting bank account ledger entries.
+
+## Next steps
+
+[Validate your bank account reconciliation](bank-how-reconcile-bank-accounts-separately.md#validate-your-bank-reconciliation)
+
+## Related information
+
+[Troubleshoot Copilot and agent capabilities](ai-copilot-troubleshooting.md)  
+[Responsible AI FAQ for bank reconciliation assist](faqs-bank-reconciliation.md)  
+[Setting Up Banking](bank-setup-banking.md)  
+[Reconcile Bank Accounts](bank-how-reconcile-bank-accounts-separately.md)  
+[Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-setup-service
 ---
 title: Setting up service management | Microsoft Docs
@@ -1817,15 +2104,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-powerbi-install-business-central-apps
 ---
-title: Installing Power BI apps for Business Central
+title: Install Power BI apps for Business Central
 description: Learn how to install Power BI apps for your Business Central.
 author: kennieNP
 ms.topic: get-started
-ms.devlang: al
 ms.search.keywords: analysis, reporting, business intelligence, KPI, installation, administration
-ms.date: 10/17/2025
+ms.date: 03/03/2026
 ms.author: kepontop
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -1839,20 +2125,20 @@ This article describes how to install [!INCLUDE [powerbi-name](includes/powerbi-
 - APIs for reading data.
 - [!INCLUDE [powerbi-name](includes/powerbi-name.md)] semantic models and reports.
 - Pages that embed the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)].
-- Navigation links on Role Centers and Role Explorer.
+- Links on Role Centers and Role Explorer.
 
 ## Prerequisites
 
 To install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)], you must have:
 
-- An environment in [!INCLUDE [prod_short](includes/prod_short.md)] online (it comes ready to integrate with [!INCLUDE [powerbi-name](includes/powerbi-name.md)].)
+- An environment in [!INCLUDE [prod_short](includes/prod_short.md)] online, which comes ready to integrate with [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
 
-- Entitlements/permissions in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] to:
+- Entitlements and permissions in [!INCLUDE [powerbi-name](includes/powerbi-name.md)] to:
 
   - Install template apps from Marketplace.
   - Use shared workspaces.
 
-The prerequisites for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] can be met with a [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] license for the following users:
+You can meet the prerequisites for [!INCLUDE [powerbi-name](includes/powerbi-name.md)] with a [!INCLUDE [powerbi-pro](includes/powerbi-pro-license-name.md)] license for the following users:
 
 - The user who installs the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] template app.
 - The user who refreshes the data.
@@ -1881,9 +2167,8 @@ The connector apps are preinstalled with [!INCLUDE [prod_short](includes/prod_sh
 
 Template apps are available to install from Microsoft Marketplace. To install or update one or more of the template apps, go to one of the install links in the following tables below and select **Get it now**.
 
-Sign in to Microsoft Marketplace using your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account credentials. Follow the instructions to install the app in [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
-
-In the authentication step, choose **OAuth2** and set the **Privacy level setting for this data source** field to **Organizational**.
+1. Sign in to Microsoft Marketplace using your [!INCLUDE [powerbi-name](includes/powerbi-name.md)] account credentials. Follow the instructions to install the app in [!INCLUDE [powerbi-name](includes/powerbi-name.md)].
+1. In the authentication step, choose **OAuth2** and set the **Privacy level setting for this data source** field to **Organizational**.
 
 :::image type="content" source="media/powerbi/power-bi-install-app-authenticate.png" alt-text="Screenshot of the Power BI app installer." lightbox="media/powerbi/power-bi-install-app-authenticate.png"::::::
 
@@ -1955,11 +2240,11 @@ The assisted setup guide helps you configure the following components:
 
 ### Configure the calendar type
 
-Choose the type of calendar the year boundaries apply to.
+Choose the calendar type that aligns with how your organization defines its reporting year. This setting determines how year boundaries are calculated, which time intelligence measures to use, and which calendar in the Power BI semantic models to use.
 
-- **Fiscal**: A 12-month calendar that begins in any month and ends 12 months after.
-- **Standard**: A 12-month calendar that begins on January 1 and ends on December 31.
-- **Weekly**: A calendar that supports 445, 454, or 544 week groupings. The first and last day of the year might not correspond to a first and last day of a month, respectively.
+- **Fiscal**: A 12-month calendar that begins in any month and ends 12 months after. To learn more, go to [Configure a fiscal calendar](across-powerbi-configure-fiscal-calendar.md).
+- **Standard**: A 12-month calendar that begins on January 1 and ends on December 31. To learn more, go to [Configure a standard calendar](across-powerbi-configure-standard-calendar.md).
+- **Weekly**: A calendar that supports 445, 454, or 544 week groupings. The first and last day of the year might not correspond to a first and last day of a month, respectively. To learn more, go to [Configure a week based calendar](across-powerbi-configure-week-based-calendar.md).
 
 > [!IMPORTANT]
 > By default, all [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports are configured to use Fiscal Calendar date fields and Fiscal Time Intelligence measures.
@@ -3862,7 +4147,7 @@ You can find an overview of the most popular keyboard shortcuts in [Keyboard sho
 > [!TIP]
 > For a graphical view of the most-used keyboard shortcuts, select the following image, and download the PDF file.
 >
-> [![Icon for the PDF file.](media/keyboard_shortcut_inline.png)](media/keyboard-shortcuts-2025.pdf "Icon that opens a PDF")
+> [![Icon for the PDF file.](media/keyboard_shortcut_inline.png)](media/keyboard-shortcuts.pdf "Icon that opens a PDF")
 
 ## Overview of keyboard shortcuts
 
@@ -6437,19 +6722,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-data-retention-policies
 ---
-title: Clean Up Data with Retention Policies
+title: Clean up data with retention policies
 description: You can specify how often you want to delete certain types of data.
 author: brentholtorf
 ms.topic: how-to
 ms.author: bholtorf
 ms.search.keywords: delete, data, retention, policy, policies
-ms.search.form: 3903, 3901
-ms.date: 01/27/2025
+ms.search.form: 3903, 3901, 592, 593, 595, 1366, 1367, 1368, 1369
+ms.date: 03/02/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Define Retention Policies
+# Define retention policies
 
 This article describes how administrators can define retention policies to specify how often to delete outdated data in tables that contain log entries and archived records. For example, cleaning up log entries can make it easier to work with the more relevant data. Policies can delete data based on an expiration date, or you can add filters to include only certain expired data.
 
@@ -6462,17 +6747,17 @@ Before you can create retention policies, you must set up the tables to include 
 |**Allowed Tables**     |We provide a list of tables that you can include in retention policies. If you want to add tables from an extension to a retention policy, a developer must add their tables to the list. To learn more, go to [Include your extension in a retention policy](admin-data-retention-policies.md#include-your-extension-in-a-retention-policy-requires-help-from-a-developer).          |
 |**Retention Periods**     |Specify periods of time for which to keep data in the tables in a policy. The periods determine how often data is deleted.         |
 
-Additionally, you must have the **SUPER** user permissions or the **Retention Policy Setup** permission set. Users who have the Retention Policy Setup permission set can define retention policies for tables. That's true, even if they don't have Read and Delete permissions for the tables. The job queue entry must run as a user with permissions to read and delete the data. Don't grant the Retention Policy Setup permission set to users who shouldn't be allowed to delete data.
+Also, you must have the **SUPER** user permissions or the **Retention Policy Setup** permission set. Users who have the Retention Policy Setup permission set can define retention policies for tables, even if they don't have Read and Delete permissions for the tables. The job queue entry must run as a user with permissions to read and delete the data. Don't grant the Retention Policy Setup permission set to users who shouldn't be allowed to delete data.
 
 > [!NOTE]
-> If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, and you want to try out retention policies in the the Cronus demonstration database, there are a few things you need to do. The demonstration company doesn't contain tables that you can use with retention policies, so you need to add them. To do that, create a new, blank company in the demonstration database. In the new company, import the RapidStart configuration package for your country/region that corresponds to the standard NAV17.0.W1.ENU.STANDARD.rapidstart package. The setup data for retention policies will be available in the new company.
+> If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises and you want to try out retention policies in the Cronus demonstration database, there are a few things you need to do. The demonstration company doesn't contain tables that you can use with retention policies, so you need to add them. To do that, create a new, blank company in the demonstration database. In the new company, import the RapidStart configuration package for your country/region that corresponds to the standard NAV17.0.W1.ENU.STANDARD.rapidstart package. The setup data for retention policies are available in the new company.
 
 ### Create retention periods
 
 Retention periods can be as long or as short as you want. To create retention periods, on the **Retention Policies** page, use the **Retention Period** action. The periods you define are available for all policies.
 
 > [!NOTE]
-> For compliance reasons, we have defined a minimum retention period for some tables. If you set a retention period that's shorter than minimum required, a message displays the mandatory period.
+> For compliance reasons, we defined a minimum retention period for some tables. If you set a retention period that's shorter than minimum required, a message displays the mandatory period.
 
 ### Set up a retention policy
 
@@ -6480,7 +6765,7 @@ Retention periods can be as long or as short as you want. To create retention pe
 2. Select **New** to create a new retention policy. 
 3. In the **Table ID** field, choose the table that you want to include in the policy.
 4. In the **Retention Period** field, specify the length of time for which to keep the data in the table.
-5. Optional: You can apply the policy to specific data in a table, rather than all records, by filtering the data for each line. The policy will apply only to the records that the filters return. To specify the filter criteria, turn off the **Apply to all records** toggle. The **Record Retention Policy** FastTab displays, where you can set filter criteria. To learn more about how filters work, go to [Filtering](ui-enter-criteria-filters.md#filtering).
+5. Optional: You can apply the policy to specific data in a table, rather than all records, by filtering the data for each line. The policy applies only to the records that the filters return. To specify the filter criteria, turn off the **Apply to all records** toggle. The **Record Retention Policy** FastTab displays, where you can set filter criteria. To learn more about how filters work, go to [Filtering](ui-enter-criteria-filters.md#filtering).
 
    > [!NOTE]
    > Each line has its own retention period. If you specify different retention periods for the same data, the longest period is used. Also, some tables contain filters that you can't change or remove. To help you identify these filters, they appear in a lighter color font.
@@ -6495,17 +6780,17 @@ This video provides an example of how to set up a retention policy.
 
 You can use a job queue entry to apply retention policies to delete data automatically, or you can manually apply policies.
 
-To apply a retention policy automatically, just create and enable a policy. When you enable a policy,, [!INCLUDE [prod_short](includes/prod_short.md)] creates a job queue entry that applies the it according to its retention period. All retention policies will use the same job queue entry. By default, the job queue entry applies the policy every day at 0200. You can change the default, but if you do we recommend that it runs outside business hours. To learn more, go to [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md). 
+To apply a retention policy automatically, just create and enable a policy. When you enable a policy, [!INCLUDE [prod_short](includes/prod_short.md)] creates a job queue entry that applies it according to its retention period. All retention policies use the same job queue entry. By default, the job queue entry applies the policy every day at 0200. You can change the default, but if you do we recommend that it runs outside business hours. To learn more, go to [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md). 
 
-You can manually apply a policy by using the **Apply Manually** action on the **Retention Policies** page. If you want to always apply a policy manually, turn on the **Manual** toggle. The job queue entry will disregard the policy when it runs.
+You can manually apply a policy by using the **Apply Manually** action on the **Retention Policies** page. If you want to always apply a policy manually, turn on the **Manual** toggle. The job queue entry disregards the policy when it runs.
 
-## View retention policy log entries
+## View retention policies log entries
 
 You can view activity related to retention policies in the **Retention Policy Log** page. For example, entries are created when a policy is applied, or if errors occurred.
 
 ## Include your extension in a retention policy (requires help from a developer)
 
-By default, retention policies cover only [!INCLUDE[prod_short](includes/prod_short.md)] in the list we provide. You can remove default tables from the list, and you can add tables that you own. That is, you can't add a table that you did not create yourself. For example, you can't add other tables from [!INCLUDE[prod_short](includes/prod_short.md)] or from an extension that you have purchased.
+By default, retention policies cover only [!INCLUDE[prod_short](includes/prod_short.md)] in the list we provide. You can remove default tables from the list, and you can add tables that you own. That is, you can't add a table that you didn't create yourself. For example, you can't add other tables from [!INCLUDE[prod_short](includes/prod_short.md)] or from an extension that you purchased.
 
 To add your tables to the list of allowed tables, a developer must add some code. For example, to the installer codeunit for the extension (a codeunit with the *install* subtype).
 
@@ -6545,7 +6830,7 @@ The following example includes a mandatory filter.
     end;
 ```
 
-After a developer has added tables to the list, an administrator can include them in a retention policy. 
+After a developer adds tables to the list, an administrator can include them in a retention policy. 
 
 ## Related information
 
