@@ -5456,6 +5456,149 @@ If no special price can be calculated for the item on the line, then either the 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-production-output-testing
+---
+title: Inspect production output
+description: Learn how to set up and use automatic quality inspection tests for production output.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 20400, 20408, 20404, 20402, 20416,
+ms.date: 03/10/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Inspect the quality of production output
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+This article explains how to set up quality management to automatically create quality inspections for production output when you post manufacturing operations. For example, these inspections enable:
+
+- Finished goods inspection
+- In-process quality checks
+- Work center-specific inspections
+- Routing operation validation
+
+## Get started
+
+To automate the process of creating inspections for production output, there are a few things to set up.
+
+- You must prepare items for production output testing by filling in a couple of fields on the **Item Card** page:
+
+   - You must set up an **Item Tracking Code** (for example, "LOT ALL") and assign it to the item. Learn more at [Set up item tracking with serial, lot, and package numbers](inventory-how-setup-item-tracking.md).
+   - Fill in the **Lot Nos.** field with the number series to use for automatic lot assignment.
+   - Make sure a routing is created for the item.
+
+- You must set up a global trigger for production output. On the **Quality Management Setup** page, in the **Production - Create Inspection** field, choose **When Output is Posted**.
+- You must create inspection generation rules for production output testing. Learn more at [Create a production rule](qms-test-generation-rules.md#create-a-production-rule).
+
+
+## Create production output inspections
+
+Production output inspections are automatically created when you post production orders. When you create the order, be sure to fill in the following fields:
+
+- **Item**: Use a lot-tracked production item.
+- **Quantity**: Specify a production quantity.
+- **Location**: Match the inspection generation rule filters.
+- **Routing**: Verify that routing operations exist.
+
+Use an output journal or a production journal to post output.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Output Journal** or **Production journal**, and then choose the related link.
+1. Enter the output to post, as follows:
+
+   - **Item No.**: Production item
+   - **Operation No.**: Final routing operation
+   - **Output Quantity**: Quantity being output
+   
+1. Choose **Post** to post the production output.
+
+   After you post production output, a quality inspection is created automatically. The inspection includes:
+
+     - **Item Number**: The production item.
+     - **Lot Number**: The assigned lot number for item tracking.
+     - **Quantity**: The output quantity.
+     - **Source**: The production order and operation reference.
+
+## Work with production inspections
+
+Production output inspections contain:
+
+- **Control Information**: Source production order details
+- **Item Tracking**: Lot/serial number information
+- **Template Fields**: Quality measurements to complete
+- **Quantity**: Specific to output posting
+
+You can access related information in several ways:
+
+- The **Navigate** action in the inspection shows:
+
+   - Item ledger entries
+   - Production order details
+   - Warehouse entries
+   - Related documents
+
+- **Control Information** shows:
+   - Source production order
+   - Operation details
+   - Posting information
+
+### Complete production inspections
+
+The following steps give an overview of how to complete a production inspection.
+
+1. Open a quality inspection.
+2. Enter the measurement values.
+3. Review the calculated results that the template configuration and measurements determine.
+4. Choose the **Finish** action when the inspection is complete.
+
+## Advanced configuration
+
+### Location-specific rules
+
+You can create multiple rules for different locations. Set up a filter for each specific location, and select the template that you created for that location.
+
+### Operation-specific inspections
+
+Configure inspections for specific routing operations:
+
+- **Routing No. Filter**: Specify a routing.
+- **Work Center Filter**: Specify a work center.
+- **Operation Filter**: Specify an operation number.
+
+## Production setup considerations
+
+### Posting setup requirements
+
+Ensure that you have an **Inventory Posting Setup** for item transactions. Learn more at [Specific posting groups](finance-posting-groups.md#specific-posting-groups).
+
+### Item tracking integration
+
+Production output with item tracking:
+
+- **Lot numbers** can be automatically assigned or manually entered.
+- **Serial numbers** are supported for serialized items.
+- **Package numbers** are supported for package tracking.
+
+### Backflushing considerations
+
+If you use backflushing, there are a few things to consider:
+
+- Material consumption posts automatically.
+- Component lot tracking might affect inspection creation.
+- Review backflushing setup for quality integration.
+
+## Related information
+
+[Creating Quality Inspection Templates](qms-quality-templates.md)  
+[Setting Up Inspection Generation Rules](qms-test-generation-rules.md)  
+[Manual Inspection Creation](qms-manual-test-creation.md)  
+[Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
+[Quality Management Overview](qms-overview.md)end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-posting
 ---
 title: Design Details - Inventory Posting | Microsoft Docs
@@ -8406,7 +8549,7 @@ ms.devlang: al
 ms.search.keywords:
 ms.date: 08/01/2024
 ms.author: bholtorf
-ms.search.form: 103, 104, 108, 488, 489, 490
+ms.search.form: 103, 104, 108, 488, 489
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
@@ -12540,7 +12683,7 @@ ms.topic: how-to
 ms.date: 02/27/2026
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
-ms.search.form: 103_Primary, 104_Primary, 108, 195, 196, 197, 198, 489, 490, 764, 765, 766
+ms.search.form: 103_Primary, 104_Primary, 195, 196, 197, 198, 489, 490, 764, 765, 766
 ms.service: dynamics-365-business-central
 ---
 
@@ -13445,9 +13588,9 @@ To learn more about how to import or export financial report row or column defin
 
 ## Integrate financial reports with Excel
 
-You can integrate a financial report with an Excel workbook template, adjust the layout to suit your needs, and then update the Excel template with data from [!INCLUDE[prod_short](includes/prod_short.md)]. For example, this integration makes it easier to generate your monthly and yearly financial statements in a format that works for you.
+[!INCLUDE[integrate_financial_reports_with_excel_intro](includes/include-integrate-financial-reports-with-excel-intro.md)]
 
-To learn more, go to [How to integrate financial reports with Excel](finance-financial-reporting-view-a-report.md#integrate-financial-reports-with-excel).
+To learn more, go to [Integrate financial reports with Excel](finance-financial-reporting-integrate-financial-reports-with-excel.md).
 
 ## Print and save financial reports
 
@@ -14644,6 +14787,433 @@ The following table describes the calculations.
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-non-compliant-processing
+---
+title: Handle items that failed a quality test
+description: Learn how to handle noncompliant items, including workflows, inventory movements, and actions for failed quality inspections.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: overview
+ms.search.form: 20408,
+ms.date: 03/11/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Process items that failed a quality inspection
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+This article explains how to deal with items that don't pass quality inspection. When goods fail a quality inspection, there are options to manually or automatically handle the noncompliant items:
+
+- Block items to prevent the use of failed lots.
+- Move items to quarantine areas.
+- Remove unusable inventory.
+- Transfer items to different locations.
+- Return defective items to suppliers.
+
+<!--## Prerequisites
+
+- Quality inspection templates with pass and fail criteria.
+- Inspection generation rules.
+- Quality management workflows to automatically process failures and passes.
+- Locations and bins for quarantine.-->
+
+## Automatic processing when items fail an inspection
+
+### Workflow-based actions
+
+Quality Management workflows can automatically respond to failed inspection. The following automatic responses are available:
+
+- Block the lot in the inspection
+- Create negative adjustment
+- Create transfer order
+- Move inventory to different bin
+- Create purchase return
+- Create reinspection
+- Send notifications
+
+### Set up automatic blocking when inspections fail
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Workflows**, and then choose the related link.
+1. Create a new workflow. For example, name it "Block Lot on Failure."
+1. In the **Category** field, choose **Quality Examples**.
+1. Configure the **When Event** as follows:
+   - **Event**: When a Quality Inspection is Finished
+   - **Condition**: **Result Code** equals **FAIL**, or other failing result.
+1. Configure the **Response** as follows:
+   - **Response**: Block the lot in the inspection.
+   - **Result**: Failed lots automatically get blocked from use
+4. Specify result-specific conditions, as follows:
+   - Create separate workflows for different failing results.
+   - Use result priorities to determine appropriate responses.
+   - Configure different actions based on the severity of the failure.
+
+### Set up automatic inventory movement
+
+1. Create a workflow. For example, name it something like **Move Failed Items to Quarantine**.
+2. For the **When Event**, choose **Quality Inspection is Finished**.
+3. For the **On Condition**, specify that **Result Code** is **FAIL**.  
+4. For the **Then Response**, choose **Move inventory from inspection**.
+5. Configure the options for the response. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+## Manual processing when inspections fail
+
+The following sections describe some actions you can take when an item fails an inspection.
+
+### Use manual actions on quality inspections
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Inspection**, and then choose the related link.
+1. Open the failed inspection.
+1. Use the options on the **Actions** menu to run actions directly from the inspection results. Learn more at [Manual movement process](#manual-movement-process).
+
+### Step-by-step process using quality inspection actions
+
+**Process Using Quality Inspection Actions**:
+
+1. **Review Inspection Results**:
+   - Go to the failed quality inspection.
+   - Analyze the failure details and measurements.
+   - Determine the appropriate action.
+
+2. **Execute Action**:
+   - Select the appropriate action from the **Actions** menu on the **Quality Inspection** page.
+   - Review the prefilled information for accuracy.
+   - Add more details as required. For example, a destination or reason code.
+   - Run the action to create the necessary documents.
+
+3. **Complete Processing**:
+   - Process the created documents. For example, adjustments, transfers, or returns.
+   - Update the physical inventory locations as needed.
+   - Document the resolution and lessons learned.
+
+4. **Verify Completion**:
+   - Confirm that all actions are properly recorded.
+   - Verify that inventory movements and adjustments are posted.
+   - Update the test status if necessary for tracking
+
+## Result-based controls for failed items
+
+Quality Management uses result-based controls to automatically manage noncompliant items based on inspection results.
+
+**Result-Based Business Rules**:
+
+- Result priorities determine which controls take precedence.
+- Higher priority results override lower priority results.
+- Failed results typically restrict business transactions while allowing handling activities.
+- Result conditions can automatically promote or demote based on business rules.
+
+**Implementation**:
+
+- Quality inspection templates assign results based on measurements.
+- Result inheritance flows from Default → Field → Template → Test levels.
+- Workflows can trigger more actions based on results.
+- Transaction controls apply immediately when you assign a result.
+
+## Moving items after inspection failures
+
+The following sections describe how to set up a quality management workflow to automatically or manually move a defective inventory to quarantine.
+
+### Automatic movement to quarantine
+
+You can set up a quality management workflow that automatically moves items to your quarantine area if they fail an inspection. The movement physically separates the defective items from your good inventory.
+
+Set up a quality management workflow, as follows:
+
+1. **Response**: Move inventory to different bin.
+2. **Bin Configuration**: Specify quarantine bin.
+3. **Automatic Execution**: Movement occurs on test failure.
+
+### Manual movement process
+
+To manually move defective inventory, you can use the options on the **Actions** menu on the **Quality Inspection** page. This section describes the actions.
+
+**Move Inventory**:
+
+Run an inventory movement directly from the inspection results. The movement is prefilled with details about the failed lot, and maintains the connection between movement and quality failure.
+
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
+- **Movement Methods**: Reclassification journal or movement worksheet/internal movement.
+- **Source Filters**: Optional location and bin filters to limit movement source.
+- **Destination**: Specify a target location and bin for quarantine or disposal.
+- **Posting Options**: Post immediately, or create entries for later processing.
+
+**Create Internal Put-away**:
+
+Create internal put-away documents for warehouse locations.
+
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
+- **Source Filters**: Optional location and bin filters.
+- **Release Options**: Release immediately, create warehouse put-away, or keep open for review.
+- **Usage**: Ideal for directed put-away and pick locations.
+
+**Create Transfer Order**:
+
+Generate a transfer orders that automatically includes failed lot information and links transfer to original quality test for tracking.
+
+- Specify a destination location for further processing.
+
+**Create Negative Adjustment**:
+
+- Automatically fills in item, lot, and quantity information.
+
+<!--**Change Item Tracking**:-->
+
+- **Create Purchase Return Order**:
+
+- Start vendor returns directly from the inspection results. The return contains purchase order and receipt details, and includes quality inspection failure information for vendor communication.
+
+## Removing items from inventory
+
+You can remove items from inventory automatically, or manually. The following sections describe how.
+
+### Automatic removal
+
+Set up a quality management workflow with the **Then Response** set to **Create negative adjustment**. This response does the following:
+
+- Automatically removes failed inventory.
+- Records the disposal in the item ledger.
+- Updates inventory quantities.
+
+The following are a few things to consider about your configuration:
+
+- Ensure that you have a suitable posting setup.
+- Consider the effect on cost.
+- Maintain an audit trail.
+
+### Manual removal process
+
+The manual removal process involves using the **Create Negative Adjustment** option from the **Actions** menu on the **Quality Inspection** page.
+
+The action decreases inventory quantity for disposal, destructive testing, or write-offs.
+
+- **Quantity Options**:
+  - Entire lot/serial/package quantity
+  - Specific quantity with manual entry
+  - Sample quantity (uses inspection sample size)
+  - Passed quantity (samples that passed all measurements)
+  - Failed quantity (samples with at least one failed measurement)
+- **Source Filters**: Optional location and bin filters to limit adjustment source
+- **Reason Codes**: Optional reason code for audit trail
+- **Posting Behavior**: Create journal entries only or post immediately
+
+The following steps give an overview of the manual removal process:
+
+1. From the failed quality inspection, choose **Create Negative Adjustment** from the **Actions** menu.
+2. **Select Quantity**: Choose the appropriate quantity method. For example, this selection is often **Failed Quantity** for noncompliant items.
+3. **Add Reason**: Specify a reason code. For example, disposal, destructive inspections, damage, and so on.
+4. **Configure Source**: Add location/bin filters if you need to limit the scope.
+5. **Execute**: Create entries for review, or post immediately.
+6. **Verify**: Confirm the inventory reduction and that cost accounting is correct.
+
+## Return items to vendors
+
+You can return items to vendors automatically, or manually. The following sections describe how.
+
+### Automatic return processing
+
+Set up a quality management workflow with the **Then Response** set to **Create purchase return**. This response does the following:
+
+- **Automatic Execution**: Return order created on inspection failure.
+- **Vendor Notification**: Include details about the quality failure.
+
+### Manual return process
+
+The manual return process involves using the **Create Purchase Return** option from the **Actions** menu on the **Quality Inspection** page.
+
+The action creates purchase return orders for vendor-related defects.
+
+- **Quantity Options**:
+  - Entire lot/serial/package quantity
+  - Specific quantity with manual entry
+  - Sample quantity (uses inspection sample size)
+  - Passed quantity (if partial return needed)
+  - Failed quantity (most common for defects)
+- **Return Reason**: Optional return reason code for vendor communication
+- **Source Filters**: Optional location and bin filters
+- **Credit Memo**: Optional vendor credit memo number field
+
+The following steps give an overview of the manual return process:
+
+1. **Document the failure**: Compile the inspection results and evidence from the quality inspection.
+2. Choose **Create Purchase Return** from the **Actions** menu on the **Quality Inspection** page.
+3. **Configure the return**:
+   - Choose **Failed Quantity** for defective items.
+   - Add a return reason code.
+   - Include the vendor credit memo number, if it's available.
+4. **Run the action**: Create a purchase return order with prefilled inspection information.
+5. **Process the return**: Follow your standard return procedures with links to the quality documentation.
+6. **Vendor communication**: Include details about the quality inspection failure in a return notification.
+
+## Transfer items to other locations
+
+This section describes how to manually transfer items to other locations.
+
+### Manual transfer process
+
+The manual transfer process involves using the **Create Transfer Order** option from the **Actions** menu on the **Quality Inspection** page:
+
+The action transfers items to another location for external processing, lab analysis, or disposal.
+
+- **Quantity Options**:
+  - Entire lot/serial/package quantity
+  - Specific quantity with manual entry
+  - Sample quantity (uses inspection sample size)
+  - Passed quantity (for approved items)
+  - Failed quantity (for noncompliant items)
+- **Source Filters**: Optional location and bin filters to limit transfer source
+- **Destination**: Target location for transfer
+- **Transfer Details**: Support for direct transfer or in-transit locations
+
+The following steps give an overview of the manual transfer process:
+
+1. **Use the action**: From the quality inspection, choose **Create Transfer Order** from the **Actions** menu on the **Quality Inspection** page.
+2. **Select the quantity**: Choose the appropriate quantity method based on what you want to do.
+3. **Configure the source**: Add location/bin filters if the inspection covers multiple locations.
+4. **Set a destination**: Specify the target location. For example, an external lab, disposal facility, or rework center.
+5. **Transfer options**: Choose a direct transfer, or specify in-transit location.
+6. **Execute**: Create a transfer order with quality inspection tracking.
+
+## Change item tracking information
+
+This section describes how to manually update information about items. Updating item information involves using the **Change Item Tracking** option from the **Actions** menu on the **Quality Inspection** page.
+
+The action updates item tracking information such as lot numbers, serial numbers, package numbers, or expiration dates.
+
+- **Quantity Options**:
+  - Entire lot/serial/package quantity
+  - Specific quantity with manual entry
+  - Sample quantity (uses inspection sample size)
+  - Passed quantity (for approved samples)
+  - Failed quantity (for noncompliant samples)
+- **Tracking Changes**: Update the lot, serial, or package numbers, and the expiration date.
+- **Source Filters**: Optional filters for locations and bins.
+- **Posting Options**: Post immediately, or create journal entries for review.
+
+The following steps give an overview of how to manually track items:
+
+1. Use the **Change Item Tracking** option from the **Actions** menu on the **Quality Inspection** page.
+2. Choose the appropriate quantity method for tracking updates.
+3. Enter a new lot, serial, or package number, or a new expiration date.
+4. To configure the source, add filters for locations or bins, if needed.
+5. Create a reclassification journal with updated tracking information.
+6. Post the journal to update the item tracking records.
+
+<!--## Corrective Action Integration
+
+### Root Cause Analysis
+
+**Quality Failure Investigation**:
+
+- Review test data and trends
+- Identify process or supplier issues
+- Document findings and recommendations
+
+**Process Improvement**:
+
+- Update specifications or procedures
+- Enhance incoming inspection criteria
+- Improve vendor quality agreements
+
+### Preventive Actions
+
+**Enhanced Testing**:
+
+- Create more test generation rules
+- Implement more comprehensive templates
+- Increase sampling frequencies
+
+**Supplier Development**:
+
+- Work with vendors on quality improvement
+- Provide feedback on failure patterns
+- Establish quality agreements and scorecards
+
+## Retesting Procedures
+
+### Automatic Retest Creation
+
+**Workflow Response**: Create retest
+- New quality test generated after rework
+- Same template and criteria applied
+- Links to original failed test
+
+### Manual Retest Process
+
+**After Rework or Investigation**:
+
+1. **Complete Corrective Action**: Address root cause
+2. **Create New Test**: Use manual test creation
+3. **Reference Original Test**: Maintain tracking
+4. **Document Resolution**: Record corrective actions taken
+
+## Example: Complete Process for Failed Items
+
+### Scenario: Failed Purchase Receipt Test
+
+1. **Test Failure**:
+   - Purchase receipt quality test fails measurement criteria
+   - Grade automatically set to "FAIL"
+
+2. **Automatic Workflow Actions**:
+   - Lot automatically blocked (prevents further use)
+   - Inventory moved to quarantine bin
+   - Notification sent to quality manager
+
+3. **Investigation**:
+   - Quality team reviews failure details
+   - Root cause identified as vendor process issue
+   - Decision made to return to vendor
+
+4. **Action Taken**:
+   - Purchase return order created
+   - Vendor notified of quality issue
+   - Items returned and credit processed
+
+5. **Follow-up**:
+   - Vendor corrective action requested
+   - Enhanced inspection implemented temporarily
+   - Process documented for future reference
+
+## Monitoring and Reporting
+
+### Quality Metrics
+
+**Track Failure Rates**:
+
+- Test failure percentages by vendor
+- Failure trends by item or category
+- Cost of quality issues
+
+**Action Tracking**:
+
+- Time to resolution
+- Action method effectiveness
+- Recurring quality issues
+
+### Continuous Improvement
+
+**Process Enhancement**:
+
+- Regular review of failure patterns
+- Update templates and criteria as needed
+- Improve workflow automation
+
+**Vendor Management**:
+
+- Quality scorecards based on test results
+- Vendor development programs
+- Supplier quality agreements -->
+
+## Related information
+
+[Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
+[Configuring Workflows](qms-quality-workflows.md)  
+[Purchase Receipt Inspections without Warehouse Handling](qms-purchase-receipt-testing-simple.md)  
+[Quality Management Overview](qms-overview.md)end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-assemble-items
 ---
@@ -16137,6 +16707,81 @@ Try the report here: [CO2e Analysis](https://businesscentral.dynamics.com?page=3
 [Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
 [Sustainability management overview](finance-manage-sustainability.md)  
 [Sustainability reports and analytics in Business Central](sustainability-reports.md)  end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-configuring-grades
+---
+title: Configure quality inspection results
+description: Learn how to configure and manage quality inspection results, including result setup, priority rules, and business process integration.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: overview
+ms.search.form: 
+ms.date: 03/05/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Configure quality inspection results
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+This article explains how to configure and use quality inspection results in quality management.
+
+Quality inspection results represent the possible outcomes of quality inspections. Examples of typical results are Incomplete, Fail, and Pass. However, you can configure as many results as you want, and in what circumstances.  If you're unsure what to configure, use the three defaults. To learn more about the defaults, go to [Result concepts](#result-concepts). 
+
+## Result concepts
+
+The following are the default results for quality inspections:
+
+| Result Code | Description | Evaluation Sequence | Allow Finish      | 
+| ---------- | ----------- | -------- | ------------------ |
+| INPROGRESS | In Progress | 0        | Do Not Allow Finish | 
+| FAIL       | Fail        | 1        | Allow Finish |
+| PASS       | Pass        | 2        | Allow Finish | 
+
+- **In Progress** - The inspection is incomplete or in progress.
+- **Fail** - The inspection failed to meet quality criteria.  
+- **Pass** -The inspection met quality criteria.
+
+However, you can also create custom results:
+
+- Create multiple passing results. For example, Excellent, Good, and Acceptable.
+- Create multiple failing results. For example, Minor Defect, Major Defect, and Critical Failure.
+
+
+## Configure quality inspection results
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Inspection Results**, and then choose the related link.
+1. Choose **New** to create a new result.
+1. In the **Code** field, enter a short name that indicates the state of the result. For example, Pass or Fail.
+1. In the **Description** field, enter a short description of the result.
+1. In the **Evaluation Sequence** field, enter a number that corresponds to the result. Results with a lower number in the **Evaluation Sequence** field are evaluated first.
+6. In the **Result Visibility** field, specify whether to promote the result, which emphasizes it on various pages and reports. Promoted results are displayed inline and are editable when you configure tests. They also display prominently when you run inspection, and are featured in reports. For example, **Certificate of Analysis** report shows promoted results. You typically promote pass conditions.
+1. In the **Result Category** field, specify whether the result represents something good, or bad. For inconclusive results, leave the field blank.
+1. In the **Finish Allowed** field, specify whether to allow inspections to be completed if they contain the result.
+1. For items with lot, serial, or package tracking, you can specify how quality inspection results affect specific document transactions. For example, you can block purchase documents while inspections are in progress and block sales documents for failed inspections. Learn more at [Lot blocking and unblocking](qms-lot-blocking-unblocking.md)
+1. In the **Override Style** field, specify how to emphasize the result.
+
+
+## Configure result conditions
+
+After you configure the quality inspection results, you must define how each test evaluates those results. At the test level, you specify the conditions that determine which result is assigned when the test is executed. 
+
+In addition, you can override these evaluation rules in the quality template. This is useful when the same test is used in multiple scenarios but should be evaluated differently depending on the template context. Overriding conditions at the template level allows you to tailor the evaluation logic without modifying the underlying test definition.
+
+>[Important]
+> You can only configure result conditions in tests and templates for results where the **Result Visibility** is set to *Prioritise*.
+
+## Related information
+
+[Creating Quality Inspection Templates](qms-quality-templates.md)  
+[Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
+[Configuring Workflows](qms-quality-workflows.md)  
+[Quality Management Setup and Configuration](qms-setup.md)  
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-prioritize-vendors
 ---
@@ -18259,7 +18904,7 @@ When the agent considers a PDF document a valid vendor invoice with high confide
 
 ![Agent is instructed to create the vendor](media/payables-agent-vendor-not-identified-create-v2.png)
 
-You can provide more instructions by selecting one of the suggested actions or typing your own instructions in the **Type your instructions** box<!-- by using the ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon-->. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. Learn more in [Give instructions to the agent](use-payables-agent.md#give-instructions-to-the-agent).
+You can provide more instructions by selecting one of the suggested actions or typing your own instructions in the **Type your instructions** box<!-- by using the ![Agent supervisor can write own instructions to the agent](media/additional-instructions-chat-icon.png) chat icon-->. After you select one of these options, select **Confirm**. In the above example, the **Create vendor** instruction is selected. Learn more in [Give instructions to the agent](supervise-agent-tasks.md#give-instructions-to-the-agent).
 
 **When the agent has created the vendor, it will ask the agent supervisor to review the newly created vendor:**
 
@@ -18340,7 +18985,7 @@ The following constraints apply to document processing and daily usage:
 ## Next steps
 
 - [Set up Payables Agent](payables-agent-setup.md)
-- [Supervise agent activities](use-payables-agent.md)
+- [Supervise agent activities](supervise-agent-tasks.md)
 
 ## Related information
 
@@ -20938,529 +21583,6 @@ If the recurring job queue entry is deleted for a table, you can quickly recreat
 ## Related information
 
 [Get ready to synchronize master data](admin-set-up-data-sync.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/product-help-and-support
----
-title: Resources for help and support
-description: Learn how to get help and support for Business Central. Including chat with Copilot, in-product tips, Help pane, Help & Support page, product documentation, and community forums.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.form: HelpAndSupport
-ms.date: 10/25/2024
-ms.custom: bap-template
-ms.service: dynamics-365-business-central
----
-
-# Resources for help and support
-
-Organizations that use [!INCLUDE[prod_long](includes/prod_long.md)] can get technical support for any issues that they might experience. In this article, we show you the following information and many other tips for how to use [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Learn how your AI-powered assistant [can guide and explain](#chat-with-copilot)
-- Learn how to [get unblocked](#in-product-tips)  
-- Learn where to [learn more](#help-pane)
-- Learn how to find [the technical information](#help--support-page) you need to submit a support request
-
-## Chat with Copilot
-
-[!INCLUDE [online_only](includes/online_only.md)]
-
-Chat with Copilot is an AI-powered tool that answers questions and finds business data related to Business Central. You can access it from any page by selecting the ![Shows the icon for chat with Copilot](media/chat-copilot-icon.png) **Copilot** icon in the upper-right corner. [Learn more about chat with Copilot](chat-with-copilot.md).
-
-### Help with fields
-
-Copilot can help you understand the purpose and typical use of individual fields. When you choose **Ask Copilot** in a tooltip for a field, chat opens with an Explain prompt for the field name and Copilot provides information about it. Copilot links to the articles it referenced, so you can verify the description.
-
-## In-product tips
-
-[!INCLUDE [ua-get-help](includes/ua-get-help.md)] These links can also access content from other websites, such as the websites of providers of any apps that are part of your [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-## Help pane
-
-[!INCLUDE [2022_releasewave1](includes/2022_releasewave1.md)]
-
-In [!INCLUDE [prod_short](includes/prod_short.md)], the Help menu item (the question mark in the top-right corner) gives you access to a Help pane that can help you find answers to your questions. The Help pane has different content, depending on how you access it. The following list describes the cards that are always, or nearly always, present:  
-
-[!INCLUDE [ua-help-pane-links-default](includes/ua-help-pane-links-default.md)]
-
-The following list describes how you can access the Help pane and whether cards are added to it:
-
-- Choose the Help menu item (the question mark in the top-right corner)
-- Use the <kbd>Ctrl</kbd>+<kbd>F1</kbd> keyboard shortcut from anywhere in Business Central.
-- Choose the *Learn more* link on a tooltip for a field, if available. The *Learn more* link is only available in the mobile app or on custom fields (that is, fields from non-Mocrosoft extensions) in the web client.
-
-> [!TIP]
-> When you choose a link, the target article opens in a new browser tab. You can choose to un-dock the browser tab, then, so that you can view the relevant information side-by-side with [!INCLUDE [prod_short](includes/prod_short.md)]. The pane remains open while you navigate through [!INCLUDE [prod_short](includes/prod_short.md)] so that content you searched for remains visible.  
-
-## Search in the Help pane
-
-[!INCLUDE [2021_releasewave2](includes/2021_releasewave2.md)]
-
-Use the search field at the top of the Help pane to search for guidance about how to use the product, built-in capabilities, and available training modules. Depending on your search terms, the pane shows five or more links with a short description. Choose a link, or refine your search terms. When you choose a link, the target article opens in a new browser tab. You can choose to undock the browser tab so that you can view the relevant information side-by-side with [!INCLUDE [prod_short](includes/prod_short.md)]. The pane remains open while you navigate through [!INCLUDE [prod_short](includes/prod_short.md)] so that content you searched for remains visible.  
-
-> [!NOTE]
-> In the current version of [!INCLUDE [prod_short](includes/prod_short.md)], the search field in the Help pane only applies to content that is published to the [Dynamics 365 Business Central documentation](/dynamics365/business-central) on Microsoft Learn.
-
-## Help & Support page
-
-From the Help pane, you can access the **Help & Support** page inside [!INCLUDE [prod_short](includes/prod_short.md)] that includes helpful links. You can also see how you can contact technical support for your [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-This section outlines the resources available to you in the different sections of the **Help and Support** page as outlined in the following list:
-
-- [Find answers](#find-answers)  
-- [Help](#product-help)  
-- [Community](#community)  
-- [Blog](#blog)  
-- [Capabilities coming soon](#capabilities-coming-soon)  
-- [Do more with your trial](#do-more-with-your-trial)  
-- [Give feedback](#give-feedback)  
-- [Troubleshooting](#troubleshooting)  
-- [Report a problem](#report-a-problem)  
-- [Support contacts](#support-contacts)  
-
-> [!TIP]
-> [!INCLUDE [ua-get-help](includes/ua-get-help.md)]
-
-### Find answers
-
-The **Find it** section provides links to the most common places to find answers to your questions. The links fall into four categories and are explained in the following subsections. Your [!INCLUDE[prod_short](includes/prod_short.md)] partner can configure some of the links, and as a result the behavior can be slightly different.  
-
-#### Product Help
-
-The **Find it** section includes two links to product Help:
-
-- Help about the page you were just viewing in [!INCLUDE[prod_short](includes/prod_short.md)]  
-
-  This link is automatically generated. If [!INCLUDE[prod_short](includes/prod_short.md)] can't find the relevant link, the [landing page on Microsoft Learn](index.yml) for the default version of [!INCLUDE[prod_short](includes/prod_short.md)] is shown. For example, if the page was part of an app that didn't add context-sensitive Help mapping to [!INCLUDE[prod_short](includes/prod_short.md)], the *Learn link* defaults to the landing page.  
-  
-- Help landing page for [!INCLUDE[prod_short](includes/prod_short.md)]  
-
-  The functionality in the default version of [!INCLUDE[prod_short](includes/prod_short.md)] is described in the [Dynamics 365 Business Central documentation](/dynamics365/business-central) Learn more in the [Learn more using the product documentation](#learn-more-using-the-product-documentation) section. You can also extend and customize [!INCLUDE[prod_short](includes/prod_short.md)] with apps from Marketplace. All apps provide links to the relevant product Help so that you can always find guidance for the different workflows in your version of [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-#### Community
-
-In the [Business Central community forum](https://community.dynamics.com/forums/thread/?groupid=e78817ab-a926-4d31-96cc-aef040a4eb04), you can submit a question and learn from other [!INCLUDE[prod_short](includes/prod_short.md)] community members. Partners and Microsoft employees participate in the conversations.  
-
-If you don't yet have a partner, the Community can also help you get unblocked if you have questions. For example, if you just signed up for a trial, the Community can be a great starting point.  
-
-#### Blog
-
-We talk about new capabilities on [the Dynamics 365 Blog](https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/product/dynamics-365-business-central/), including any special considerations.  
-
-#### Capabilities coming soon
-
-[!INCLUDE[prod_short](includes/prod_short.md)] is updated with major feature updates every six months, and with monthly service updates. Choose the link to view the latest release plan. You can also get an overview of upcoming and recently released capabilities in [the release plans across Dynamics 365](/dynamics365/release-plans/).  
-
-For the longer term overview, the [!INCLUDE[prod_short](includes/prod_short.md)] [roadmap page](https://dynamics.microsoft.com/roadmap/business-central/) shows the general priorities for [!INCLUDE[prod_short](includes/prod_short.md)] in the coming years.  
-
-### Do more with your trial
-
-This section gives you shortcuts to the Microsoft commercial marketplace where you can find solutions and services from [!INCLUDE[prod_short](includes/prod_short.md)] partners. Use the links to explore the full capabilities of [!INCLUDE[prod_short](includes/prod_short.md)] before you decide if you want to buy a subscription. You can also find a link to contact the sales team.
-
-> [!NOTE]
-> This section is only available in [!INCLUDE[prod_short](includes/prod_short.md)] online trial experiences. If you already bought [!INCLUDE[prod_short](includes/prod_short.md)], the section isn't longer visible.
-
-### Give feedback
-
-Periodically, the [!INCLUDE [prod_short](includes/prod_short.md)] team gathers feedback from our users about how satisfied they are with the product. In addition to ratings, you can also provide a written comment. By giving us specific and actionable comments, you help our engineering teams to prioritize the product improvements we invest in. You can also consent to be contacted about your comment. If you do, you're invited to a Teams meeting at a time that's convenient for you. You can provide product suggestions at any time on our [Dynamics 365 Ideas](https://aka.ms/bcideas) website.  
-
-### Product suggestions
-
-On the [Dynamics 365 Ideas site](https://aka.ms/bcideas) website, you can provide suggestions for new features and capabilities. Your input goes directly into Business Central's engineering backlog for investigation and prioritization.  
-
-Make sure that you search through the list of submitted suggestions. There's a chance that someone already submitted something similar, and that entry might have already received votes. Vote if an idea already has been submitted to get it prioritized on the engineering backlog.  
-
-### Troubleshooting
-
-The **Troubleshooting** section shows technical information that your administrator or [!INCLUDE[prod_short](includes/prod_short.md)] partner can use to unblock users. The section includes information about the latest error message, the current version of your [!INCLUDE[prod_short](includes/prod_short.md)], and a link to go to the **Page Inspection** page. Learn more in [Inspecting Pages in Business Central](across-inspect-page.md).  
-
-To help you or your supporting partner troubleshoot, you can switch on additional logging in the **Report a Problem** section. You can then analyze the extra telemetry in the admin center or Application Insights, for example.  
-
-As the internal administrator, you have access to the admin center where you can continue the troubleshooting. You can view telemetry, manage environments, and manage user sessions. The following articles in the administration content provide more information:
-
-- [Finding technical information](/dynamics365/business-central/dev-itpro/administration/manage-technical-support#finding-technical-information)  
-- [Managing environments](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-environments)  
-- [Monitoring and analyzing telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-overview)  
-- [Enable sending telemetry to Application Insights](/dynamics365/business-central/dev-itpro/administration/telemetry-enable-application-insights)  
-
-### Report a problem
-
-Your [!INCLUDE[prod_short](includes/prod_short.md)] reselling partner helps you with technical support. This section makes it easy for you to contact your reselling partner, if they submit their support contact details. If your [!INCLUDE[prod_short](includes/prod_short.md)] partner then can't resolve the problem, they raise a support ticket with Microsoft.  
-
-Learn more in [Escalating support issues to Microsoft](/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft) in the administration content.  
-
-> [!NOTE]
-> With [!INCLUDE[prod_short](includes/prod_short.md)] online, the **Report a Problem** section is only available if you have paid for a [!INCLUDE[prod_short](includes/prod_short.md)] subscription. If you have signed up for a trial and have not yet purchased [!INCLUDE[prod_short](includes/prod_short.md)], you don't have a reselling partner, and you can't contact the Microsoft support team. You can find a [!INCLUDE[prod_short](includes/prod_short.md)] partner on the [I'm looking for a solution provider](https://go.microsoft.com/fwlink/?linkid=2038145) page. Learn more in [How do I find a reselling partner?](/dynamics365/business-central/across-faq#how-do-i-find-a-reselling-partner).  
->
-> With [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, this section is only available in 2020 release wave 2 (version 18) and later.
-
-### Support contacts
-
-The **Report a problem** section displays an email address or a hyperlink for you to get in contact with the customer support person or team, like: Do you need technical support? Contact support at `someone@example.com` or `https://www.contoso.com`. 
-
-> [!NOTE]
-> If support contact details aren't present, it means that your [!INCLUDE[prod_short](includes/prod_short.md)] reselling partner hasn't provided the information. As a reslling partner, you set up the preferred support contact details in the admin center. Learn more in [Configuring the support experience](/dynamics365/business-central/dev-itpro/technical-support#configuring-the-support-experience) in the administration content.  
-
-To alert your partner to a problem, choose the link to either send an email or open their support site in a new browser tab. You can then add the technical information about your Microsoft Entra tenant from the **Troubleshooting** section and any other information that you find relevant.  
-
-> [!NOTE]
-> The support contacts information isn't available with [!INCLUDE[prod_short](includes/prod_short.md)] on-premises.
-
-## Learn more using the product documentation
-
-A large community of partners extend and customize the base version of [!INCLUDE [prod_short](includes/prod_short.md)]. Each partner and many customers deploy their own Help to their own website. But you can always go to the [Dynamics 365 Business Central documentation](index.yml) site to learn more. The site hosts different types of content, such as the following content:
-
-- [Conceptual content about business functionality](welcome.md)  
-- [Documentation for developers](/dynamics365/business-central/dev-itpro/developer/devenv-dev-overview)  
-- [Free learning paths and e-learning modules across multiple user profiles](/training/dynamics365/business-central?WT.mc_id=dyn365bc_landingpage-docs)  
-
-In this section, you can learn about how to navigate the business functionality content.  
-
-[!INCLUDE [ua-get-help](includes/ua-get-help.md)]
-
-### Content on the site
-
-[This section](welcome.md) of Microsoft Learn hosts content from Microsoft that represents the *Learn more* pillar in the user assistance model. In part, the *Learn more* content intends to answer those questions that the user interface can't answer, such as the following list:
-
-- Where does this page fits into the bigger workflow?  
-- What comes next?  
-- What would be the alternative?  
-
-From inside the product, you can access this content either through the *Learn more* link in tooltips and teaching tips, or by using the <kbd>Ctrl</kbd>+<kbd>F1</kbd> keyboard shortcut.  
-
-The navigation panel shows the table of contents that groups articles by business area. For example, you read the article [Purchase Items for a Sale](purchasing-how-purchase-products-sale.md), and then the table of contents shows you that there's also an article called [Correct or Cancel Unpaid Purchase Invoices](purchasing-how-correct-cancel-unpaid-purchase-invoices.md). Both articles are in the group called *Purchasing*, which bundles articles that are related to the Purchasing module in [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-The table of contents includes a group of content that describes [local functionality](about-localization.md) for the countries/regions that Microsoft supports. If you don’t see your country/region listed there, it’s probably because a partner localizes your country/region. Learn more at [Country/regional availability and supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations).  
-
-The local functionality content describes the capabilities in [!INCLUDE [prod_short](includes/prod_short.md)] that can help you be compliant in the supported markets, such as tax statements and other reports. In some cases, the difference between the default version and the specific country/region version is invisible to users. In other cases, users must set up reporting or electronic invoicing in a specific way. If you can't find a description of a certain button or action in the general section, you can hopefully find it in the *Local Functionality* section.  
-
-> [!TIP]
-> On the learn.microsoft.com site as well as in the in-product search field and in the Help pane, the search results show some context for the target article. The context includes the link that might show the name of a country, or a short description that calls out a certain capability or a country/region, for example.
-
-### Find other content
-
-If you land on an article that doesn't answer your question, you can find other content in two ways on Microsoft Learn:
-
-- Use the **Filter by title** field in the table of contents on the left side of the website
-
-  This way, you can filter by words used in the titles of the various articles. For example, type *invoice*, and then choose one of the offered links, such as [Set Up Invoice Rounding](finance-set-up-invoice-rounding.md) or [Create Prepayment Invoices](finance-how-to-create-prepayment-invoices.md).  
-
-  Underneath each link, you can see where that article is in the table of contents. That way, you can easily see if the article is in the Purchasing section or in the section for Australian local functionality, for example.  
-- Use the **Search** field in the top-right corner of the website
-
-  This way, you can search for any term. The site then searches all the content for that term or expression. Search for *invoice* again, and scroll through the list of hundreds of articles in the [!INCLUDE [prod_short](includes/prod_short.md)] content that uses that word somewhere in the text.  
-
-### Languages
-
-Content about business functionality is published in several languages. When you land on Microsoft Learn from inside the product, you see the content in the same language as you specified in [!INCLUDE [prod_short](includes/prod_short.md)], unless that language isn't available on Microsoft Learn.  
-
-You can change the language by changing the URL, or you can use the language toggle in the bottom-left corner of the website.  
-
-The content is authored in English and published to URLs with *en-us* as the language code. When new information is published in English, it's then sent off for translation into the supported languages. In some cases, you can't read this new content in your own language for up to four weeks, but in most cases it only takes a week or two. You can always view the latest information by switching the language to *en-us*.  
-
-For each language, the table of contents is translated, but the content in the *Local Functionality* section is in English except for the country or region that corresponds to the current language. For example, in the Danish version of Microsoft Learn (`https://learn.microsoft.com/da-dk/dynamics365/business-central/`), you can see the entries for Australian local functionality in Danish in the table of contents, but the articles are in English. Only the articles for Danish local functionality are translated into Danish.  
-
-### Recommended content
-
-On Microsoft Learn, each article shows a pane with links to other articles. The **Recommended content** section is automatically generated based on how each article is used with the rest of the site. The links aren't static and change over time.
-
-### Tell us what you think
-
-With Microsoft Learn, each article has two buttons at the end of the article. The **This product** button sends you to the Ideas site, and the **This page** button lets you submit feedback about the content through GitHub. In both cases, you must create an account if you don't already have one. For *product feedback*, you must sign in with your work or organizational email account. For *access to GitHub*, you can use any email address when you create an account.  
-
-We welcome your contributions, both as pull requests with suggestions or corrections to the content, and as GitHub Issues with bugs or questions. But be mindful that feedback and contributions to the *dynamics365smb-docs* repo is about the content, not about the product.  
-
-> [!IMPORTANT]
-> Microsoft accepts pull requests to the *dynamics365smb-docs* repo only, not the language-specific repos. If you have feedback about translations, you can report a GitHub issue in the relevant repo.  
-
-### Navigate to other parts of the site
-
-Microsoft Learn hosts content for other products and other types of content. Use the links at the top of the site to navigate to [Microsoft training](/training/dynamics365/business-central?WT.mc_id=dyn365bc_landingpage-docs) site or to the [Dynamics 365 release plans](/dynamics365/release-plans/), for example. You can also find a link to the
-[Dynamics 365 Community](https://community.dynamics.com/) site, for example.  
-
-## Apps and other solutions
-
-If your [!INCLUDE [prod_short](includes/prod_short.md)] includes functionality that isn't provided by Microsoft, then the provider of that functionality also provides *Learn more* content on their own website. You can access this content in the same way as in the default version of [!INCLUDE [prod_short](includes/prod_short.md)], such as by using the <kbd>Ctrl</kbd>+<kbd>F1</kbd> keyboard shortcut.  
-
-The same applies if you use [!INCLUDE [prod_short](includes/prod_short.md)] on-premises.  
-
-## Related information
-
-- [Business Central training](/training/dynamics365/business-central?WT.mc_id=dyn365bc_landingpage-docs)  
-- [Business Central Quick Starts](quick-start-business-central.md)  
-- [How do I find a reselling partner?](/dynamics365/business-central/across-faq#how-do-i-find-a-reselling-partner)  
-- [Help System (available in English only)](/dynamics365/business-central/dev-itpro/user-assistance?toc=/dynamics365/business-central/toc.json)  
-- [Leave us feedback](/dynamics365/get-started/feedback)  
-- [Blog post: Find the right resources and provide feedback](https://community.dynamics.com/blogs/post/?postid=22e164ac-b804-4ac9-9e57-3e8c4fd24cbd)  
-- [Business Central developer and administration docs](/dynamics365/business-central/dev-itpro/)  
-- [Resources for Help and Support for Partners](/dynamics365/business-central/dev-itpro/help-and-support)  
-- [Technical Support](/dynamics365/business-central/dev-itpro/technical-support)  
-- [Microsoft Learn site](/training/dynamics365/business-central?WT.mc_id=dyn365bc_landingpage-docs)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/install-mobile-app
----
-title: Get Business Central on your mobile device
-description: This article describes the various ways you can view and edit your Business Central data, send to Excel and more on your phone or tablet.
-author: jswymer
-ms.topic: get-started
-ms.devlang: al
-ms.search.keywords: desktop, Windows, app
-ms.date: 12/13/2023
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
----
-
-# Getting Business Central on your mobile device
-
-Access your [!INCLUDE[prod_short](includes/prod_short.md)] data from your mobile device. You can navigate through your business data, use features such as send to Excel or Microsoft 365, view up-to-date charts and KPIs, email sales quotes and invoices, and shoot and attach pictures with your camera. Follow the steps below to download the app and get started.
-
-> [!Video https://learn-video.azurefd.net/vod/player?id=2b0d907c-c59a-4bcc-a42c-bc2c7e6499a8]
-
-> [!TIP]
-> Do want an app on your Windows or macOS computer desktop? See [Get the Business Central Desktop App](install-desktop-app.md).
-
-## Get the app on my mobile device
-
-1. Install the [!INCLUDE[prod_short](includes/prod_short.md)] app on your mobile device by downloading the app from the App Store or Google Play.  
-   - [App Store](https://go.microsoft.com/fwlink/?LinkId=734847)
-   - [Google Play](https://go.microsoft.com/fwlink/?LinkId=734849)
-2. Launch the app from your mobile device.
-3. Enter your user name and password that you created during sign-up for [!INCLUDE[prod_short](includes/prod_short.md)] and follow the instructions on the screen.
-
-    If your [!INCLUDE [prod_short](includes/prod_short.md)] has more than one production environment, then you'll be asked to choose the environment that you want to access (requires Business Central 2020 release wave 2 and later).
-
-You should now have access to [!INCLUDE[prod_short](includes/prod_short.md)] and can view and edit data.  
-
-> [!TIP]
-> If you want to connect the app to a sandbox environment, choose the **Advanced options** button, and then choose the **Cloud sandbox** sign-in option. Then, if you have more than one sandbox environment, choose the relevant environment.
-
-## Use Business Central on-premises?
-
-If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you can also enjoy the benefits of the mobile app. The installation is similar, but with a couple of exceptions.
-
-1. Install the [!INCLUDE[prod_short](includes/prod_short.md)] app on your mobile device by downloading the app from the App Store or Google Play.  
-
-   - [App Store](https://go.microsoft.com/fwlink/?LinkId=734847)
-   - [Google Play](https://go.microsoft.com/fwlink/?LinkId=734849)
-2. Launch the app from your mobile device.
-3. Instead of entering an email address on the **Welcome** page, choose the **Advanced options** button, and then choose the **On-premises** sign-in option.
-4. On the next page, in the **Service name** box, enter the web address that you use to open [!INCLUDE[prod_short](includes/prod_short.md)], such as *https://mybusinesscentral:443/BC170*. If you're not sure, ask your administrator.
-5. Next, enter your user name and password for accessing Business Central.
-
-   When completed, the Business Central App opens.
-
-> [!NOTE]
-> If you're having problems getting the app to work properly, talk to your administrator. It could be a missing prerequisite or an incomplete configuration. For more information, see  [Preparing the environment for the mobile app](/dynamics365/business-central/dev-itpro/deployment/install-business-central-app#prereqs) or [Troubleshooting the Business Central Mobile App On-Premises](/dynamics365/business-central/dev-itpro/developer/devenv-troubleshooting-the-mobile-app).
-
-## Related information
-
-[Mobile Apps FAQ](ui-mobile-faq.yml)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)    
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-column-definitions
----
-title: Column definitions in Financial Reporting
-description: Describes how column definitions in financial reporting work.
-author: kennieNP
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 02/27/2026
-ms.custom: bap-template
-ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
-ms.search.form: 103, 104, 108, 195, 196, 197, 198, 488_Primary, 489_Primary, 490, 764, 765, 766
-ms.service: dynamics-365-business-central
----
-
-# Column definitions in Financial Reporting
-
-Use column definitions to define how columns are shown in a report. For example, you can design a column definition to compare net change and balance for the same period this year and last year. For reports that are exported to PDF, you can have up to 15 columns in a column definition. For example, multiple columns are useful for displaying budgets for 12 months with a column that shows the total.
-
-## Create a new column definition
-
-To create a new column definition, follow these steps:
-
-1. On the **(Financial Report) Column Definitions** page, choose the **New** action.
-1. Provide a unique name for the definition.
-1. In the **Description** field, provide a descriptive name for the definition. This description provides context when you use the definition, but doesn't show on the report.
-1. Provide an internal description for the definition.
-
-## Edit the content of a column definition
-
-To edit the content of a column definition, follow these steps.
-
-> [!NOTE]
-> Printed, previewed, and saved versions of a financial report display a maximum of five columns. In contrast, if a financial report is only meant for analysis on the **Financial Report** page, you can create as many columns as you want.
-
-1. On the **(Financial Report) Column Definitions** page, select the definition, and then choose the **Edit Column Definition** action.
-1. On the **Column Definition** page, create a row for each column of financial data that should show in the financial report. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-1. Choose **OK**.
-
-> [!TIP]
-> Open the **Financial Report** page from time to time to verify that the new column definition works as intended.
-
-## Built-in column definitions
-
-[!INCLUDE [applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-[!INCLUDE[prod_short](includes/prod_short.md)] provides sample column definitions that can help you to quickly get started setting up finance reports that suit your needs. You might need to create a new company with demo data to get them. Then you can export them and import into the company that you work in.
-
-| Column definition code | Description                                  | Category of analysis | 
-| ---------------------- | -------------------------------------------- | -------------------- |
-| ACT/BUD    | Actual / Budget Comparison                               | Budget Analysis      |
-| BAL ONLY   | Balance Only                                             | Balance              |
-| BBDRCREB   | TB Beginning Balance Debits Credits Ending Balance       | (Trial) Balance      |
-| BSTREND    | BS 12 Months Balance Trending Current Fiscal Year        | Balance              |
-| BUDGANALYS | Budget Analysis                                          | Budget Analysis      |
-| CASHFLOW   | Comparison month - year                                  | Calendar Analysis    |
-| CB         | BS Current Month Balance                                 | Balance              |
-| CB V PB    | BS Current Month Balance v Prior Month Balance           | Balance              |
-| CB V SPYB  | BS Current Month Balance v Same Month Prior Year Balance | Balance              |
-| CNC        | IS Current Month Net Change                              | Income Statement     |
-| CNC BUD    | IS 12 Months Net Change Budget Only                      | Income Statement     |
-| CNC V PNC  | IS Current Month Net Change v Prior Month Net Change     | Income Statement     |
-| CNC VSPYNC | IS Current Month Net Change v Same Month Prior Year Net Change | Income Statement |
-| CNCVPNCYOY | IS Current Month v Prior Month for CY and Current Month v Prior Month for PY | Income Statement |
-| CVC YTDBUD | IS Current Month v Budget Year to Date v Budget and Bud Total and Bud Remaining | Income Statement |
-| DEFAULT    | Standard Column Layout                                   |                      | 
-| DEGREE     | Key Cash Flow Ratio                                      |                      |
-| ESG-PERIOD | ESG Periods                                              | Calendar Analysis    |
-| ISTREND    | IS 12 Months Net Change Trending Current Fiscal Year     | Income Statement     |
-| M-BALANCE  | Balance                                                  | Balance              |
-| M-NETCHANG | Net Change                                               |                      |
-| PERIODS    | Periods Definition for Mini Charts                       | Calendar Analysis    |
-| PTD + YTD  | Period and Year to Date                                  | Calendar Analysis    |
-| PTD+YTD+%  | Period and Year to Date with Percent of Total Revenue    | Calendar Analysis    |
-| YTDCOMPARE | This Year to Date vs. Prior Year to Date                 | Calendar Analysis    |
-
-> [!NOTE]
-> For local versions of [!INCLUDE [prod_short](includes/prod_short.md)], the column definition codes and names that appear in the table are translated.
-
-## Example: Create a column definition to calculate percentages
-
-You might want to include a column in a financial report to calculate percentages of a total. For example, if you have rows that break down sales by dimension, you might want a column to indicate the percentage of total sales in each row.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature 2.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.
-1. On the **Financial Reports** page, select a financial report.  
-1. Choose the **Edit Financial Report** action to set up a financial report row to calculate the total on which the percentages are based.  
-1. Add a line immediately above the first row for which you want to display a percentage.  
-1. Fill in the fields on the line as follows: 
-    1. In the **Totaling Type** field, enter **Set Base for Percent**. 
-    1. In the **Totaling** field, enter a formula for the total that the percentage is based on. For example, if row 11 contains the total sales, enter **11**.  
-1. Choose the **Edit Column Definition** action to set up a column.  
-1. Fill in the fields on the line as follows. 
-    1. In the **Column Type** field, select **Formula**. 
-    1. In the **Formula** field, enter a formula for the amount you want to calculate a percentage for, followed by the percentage sign (%). So, if column number N contains the net change, enter **N%**.  
-1. Repeat steps 4 through 7 for each group of rows you want to break down by percentage.
-
-## Comparing accounting periods using period formulas
-
-Your financial report can compare the results of different accounting periods, such as the past month versus the same month last year. To do that, open the **Column Definition** page, and personalize it by adding the **Comparison Period Formula** field as a column. Learn more at [Personalize Your Workspace](ui-personalization-user.md). You can then set that field to a period formula.  
-
-An accounting period doesn't need to match the calendar. However, each fiscal year must have the same number of accounting periods, although each period can be different in length.  
-
-[!INCLUDE[prod_short](includes/prod_short.md)] uses the period formula to calculate the duration of the comparison period in relation to the period represented by the date filter on the report. The comparison period is based on the period of the start date of the date filter. The following table shows the abbreviations for period specifications.
-
-| Abbreviation |Description                                                                  |
-| ------------ | ----------------------------------------------------------------- |
-| P            | Period.                                                                                |
-| LP           | Last period of a fiscal year, half-year, or quarter.                                   |
-| CP           | Current period of a fiscal year, half-year, or quarter. Use CP in formulas to set the period that starts or ends the formula. For example, FY\[1..CP\] denotes the time from the beginning of the current fiscal year to the current period.|
-| FY           | Fiscal year. For example, FY\[1..3\] denotes the first quarter of the current fiscal year. |
-
-Examples of formulas:
-
-| Formula | Description |
-|-----|-----|
-| \<Blank\>       | Current period. |
-| \-1P            | Previous period.            |
-| \-1FY\[1..LP\]  | Entire previous fiscal year.                  |
-| \-1FY           | Current period in previous fiscal year.       |
-| \-1FY\[1..3\]   | First quarter of previous fiscal year.        |
-| \-1FY\[1..CP\]  | From the beginning of the previous fiscal year to the current period in the previous fiscal year, including both periods. |
-| \-1FY\[CP..LP\] | From the current period in previous fiscal year to the last period of the previous fiscal year, including both periods.   |
-
-To calculate by regular time periods, enter a formula in the **Comparison Date Formula** field instead. For example, if the field is set to -1Y, [!INCLUDE [prod_short](includes/prod_short.md)] compares to the same period one year earlier.
-
-> [!NOTE]
-> It isn't always obvious which periods you're comparing on a report. For example, a date filter might spans dates that are different than the accounting periods in your chart of accounts. So, if you create a financial report where you want to compare this period to the same period last year, set the **Comparison Date Formula** field to **-1FY**. Then, for example, run the report on **February 28th** and set the date filter to **January and February**. As a result, the financial report compares January and February this year to January last year, which is the only completed accounting period of the two for last year.  
-
-> [!WARNING]
-> You can't use both a **Comparison Date Formula** and **Comparison Period Formula** on the same line in the column definition.
-
-Learn more at [Work with Calendar Dates and Times](ui-enter-date-ranges.md).
-
-## Use dynamic date headers
-
-[!INCLUDE[introduced-in-2025rw2](includes/introduced-in-2025rw2.md)]
-
-If you use headers with date formulas, you can include information about the date in the header. Choose a value in the **Include Date In Header** field, such as **Weekday**, **Week**, **Month**, and so on. If the **Column Header** field is filled in, the **Include Date In Header** field appends the date information to the header in parenthesis. If the **Column Header** field is empty, the header just shows the date information.
-
-This table shows some examples of how combinations of the two fields show in the report.
-
-| Column Header | Include Date In Header                       | Header shows like this... | 
-| --------------| -------------------------------------------- | ------------------------- |
-| Amount        |                                              | Amount                    |
-| Period        | Month                                        | Period (January)          |
-|               | Month                                        | January                   |
-
-## Create reports that include both local currency and additional currency
-
-[!INCLUDE[introduced-in-2025rw2](includes/introduced-in-2025rw2.md)]
-
-If you use an additional reporting currency (ACY), you can include columns in local currency (LCY), which is the default, ACY, or both, in the same column definition. The **Show in ACY** field controls the choice of currency.
-
-To learn more about how to set up ACY, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
-
-## Find the reports that use a column definition
-
-Before you change a column definition, it can be helpful to know which reports use it so that you understand the effect of your change. To find out which reports use a column definition, follow these steps:
-
-1. On the **(Financial Report) Column Definitions** page, select the definition, and then choose the **Edit Column Definition** action.
-1. To open a list of reports that use the definition, choose the **Where-Used** action.
-
-## Best practices for working with column definitions
-
-[!INCLUDE [report-best-practices-column-defs](includes/report-best-practices-column-defs.md)]
-
-## Import or export financial report column definitions
-
-[!INCLUDE [applies-to-2024w1](includes/applies-to-2024w1.md)]
-
-You can import and export financial report column definitions as configuration packages. For example, configuration packages are useful for sharing information with other companies. The package is created in a .rapidstart file, which compresses the contents.
-
-> [!NOTE]
-> When you import financial report column definitions, they replace existing records with the same names. The configuration package for a report definition won't overwrite existing row or column definitions that are used in the report definition.
-
-To import or export financial report column definitions, follow these steps:
-
-1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Column Definitions**, and then choose the related link.
-1. Choose the row definition, and then choose the **Import Column Definition** or **Export Column Definition** action, depending on what you want to do.
-
-## Related information
-<!-- 
-2025w1: add link to administrator article for Financial Report Lifecycle telemetry 
--->
-
-[Row definitions in financial reporting](bi-row-definitions.md)  
-[Prepare financial reporting](bi-how-work-account-schedule.md)  
-[Financial analytics overview](bi.md)  
-[Finance](finance.md)  
-[Setting Up Finance](finance-setup-finance.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/LocalFunctionality/Germany/eu-sales-list-in-germany

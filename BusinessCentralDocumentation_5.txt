@@ -1,3 +1,1287 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/year-close-account-periods
+---
+title: Close accounting periods for a fiscal year
+description: This article describes how to close the accounting periods that make up the fiscal year for year end closing.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: year closing, close accounting period, close fiscal year, bank account detailed trial balance
+ms.search.form: 100,
+ms.date: 08/05/2024
+ms.service: dynamics-365-business-central
+---
+
+# Close accounting periods
+
+When a fiscal year is over, you must close the periods that comprise it.
+
+## To close accounting periods
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Accounting Periods**, and then choose the related link.
+2. On the **Accounting Periods** page, choose the **Close Year** action.
+
+    If more than one fiscal year is open, the earliest one is automatically selected to be closed. A message identifies the year that will close and the results of its closing.
+3. To close the year, choose the **Yes** button.
+
+The fiscal year is closed, and the **Closed** and **Date Locked** fields for all the periods in the year are selected. The fiscal year can't be opened again and you can't remove the check mark from the **Closed** or **Date Locked** fields.
+
+> [!NOTE]  
+> You can't close a fiscal year before you create a new one. Notice that after a fiscal year is closed, you can't change the starting date of the following fiscal year.
+
+Although a fiscal year is closed, you can still post general ledger entries to it. When you do, the entries are marked as posted to a closed fiscal year and the **Prior-Year Entry** field is selected.
+
+After a fiscal year is closed, you must close the income statement accounts and transfer the year's results to an account in the balance sheet. You can repeat this every time that you post to the closed fiscal year.
+
+## Related information
+
+[Closing Books](year-close-books.md)    
+[Post the Year-End Closing Entry](year-how-post-year-end-close-entry.md)    
+[Work with Accounting Periods and Fiscal Years](finance-accounting-periods-and-fiscal-years.md)    
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-print-picking-list
+---
+title: Print inventory picking list from sales order
+description: You can print an inventory picking list directly from a sales order, sales, invoice, and other outbound sales documents.
+author: brentholtorf
+ms.topic: how-to
+ms.search.keywords:
+ms.search.forms: 9305,
+ms.date: 05/13/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+ms.custom: bap-template
+---
+# Print the picking list
+
+You can print an inventory picking list directly from a sales order and other documents that initiate the shipment of items.
+
+This report is typically used in companies without dedicated functionality for warehouse management, so that an inventory worker can view or print the picking list from the related sales document. In companies with higher volume or more complex processes, shipping and picking are planned and performed in dedicated warehouse documents. Learn more at [Outbound Warehouse Flow](design-details-outbound-warehouse-flow.md).
+
+## To print a picking list from a sales order
+
+The following procedure is based on a sales order. The steps are similar for all other documents that can be used to initiate shipment of items, such as a transfer order.
+
+1. Choose the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Sales Orders**, and then choose the related link.  
+2. Open the sales order that you want to pick items for.  
+3. Choose the **Report** action, and then choose the **Picking List by Order** action.  
+4. Choose the **Print** button to print the picking list or choose the **Preview** button to view it on the screen.
+
+You can also save the picking list as a document, for example, to send to someone or to add as an attachment to the sales order. Learn more at [Manage Attachments, Links, and Notes on Cards and Documents](ui-how-add-link-to-record.md).
+
+> [!NOTE]
+> If you used the **Explode BOM** function on the sales order, then only the components of the related assembly item are shown in the report. Learn more at [Work with Bills of Material](inventory-how-work-BOMs.md).
+
+## To print a single set of pick instructions for multiple sales documents
+
+You can use filters to consolidate picking for several sales documents into a single set of pick instructions.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
+1. Choose the **Pick Instruction** action.
+1. In the **Document Type** field, choose the type of document you're working with.
+1. In the **No.** field, enter a filter to identify the documents. The following are examples of ways to filter.
+
+   * To filter on a consecutive series of document numbers, enter the first and last document numbers separated by **..**. For example, **10000..10010**.
+   * To filter on specific documents, enter each document number separated by a **|**. For example, **10000|10005|10010**.
+
+To learn more about filter criteria and operators, go to [Enter filter criteria](ui-enter-criteria-filters.md#enter-filter-criteria).
+
+## Related information
+
+[Inventory](inventory-manage-inventory.md)  
+[Outbound Warehouse Flow](design-details-outbound-warehouse-flow.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-demographics
+---
+title: Sales Demographics (Power BI report)
+description: The Sales Demographics provides a comprehensive analysis of sales performance across different demographic segments, offering valuable insights into customer behavior and preferences to optimize sales strategies.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: 
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37100_Primary
+ms.date: 10/07/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Sales Demographics (Power BI Report)
+
+[!INCLUDE[applies-to-2025w1](includes/applies-to-2025w1.md)]
+
+The **Sales Demographics** report provides a comprehensive analysis of sales performance across demographic segments. The report offers valuable insights into customer behavior and preferences that can help you optimize sales strategies.
+
+:::image type="content" source="media/powerbi/sales/sales-demographics.png" alt-text="Screenshot of the Sales Demographics report" lightbox="media/powerbi/sales/sales-demographics.png":::
+
+## Use the report
+
+Leadership and management teams use the report to to gain a deeper understanding of sales performance based on demographic factors. This report is helpful for analyzing sales metrics by item category, customer posting group, document type, and geographical location to identify trends and opportunities for growth.
+
+CEOs want to understand how demographic factors including item categories, posting groups or geographical regions impact sales performance.
+
+By analyzing the report, you discover that domestic customers in urban areas account for 60% of your total sales. Also, the report uncovers that one region is underperforming compared to another, despite similar product offerings. Armed with this data, you decide to allocate more marketing budget and strategize a new promotional campaign to increase sales.
+
+Sales managers want to ensure that the team meets its revenue targets. You want to monitor sales performance across different customer segments and make data-driven adjustments to your sales strategy.
+
+Using the report, you might find out that customers in the Corporate customer posting group are contributing significantly more to overall revenue than customers in Retail. Additionally, you might find that sales orders for ergonomic chairs are growing faster than leather office chairs. You use this information to direct your sales team to focus on up-selling ergonomic chairs to corporate clients.
+
+## Key Performance Indicators (KPIs)
+
+The **Sales Demographics** report includes the following KPIs and measures:
+
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Adjusted Profit (LCY)](sales-powerbi-sales-kpis.md#adjusted-profit-lcy)
+- [Adjusted Profit Margin](sales-powerbi-sales-kpis.md#adjusted-profit-margin)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables:
+
+- Sales Value Entries
+- Sales Invoice Lines  
+- Sales Credit Lines  
+- Project Ledger Entries
+- Customer
+- Item
+- Resource
+- G/L Account
+
+## Try the report
+
+Try the report here: [Sales Demographics](https://businesscentral.dynamics.com?page=37100)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad-hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-scheduled-test-creation
+---
+title: Create scheduled quality inspections
+description: Learn how to set up and use scheduled quality inspection tests to ensure proactive quality management through automated, time-based test creation.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: overview
+ms.search.form: 20400, 20408, 20404, 20402, 20416,
+ms.date: 03/10/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Create scheduled quality inspections
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+This article explains how to set up and use quality inspections that are created automatically and scheduled to run at regular intervals using job queue entries.
+
+Scheduled inspections enable proactive quality management. They automatically generate quality inspections based on time intervals, rather than business transactions. Using a scheduled inspection approach is ideal for:
+
+- Routine inspections that involve regular sampling of your in-stock inventory.
+- Shelf life monitoring where you periodically inspect items that are approaching expiration.
+- Environmental compliance inspections to meet time-based requirements.
+- Statistical quality control through systematic sampling programs.
+- Preventive quality assurance supported by proactive inspection schedules.
+
+<!--## Prerequisites
+
+- Configure quality inspection templates.
+- Enable the job queue functionality is enabled.
+- Configure inspection generation rules for creating scheduled tests.
+- Make items available for scheduled testing.
+- Give users the permissions they need for the job queue. -->
+
+## Understand scheduled inspections
+
+The following table illustrates the differences between scheduled and transaction-based inspections.
+
+| Feature | Transaction-Based | Scheduled |
+|---------|------------------|-----------|
+| Trigger | Business transactions (receipts, output) | Time intervals |
+| Frequency | Event-driven | Regular intervals |
+| Purpose | Process validation | Proactive monitoring |
+| Coverage | All processed items | Sampled items |
+| Resource Planning | Reactive | Predictable |
+
+<!--### Business applications
+
+This section describes the business benefits of various types of scheduled inspections.
+
+They're good for routine inventory sampling:
+
+- Randomly inspect the items you have in stock.
+- Verify that your storage conditions are suitable.
+- Quality drift monitoring.
+
+Do compliance testing:
+
+- Be sure that you meet regulatory requirements.
+- Comply with industry standards.
+- Prepare for customer audits.
+
+Apply preventive quality control:
+
+- Detect quality issues early.
+- Analyze and monitor trends.
+- Continuously improve data collection. -->
+
+## Set up scheduled inspections
+
+The following sections provide high-level steps to set up scheduled inspections.
+
+### Configure quality templates
+
+Create templates specifically for scheduled inspections. The following are a few suggestions for things to think about when you do:
+
+- For efficiency, use as simple a set of measurements as you can.
+- Focus on critical quality parameters.
+- Streamline the settings for regular runs.
+
+To learn more about quality inspection templates, go to [Create quality inspection templates](qms-quality-templates.md).
+
+### Create inspection generation rules and set up a job queue entry
+
+Configure rules specifically for time-based inspection creation.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Inspection Generation Rules**, and then choose the related link.
+2. Create a new inspection generation rule for scheduled inspections.
+3. Choose the **Schedule Group** field. You're prompted to create a job queue, followed by an option to view it. The next section describes the job queue settings.
+
+### Configure a job queue entry
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Job queue entries**, and then select the related link.
+1. In the **Object Type to Run** field, enter **20400**.
+1. In the **Maximum No. of Attempts to Run** field, specify a number of retry attempts for failures.
+1.  **Rerun Delay**: Specify how long to wait between retry attempts.
+- **Status**: Use the **Set Status to Ready** action to update the status to **Ready** and enable the job queue entry.
+1. In the **Earliest Start Date/Time** field, specify when to begin scheduled inspections.
+1. To schedule the job queue entry to run on a specific day of the week, on the **Recurrence** FastTab, turn on the **Run on <\day of the week>** for the day.
+   1. In the **Starting Time** field, specify the time of day to start the recurring job.
+   1. In the **Ending Time** field, specify the time of day to stop the recurring job.
+
+## Related information
+
+[Manual Inspection Creation](qms-manual-test-creation.md)  
+[Creating Quality Inspection Templates](qms-quality-templates.md)  
+[Setting Up Inspection Generation Rules](qms-test-generation-rules.md)  
+[Quality Management Setup and Configuration](qms-setup.md)  
+[Quality Management Overview](qms-overview.md)end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-edocuments-connectors
+---
+title: Connect E-Documents to external access points
+description: Learn how to set up E-Documents in Business Central to send and receive electronic documents with different external access points.
+author: altotovi
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: electronic document, electronic invoice, e-document, e-invoice, access-point, endpoint, connector, Peppol
+ms.search.form: 
+ms.date: 07/02/2025
+ms.author: altotovi
+ms.service: dynamics-365-business-central
+ms.reviewer: solsen
+ms.custom: bap-template
+---
+
+# Connect E-Documents to external access points
+
+[!INCLUDE [e-documents connectors](includes/edocuments-connectors-include.md)]
+
+You can use E-Documents in Business Central to send and receive electronic documents with your business partners. To receive documents, you need to connect E-Documents to an external access point that handles the communication and validation of the documents.
+
+ > [!NOTE]
+ > These connections require communication with external service providers who might require other payments and contracts. To get the credentials you need, contact the service providers.
+
+The steps to connect E-Documents to an external access point depend on the type of connector you choose.
+
+## Available service providers
+
+[!INCLUDE[prod_short](includes/prod_short.md)] supports Pagero, Avalara, Logiq, SignUp, and B2BRouter access points for e-documents. If we add more connectors, we'll update this article with the parameters when they're ready. You can also find more connectors on Marketplace.
+
+> [!NOTE]
+> This article doesn't explain how to connect with local service providers. You can learn more about the local service providers that [!INCLUDE[prod_short](includes/prod_short.md)] supports in the country-specific documentation.  
+
+Microsoft doesn't have a contractual obligation with Pagero and Avalara. You must have a contract with them if you want to use their connectors.
+
+## Pagero service
+
+1. On the **E-Document Service** page, change the **Service Integration** to **Pagero**.
+2. On the **E-Document Service** page, select the **Setup Service Integration** action.  
+3. On the **E-Document External Connection Setup** page, select the **Open OAuth 2.0 setup** action to open the **OAuth 2.0 Setup** page.  
+4. On the **OAuth 2.0 setup** page, select the **Request Authorization Code** action. You're redirected to the external service authorization webpage and prompted to sign-in.
+5. Copy the authorization code into the **Enter Authorization Code** field.  
+6. Select **Refresh Access Token** to make sure that you can refresh the token.
+7. On the **E-Document External Connection Setup** page, fill in the following fields:
+
+    | Field name | Description |
+    |---|---|
+    | FileAPI URL | Specify the file API URL. |
+    | Fileparts URL | Specify the fileparts URL. |
+    | DocumentAPI URL | Specify the document API URL. |
+    | Company ID | Specify the company ID. |
+    | Send Mode | Specify the send mode. You can select **Production**, **Test**, or **Certification**. |
+
+8. Continue with the [nonservice provider setup steps](finance-how-setup-edocuments-external.md).  
+
+## Avalara service
+
+1. On the **E-Document Service** page, change the **Service Integration** to **Avalara**.  
+2. On the **E-Document Service** page, select the **Setup Service Integration** action.  
+3. On the **Avalara Connection Setup** page, enter the **Client ID** and **Client Secret** fields. In the **Send Mode** field, choose the **Production**, **Test**, or **Certification** option, based on your plans.
+4. Select the **Select Avalara Company Id** action, and choose the company. Make sure you fill in the **Company Name** and **Company ID** fields.  
+5. Select the **Select Avalara Mandate** action, and select the right **E-Document Service**, and then choose the **Country Mandate** code on the **Avalara Mandate List** page.
+6. Return to the **E-Document Service** page, and validate that the **Avalara Mandate** field on the **Avalara** FastTab is set with the value you chose.
+7. Continue with the [nonservice provider setup steps](finance-how-setup-edocuments-external.md).
+
+## Logiq service
+
+1. On the **E-Document Service** page, change the **Service Integration** to **Logiq**. 
+2. On the **E-Document Service** page, select the **Setup Service Integration** action.  
+3. On the **Logiq Connection Setup** page, enter tokens to the **Client ID** and **Client Secret** fields, and then choose the **Environment** as **Pilot** or **Production**.
+4. Run the **User Setup** action and enter your credentials. Choose the **API Engine** (Engine 1 or Engine 3) based on the instructions from the provider.
+5. Select the **Get Tokens** to access tokens for the current user.
+6. Continue with the [nonservice provider setup steps](finance-how-setup-edocuments-external.md).
+
+## SignUp service (ExFlow)
+
+1. On the **E-Document Service** page, change the **Service Integration** to **ExFlow E-Invoicing**.  
+2. On the **E-Document Service** page, select the **Setup Service Integration** action.  
+3. On the **Logiq Connection Setup** page, enter the **Client ID** and **Client Secret** fields and the **Authentication URL** to specify the URL to connect to Microsoft Entra.  
+4. Fill in the **Service URL** field with the URL you got from your provider. In the **Environment Type** field, specify whether you want to use it for test or production.
+5. Run the **Open Onboarding** action to start the onboarding process with your provider in a new browser window.  
+6. Continue with the [nonservice provider setup steps](finance-how-setup-edocuments-external.md).
+
+## B2BRouter service
+
+1. On the **E-Document Service** page, change the **Service Integration** to **B2BRouter**.  
+2. On the **E-Document Service** page, select the **Setup Service Integration** action.
+3. On the **B2BRouter Connection Setup** page, enter the **API-KEY** to specify the key you'll use for your B2BRouter environment and the **ProjectID** field to specify the project name for the B2BRouter environment.
+4. If you want to use this connector in sandbox mode, select the **Staging Mode** field.  
+5. Continue with the [nonservice provider setup steps](finance-how-setup-edocuments-external.md).
+
+## Related information
+
+[How to set up e-documents in Business Central](finance-how-setup-edocuments.md)  
+[How to set up e-documents connector with external endpoints](finance-how-setup-edocuments-external.md)  
+[How to use e-documents in Business Central](finance-how-use-edocuments.md)  
+[How to extend e-documents in Business Central](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-manage-report-layouts
+---
+title: Report and document layouts overview
+description: Use report layouts to customize documents, for example, to personalize the font, logo, or page settings of PDF files you send to customers.
+author: jswymer
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: concept-article
+ms.search.keywords: customized report, document layout, logo, personalize
+ms.search.form: 9652, 9650, 9660
+ms.date: 03/12/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Report and document layouts overview
+
+A report layout controls content and format of the report. For example, the data fields in the report dataset that appear on the report, how they're arranged, the text style, images, and so on. From [!INCLUDE[prod_short](includes/prod_short.md)], you can change which layout is used on a report, create new layout, or modify the existing layouts.
+
+> [!NOTE]  
+> In [!INCLUDE[prod_short](includes/prod_short.md)], the term "report" also covers externally facing documents, such as sales invoices and order confirmations that you send to customers as PDF files.
+
+You can also use report layouts to add content to email messages. For example, report layouts can save time and help ensure consistency by reusing the same content when you communicate with your customers. To use custom report layouts with email, the file type for the layout must be Word. You can't use the RDLC file type. Learn more in [Set up reusable email texts and layouts](admin-how-setup-email.md#set-up-reusable-email-texts-and-layouts).
+
+## Introduction
+
+A report layout sets up the following things:
+
+* The label and data fields to include from the dataset of the [!INCLUDE[prod_short](includes/prod_short.md)] report.
+* The text format, such as font type, size, and color.
+* The company logo and its position.
+* General page settings, such as margins and background images.
+
+You can set up multiple layouts for a report, and then switch between them to suit different reporting needs.
+
+<!--You can use one of the built-in report layouts or you can create custom report layouts and assign them to your reports as needed. Learn more in [Create a Custom Report or Document Layout](ui-how-create-custom-report-layout.md).-->
+
+There are two important aspects of report layouts that influence how you work with them:
+
+* The **Layout Type** indicates the kind of file that the layout is based on.
+* The **Layout Source** indicates the origin of the layout.
+
+## Layout types
+
+There are four types of layouts that you can use for reports:
+
+* Word
+* RDLC
+* Excel
+* External
+
+### Word
+
+Word layouts are based on Word documents (.docx file type). Word layouts enable you to design report layouts by using Microsoft Word. A Word layout determines the report's content - controlling how that content elements are arranged and how they look. A Word layout document typically uses tables to arrange content, where the cells can contain data fields, text, or pictures.
+
+[![Example of a word report layout document for Business Central.](media/word-layout-overview.png)](media/word-layout-overview.png#lightbox)
+
+<!--![Example of a word report layout document for Business Central.](media/nav_wordreportlayout_edit_in_word_example.png) -->
+
+Learn more in [Work with Word Layouts](ui-how-add-fields-word-report-layout.md).
+
+### Excel
+
+Excel layouts are based on Microsoft Excel workbooks (.xlsx file type). They let you create reports by using familiar Excel features for summarizing, analyzing, and presenting data with tools like formulas, PivotTables, PivotCharts, and more.
+
+[![Shows the an example of an Excel layout.](media/excel-layout-2.png)](media/excel-layout-2.png#lightbox)
+
+Learn more in [Work with Excel Layouts](ui-excel-report-layouts.md).
+
+### RDLC
+
+RDLC layouts are based on client report definition layout files (.rdl or .rdlc file types). These layouts are created and modified by using SQL Server Report Builder or Microsoft RDLC Report Designer. The design concept for RDLC layouts is similar to Word layouts, where the layout determines what fields to show and how they're arranged. However, designing RDLC layouts is more advanced than Word layouts.
+
+[![Shows the an example of an RDLC layout.](media/rdlc-layout-overview.png)](media/rdlc-layout-overview.png#lightbox)
+
+Learn more in [Work with RDLC Layouts](ui-rdlc-report-layouts.md).
+
+### External
+
+An external layout type refers to an advanced type designed for specific reports. The reports and the layouts themselves are typically provided by partners, not Microsoft. The actual file type of the layout varies depending on the provider.
+
+Learn more in [Developing a custom report render](/dynamics365/business-central/dev-itpro/developer/devenv-report-custom-render).
+
+## Layout sources
+
+In addition to the type, layouts are further divided into three categories, based on their source or origin.
+
+* Extension layouts
+
+   Extension layouts are layouts that are part of an extension installed in a [!INCLUDE [prod_short](includes/prod_short.md)] environment. These layouts are typically standard layouts provided by Microsoft, for example, in the base application. Or, they could be layouts that are included in extensions from other software providers. You can identify extension layouts on the **Report Layouts** page because the **Extension** column shows the extension name and publisher.
+
+* User-defined layouts
+
+   The other source of layouts is the people who use [!INCLUDE [prod_short](includes/prod_short.md)]. People with the right permissions can add new layouts in various ways. For example, you could start from an existing extension layout or a user-defined layout. You can identify user-defined layouts on the **Report Layouts** page because the **Extension** column is blank.
+
+   Learn more in [Get started creating report layouts](ui-get-started-layouts.md).
+
+* Custom layouts (obsolete)
+
+  Custom layouts are also layouts that users create. The difference is that these layouts are created from the now obsolete **Custom Report Layouts** page, and they can only be Word and RDLC type. Although you can still create custom layouts, they're being phased out in favor of user-defined layouts.
+
+  Learn more in [(Obsolete) Create and modify custom report layouts](ui-how-create-custom-report-layout.md).
+
+Learn more about which type is best for you in [Decide what type of layout you want](ui-get-started-layouts.md#decide).
+
+> [!IMPORTANT]
+> One important thing to remember is that you can't modify extension layouts from the [!INCLUDE [prod_short](includes/prod_short.md)] client. For example, you can't change the layout name or type, or upload and replace it with another version. If you try, an error message displays. You can create a user-defined or custom layout based on the extension layout instead.
+
+<!--
+### Built-in and custom report layouts
+
+[!INCLUDE[prod_short](includes/prod_short.md)] includes several built-in layouts. Built-in layouts are predefined layouts that are designed for specific reports. [!INCLUDE[prod_short](includes/prod_short.md)] reports will have a built-in layout as either an RDLC report layout, Word report layout, or in some cases both. You can’t modify a built-in report layout from [!INCLUDE[prod_short](includes/prod_short.md)] but you use them as a starting point for building your own custom report layouts.
+
+Custom layouts are report layouts that you design to change the appearance of a report. You typically create a custom layout based on a built-in layout, but you can create them from scratch or from a copy of an existing custom layout. Custom layouts enable you to have multiple layouts for the same report, which you switch among as needed. For example, you can have different layouts for each [!INCLUDE[prod_short](includes/prod_short.md)] company, or you can have different layouts for the same company for specific occasions or events, like a special campaign or holiday season.
+
+Deciding on whether to use a Word, Excel, or RDLC layout type will depend on how you want the generated report to look and your knowledge of tools for creating the layouts, like Word, Excel, and SQL Server Report Builder.
+
+* The general design concepts for Word and RDLC layouts are similar. However each type has certain design features that affect how the generated report appears in [!INCLUDE[prod_short](includes/prod_short.md)]. This means that the same report might look different when using the Word report layout compared to the RDLC report layout.
+
+* The process for setting up Word, Excel, and RDLC report layouts on reports is the same. The main difference is in the way you modify the layouts. Word and especially Excel layouts are typically easier to create and modify than RDLC report layouts because you use Word and Excel. RDLC report layouts are modified by using SQL Server Report builder, which targets more advanced users.
+
+* Not all reports and document have a dataset that is optimized for use with an Excel layout. For example, aggregations and complex calculations work best with RDLC or Word layouts. The same is true for documents.
+
+For information about how to switch the layout currently used on a report, see [Set the Layout Used by a Report](ui-set-report-layout.md).
+
+-->
+
+## View report layout lifecycle telemetry
+
+You can set up [!INCLUDE[prod_short](includes/prod_short.md)] to send data to an Application Insights resource in Microsoft Azure about the actions users take on report layouts, like adding, modifying, deleting, and more. Then, using Azure Monitor, you create reports and set up alerts on the gathered data. Learn more in the following articles of the Developer and IT Pro help:
+
+* [Monitoring and analyzing telemetry - Enable telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-overview?toc=/dynamics365/business-central/toc.json#enable)
+* [Analyzing report layout lifecycle telemetry](/dynamics365/business-central/dev-itpro/administration/telemetry-report-layout-lifecycle-trace?toc=/dynamics365/business-central/toc.json)
+
+## Related information
+
+[Update custom report layouts](ui-update-report-layouts.md)  
+[Create and modify custom report layouts](ui-how-create-custom-report-layout.md)  
+[Import and export custom report layouts](ui-how-import-and-export-report-layout.md)  
+[Define document layouts for customers and vendors](ui-define-customer-vendor-document-layouts.md)  
+[Send documents by email](ui-how-send-documents-email.md)  
+[Run and print reports in Business Central](ui-work-report.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-supply-planning
+---
+title: Design Details - Supply Planning
+description: This article describes the concepts and principles in the supply planning features in Business Central.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: article
+ms.date: 02/23/2023
+ms.custom: bap-template
+ms.search.keywords: design, supply, planning, reordering, replenishment
+ms.service: dynamics-365-business-central
+---
+# Design Details: Supply Planning
+
+This section provides detailed technical insight to the concepts and principles in the supply planning features in [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+The articles explain how the planning system works:
+
+* How to adjust the algorithms to meet planning requirements in different environments
+* Introduces central solution concepts
+* Describes the logic of the central mechanism, which is supply balancing
+* Explain how to use reordering policies in inventory planning  
+
+## In This Section  
+
+[Design Details: Central Concepts of the Planning System](design-details-central-concepts-of-the-planning-system.md)  
+[Design Details: Reservation, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md)  
+[Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md)  
+[Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)  
+[Design Details: Planning Parameters](design-details-planning-parameters.md)  
+[Design Details: Planning Assignment Table](design-details-planning-assignment-table.md)  
+[Design Details: Planning With or Without Locations](production-planning-with-without-locations.md)  
+[Design Details: Transfers in Planning](design-details-transfers-in-planning.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-general-ledger
+---
+title: Understand the general ledger and Chart of Accounts
+description: Describes the general ledger, chart of accounts, and account categories. Use the General Ledger Setup page to specify handling accounting issues in your company.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: analysis, history, track
+ms.search.form: 18, 20_Primary, 37, 65, 99, 118, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
+ms.date: 08/06/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Understand the general ledger and Chart of Accounts
+
+The general ledger (G/L) stores your financial data, and the chart of accounts (COA) shows the accounts that you post general ledger entries to. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts that's ready to support your business.
+
+## General ledger setup and general posting setup
+
+The setup of the general ledger is at the core of financial processes because it defines how you post data. Two pages in particular play an important part in configuring your finance processes:  
+
+* **General Ledger Setup**
+* **General Posting Setup**
+
+### The **General Ledger Setup** page
+
+Use the **General Ledger Setup** page to specify how to handle certain accounting issues in your company, such as:  
+
+* Invoice rounding details  
+* Address formats  
+* Financial reporting
+
+> [!TIP]
+> The **General Ledger Setup** page includes generic fields, and fields that are particular to your country or region. If you're unsure of the meaning of a field, we suggest you work with your accountant to determine whether it's relevant to your organization. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
+
+To open the page now, use the following link [General Ledger Setup](https://businesscentral.dynamics.com/?page=118).
+
+### The **General Posting Setup** page
+
+Use the **General Posting Setup** page to set up combinations of general business and general product posting groups. Posting groups map entities such as customers, vendors, items, resources, and sales and purchase documents to general ledger accounts. You fill in a line for each combination of business posting group and product posting group. But you can also open each line in its own posting setup card. Learn more at [Posting Group Setups](finance-posting-groups.md).  
+
+> [!TIP]
+> If you can't see the fields you're looking for in the **General Posting Setup** page, use the horizontal scroll bar at the bottom of the page to scroll to the right.  
+
+To open the page now, use the following link [General Posting Setup](https://businesscentral.dynamics.com/?page=314).
+
+## The chart of accounts
+
+The **Chart of Accounts** page shows all general ledger accounts. From the chart of accounts, you can do things like:  
+
+* View reports that show general ledger entries and balances.  
+* Close your income statement.  
+* Open the general ledger (G/L) account card to add or change settings.  
+* See a list of posting groups for that account.
+* View separate debit and credit balances for a single account.
+
+To learn more, go to [Understanding the Chart of Accounts](finance-chart-of-accounts.md).
+
+## Account categories
+
+You can personalize the structure of your financial statements by mapping general ledger accounts to account categories.  
+
+The **G/L Account Categories** page shows your categories and subcategories, and the general ledger accounts assigned to them. You can create new subcategories and assign those categories to existing accounts.  
+
+You can create a category group by indenting other subcategories under a line on the **G/L Account Categories** page. Category groups make it easy to get an overview because each grouping shows a total balance. For example, you can create subcategories for different types of assets, then create category groups for fixed assets versus current assets.  
+
+You can define whether specific types of reports must include the accounts in each subcategory. The account categories help define the layout of your financial statements.  
+
+### Example
+
+For example, the default balance statement has a subcategory for *Cash* under *Current Assets*. If you want the balance statement to consider petty cash and checking, take the following steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **G/L Account Categories**, then choose the related link.
+   1. Alternatively, [open the page here](https://businesscentral.dynamics.com/?page=790).
+2. Choose the **Edit List** action.
+3. Add two new subcategories: One for petty cash, and one for your checking account:
+   1. Select the **Current Assets** category.
+   2. Choose the **New** action.
+   3. Enter the subcategory name on the **Description** field.
+   4. On the **G/L Accounts in Category** field, select the appropriate G/L account.
+   5. On the **Additional Report Definition** field, select the **Cash Accounts** option.
+4. Indent them under the **Cash** subcategory.
+   1. Select the subcategory created in step 3.
+   2. Choose the **Indent** action.
+   3. Choose the **Move Down** action.
+   4. Choose the **Indent** action to indent under the **Cash** subcategory.
+
+When you choose the **Generate Financial Reports** action, or the next time the report is generated, your balance statement shows the following lines:
+
+* Total balance for cash.
+* Lines with balances for petty cash and the checking account.  
+
+> [!NOTE]
+> If you create a G/L account without assigning an account category, when you assign the account to a posting group [!INCLUDE[prod_short](includes/prod_short.md)] automatically assigns the account category from the G/L account immediately above the account in your chart of accounts. However, to include the new account in your financial reports, you must choose the **Generate Financial Reports** action on the **G/L Account Categories** page. Alternatively, open the G/L Account Card page, specify the account category, and then regenerate your financial report.
+
+## Access to create and edit G/L accounts and account categories
+
+In a small organization, such as the CRONUS demonstration company, most users can edit financial entities such as G/L accounts, account categories, and the chart of accounts, except those users with a TEAM MEMBER license. However, larger organizations typically use roles and permissions to limit access to editing these entities. If you're an administrator, or have the *Business Manager* or *Accountant* role, you can control user permissions to give the right people access to the relevant tables. To learn more, go to [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).  
+
+## Use dimensions to simplify your chart of accounts
+
+Dimensions are values that categorize entries so you can track and analyze them on documents, such as sales orders. Dimensions can, for example, indicate the project or department an entry came from. So, instead of setting up separate general ledger accounts for each department and project, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts.
+
+To learn more about dimensions, go to [Set up default dimensions for customers, vendors, and other accounts](finance-dimensions.md#to-set-up-default-dimensions-for-customers-vendors-and-other-accounts).
+
+## Related information
+
+[Understand the chart of accounts](finance-chart-of-accounts.md)  
+[Work with Dimensions](finance-dimensions.md)  
+[Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
+[Business Intelligence](bi.md)  
+[Finance](finance.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchase-reports
+---
+title: Purchasing reports and analytical tasks
+description: Learn which purchase reports are available in the standard version of Business Central so that you can keep track of your business.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: Report_307, Report_308, Report_311, Report_312, Report_313, Report_320, Report_709, Report_707, Report_709, Report_714, Report_716, Report_720, Report_2502 
+ms.date: 10/14/2024
+ms.service: dynamics-365-business-central
+---
+# Purchasing reports and analytical tasks
+
+Purchasing reports and analytical tasks give procurement and business professionals insights and statistics about current and past purchase activities.
+
+## Explore purchasing reports with Report Explorer
+
+[!INCLUDE [purchasing_reports_report_explorer](includes/purchasing-reports-report-explorer-include.md)]
+
+## Purchasing report overview
+
+[!INCLUDE [purchase_reports](includes/purchase-reports-include.md)]
+
+## Analytical tasks in purchasing
+
+The following articles describe some of the key tasks for analyzing the state of your purchasing:
+
+- [View the availability of items](inventory-how-availability-overview.md)
+- [Calculate dates for purchases](purchasing-date-calculation-for-purchases.md)
+- [View purchase ledger entries](purchasing-how-record-purchases.md#viewing-ledger-entries)
+
+## Related information
+
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Setting up purchase](purchasing-setup-purchasing.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-synchronize-outlook-contacts
+---
+title: Synchronize Contacts in Business Central with Contacts in Microsoft Outlook
+description: This service has deep integration with Microsoft 365 so you can share contacts between Outlook and Business Central.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: contacts, Microsoft 365
+ms.search.form: 6700, 5320, 5300, 5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308, 5309, 5310, 5311 
+ms.date: 05/21/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Synchronize contacts in Business Central with contacts in Microsoft Outlook
+
+You can set up contact synchronization so that your contacts in [!INCLUDE[prod_short](includes/prod_short.md)] have the same information as your contacts in Microsoft Outlook. For example, if you're a sales person, you might work in Outlook and [!INCLUDE[prod_short](includes/prod_short.md)] at the same time. If the contacts are the same in both places, your work is more straightforward.  
+
+By default, the contacts you're syncing are kept in a **Business Central** folder in your Favorites on the Folder Pane in Outlook. The Business Central folder can make it easier to identify which contacts you're syncing. You can set filters to sync only specific contacts from [!INCLUDE[prod_short](includes/prod_short.md)] to Outlook. After you set up synchronization, you can synchronize manually or automate the process to synchronize on a scheduled basis.  
+
+## Prerequisites
+
+- Your user account in [!INCLUDE[prod_short](includes/prod_short.md)] must specify your Microsoft 365 email account.
+
+  You can check this setting in the **Microsoft 365** section of your **User Card**, which you open from the **Users** list.
+- With [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you set up contact synchronization as described in [Set Up contact synchronization with Outlook for Business Central on-premises](admin-contact-sync-setup-onprem.md).
+
+## Set up synchronization
+
+You set up how you want to synchronize contacts with Outlook on the **Exchange Sync. Setup** page in [!INCLUDE[prod_short](includes/prod_short.md)]. 
+
+On the **Exchange Sync. Setup** page, you can validate that the connection to Exchange is working and then set up contact synchronization. From the **Exchange Sync. Setup** page, you can open the **Contact Sync. Setup** page and start the synchronization. Optionally, set a filter to specify which contacts to synchronize. For example, you can filter on name, type, company, and so on. You can also change the default name of the folder in Outlook that the contacts synchronize to.  
+
+Each of your coworkers can also set up their own Exchange synchronization and set their own filters on which contacts to synchronize.  
+
+After you set up synchronization, sync changes manually. Business Central versions 2023 release wave 2 and earlier support automated synchronization. Learn more about automation in the next section of this article.
+
+## Synchronize contacts
+
+To sync contacts, select one of these actions on the **Exchange Sync. Setup** page:
+
+- **Sync with Microsoft 365**
+
+  Synchronize all changes from [!INCLUDE[prod_short](includes/prod_short.md)] to Microsoft 365 that were made after the last synchronization, based on the last modified date. Also, new contacts from Microsoft 365 are synchronized to [!INCLUDE[prod_short](includes/prod_short.md)]. Typically, this action is faster than a full sync. 
+
+- **Full Sync with Microsoft 365**
+
+  Synchronize all contacts in both directions, regardless of the last sync date and last modified date.  
+
+In both cases, contacts are only synchronized from Outlook if they have the required fields filled in. The required fields to synchronize to Microsoft 365 are **Name**, **Email address** and the contact must be of the type **Person**. [!INCLUDE[prod_short](includes/prod_short.md)] is the source of the contact information, so the [!INCLUDE[prod_short](includes/prod_short.md)] contact information is saved if there are duplicates.  
+
+> [!NOTE]
+> If you delete a contact in Outlook, but keep it in [!INCLUDE[prod_short](includes/prod_short.md)], the contact will be recreated in Outlook the next time you sync.
+
+### Automate synchronization (background synchronization)
+
+> [!IMPORTANT]
+> Starting in 2024 release wave 1 (version 24), you can't turn on background synchronization anymore. If it's currently on, it works as expected. If you turn it off, you can't turn it on again.
+
+To automate sync, if the **Enable Background Synchronization** toggle is on, create a job queue entry to sync contacts on a schedule you set. Learn more in [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+The following table lists the settings on the **Job Queue Entry Card** page for syncing contacts:
+
+|Field|Setting for contact sync|
+|-----|-----|
+|Object Type to Run|Codeunit|
+|Object ID to Run|6700|
+
+## Related information
+
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Finance](finance.md)  
+[Sales](sales-manage-sales.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Use contacts (People) in Outlook on the web](https://support.office.com/article/Using-contacts-People-in-Outlook-on-the-web-1e3438c7-26b2-420c-87de-3cea9d31b5cb?appver=OWB150)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-reports
+---
+title: Relationship management reports
+description: Discover built-in reports that can help you monitor and manage your relationship management activities.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: v-soumramani
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: Report_5050, Report_5051, Report_5053, Report_5055, Report_5056, Report_5058, Report_5060, Report_5061, Report_5062, Report_5063, Report_5064, Report_5066, Report_5065, Report_5067, Report_5068
+ms.date: 10/03/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Relationship management reports in Business Central
+
+This article describes the built-in reports that are available for relationship management.
+
+## Explore relationship management reports with Report Explorer
+
+To get an overview of the reports that are available for relationship management, choose **All Reports** on your Home page. This action opens the Role Explorer, which is filtered to the features in the **Report & Analysis** option. Under the **Sales and Marketing** heading, choose **Explore**.
+
+:::image type="content" source="media/report-explorer-sales.png" alt-text="Example of reports on the finance role center":::
+
+Learn more in [Finding pages and reports with the role explorer](ui-role-explorer.md).
+
+## Relationship management report overview
+
+[!INCLUDE [marketing_reports](includes/marketing-reports-include.md)]
+
+## Related information
+
+[Relationship management overview](marketing-relationship-management.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-scheduled-synchronization-using-the-synchronization-job-queue-entries
+---
+title: Synchronizing Business Central and Dataverse
+description: Learn about synchronizing data between Business Central and Dataverse.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 03/31/2023
+ms.custom: bap-template
+ms.search.keywords: sales, crm, integration, sync, synchronize
+ms.service: dynamics-365-business-central
+---
+
+# Scheduling a Synchronization between Business Central and Dataverse
+
+You can synchronize [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] on scheduled intervals by setting up jobs in the job queue. The synchronization jobs synchronize data in [!INCLUDE[prod_short](includes/prod_short.md)] records and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records that are coupled. For records that are not already coupled, depending on the synchronization direction and rules, the synchronization jobs can create and couple new records in the destination system.
+
+There are several synchronization jobs that are available out-of-the-box. The jobs are run in the following order to avoid coupling dependencies between tables. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+1. CURRENCY - Common Data Service synchronization job.
+2. VENDOR - Common Data Service synchronization job.
+3. CONTACT - Common Data Service synchronization job.
+4. CUSTOMER - Common Data Service synchronization job.
+5. SALESPEOPLE - Common Data Service synchronization job.
+
+You can view the jobs on the **Job Queue Entries** page. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+## Default synchronization job queue entries
+
+The following table describes the default synchronization jobs for [!INCLUDE[cds_long_md](includes/cds_long_md.md)].  
+
+| Job Queue Entry | Description | Direction | Integration Table Mapping | Default Synchronization Frequency (mins) | Default inactivity sleep time (mins) |
+|--|--|--|--|--|--|--|
+| CONTACT - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] contacts with [!INCLUDE[prod_short](includes/prod_short.md)] contacts. | Bidirectional | CONTACT | 30 | 720 <br>(12 hours) |
+| CURRENCY - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] transaction currencies with [!INCLUDE[prod_short](includes/prod_short.md)] currencies. | From [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)] | CURRENCY | 30 | 720 <br> (12 hrs) |
+| CUSTOMER - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | CUSTOMER | 30 | 720<br> (12 hrs) |
+| VENDOR - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | VENDOR | 30 | 720<br> (12 hrs) |
+| SALESPEOPLE - Common Data Service synchronization job | Synchronizes [!INCLUDE[prod_short](includes/prod_short.md)] salespeople with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] users. | From [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)] | SALESPEOPLE | 30 | 1440<br> (24 hrs) |
+
+## Synchronization process
+
+Each synchronization job queue entry uses a specific integration table mapping that specifies which [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize. The table mappings also include some settings that control which records in the [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize.  
+
+To synchronize data, [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table records must be coupled to [!INCLUDE[prod_short](includes/prod_short.md)] records. For example, a [!INCLUDE[prod_short](includes/prod_short.md)] customer must be coupled to a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account. You can set up couplings manually, before running the synchronization jobs, or let the synchronization jobs set up couplings automatically. The following list describes how data is synchronized between [!INCLUDE[cds_long_md](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)] when you are using the synchronization job queue entries. For more information, see [Couple and Synchronize Records Manually](admin-how-to-couple-and-synchronize-records-manually.md).
+
+- The **Sync. Only Coupled Records** check box controls whether new records are created when you synchronize. By default, the check box is selected, which means that only records that are coupled will be synchronized. In the integration table mapping, you can change the table mapping between a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table and a [!INCLUDE[prod_short](includes/prod_short.md)] table so that the integration synchronization jobs will create new records in the destination database for each row in the source database that is not coupled. For more information, see [Creating New Records](admin-how-to-modify-table-mappings-for-synchronization.md#create-new-records).
+
+    **Example**
+    If you clear the **Sync. Only Coupled Records** check box, when you synchronize customers in [!INCLUDE[prod_short](includes/prod_short.md)] with accounts in [!INCLUDE[cds_long_md](includes/cds_long_md.md)], a new account is created for each customer in [!INCLUDE[prod_short](includes/prod_short.md)] and automatically coupled. Additionally, because the synchronization is bidirectional in this case, a new customer is created and coupled for each [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account that is not already coupled.  
+
+    > [!NOTE]  
+    > There are rules and filters that determine what data is synchronized. For more information, go to [Synchronization Rules](admin-synchronizing-business-central-and-sales.md).
+
+- When new records are created in [!INCLUDE[prod_short](includes/prod_short.md)], the records use the either the template that is defined for the integration table mapping or the default template that is available for the row type. Fields are populated with data from [!INCLUDE[prod_short](includes/prod_short.md)] or [!INCLUDE[cds_long_md](includes/cds_long_md.md)] depending on the synchronization direction. For more information, see [Modify Table Mappings for Synchronization](admin-how-to-modify-table-mappings-for-synchronization.md).  
+
+- With subsequent synchronizations, only records that have been modified or added after the last successful synchronization job for the table will be updated.  
+
+     New records in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] are added in [!INCLUDE[prod_short](includes/prod_short.md)]. If data in fields in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records has changed, the data is copied to the corresponding field in [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+- With bidirectional synchronization, the job synchronizes from [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)], and then from [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)].
+
+## About inactivity timeouts
+
+Some job queue entries, such as those that schedule synchronization between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[cds_long_md](includes/cds_long_md.md)], use the **Inactivity Timeout** field on the **Job Queue Entry** page to prevent the job queue entry from running unnecessarily.  
+
+:::image type="content" source="media/on-hold-with-inactivity-timeout.png" alt-text="Flowchart for when job queue entries are put on hold due to inactivity.":::
+
+When the value in this field is not zero, and the job queue did not find any changes during the last run, [!INCLUDE[prod_short](includes/prod_short.md)] puts the job queue entry on hold. When that happens, the **Status of Job Queue** field will show **On Hold Due to Inactivity**, and [!INCLUDE[prod_short](includes/prod_short.md)] will wait for the period of time specified in **Inactivity Timeout** field before it runs the job queue entry again.  
+
+For example, by default, the CURRENCY job queue entry, which synchronizes currencies in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] with exchange rates in [!INCLUDE[prod_short](includes/prod_short.md)], will look for changes to exchange rates every 30 minutes. If no changes are found, [!INCLUDE[prod_short](includes/prod_short.md)] puts the CURRENCY job queue entry on hold for 720 minutes (twelve hours). If an exchange rate is changed in [!INCLUDE[prod_short](includes/prod_short.md)] while the job queue entry is on hold, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically reactivate the job queue entry and restart the job queue. 
+
+> [!Note]
+> [!INCLUDE[prod_short](includes/prod_short.md)] will automatically activate job queue entries that are on hold only when changes happen in [!INCLUDE[prod_short](includes/prod_short.md)]. Changes in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] will not activate job queue entries.
+
+## To view the synchronization job log
+
+1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Log**, and then choose the related link.
+2. If one or more error occurred for a synchronization job, the number of errors appears in the **Failed** column. To view the errors for the job, choose the number.  
+
+    > [!TIP]  
+    > You can view all synchronization job errors by opening the synchronization job error log directly.
+
+## To view the synchronization job log from the table mappings
+
+1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Table Mappings**, and then choose the related link.
+2. In the **Integration Table Mappings** page, select an entry, and then choose **Integration Synch. Job Log**.  
+
+## To view the synchronization error log
+
+- Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Errors**, and then choose the related link.
+
+## Related information
+
+[Synchronizing Data in Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md)  
+[Manually Synchronize Table Mappings](admin-manual-synchronization-of-table-mappings.md)  
+[Scheduling a Synchronization between Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-scheduled-synchronization-using-the-synchronization-job-queue-entries.md)  
+[About Integrating Dynamics 365 Business Central with [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-prepare-dynamics-365-for-sales-for-integration.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-decomposition
+---
+title: Sales Decomposition (Power BI report)
+description: The Sales Decomposition provides a detailed analysis of sales metrics, breaking them down into their key contributing components.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37101_Primary
+ms.date: 10/07/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Sales Decomposition (Power BI Report)
+
+[!INCLUDE[applies-to-2025w1](includes/applies-to-2025w1.md)]
+
+The **Sales Decomposition** report provides a detailed analysis of sales metrics, breaking them down into their key contributing components. This report can help you understands what's driving changes in sales performance, and why.
+
+:::image type="content" source="media/powerbi/sales/sales-decomposition.png" alt-text="Screenshot of the Sales Decomposition report" lightbox="media/powerbi/sales/sales-decomposition.png":::
+
+## Use the report
+
+Leadership and management teams use the report to identify trends, break down sales metrics into their key contributing components, and make informed adjustments to strategies.
+
+For CEOs, the report enables you to assess high-level sales trends and identify key drivers behind performance changes. For example, you notice that sales of office desks drive significant growth in a certain region. The decomposition tree reveals that 30% of this growth is attributed to new customers acquired in the past quarter. Based on this insight, you decide to invest in expanding marketing campaigns to attract buyers in other regions.
+
+For regional sales managers, the report helps you monitor contributions at individual locations and optimize regional sales strategies. For example, you spot that a location has seen a 15% drop in sales, primarily due to a decline in sales of classic desks. In response, you assign a dedicated salesperson to the region to focus on re-engaging client and offer special discounts.
+
+## Key performance indicators
+
+The report includes the following key performance indicators (KPIs) and measures:
+
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Sales Quantity](sales-powerbi-sales-kpis.md#sales-quantity)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables:
+
+- Item
+- Location
+- Customer
+- Sales Value Entries
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
+- Item Categories
+- Salesperson/Purchaser
+
+## Try the report
+
+Try the report here: [Sales Decomposition](https://businesscentral.dynamics.com?page=37101)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad-hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-work-with-vat
+---
+title: How to work with VAT on sales and purchases
+description: This article describes the various ways of working with VAT both manually and with automatic setup, to help you meet country/region specific regulations.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: VAT, sales, purchases
+ms.search.form: 7, 118, 130, 142, 459, 460, 525
+ms.date: 05/29/2024
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Work with VAT on sales and purchases
+
+If your country or region requires you to calculate and report value-added tax (VAT) on sales and purchase transactions, you can set up [!INCLUDE[prod_short](includes/prod_short.md)] to calculate VAT. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
+
+There are, however, some VAT-related tasks that you can do manually. For example, you might need to correct a posted amount if you discover that a vendor uses a different rounding method.  
+
+> [!TIP]
+> You can let [!INCLUDE[prod_short](includes/prod_short.md)] validate VAT registration numbers and other company information when you create or update documents. For more information, see [Validate VAT Registration Numbers](finance-how-validate-vat-registration-number.md).
+
+## Calculating and displaying VAT amounts on sales and purchase documents  
+
+When you choose an item number in the **No.** field on a sales or purchase document, [!INCLUDE[prod_short](includes/prod_short.md)] fills in the **Unit Price** and **Line Amount** fields. The unit price comes from either the **Item** card or the item prices allowed for the item and customer. [!INCLUDE[prod_short](includes/prod_short.md)] calculates the line amount when you enter a quantity for the line.  
+
+If you want the unit prices and line amounts to include VAT, for example, if you sell to retail consumers, choose the **Prices Including VAT** check box on the document. For more information, see [Including or Excluding VAT in Prices and Line Amounts](#including-or-excluding-vat-in-prices-and-line-amounts). 
+
+You can calculate and display VAT amounts in sales and purchase documents differently. The difference depends on the type of customer or vendor you're dealing with. You can also change the calculated VAT amount manually, for example, so that it matches the VAT amount calculated by your vendor on a given transaction.
+
+### Including or excluding VAT in prices and line amounts
+
+If you choose the **Prices Including VAT** checkbox on a sales document, the **Unit Price** and **Line Amount** fields include VAT. By default, the values in these fields don't include VAT. The names of the fields reflect whether prices include VAT.  
+
+You can set up the default setting of the **Prices Including VAT** for all sales documents for a customer in the **Prices Including VAT** field on the **Customer** card. You can also set up item prices to include or exclude VAT. Typically, prices on the Item Card exclude VAT.
+
+The following table provides an overview of how the application calculates the unit price amounts for a sales document when prices aren't set up on the **Sales Prices** page:  
+
+|**Price Includes VAT field on Item Card**|**Prices Including VAT field**|**Action Performed**|  
+|-----------------------------------------------|----------------------------------------------------|--------------------------|  
+|Not Enabled|Not Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Excl. VAT** field on the sales lines.|  
+|Not Enabled|Enabled|The application calculates the VAT amount per unit and adds to the **Unit Price** on the Item Card. This total unit price is then entered in the **Unit Price Incl. VAT field** on the sales lines.|  
+|Enabled|Not Enabled|The application calculates the VAT amount included in the **Unit Price** field on the **Item Card** using the VAT percentage related to the VAT Bus. Posting Gr. (Price) and the VAT Prod. Posting Group combination. The **Unit Price** on the Item Card, reduced by the VAT amount, is then entered in the **Unit Price Excl. VAT** field in the sales lines. For more information, see [Using VAT Business Posting Groups and Customer Price Groups](finance-work-with-vat.md#using-vat-business-posting-groups-and-customer-price-groups).|  
+|Enabled|Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Incl. VAT** field on the sales lines.|
+
+#### Using VAT business posting groups and customer price groups 
+
+If you want prices to include VAT, you can use VAT business posting groups to calculate the amount based on the VAT posting setup for the group. For more information, see [Set up VAT business posting groups](finance-setup-vat.md#set-up-vat-business-posting-groups).
+
+Depending on what you want to do, you can assign a VAT business posting group to customers or sales documents in the following ways:
+
+* To use the same VAT rate for all customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Sales & Receivables Setup** page.
+* To use a VAT rate for a specific customer, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Card** page. 
+* To use a VAT rate for a specific of customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Price Group** page. For example, this setting is useful when you want a price to apply to all customers in a certain geographical region or a specific industry.
+* On all sales documents, in the **VAT Business Posting Group** field. The VAT amount specified for the group is used only for the document you're currently working on.
+
+> [!NOTE]
+> If you do not specify a group in the **VAT Business Posting Group (Price)** field VAT will not be included in prices.
+
+#### Examples
+
+Factors such as the country or region you're selling in, or the type of industries you sell to, can affect the amount of VAT that you must account for. For example, a restaurant might charge 6% VAT for meals that are eaten in-house, and 17% for takeaway. To accomplish that, you create a VAT business posting group (price) for in-house and one for takeaway.
+
+## Working with VAT Date
+
+### VAT Date in documents
+
+When you create new sales or purchase documents, the **VAT Date** is based on the setting in the **Default VAT Date** field on the **General Ledger Setup** page. This default value can be the same as **Posting Date** or **Document Date**. If you need a different VAT date, you can manually change the value in the **VAT Date** field. When you post the document, the **VAT Date** is shown on the posting document and on the VAT and G/L entries.
+
+> [!NOTE]
+> If the **VAT Date** field isn't available on your documents or journals, that means that **Do not use VAT Date functionality** is chosen in the **VAT Date Usage** field on the **General Ledger Setup** page.  
+
+> [!IMPORTANT]
+> If you configure **Control VAT Period** in the **General Ledger Setup** as **Block posting within closed period**, or **Block posting within closed and warn for released period**, you can post document or journal only if the date in the **VAT Date** field is not in a closed period in **VAT Return Periods**. Even if the period in **VAT Return Periods** is open, you might get a warning based on the **VAT Return Status** and configuration in the **Control VAT Period**.
+
+> [!IMPORTANT]
+> Starting in version 23.1, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow VAT Date From** and **Allow VAT Date To** fields in the **VAT Setup** and the **User Setup**. If you are using older versions, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow Posting From** and **Allow Posting To** fields in the **General Ledger Setup** and the **User Setup**.  
+
+> [!NOTE]
+> If you leave the **VAT Date** blank, [!INCLUDE [prod_short](includes/prod_short.md)] will use your default setup from **Default VAT Date** in the **General Ledger Setup** as a **VAT Date** in the posted transaction.  
+
+### Modifying the VAT Date in posted entries
+
+If needed, you can change the VAT date posted documents. To change the date in the **VAT Date** field for posted documents, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Entries**, and then choose the related link. 
+2. Find the entry with wrong VAT date.  
+3. Choose the **Edit list** action, and then enter the correct date in the **VAT Date** field.  
+4. When you close the page, the VAT date changes in related **G/L Entries** and in the posted document.  
+
+> [!NOTE]
+> You can change the **VAT Date** field in **VAT Entries** only if your current date is not in a closed VAT return period. Even if the period in the **VAT Return Periods** field is open, you might get a warning based on the **VAT Return Status**.  
+
+> [!NOTE]
+> If your document has more than one **VAT Entry**, you only need to change the value in the **VAT Date** field in one entry related to the document. To keep entries consistent, [!INCLUDE[prod_short](includes/prod_short.md)] automatically changes the VAT date in VAT entries related to this transaction. [!INCLUDE [prod_short](includes/prod_short.md)] will update the **VAT Date** in other tables (GL Entries and documents), but only related to this transaction.  
+
+## Correcting VAT amounts manually on sales and purchase documents  
+
+You can make corrections to posted VAT entries so that you can change the total sales or purchase VAT amounts without changing the VAT base. For example, if you receive an invoice from a vendor with an incorrect VAT amount.  
+
+Although you might have one or more combinations set up to handle import VAT, you must set up at least one VAT product posting group. For example, you can name it **CORRECT** for correction purposes, unless you can use the same general ledger account in the **Purchase VAT Account** field on the VAT posting setup line. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
+
+If a payment discount was calculated based on an invoice amount that includes VAT, you revert the payment discount part of the VAT amount when you grant the payment discount. You must activate the **Adjust for Payments Disc.** field in both the general ledger setup in general and the VAT posting setup for specific combinations of a VAT business posting group and a VAT product posting group.  
+
+### To set the system up for manual VAT entry in sales documents
+
+To enable manual VAT changes on sales documents, follow these steps. The steps are similar on the **Purchases & Payables Setup** page.
+
+1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
+2. On the **Sales & Receivables Setup** page, turn on the **Allow Vat Difference** toggle.  
+
+### To adjust VAT for a sales document
+
+1. Open the relevant sales order.  
+2. Choose the **Statistics** action.  
+3. On the **Invoicing** FastTab, choose the value in the **No. of Tax Lines** field.
+4. Edit the **VAT Amount** field.   
+
+> [!NOTE]  
+> The total VAT amount for the invoice, grouped by VAT identifier, is displayed in the lines. You can manually adjust the amount in the **VAT Amount** field on the lines for each VAT identifier. When you modify the **VAT Amount** field, application checks to ensure that you have not changed the VAT by more than the amount you have specified as the maximum difference allowed. If the amount is outside the range of the **Max. VAT Difference Allowed**, a warning will be displayed stating the maximum allowed difference. You will be unable to proceed until the amount is adjusted to within the acceptable parameters. Click **OK** and enter another **VAT Amount** that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, the VAT will be divided proportionally among the document lines that have the same VAT identifier.  
+
+## Calculating VAT manually using journals  
+
+You can also adjust VAT amounts in general, sales, and purchase journals. For example, you might need an adjustment if you enter a vendor invoice in your journal and the VAT amount that [!INCLUDE[prod_short](includes/prod_short.md)] calculated and the VAT amount on the vendor's invoice differ.  
+
+### To set the system up for manual VAT entry in general journals
+
+You must perform the following steps before you manually enter VAT in a general journal.  
+
+1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
+2. On the **General Journal Templates** page, choose the **Allow VAT Difference** check box for the relevant journal.  
+
+### To set the system up for manual VAT entry in a sales and purchase journals
+
+You must perform the following steps before you manually enter VAT in a sales or purchase journal.
+
+1. On the **Purchases & Payables Setup** page, choose the **Allow VAT Difference** check box.  
+2. Repeat step 1 for the **Sales & Receivables Setup** page.
+3. After you complete the setup, you can adjust the **VAT Amount** field on the general journal line, or the **Bal. VAT Amount** field on the sales or purchase journal line. [!INCLUDE[prod_short](includes/prod_short.md)] verifies that the difference isn't greater than the specified maximum.  
+
+> [!NOTE]  
+> If the difference is greater, a warning will be displayed stating the maximum allowed difference. To continue, you must adjust the amount. Choose **OK** and then enter an amount that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, [!INCLUDE[prod_short](includes/prod_short.md)] will show the difference in the **VAT Difference** field.  
+
+## Posting Import VAT with Purchase Invoices
+Instead of using journals to post an import VAT invoice, you can use a purchase invoice.  
+
+### To set up purchasing for posting import VAT invoices
+
+1. Set up a vendor card for the import authority that sends you the import VAT invoice. The **Gen. Bus. Posting Group** and **VAT Bus. Posting Group** must be set up in the same way as the general ledger account for the import VAT.  
+2. Create a **Gen. Product Posting Group** for the import VAT and set up an import VAT **Def. VAT Product Posting Group** for the related **Gen. Product Posting Group**.  
+3. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.  
+4. Select the import VAT general ledger account, and then choose the **Edit** action.  
+5. On the **Posting** FastTab, select the **Gen. Prod. Posting Group** setup for import VAT. [!INCLUDE[prod_short](includes/prod_short.md)] automatically fills in the **VAT Prod. Posting Group** field.  
+6. [!INCLUDE[open-search](includes/open-search.md)], enter **General Posting Setup**, and then choose the related link.  
+7. Create a combination of the **Gen. Bus. Posting Group** for the VAT authority and the **Gen. Prod. Posting Group** for import VAT. For this combination, in the **Purchase Account** field, choose the import VAT general ledger account.  
+
+### To create a new invoice for the import authority vendor after you complete the setup  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.  
+2. Create a new purchase invoice.  
+3. In the **Buy-from Vendor No.** field, choose the import authority vendor, and then choose the **OK** button.  
+4. In the purchase line, in the **Type** field, choose **G/L Account**, and in the **No.** field, choose the import VAT general ledger account.  
+5. In the **Quantity** field, type **1**.  
+6. In the **Direct Unit Cost Excl. VAT** field, specify the VAT amount.  
+7. Post the invoice.  
+
+## Processing certificates of supply
+
+When you sell goods to a customer in another EU country/region, you must send the customer a certificate of supply that the customer must sign and return to you. The following procedures are for processing certificates of supply for sales shipments, but the same steps apply for service shipments of items, and return shipments to vendors.  
+
+### To view certificate of supply details  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
+2. Choose the relevant sales shipment to a customer in another EU country/region.  
+3. Choose **Certificate of Supply Details**.  
+4. By default, if the **Certificate of Supply Required** check box is selected for VAT Posting Group setup for the customer, the **Status** field is set to **Required**. You can update the field to indicate whether the customer returned the certificate.  
+
+> [!Note]  
+>  If the VAT Posting Group setup does not have the **Certificate of Supply Required** check box selected, then a record is created and the **Status** field is set to **Not Applicable**. You can update the field to reflect the correct status information. You can manually change the status from **Not Applicable** to **Required**, and from **Required** to **Not Applicable** as needed.  
+
+   When you update the **Status** field to **Required**, **Received**, or **Not Received**, a certificate is created.  
+
+> [!TIP]  
+>  You can use the **Certificates of Supply** page to get a view of the status of all posted shipments for which a certificate of supply has been created.  
+
+5. Choose **Print Certificate of Supply**.  
+
+> [!Note]  
+> You can preview or print the document. When you choose **Print Certificate of Supply** and print the document, the **Printed** check box is automatically selected. In addition, if not already specified, the status of the certificate is updated to **Required**. If needed, you include the printed certificate with the shipment.  
+
+### To print a certificate of supply
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
+2. Choose the relevant sales shipment to a customer in another EU country/region.  
+3. Choose the **Print Certificate of Supply** action.  
+
+> [!NOTE]  
+> Alternatively, you can print a certificate from the **Certificate of Supply** page.  
+
+4. To include information from the lines on the shipment document in the certificate, turn on the **Print Line Details** toggle.  
+5. To have [!INCLUDE[prod_short](includes/prod_short.md)] create certificates for posted shipments that didn't have one, turn on the **Create Certificates of Supply if Not Already Created** toggle. When you turn on the toggle, new certificates are created for all posted shipments that don't have certificates within the selected range.  
+6. By default, the filter settings are for the shipment document that you selected. Fill in the filter information to select a specific certificate of supply that you want to print.  
+7. On the **Certificate of Supply** page, choose the **Print** action to print the report, or choose the **Preview** action to view it on the screen.  
+
+   > [!Note]  
+   > The **Certificate of Supply Status** field and the **Printed** field are updated for the shipment on the **Certificates of Supply** page.  
+
+8. Send the printed certificate of supply to the customer for signature.  
+
+### To update the status of a certificate of supply for a shipment  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
+2. Choose the relevant sales shipment to a customer in another EU country/region.  
+3. In the **Status** field, choose the relevant option.  
+
+   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
+
+   You can modify the date to reflect the date that you received the customer's signed certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] linking.  
+
+   If the customer doesn't return the signed certificate of supply, choose **Not Received**. You must then send the customer a new invoice that includes VAT, because the tax authority won't accept the original invoice.  
+
+To view a group of certificates, start from the **Certificates of Supply** page, and then update the information about the status of outstanding certificates as you receive them from your customers. The updated information can be useful when you want to search for all certificates that have a certain status, for example, **Required**, for which you want to update their status to **Not Received**.  
+
+### To update the status of a group of certificates of supply  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Certificates of Supply**, and choose the related link.  
+2. Filter the **Status** field to the value that you want in order to create the list of certificates that you want to manage.  
+3. To update the status information, choose **Edit List**.  
+4. In the **Status** field, choose the relevant option.  
+
+   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
+
+   You can modify the date to reflect the date that you received the signed the certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] document linking.  
+
+> [!NOTE]
+> You cannot create a new certificate of supply on the **Certificate of Supply** page when you navigate to it using this procedure. To create a certificate for a shipment that was not set up to require one, open the posted sales shipment, and use either of two procedures described earlier:  
+>
+> * To manually create a certificate of supply certificate  
+> * To print a certificate of supply.
+
+## Related information
+
+[Setting Up Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md)  
+[Report VAT to a Tax Authority](finance-how-report-vat.md)  
+[Validate a VAT Registration Number](finance-how-validate-vat-registration-number.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-cancel
 ---
 title: Unsubscribe or Remove Business Central
@@ -926,7 +2210,7 @@ ms.author: bholtorf
 ms.topic: get-started
 ms.search.keywords: SMTP, email, Office 365, connector
 ms.search.form: 1805, 9813, 9814, 1262, 1263, 8898_Primary, 8897_Primary
-ms.date: 01/23/2026
+ms.date: 03/12/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -1069,13 +2353,14 @@ You can use reports to include key information from sales, purchase, and service
 3. On a new line, in the **Report ID** field, select, for example, standard report 1306.
 4. Select the **Use for Email Body** checkbox.
 5. Choose the **Email Body Layout Description** field, and then select a layout from the list.
-6. To view or edit the layout that the email text is based on, select the layout on the **Custom Report Layouts** page, and then choose the **Export Layout** action. If you customize the layout, use the **Import Layout** action to upload the new layout.
+6. To view or edit the layout that the email text is based on, select the layout on the **Report Layouts** page, and then choose the **Export Layout** action. If you customize the layout, use the **Import Layout** action to upload the new layout.
+
     > [!NOTE]
-    > To customize a standard report layout, such as 1306, you must make a copy of the report. [!INCLUDE [prod_short](includes/prod_short.md)] will help you create a copy when you import a custom layout for a standard report. The name of your new custom report layout will be prefixed with "Copy of."
+    > To customize a standard report layout, such as 1306, you must make a copy of the report. [!INCLUDE [prod_short](includes/prod_short.md)] creates a copy when you import your own layout for a standard report and prefixes its name with "Copy of."
 7. If you want to let customers use a payment service, such as PayPal, you have to set up the service. Afterward, the PayPal information and link are inserted in the email text. To learn more, go to [Enable Customer Payments Through PayPal](sales-how-enable-payment-service-extensions.md).
 8. Choose the **OK** button.
 
-Now, when you choose, for example, the **Send** action on the **Posted Sales Invoice** page, the email body contains the document information of report 1306 preceded by styled standard text according to the report layout that you selected in step 5.
+Now, for example, when you choose the **Send** action on the **Posted Sales Invoice** page, the email body contains the document information of report 1306. The information is preceded by styled standard text according to the report layout that you selected in step 5.
 
 ## Use a substitute sender address on outbound email messages
 
@@ -11285,6 +12570,10 @@ Before you can add or delete permission sets applied to the agent, change the **
 1. Select **Agent User Settings**.
 1. Set **Language** to a supported English locale.
 
+## Next steps
+
+- [Supervise agent activities](supervise-agent-tasks.md)
+
 ## Related information
 
 [Payables Agent overview](payables-agent.md)  
@@ -12536,6 +13825,288 @@ If you post a transaction for an item, you can't delete the card because the led
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-quality-workflows
+---
+title: Quality management workflows
+description: Learn how to automate quality management processes using workflows.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.form: 
+ms.date: 03/10/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Quality management workflows
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+This article explains how to set up and use workflows to automate quality management processes.
+
+Quality Management integrates with workflows in [!INCLUDE [prod_short](includes/prod_short.md)] to automate responses to quality inspection events. Workflows can automatically run business actions when quality inspections are created, finished, or when specific conditions are met. For example, quality management workflows can:
+
+- Block and unblock lots.
+- Move inventory.
+- Create negative adjustments.
+
+## Enable workflow integration
+
+Before creating quality management workflows, ensure that workflow integration is enabled:
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Management Setup**, and then choose the related link.
+2. On the **Defaults** FastTab, turn on the **Workflow Integration Enabled** toggle.
+
+   > [!TIP]
+   > By default, the toggle is hidden. To access it, you might have to choose **Show more**.
+
+3. Configure the required journal batches for automated processes.
+
+> [!IMPORTANT]
+> If you don't enable workflow integration, quality inspection events aren't available when you configure your quality management workflows.
+
+## Typical quality workflow events
+
+The following sections describe often-used workflow events and conditions.
+
+### When events
+
+**When a Quality Inspection is Created**:
+
+- This event triggers automatically when inspection generation rules create new inspections.
+- Use the event for immediate actions, such as blocking lots when you create inspections for them.
+- The event is available for all inspection creation methods. For example, purchase receipts, production output, and manual creation.
+
+**When a Quality Inspection is Finished**:
+
+- This event triggers when inspections are completed and finalized.
+- Use the event for disposal actions based on inspection results.
+- This event is the most popular for quality workflows.
+
+### Workflow conditions
+
+**Result code conditions**:
+
+- Result code equals "PASS" for successful inspection completion.
+- Result code equals "FAIL" for failed inspection processing.
+- Result code equals "INPROGRESS" for inspections in progress.
+- Custom Result codes you configure.
+
+**Additional conditions**:
+
+- Location codes for site-specific workflows.
+- Item numbers for product-specific processing.
+- Inspection template codes for template-specific responses.
+
+## Workflow response actions
+
+The following sections describe the responses, or actions, that happen after an event.
+
+### Lot, serial, and package number blocking actions
+
+**Block the Lot (Serial, Package) in the Test**:
+
+- Creates a **Lot No. Information Card** page with the status **Blocked**. The status prevents all transactions for the lot until you manually unblock it.
+- The standard lot blocking functionality in [!INCLUDE [prod_short](includes/prod_short.md)] applies. To learn more, go to [Block items or item variants from use in sales, purchasing, service, and production](inventory-how-block-items.md).
+
+**Unblock the Lot (Serial, Package) in the Inspection**:
+
+- Removes lot blocking from previously blocked lots, and restores normal transaction abilities.
+- This action is typically used with passing inspection results.
+
+### Inventory movement actions
+
+**Move Inventory to Different Bin**:
+
+- Automatically relocates inventory based on inspection results.
+- Uses movement worksheets, movement documents, or reclassification journals.
+- Supports directed put-away and pick locations.
+
+**Create Transfer Order**:
+
+- Moves inventory between locations.
+- Useful for quarantine or rework locations.
+- You can configure the action for automatic or manual posting.
+
+### Inventory adjustment actions
+
+**Create Negative Adjustment**:
+
+- Removes inventory for disposal or destructive testing.
+- Uses item journals or warehouse item journals.
+- Supports reason codes for audit trails.
+- Can process full lots, specific quantities, or failed quantities only.
+
+### Inspection creation actions
+
+**Create Reinspection**:
+
+- Automatically generates follow-up inspections.
+- Useful for corrective action processes.
+- Can use the same or different inspection templates.
+
+**Create Internal Put-away**:
+
+- Generates a warehouse put-away for inventory staging.
+- Supports quality inspection workflows in warehouse environments.
+
+## Examples of workflow configuration
+
+The following sections provide examples of how to configure different workflows.
+
+### Block a lot when an inspection fails
+
+This sample configuration automatically quarantines lots that fail an inspection.
+
+1. **Workflow Name**: **Block Lot on Failure**
+2. **When Event**: **When a Quality Inspection is Finished**
+3. **Condition**: **Result** equals **Fail**.
+4. **Response**: Block the lot in the inspection.
+
+The following are the outcomes of this example:
+
+- Failed lots are immediately blocked from all transactions.
+- Creates a **Lot No. Information Card** page for tracking.
+- Prevents the accidental use of nonconforming materials.
+
+### Preemptive lot blocking
+
+These sample configurations block lots during inspections, and unblock them when they pass.
+
+**Blocking workflow**:
+
+1. **Workflow Name**: **Block Lot on Inspection Creation**
+2. **When Event**: **When a Quality Inspection is Created**
+3. **Condition**: None (applies to all tests)
+4. **Response**: Block the lot in the inspection.
+
+**Unblocking workflow**:
+
+1. **Workflow Name**: **Unblock Lot on Pass**
+2. **When Event**: **When a Quality Inspection is Finished**
+3. **Condition**: **Result Code** equals **"Pass"**
+4. **Response**: Unblock the lot in the inspection.
+
+The following are the outcomes of this example:
+
+- Lots are quarantined immediately when you create an inspection.
+- Only passing inspections unblock lots for normal use.
+- Prevents the use of materials you haven't inspected.
+
+### Automatic movement between bins
+
+This sample configuration moves failed items to the quarantine bin.
+
+1. **Workflow Name**: **Move Failed Items to Quarantine**
+2. **When Event**: **When a Quality Inspection is Finished**
+3. **Condition**: **Result Code** equals **"Fail"**
+4. **Response**: Move inventory to a different bin.
+5. **Details**:
+   - **Method**: Reclassification Journal
+   - **Quantity**: Entire Lot
+   - **Destination**: Quarantine bin
+   - **Post Immediately**: No (requires manual review)
+
+The following are outcomes of this example:
+
+- Failed items are automatically staged for quarantine.
+- Physical separation of conforming and nonconformant items.
+- Maintain an audit trail of disposals.
+
+### Negative adjustment for disposal
+
+This sample configuration automatically disposes of failed or destructively inspected items.
+
+1. **Workflow Name**: **Dispose Failed Items**
+2. **When Event**: **When a Quality Inspection is Finished**
+3. **Condition**: **Result Code** equals **"Fail"**
+4. **Response**: Create a negative adjustment.
+5. **Details**:
+   - **Quantity**: Failed quantity (or entire lot)
+   - **Reason Code**: **Quality Assurance**
+   - **Post Immediately**: No (review required)
+
+The following are outcomes of this example:
+
+- An automatic inventory reduction for the unrecoverable items.
+- Accurate cost accounting for quality losses.
+- An audit trail for the disposed materials.
+
+## Advanced workflow scenarios
+
+The following sections describe examples of advanced scenarios in which quality management workflows are useful.
+
+### Conditional, result-based processing
+
+You can use multiple failure types:
+
+- Create separate workflows for different failure results.
+- Use different responses based on the severity of the failure.
+- Implement escalation procedures for critical failures.
+
+You can use location-specific processing:
+
+- Create different workflows for different locations.
+- Implement location-specific quarantine procedures.
+- Meet country/regional compliance requirements.
+
+### Integration with other features
+
+You can integrate your quality management workflows with purchase returns:
+
+- Automatically create purchase returns for vendor defects.
+- Link to vendor quality performance tracking.
+- Streamline vendor corrective action processes.
+
+You can integrate your quality management workflows with production processes:
+
+- Automatically create rework orders for repairable items.
+- Control the quality of production output.
+- Enable work center quality tracking.
+
+### Requirements for batches
+
+Workflows require that you configure journal batches on the **Quality Management Setup** page:
+
+- Use **Item Journal Batch** for nonwarehouse location adjustments.
+- Use **Warehouse Item Journal Batch** for warehouse location adjustments.
+- Use **Warehouse Movement Worksheet** for directed put-away/pick movements.
+- Use **Warehouse Reclass Journal Batch** for warehouse reclassifications.
+- Use **Item Reclass Journal Batch** for nonwarehouse reclassifications.
+
+## Validate your workflow configuration
+
+The following are high-level steps to validate your workflow configuration:
+
+1. Create an inspections scenario:
+   - Generate a quality inspection through a normal business process.
+   - Verify that the workflow events trigger correctly.
+   - Confirm that the conditions evaluate correctly.
+2. Check the response actions:
+   - Verify that the intended actions happen.
+   - Review the journal entries that you created.
+   - Confirm the blocking and unblocking behavior.
+3. Business process integration:
+   - Use inspections with actual business transactions.
+   - Verify that documents post correctly.
+   - Confirm that the user experience meets your expectations.
+
+## Best practices
+
+Be diligent when you design your workflow. Start simple, with basic scenarios and gradually add complexity. Be sure to thoroughly validate your workflows in a development environment before you use them in production. Document your process and keep clear records of your workflow business rules. Also, keep an eye on performance. Regularly review your workflow runs, and maintain override capabilities for exceptions.
+
+Monitor the business effects of your workflows, and set up audit trails and approval processes. Help your users engage by ensuring that they understand the automated process, and incorporate their suggestions for process improvements.
+
+## Related information
+
+[Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
+[Processing Non-Compliant Items](qms-non-compliant-processing.md)  
+[Configuring Results](qms-configuring-grades.md)  
+[Quality Management Setup](qms-setup.md)  
+[Quality Management Overview](qms-overview.md)end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-convert-service-contracts
 ---
