@@ -1,3 +1,158 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inbound-warehouse-flow
+---
+title: Design Details - Inbound Warehouse Flow
+description: Learn how to receive items at your warehouse, and register and match them to inbound source documents.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: warehouse
+ms.date: 09/18/2023
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Design details: Inbound warehouse flow
+
+The inbound flow in a warehouse begins when items arrive in the warehouse of the company location, either received from external sources or from another company location. You can receive physical and non-inventory items. To learn more about receiving non-inventory items, go to [Post non-inventory items](#post-non-inventory-items).
+
+In principle, the process of receiving inbound orders consists of two activities:
+
+* Receive items at the dock, identify them, match them to a source document, and record the received quantity.
+* Put away items in stock, and record the place you put them.
+
+The source documents for inbound warehouse flow are:
+
+* Purchase orders  
+* Inbound transfer orders  
+* Sales return orders  
+
+> [!NOTE]
+> Production and assembly output also represent inbound source documents. Learn more about handling production and assembly output for internal processes at [Design Details: Internal Warehouse Flows](design-details-internal-warehouse-flows.md).  
+
+In [!INCLUDE[prod_short](includes/prod_short.md)], you receive items and put them away using one of four methods, as described in the following table.
+
+|Method|Inbound Process|Require Receipts|Require Put-aways|Complexity Level (Learn more at [Warehouse Management Overview](design-details-warehouse-management.md))|  
+|------------|---------------------|--------------|----------------|------------|  
+|A|Post receipt and put-away from the order line|||No dedicated warehouse activity.|  
+|B|Post receipt and put-away from an inventory put-away document||Turned on|Basic: Order-by-order.|  
+|C|Post receipt and put-away from a warehouse receipt document|Turned on||Basic: Consolidated receive/ship posting for multiple orders.|  
+|D|Post receipt from a warehouse receipt document and post put-away from a warehouse put-away document|Turned on|Turned on|Advanced|  
+
+Selecting an approach depends on your company's practices and level of organizational complexity. The following are some examples that might help you decide.
+
+* In an order-by-order warehouse environment, where most of the warehouse staff works directly with order documents, you might decide to use method A. 
+* An order-by-order warehouse that has a more complex put-away process, or where warehouse staff separates their put-away activities from the order document, might use method B.
+* Companies that need to plan the handling of multiple orders may find it helpful to use warehouse receipt documents, methods C and D.  
+
+In methods A, B, and C, receiving and putting away are combined in one step when posting documents as received. In method D, the receipt is posted first to record the increase of inventory and that items are available for sale. The warehouse worker then registers the put-away to make the items available to pick for outbound orders. 
+
+> [!NOTE]
+> While warehouse put-aways and inventory put-aways sound similar, they're different documents and are used in different processes.
+> * The inventory put-away used in method B, together with registering put-away information, also posts the receipt of the source document.
+> * The warehouse put-away used in method D can't be posted and only registers the put-away. The registration makes the items available for the further processing but doesn't post the receipt. In the inbound flow, the warehouse put-away requires a warehouse receipt.
+
+## No dedicated warehouse activity
+
+The following articles provide information about how to process receipts for source documents if you don't have dedicated warehouse activities.
+
+* [Record Purchases](purchasing-how-record-purchases.md)
+* [Transfer Orders](inventory-how-transfer-between-locations.md)
+* [Process Sales Return Orders](sales-how-process-sales-returns-orders.md)
+
+## Basic warehouse configurations  
+
+In a basic warehouse configuration, the **Require Put-away** toggle is turned on, but the **Require Receipt** toggle is turned off on the **Location Card** page for the location.
+
+The following diagram illustrates the inbound warehouse flows by document type in basic warehouse configurations. The numbers in the diagram correspond with the steps in the sections following the diagram.  
+
+:::image type="content" source="media/design_details_warehouse_management_inbound_basic_flow.png" alt-text="The basic inbound flow in a warehouse.":::
+
+### 1: Release a source document to create a request for an inventory put-away  
+
+When you receive items, release the source document, such as a purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. You can also create inventory put-away documents for individual order lines, in a push fashion, based on bins and quantities to handle.  
+
+### 2: Create an inventory put-away  
+
+On the **Inventory Put-away** page, in a pull fashion, you can get the pending source document lines based on inbound warehouse requests. In a push fashion, you can also create inventory put-away lines when you create the source document.  
+
+### 3: Post an inventory put-away  
+
+On each line for items that have been put away, partially or fully, fill in the **Quantity** field and then post the inventory put-away. Source documents that are related to the inventory put-away are posted as received.  
+
+* Positive item ledger entries are created.
+* Warehouse entries are created for locations that require a bin code on all item transactions.
+* The put-away request is deleted, if it's fully handled. For example, the **Quantity Received** field on the inbound source document line is updated.
+* A posted receipt document is created that reflects the purchase order, for example, and the received items.  
+
+## Advanced warehouse configurations  
+
+To use an advanced warehouse configuration, turn on the **Require Receipt** toggle on the Location Card page for the location. The **Require Put-away** toggle is optional.
+
+The following diagram illustrates the inbound warehouse flow by document type. The numbers in the diagram correspond with the steps in the sections following the diagram.  
+
+:::image type="content" source="media/design_details_warehouse_management_inbound_advanced_flow.png" alt-text="The advanced inbound flow in a warehouse.":::
+
+### 1: Release the source document  
+
+When you receive items, release the source document, such as the purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. The put away will contain references to the source document type and number.
+
+### 2: Create a warehouse receipt  
+
+On the **Warehouse Receipt** page, get the inbound source document lines. You can combine several source document lines in one warehouse receipt document. Fill in the **Qty. to Handle** field and select the receiving zone and bin, if necessary.  
+
+### 3: Post the warehouse receipt  
+
+Post the warehouse receipt to create positive item ledger entries. The **Quantity Received** field on the inbound source document line is updated.  
+
+If the **Require Put-away** toggle is not turned on on the location card, this is where the process stops. Otherwise, posting the inbound source document makes the items available to be put away. The put away contains references the source document type and number.  
+
+### 4: (Optional) Generate put-away worksheet lines
+
+Get warehouse put-away lines in the **Put-away Worksheet** based on posted warehouse receipts or operations that produce output. On the lines you'll put-away, specify the following information:
+
+* The bins to take items from.
+* The bins to put items in.
+* How many units to handle.
+
+The bins can be predefined by the setup of the warehouse location or the resource that performed the operation.  
+
+When all put-aways are planned and assigned to warehouse workers, generate the warehouse put-away documents. Fully assigned put-away lines are deleted from the **Put-away Worksheet**.  
+
+> [!NOTE]  
+> If the **Use Put-away Worksheet** toggle is not turned on on the location card, warehouse put-away documents are created directly based on posted warehouse receipts. In that case, this step isn't needed.  
+
+### 5: Create a warehouse put-away document
+
+Create a warehouse put-away document in a pull fashion, based on the posted warehouse receipt. Alternatively, create the warehouse put-away document and assign it to a warehouse worker in a push fashion.  
+
+### 6: Register a warehouse put-away
+
+On each line for items that have been put away, partially or fully, fill in the **Quantity** field on the **Warehouse Put-away** page, and then register the warehouse put-away.  
+
+* Warehouse entries are created for locations that require a bin code on all item transactions.
+* The warehouse put-away lines are deleted, if they're fully handled.
+* The warehouse put-away document remains open until you register the full quantity of the related posted warehouse receipt.
+* The **Qty. Put Away** field on posted warehouse receipt order lines is updated.
+
+## Related tasks
+
+The following table describes a sequence of tasks, with links to the articles that describe them.
+
+|**To**|**See**|  
+|------------|-------------|  
+|Receive items at warehouse locations with a warehouse receipt for fully or partially automated warehouse processing.|[Receive Items](warehouse-how-receive-items.md)|
+|Put away items on an order-by-order basis and post the receipt in one activity in basic warehouse configurations.|[Put Items Away with Inventory Put-aways](warehouse-how-to-put-items-away-with-inventory-put-aways.md)|  
+|Put away items received from multiple purchases, sales returns, transfers orders in an advanced warehouse configuration.|[Put Items Away with Warehouse Put-aways](warehouse-how-to-put-items-away-with-warehouse-put-aways.md)|  
+
+## Post non-inventory items
+
+[!INCLUDE [post-non-inventory-items](includes/post-non-inventory-items.md)]
+
+## Related information
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-work-item-tracking
 ---
 title: Track items with serial, lot, and package numbers
@@ -1882,7 +2037,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: get-started
 ms.search.keywords: SMTP, mail, Microsoft 365
-ms.date: 01/30/2026
+ms.date: 03/19/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -2154,7 +2309,19 @@ To learn more about the SMTP connector, go to [Set up email](admin-how-setup-ema
    |Redirect URI     |         | This URI is only relevant for [!INCLUDE [prod_short](includes/prod_short.md)] on-premises. You can customize the value, but if you do, you must update your app registration in Azure portal.     |
    |Use custom app registration| | If you want to use a custom app registration, turn on the toggle. |
 
-2. To complete the account setup, choose **Next**, and then give consent.
+1. To complete the account setup, choose **Next**, and then give consent.
+
+### Important: Admin consent and tenant selection
+
+When the consent prompt appears, sign in with an *admin account from Tenant A*, not Tenant B. The account must have one of the following roles in Tenant A:
+
+  - **Global Administrator**  
+  - **Exchange Administrator**
+
+This consent grants the application the **SMTP.SendAsApp** permission in **Tenant A’s Exchange Online**.
+
+> [!NOTE]
+> Although you do the setup in Tenant B ([!INCLUDE [prod_short](includes/prod_short.md)] tenant), the consent always applies to Tenant A, which hosts Exchange Online and the mailboxes.
 
 ## Send a test email
 
@@ -3347,19 +3514,19 @@ The contact card works just like cards for records, like items, customers, or sa
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-in-the-warehouse
 ---
-title: Design Details - Item Tracking in the Warehouse
+title: Design details - Item tracking in the warehouse
 description: Inbound and outbound warehouse documents have standard functionality for assigning and selecting item tracking numbers.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: design, item, tracking, serial number, lot number, outbound documents
-ms.date: 06/15/2021
+ms.date: 03/15/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Item Tracking in the Warehouse
+# Design details: Item tracking in the warehouse
+
 Serial number and lot number handling is primarily a warehouse task and therefore all inbound and outbound warehouse documents have standard functionality for assigning and selecting item tracking numbers.  
 
 However, because the reservation system is based on item ledger entries, warehouse activity documents that register only warehouse entries are not fully supported. Because reservations and item tracking numbers can be handled only at the location level, not at the bin and zone level, the **Item Tracking Lines** page cannot be opened from warehouse activity documents. The same applies to the **Reservation** page.  
@@ -3740,20 +3907,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-adjustment-value-entry-source-entry
 ---
-title: Posting Date on Adjustment Value Entry Compared to the Source Entry
+title: Posting date on adjustment value entry compared to the source entry
 description: Learn about scenario "Posting Date on Adjustment Value Entry versus Posting Date on entry causing the adjustment such as Revaluation or Item charge" when running the Adjust Cost - Item Entries batch job identifies.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords:
-ms.date: 09/17/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
-# Posting Date on Adjustment Value Entry Compared to the Source Entry
+# Posting date on adjustment value entry compared to the source entry
 
 This article compares the Posting Date on the Adjustment Value Entry with the Posting Date on the entry causing the running of the Adjust Cost - Item Entries batch job, in particular a Revaluation scenario and an Item Charge scenario.
 
@@ -4556,19 +4723,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-lines-window
 ---
-title: Design Details - Item Tracking Lines Page
+title: Design details - Item Tracking Lines page
 description: Read about how to manage the flow of serial and lot numbers in your inventory using the Item Tracking Lines page.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: design, inventory, item, tracking, serial number, lot number
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Item Tracking Lines Page
+
+# Design details: Item Tracking Lines page
 Item tracking records and reservation records are created in the reservation system, and their availability is calculated dynamically. Data that is entered on the **Item Tracking Lines** page is managed in a temporary version of the **Tracking Specification** table. When the page is closed, the active data is committed to the **Reservation Entry** table and the historic data is committed to the **Tracking Specification** table. For more information, see [Design Details: Active versus Historic Item Tracking Entries](design-details-active-versus-historic-item-tracking-entries.md).  
   
 Lookups from the **Serial No.** and **Lot No.** fields show availability based on both the **Item Ledger Entry** table and the **Reservation Entry** table, with no date filter. The matrix of quantity fields on the header of the **Item Tracking Lines** page dynamically displays the quantities and sums of item tracking numbers that are being entered on the lines of the page. The quantities must correspond to those of the document line, which is indicated by **0** in the **Undefined** fields in the header of the page.  
@@ -5300,18 +5467,19 @@ The following table describes a sequence of tasks, with links to the articles th
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-active-versus-historic-item-tracking-entries
 ---
-title: Design Details - Active versus Historic Item Tracking Entries
+title: Design details - Active versus historic item tracking entries
 description: When parts of a document line quantity are posted, only that quantity is transferred to the item ledger entries and its item tracking numbers.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Active versus Historic Item Tracking Entries
+# Design details: Active versus historic item tracking entries
+
 When parts of a document line quantity are posted, only that particular quantity is transferred to the item ledger entries and its item tracking numbers. However, you will want to access all relevant item tracking information directly from the active document line. That is, not only will you want to see the entries that are related to the remaining quantity, you will also want information about the units that have been posted. When you view or modify the **Item Tracking Lines** page, the collective contents of the **Tracking Specification** table (T336) and **Reservation Entry** table (T337) are presented in a temporary version of T336. This ensures that historic and active item tracking data is accessed as one.  
 
  The following table shows how T336 and T337 are used in a purchase scenario. The bold figures represent values that the user manually enters on the **Item Tracking Lines** page.  
@@ -5354,8 +5522,9 @@ When parts of a document line quantity are posted, only that particular quantity
 |**T336**|7|0|0|7|7|  
 
 ## Related information  
- [Design Details: Item Tracking](design-details-item-tracking.md)   
- [Design Details: Item Tracking Lines Page](design-details-item-tracking-lines-window.md)
+
+[Design Details: Item Tracking](design-details-item-tracking.md)   
+[Design Details: Item Tracking Lines Page](design-details-item-tracking-lines-window.md)
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -7657,13 +7826,12 @@ title: Design details - Non-deductible VAT
 description: This article provides information about non-deductible value-added tax (VAT) that's payable by a purchaser, but that isn't deductible from the purchaser's own VAT liability.
 author: altotovi
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 07/04/2023
+ms.date: 03/17/2026
 ms.author: altotovi
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Design details: Non-deductible VAT
@@ -7941,20 +8109,20 @@ Try the report here: [Moving Averages](https://businesscentral.dynamics.com?page
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-changing-costing-methods
 ---
-title: Design Details - Changing Costing Methods for Items
+title: Design details - Changing costing methods for items
 description: Learn how to assign a different costing method to an item although you have already used the item in transactions.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: costing methods, costing, item cost
-ms.search.form: 8645
-ms.date: 06/08/2021
+ms.search.form: 8645,
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
-# Design Details: Change the Costing Method for Items
+# Design details: Change the costing method for items
 
 In [!INCLUDE[prod_short](includes/prod_short.md)], you cannot change a costing method for an item after you have included the item in a transaction. For example, after you have bought or sold the item. If an incorrect costing method was assigned to the item or items, you might not discover the issue until you do your financial reporting.
 
@@ -9139,7 +9307,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-average-cost
 ---
-title: Design details - average cost
+title: Design details - Average cost
 description: The average cost of an item is calculated with a periodic weighted average.
 author: brentholtorf
 ms.author: bholtorf
@@ -9147,11 +9315,11 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords:
 ms.search.form: 8645,
-ms.date: 04/26/2024
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
-# Design details: average cost
+# Design details: Average cost
 
 The average cost of an item is calculated with a periodic weighted average. The average is based on the average cost period you have specified in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
@@ -9482,23 +9650,24 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-searching-for-dimension-combinations
 ---
-title: Design Details - Searching for Dimension Combinations | Microsoft Docs
+title: Design details - Searching for dimension combinations
 description: When you close a page after you edit a set of dimensions, Business Central evaluates whether the edited set of dimensions exists. If the set does not exist, a new set is created and the dimension combination ID is returned.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 06/08/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Searching for Dimension Combinations
+# Design details: Searching for dimension combinations
+
 When you close a page after you edit a set of dimensions, [!INCLUDE[prod_short](includes/prod_short.md)] evaluates whether the edited set of dimensions exists. If the set does not exist, a new set is created and the dimension combination ID is returned.  
 
-## Building Search Tree  
- Table 481 **Dimension Set Tree Node** is used when [!INCLUDE[prod_short](includes/prod_short.md)] evaluates whether a set of dimensions already exists in table 480 **Dimension Set Entry** table. The evaluation is performed by recursively traversing the search tree starting at the top level numbered 0. The top level 0 represents a dimension set with no dimension set entries. The children of this dimension set represent dimension sets with only one dimension set entry. The children of these dimension sets represent dimension sets with two children, and so on.  
+## Building a search tree  
+
+Table 481 **Dimension Set Tree Node** is used when [!INCLUDE[prod_short](includes/prod_short.md)] evaluates whether a set of dimensions already exists in table 480 **Dimension Set Entry** table. The evaluation is performed by recursively traversing the search tree starting at the top level numbered 0. The top level 0 represents a dimension set with no dimension set entries. The children of this dimension set represent dimension sets with only one dimension set entry. The children of these dimension sets represent dimension sets with two children, and so on.  
 
 ### Example 1  
  The following diagram represents a search tree with six dimension sets. Only the distinguishing dimension set entry is displayed in the diagram.  
@@ -9524,8 +9693,9 @@ When you close a page after you edit a set of dimensions, [!INCLUDE[prod_short](
 
  ![Example of dimension tree structure in NAV 2013.](media/nav2013_dimension_tree_example2.png "Example of dimension tree structure in NAV 2013")  
 
-### Finding Dimension Set ID  
- At a conceptual level, **Parent ID**, **Dimension**, and **Dimension Value**, in the search tree, are combined and used as the primary key because [!INCLUDE[prod_short](includes/prod_short.md)] traverses the tree in the same order as the dimension entries. The GET function (record) is used to search for dimension set ID. The following code example shows how to find the dimension set ID when there are three dimension values.  
+### Finding the dimension set ID  
+
+At a conceptual level, **Parent ID**, **Dimension**, and **Dimension Value**, in the search tree, are combined and used as the primary key because [!INCLUDE[prod_short](includes/prod_short.md)] traverses the tree in the same order as the dimension entries. The GET function (record) is used to search for dimension set ID. The following code example shows how to find the dimension set ID when there are three dimension values.  
 
 ```  
 DimSet."Parent ID" := 0;  // 'root'  
@@ -9555,8 +9725,6 @@ EXIT(DimSet.ID);
  [Dimension Set Entries Overview](design-details-dimension-set-entries-overview.md)   
  [Design Details: Table Structure](design-details-table-structure.md)   
  
-
-
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
@@ -9995,7 +10163,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking
 ---
-title: Design details - item tracking
+title: Design details - Item tracking
 description: The item tracking system provides easy handling of serial and lot numbers, which may be needed for meeting legal requirements or assist with warranty handling. 
 author: brentholtorf
 ms.topic: concept-article
@@ -10006,7 +10174,7 @@ ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ms.custom: bap-template
 ---
-# Design details: item tracking
+# Design details: Item tracking
 
 As the flow of goods in today's supply chain becomes more and more complex, the ability to keep track of items is increasingly important to the companies involved. Monitoring an item's transaction flow is a legal requirement in the business of medical and chemical supply, but other businesses may want to monitor products with warranties or expiration dates for customer service reasons.  
 
@@ -10069,19 +10237,17 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-and-reservations
 ---
-title: Design Details - Item Tracking and Reservations
+title: Design details - Item tracking and reservations
 description: This topic talks about item tracking and reservations, and describes the concepts behind the two options.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Design Details: Item Tracking and Reservations
+# Design details: Item tracking and reservations
 
 Simultaneous use of reservation and specific item tracking is uncommon, because they both create a coupling between supply and demand. Except for situations where a customer or production planner requests a specific lot, it rarely makes sense to reserve inventory items that already carry item tracking numbers for specific application. Although it is possible to reserve items that require specific item tracking, special functionality is needed to avoid availability conflicts between order processors that request the same item-tracked items.  
   
@@ -10231,15 +10397,14 @@ title: Posting date on value entries
 description: Learn how the Adjust Cost - Item Entries batch job identifies and assigns a posting date to the value entries that the batch job is about to create.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 09/17/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Posting Date on Adjustment Value Entry
+# Design details: Posting date on adjustment value entry
 
 This article provides guidance for users of the Inventory Costing functionality in [!INCLUDE[prod_short](includes/prod_short.md)], and in particular for how the **Adjust Cost - Item Entries** batch job identifies and assigns a posting date to the value entries that the batch job is about to create.
 
@@ -10255,7 +10420,7 @@ The **Adjust Cost – Item Entries** batch job assigns a posting date to the val
 
 Let’s review this process more in practice. Assume we have an Item Ledger Entry of Sale. The item was shipped on September 5, 2020 and it was invoiced the day after.  
 
-#### Item Ledger Entry
+#### Item ledger entry
 
 |Entry No.  |Item No.  |Posting Date  |Entry Type  | Document No. |Location Code  |Quantity  |Cost Amount (Actual)  |Invoiced Quantity  |Remaining Quantity  |
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
@@ -10281,7 +10446,7 @@ To assign the posting date for **Entry No. 391** the following steps were applie
 
 Let’s review the above mentioned Sale by adding setup of allowed posting date ranges.  
   
-#### Inventory Periods
+#### Inventory periods
 
 |Ending Date  |Name  |Closed  |
 |---------|---------|---------|
@@ -10300,7 +10465,7 @@ Let’s review the above mentioned Sale by adding setup of allowed posting date 
 
 The first allowed posting date is the first day in the first open period, which is September 1, 2020.  
 
-#### General Ledger Setup
+#### General ledger setup
 
 |Field|Value  |
 |---------|---------|
@@ -10314,7 +10479,6 @@ The first allowed posting date is the date stated in field **Allow Posting From*
 **Assignment of an allowed posting date**  
 
 The initial assigned Posting Date was September 6 as illustrated in step 1. However, in the second step the Adjust Cost – Item entries batch job identifies that earliest allowed Posting Date is September 10 and thereby assigns September 10 to the Adjustment Value Entry (**Entry No. 391**), below.  
-
 
 |Entry No.  |Item No.  |Posting Date  |Item Ledger Entry Type  |Entry Type  |Document No.  |Item Ledger Entry No.  |Location Code  |Item Ledger Entry Quantity  |Invoiced Quantity  |Cost Amount (Actual)  |Cost Amount (Expected)  |Adjustment  |Applies-to Entry  |Source Code  |
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
@@ -11510,21 +11674,22 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-assembly-order-posting
 ---
-title: Design Details - Assembly Order Posting
+title: Design details - Assembly order posting
 description: Assembly order posting is based on the same principles as when posting the similar activities of sales orders and production consumption/output.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Assembly Order Posting
+# Design details: Assembly order posting
+
 Assembly order posting is based on the same principles as when posting the similar activities of sales orders and production consumption/output. However, the principles are combined in that assembly orders have their own posting UI, like that for sales orders, while the actual entry posting happens in the background as direct item and resource journal postings, like that for production consumption, output, and capacity.  
 
-Similarly to production order posting, the consumed components and the used resources are converted and output as the assembly item when the assembly order is posted. For more information, see [Design Details: Production Order Posting](design-details-production-order-posting.md). However, the cost flow for assembly orders is less complex, especially because assembly cost posting only occurs once and therefore does not generate work-in-process inventory.  
+Similar to production order posting, the consumed components and the used resources are converted and output as the assembly item when the assembly order is posted. For more information, see [Design Details: Production Order Posting](design-details-production-order-posting.md). However, the cost flow for assembly orders is less complex, especially because assembly cost posting only occurs once and therefore does not generate work-in-process inventory.  
 
 The following journal postings occur during assembly order posting:  
 
@@ -13980,7 +14145,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/setup-best-practices-planning-parameters
 ---
-title: Setup best practices - planning parameters
+title: Setup best practices - Planning parameters
 description: This topic outlines best practices on how to set up selected planning parameter fields with the Planning FastTab on the item card.
 author: brentholtorf
 ms.author: bholtorf
@@ -13992,7 +14157,7 @@ ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
-# Setup best practices: planning parameters
+# Setup best practices: Planning parameters
 
 The **Planning** FastTab on the **Item Card** page is the center of a company’s supply chain. Setting the correct planning parameters is very important for cost-effective inventory control and quality customer service.  
 
@@ -19845,197 +20010,6 @@ You can use the forecast as an internal management decision-making tool that hel
 [Analyze Cash Flow](finance-analyze-cash-flow.md)  
 [Forecast your cash flow in Dynamics 365 Business Central](/training/modules/forecast-cash-flow-dynamics-365-business-central/index)  
 [Set up cash flow forecasts using Azure AI in Dynamics 365 Business Central](/training/modules/setup-cash-flow-forecasts/)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-how-to-pick-for-production
----
-title: Pick or move items for production, assembly, or projects in basic warehouse configurations
-description: When your warehouse location requires that you process picks but not shipments, use the Inventory Pick page to record that components were picked.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.service: dynamics-365-business-central
-ms.topic: how-to
-ms.date: 03/18/2025
-ms.custom: bap-template
-ms.search.forms: 9330, 931, 990008, 89, 900, 902
----
-# Pick for production, assembly, or projects in basic warehouse configurations
-
-How you pick components for production, projects, or assembly orders depends on how your warehouse is set up as a location. Learn more at [Setting Up Warehouse Management](warehouse-setup-warehouse.md).
-
-In a basic warehouse configuration for the outbound flow (pick), on the **Location Card** page for the location, activate following settings:
-
-* Production, select **Inventory Pick/Movement** in the **Prod. Consumption Whse. Handling** field.
-* Assembly, select **Inventory Movement** in the **Asm. Consumption Whse. Handling** field.
-* Project management, select **Inventory Pick** in the **Project Consumption Whse. Handling** field.
-
-Use the following documents for internal operations:
-
-* Inventory pick
-* Inventory movement
-
-## Inventory picks
-
-* When you register an inventory pick for an internal operation, such as production or a project, the consumption of the picked components is posted at the same time.
-
-* The **Bin Mandatory** toggle on the **Location Card** page is optional.
-* When you use inventory picks, the **Bin Code** field on a production order component line or project planning lines defines the *take* bin. Components are decreased in the take bin when you post consumption.
-
-## Inventory movements
-
-* Inventory movements require that you turn on the **Bin Mandatory** toggle on the **Location Card** page for the location.
-* Inventory movements only work with production order component lines and assembly order lines.
-* When you register an inventory movement for an internal operation, you only record the physical movement of the components to a bin in the operation area. You don't post consumption.
-* When you use inventory movements, the **Bin Code** field on production order component lines defines the *place* bin in the operation area. The place bin is where warehouse employees must place the components.
-* Register the consumption of the picked components separately by posting a consumption journal or assembly order.
-
-### Production
-
-Use **Inventory Pick** documents for picking production components in the flow to production.
-
-For a location that uses bins, you can extend the flow to production by using **Inventory Movement** documents. Inventory movements are especially useful for component flushing. To learn more about how component consumption is flushed from the To-Production or Open Shop Floor Bins, go to [Flushing Production Components in a Basic Warehouse Configuration](#flushing-production-components-in-a-basic-warehouse-configuration).
-
-#### Over-picking in production
-
-[!INCLUDE [manufacturing-overpicks](includes/manufacturing-overpicks.md)]
-
-### Assembly  
-
-Use **Inventory Movement** documents to move assembly components to the assembly area.
-
-> [!NOTE]
-> **Inventory Movement** documents require bins.
-
-[!INCLUDE [prod_short](includes/prod_short.md)] supports assemble-to-stock and assemble-to-order types of assembly flows. To learn more about assemble-to-order in the outbound warehouse flow, go to [Handling Assemble-to-Order Items with Inventory Picks](warehouse-how-to-pick-items-with-inventory-picks.md#handling-assemble-to-order-items-with-inventory-picks).
-
-### Project management  
-
-Use **Inventory Pick** documents to pick project components in the flow to project management.
-
-For locations that use bins, you can extend the flow to project with **Inventory Movement** documents.
-
-> [!NOTE]
-> [!INCLUDE[prod_short](includes/prod_short.md)] uses the value in the **Remaining Quantity** field on the project planning line when it creates inventory picks. To use inventory picks for projects, you must turn on the **Apply Usage Link** toggle on the **Project Card** page for the projects. This setting lets you track usage against your plan. If you don't turn on the toggle, the remaining quantity stays at **0** and the inventory pick isn't created. To learn more, go to [To set up project usage tracking](projects-how-setup-jobs.md?tabs=current-experience#to-set-up-project-usage-tracking).
-
-## Pick or move for production, assembly, and projects in a basic warehouse configuration
-
-You can create an inventory pick or inventory movement in three ways:  
-
-* From the source document itself.  
-* For several source documents at the same time by using a batch job.  
-* In two steps. Release the source document to make the source document ready for picking. Create the inventory pick or movement from the **Inventory Pick** or **Inventory Movement** documents. The inventory pick or movement are based on the source document.  
-
-### To create an inventory pick from the source document
-
-1. On the source document, which can be a production order or project, choose the **Create Inventory Put-away/Pick** action.  
-2. Select the **Create Invt. Pick** checkbox.
-3. Choose the **OK** button.
-
-### To create an inventory movement from the source document
-
-1. On the source document, which can be a production order, assembly order, or project, choose the **Create Inventory Put-away/Pick** action.  
-2. Select the **Create Invt. Movement** checkbox.
-3. Choose the **OK** button.
-
-### To create multiple inventory picks or movements with a batch job
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Create Inventory Put-away/Pick/Movement**, and then choose the related link.  
-2. On the **Warehouse Request** FastTab, use the **Source Document** and **Source No.** fields to filter on types of documents or ranges of document numbers. For example, you might create picks only for productions orders.
-3. On the **Options** FastTab, turn on the **Create Invt. Pick** or **Create Invt. Movement** toggles.
-4. Choose the **OK** button.
-
-### To create inventory picks or movements in two steps
-
-To pick or move components for source documents in two steps, you must release the source document to make it ready for picking. Release source documents for internal operations in the following ways.  
-
-|Source Document|Release Method|  
-|---------------------|--------------------|  
-|Production Order|On the **Planned Production Order** page, change the status of an order to **Released**, or use the **Released Production Order** page to create a released production order.|  
-|Assembly Order|Change status of an assembly order to **Released**.|
-|Projects | Change a project's status to **Open**, or create project with status Open right away.|  
-
-A warehouse employee assigned to picking items can create an inventory put-away document for the source document.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Picks** or **Inventory Movement**, and then choose the related link.  
-2. Choose the **New** action.  
-3. In the **Source Document** field, select the type of source document that the put-away is for.
-
-    > [!NOTE]
-    > You can't use **Inventory Pick** documents for picking assembly components.
-4. In the **Source No.** field, select the source document.  
-5. Alternatively, choose the **Get Source Document** action to select the document from a list of inbound source documents that are ready for picking at the location.  
-6. Choose the **OK** button to fill the pick or movement lines according to the selected source document.  
-
-## To record the inventory pick
-
-1. On the **Inventory Pick** page, open the document to record a pick for.  
-2. In the **Bin Code** field on the pick lines, the bin where the items must be picked from the bin where the item is available. You can change the bin if needed.
-3. Perform the pick, and then enter the pick quantity in the **Qty. to Handle** field.
-
-    If you must pick the items for a line from more than one bin, for example because a bin doesn't contain the full quantity, use the **Split Line** action on the **Lines** FastTab. The action creates a line for the remaining quantity to handle.  
-4. Choose the **Post** action.  
-
-The following things happen during the posting process:
-
-* Post the consumption of the source document lines that were picked.
-* If the location uses bins, posting creates warehouse entries to post the changes to the bin quantity.
-
-[!INCLUDE [preview-posting-warehouse](includes/preview-posting-warehouse.md)]
-
-## To record the inventory movement
-
-1. On the **Inventory Movement** page, open the document to record a movement for.  
-2. In the **Bin Code** field on the movement lines, the bin to pick from is suggested based on the item's default bin and availability. You can change the bin if needed.  
-3. Perform the move, and then enter the moved quantity in the **Qty. to Handle** field. The value on the Take and the Place lines must be the same. Otherwise, you can't register the movement.
-
-    If you must take the items for a line from more than one bin, for example because a bin doesn't contain the full quantity, use the **Split Line** action on the **Lines** FastTab. The action creates a line for the remaining quantity to handle.  
-4. Choose the **Register Invt. Movement** action.  
-
-The following things happen during the posting process:
-
-* Warehouse entries now indicate that the components are in the bins specified on the source document order lines. For example, the assembly order, production component, or project planning line.
-
->[!NOTE]
-> Unlike when you move components with inventory picks, consumption isn't posted when you register an inventory movement. You register consumption as a separate step by posting the source document.
-
-## Flushing production components in a basic warehouse configuration
-
-Flushing methods affect the flow of components in production. Learn more at [Flush Components According to Operation Output](production-how-to-flush-components-according-to-operation-output.md). Depending on the flushing method you select, you can pick components for production in the following ways:
-
-* Use an **Inventory Pick** document to record the pick for items that use the **Pick + Manual** flushing method. When you register an inventory pick, the consumption of the picked components is posted.
-* Use an **Inventory Movement** document without a reference to a source document or other ways to record the movement of components that use the **Manual** flushing method. You must register consumption separately. Learn more at [Batch Post Production Consumption](production-how-to-post-consumption.md).
-
-### Example
-
-You have a production order for 15 PCS of item SP-SCM1004. Some of the items on the component list must be flushed manually in a consumption journal, and other items can be picked and flushed automatically using the **Pick + Backward** flushing method.  
-
-The following steps provide an example of the actions that different people take and the related responses:  
-
-1. The shop floor supervisor releases the production order. Items with **Forward** flushing method and no routing link are deducted from the open shop floor bin.  
-2. The shop floor supervisor chooses the **Create Inventory Put-away/Pick** action on the production order and turns on the **Create Invt. Pick** and **Create Invt. Movement** toggles. An inventory pick document is created for items with **Manual** flushing method, and an inventory movement is created for items with **Pick + Backward** and **Pick + Forward** flushing methods.
-3. The warehouse manager assigns the picks and movements to a warehouse employee.
-4. The warehouse employee picks the items from the appropriate bins and places them in the To-Production bin or in the bin specified on the inventory movement. The bin can be a work center or machine center bin.  
-5. The warehouse employee posts the pick. The quantity is deducted from the bins.
-6. The warehouse employee posts the movement. The quantity is deducted from the pick bins and added to the consumption bin. The **Qty. Picked** field on the component list for all picked items is updated.  
-7. The machine operator informs the production manager that the end items are finished.  
-8. The shop floor supervisor uses the output journal or production journal to post the output. The quantity of component items that use **Pick + Forward** or **Pick + Backward** flushing methods with routing links is deducted from the To-Production bin.
-9. The production manager changes the status of the production order to **Finished**. The quantity of component items that use **Backward** flushing method is deducted from the open shop floor bin, and the quantity of component items that use **Pick + Backward** flushing method and no routing link is deducted from the To-Production bin.  
-
- The following illustration shows when the **Bin Code** field on the component list is filled according to your location or machine/work center setup.  
-
-:::image type="content" source="media/binflow.png" alt-text="Overview of when and how the Bin Code field is filled in.":::
-
-## Related information
-
-[Inventory](inventory-manage-inventory.md)  
-[Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
-[Assembly Management](assembly-assemble-items.md)  
-[Warehouse Management Overview](design-details-warehouse-management.md)
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

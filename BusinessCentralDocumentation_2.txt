@@ -2874,19 +2874,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-cost-adjustment
 ---
-title: Design Details - Cost Adjustment
+title: Design details - Cost adjustment
 description: Cost adjustment forwards cost changes from cost sources to cost recipients according to an item’s costing method, to provide correct inventory valuation.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords:
-ms.date: 06/14/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
 
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Design Details: Cost Adjustment
+# Design details: Cost adjustment
 
 The main purpose of cost adjustment is to forward cost changes from cost sources to cost recipients, according to an item’s costing method, to provide correct inventory valuation.  
 
@@ -2903,7 +2903,7 @@ The following are secondary purposes, or functions, of cost adjustment:
 
 Inventory costs must be adjusted before the related value entries can be reconciled with the general ledger. For more information, see [Design Details: Reconciliation with the General Ledger](design-details-reconciliation-with-the-general-ledger.md).  
 
-## Detecting the Adjustment
+## Detecting the adjustment
 
 The task of detecting if cost adjustment should occur is primarily performed by the Item Jnl.-Post Line routine, while the task of calculating and generating cost adjustment entries is performed by the **Adjust Cost – Item Entries** batch job.  
 
@@ -2913,21 +2913,21 @@ To be able to forward costs, the detection mechanism determines which sources ha
 * Average Cost Adjustment Entry Point  
 * Order Level  
 
-### Item Application Entry
+### Item application entry
 
 This detection function is used for items that use FIFO, LIFO, Standard, and Specific costing methods and for fixed applications scenarios. The function works as follows:  
 
 * Cost adjustment is detected by marking the source item ledger entries as *Applied Entry to Adjust* whenever an item ledger entry or value entry is posted.  
 * Cost is forwarded according to the cost chains that are recorded in the **Item Application Entry** table.  
 
-### Average Cost Adjustment Entry Point
+### Average cost adjustment entry point
 
 This detection function is used for items that use the Average costing method. The function works as follows:  
 
 * Cost adjustment is detected by marking a record in the **Avg. Cost Adjmt. Entry Point** table whenever a value entry is posted.  
 * Cost is forwarded by applying the costs to value entries with a later valuation date.  
 
-### Order Level
+### Order level
 
 This detection function is used in conversion scenarios, production and assembly. The function works as follows:  
 
@@ -2940,7 +2940,7 @@ The Order Level function is used to detect adjustments in assembly posting. The 
 
 For more information, see [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md).  
 
-## Manual versus Automatic Cost Adjustment
+## Manual versus automatic cost adjustment
 
 Cost adjustment can be performed in two ways:  
 
@@ -2955,7 +2955,7 @@ Regardless if you run the cost adjustment manually or automatically, the adjustm
 
 The new adjustment and rounding value entries have the posting date of the related invoice. Exceptions are if the value entries fall in a closed accounting period or inventory period or if the posting date is earlier than the date in the **Allow Posting From** field on the **General Ledger Setup** page. If this occurs, the batch job assigns the posting date as the first date of the next open period.  
 
-## Adjust Cost - Item Entries Batch Job
+## Adjust dost - Item Entries batch job
 
 When you run the **Adjust Cost - Item Entries** batch job, you have the option to run the batch job for all items or for only certain items or categories.  
 
@@ -3018,7 +3018,7 @@ Later, you post a related purchase item charge for 2.00 LCY invoiced on 02-10-20
 |01-15-20|[Inventory Account]|2130|-2.00|7|  
 |01-15-20|[COGS Account]|7290|2.00|8|  
 
-## Automatic Cost Adjustment
+## Automatic cost adjustment
 
 To set up cost adjustment to run automatically when you post an inventory transaction, use the **Automatic Cost Adjustment** field on the **Inventory Setup** page. This field enables you to select how far back in time from the current work date that you want automatic cost adjustment to be performed. The following options exist.  
 
@@ -3710,14 +3710,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-adjustment-value-entry-allowed-posting-dates
 ---
-title: Error Message "Posting Date is not within your range of allowed posting dates"
+title: Error message "Posting Date is not within your range of allowed posting dates"
 description: Resolve the error behind the message "Posting date is not within your range of allowed posting dates" when running the Adjust Cost - Item Entries batch job.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords:
-ms.date: 05/24/2024
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -3780,6 +3780,262 @@ Assigning a wider date range where you allow posting on the **Inventory Period**
 [Design Details: Item Application](design-details-item-application.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ai-in-bc
+---
+title: AI in Business Central
+description: Get an overview of the powerful AI capabilities in Business Central.
+author: jswymer 
+ms.author: jswymer 
+ms.reviewer: jswymer
+ms.topic: overview 
+ms.date: 03/18/2026
+ms.custom: bap-template 
+ms.collection:
+  - bap-ai-copilot
+---
+<!--[!INCLUDE[ai-preview](includes/ai-preview.md)]-->
+
+# AI in Business Central
+
+![Shows the icon for chat with Copilot pane with callouts](media/bcaibanner.png)
+
+This article gives a quick tour of AI in Business Central, covering Copilot and agent capabilities that help you streamline your processes and free up time for what is most impactful to your business. Each section explains what a capability does at a glance and links to detailed docs and AI FAQs so you can decide where it fits in your workflows.
+
+**Copilot** is an AI-powered assistant that helps you work more efficiently by sparking creativity, boosting productivity, and eliminating tedious tasks. Copilot works collaboratively with you&mdash; you initiate actions, and Copilot provides suggestions, analysis, and assistance to help you complete them faster. Chat with Copilot at any time, or look for the Copilot icon on Business Central pages for specific things it can help with.
+
+**Agents** are autonomous AI workers that can independently handle tasks with minimal human input. They automate specific processes, becoming a valuable member of the team where their work is transparent, reviewable and keeps people in the loop as work progresses. Agents are ideal for automating tedious, repetitive tasks or work that must happen around the clock, such as processing invoices or generating orders from emails.
+
+**Benefits** of using AI in Business Central include:
+
+- Eliminate tedious tasks, freeing up time for what is most impactful to your business.
+- You won’t need to transfer your data to other unmanaged AI apps and risk your company data.
+- Seamlessly integrated into your workflows and safely connected to your data.
+- Designed for work and with the privacy, safety, and compliance that businesses expect, and built on Microsoft's Responsible AI principles.
+- Makes Business Central easier to learn and use, and accessible to more people.
+
+Check for [availability in your country/region and preferred language](copilot-agents-region-language-availability.md), or feature documentation to learn which features are currently in preview or have specific license requirements.
+
+## AI for everyone
+
+No matter your role, task, or the industry you work in, these Copilot features are ready to help you get work done.
+
+### Chat
+
+Chat with Copilot to find your company data or learn how to do things in Business Central. With just a few words, Copilot will quickly locate the records you're looking for and provide links to get to the details, and will help you understand fields, processes and features of Business Central, including those from your add-on apps.
+
+[Video](https://go.microsoft.com/fwlink/?linkid=2250609)
+
+**Learn more in:**
+
+- [Chat with Copilot](chat-with-copilot.md)
+- [Responsible AI FAQs Chat with Copilot](faqs-chat-with-copilot.md)
+
+### Analysis assist
+
+Use natural language to transform a list of records into a more meaningful layout, so that you can make data-driven decisions. Copilot helps you arrange raw data into analysis views with grouping, pivots, filters and totals, without having to leave Business Central.
+
+[Video](https://www.youtube.com/watch?v=ofq4OBTuPvE)
+
+**Learn more in:**
+
+- [Analyze data in lists with Copilot](analysis-assist.md)
+- [Responsible AI FAQs for analysis assist (preview)](faqs-analysis-assist.md)
+
+### Summarize
+
+Copilot provides quick insights, summarizing a record into a few key points tailored to your role, and displaying them automatically right alongside your data. Summaries help you understand what’s urgent and important, so you can grasp context and act faster without having to comb through fields or FactBoxes, and providing inline links to quickly get to the details.
+
+[Video](https://www.youtube.com/watch?v=MfdNppomGJE&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=6)
+
+**Learn more in:**
+
+- [Summarize with Copilot](summarize-with-copilot.md)
+- [Responsible AI FAQs for Summarize (preview)](faqs-summarize.md)
+
+### Autofill
+
+Reduce tedious data entry by getting suggestions for filling in fields, so all you need to do is review and choose what to keep. Copilot makes suggestions based on your company data, uses AI to generate some values, or even searches the web to fill in the blanks. Autofill is available when creating or modifying records in card and document pages, such as sales orders, items, and also custom pages.
+
+[Video](https://www.youtube.com/watch?v=EAG0lzm9uB4&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=7)
+
+**Learn more in:**
+
+- [Autofill with Copilot](autofill-fields-with-copilot.md)
+- [Responsible AI FAQs for Autofill (preview)](faqs-autofill.md)
+
+## AI for finance
+
+Whether you're in Accounts Payable or Accounts Receivable, there's AI to help you eliminate those tedious tasks.
+
+### Payables Agent
+
+Payables Agent streamlines accounts payable by monitoring your company mailbox for incoming vendor invoices, extracting the details, matching them to purchase orders and receipts, proposing posting accounts for unmatched lines, and routing exceptions, reducing manual data entry and speeding up invoice processing around the clock.
+
+[Video](https://youtu.be/uThNFjsjZBc?si=9GJ4iy4oYi2Ga8UX)
+
+**Learn more in:**
+
+- [Payables Agent](payables-agent.md)
+- [Responsible AI FAQs for Payables Agent](faqs-payables-agent.md)
+
+### E-document matching
+
+Copilot's e-document matching helps you map vendor e-invoices to purchase orders and lines, proposing matches and flagging exceptions so you can process payables faster and with fewer errors.
+
+[Video](https://www.youtube.com/watch?v=CoQH7Z-leVE) 
+
+**Learn more in:**
+
+- [Map e-documents to purchase order lines with Copilot](map-edocuments-with-copilot.md)
+- [Responsible AI FAQs for e-document matching (preview)](responsible-ai-overview.md)
+
+### Bank account reconciliation assist
+
+Copilot makes periodic reconciliation of your bank accounts much easier, by using AI to propose matches between bank statement transactions and ledger entries and to suggest posting accounts for unmatched lines.
+
+[Video](https://www.youtube.com/watch?v=4Te11l2BxmQ)
+
+**Learn more in:**
+
+- [Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md)
+- [Responsible AI FAQs for bank reconciliation assist](faqs-bank-reconciliation.md)
+
+### Finance solution in Microsoft 365 Copilot
+
+Formerly Copilot for Finance, this role-based solution for Copilot brings AI assistance to financial processes like variance explanation, collections, and payment matching - all within your Microsoft 365 applications. If your organization uses it alongside Business Central, you can accelerate close activities and reduce manual review; see the documentation for setup and availability. 
+
+**Learn more in:**
+
+- [Finance solution in Microsoft 365 Copilot overview (external)](/copilot/finance/)
+- [Responsible AI FAQs for Finance (external)](/copilot/finance/responsible-ai/responsible-ai-overview)
+
+## AI for inventory and supply chain management
+
+### Item substitute suggestions
+
+Copilot analyzes product data to propose compatible alternatives that show up when items are out of stock or discontinued, helping sales and service teams keep orders moving with suitable replacements.
+
+[Video](https://www.youtube.com/watch?v=4bTtvhjPjFE&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=8)
+
+**Learn more in:**
+
+- [Suggest substitute items with Copilot](suggest-item-substitutions-copilot.md)
+- [Responsible AI FAQ for suggest item substitutions](faq-suggest-item-substitutions-with-copilot.md)
+
+### Suggest gas emissions in sustainability journals 
+
+For greenhouse gas (GHG) emissions, Copilot estimates total emissions from descriptions and input parameters and adjusts emission factors for future use.
+
+[Video](https://www.youtube.com/watch?v=bHXEbtsx0JY) 
+
+**Learn more in:**
+
+- [Suggest gas emissions in sustainability journals with Copilot](/dynamics365/release-plan/2025wave2/smb/dynamics365-business-central/suggest-gas-emissions-sustainability-journals-)
+
+## AI for sales, customer service, and marketing
+
+### Sales Order Agent
+
+The Sales Order Agent automates sales orders by handling customer requests via email. From an email requesting a quote, the agent identifies the contact in Business Central, finds the request, and generates a quote for you to review and send. When the contact confirms the quote, the agent converts the quote into an order.
+
+[Video](https://go.microsoft.com/fwlink/?linkid=2356596)
+
+**Learn more in:**
+
+- [Sales Order Agent](sales-order-agent.md)
+- [Responsible AI FAQs for Sales Order Agent](faqs-sales-order-taker-agent.md)
+
+### Sales line suggestions
+
+Write a few words, paste in a conversation or upload a file, and Copilot will identify the matching line items to add to a quote or order, helping you build complete, accurate sales documents faster. 
+
+[Video](https://www.youtube.com/watch?v=qmGxeq5FJis)
+
+**Learn more in:**
+
+- [Suggest lines on sales documents with Copilot](sales-suggest-sales-lines-with-copilot.md)
+- [Responsible AI FAQ for sales line suggestions](faq-sales-suggest-sales-lines-with-copilot.md)
+
+### Marketing text suggestions
+
+Copilot drafts compelling product descriptions for your items based on your tone preferences and attributes already in Business Central, giving you on-brand copy you can review and refine. If you're using the Shopify add-on to Business Central, you can publish marketing copy straight to your online store.
+
+[Video](https://www.youtube.com/watch?v=0b6e7ROHgpk&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=10)
+
+**Learn more in:**
+
+- [Create marketing text with Copilot](item-marketing-text.md)
+- [Responsible AI FAQs for marketing text suggestions](faqs-marketing-text.md)
+
+## AI for company setup 
+
+Whether you’re onboarding to Business Central for the first time, or expanding to new branches or subsidiaries, Copilot helps you get to doing business faster. 
+
+### Number series suggestions
+
+Number series suggestions helps you quickly set up consistent, collision-free numbering for documents and master records. Copilot proposes prefixes, formats, and lengths based on your existing data and setup conventions, so you can standardize numbering and avoid manual errors.
+
+[Video](https://www.youtube.com/watch?v=2Tv_Nlh1jlo&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=9)
+
+**Learn more in:**
+
+- [Suggest number series with Copilot](suggest-number-series-copilot.md)
+- [Responsible AI FAQ for number series suggestions](faq-suggest-number-series-with-copilot.md)
+
+## Other AI and machine learning features
+
+Business Central also includes various features that do not use generative AI, but use other AI models to help accomplish specific tasks. 
+
+### Search for pages and reports
+
+Navigate faster across Business Central's rich catalog of reports and pages by typing what you are looking for in your own words: the built-in search feature uses AI to semantically match the meaning of your search text with available pages and reports.
+
+**Learn more in:**
+
+- [Finding pages and information with Tell Me](ui-search.md)
+
+### Inventory forecasting  
+
+Inventory forecasting predicts future demand so you can plan replenishment, avoid stockouts, and reduce excess inventory.
+
+[Video](https://www.youtube.com/watch?v=mupRf0CAcvE&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=5)
+
+**Learn more in:**
+
+- [Inventory Forecasting (Power BI report)](inventory-powerbi-inventory-forecasting.md)
+
+### Late payment prediction  
+
+Late payment prediction scores open invoices to identify which are likely to be paid late, helping you prioritize collections and adjust terms proactively.
+
+[Video](https://www.youtube.com/watch?v=YL50nOTAPIY)
+
+**Learn more in:**
+
+- [Late payment prediction extension](ui-extensions-late-payment-prediction.md)
+
+### Cash flow analysis  
+
+Cash flow analysis projects cash inflows and outflows using historical data and current documents, giving you a forward-looking view to manage liquidity.
+
+[Video](https://www.youtube.com/watch?v=gsq5OS-krUY&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=3)
+
+**Learn more in:**
+
+- [Analyze cash flow in your company](finance-analyze-cash-flow.md)
+
+## Didn't find what you're looking for?
+
+If these AI features aren't sufficient to support the unique needs of your business, find [AI-powered add-ons for Business Central on Microsoft Marketplace](https://go.microsoft.com/fwlink/?linkid=2357012), or engage with your partner to [build your own](https://aka.ms/BCStartCodingWithAILearn).
+
+
+## Related information
+
+[Frequently asked questions about Copilot](copilot-overview.md)  
+[Configure Copilot and AI capabilities](enable-ai.md)  
+[Copilot data security and privacy](/dynamics365/faqs-copilot-data-security-privacy?toc=/dynamics365/business-central/toc.json)
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-suggest-sales-lines-with-copilot
@@ -4882,13 +5138,13 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: design, replenishment, reordering
-ms.date: 08/06/2024
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 
-# Design details: reservation, order tracking, and action messaging
+# Design details: Reservation, order tracking, and action messaging
 
 The comprehensive reservation system includes the interrelated and parallel features of Order Tracking and Action Messaging.  
 
@@ -7497,7 +7753,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords:
-ms.date: 06/10/2025
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -9410,18 +9666,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-central-concepts-of-the-planning-system
 ---
-title: Design Details Central Concepts of the Planning System
+title: Design details - central concepts of the planning system
 description: Planning suggests actions for the user to take based on the demand/supply situation and the items' planning parameters.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: concept-article
-ms.date: 01/25/2023
+ms.date: 03/17/2026
 ms.custom: bap-template
 
 ---
-# Design Details: Central Concepts of the Planning System
+# Design details: central concepts of the planning system
 
 The planning functions are contained in a batch project that first selects the relevant items and period to plan for. Then, according to each item's low-level code (BOM position), the batch job calls a code unit that calculates a supply plan. The code unit balances supply-demand sets and suggests actions for the user to take. The suggested actions appear as lines in the planning worksheet or the requisition worksheet.  
 
@@ -10795,13 +11051,13 @@ description: To reconcile inventory and capacity ledger entries with the general
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 08/15/2025
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
-# Design details: accounts in the general ledger
+# Design details: Accounts in the general ledger
 
 To reconcile inventory and capacity ledger entries with the general ledger, the related value entries are posted to different accounts in the general ledger. For more information, see [Design Details: Reconciliation with the General Ledger](design-details-reconciliation-with-the-general-ledger.md).  
 
@@ -11173,19 +11429,19 @@ ms.service: dynamics-365-business-central
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-periods
 ---
-title: Design Details - Inventory Periods
+title: Design details - Inventory periods
 description: Inventory Periods helps avoid problems with balances and stock valuations by opening or closing inventory periods to limit posting in a set period of time.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Inventory Periods
+# Design details: Inventory periods
+
 Backdated transactions or cost adjustments often affect balances and stock valuations for accounting periods that may be considered closed. This can have adverse effects on accurate reporting, especially within global corporations. The Inventory Periods feature can be used to avoid such problems by opening or closing inventory periods to limit posting in a set period of time.  
 
  An inventory period is a period of time, defined by an ending date, in which you post inventory transactions. When you close an inventory period, no value changes can be posted in the closed period. This includes new value postings, expected or invoiced postings, changes to existing values, and cost adjustments. However, you can still apply to an open item ledger entry that falls in the closed period. For more information, see [Design Details: Item Application](design-details-item-application.md).  
@@ -15537,19 +15793,19 @@ Try the report here: [Daily Purchases](https://businesscentral.dynamics.com?page
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/setup-best-practices-costing-method
 ---
-title: Setup Best Practices - Costing Method
+title: Setup best practices - Costing method
 description: The Costing Method on the item card defines item's cost flow is recorded and whether an actual or budgeted value is capitalized and used in the cost calculation.
 author: brentholtorf
 ms.topic: best-practice
 ms.devlang: al
 ms.search.form: 30, 31
-ms.date: 04/01/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
 
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Setup Best Practices: Costing Method
+# Setup best practices: Costing method
 
 The **Costing Method** on the item card defines item's cost flow is recorded and whether an actual or budgeted value is capitalized and used in the cost calculation.  
 
@@ -17936,18 +18192,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-and-planning
 ---
-title: Design details - Item tracking and planning | Microsoft Docs
+title: Design details - Item tracking and planning
 description: Because they are stored in the reservation system, item tracking numbers are fully coordinated with order tracking records.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/24/2024
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
+
 # Design details: Item tracking and planning
+
 Because they are stored in the reservation system, item tracking numbers are fully coordinated with order tracking records. This means that items with order tracking records can be assigned item tracking numbers. Conversely, items that have item tracking numbers can become order tracking records. For more information, see [Design Details: Item Tracking Design](design-details-item-tracking-design.md).
 
 For more information about the integrated systems, see [Design Details: Reservations, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md).
@@ -23732,7 +23990,7 @@ ms.reviewer: bholtorf
 ms.topic: best-practice
 ms.devlang: al
 ms.search.keywords:
-ms.date: 06/13/2024
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 
 ---
@@ -24265,24 +24523,25 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-zero-level-open-item-ledger-entries
 ---
-title: Inventory Zero Open Item Ledger Entries
+title: Inventory zero open item ledger entries
 description: This article addresses an issue where the inventory level is zero although open item ledger entries exist.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Known Item Application Issue
+# Design details: Known item application issue
+
 This article addresses an issue where the inventory level is zero although open item ledger entries exist in  [!INCLUDE[prod_short](includes/prod_short.md)].  
 
 The article starts by listing typical symptoms of the issue, followed by the basics of item application to support the described reasons for this issue. At the end of the article is a workaround to address such open item ledger entries.  
 
-## Symptoms of the Issue  
+## Symptoms of the issue  
+
  Typical symptoms of the issue with zero inventory although open item ledger entries exist are the following:  
 
 -   The following message when you try to close an inventory period: “The inventory cannot be closed because there is negative inventory for one or more items.”  
@@ -24296,32 +24555,35 @@ The article starts by listing typical symptoms of the issue, followed by the bas
      |333|01/28/2018|Sale|Sales Shipment|102043|TEST|BLUE|-1|-10|-1|-1|Yes|  
      |334|01/28/2018|Sale|Sales Shipment|102043|TEST|BLUE|1|10|1|1|Yes|  
 
-## Basics of Item Application  
- An item application entry is created for every inventory transaction to link the cost recipient to its cost source so that the cost can be forwarded according to the costing method. For more information, see [Design Details: Item Application](design-details-item-application.md).  
+## Basics of item application  
 
--   For an inbound item ledger entry, the item application entry is created when the item ledger entry is created.  
+An item application entry is created for every inventory transaction to link the cost recipient to its cost source so that the cost can be forwarded according to the costing method. For more information, see [Design Details: Item Application](design-details-item-application.md).  
 
--   For an outbound item ledger entry, the item application entry is created when the item ledger entry is posted, IF there is an open inbound item ledger entry with available quantity that it can apply to. If there is no open inbound item ledger entry that it can apply to, then the outbound item ledger entry remains open until an inbound item ledger entry that it can apply to is posted.  
+- For an inbound item ledger entry, the item application entry is created when the item ledger entry is created.  
 
- There are two types of item application:  
+- For an outbound item ledger entry, the item application entry is created when the item ledger entry is posted, IF there is an open inbound item ledger entry with available quantity that it can apply to. If there is no open inbound item ledger entry that it can apply to, then the outbound item ledger entry remains open until an inbound item ledger entry that it can apply to is posted.  
 
--   Quantity Application  
+There are two types of item application:  
 
--   Cost Application  
+- Quantity Application  
 
-### Quantity Application  
- Quantity applications are made for all inventory transactions and are created automatically, or manually in special processes. When made manually, quantity applications are referred to as fixed application.  
+- Cost Application  
 
- The following diagram shows how quantity applications are made.  
+### Quantity application  
+
+Quantity applications are made for all inventory transactions and are created automatically, or manually in special processes. When made manually, quantity applications are referred to as fixed application.  
+
+The following diagram shows how quantity applications are made.  
 
 ![Flow of cost adjustment from purchase to sale.](media/helene/TechArticleInventoryZero2.png "Flow of cost adjustment from purchase to sale")
 
- Notice above that item ledger entry 1 (Purchase) is both the supplier of the item and the cost source to the applied item ledger entry, item ledger entry 2 (Sale).  
+Notice above that item ledger entry 1 (Purchase) is both the supplier of the item and the cost source to the applied item ledger entry, item ledger entry 2 (Sale).  
 
 > [!NOTE]  
->  If the outbound item ledger entry is valued by average cost, then the applied inbound item ledger entry is not the unique cost source. It merely plays a part in the calculation of the average cost of the period.  
+> If the outbound item ledger entry is valued by average cost, then the applied inbound item ledger entry is not the unique cost source. It merely plays a part in the calculation of the average cost of the period.  
 
-### Cost Application  
+### Cost application  
+
 Cost applications are only created for inbound transactions where the **Appl.-from Item Entry** field is filled to provide a fixed application. This typically happens in connection with a sales credit memo or an undo shipment scenario. The cost application ensures that the item re-enters inventory with the same cost as when it was shipped.  
 
 The following diagram shows how cost applications are made.  
@@ -24333,85 +24595,89 @@ The following diagram shows how cost applications are made.
 
  Notice above that inbound item ledger 3 (Sales Return) is a cost recipient for the original outbound item ledger entry 2 (Sale).  
 
-## Illustration of a Basic Cost Flow  
- Assume a complete cost flow where an item is received, is shipped and invoiced, is returned with exact\-cost reversal, and is shipped again.  
+## Illustration of a basic cost flow  
 
- The following diagram illustrates the cost flow.  
+Assume a complete cost flow where an item is received, is shipped and invoiced, is returned with exact\-cost reversal, and is shipped again.  
+
+The following diagram illustrates the cost flow.  
 
 ![Flow of cost adjustment from sale to sales return.](media/helene/TechArticleInventoryZero4.png "Flow of cost adjustment from sale to sales return")
 
- Notice above that the cost is forwarded to item ledger entry 2 (Sale), then to item ledger entry 3 (Sales Return), and finally to item ledger entry 4 (Sale 2).  
+Notice above that the cost is forwarded to item ledger entry 2 (Sale), then to item ledger entry 3 (Sales Return), and finally to item ledger entry 4 (Sale 2).  
 
-## Reasons for the Issue  
- The issue with zero inventory although open item ledger entries exist can be caused by the following scenarios:  
+## Reasons for the issue  
 
--   Scenario 1: A shipment and invoice is posted although the item is not available. The posting is then exact-cost reversed with a sales credit memo.  
+The issue with zero inventory although open item ledger entries exist can be caused by the following scenarios:  
 
--   Scenario 2: A shipment is posted although the item is not available. The posting is then undone with the Undo Shipment function.  
+- Scenario 1: A shipment and invoice is posted although the item is not available. The posting is then exact-cost reversed with a sales credit memo.  
 
- The following diagram illustrates how item applications are made in both scenarios.  
+- Scenario 2: A shipment is posted although the item is not available. The posting is then undone with the Undo Shipment function.  
+
+The following diagram illustrates how item applications are made in both scenarios.  
 
 ![Flow of cost adjustment goes in both directions.](media/helene/TechArticleInventoryZero6.png "Flow of cost adjustment goes in both directions")  
 
- Notice above that a cost application is made (represented by the blue arrows) to ensure that item ledger entry 2 (Sales Return) is assigned the same costs as the item ledger entry that it reverses, item ledger entry 1 (Sale 1). However, a quantity application (represented by the red arrows) is not made.  
+Notice above that a cost application is made (represented by the blue arrows) to ensure that item ledger entry 2 (Sales Return) is assigned the same costs as the item ledger entry that it reverses, item ledger entry 1 (Sale 1). However, a quantity application (represented by the red arrows) is not made.  
 
- Item ledger entry 2 (Sales Return) cannot be both a cost recipient of the original item ledger entry and at the same time be a supplier of items and their source of costs. Therefore, the original item ledger entry 1 (Sale 1) remains open until a valid source appears.  
+Item ledger entry 2 (Sales Return) cannot be both a cost recipient of the original item ledger entry and at the same time be a supplier of items and their source of costs. Therefore, the original item ledger entry 1 (Sale 1) remains open until a valid source appears.  
 
-## Identifying the Issue  
- To find out if the open item ledger entries are created, do as follows for the respective scenario:  
+## Identifying the issue  
 
- For scenario 1, identify the issue as follows:  
+To find out whether the open item ledger entries are created, do as follows for the respective scenario:  
 
--   In the **Posted Sales Credit Memo** or **Posted Return Receipt** page, look up from the **Appl.\-from Item Entry** field to see if the field is populated, and in that case to which item ledger entry the return receipt is cost applied.  
+For scenario 1, identify the issue as follows:  
 
- For scenario 2, identify the issue in either of the following ways:  
+- In the **Posted Sales Credit Memo** or **Posted Return Receipt** page, look up from the **Appl.\-from Item Entry** field to see if the field is populated, and in that case to which item ledger entry the return receipt is cost applied.  
 
--   Look for an open outbound item ledger entry and an inbound item ledger entry with same number in the **Document No.** field, and Yes in the **Correction** field. See the following example of such an item ledger entry situation.  
+For scenario 2, identify the issue in either of the following ways:  
+
+- Look for an open outbound item ledger entry and an inbound item ledger entry with same number in the **Document No.** field, and Yes in the **Correction** field. See the following example of such an item ledger entry situation.  
 
 |Entry No.|Posting Date|Entry Type|Document Type|Document No.|Item No.|Location Code|Quantity|Cost Amount (Actual)|Invoiced Quantity|Remaining Quantity|Open|Correction|  
 |---------|------------|----------|-------------|------------|--------|-------------|--------|------------------------|-----------------|------------------|----|---------|
 |333|01/28/2018|Sale|Sales Shipment|102043|TEST|BLUE|-1|-10|-1|-1|Yes|No|  
 |334|01/28/2018|Sale|Sales Shipment|102043|TEST|BLUE|1|10|1|1|Yes|**Yes**|  
 
--   On the **Posted Sales Shipment** page, look up from the **Appl.-from Item Entry** field to see if the field is populated, and in that case to which item ledger entry the return receipt is cost applied.  
+- On the **Posted Sales Shipment** page, look up from the **Appl.-from Item Entry** field to see if the field is populated, and in that case to which item ledger entry the return receipt is cost applied.  
 
 > [!NOTE]  
->  Cost applications cannot be identified on the **Applied Item Entries** page because that page only shows quantity applications.  
+> Cost applications can't be identified on the **Applied Item Entries** page because that page only shows quantity applications.  
 
- For both scenarios, identify the involved cost application as follows:  
+For both scenarios, identify the involved cost application as follows:  
 
-1.  Open the **Item Application Entry** table.  
+1. Open the **Item Application Entry** table.  
 
-2.  Filter on the **Item Ledger Entry No.** field using the number of the Sales Return item ledger entry.  
+2. Filter on the **Item Ledger Entry No.** field using the number of the Sales Return item ledger entry.  
 
-3.  Analyze the item application entry, taking note of the following:  
+3. Analyze the item application entry, taking note of the following:  
 
-     If the **Outbound Item Entry No.** field is populated for an inbound item ledger entry (positive quantity), then it means that the inbound item ledger entry is the cost recipient of the outbound item ledger entry.  
+   If the **Outbound Item Entry No.** field is populated for an inbound item ledger entry (positive quantity), then it means that the inbound item ledger entry is the cost recipient of the outbound item ledger entry.  
 
-     See the following example of an item application entry.  
+   The following is an example of an item application entry.  
 
-     |Entry No.|Item Ledger Entry No.|Inbound Item Entry No.|Outbound Item Entry No.|Quantity|Posting Date|Cost Application|  
-     |---------|---------------------|----------------------|-----------------------|--------|------------|----------------|  
-     |299|334|334|333|1|01/28/2018|Yes|  
+   |Entry No.|Item Ledger Entry No.|Inbound Item Entry No.|Outbound Item Entry No.|Quantity|Posting Date|Cost Application|  
+   |---------|---------------------|----------------------|-----------------------|--------|------------|----------------|  
+   |299|334|334|333|1|01/28/2018|Yes|  
 <!--![Why is inventory zero 8.](media/helene/TechArticleInventoryZero8.png "Whyisinventoryzero\_8")  -->
 
- Notice above that inbound item ledger entry 334 is cost applied to outbound item ledger entry 333.  
+Notice above that inbound item ledger entry 334 is cost applied to outbound item ledger entry 333.  
 
-## Workaround for the Issue  
- On the **Item Journal** page, post the following lines for the item in question:  
+## Workaround for the issue  
 
--   A positive adjustment to close the open outbound item ledger entry.  
+On the **Item Journal** page, post the following lines for the item in question:  
 
--   A negative adjustment with the same quantity.  
+- A positive adjustment to close the open outbound item ledger entry.  
 
-     This adjustment balances the inventory increase caused by the positive adjustment and closes the open inbound item ledger entry.  
+- A negative adjustment with the same quantity.  
 
- The result is that inventory is zero and all item ledger entries are closed.  
+   This adjustment balances the inventory increase caused by the positive adjustment and closes the open inbound item ledger entry.  
+
+The result is that inventory is zero and all item ledger entries are closed.  
 
 ## Related information  
+
 [Design Details: Item Application](design-details-item-application.md)   
 [Design Details: Inventory Costing](design-details-inventory-costing.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -25898,179 +26164,6 @@ If you want to keep the data for an uninstalled app, you can delete the data lat
 [Set Up the GetAddress.io UK Postal Code extension](LocalFunctionality/UnitedKingdom/uk-setup-postal-code-service.md)  
 [[!INCLUDE[prod_short](includes/prod_short.md)] Extensions by Other Providers](ui-extensions-other.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-analytics-overview
----
-title: Sales analytics
-description: Business Central offers features that can help you gather, analyze, and share valuable sales data for business intelligence and decision-making in the sales organization.
-author: kennienp
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: bi, power BI, analysis, KPI
-ms.search.form: 516, 9300, 5119, 9301, 9305, 36997, 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, Report_107, Report_108, Report_111, Report_112, Report_113, Report_119, Report_121, Report_129, Report_209, Report_708, Report_713, Report_718, Report_813, Report_7313
-ms.date: 11/11/2024
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Sales analytics
-
-Businesses capture lots of data during daily activities that supports business intelligence (BI) for sales managers:
-
-- Opportunities
-- Sales quotes
-- Sales orders
-- Sales invoices
-
-[!INCLUDE[prod_short](includes/prod_short.md)] provides features to help you gather, analyze, and share your organization's sales data:
-
-- Power BI reports for sales
-- Ad-hoc analysis on lists
-- Ad-hoc analysis of data in Excel (using Open in Excel)
-- Built-in sales analytics tools
-- Built-in sales reports
-
-Each of these features has its advantages and disadvantages, depending on the type of data analysis and the role of the user. To learn more, go to [Analytics, business intelligence, and reporting overview](reports-bi-reporting.md).
-
-This article introduces how you can use these analytical features to gain sales insights.
-
-## Analytics needs in sales
-
-When you think about the analytics needs in sales management, it might help to use a persona-based model that describes different analytics needs at a high-level.
-
-:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas.svg" alt-text="Illustration of different personas for analytics" lightbox="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas.svg":::
-
-People in different roles have different needs when it comes to data, and they use the data in different ways. For example, people in asset management and finance interact with data differently than people in sales.
-
-:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg" alt-text="Illustration of how different personas have different analytics needs." lightbox="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg":::
-
-| Role              | Data aggregation  | Typical ways to consume data                          | 
-|-------------------|-------------------| ----------------------------------------------------- |
-|CCO / CFO / CEO    | Performance data  | KPIs <br> Dashboards <br> Financial reports           |
-|Sales Manager      | Trends, summaries | Built-in managerial reports <br> Ad-hoc analysis      | 
-|Account Manager / Sales Person | Detailed data     | Built-in operational reports <br> On-screen task data |
-
-<!-- 
-## Sales KPIs
-
-A key performance indicator (KPI) is a measurable value that shows how effectively you’re meeting your goals. In sales management, people often use the following KPIs to monitor their organization's sales performance:
-
-- TODO  
--->
-
-## Using Power BI to monitor sales KPIs
-
-A key performance indicator (KPI) is a measurable value that shows how effectively you’re meeting your goals. In sales, people often use the following KPIs to monitor their sales organization's performance:
-
-- Gross Profit
-- Gross Profit Margin
-- Sales by period
-- Sales vs. budget
-- Number of new customers
-- Period-over-Period Sales Amount Growth
-- Sales by item/customer/location/sales person
-
-:::image type="content" source="media/powerbi/sales/sales-overview.png" alt-text="Screenshot of the Sales Overview Power BI report" lightbox="media/powerbi/sales/sales-overview.png":::
-
-These sales KPIs, and more, are available in the Power BI Sales app for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Power BI sales app](sales-powerbi-app.md).
-
-[!INCLUDE [power-bi-sales-app](includes/power-bi-sales-app.md)]
-
-## Use financial reporting to produce financial statements and KPIs related to sales
-
-The **Financial Reporting** feature gives you insights into the financial data shown on your chart of accounts (COA). You can set up financial reports to analyze figures in general ledger (G/L) accounts, and compare general ledger entries with budget entries. Specifically for sales management, you can set up financial reports on the general ledger (G/L) accounts that you use to track sales postings.
-
-Dimensions play an important role in business intelligence. A dimension is data that you add to an entry as a parameter. Dimensions let you group entries that have similar characteristics, such as customers, regions, products, and salesperson. Among other purposes, use dimensions when you define analysis views and create financial reports. To learn more, go to [Work with Dimensions](finance-dimensions.md).
-
-To learn more about financial reports, go to [Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md).
-
-## Finance reporting across business units or legal entities related to sales
-
-Some organizations use [!INCLUDE [prod_short](includes/prod_short.md)] in multiple business units or legal entities. Others use [!INCLUDE [prod_short](includes/prod_short.md)] in subsidiaries that report to parent organizations. [!INCLUDE [prod_short](includes/prod_short.md)] gives accountants tools that help them transfer general ledger entries from two or more companies (subsidiaries) into a consolidated company. Specifically for sales management, you might want to consolidate general ledger entries for your sales accounts to be able to track sales KPIs across business units or legal entities.
-
-To learn more, go to [Company consolidation](finance-consolidated-company-reporting.md).
-
-## Ad-hoc analysis of sales data
-
-Sometimes, you just need to check whether the numbers add up correctly, or quickly confirm a figure. The following features are great for ad-hoc analyses:
-
-- Data analysis on ledger list pages
-- Open in Excel
-
-The Data Analysis feature lets you open almost any list page, such as **General Ledger Entries**, **Customer Ledger Entries**, **Item Ledger Entries**, or **Posted Invoices**, enter analysis mode, and then group, filter, and pivot data as you see fit.
-
-:::image type="content" source="media/data-analysis-customer-ledger-entries.png" alt-text="Example of how to do data analysis on the Customer Ledger Entries page." lightbox="media/data-analysis-customer-ledger-entries.png":::
-
-Similarly, you can use the **Open in Excel** action to open a list page, optionally filter the list to a subset of the data, and then use Excel to work with the data. For example, by using features such as Analyze Data, What-If Analysis, or Forecast Sheet.
-
-:::image type="content" source="media/open-in-excel-customer-ledger-entries.png" alt-text="Example of how to do data analysis on the Customer Ledger Entries data using Excel." lightbox="media/open-in-excel-customer-ledger-entries.png":::
-
-> [!TIP]
-> If you configure OneDrive for system features, the Excel workbook opens in your browser.
-
-To learn more about how to do ad-hoc analysis on sales data, go to [Ad hoc analysis of sales data](ad-hoc-analysis-sales.md).
-
-## Built-in reports for sales
-
-[!INCLUDE [prod_short](includes/prod_short.md)] includes several built-in reports, tracing functions, and tools to help sales organizations report on their data.
-
-[!INCLUDE [sales_reports_report_explorer](includes/sales-reports-report-explorer-include.md)]
-
-## On-screen sales analytics
-
-[!INCLUDE [prod_short](includes/prod_short.md)] has several pages that give you sales overviews and tasks to do. Here are some examples to get you started:
-
-- [Open the Sales Quotes list](https://businesscentral.dynamics.com/?page=9300)
-- [Open the Sales Orders list](https://businesscentral.dynamics.com/?page=9305)
-- [Open the Posted Sales Invoices list](https://businesscentral.dynamics.com/?page=143)
-- [Open the Sales Return Orders list](https://businesscentral.dynamics.com/?page=9304)
-- [Calculate order promising dates](sales-how-to-calculate-order-promising-dates.md)
-- [Calculate delivery dates for sales orders](sales-date-calculation-for-sales.md)
-- [Track packages](sales-how-track-packages.md)
-- [View the Availability of Items](inventory-how-availability-overview.md)
-- [Blanket sales order status](sales-how-to-create-blanket-sales-orders.md#to-view-the-status-of-a-blanket-sales-order)
-- [View unposted and posted blanket sales order lines](sales-how-to-create-blanket-sales-orders.md#to-view-unposted-and-posted-blanket-sales-order-lines)
-
-### Show sales-related general ledger entries and balances from the Chart of Accounts page
-
-The **Chart of Accounts** page shows all general ledger accounts with aggregated numbers posted to the general ledger. From this page, you can do things like:  
-
-- View reports that show general ledger entries and balances.  
-- Review a list of posting groups for that account.
-- View separate debit and credit balances for a single account.
-
-Specifically for sales, you can create a view that only shows the accounts you use for posting sales entries.
-
-:::image type="content" source="media/chart-of-accounts-page.png" alt-text="Example of how the Chart of Accounts page shows finance insights" lightbox="media/chart-of-accounts-page.png":::
-
-To learn more, go to [Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts).
-
-### Analyze data by dimensions (related to sales)
-
-Dimensions are values that categorize entries so you can track and analyze them on documents, such as sales orders. Dimensions can, for example, indicate the project or department an entry came from.  
-
-So, instead of setting up separate general ledger accounts for each department or location, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts structure.
-
-To learn more, go to [Analyze Data by Dimensions](bi-how-analyze-data-dimension.md).
-
-## Related information
-
-[Company consolidation](finance-consolidated-company-reporting.md)  
-[Power BI sales app](sales-powerbi-app.md)  
-[Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md)  
-[Handling finance reporting across business units or legal entities](finance-consolidated-company-reporting.md)  
-[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
-[Built-in sales reports](sales-reports.md)  
-[Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts)  
-[Analyze Data by Dimensions](bi-how-analyze-data-dimension.md)  
-[Analytics, business intelligence, and reporting overview](reports-bi-reporting.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
 

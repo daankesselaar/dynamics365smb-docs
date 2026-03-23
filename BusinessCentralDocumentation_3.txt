@@ -1,3 +1,176 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-analytics-overview
+---
+title: Sales analytics
+description: Business Central offers features that can help you gather, analyze, and share valuable sales data for business intelligence and decision-making in the sales organization.
+author: kennienp
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: bi, power BI, analysis, KPI
+ms.search.form: 516, 9300, 5119, 9301, 9305, 36997, 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, Report_107, Report_108, Report_111, Report_112, Report_113, Report_119, Report_121, Report_129, Report_209, Report_708, Report_713, Report_718, Report_813, Report_7313
+ms.date: 11/11/2024
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Sales analytics
+
+Businesses capture lots of data during daily activities that supports business intelligence (BI) for sales managers:
+
+- Opportunities
+- Sales quotes
+- Sales orders
+- Sales invoices
+
+[!INCLUDE[prod_short](includes/prod_short.md)] provides features to help you gather, analyze, and share your organization's sales data:
+
+- Power BI reports for sales
+- Ad-hoc analysis on lists
+- Ad-hoc analysis of data in Excel (using Open in Excel)
+- Built-in sales analytics tools
+- Built-in sales reports
+
+Each of these features has its advantages and disadvantages, depending on the type of data analysis and the role of the user. To learn more, go to [Analytics, business intelligence, and reporting overview](reports-bi-reporting.md).
+
+This article introduces how you can use these analytical features to gain sales insights.
+
+## Analytics needs in sales
+
+When you think about the analytics needs in sales management, it might help to use a persona-based model that describes different analytics needs at a high-level.
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas.svg" alt-text="Illustration of different personas for analytics" lightbox="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas.svg":::
+
+People in different roles have different needs when it comes to data, and they use the data in different ways. For example, people in asset management and finance interact with data differently than people in sales.
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg" alt-text="Illustration of how different personas have different analytics needs." lightbox="/dynamics365/business-central/dev-itpro/developer/media/analytics-personas-scenarios.svg":::
+
+| Role              | Data aggregation  | Typical ways to consume data                          | 
+|-------------------|-------------------| ----------------------------------------------------- |
+|CCO / CFO / CEO    | Performance data  | KPIs <br> Dashboards <br> Financial reports           |
+|Sales Manager      | Trends, summaries | Built-in managerial reports <br> Ad-hoc analysis      | 
+|Account Manager / Sales Person | Detailed data     | Built-in operational reports <br> On-screen task data |
+
+<!-- 
+## Sales KPIs
+
+A key performance indicator (KPI) is a measurable value that shows how effectively you’re meeting your goals. In sales management, people often use the following KPIs to monitor their organization's sales performance:
+
+- TODO  
+-->
+
+## Using Power BI to monitor sales KPIs
+
+A key performance indicator (KPI) is a measurable value that shows how effectively you’re meeting your goals. In sales, people often use the following KPIs to monitor their sales organization's performance:
+
+- Gross Profit
+- Gross Profit Margin
+- Sales by period
+- Sales vs. budget
+- Number of new customers
+- Period-over-Period Sales Amount Growth
+- Sales by item/customer/location/sales person
+
+:::image type="content" source="media/powerbi/sales/sales-overview.png" alt-text="Screenshot of the Sales Overview Power BI report" lightbox="media/powerbi/sales/sales-overview.png":::
+
+These sales KPIs, and more, are available in the Power BI Sales app for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Power BI sales app](sales-powerbi-app.md).
+
+[!INCLUDE [power-bi-sales-app](includes/power-bi-sales-app.md)]
+
+## Use financial reporting to produce financial statements and KPIs related to sales
+
+The **Financial Reporting** feature gives you insights into the financial data shown on your chart of accounts (COA). You can set up financial reports to analyze figures in general ledger (G/L) accounts, and compare general ledger entries with budget entries. Specifically for sales management, you can set up financial reports on the general ledger (G/L) accounts that you use to track sales postings.
+
+Dimensions play an important role in business intelligence. A dimension is data that you add to an entry as a parameter. Dimensions let you group entries that have similar characteristics, such as customers, regions, products, and salesperson. Among other purposes, use dimensions when you define analysis views and create financial reports. To learn more, go to [Work with Dimensions](finance-dimensions.md).
+
+To learn more about financial reports, go to [Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md).
+
+## Finance reporting across business units or legal entities related to sales
+
+Some organizations use [!INCLUDE [prod_short](includes/prod_short.md)] in multiple business units or legal entities. Others use [!INCLUDE [prod_short](includes/prod_short.md)] in subsidiaries that report to parent organizations. [!INCLUDE [prod_short](includes/prod_short.md)] gives accountants tools that help them transfer general ledger entries from two or more companies (subsidiaries) into a consolidated company. Specifically for sales management, you might want to consolidate general ledger entries for your sales accounts to be able to track sales KPIs across business units or legal entities.
+
+To learn more, go to [Company consolidation](finance-consolidated-company-reporting.md).
+
+## Ad-hoc analysis of sales data
+
+Sometimes, you just need to check whether the numbers add up correctly, or quickly confirm a figure. The following features are great for ad-hoc analyses:
+
+- Data analysis on ledger list pages
+- Open in Excel
+
+The Data Analysis feature lets you open almost any list page, such as **General Ledger Entries**, **Customer Ledger Entries**, **Item Ledger Entries**, or **Posted Invoices**, enter analysis mode, and then group, filter, and pivot data as you see fit.
+
+:::image type="content" source="media/data-analysis-customer-ledger-entries.png" alt-text="Example of how to do data analysis on the Customer Ledger Entries page." lightbox="media/data-analysis-customer-ledger-entries.png":::
+
+Similarly, you can use the **Open in Excel** action to open a list page, optionally filter the list to a subset of the data, and then use Excel to work with the data. For example, by using features such as Analyze Data, What-If Analysis, or Forecast Sheet.
+
+:::image type="content" source="media/open-in-excel-customer-ledger-entries.png" alt-text="Example of how to do data analysis on the Customer Ledger Entries data using Excel." lightbox="media/open-in-excel-customer-ledger-entries.png":::
+
+> [!TIP]
+> If you configure OneDrive for system features, the Excel workbook opens in your browser.
+
+To learn more about how to do ad-hoc analysis on sales data, go to [Ad hoc analysis of sales data](ad-hoc-analysis-sales.md).
+
+## Built-in reports for sales
+
+[!INCLUDE [prod_short](includes/prod_short.md)] includes several built-in reports, tracing functions, and tools to help sales organizations report on their data.
+
+[!INCLUDE [sales_reports_report_explorer](includes/sales-reports-report-explorer-include.md)]
+
+## On-screen sales analytics
+
+[!INCLUDE [prod_short](includes/prod_short.md)] has several pages that give you sales overviews and tasks to do. Here are some examples to get you started:
+
+- [Open the Sales Quotes list](https://businesscentral.dynamics.com/?page=9300)
+- [Open the Sales Orders list](https://businesscentral.dynamics.com/?page=9305)
+- [Open the Posted Sales Invoices list](https://businesscentral.dynamics.com/?page=143)
+- [Open the Sales Return Orders list](https://businesscentral.dynamics.com/?page=9304)
+- [Calculate order promising dates](sales-how-to-calculate-order-promising-dates.md)
+- [Calculate delivery dates for sales orders](sales-date-calculation-for-sales.md)
+- [Track packages](sales-how-track-packages.md)
+- [View the Availability of Items](inventory-how-availability-overview.md)
+- [Blanket sales order status](sales-how-to-create-blanket-sales-orders.md#to-view-the-status-of-a-blanket-sales-order)
+- [View unposted and posted blanket sales order lines](sales-how-to-create-blanket-sales-orders.md#to-view-unposted-and-posted-blanket-sales-order-lines)
+
+### Show sales-related general ledger entries and balances from the Chart of Accounts page
+
+The **Chart of Accounts** page shows all general ledger accounts with aggregated numbers posted to the general ledger. From this page, you can do things like:  
+
+- View reports that show general ledger entries and balances.  
+- Review a list of posting groups for that account.
+- View separate debit and credit balances for a single account.
+
+Specifically for sales, you can create a view that only shows the accounts you use for posting sales entries.
+
+:::image type="content" source="media/chart-of-accounts-page.png" alt-text="Example of how the Chart of Accounts page shows finance insights" lightbox="media/chart-of-accounts-page.png":::
+
+To learn more, go to [Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts).
+
+### Analyze data by dimensions (related to sales)
+
+Dimensions are values that categorize entries so you can track and analyze them on documents, such as sales orders. Dimensions can, for example, indicate the project or department an entry came from.  
+
+So, instead of setting up separate general ledger accounts for each department or location, you can use dimensions as a basis for analysis and avoid having to create a complicated chart of accounts structure.
+
+To learn more, go to [Analyze Data by Dimensions](bi-how-analyze-data-dimension.md).
+
+## Related information
+
+[Company consolidation](finance-consolidated-company-reporting.md)  
+[Power BI sales app](sales-powerbi-app.md)  
+[Prepare Financial Reports with Financial Data and Account Categories](bi-how-work-account-schedule.md)  
+[Handling finance reporting across business units or legal entities](finance-consolidated-company-reporting.md)  
+[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Understand the Chart of Accounts](finance-general-ledger.md#the-chart-of-accounts)  
+[Analyze Data by Dimensions](bi-how-analyze-data-dimension.md)  
+[Analytics, business intelligence, and reporting overview](reports-bi-reporting.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-how-use-time-sheets
 ---
 title: Use time sheets
@@ -2465,17 +2638,16 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-warehouse-entries
 ---
-title: Design Details - Creating warehouse entries
+title: Design details - Creating warehouse entries
 description: Learn how to allow concurrent numbering for warehouse register records and warehouse entries.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/11/2024
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
-
+ms.custom: bap-template
 ---
 
 # Design details: Creating warehouse entries
@@ -2727,18 +2899,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-valuation
 ---
-title: Design details - Inventory valuation | Microsoft Docs
+title: Design details - Inventory valuation
 description: Inventory valuation is the determination of the cost of an inventory item.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 12/13/2023
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 # Design details: Inventory valuation
+
 Inventory valuation is the determination of the cost that is assigned to an inventory item, as expressed by the following equation.  
 
 Ending inventory = beginning inventory + net purchases – cost of goods sold  
@@ -6186,19 +6359,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-posting-interface-structure
 ---
-title: Design Details - Posting Interface Structure
-description: This topic provides an overview of the global procedures and design details in the posting interface structure.
+title: Design details - Posting interface structure
+description: This article provides an overview of the global procedures and design details in the posting interface structure.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: posting, interface, design
-ms.date: 06/15/2021
+ms.date: 03/15/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Posting Interface Structure
+
+# Design details: Posting interface structure
+
 In the [!INCLUDE[prod_short](includes/prod_short.md)] posting interface structure, there are several global procedures that use the same structure:  
   
 * RunWithCheck and RunWithoutCheck call procedure Code – generic posting interface for Gen. Jnl Line.  
@@ -10633,12 +10807,12 @@ The following steps describe settings you can use to get started with quality ma
 
 1. On the **Bin Movements and Reclassifications** FastTab, specify the batches to use when you move inventory from one bin to another or change item tracking information. Your choice depends on whether your warehouse is set up to use directed put-away and pick. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 1. On the **Inventory Adjustments** FastTab, specify the item journal batch or warehouse item journal batch to use to reduce inventory quantities. Your choice depends on whether your warehouse is set up to use directed put-away and pick. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-<!--1. On the **Item Tracking** FastTab, in the **Tracking Before Finishing** field, specify whether to require item tracking before finishing an inspection:
+1. On the **Item Tracking** FastTab, in the **Tracking Before Finishing** field, specify whether to require item tracking before finishing an inspection:
 
    - **Allow without item tracking** allows inspections without lot or serial numbers.
    - **Allow only posted item tracking** requires you to post lot or serial numbers.
    - **Allow reserved or posted item tracking** allows lot or serial numbers that exist but aren't posted yet.
-   - **Allow any non-empty value** allows any lot or serial value, even if they aren't in inventory.-->
+   - **Allow any non-empty value** allows any lot or serial value, even if they aren't in inventory.
 
 1. In the **Quality inspection selection criteria** field, specify the inspections to consider when evaluating whether to block a document-specific transaction.
    
@@ -12055,12 +12229,12 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords:
-ms.date: 07/01/2025
+ms.date: 03/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Design details: variance
+# Design details: Variance
 
 Variance is the difference between the actual cost and the standard cost, as described in the following formula:  
 
@@ -14555,26 +14729,25 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-general-journal-post-line
 ---
-title: Design Details - General Journal Post Line
-description: This topic provides insight into the concepts and principles that are used to redesign the general journal posting line feature in Business Central.
+title: Design details - General journal post line
+description: This article provides insight into the concepts and principles that are used to redesign the general journal posting line feature in Business Central.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: design, general journal, posting, codeunit 12
-ms.date: 06/14/2021
+ms.date: 03/14/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: General Journal Post Line
+# Design details: General journal post line
 
-This documentation provides detailed technical insight into the concepts and principles that were used to redesign the general journal posting line feature in [!INCLUDE[prod_short](includes/prod_short.md)]. The redesign made codeunit 12 simpler and more maintainable. The documentation starts by describing conceptual overviews of the redesign. Then it explains the technical architecture to show the changes that result from the redesign.  
+This article provides detailed technical insight into the concepts and principles that were used to redesign the general journal posting line feature in [!INCLUDE[prod_short](includes/prod_short.md)]. The redesign made codeunit 12 simpler and more maintainable. The documentation starts by describing conceptual overviews of the redesign. Then it explains the technical architecture to show the changes that result from the redesign.  
 
 > [!IMPORTANT]
 > The information in this section applies to the redesign in an earlier version of the product, Microsoft Dynamics NAV 2013 R2.
 
-## In This Section
+## In this section
 
 [General Journal Post Line Overview](design-details-general-journal-post-line-overview.md)  
 [Design Details: Posting Interface Structure](design-details-posting-interface-structure.md)  
@@ -14582,7 +14755,7 @@ This documentation provides detailed technical insight into the concepts and pri
 
 ## Related information
 
-[Work with General Journals](ui-work-general-journals.md)
+[Work with General Journals](ui-work-general-journals.md)  
 [Design Details: General Journal Post Line (Dynamics NAV)](/dynamics-nav-app/design-details-general-journal-post-line)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -18044,7 +18217,7 @@ The **Reversed** field on the assembly order changes to **Yes**. The assembly or
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-reconciliation-with-the-general-ledger
 ---
-title: Design Details - Reconciliation with the general ledger
+title: Design details - Reconciliation with the general ledger
 description: This article describes reconciliation with the general ledger when you post inventory transactions, such as sales shipments, production output, or negative adjustments.
 author: brentholtorf
 ms.topic: how-to
@@ -18054,7 +18227,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.custom: bap-template
 ---
-# Design Details: Reconciliation with the general ledger
+# Design details: Reconciliation with the general ledger
 
 When you post inventory transactions, such as sales shipments, production output, or negative adjustments, [!INCLUDE [prod_short](includes/prod_short.md)] records the inventory quantity and value changes in the item ledger entries and the value entries, respectively. The next step in the process is to post the inventory values to the inventory accounts in the general ledger.  
 
@@ -18185,19 +18358,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-cost-components
 ---
-title: Design details cost components
+title: Design details - Cost components
 description: Cost components are different types of costs that make up the value of an inventory increase or decrease.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords:
-ms.date: 07/01/2025
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
-# Design details: cost components
+# Design details: Cost components
 
 Cost components are different types of costs that make up the value of an inventory increase or decrease.  
 
@@ -19924,161 +20097,6 @@ On the **Item Card** page, the red asterisk appears in the **Description** field
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inbound-warehouse-flow
----
-title: Design Details - Inbound Warehouse Flow
-description: Learn how to receive items at your warehouse, and register and match them to inbound source documents.
-author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: warehouse
-ms.date: 09/18/2023
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Design details: Inbound warehouse flow
-
-The inbound flow in a warehouse begins when items arrive in the warehouse of the company location, either received from external sources or from another company location. You can receive physical and non-inventory items. To learn more about receiving non-inventory items, go to [Post non-inventory items](#post-non-inventory-items).
-
-In principle, the process of receiving inbound orders consists of two activities:
-
-* Receive items at the dock, identify them, match them to a source document, and record the received quantity.
-* Put away items in stock, and record the place you put them.
-
-The source documents for inbound warehouse flow are:
-
-* Purchase orders  
-* Inbound transfer orders  
-* Sales return orders  
-
-> [!NOTE]
-> Production and assembly output also represent inbound source documents. Learn more about handling production and assembly output for internal processes at [Design Details: Internal Warehouse Flows](design-details-internal-warehouse-flows.md).  
-
-In [!INCLUDE[prod_short](includes/prod_short.md)], you receive items and put them away using one of four methods, as described in the following table.
-
-|Method|Inbound Process|Require Receipts|Require Put-aways|Complexity Level (Learn more at [Warehouse Management Overview](design-details-warehouse-management.md))|  
-|------------|---------------------|--------------|----------------|------------|  
-|A|Post receipt and put-away from the order line|||No dedicated warehouse activity.|  
-|B|Post receipt and put-away from an inventory put-away document||Turned on|Basic: Order-by-order.|  
-|C|Post receipt and put-away from a warehouse receipt document|Turned on||Basic: Consolidated receive/ship posting for multiple orders.|  
-|D|Post receipt from a warehouse receipt document and post put-away from a warehouse put-away document|Turned on|Turned on|Advanced|  
-
-Selecting an approach depends on your company's practices and level of organizational complexity. The following are some examples that might help you decide.
-
-* In an order-by-order warehouse environment, where most of the warehouse staff works directly with order documents, you might decide to use method A. 
-* An order-by-order warehouse that has a more complex put-away process, or where warehouse staff separates their put-away activities from the order document, might use method B.
-* Companies that need to plan the handling of multiple orders may find it helpful to use warehouse receipt documents, methods C and D.  
-
-In methods A, B, and C, receiving and putting away are combined in one step when posting documents as received. In method D, the receipt is posted first to record the increase of inventory and that items are available for sale. The warehouse worker then registers the put-away to make the items available to pick for outbound orders. 
-
-> [!NOTE]
-> While warehouse put-aways and inventory put-aways sound similar, they're different documents and are used in different processes.
-> * The inventory put-away used in method B, together with registering put-away information, also posts the receipt of the source document.
-> * The warehouse put-away used in method D can't be posted and only registers the put-away. The registration makes the items available for the further processing but doesn't post the receipt. In the inbound flow, the warehouse put-away requires a warehouse receipt.
-
-## No dedicated warehouse activity
-
-The following articles provide information about how to process receipts for source documents if you don't have dedicated warehouse activities.
-
-* [Record Purchases](purchasing-how-record-purchases.md)
-* [Transfer Orders](inventory-how-transfer-between-locations.md)
-* [Process Sales Return Orders](sales-how-process-sales-returns-orders.md)
-
-## Basic warehouse configurations  
-
-In a basic warehouse configuration, the **Require Put-away** toggle is turned on, but the **Require Receipt** toggle is turned off on the **Location Card** page for the location.
-
-The following diagram illustrates the inbound warehouse flows by document type in basic warehouse configurations. The numbers in the diagram correspond with the steps in the sections following the diagram.  
-
-:::image type="content" source="media/design_details_warehouse_management_inbound_basic_flow.png" alt-text="The basic inbound flow in a warehouse.":::
-
-### 1: Release a source document to create a request for an inventory put-away  
-
-When you receive items, release the source document, such as a purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. You can also create inventory put-away documents for individual order lines, in a push fashion, based on bins and quantities to handle.  
-
-### 2: Create an inventory put-away  
-
-On the **Inventory Put-away** page, in a pull fashion, you can get the pending source document lines based on inbound warehouse requests. In a push fashion, you can also create inventory put-away lines when you create the source document.  
-
-### 3: Post an inventory put-away  
-
-On each line for items that have been put away, partially or fully, fill in the **Quantity** field and then post the inventory put-away. Source documents that are related to the inventory put-away are posted as received.  
-
-* Positive item ledger entries are created.
-* Warehouse entries are created for locations that require a bin code on all item transactions.
-* The put-away request is deleted, if it's fully handled. For example, the **Quantity Received** field on the inbound source document line is updated.
-* A posted receipt document is created that reflects the purchase order, for example, and the received items.  
-
-## Advanced warehouse configurations  
-
-To use an advanced warehouse configuration, turn on the **Require Receipt** toggle on the Location Card page for the location. The **Require Put-away** toggle is optional.
-
-The following diagram illustrates the inbound warehouse flow by document type. The numbers in the diagram correspond with the steps in the sections following the diagram.  
-
-:::image type="content" source="media/design_details_warehouse_management_inbound_advanced_flow.png" alt-text="The advanced inbound flow in a warehouse.":::
-
-### 1: Release the source document  
-
-When you receive items, release the source document, such as the purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. The put away will contain references to the source document type and number.
-
-### 2: Create a warehouse receipt  
-
-On the **Warehouse Receipt** page, get the inbound source document lines. You can combine several source document lines in one warehouse receipt document. Fill in the **Qty. to Handle** field and select the receiving zone and bin, if necessary.  
-
-### 3: Post the warehouse receipt  
-
-Post the warehouse receipt to create positive item ledger entries. The **Quantity Received** field on the inbound source document line is updated.  
-
-If the **Require Put-away** toggle is not turned on on the location card, this is where the process stops. Otherwise, posting the inbound source document makes the items available to be put away. The put away contains references the source document type and number.  
-
-### 4: (Optional) Generate put-away worksheet lines
-
-Get warehouse put-away lines in the **Put-away Worksheet** based on posted warehouse receipts or operations that produce output. On the lines you'll put-away, specify the following information:
-
-* The bins to take items from.
-* The bins to put items in.
-* How many units to handle.
-
-The bins can be predefined by the setup of the warehouse location or the resource that performed the operation.  
-
-When all put-aways are planned and assigned to warehouse workers, generate the warehouse put-away documents. Fully assigned put-away lines are deleted from the **Put-away Worksheet**.  
-
-> [!NOTE]  
-> If the **Use Put-away Worksheet** toggle is not turned on on the location card, warehouse put-away documents are created directly based on posted warehouse receipts. In that case, this step isn't needed.  
-
-### 5: Create a warehouse put-away document
-
-Create a warehouse put-away document in a pull fashion, based on the posted warehouse receipt. Alternatively, create the warehouse put-away document and assign it to a warehouse worker in a push fashion.  
-
-### 6: Register a warehouse put-away
-
-On each line for items that have been put away, partially or fully, fill in the **Quantity** field on the **Warehouse Put-away** page, and then register the warehouse put-away.  
-
-* Warehouse entries are created for locations that require a bin code on all item transactions.
-* The warehouse put-away lines are deleted, if they're fully handled.
-* The warehouse put-away document remains open until you register the full quantity of the related posted warehouse receipt.
-* The **Qty. Put Away** field on posted warehouse receipt order lines is updated.
-
-## Related tasks
-
-The following table describes a sequence of tasks, with links to the articles that describe them.
-
-|**To**|**See**|  
-|------------|-------------|  
-|Receive items at warehouse locations with a warehouse receipt for fully or partially automated warehouse processing.|[Receive Items](warehouse-how-receive-items.md)|
-|Put away items on an order-by-order basis and post the receipt in one activity in basic warehouse configurations.|[Put Items Away with Inventory Put-aways](warehouse-how-to-put-items-away-with-inventory-put-aways.md)|  
-|Put away items received from multiple purchases, sales returns, transfers orders in an advanced warehouse configuration.|[Put Items Away with Warehouse Put-aways](warehouse-how-to-put-items-away-with-warehouse-put-aways.md)|  
-
-## Post non-inventory items
-
-[!INCLUDE [post-non-inventory-items](includes/post-non-inventory-items.md)]
-
-## Related information
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

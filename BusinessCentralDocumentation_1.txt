@@ -1461,19 +1461,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-table-structure
 ---
-title: Design Details - Table Structure | Microsoft Docs
+title: Design details - Table structure
 description: To understand how the dimension entry storing and posting is redesigned, it's important to understand the table structure.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/08/2021
+ms.date: 03/08/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design details: table structure
+# Design details: Table structure
 
 To understand how dimension entries are stored and posted, it's important to understand the table structure.  
 
@@ -1657,7 +1656,7 @@ ms.date: 09/11/2025
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
-# Design details: planning parameters
+# Design details: Planning parameters
 
 This article describes the planning parameters that you can use in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
@@ -3512,19 +3511,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-posting-engine-structure
 ---
-title: Design Details - Posting Engine Structure
+title: Design details - Posting engine structure
 description: The posting interface uses posting engine functions to prepare and insert general ledger entry and VAT entry records. 
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/15/2021
+ms.date: 03/15/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Posting Engine Structure
+# Design details: Posting engine structure
+
 Posting interface and some other functions in codeunit 12 use posting engine functions to prepare and insert general ledger entry and VAT entry records. The posting engine is also responsible for general ledger register creation.  
   
  The functions in the following table provide a standard framework for designing posting procedures (such as Code, CustPostApplyCustledgEntry, VendPostApplyVendLedgEntry, UnapplyCustLedgEntry, UnapplyVendLedgEntry, and Reverse) and exclusive access to table 17, G/L Entry.  
@@ -3979,17 +3978,17 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-balancing-demand-and-supply
 ---
-title: Design Details - Balancing supply and demand
+title: Design details - Balancing supply and demand
 description: This article describes how to prioritized goals by balancing supply with demand.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 03/17/2026
 ms.custom: bap-template
 ---
-# Design Details: Balancing supply and demand
+# Design details: Balancing supply and demand
 
 To understand how the planning system works, it's important to understand its prioritized goals:  
 
@@ -4414,7 +4413,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/copilot-overview
 ---
-title: About Copilot in Business Central
+title: Copilot FAQ
 description: This article answers common questions about Copilot in Business Central.
 author: mikebc
 ms.author: mikebc
@@ -4423,22 +4422,20 @@ ms.topic: overview
 ms.collection:
   - bap-ai-copilot
   - get-started
-ms.date: 01/29/2026
+ms.date: 03/20/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ---
 
-# Copilot in Business Central overview
+# Copilot FAQ
 
 This article answers common questions about Microsoft Copilot in Dynamics 365 Business Central.
 
 ## What is Copilot in Business Central?
 
-[!INCLUDE[bc-app-agents](../bc-shared/bc-app-agents.md)]
+Copilot is an AI-powered assistant that helps spark creativity, boost productivity, and eliminate tedious tasks. Copilot in Business Central is the world's first AI-powered assistant across all lines of business. With Copilot in Business Central, small and medium-sized organizations empower their workers through intuitive AI tools that boost creativity and save time.
 
-## Where can I keep up on the latest Copilot features in Business Central?
-
-Copilot includes a constantly expanding set of capabilities that help users in different roles and tasks. Find an overview at [Work smarter with Microsoft Copilot in Dynamics 365 Business Central](https://aka.ms/BCAI). And find details here in the documentation by choosing links in the navigation panel to the left.
+Get an overview of the Copilot and AI experiences in Business Central at [AI in Business Central](ai-in-bc.md).
 
 ## How does Copilot approach security, privacy, and compliance?
 
@@ -5601,19 +5598,18 @@ If you use backflushing, there are a few things to consider:
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inventory-posting
 ---
-title: Design Details - Inventory Posting | Microsoft Docs
+title: Design details - Inventory posting
 description: Each inventory transaction, such as a purchase receipt or a sales shipment, posts two entries of different types.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords:
-ms.date: 06/08/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Inventory Posting
+# Design details: Inventory posting
 
 Each inventory transaction, such as a purchase receipt or a sales shipment, posts two entries of different types.  
 
@@ -5718,7 +5714,7 @@ At the end of the accounting period, you run the **Post Inventory Cost to G/L** 
 |5|3|1|  
 |6|3|1|  
 
-## Assembly and Production Posting
+## Assembly and production posting
 
 Capacity and resource ledger entries represent the time that is posted as consumed in production or assembly. These process costs are posted as value entries to the general ledger along with the involved material costs in a similar structure as described for item ledger entries in this topic.  
 
@@ -9054,18 +9050,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-transfers-in-planning
 ---
-title: Design Details - Transfers in Planning
+title: Design details - Transfers in planning
 description: Learn how to use transfer orders as a source of supply when planning inventory levels.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 03/17/2026
 ms.custom: bap-template
 ms.search.keywords: design, transfer, sku, locations, warehouse
 ms.service: dynamics-365-business-central
 ---
-# Design Details: Transfers in Planning
+# Design details: Transfers in planning
 
 Transfer orders are also a source of supply when working at the SKU level. When using multiple locations (warehouses), the SKU replenishment system can be set to Transfer, implying that the location is replenished by transferring goods from another location. In a situation with more warehouses, you might have a chain of transfers. Supply to GREEN location is transferred from YELLOW, supply to YELLOW is transferred from RED, and so on. In the beginning of the chain, there's a replenishment system of **Prod. Order** or **Purchase**.  
 
@@ -9689,18 +9685,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/setup-best-practices-global-planning-setup
 ---
-title: Best practices for global planning setup | Microsoft Docs
+title: Best practices for global planning setup
 description: The Planning FastTab in the Manufacturing Setup page contains several fields that define global rules for supply planning.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: best-practice
-ms.date: 09/11/2025
+ms.date: 03/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
-# Setup Best Practices: Global Planning Setup
+# Setup best practices: Global planning setup
 
 The **Planning** FastTab on the **Inventory Setup** page contains several fields that define global rules for supply planning.  
 
@@ -9734,19 +9730,17 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-application
 ---
-title: Design Details - Item Application | Microsoft Docs
-description: This topic describes where inventory quantity and value are recorded when you post an inventory transaction.
+title: Design details - Item application
+description: This article describes where inventory quantity and value are recorded when you post an inventory transaction.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: design, items, ledger entries, posting, inventory
-ms.date: 06/08/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Item Application
+# Design details: Item application
 
 When you post an inventory transaction, the quantity posting is recorded in the item ledger entries, the value posting in the value entries. For more information, see [Design Details: Inventory Posting](design-details-inventory-posting.md).  
 
@@ -17011,17 +17005,17 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-availability-in-the-warehouse
 ---
-title: Design Details - Availability in the Warehouse
+title: Design details - Availability in the warehouse
 description: Learn about the different factors that affect item availability in your warehouse.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: article
-ms.date: 02/22/2023
+ms.topic: concept-article
+ms.date: 03/17/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
-# Design Details: Availability in the Warehouse
+# Design details: Availability in the warehouse
 
 Stay on top of item availability to ensure that outbound orders flow efficiently, and that your delivery times are optimal.  
 
@@ -18090,19 +18084,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-expected-cost-posting
 ---
-title: Design Details - Expected Cost Posting
+title: Design details - Expected cost posting
 description: Expected costs represent the estimation of, for example, a purchased item’s cost that you record before you receive the invoice for the item.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords:
-ms.date: 07/20/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Expected Cost Posting
+# Design details: Expected cost posting
+
 Expected costs represent the estimation of, for example, a purchased item’s cost that you record before you receive the invoice for the item.  
 
  You can post expected cost to inventory and to the general ledger. When you post a quantity that is only received or shipped but not invoiced, then a value entry is created with the expected cost. This expected cost affects the inventory value but is not posted to the general ledger unless you set up the system to do so.  
@@ -19909,19 +19904,19 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-posting-structure
 ---
-title: Design Details - Item Tracking Posting Structure
+title: Design details - Item tracking posting structure
 description: Learn how to use item ledger entries as the primary carrier of item tracking numbers in the Item Tracking Posting Structure.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
+ms.topic: concept-article
 ms.search.keywords: design, item tracking, posting, inventory
-ms.date: 06/15/2021
+ms.date: 03/17/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Design Details: Item Tracking Posting Structure
+# Design details: Item tracking posting structure
+
 To align with inventory costing functionality and to obtain a simpler and more robust solution, item ledger entries are used as the primary carrier of item tracking numbers.  
   
 Item tracking numbers on order network entities and non-order network entities are specified in the **Reservation Entry** table (T337). Item tracking numbers that are related to historical information are retrieved directly from the item ledger entries that are related to the transaction in question. This means that item ledger entries reflect the item tracking specification of the posted order line.  
@@ -20995,7 +20990,7 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-production-order-posting
 ---
-title: Design details production order posting
+title: Design details - Production order posting
 description: Similar to assembly order posting, the consumed components and the used machine time convert and output as the produced item when you finish the production order.
 author: brentholtorf
 ms.author: bholtorf
@@ -21007,7 +21002,7 @@ ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
-# Design details: production order posting
+# Design details: Production order posting
 
 Similar to assembly order posting, the consumed components and the used machine time are converted and output as the produced item when the production order is finished. To learn more, go to [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md). However, the cost flow for assembly orders is less complex because assembly cost posts only one time and doesn't generate work-in-process inventory. Also, the cost of assembled goods doesn't include the cost of noninventory items.
 
