@@ -1,3 +1,214 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-campaigns
+---
+title: Set up marketing campaigns in Business Central
+description: Describes how you can set up and conduct marketing campaigns in Business Central to help you identify and attract prospects and retain customers.
+author: brentholtorf
+ms.topic: concept-article
+ms.devlang: al
+ms.search.keywords: marketing, campaign, promo, prospect
+ms.date: 10/03/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+ms.custom: bap-template
+---
+
+# Manage marketing campaigns
+
+Having a strong marketing plan in place enables you to identify, attract, and retain customers. A marketing plan consists of various campaigns and other interactions with your sales and marketing activities. While you plan a campaign, you make a few decisions:
+
+- Which contacts to target
+- What type campaign you want to run (such as trade shows or direct mail)
+- What tasks salespeople perform
+
+Each campaign has various activities or tasks. You can combine multiple tasks in activities. For example, when each task represents a step. Activity tasks are related to each other by a date formula. Individual tasks can only be assigned to salespeople. Activities can be assigned to opportunities, salespeople, groups of sales people, and contacts. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
+
+## Define individual campaigns
+
+Before you can create a campaign, you must set up *campaign status codes*. Using these codes help you manage your campaigns by assigning a status to the campaign. As you work through the stages of a campaign, you're able to see what step a campaign is at and what step comes next. You set up campaign status codes on the **Campaign Status** page.
+
+You can create a campaign card for each campaign that you want to keep track of. You can also view these campaign cards to view general information about your campaigns.
+You can delete campaign entries, such as if the entry records an action that is canceled. Only canceled campaign entries can be deleted.
+
+### Select the target audience
+
+After you create a campaign, you can create segments that specify its target audience. Learn more at [Managing Segments](marketing-segments.md).
+
+### Register discount percentages
+
+After you set up your campaign, you can register a discount percentage that the customer receives. You register the discount percentage on individual items on the **Sales Line Discounts** page. You can also register the sales prices for the individual items on the lines on the **Sales Prices** page. You can access both pages from the campaign card.
+
+After you set up the sales prices/line discounts and the segments on the campaign card, you must activate them so that the campaign prices/discounts are reflected on the lines.
+
+> [!NOTE]  
+> In order to activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
+
+If the sales prices/line discounts aren't to be offered to all the contacts in the segment, you can clear the **Campaign Target** field for the relevant contacts. If you can't see this field, you can add it to your view. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
+
+## Conduct campaigns
+
+As a campaign runs, all interactions with your contacts, or segment, are recorded so that you can get statistics and other information about the costs and success rates of the campaign.
+
+Salespeople run campaigns, and you must create activities to represent each task and assign them to the relevant salespeople. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
+
+## Related information
+
+[Manage Contacts](marketing-contacts.md)  
+[Manage Segments](marketing-segments.md)  
+[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
+[Work with Business Central](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-making-cash-flow-forecasts-by-using-account-schedules
+---
+title: Make cash flow forecasts using financial reports
+description: This walkthrough describes how you can use financial reports to make cash flow forecasts in Business Central. 
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords:
+ms.date: 08/01/2024
+ms.author: bholtorf
+ms.search.form: 103, 104, 108, 488, 489
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Walkthrough: Make cash flow forecasts using financial reports
+
+This walkthrough describes how you can use the financial reports feature to make cash flow forecasts. Financial reports perform calculations that cannot be done directly in the chart of cash flow accounts. In the financial reports, you can set up subtotals for cash flow receipts and disbursements. These subtotals can be included in new totals that can then be used to make cash flow forecasts.  
+
+## About this walkthrough
+
+This walkthrough describes the following tasks:  
+
+- Setting up a new cash flow financial report name.  
+- Setting up financial report lines.  
+- Setting up a new column definition.  
+- Assigning a column definition to a financial report.  
+- Viewing and printing the cash flow forecast.  
+
+### Prerequisites
+
+To complete this walkthrough, you will need:  
+
+- [!INCLUDE[prod_short](includes/prod_short.md)]  
+- A cash flow worksheet with registered lines  
+
+## Roles
+
+This walkthrough demonstrates tasks that are performed by the following user role:  
+
+- Controller  
+
+## Story
+
+Ken is a controller at CRONUS who makes monthly cash flow forecasts. Ken includes finance, sales, purchase, and fixed assets in the forecasts, and presents to CFO Sara for business insight.  
+
+## Set up a new financial report name
+
+The financial report name is the name you give the cash flow forecast that includes a series of defined lines and a column definition.  
+
+### Set up a new financial report name  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Financial Reports**, and then choose the related link.  
+2. On the **Financial Reports** page, choose **New** to create a new cash flow financial report name.  
+3. In the **Name** field, enter **Forecast**.  
+4. In the **Description** field, enter **Cash Flow Forecast**.  
+5. Leave the **Row Definition** and **Column Definition** fields blank.
+
+## Set up row definition lines
+
+After a financial report name is set up, Ken defines each line in the cash flow financial report. Ken defines lines to be shown in reports in addition to lines that are only for calculation purposes.  
+
+### Set up row definition lines  
+
+1. On the **Financial Reports** page, select the new **Forecast** financial report you created, then choose the **Edit Row Definition** action.  
+2. On the **Row Definition** page, enter each line as shown in the following table.  
+
+    > [!TIP]  
+    > Use the **Insert CF Accounts** function to quickly mark, in the cash flow accounts chart, the cash flow accounts you want and copy them to row definition lines.  
+
+    | Row No. | Description              | Totaling Type            | Totaling | Row Type   | Amount Type | Show |
+    |---------|--------------------------|--------------------------|----------|------------|-------------|------|
+    | R10     | Receivables              | Cash Flow Entry Accounts | 10       |Net Change | Net Amount  | Yes  |
+    | R10     | Open sales orders        | Cash Flow Entry Accounts | 20       |Net Change | Net Amount  | Yes  |
+    | R10     | Rentals                  | Cash Flow Entry Accounts | 30       |Net Change | Net Amount  | Yes  |
+    | R10     | Financial assets         | Cash Flow Entry Accounts | 40       |Net Change | Net Amount  | Yes  |
+    | R10     | Fixed assets disposal    | Cash Flow Entry Accounts | 50       |Net Change | Net Amount  | Yes  |
+    | R10     | Private investments      | Cash Flow Entry Accounts | 60       |Net Change | Net Amount  | Yes  |
+    | R10     | Miscellaneous receipts   | Cash Flow Entry Accounts | 70       |Net Change | Net Amount  | Yes  |
+    | R10     | Open service orders      | Cash Flow Entry Accounts | 80       |Net Change | Net Amount  | Yes  |
+    | R20     | Total cash receipts      | Formula                  | R10      |Net Change | Net Amount  | Yes  |
+    | R30     | Payables                 | Cash Flow Entry Accounts | 1010     |Net Change | Net Amount  | Yes  |
+    | R30     | Open purchase orders     | Cash Flow Entry Accounts | 1020     |Net Change | Net Amount  | Yes  |
+    | R30     | Personnel costs          | Cash Flow Entry Accounts | 1030     |Net Change | Net Amount  | Yes  |
+    | R30     | Running costs            | Cash Flow Entry Accounts | 1040     |Net Change | Net Amount  | Yes  |
+    | R30     | Finance costs            | Cash Flow Entry Accounts | 1050     |Net Change | Net Amount  | Yes  |
+    | R30     | Investments              | Cash Flow Entry Accounts | 1070     |Net Change | Net Amount  | Yes  |
+    | R30     | Private consumptions     | Cash Flow Entry Accounts | 1090     |Net Change | Net Amount  | Yes  |
+    | R30     | VAT due                  | Cash Flow Entry Accounts | 1100     |Net Change | Net Amount  | Yes  |
+    | R30     | Other expenses           | Cash Flow Entry Accounts | 1110     |Net Change | Net Amount  | Yes  |
+    | R40     | Total cash disbursements | Formula                  | R30      |Net Change | Net Amount  | Yes  |
+    | R50     | Surplus                  | Formula                  | R20+R40  |Net Change | Net Amount  | Yes  |
+    | R60     | Cash flow funds          | Cash Flow Entry Accounts | 2100     |Net Change | Net Amount  | Yes  |
+    | R70     | Total cash flow          | Formula                  | R50+R60  |Net Change | Net Amount  | Yes  |
+
+    > [!NOTE]
+    > The row number R10 is used to capture the account totals for receivables. The row number R20 is used to calculate the sum of all cash receipts. The row number R30 is used to capture the account totals for payables. The row number R40 is used to calculate the sum of all cash disbursements. The row number R50 is used to capture the sum of cash surplus. The row number R60 is used to capture the liquid funds. The row number R70 is used to calculate the forecasted cash flow.
+
+## Set up a new column definition
+
+Before printing the cash flow forecast, Ken needs to create the column definition for the numerical information. In the columns, Ken defines the information needed to use from the lines.
+
+- The first column has the number *C10* with the title **Amount** and contains the net change.  
+- The second column has the number *C20* with the title **Balance at Date** and contains the transactions for the period.  
+- The third column has the number *C30* with the title **Entire Year** and contains the net change in the balances for the entire fiscal year.  
+- Finally, Ken assigns the column definition as the default option for the **Forecast** financial report.  
+
+### Set up a new column definition
+
+1. On the **Financial Reports** page, select the new **Forecast** financial report name you created. On the **Home** tab, in the **Process** group, choose **Edit Column Definition**.
+
+2. Create a new column definition with the name **Cash Flow**.
+
+3. Choose the **OK** button.
+
+4. Enter each line exactly as shown in the following table.
+
+    |Column No.|Column Header|Column Type|Ledger Entry Type|Amount Type|Show|  
+    |----------|-------------|-----------|-----------------|-----------|----|
+    |C10|Amount|Net Change|Entries|Net Amount|Always|  
+    |C20|Amount Until Date|Balance at Date|Entries|Net Amount|Always|  
+    |C30|Entire Fiscal Year|Entire Fiscal Year|Entries|Net Amount|Always|
+
+## Assig the column definition to the financial report name
+
+Ken is now ready to assign the column definition to the financial report name.  
+
+### Assign the column definition to the financial report name
+
+1. In the **Financial Reports** page, select the **Forecast** financial report, then choose the **Edit Column Definition** action.  
+2. In the **Name** field, choose the column definition **Cash Flow** to assign as the default column definition.  
+
+## View and print the cash flow forecast
+
+1. On the **Financial Reports** page, choose the **Forecast** financial report [Financial analytics overview](bi.md)  to view the cash flow forecast.  
+2. On the **Financial Report** page, you can select an amount and then view the cash flow forecast entries that make up the amount. In addition, you can view the formula used to calculate that amount. You can also filter the amounts by date and dimension.  
+3. Choose the **Print** action to print the cash flow forecast.  
+
+## Related information
+
+[Prepare financial reporting](bi-how-work-account-schedule.md)  
+[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
+[Financial analytics overview](bi.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-use-allocation-keys-general-journals
 ---
 title: Use Allocation Keys in General Journals
@@ -2172,7 +2383,7 @@ ms.reviewer: v-soumramani
 ms.search.keywords: field mapping, SEPA CAMT, SEPA bank statements, CAMT format, data exchange definition
 ms.service: dynamics-365-business-central
 ms.topic: article
-ms.date: 10/14/2025
+ms.date: 11/27/2025
 ms.custom: bap-template
 ---
 
@@ -2211,13 +2422,13 @@ Learn more in [Set Up Data Exchange Definitions](across-how-to-set-up-data-excha
 ## CAMT data mapping to fields in the Bank Acc. Reconciliation Line table (274)  
 
 |Element Path|Message Element|Data Type|Description|Negative-Sign Identifier|Field No.|Field Name|  
-|------------------|---------------------|---------------|-----------------|-------------------------------|---------------|----------------|  
+|---------|---------|------|--------|-----------|--------|----------------|  
 |Stmt/Ntry/Amt|Amount|Decimal|The amount of money in the cash entry||7|Statement Amount|  
 |Stmt/Ntry/CdtDbtInd|CreditDebitIndicator|Text|Indicates whether the entry is a credit or a debit entry|DBIT|7|Statement Amount|  
 |Stmt/Ntry/BookgDt/Dt|Date|Date|The date when an entry is posted to an account on the account servicer's books||5|Transaction Date|  
 |Stmt/Ntry/BookgDt/DtTm|DateTime|DateTime|The date and time when an entry is posted to an account on the account servicer's books||5|Transaction Date|  
-|Stmt/Ntry/ValDt/Dt|Date|Date|The date when assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry||12|Value Date|  
-|Stmt/Ntry/ValDt/DtTm|DateTime|DateTime|The date and time when assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry||12|Value Date|  
+|Stmt/Ntry/ValDt/Dt|Date|Date|For a credit entry, the date when assets become available to the account owner. For a debit entry, the date when assets become unavailable to the account owner.||12|Value Date|  
+|Stmt/Ntry/ValDt/DtTm|DateTime|DateTime|For a credit entry, the date and time when assets become available to the account owner. For a debit entry, the date when assets become unavailable to the account owner.||12|Value Date|  
 |Stmt/Ntry/NtryDtls/TxDtls/RltdPties/Dbtr/Nm|Name|Text|The name of the party that owes an amount of money to the (ultimate) creditor||15|Payer Information|  
 |Stmt/Ntry/NtryDtls/TxDtls/RmtInf/Ustrd|Unstructured|Text|Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts-receivable system, in an unstructured form||6|Description|  
 |Stmt/Ntry/AddtlNtryInf|AdditionalEntryInformation|Text|Additional information about the entry||16|Transaction Information|  
@@ -2480,8 +2691,8 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 5510,
-ms.date: 04/08/2025
-ms.service: dynamics-365-business-central
+ms.date: 03/10/2026
+ms.custom: bap-template
 
 ---
 # Register consumption and output for a released production order
@@ -2500,6 +2711,9 @@ Use the **Production Journal** page to register consumption output for a release
 2. Open a released production order line that's ready to register. On the **Lines** FastTab, choose the **Line** action, and then choose the **Production Journal** action.  
 
     The **Production Journal** page shows journal lines for the production order line according to the **Prod. Order Component** and **Prod. Order Routing** pages. These lines come from the production BOM and routing assigned to the item that is being produced. To learn more, go to [Create Production BOMs](production-how-to-create-routings.md).  
+
+   > [!WARNING]  
+   > Only one person can use the **Production Journal** page at a time. For example, User 2 opens the page and enters data when User 1 is already working on the page. When User 1 closes the page, User 2 might lose their data.
 
 3. In the **Posting Date** field, enter a posting date that applies to all lines. The work date is entered by default. The field is meant as a quick way to align posting dates on all lines, if relevant.  
 
@@ -2530,11 +2744,16 @@ Use the **Production Journal** page to register consumption output for a release
     > [!NOTE]  
     > If an item that's being consumed is blocked, the journal doesn't post consumption quantities for it. If a machine or work center is blocked, the journal doesn't post output quantities or process times for the output line.  
 
-    > [!NOTE]  
+    > [!IMPORTANT]  
     > If you close the journal without posting, the changes are lost.  
 
-> [!WARNING]  
-> Only one person can use the **Production Journal** page at a time. For example, User 2 opens the page and enters data when User 1 is already working on the page. User 2 might lose their data when User 1 closes the page.  
+### Consider the location code when posting capacity and overhead
+
+In many manufacturing environments, you post production consumption and output by location, with separate WIP accounts per site. [!INCLUDE [prod_short](includes/prod_short.md)] uses the production location when posting capacity and overhead: 
+
+* Value entries that are linked to capacity ledger entries have a **Location Code** value that comes from the related production order line or item journal line.
+* When you post capacity or overhead, [!INCLUDE [prod_short](includes/prod_short.md)] uses the **Inventory Posting Setup** for that specific location, not the blank location.
+* You don't have to keep an **Inventory Posting Setup** line for a blank location just to post overhead.
 
 ## Related information  
 
@@ -2822,7 +3041,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: production bom, bills of material, 
 ms.search.form: 911, 912, 917, 9287, 99000786, 99000787, 99000788, 99000789, 99000795, 99000797, 99000800, 99000809, 99000811, 99000812, 99000818
-ms.date: 03/21/2025
+ms.date: 03/10/2026
 ms.service: dynamics-365-business-central
 ---
 # Create production BOMs
@@ -2862,10 +3081,20 @@ Before you can set up a routing, the following setups must be in place:
 9. In the **Routing Link Code** field, enter a code to connect the component to a specific operation. To learn more, go to [To create routing links](production-how-to-create-routings.md#to-create-routing-links).
 10. To copy lines from an existing production BOM, choose the **Copy BOM** action to select existing lines.  
 11. Certify the production BOM.  
+
+   > [!TIP]
+   > Production BOMs must be certified before they can be used in production or planning. While you design or maintain them, it’s common to work with uncertified structures for some time. For that reason, when you leave an uncertified production BOM or routing, [!INCLUDE [prod_short](includes/prod_short.md)] reminds you that the structure isn’t certified. The reminder helps prevent accidental use of incomplete data, but it can become noisy during design or maintenance work.
+   >
+   > If you’re intentionally working with uncertified BOMs or routings and don’t need the reminder, you can turn off the notification for yourself. On the **My Notifications** page, turn off the **Warn about non-certified production BOMs and routings** notification.
+
+If you’re intentionally working with uncertified BOMs or routings and don’t need the reminder, you can turn off the notification for yourself. Search for “Warn about non-certified production BOMs and routings” in My Notifications.
+
+Certifying the BOM is optional, though we do recommend it if the BOM is ready to use. For example, if you're in the design phase, you can work with the BOM in a uncertified state. Learn more at [Work with uncertified production BOMs and routings](#work-with-uncertified-production-boms-and-routings).
+
 12. You can now attach the new production BOM to the card of the parent item in question. To learn more, go to [Register New Items](inventory-how-register-new-items.md).  
 
-> [!NOTE]  
-> [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)] To recalculate the item's standard cost from the item card, choose the **Production** action, then choose the **Calc. Production Std. Cost** action. You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. To learn more, go to [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).  
+   > [!NOTE]  
+   > [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)] To recalculate the item's standard cost from the item card, choose the **Production** action, then choose the **Calc. Production Std. Cost** action. You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. To learn more, go to [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).  
 
 ## To create a new version of a production BOM
 
@@ -2918,6 +3147,10 @@ The calculation formula defines the relation of the individual components. The f
 A production BOM requires 70 metal parts with the dimensions length = 0.20 m and width = 0.15 m. Enter the values as follows: Calculation Formula = Length x Width, Length = 20, Width = 15, Quantity per = 70.
 
 Quantity per x Length * Width, that is, Quantity = 70 x 0.20 m x 0.15 m = 2.1 m2, gives the quantity.  
+
+## Work with uncertified production BOMs and routings
+
+[!INCLUDE [production-turn-off-uncertified-notifications](includes/production-turn-off-uncertified-notifications.md)]
 
 ## Related information
 
@@ -4901,7 +5134,7 @@ ms.reviewer: jswymer
 ms.collection:
   - bap-ai-copilot
 ---
-# FAQ for Sales Order Agent (preview)
+# FAQ for Sales Order Agent
 
 These frequently asked questions (FAQ) describe the AI impact of the Sales Order Agent feature in Business Central.
 
@@ -5941,8 +6174,6 @@ ms.custom: bap-template
 ---
 
 # Inspect the quality of production output
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
 This article explains how to set up quality management to automatically create quality inspections for production output when you post manufacturing operations. For example, these inspections enable:
 
@@ -10963,6 +11194,9 @@ ms.custom: bap-template
 
 # Set up contact sync with Outlook for Business Central on-premises
 
+> **APPLIES TO:**  [!INCLUDE[prod_short](includes/prod_short.md)] 2025 release wave 2 (v27) and earlier. For later versions, this setup isn't needed. Learn more in [Save business contacts to Microsoft Outlook](save-business-contacts-to-outlook.md).
+
+
 In this article, you learn how to set up [!INCLUDE[prod_short](includes/prod_short.md)] on-premises to synchronize contacts in [!INCLUDE[prod_short](includes/prod_short.md)] with contacts in Outlook. For more information the feature, go to [Synchronize Contacts in Business Central with Contacts in Microsoft Outlook](admin-synchronize-outlook-contacts.md).
 
 ## Introduction
@@ -12040,7 +12274,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: direct shipment
-ms.date: 06/10/2025
+ms.date: 03/05/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -12053,7 +12287,7 @@ When a sales order is marked for drop shipment, and you create a purchase order 
   
 > [!Video https://learn-video.azurefd.net/vod/player?id=58c81aa9-7190-476a-9fd9-75a9841549f7]
 
-## To create a sales order for drop shipment
+## Create a sales order for a drop shipment
 
 To prepare a drop shipment, you create a sales order for an item and indicate on the sales line that the sale requires drop shipment.
 
@@ -12063,49 +12297,71 @@ To prepare a drop shipment, you create a sales order for an item and indicate on
 > [!TIP]
 > By default, the Drop Shipment checkbox and Purchasing Code field aren't available on the lines. If they aren't, you can add them by personalizing the section of page that contains the lines. Learn more at [Personalize Your Workspace](ui-personalization-user.md).
 
-## To create the purchase order for drop shipment
+## Create purchase orders directly from sales orders
 
-To prepare a drop shipment, you indicate on the purchase order that it must be shipped to your customer, not to yourself.
+You can create purchase orders directly from sales orders that are set up for drop shipment by choosing the **Create Purchase Orders** action.
 
-1. Create a purchase order. Don't fill any fields on the lines. Learn more at [Record Purchases](purchasing-how-record-purchases.md).
-2. In the **Ship-to** field, select **Customer Address**.
-3. In the **Customer** field, select the customer that you're selling to.
-4. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
-5. On the **Sales List** page, select the sales order that you prepared in [To create a sales order for drop shipment](#to-create-a-sales-order-for-drop-shipment).
-6. Choose the **OK** button.
+To create a purchase order from a sales order, follow these steps:
 
-The line information from the sales order is inserted on the purchase order line(s).
+1.  Open a sales order that has lines marked as **Drop Shipment**.
+2.  Choose the **Create Purchase Orders** action.
+3.  On the **Create Purchase Orders** page, review the suggested lines. The vendor is added based on information from the **Item Card** or the **Stockkeeping Unit Card** pages. You can change the vendor if needed.
+
+## Create a purchase order for a drop shipment
+
+1. In the **Ship-to** field, select **Customer Address**.
+2. In the **Customer** field, select the customer that you're selling to.
+3. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
+4. On the **Sales List** page, select the sales order that you prepared in [To create a sales order for drop shipment](#create-a-sales-order-for-a-drop-shipment).
+5. Choose the **OK** button.
+
+The line information from the sales order is inserted on the purchase order lines.
 
 You can now tell your vendor to ship the items directly to the customer. For example, you might send them the order by email.
 
 If your vendor provides additional information, such as a tracking number, you can add that information as a comment on a purchase order line. To add a comment on a line, in the **Type** field, choose **Comment**, and then enter the information in the **Description** field.  
 
-## To create multiple purchase orders for drop shipments
+## Create multiple purchase orders for drop shipments
 
-You can also use the requisition worksheet to create purchase orders. The advantage of using the requisition worksheet is that it can create purchase orders for all outstanding drop shipments. That means you won't have to create each order individually.
+You can also use a requisition worksheet or planning worksheet to create purchase orders. The advantage of using a worksheet is that it can create purchase orders for all outstanding drop shipments. You don't have to create each order individually.
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Requisition Worksheets**, and then choose the related link.
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Requisition Worksheets** or **Planning Worksheets**, and then choose the related link.
 2. Choose the **Drop Shipments** action, and then choose the **Get Sales Order** action.
 3. If needed, enter filter criteria for the orders you wan to get, and then choose the **OK** button.
 4. Review the purchase order lines, and in the **Vendor No.** field, select the vendor that supplies the goods.
 5. Choose the **Carry Out Action Message** action to convert the lines to a purchase order.
 
-## To view the linked purchase order from the sales order
+## Create purchase orders for drop shipments from the Order Planning page
+
+Drop shipment orders are taken into consideration by the Order Planning page, so drop shipment lines are included when calculating plans.
+
+- On the **Order Planning page**, use the **Calculate Plan** action. Drop shipment lines are included.
+
+To learn more about order planning, go to [Plan for New Demand Order by Order](production-how-to-plan-for-new-demand.md).
+
+
+## Access the linked purchase order from the sales order
 
 Select the drop-shipment sales order line, choose the **Order** action, choose the **Drop Shipment** action, and then choose the **Purchase Order** action.
 
-## To post a drop shipment
+## Post a drop shipment
 
-After the vendor ships the items, you can post the sales order as shipped. You can also post the purchase order, but only with the **Receive** option until the sales order has been invoiced.
+After the vendor ships the items, you can post the sales order as shipped. You can also post the purchase order, but only with the **Receive** option until you invoice the sales order.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
 2. Open the sales order.
 3. In the **Qty. to Ship** field, specify how many of the order quantity to ship, the full or a partial order quantity.
 4. Choose the **Post** or **Post and Send** action.
-5. Choose either the **Ship** option to invoice later, or the **Ship and Invoice** option to invoice immediately.
+5. Choose either the **Ship** option to invoice later, or the **Ship and Invoice** option to invoice immediately. Because the sales order is linked to the purchase, when you post the shipment automatically posts the receipt on the purchase order.
 
 > [!TIP]
-> Remember to post the purchase order invoice.
+> You can also start the process from purchase side. You can either post the receipt, receive and invoice, or use the **Get order lines** action in a separate invoice to post the invoice and shipment.
+
+## Reverse a drop shipment
+
+You can reverse posted drop shipments when both the sales shipment and the related purchase receipt aren't yet invoiced. You can undo a sales shipment that originates from a drop shipment. [!INCLUDE [prod_short](includes/prod_short.md)] reverts the linked purchase receipt, creates correction entries, and reapplies the purchase and sales entries to their reversal entries.
+
+To reverse a drop shipment, open a posted sales shipment for it, and choose **Undo Shipment**.
 
 ## Related information
 
@@ -12860,6 +13116,36 @@ For more information about the database wait statistics, see [Database Wait Stat
 
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-withholding-tax-entries
+---
+title: View withholding tax entries
+description: This article describes how to review and explore the general ledger entries for withholding tax.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: withholding, tax, sales, purchases
+ms.search.form: 
+ms.date: 03/06/2026
+ms.custom: bap-template
+---
+
+# View withholding tax entries
+
+You can view entries that are posted with withholding tax for a specified general ledger register. On the **Withholding Tax Entry** page, you can explore details about the withholding tax, such as the base amount, the calculated withholding tax amount, the withholding tax calculation method, and the unrealized withholding tax amount.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **G/L Registers**, and then choose the related link.
+1. Select the general ledger register for which you want to view withholding tax entries, and then choose the **Withholding Tax Entry** action.
+1. Explore the posted withholding tax entries on the **Withholding Tax Entry** page.
+
+## Related information
+
+[Set up withholding tax](finance-set-up-withholding-tax.md)  
+[Calculate withholding tax for vendors](finance-withholding-tax.md)  
+[Financial management](finance.md)  
+
+[!INCLUDE [footer-banner](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/faqs-bank-reconciliation
 ---
 title: FAQ for bank account reconciliation assist with Copilot (preview)
@@ -13037,13 +13323,12 @@ title: Create a purchase quote to request an offer
 description: Describes how to create a sales offer or a request for quote (RFQ) document to record your offer to a customer to sell products under certain terms.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: rfq
-ms.search.form: 49, 97, 9306, 9346
-ms.date: 10/03/2025
+ms.search.form: 49, 97, 9306, 9346,
+ms.date: 03/27/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ---
 
 # Request quotes
@@ -13065,6 +13350,20 @@ The purchase quote is removed from the database. A purchase order is created bas
 
 > [!NOTE]
 > It isn't possible to convert a purchase quote to a purchase invoice directly. But it's possible with sales quotes. Learn more in [Record Purchases with Purchase Invoices](purchasing-how-record-purchases.md) for details on how to create a purchase invoice.
+
+## Create purchase quotes for contacts
+
+You can create purchase quotes for contacts that aren't yet associated with a vendor. This removes the need to set up a vendor record before you prepare a quote, which is useful when you're unsure whether the purchase will proceed. Postponing vendor creation reduces administrative overhead and speeds up quote registration, while ensuring vendor records are created when they're actually needed.
+
+When you convert the quote into an order or release the document, [!INCLUDE [prod_short](includes/prod_short.md)] automatically creates the vendor using a vendor template. [!INCLUDE [prod_short](includes/prod_short.md)] selects the appropriate template based on criteria such as territory code, country/region code, and contact type from the contact. If only one template matches, it's applied automatically, otherwise you're prompted to choose from available templates.
+
+Here's an overview of the process:
+
+1.  Create a purchase quote, and select a contact that isn't linked to a vendor.
+2.  If multiple templates are available, choose a vendor template.
+3.  Enter the details for the quote.
+4.  When you release the quote or convert it to an order, [!INCLUDE [prod_short](includes/prod_short.md)] creates the vendor record using the selected template.
+
 
 ## Related information
 
@@ -13672,7 +13971,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000773, 99000778, 99000823, 99000827
-ms.date: 03/08/2025
+ms.date: 03/10/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -13696,7 +13995,13 @@ The **Production Journal** page lets you do the same tasks as the **Output Journ
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Output Journal**, and then choose the related link.  
 2. Fill in the fields with the production order data and the output data and/or run time. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
   
-    You can use the **Explode Routing** function to generate journal lines from production orders.
+   You can use the **Explode Routing** action to generate journal lines from production orders.
+
+   > [!NOTE]
+   > When you report production output for items with serial number tracking, you often need one journal line per serial number. When you turn on **Item Tracking on Lines** in the **Output Journal** and choose **Explode Routing**, [!INCLUDE [prod_short](includes/prod_short.md)] respects the item tracking setting when it explodes routing lines in output journals:
+   >
+   > * For serial-tracked items, [!INCLUDE [prod_short](includes/prod_short.md)] splits the last routing operation into multiple lines with quantity 1 per serial number, and the journal line is ready for you to enter the assigned serial number.
+   > * For lot-tracked items, the operation is on a single line with the full quantity.
   
 3. If the operation is complete, select the **Finished** field.  
 4. Choose the **Post** action to post the operations.
@@ -16935,9 +17240,9 @@ ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 
-# Install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)]
+# Install Power BI apps for Business Central
 
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+<!-- [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)] -->
 
 This article describes how to install [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps for [!INCLUDE [prod_short](includes/prod_short.md)]. The apps are specific to each functional area of [!INCLUDE [prod_short](includes/prod_short.md)]. The apps include:
 
@@ -17012,31 +17317,21 @@ When you install the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] templat
 | Subscription Billing           | 27.0 and later | https://aka.ms/bc-pbi-subscription-billing-app   |
 | Sustainability                 | 27.0 and later | https://aka.ms/bc-pbi-sustainability-app         |
 
-#### Power BI apps (version 26.2 to 26.5)
+#### Power BI apps (version 26)
 
 | To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
 |--------------------------------| -------------- | ------------------------------------------------ |
-| Finance                        | 26.2 to 26.5 | https://aka.ms/bc-pbi-finance-app-26-2             |
-| Inventory                      | 26.2 to 26.5 | https://aka.ms/bc-pbi-inventory-app-26-2           |
-| Inventory Valuation            | 26.2 to 26.5 | https://aka.ms/bc-pbi-inventory-valuation-app-26-2 | 
-| Manufacturing                  | 26.2 to 26.5 | https://aka.ms/bc-pbi-manufacturing-app-26-2       |
-| Purchasing                     | 26.2 to 26.5 | https://aka.ms/bc-pbi-purchase-app-26-2            |
-| Projects                       | 26.2 to 26.5 | https://aka.ms/bc-pbi-projects-app-26-2            |
-| Sales                          | 26.2 to 26.5 | https://aka.ms/bc-pbi-sales-app-26-2               |
-| Subscription Billing           | 26.2 to 26.5 | https://aka.ms/bc-pbi-subscription-billing-app     |
-| Sustainability                 | 26.2 to 26.5 | https://aka.ms/bc-pbi-sustainability-app-26-2      |
+| Finance                        | version 26 | https://aka.ms/bc-pbi-finance-app-26-2             |
+| Inventory                      | version 26 | https://aka.ms/bc-pbi-inventory-app-26-2           |
+| Inventory Valuation            | version 26 | https://aka.ms/bc-pbi-inventory-valuation-app-26-2 | 
+| Manufacturing                  | version 26 | https://aka.ms/bc-pbi-manufacturing-app-26-2       |
+| Purchasing                     | version 26 | https://aka.ms/bc-pbi-purchase-app-26-2            |
+| Projects                       | version 26 | https://aka.ms/bc-pbi-projects-app-26-2            |
+| Sales                          | version 26 | https://aka.ms/bc-pbi-sales-app-26-2               |
+| Subscription Billing           | version 26 | https://aka.ms/bc-pbi-subscription-billing-app     |
+| Sustainability                 | version 26 | https://aka.ms/bc-pbi-sustainability-app-26-2      |
 
-#### Power BI apps (version 25.2 to 26.1)
 
-| To get the template app for... | In [!INCLUDE [prod_short](includes/prod_short.md)] versions | Use this install link |
-|--------------------------------| ------------ | -------------------------------------------------- |
-| Finance                        | 25.2 to 26.1 | https://aka.ms/bc-pbi-finance-app-25-2             |
-| Inventory                      | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-app-25-2           |
-| Inventory Valuation            | 25.2 to 26.1 | https://aka.ms/bc-pbi-inventory-valuation-app-25-2 | 
-| Manufacturing                  | 25.2 to 26.1 | https://aka.ms/bc-pbi-manufacturing-app-25-2       |
-| Purchasing                     | 25.2 to 26.1 | https://aka.ms/bc-pbi-purchase-app-25.2            |
-| Projects                       | 25.2 to 26.1 | https://aka.ms/bc-pbi-projects-app-25-2            |
-| Sales                          | 25.2 to 26.1 | https://aka.ms/bc-pbi-sales-app-25-2               |
 
 ### Need Power BI apps for multiple companies?
 
@@ -17129,6 +17424,12 @@ Learn more in [Refresh [!INCLUDE [powerbi-name](includes/powerbi-name.md)] seman
 ## Job queue entry for updating dimension set entries
 
 For dimension set entries to show up in the [!INCLUDE [powerbi-name](includes/powerbi-name.md)] apps, the job queue entry that runs the *Update Dim. Set Entries* codeunit must run at least one time. If you change dimension sets or values, the codeunit must run again. Therefore, we recommend that you run the corresponding job queue entry one time each week, or maybe once a night outside normal working hours.
+
+## ABC Analysis Setup
+
+ABC Analysis reporting categories are driven by the **ABC Analysis Setup**. This setup represents the percentage boundaries for the ABC class categories in the Power BI inventory reports. WIth the default configuration, Category A accounts for 50 percent of the total sales value, Category B accounts for 30 percent, and Category C accounts for 20 percent.
+
+To customize the ABC Class Category percentage boundaries, go to the [ABC Analysis Setup](https://businesscentral.dynamics.com?page=7160) page. Category A typically represents the items with the highest contribution to the total sales amount. Category B represents items that moderately contribute. Category C represents the items that contribute the least. The sum of the percentages for all three categories must equal 100.
 
 ## Want links to show up in Report Explorer?
 
@@ -17238,6 +17539,79 @@ Try the report here: [Project Performance to Budget](https://businesscentral.dyn
 [Project management analytics overview](projects-analytics-overview.md)  
 [Project management overview](projects-manage-projects.md)
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-set-up-excise-tax
+---
+title: Set up excise tax
+description: This article describes how to set up excise tax.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 
+ms.date: 03/16/2026
+ms.custom: bap-template
+---
+
+# Set up excise tax
+
+Some countries/regions require businesses to register and report excise taxes on the production or sale of specific goods, such as fuel, alcohol, and tobacco. This article describes what you need to set up in [!INCLUDE [prod_short](includes/prod_short.md)] so that you can do that.
+
+Before you can calculate excise taxes, you must configure [excise tax types](#set-up-excise-tax-types). Excise tax types represent the goods or services that you want to register excise tax for. For each excise tax type, you can define a tax basis as weight, sugar content, active content, volume, pure alcohol (ABV), or quantity. Also, set up excise duty rates for each excise tax type to calculate the final tax amount based on the selected basis and the accumulated excise‑liable quantity.
+
+Finally, configure the items and fixed assets you want to include in excise tax calculations.
+
+## Set up excise tax types
+
+Excise tax types represent the goods you want to register excise tax for.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Excise Tax Types**, and select the related link.
+1. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+1. To make the types available on excise tax journals, turn on the **Enabled** toggle.
+1. Choose the **Configure Entry Permissions** action to open the **Excise Tax Entry Permissions** page. 
+1. In the **Excise Entry Type** field, specify the type of document to include in excise tax calculations. 
+1. On the **Excise Tax Types** page, choose the **Item/FA Rates** action to open the **Excise Tax Item/FA Rates** page.
+1. On the **Excise Tax Item/FA Rates** page, in the **Source Type** field, specify whether the rate applies to items of fixed assets.
+1. In the **Source No.** field, select the item or fixed asset only if this rate applies to a single, specific item or fixed asset. Otherwise, leave this field blank because excise rates for items and fixed assets are defined on their respective cards.
+1. In the **Excise Duty** field, specify the amount of tax to register for the item or fixed asset.
+1. In the **Effective From Date** field, specify the date from which you want to calculate excise tax for the item or fixed asset.
+1. Optionally, in the **Report Caption** field, enter text to include in your excise tax report. For example, if you're registering tax for plastics and using weight as the measure, you might enter "Plastic Excise Tax (by Weight)."
+
+## Set up items and fixed assets for excise tax
+
+To prepare items and fixed assets for registering excise tax, on the **Excise Tax** FastTab of the **Item Card** or **Fixed Asset Card** pages, specify the relevant type of excise tax, the unit of measure, and the quantity.
+
+> [!NOTE]
+> You can only assign one excise tax type to an item or fixed asset. You can't combine multiple excise taxes for the same item or fixed asset.
+
+## Set up a number series for excise tax journals
+
+You must create a number series for excise tax journals. To learn more about number series, go to [Create number series](ui-create-number-series.md).
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **No. Series**, and select the related link.
+1. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+## Set up a journal batch for excise taxes
+
+You must set up a separate journal batch for each excise tax type. For example, one for alcohol, one for sugar, one for plastic, and so on.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Excise Journals**, and select the related link.
+1. In the **Journal Batch Name** field, choose the :::image type="content" source="media/assist-edit-icon.png" alt-text="Screenshot of the AssistEdit icon.":::.
+1. On the **Excise Journal Batches** page, choose **New**.
+1. In the **Batch Name** field, enter a name that matches the type of excise tax that the journal is for.
+1. In the **Excise Tax Type Filter** field, choose the type of excise tax that the journal is for. To create a new filter, follow these steps:
+   1. In the drop-down, choose **New**.
+   1. In the **Code** field, enter a name that matches the type of excise tax that the journal is for.
+   1. Fill in the remaining fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
+1. In the **Type** field, choose **Excises**.
+1. Fill in the remaining fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+## Related information
+
+[Register excise tax](finance-register-excise-tax.md)  
+[Use CBAM and EPR calculations](sustainability-cbam-epr-calculations.md)  
+
+[!INCLUDE [footer-banner](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ad-hoc-analysis-sales
 ---
@@ -19774,8 +20148,6 @@ ms.custom: bap-template
 
 # Purchase receipt testing with warehouse handling
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains how to set up and use automatic quality inspection creation for purchase receipts in locations with warehouse handling.
 
 For locations with warehouse handling, quality tests are created when you post warehouse receipts. This workflow integrates with warehouse management, and supports:
@@ -19956,7 +20328,7 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: bi, power BI, analysis, KPI
 ms.search.form: 516, 9300, 5119, 9301, 9305
-ms.date: 05/03/2024
+ms.date: 04/01/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -20065,6 +20437,31 @@ When you post a sales order, [!INCLUDE [prod_short](includes/prod_short.md)] upd
 When you post a purchase document, [!INCLUDE [prod_short](includes/prod_short.md)] updates the vendor's account, general ledger (G/L), item ledger entries, and resource ledger entries.
 
 - For each purchase line, as applicable, entries are created in the **Item Ledger Entry** table (if the purchase line is of the Item type). In addition, purchase documents are always recorded in the **Purch. Recpt. Header** and **Purch. Inv. Header** tables. To learn more, go to [Posting purchases](purchasing-how-record-purchases.md#posting-purchases).
+
+## Get insights into item data with advanced KPIs and summary
+
+Copilot gives you faster and more comprehensive item summaries with new KPIs and data points from the **Item Statistics** page. To open the page, use the **Item Statistics** action on the **Item Card** page. The page provides financial and performance metrics for an item across different time periods.
+
+- **Current Inventory Value**: Track the current inventory value (in local currency), calculated as the sum of Cost Amount (Actual) + Cost Amount (Expected) on posted value entries for this item.
+- **Expired Inventory Value**: Identify obsolete stock for timely action. Applicable for items with enabled item tracking and expiration dates. Calculated as the sum of Cost Amount (Actual) + Cost Amount (Expected) from value entries applied to open item ledger entries with an expiration date that's before the work date. 
+
+The Sales section displays four time period columns with multiple metrics per period.
+
+Time periods:
+
+1. **This Fiscal Period** - Current accounting period in the fiscal year
+2. **This Fiscal Year** - Current fiscal year to date
+3. **Last Fiscal Year** - Previous fiscal year
+4. **Lifetime** - All transactions since the item was created
+
+Sales metrics:
+
+- **Sales Growth Rate (%)**: Compare current and prior periods to identify demand trends. Calculated as (Sales in the current period in the fiscal year - Sales in the prior period in the fiscal year) ÷ Sales in the prior period in the fiscal year. A positive value indicates growth, while a negative value indicates a decline in sales.
+- **Net Sales (LCY)**: View actual revenue after returns and discounts. Calculated as Total sales in the period  - Total returns - Total given discounts.
+- **Gross Margin (%)**: Assess profitability by comparing revenue to cost of goods sold. Calculated as (Net Sales - COGS) ÷ Net Sales. A higher percentage reflects better profitability.
+- **Return Rate (%)**: Monitor product quality and customer satisfaction through return ratios.  Calculated as Returned Quantity ÷ Total Sold Quantity. A lower percentage indicates fewer returns and higher product acceptance.
+
+When you turn on the **Summarize with Copilot** capability, you automatically enable these enhancements.
 
 ## Related information
 
@@ -20501,13 +20898,13 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-display-lists-different-views
 ---
-title: Adjust the amount of detail in lists
+title: Display lists in different ways
 description: Choose between detailed rows for comprehensive information or compact tiles for quick visual scanning in list views.
 author: brentholtorf
 ms.topic: concept-article
 ms.search.keywords: personalization, display lists, list views
 ms.search.form: 31
-ms.date: 10/14/2025
+ms.date: 03/12/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -20516,7 +20913,14 @@ ms.custom: bap-template
 
 # Display lists in different ways
 
-List pages in [!INCLUDE[prod_short](includes/prod_short.md)] let you choose how to display the records. A list can display as detailed rows, which is ideal when you need to work with many fields or edit fields in the list. But, you can also switch to display records as tiles, which is more compact and shows fewer fields on the specific record. Tiles are useful for an overview of several entries and are helpful on smaller devices because they're compact and easier to tap.
+List pages in [!INCLUDE[prod_short](includes/prod_short.md)] let you choose how to display records. You can display records as detailed rows, which is ideal when you need to work with many fields or edit data. Alternatively, display records as tiles for a more compact view that's helpful on smaller devices. To change the view, select the layout button in the upper-right corner of the page.
+
+:::image type="content" source="media/ui-experience/view-layout-options.png" alt-text="Enter analysis mode.":::
+
+- :::image type="icon" source="media/ui-experience/list-layout-button.png":::**List** - Displays records in rows and columns, optimized for editing and detailed work.
+- :::image type="icon" source="media/ui-experience/list-layout-button.png":::**List** > **Created/Modified by** - Displays avatars in the **By** column indicating who created or last modified each record&mdash;a user, AI agent, or system. Hover over an avatar to view the full names and timestamps.
+- :::image type="icon" source="media/ui-experience/tall-tiles-layout-button.png":::**Tall tiles** - Displays records in large vertical tiles with key fields, ideal for viewing pictures. Only available on the **Items** list page.
+- :::image type="icon" source="media/ui-experience/tiles-layout-button.png":::**Tiles** - Displays records in compact horizontal tiles for quick overview.
 
 ## Items list
 
@@ -20619,8 +21023,6 @@ ms.custom: bap-template
 ---
 
 # Set up quality inspection generation rules
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
 Quality inspection generation rules define when and how to automatically create quality inspections in response to business transactions. These rules connect your quality inspection templates to specific business processes.
 
@@ -20898,279 +21300,5 @@ For example, if you want to share your ESG report, you can export it from Extern
 [Ad-hoc analysis of sustainability data](ad-hoc-analysis-sustainability.md)  
 
 [!INCLUDE [footer-banner](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-production-scrap
----
-title: Production Scrap (Power BI report)
-description: The Production Scrap report shows the quantity of capacity scrap each month, with a breakdown by code, location, and item category.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 37055_Primary
-ms.date: 05/26/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Production Scrap (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Production Scrap** report presents important key performance indicators (KPIs) such as **Scrap %** and **Scrap Quantity by Work Center**, **Machine Center**, **Source No.**, and **Production Order**.
-
-The **Production Order Scrap %** KPI card highlights the relationship between **Finished Quantity** and **Scrap Quantity** to help clarify the drivers behind the production order scrap percent.
-
-The **Scrap Quantity Over Time** chart shows how scrap quantity changes over time. This chart allows you to identify trends in production scrap as processes change.
-
-Work center and machine center statistics display in the KPI Bar. **Work Center Scrap %** and **Machine Center Scrap %** are derived from the **Work Center Scrap** and **Work Center Output** respectively. These figures help you understand the efficiency of your production facilities at a glance.
-
-The **Scrap % by Production Order** chart gives you an easy way to compare scrap rates across different productions orders. Cross filter this report by the **Scrap Quantity vs. Expected Scrap Quantity by Source No.** chart to identify which production orders contribute to the scrap rate.
-
-The **Scrap Quantity by Scrap Code** visual allows you to quickly compare and analyze why scrap occurred.
-
-Used together, these visuals help uncover where and why waste is happening, so you can take steps to reduce it.
-
-:::image type="content" source="media/manufacturing/production-scrap-v26.png" alt-text="Screenshot of the Production Scrap Power BI Report" lightbox="media/manufacturing/production-scrap-v26.png":::
-
-## Use the report
-
-The report is meant for business leaders and manufacturing managers.
-
-COOs use the report to measure the effectiveness of manufacturing processes and resources. By analyzing the capacity scrap quantity, you can identify areas that need improvement and optimize resource use. For example, a high scrap rate at a particular location might indicate a problem with the machinery or the materials it uses. By addressing these issues, you can reduce waste and improve efficiency, leading to cost savings.
-
-For manufacturing managers, this report reveals important measures about capacity scrap quantity. By analyzing the scrap rate, you can identify areas that need improvement, such as processes or materials. For example, a high scrap rate for a particular item category might indicate a problem with the materials it uses. By addressing these issues, you can optimize resource use to reduce waste and save costs.
-
-## Key performance indicators (KPIs)
-
-The Production Scrap report includes the following KPIs and measures:
-
-- [**Production Order Scrap %**](manufacturing-powerbi-kpis.md#production-order-scrap-percent)
-- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
-- [**Scrap Quantity**](manufacturing-powerbi-kpis.md#scrap-quantity)
-- [**Work Center Scrap %**](manufacturing-powerbi-kpis.md#work-center-scrap-percent)
-- [**Work Center Scrap**](manufacturing-powerbi-kpis.md#work-center-scrap)
-- [**Work Center Output**](manufacturing-powerbi-kpis.md#work-center-output)
-- [**Machine Center Scrap %**](manufacturing-powerbi-kpis.md#machine-center-scrap-percent)
-- [**Machine Center Scrap**](manufacturing-powerbi-kpis.md#machine-center-scrap)
-- [**Machine Center Output**](manufacturing-powerbi-kpis.md#machine-center-output)
-- [**Expected Production Order Scrap Quantity**](manufacturing-powerbi-kpis.md#expected-production-order-scrap-quantity)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Capacity Ledger Entry
-- Production Order
-- Machine Center
-- Work Center
-
-## Try the report
-
-Try the report here: [Production Scrap](https://businesscentral.dynamics.com?page=37055)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Manufacturing app](manufacturing-powerbi-app.md)  
-[Built-in production reports](production-reports.md)  
-[Manufacturing overview](production-manage-manufacturing.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/receivables-manage-receivables
----
-title: Overview of tasks to manage receivables
-description: This article outlines tasks to manage receivables and apply payments to customer or vendor ledger entries.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: overview
-ms.devlang: al
-ms.search.keywords: customer payment, debtor, balance due, AR
-ms.date: 07/08/2024
-ms.service: dynamics-365-business-central
-
----
-# Managing receivables
-
-A regular step in any financial rhythm is to reconcile bank accounts. To close sales invoices and purchase credit memos as paid, you apply incoming payments to customer or vendor ledger entries.
-
-While most customers in B2B environments pay some time after delivery, leaving the posted sales invoices open for the Accounts Receivable department to close (apply) when payment is received, some sales invoices can be paid immediately, for example with PayPal. Such invoices are immediately applied as paid when they're posted and, therefore, don't appear as payments to be processes in AR. For more information, see, for example, [Invoice Sales](sales-how-invoice-sales.md).  
-
-In [!INCLUDE[prod_short](includes/prod_short.md)], one of the fastest ways to register payments is with the **Payment Reconciliation Journal** page by importing a bank statement file or feed. The payments are applied to open customer or vendor ledger entries based on data matches between payment text and entry information. You can review and change the matches before you post the journal, and close bank account ledger entries for ledger entries when you post the journal. The bank account is reconciled when all payments are applied.
-
-Other pages exist where you can either apply payments or reconcile bank accounts:
-
-* The **Bank Account Reconciliations** page, where you reconcile bank accounts by matching imported bank statement lines with your system bank account ledger entries. Here, you can also reconcile check payments. For more information, see [Reconcile Bank Accounts](bank-how-reconcile-bank-accounts-separately.md). Here, you can't apply payments.
-* The **Payment Registration** page, where you can manually apply payments received as cash, check, or bank transaction against a generated list of unpaid sales documents. This functionality is available only for sales documents. Here, you can't apply outgoing payments, and you can't reconcile bank accounts.
-* The **Cash Receipt Journal** page, where you manually post receipts to the relevant general ledger, customer, or other account by entering a payment line. You can either apply the receipt or refund to one or more open entries before you post the cash receipt journal, or from the customer ledger entries. Here, you can't reconcile bank accounts.
-
-The **Payment Reconciliation Journal** page uses automatic matching logic that you can set up on the **Payment Application Rules** page. For more information, see [Set Up Rules for Automatic Application of Payments](receivables-how-set-up-payment-application-rules.md).  
-
-Other aspects of managing receivables include to collect outstanding balances, including finance charges and reminders, and to set bank accounts up to allow customers' payments to be withdrawn from their account automatically.
-
-The following table describes a sequence of tasks, with links to the articles that describe them.  
-
-| To | See |
-| --- | --- |
-| Get an overview of the capabilities for analyzing receivables. | [Accounts receivable analytics](receivables-reports.md) |
-| Apply payments to open customer or vendor ledger entries based on an imported bank statement file or feed. Reconcile the bank account after you apply all payments. |[Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md) |
-| Apply payments to open customer ledger entries based on a list of unpaid sales documents on the **Payment Registration** page. |[Reconcile Customer Payments from a List of Unpaid Sales Documents](receivables-how-reconcile-customer-payments-list-unpaid-sales-documents.md) |
-| Post cash receipts or refunds for customers in the cash receipt journal and apply to customer ledger entries, either from the journal or from posted ledger entries. |[Reconcile Customer Payments with the Cash Receipt Journal or from Customer Ledger Entries](receivables-how-apply-sales-transactions-manually.md) |
-| Remind customers of overdue amounts, calculate interest and finance charges, and manage accounts receivable. |[Collect Outstanding Balances](receivables-collect-outstanding-balances.md) |
-|With your customer’s consent, collect payments directly from the customer’s bank account according, in the Euro currency only.|[Collect Payments with SEPA Direct Debit](finance-collect-payments-with-sepa-direct-debit.md)|
-|Block a customer from being entered on documents or from posting, for example because of insolvency.|[Block Customers](receivables-how-block-customers.md)|
-|Set up a tolerance by which the system closes an invoice even though the payment, including any discount, doesn't fully cover the amount on the invoice.|[Work with Payment Tolerances and Payment Discount Tolerances](finance-payment-tolerance-and-payment-discount-tolerance.md)|
-| Predict when payments will be late for sales documents. | [The Late Payment Prediction Extension](ui-extensions-late-payment-prediction.md) |
-
-## Related information
-
-[Accounts receivable analytics](receivables-reports.md)   
-[Sales](sales-manage-sales.md)  
-[Managing Payables](payables-manage-payables.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[General Business Functionality](ui-across-business-areas.md)
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-how-to-convert-existing-locations-to-warehouse-locations
----
-title: Convert Existing Locations to Warehouse Locations 
-description: You can enable an existing inventory location to use zones and bins and to operate as a warehouse location.
-author: brentholtorf   
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.search.form: 15
-ms.date: 04/01/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Convert Existing Locations to Warehouse Locations
-You can enable an existing inventory location to use zones and bins and to operate as a warehouse location.  
-
-The batch job to enable a location for warehouse operation creates initial warehouse entries for the warehouse adjustment bin for all items that have inventory in the location. These initial entries will be balanced when warehouse physical inventory entries are entered after the batch job is run.  
-
-You can create zones and bins either before or after the conversion. The only bin that you must create before the conversion is the one that is to be used as the future adjustment bin.  
-
-> [!IMPORTANT]  
->  To clear all negative inventory and any open warehouse documents before you convert the location for warehouse handling, run a report to identify the items with negative inventory and open warehouse documents for the location. For more information, see Check on Negative Inventory.  
-
-## To enable an existing location to operate as a warehouse location  
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Create Warehouse Location**, and then choose the related link.  
-2.  In the **Location Code** field, specify the location that you want to enable for warehouse processing.  
-3.  In the **Adjustment Bin Code** field, specify the bin at the location where unsynchronized warehouse entries are stored. For more information, see the [To synchronize the adjusted warehouse entries with the related item ledger entries](inventory-how-count-adjust-reclassify.md#to-synchronize-the-adjusted-warehouse-entries-with-the-related-item-ledger-entries).  
-
-    Using the open item ledger entries for the specified location, warehouse journal lines are created that sum up every combination of Item No., Variant Code, Unit of Measure Code, and, if necessary, Lot No. and Serial No. in the item ledger entries. The warehouse journal lines are then posted. This posting creates warehouse entries that place the inventory in the warehouse adjustment bin. The **Adjustment Bin Code** on the location card is also set.  
-
-4.  To see which items were added to the adjustment bin during the batch job, run the **Warehouse Adjustment Bin** report.  
-5.  When the **Create Warehouse Location** batch job has completed, perform and post a warehouse physical inventory. For more information, see [Count, Adjust, and Reclassify Inventory Using Journals](inventory-how-count-adjust-reclassify.md).  
-
-> [!NOTE]  
->  It is recommended that you run the **Create Warehouse Location** batch job at a time when it will not impact the daily work in the system. This job processes each entry in the **Item Ledger Entry** table, and if there are a large number of item ledger entries, the job can last several hours.  
-
- For those locations that did not use warehouse management documents before the conversion, you must re-open and release any source documents that were partially received or partially shipped before the conversion.  
-
-## Related information  
-[Warehouse Management Overview](design-details-warehouse-management.md)
-[Inventory](inventory-manage-inventory.md)  
-[Setting Up Warehouse Management](warehouse-setup-warehouse.md)     
-[Assembly Management](assembly-assemble-items.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-work-nonstock-items
----
-title: Create and manage catalog items
-description: Learn how to sell items that you don't keep in your list of items.
-author: brentholtorf 
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 11/21/2024
-ms.custom: bap-template
-ms.search.keywords: non-inventoriable
-ms.search.forms: 5725, 5726, 5732
-ms.service: dynamics-365-business-central
----
-
-# Work with catalog items
-
-Catalog items are items that you don't manage in [!INCLUDE[prod_short](includes/prod_short.md)] until you sell them. When you use the **Select Catalog Item** action to add a catalog item to a line on a sales order, quote, or blanket sales order, the catalog item is converted to a regular item.
-
-> [!NOTE]  
-> You can't select a catalog item from the **Sales Invoice** page.
-
-A catalog item typically has the item number of the vendor who supplies it. Before you can convert a catalog item to a normal item, you must specify how to convert vendor item numbers to your item numbering. To learn more about item numbering, go to [Specify how catalog item numbers are converted to your own numbering](#specify-how-catalog-item-numbers-are-converted-to-your-own-numbering).  
-
-> [!IMPORTANT]
-> Catalog items are not to be mistaken with non-inventory items, which are regular items that are given the type **Non-Inventory** to keep them out of availability and costing calculations, for example, because they are only used internally and have a low cost. To learn move about non-inventory items, go to [About Item Types](inventory-about-item-types.md).
-
-## Create a catalog item
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Items**, and then choose the related link.
-2. On the **Catalog Items** page, choose the **New** action.
-3. On the **Catalog Item Card** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-## Specify how catalog item numbers are converted to your own numbering
-
-Before you can convert a catalog item to a regular item, you must specify how to convert vendor item numbers to the structure you use for item numbers.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Item Setup**, and then choose the related link.
-2. In the **No. Format** field, choose the option you prefer.
-
-## Convert a catalog item to a normal item
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Catalog Items**, and then choose the related link.
-2. Open the card for a catalog item that you want to convert to a normal item.
-3. On the **Catalog Item Card** page, choose the **Create Item** action.
-
-A new item card prefilled with information from the catalog item and an item template is created. You can edit the information about the new item if needed. To learn more about creating items, go to [Register New Items](inventory-how-register-new-items.md).
-
-> [!NOTE]  
-> An item reference is automatically created between the vendor's item number and your new item number. To learn more about item references, go to [Use Item References](inventory-how-use-item-cross-refs.md).
-
-## To sell a catalog item and convert it to a normal item
-
-The following process uses a sales order, but the steps are the same for blanket sales orders and quotes.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
-2. Choose the **New** action. Fill in the fields on the **General** FastTab as for any sales order. For more information, see [Sell Products](sales-how-sell-products.md).
-3. On a new sales line, in the **Type** field, select **Item**, but leave the **No.** field empty.
-4. Choose the **Line** action, and then choose the **Select Catalog Items** action.
-5. On the **Catalog Items** page, select the catalog item that you want to sell, and then choose the **OK** button.
-   The catalog item automatically converts to a normal item, and the new normal item is selected on the sales line.
-6. When the sales order is complete, choose the **Post** action.
-
-> [!IMPORTANT]
-> If you change you mind and delete the sales line, the automatically created item is also deleted. Deleting the item helps reduce clutter in you list of items.
->
-> The item is also deleted if you convert the item manually, or make changes such as adding new units of measure or updating prices or cost. However, the item won't be deleted if it's already used in sales or purchase lines, assembly BOMs, or has ledger entries.
-
-## Related information
-
-[Register New Items](inventory-how-register-new-items.md)  
-[Create Special Orders](sales-how-to-create-special-orders.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 

@@ -1568,6 +1568,71 @@ For example, if one service item has the repair status **Initial**, linked to th
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manage-indexes
+---
+title: Manage database index usage
+description: Learn how to manage database indexes in Business Central to optimize performance, reduce storage costs, and improve write operations with enhanced tools.
+author: phduck
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: conceptual
+ms.collection:
+ms.date: 03/25/2026
+ms.custom: bap-template
+ms.search.form: 8705_Primary, 8700, 9521,
+---
+
+# Manage database index usage
+
+[!INCLUDE [applies-to-2026-releasewave1-later](includes/applies-to-2026-releasewave1-later.md)]
+
+As an admin, you can view and manage database indexes per company to optimize performance and reduce storage costs. Selectively disable nonessential indexes to improve write performance and storage, while protecting unique indexes and SIFT indexes from being disabled.
+
+## About indexes
+
+An *index* is a database structure that makes it faster to find, filter, sort, or aggregate data in a table. An index organizes one or more fields in a table so that SQL Server (for Business Central on‑premises) or Azure SQL (for online) can efficiently locate rows. Without an index, the database might need to scan the entire table to find matching records. With a suitable index, it can seek directly to the relevant rows, which is dramatically faster for large tables.
+
+On the other hand, indexes have a maintenance cost: they require more storage and can slow down create, update, and delete (CRUD) operations because the index must be kept up to date.
+
+In AL code, indexes are created based on the defined keys in both table objects and table extension objects. When you add a key, you get an index in the table in the database. A single table object and table extension object can have multiple secondary keys. Learn more in [Table keys](/dynamics365/business-central/dev-itpro/developer/devenv-table-keys).
+
+Tables in Business Central can be either per-company, like the **Items** table, or shared across companies, like the **Tenant Media** table. For per-company tables, a complete SQL table definition exists for each company, including all indexes. For a per-company table like **Item**, each index exists independently within each company's dataset, allowing you to view and manage it on a per-company basis. This capability enables you to define an index as 'enable=false' and then selectively enable it for only a subset of companies, without negatively impacting other companies. This flexibility is useful for indexes that are only needed for certain functional areas used by specific companies.
+
+## View indexes on a table
+
+You view table indexes from the **Table Information** page:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Table Information**, then choose the related link.
+1. On the **Table Information** page, locate the table and select its ID in the **Table No.** column.
+1. On the **Table Data Management** page, set the **Company Name** field to the company for which you want to view indexes. If the **Company Name** field is empty, the table is used by all companies.
+1. The **Indexes** section displays details of each index on table for the selected company, including index storage size, index usage statistics, and index type (AL-defined or system-generated). Use the values in the columns to determine underused indexes in a specific company or environment, and then turn them off as appropriate.
+
+> [!NOTE]
+> The index information is sourced from a virtual table called [Database Index](/dynamics365/business-central/application/system/table/system.diagnostics.database-index). This table exposes data from the corresponding [SQL dynamic management view (DMV)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-index-usage-stats-transact-sql), providing two sets of usage metrics: user* and last_user*.
+
+## Turn off or on indexes
+
+You can turn off nonunique indexes with low usage to reduce storage costs and improve write performance. Unique indexes, primary keys, SIFT, and $systemid indexes are protected and can't be turned off.
+
+**Turn off an index:**
+
+1. On the **Table Data Management** page for the table as described in the previous section, select the index in the list.
+1. Select **Turn index off** to disable the index for the specified company only, or select **Turn index off (all companies)** to disable the index for all companies in the environment.
+
+Disabling an index takes effect immediately.
+
+**Turn on an index:**
+
+1. On the **Table Data Management** page, select the disabled index in the list.
+1. Select **Turn index on** to enable the index for the specified company only, or select **Turn index on (all companies)** to enable the index for all companies in the environment.
+
+Enabling an index is queued for the next scheduled midnight process.
+
+## Related information
+
+[View table information](admin-view-table-information.md)  
+[Database missing indexes](database-missing-indexes.md)  end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-accounting-periods-and-fiscal-years
 ---
 title: Working with accounting periods and fiscal years
@@ -2698,7 +2763,7 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 
-ms.date: 05/20/2025
+ms.date: 03/03/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -2727,78 +2792,81 @@ Explore the KPIs to learn more about how they can help you achieve your business
 - [Sales New Customers](#sales-new-customers)
 - [Sales Recovered Customers](#sales-recovered-customers)
 - [Sales Returning Customers](#sales-returning-customers)
+- [Sales Lost Customers](#sales-lost-customers)
 
 ### No. of Customers
 
 **Formula**  
 
-Distinct count of the **Customer No.** column from the **Sales** table.
+This measure counts the number of active customers by calculating the distinct count of the **Customer No.** column from the **Sales** table, where a customer has at least one posted sales invoice transaction.
 
 **Data Sources**
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### No. of Lost Customers
 
 **Formula**  
 
-This measure calculates the number of customers who were lost, meaning customers who stopped purchasing, within the current date selection. It determines the latest date in the selection, prepares a table of customers and the dates they were "lost," and then filters out the customers whose lost date is within the selected date range. Finally, it counts the rows in this filtered table to get the number of lost customers.
+This measure counts customers who “become lost” during the currently selected date range, where “lost” is defined by an inactivity threshold in months since their last purchase. The inactivity threshold is managed by setting the Lost Customer Month Range filter. This is not: customers who didn’t buy this period. It’s customers who officially became lost this period according to the rule: no purchases for X months since last purchase. 
+
+It determines a customer's latest Posted Sales Invoice date in the selection, prepares a table of customers and the dates they were "lost". Then it filters out the customers whose lost date is within the selected Lost Customer Month Range filter. Finally, it counts the rows in this filtered table to get the number of lost customers.
 
 **Data Sources**
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### No. of New Customers
 
 **Formula**  
 
-This measure counts new customers by finding the date of their first purchase. It includes customers if their first purchase happened within the date selection.
+This measure counts the number of new customers acquired in the selected period by finding the date of a customer's first Posted Sales Invoice. It includes customers if their first purchase happened within the date selection.
 
 **Data Sources**
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### No. of Recovered Customers
 
 **Formula**  
 
-This measure calculates the number of customers who were temporarily lost, that is, customers who stopped purchasing but later made a new purchase. It identifies customers who had a "lost" date before the selected date range, then determines which customers made a new purchase within the current period. The measure filters and counts only those customers whose new purchase occurred after their lost date, returning the total number of recovered customers.
+This measure calculates the number of customers who were temporarily lost, that is, customers who were inactive in the previous period but returned with a purchase in the current period. It identifies customers who had a "lost" date before the selected date range, then determines which customers made a new purchase within the current period. The measure filters and counts only those customers whose new purchase occurred after their lost date, returning the total number of recovered customers.
 
 **Data Sources**
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### No. of Returning Customers
 
 **Formula**  
 
-This measure calculates the number of customers who made a repeat purchase during the current period. It identifies existing customers by filtering customers whose first purchase was before the selected date range, then determines which of these customers made another purchase within the current period. The measure returns the count of these returning customers.
+This measure calculates the number of customers who have at least one posted sales invoice before the current period, and have made a repeat purchase during the current period. It identifies existing customers by filtering customers whose first purchase was before the selected date range, then determines which of these customers made another purchase within the current period. The measure returns the count of these returning customers.
 
 **Data Sources**
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### No. of Temporarily Lost Customers
 
 **Formula**  
 
-This measure calculates the number of customers who were temporarily lost, that is, customers who stopped purchasing. It identifies customers who were active in the previous period, then determines which customers have not made a purchase within the current period.The measure returns the total number of  these temporarily lost customers.
+This measure calculates the number of customers who were temporarily lost, that is, customers who have at least one posted sales invoice in the previous period, but didn't purchase in the current period. It identifies customers who were active in the previous period, then determines which customers haven't made a purchase within the current period. The measure returns the total number of  these temporarily lost customers.
 
 **Data Sources**  
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### Sales Lost Customers (12M)
 
@@ -2810,7 +2878,7 @@ This measure calculates the total sales lost over the past 12 months due to cust
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### Sales New Customers
 
@@ -2822,7 +2890,7 @@ This measure calculates the total sales from customers who made their first purc
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### Sales Recovered Customers
 
@@ -2834,7 +2902,7 @@ This measure calculates the total sales generated by recovered customers. Recove
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
 
 ### Sales Returning Customers
 
@@ -2846,7 +2914,19 @@ This measure calculates the total sales generated by returning customers. Return
 
 - Value Entries
 - Sales Invoice Line
-- Sales Credit Line
+- Project Ledger Entries
+- 
+### Sales Lost Customers
+
+**Formula**  
+
+This measure calculates the total sales lost based on the **Lost Customer Month Range** who stopped purchasing ("lost" customers). It first identifies the most recent "lost" date, then filters customers who were lost before that date. It gets the sales from the previous 12 month period, for these lost customers and calculates the total revenue they generated before they stopped purchasing.
+
+**Data Sources**
+
+- Value Entries
+- Sales Invoice Line
+- Project Ledger Entries
 
 ## Opportunities Table
 
@@ -7461,8 +7541,6 @@ ms.custom: bap-template
 
 # Create scheduled quality inspections
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains how to set up and use quality inspections that are created automatically and scheduled to run at regular intervals using job queue entries.
 
 Scheduled inspections enable proactive quality management. They automatically generate quality inspections based on time intervals, rather than business transactions. Using a scheduled inspection approach is ideal for:
@@ -8026,7 +8104,7 @@ description: Learn how you can view information about the database tables in Bus
 author: jswymer
 ms.topic: concept-article
 ms.devlang: al
-ms.search.form: 8700_Primary
+ms.search.form: 8700_Primary, 8705
 ms.date: 02/21/2025
 ms.author: jswymer
 ms.service: dynamics-365-business-central
@@ -8035,7 +8113,7 @@ ms.reviewer: solsen
 
 # Viewing table information
 
-The **8700 Table Information** page provides information about the number of records in all system and business tables in [!INCLUDE[prod_short](includes/prod_short.md)], and how much data each table contains.
+The **Table Information** (ID 8700) page provides information about the number of records in all system and business tables in [!INCLUDE[prod_short](includes/prod_short.md)], and how much data each table contains, including index sizes. It also gives you access to view individual indexes on a table and lets you disable or enable them.
 
 This information is useful for troubleshooting performance problems because it shows the distribution of data sizes across tables.
 
@@ -8049,12 +8127,12 @@ The following table describes the information provided for each table:
 |------|-----------|
 |Company Name|The name of the company, if any, that the table belongs to.|
 |Table Name|The name of the table.|
-|Table No.|The ID of the table.|
-|No. of Records|The total number of records stored in the table.|
+|Table No.|The ID of the table. Select the ID to view and manage indexes on the table. Learn more in [Manage indexes in Business Central](manage-indexes.md).|
+|No. of Records|The total number of records stored in the table. Select the number in a row to open the table and view the records.|
 |Record Size|The average record size in KB/record. The value is calculated using the following formula: 1024(Size)/(No. of Records). |
 |Size (KB)|The total amount of space the table occupies in the database. This value is the sum of the values in the Data Size and Index Size fields.|
 |Data Size (KB)|How much space the data in the base table occupies in the database.|
-|Index Size (KB)|How much space the table indexes (keys) on the base table occupy in the database.|
+|Index Size (KB)|How much space the table indexes (keys) on the base table occupy in the database. Select the ID in the **Table No.** column to view and manage indexes on the table. Learn more in [Manage indexes in Business Central](manage-indexes.md).|
 |Compression|The type of compression, **Row**, **Page**, or **None** that is applied to the table in the database. To learn more, go to [Data compression](/sql/relational-databases/data-compression/data-compression?).|
 
 > [!NOTE]
@@ -9870,131 +9948,29 @@ ms.custom: bap-template
 
 # Process items that failed a quality inspection
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains how to deal with items that don't pass quality inspection. When goods fail a quality inspection, there are options to manually or automatically handle the noncompliant items:
 
-- Block items to prevent the use of failed lots.
+- Block items to prevent the use of failed lots (serial and package numbers).
 - Move items to quarantine areas.
 - Remove unusable inventory.
 - Transfer items to different locations.
 - Return defective items to suppliers.
 
-<!--## Prerequisites
+These options can be triggered automatically using workflows. To learn more, go to [Quality management workflows](qms-quality-workflows.md).
 
-- Quality inspection templates with pass and fail criteria.
-- Inspection generation rules.
-- Quality management workflows to automatically process failures and passes.
-- Locations and bins for quarantine.-->
+> [!Note]
+> For items with lot, serial, or package tracking, you can specify how quality inspection results affect specific document transactions. For example, you can block purchase documents while inspections are in progress and block sales documents for failed inspections. Learn more at [Lot blocking and unblocking](qms-lot-blocking-unblocking.md)
 
-## Automatic processing when items fail an inspection
-
-### Workflow-based actions
-
-Quality Management workflows can automatically respond to failed inspection. The following automatic responses are available:
-
-- Block the lot in the inspection
-- Create negative adjustment
-- Create transfer order
-- Move inventory to different bin
-- Create purchase return
-- Create reinspection
-- Send notifications
-
-### Set up automatic blocking when inspections fail
-
-1. [!INCLUDE [open-search](includes/open-search.md)], enter **Workflows**, and then choose the related link.
-1. Create a new workflow. For example, name it "Block Lot on Failure."
-1. In the **Category** field, choose **Quality Examples**.
-1. Configure the **When Event** as follows:
-   - **Event**: When a Quality Inspection is Finished
-   - **Condition**: **Result Code** equals **FAIL**, or other failing result.
-1. Configure the **Response** as follows:
-   - **Response**: Block the lot in the inspection.
-   - **Result**: Failed lots automatically get blocked from use
-4. Specify result-specific conditions, as follows:
-   - Create separate workflows for different failing results.
-   - Use result priorities to determine appropriate responses.
-   - Configure different actions based on the severity of the failure.
-
-### Set up automatic inventory movement
-
-1. Create a workflow. For example, name it something like **Move Failed Items to Quarantine**.
-2. For the **When Event**, choose **Quality Inspection is Finished**.
-3. For the **On Condition**, specify that **Result Code** is **FAIL**.  
-4. For the **Then Response**, choose **Move inventory from inspection**.
-5. Configure the options for the response. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-
-## Manual processing when inspections fail
 
 The following sections describe some actions you can take when an item fails an inspection.
 
-### Use manual actions on quality inspections
+## Use manual actions on quality inspections
 
 1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Inspection**, and then choose the related link.
 1. Open the failed inspection.
-1. Use the options on the **Actions** menu to run actions directly from the inspection results. Learn more at [Manual movement process](#manual-movement-process).
+1. Use the options on the **Actions** menu to run actions directly from the inspection results.
 
-### Step-by-step process using quality inspection actions
-
-**Process Using Quality Inspection Actions**:
-
-1. **Review Inspection Results**:
-   - Go to the failed quality inspection.
-   - Analyze the failure details and measurements.
-   - Determine the appropriate action.
-
-2. **Execute Action**:
-   - Select the appropriate action from the **Actions** menu on the **Quality Inspection** page.
-   - Review the prefilled information for accuracy.
-   - Add more details as required. For example, a destination or reason code.
-   - Run the action to create the necessary documents.
-
-3. **Complete Processing**:
-   - Process the created documents. For example, adjustments, transfers, or returns.
-   - Update the physical inventory locations as needed.
-   - Document the resolution and lessons learned.
-
-4. **Verify Completion**:
-   - Confirm that all actions are properly recorded.
-   - Verify that inventory movements and adjustments are posted.
-   - Update the test status if necessary for tracking
-
-## Result-based controls for failed items
-
-Quality Management uses result-based controls to automatically manage noncompliant items based on inspection results.
-
-**Result-Based Business Rules**:
-
-- Result priorities determine which controls take precedence.
-- Higher priority results override lower priority results.
-- Failed results typically restrict business transactions while allowing handling activities.
-- Result conditions can automatically promote or demote based on business rules.
-
-**Implementation**:
-
-- Quality inspection templates assign results based on measurements.
-- Result inheritance flows from Default → Field → Template → Test levels.
-- Workflows can trigger more actions based on results.
-- Transaction controls apply immediately when you assign a result.
-
-## Moving items after inspection failures
-
-The following sections describe how to set up a quality management workflow to automatically or manually move a defective inventory to quarantine.
-
-### Automatic movement to quarantine
-
-You can set up a quality management workflow that automatically moves items to your quarantine area if they fail an inspection. The movement physically separates the defective items from your good inventory.
-
-Set up a quality management workflow, as follows:
-
-1. **Response**: Move inventory to different bin.
-2. **Bin Configuration**: Specify quarantine bin.
-3. **Automatic Execution**: Movement occurs on test failure.
-
-### Manual movement process
-
-To manually move defective inventory, you can use the options on the **Actions** menu on the **Quality Inspection** page. This section describes the actions.
+### Moving items after inspection failures
 
 **Move Inventory**:
 
@@ -10015,270 +9991,59 @@ Create internal put-away documents for warehouse locations.
 - **Release Options**: Release immediately, create warehouse put-away, or keep open for review.
 - **Usage**: Ideal for directed put-away and pick locations.
 
-**Create Transfer Order**:
+**Create Transfer items**
 
-Generate a transfer orders that automatically includes failed lot information and links transfer to original quality test for tracking.
+The action transfers items to another location for external processing, lab analysis, or disposal.
 
-- Specify a destination location for further processing.
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
+- **Source Filters**: Optional location and bin filters to limit transfer source
+- **Destination**: Target location for transfer
+- **Transfer Details**: Support for direct transfer or in-transit locations
 
-**Create Negative Adjustment**:
-
-- Automatically fills in item, lot, and quantity information.
-
-<!--**Change Item Tracking**:-->
-
-- **Create Purchase Return Order**:
-
-- Start vendor returns directly from the inspection results. The return contains purchase order and receipt details, and includes quality inspection failure information for vendor communication.
-
-## Removing items from inventory
-
-You can remove items from inventory automatically, or manually. The following sections describe how.
-
-### Automatic removal
-
-Set up a quality management workflow with the **Then Response** set to **Create negative adjustment**. This response does the following:
-
-- Automatically removes failed inventory.
-- Records the disposal in the item ledger.
-- Updates inventory quantities.
-
-The following are a few things to consider about your configuration:
-
-- Ensure that you have a suitable posting setup.
-- Consider the effect on cost.
-- Maintain an audit trail.
-
-### Manual removal process
+### Removing items from inventory
 
 The manual removal process involves using the **Create Negative Adjustment** option from the **Actions** menu on the **Quality Inspection** page.
 
 The action decreases inventory quantity for disposal, destructive testing, or write-offs.
 
-- **Quantity Options**:
-  - Entire lot/serial/package quantity
-  - Specific quantity with manual entry
-  - Sample quantity (uses inspection sample size)
-  - Passed quantity (samples that passed all measurements)
-  - Failed quantity (samples with at least one failed measurement)
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
 - **Source Filters**: Optional location and bin filters to limit adjustment source
 - **Reason Codes**: Optional reason code for audit trail
-- **Posting Behavior**: Create journal entries only or post immediately
+- **Posting Options**: Post immediately, or create entries for later processing.
 
-The following steps give an overview of the manual removal process:
-
-1. From the failed quality inspection, choose **Create Negative Adjustment** from the **Actions** menu.
-2. **Select Quantity**: Choose the appropriate quantity method. For example, this selection is often **Failed Quantity** for noncompliant items.
-3. **Add Reason**: Specify a reason code. For example, disposal, destructive inspections, damage, and so on.
-4. **Configure Source**: Add location/bin filters if you need to limit the scope.
-5. **Execute**: Create entries for review, or post immediately.
-6. **Verify**: Confirm the inventory reduction and that cost accounting is correct.
-
-## Return items to vendors
-
-You can return items to vendors automatically, or manually. The following sections describe how.
-
-### Automatic return processing
-
-Set up a quality management workflow with the **Then Response** set to **Create purchase return**. This response does the following:
-
-- **Automatic Execution**: Return order created on inspection failure.
-- **Vendor Notification**: Include details about the quality failure.
-
-### Manual return process
+### Return items to vendors
 
 The manual return process involves using the **Create Purchase Return** option from the **Actions** menu on the **Quality Inspection** page.
 
 The action creates purchase return orders for vendor-related defects.
 
-- **Quantity Options**:
-  - Entire lot/serial/package quantity
-  - Specific quantity with manual entry
-  - Sample quantity (uses inspection sample size)
-  - Passed quantity (if partial return needed)
-  - Failed quantity (most common for defects)
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
 - **Return Reason**: Optional return reason code for vendor communication
 - **Source Filters**: Optional location and bin filters
 - **Credit Memo**: Optional vendor credit memo number field
 
-The following steps give an overview of the manual return process:
 
-1. **Document the failure**: Compile the inspection results and evidence from the quality inspection.
-2. Choose **Create Purchase Return** from the **Actions** menu on the **Quality Inspection** page.
-3. **Configure the return**:
-   - Choose **Failed Quantity** for defective items.
-   - Add a return reason code.
-   - Include the vendor credit memo number, if it's available.
-4. **Run the action**: Create a purchase return order with prefilled inspection information.
-5. **Process the return**: Follow your standard return procedures with links to the quality documentation.
-6. **Vendor communication**: Include details about the quality inspection failure in a return notification.
 
-## Transfer items to other locations
-
-This section describes how to manually transfer items to other locations.
-
-### Manual transfer process
-
-The manual transfer process involves using the **Create Transfer Order** option from the **Actions** menu on the **Quality Inspection** page:
-
-The action transfers items to another location for external processing, lab analysis, or disposal.
-
-- **Quantity Options**:
-  - Entire lot/serial/package quantity
-  - Specific quantity with manual entry
-  - Sample quantity (uses inspection sample size)
-  - Passed quantity (for approved items)
-  - Failed quantity (for noncompliant items)
-- **Source Filters**: Optional location and bin filters to limit transfer source
-- **Destination**: Target location for transfer
-- **Transfer Details**: Support for direct transfer or in-transit locations
-
-The following steps give an overview of the manual transfer process:
-
-1. **Use the action**: From the quality inspection, choose **Create Transfer Order** from the **Actions** menu on the **Quality Inspection** page.
-2. **Select the quantity**: Choose the appropriate quantity method based on what you want to do.
-3. **Configure the source**: Add location/bin filters if the inspection covers multiple locations.
-4. **Set a destination**: Specify the target location. For example, an external lab, disposal facility, or rework center.
-5. **Transfer options**: Choose a direct transfer, or specify in-transit location.
-6. **Execute**: Create a transfer order with quality inspection tracking.
-
-## Change item tracking information
+### Change item tracking information
 
 This section describes how to manually update information about items. Updating item information involves using the **Change Item Tracking** option from the **Actions** menu on the **Quality Inspection** page.
 
 The action updates item tracking information such as lot numbers, serial numbers, package numbers, or expiration dates.
 
-- **Quantity Options**:
-  - Entire lot/serial/package quantity
-  - Specific quantity with manual entry
-  - Sample quantity (uses inspection sample size)
-  - Passed quantity (for approved samples)
-  - Failed quantity (for noncompliant samples)
+- **Quantity Options**: Entire lot/serial/package, specific quantity, sample quantity, passed/failed quantity.
 - **Tracking Changes**: Update the lot, serial, or package numbers, and the expiration date.
 - **Source Filters**: Optional filters for locations and bins.
-- **Posting Options**: Post immediately, or create journal entries for review.
+- **Posting Options**: Post immediately, or create entries for later processing.
 
-The following steps give an overview of how to manually track items:
 
-1. Use the **Change Item Tracking** option from the **Actions** menu on the **Quality Inspection** page.
-2. Choose the appropriate quantity method for tracking updates.
-3. Enter a new lot, serial, or package number, or a new expiration date.
-4. To configure the source, add filters for locations or bins, if needed.
-5. Create a reclassification journal with updated tracking information.
-6. Post the journal to update the item tracking records.
-
-<!--## Corrective Action Integration
-
-### Root Cause Analysis
-
-**Quality Failure Investigation**:
-
-- Review test data and trends
-- Identify process or supplier issues
-- Document findings and recommendations
-
-**Process Improvement**:
-
-- Update specifications or procedures
-- Enhance incoming inspection criteria
-- Improve vendor quality agreements
-
-### Preventive Actions
-
-**Enhanced Testing**:
-
-- Create more test generation rules
-- Implement more comprehensive templates
-- Increase sampling frequencies
-
-**Supplier Development**:
-
-- Work with vendors on quality improvement
-- Provide feedback on failure patterns
-- Establish quality agreements and scorecards
-
-## Retesting Procedures
-
-### Automatic Retest Creation
-
-**Workflow Response**: Create retest
-- New quality test generated after rework
-- Same template and criteria applied
-- Links to original failed test
-
-### Manual Retest Process
-
-**After Rework or Investigation**:
-
-1. **Complete Corrective Action**: Address root cause
-2. **Create New Test**: Use manual test creation
-3. **Reference Original Test**: Maintain tracking
-4. **Document Resolution**: Record corrective actions taken
-
-## Example: Complete Process for Failed Items
-
-### Scenario: Failed Purchase Receipt Test
-
-1. **Test Failure**:
-   - Purchase receipt quality test fails measurement criteria
-   - Grade automatically set to "FAIL"
-
-2. **Automatic Workflow Actions**:
-   - Lot automatically blocked (prevents further use)
-   - Inventory moved to quarantine bin
-   - Notification sent to quality manager
-
-3. **Investigation**:
-   - Quality team reviews failure details
-   - Root cause identified as vendor process issue
-   - Decision made to return to vendor
-
-4. **Action Taken**:
-   - Purchase return order created
-   - Vendor notified of quality issue
-   - Items returned and credit processed
-
-5. **Follow-up**:
-   - Vendor corrective action requested
-   - Enhanced inspection implemented temporarily
-   - Process documented for future reference
-
-## Monitoring and Reporting
-
-### Quality Metrics
-
-**Track Failure Rates**:
-
-- Test failure percentages by vendor
-- Failure trends by item or category
-- Cost of quality issues
-
-**Action Tracking**:
-
-- Time to resolution
-- Action method effectiveness
-- Recurring quality issues
-
-### Continuous Improvement
-
-**Process Enhancement**:
-
-- Regular review of failure patterns
-- Update templates and criteria as needed
-- Improve workflow automation
-
-**Vendor Management**:
-
-- Quality scorecards based on test results
-- Vendor development programs
-- Supplier quality agreements -->
 
 ## Related information
 
 [Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
 [Configuring Workflows](qms-quality-workflows.md)  
 [Purchase Receipt Inspections without Warehouse Handling](qms-purchase-receipt-testing-simple.md)  
-[Quality Management Overview](qms-overview.md)end of article
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-use-automated-data-capture-systems-adcs
 ---
@@ -11014,6 +10779,41 @@ When you correct an application, correcting entries are created and posted for a
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-withholding-tax
+---
+title: Calculate withholding tax for vendors
+description: This article describes how to calculate withholding tax for your vendors.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: withholding, tax, sales, purchases
+ms.search.form: 
+ms.date: 03/06/2026
+ms.custom: bap-template
+---
+
+# Calculate withholding tax for vendors
+
+Companies in some countries/regions must pay withholding tax to the government for certain services or vendor purchases. [!INCLUDE [prod_short](includes/prod_short.md)] calculates withholding tax for purchase invoices and orders, based on your setup for withholding tax. The tax amount is withheld from the payment and reduces the total amount you owe to the vendor.
+
+## Set up vendors for withholding tax
+
+To include a vendor in withholding tax calculations, on the **Vendor Card** page, turn on the **Withholding Tax Liable** toggle. Then, in the **Withholding Tax Bus. Post. Group** field, specify the general ledger account to which to post tax amounts.
+
+## Using withholding tax
+
+If the vendor, item, and G/L account are set up for withholding tax, [!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the tax amount when you post purchase documents that include them on their lines. However, it only creates a withholding tax entry if the value is more than the minimum threshold in the posting setup you created for withholding tax. Learn more at [Create a posting setup for withholding tax](finance-set-up-withholding-tax.md#create-a-posting-setup-for-withholding-tax). 
+
+
+## Related information
+
+[Set up withholding tax](finance-set-up-withholding-tax.md)  
+[View withholding tax entries](finance-withholding-tax-entries.md)  
+
+[Financial management](finance.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/reports-built-in-analytics
 ---
 title: Built-in analytics
@@ -11363,6 +11163,79 @@ You use the VAT rate change tool to manage changes in the standard rate of VAT. 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-customer-retention-overview
+---
+title: Customer Retention Overview (Power BI report)
+description: The Customer Retention Overview page provides insights into customer retention metrics, helping to analyze customer loyalty and retention trends.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 36983_Primary
+ms.date: 03/03/2026
+ms.service: dynamics-365-business-central
+---
+
+# Customer Retention Overview (Power BI Report)
+
+The **Customer Retention Overview** report analyzes customer sales behaviors and retention trends, showcasing sales metrics and customer volume. By visualizing customer retention over time, retention by location demographics, and loyalty sales metrics for key customers, this report provides a high-level understanding of customer trends. You can use the data to continuously improve customer relations, identify developing markets, and anticipate sales risks.
+
+> [!NOTE]
+> By default, the Customer Retention Overview report reflects customer statistics for the current relative fiscal year. To report customer retention by a different date period, you can edit the Sales App Customer Retention Overview page filters to modify or remove this Fiscal Relative Year filter.
+
+:::image type="content" source="media/powerbi/sales/sales-customer-retention-overview.png" alt-text="Screenshot of the Customer Retention Overview report." lightbox="media/powerbi/sales/sales-customer-retention-overview.png":::
+
+## Use the report
+
+Management and sales teams use the report to monitor customer retention metrics, informing strategic sales decisions and maintaining quality customer relationships.
+
+Sales Managers can use this report to identify emerging sales demographics and analyze customer engagement statistics. For example, the Sales Amount by Location can empower managers to implement campaigns targeting specific regions. Additionally, the Customer Retention Over Time analysis informs on changing customer buying trends. These insights can be used to action key marketing strategies and sales decisions to maximize sales performance.
+
+Salespeople can use this report to track the behaviors of key customers, empowering focused sales strategies to strengthen customer loyalty. For example, by analyzing the Sales by Customer retention figures, you identify a key Customer who was Lost in the current period. In response, you reach out to the customer to improve their engagement for future purchases. Additionally, for customers who exhibit consistent Sales Returning figures, you decide to reward their loyalty with a discount to strengthen the customer relationship. These insights can be used to effectively manage customer relationships and optimize sales performance.
+
+## Key Performance Indicators (KPIs)
+
+The **Customer Retention Overview** report includes the following KPIs and measures:
+
+- [No. of Lost Customers](sales-powerbi-sales-kpis.md#no-of-lost-customers)
+- [No. of New Customers](sales-powerbi-sales-kpis.md#no-of-new-customers)
+- [No. of Recovered Customers](sales-powerbi-sales-kpis.md#no-of-recovered-customers)
+- [No. of Returning Customers](sales-powerbi-sales-kpis.md#no-of-returning-customers)
+- [Sales New Customers](sales-powerbi-sales-kpis.md#sales-new-customers)
+- [Sales Recovered Customers](sales-powerbi-sales-kpis.md#sales-recovered-customers)
+- [Sales Returning Customers](sales-powerbi-sales-kpis.md#sales-returning-customers)
+- [Sales Lost Customers](sales-powerbi-sales-kpis.md#sales-lost-customers)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables:
+
+- Sales Value Entries
+- Sales Invoice Lines
+- Project Ledger Entries
+- Customer
+
+## Try the report
+
+Try the report here: [Customer Retention Overview](https://businesscentral.dynamics.com?page=36983)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad-hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-defer-revenue-expenses
 ---
 title: Defer revenues and expenses
@@ -11667,7 +11540,7 @@ author: jswymer
 ms.topic: overview
 ms.custom: bap-template
 ms.search.keywords: version
-ms.date: 09/30/2025
+ms.date: 02/20/2026
 ms.review: jswymer
 ms.author: jswymer
 ms.service: dynamics-365-business-central
@@ -11727,12 +11600,12 @@ The administration center is designed to work with the current version of the fo
 
 ## Use Business Central on-premises
 
-If you want to deploy Business Central on-premises, you should check the system requirements. Learn more in [System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v27) and [Deployment Overview](/dynamics365/business-central/dev-itpro/deployment/deployment).  
+If you want to deploy Business Central on-premises, you should check the system requirements. Learn more in [System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-28) and [Deployment Overview](/dynamics365/business-central/dev-itpro/deployment/deployment).  
 
 ## Related information
 
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
-[System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v27)  
+[System Requirements for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/deployment/system-requirements-business-central-v28)  
 [Getting the Business Central Desktop App](install-desktop-app.md)  
 [Getting Business Central on Your Mobile Device](install-mobile-app.md)  
 [Managing Business Interactions in Microsoft Outlook](admin-outlook.md)  
@@ -12858,7 +12731,7 @@ author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 1/24/2025
+ms.date: 3/17/2026
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: Report_25_Primary, 490
@@ -12882,6 +12755,10 @@ You can view any report on-screen with drill-through to the underlying numbers.
 To view a financial report, follow these steps:
 
 1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, and then choose the related link.
+
+   > [!TIP]
+   > By default, the **Financial Reports** page displays reports in a list view. However, some people prefer a tile view. Tiles show most of the same information as the list, just in a different way. If you like tiles, it's easy to switch. In the upper right of the page, choose the **View layout options** icon :::image type="content" source="media/view-layout-options.png" alt-text="Screenshot of the View layout options icon.":::, and choose **Tiles**. 
+
 1. On the **Financial Reports** page, select the financial report you want to view, and then choose the **View Financial Report** action.
 
 The page has **Options** and **Dimensions** FastTabs. If the FastTabs aren't available, you might need to enable them with the **Show all options** action.
@@ -12913,27 +12790,39 @@ To learn more, go to [Integrate financial reports with Excel](finance-financial-
 
 You can print financial reports using your device's printing services. [!INCLUDE[prod_short](includes/prod_short.md)] also offers options to save reports as PDF files.
 
-1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.
-1. On the **Financial Reports** page, select the report to print, then choose the **Print** action.
-1. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Financial Reports**, then choose the related link.
+1. On the **Financial Reports** page, select the report to print, then choose the **Print/PDF** action.
 1. In the **Printer** field, select the device to which the report is sent.
-    1. The **(Handled by the browser)** option indicates that a printer isn't specified for the report. In this case, the browser handles the printout and displays the standard printing steps. You can choose a local printer connected to your device. **(Handled by the browser)** isn't available in the [!INCLUDE[prod_short](includes/prod_short.md)] mobile app or the app for Teams.
-1. In the **Layouts** field, you can choose between layouts for portrait or landscape orientation.
-1. To control how negative numbers show in the report output (in PDF), on the **Options** FastTab, choose your preferred format in the **Negative Amount Format** field. Your selection here overrides the default format defined on the report.
-1. Choose the **Print** action.
+    
+    The **(Handled by the browser)** option indicates that a printer isn't specified for the report. In this case, the browser handles the printout and displays the standard printing steps. You can choose a local printer connected to your device. **(Handled by the browser)** isn't available in the [!INCLUDE[prod_short](includes/prod_short.md)] mobile app or the app for Teams.
+1. Fill in the fields remaining fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+1. You can print the report, or send its results to a type of document, such as a PDF, XML, Word, or Excel:
+   
+   1. To send the report results to a type of document, choose the **Send to** action. 
+   1. To print the report, choose the **Print** action.
 
 > [!TIP]
 > The name of your company always shows in the upper right of the PDF. If you specify a **Display Name** on the **Companies** list page, that name shows instead of the name in the **Name** field (which isn't easy to change).
 
-### Schedule a financial report or save as a PDF document
+## Schedule a financial report
 
-You can save a financial report in file formats such as PDF. [!INCLUDE[prod_short](includes/prod_short.md)] can also generate recurring financial reports.
+You might have a report that you want to run regularly. To avoid having to run the report manually, you can run it according to a schedule. The schedule can produce the report as an Excel file that shows up in the Report Inbox on your Role Center, as a PDF, or both. If you want to share the report with colleagues, you can set up the schedule to send the report to them by email.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.
-1. On the **Financial Reports** page, choose the **Print** action.
-1. Set the report accordingly, then choose the **Send to** action.
-1. Select the file format or the **Schedule** action, and choose **OK**.
-1. To generate a scheduled or recurring financial report, fill in the fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)].<br><br>For recurring financial reports, set the **Earliest Start Date/Time** and **Expiration Date/Time** fields with the first and last date, respectively, to generate the financial report. Also, select the days on which to generate the report by filling in the **Next Run Date Formula** field. To learn more about date formulas, go to [Use Date Formulas](ui-enter-date-ranges.md#use-date-formulas).
+1. On the **Financial Reports** page, choose the **Definitions** action, and choose **Schedules**.
+1. In the **Code** field, enter a name for the schedule. For example, if the schedule runs the report on a weekly basis, you might name it "Weekly."
+1. In the **Description** field, enter text that indicates what the report shows.
+1. To export the report to Excel, select the **Export to Excel** checkbox, and then choose the template to use in the **Excel Template Code** field.
+1. To export the report to PDF, select the **Export to PDF** checkbox.
+1. To send the report to recipients by email, select the **Send Email** checkbox. If you choose this option, choose the **Recipients** action to specify who to send the report to. 
+1. To filter the values on the report to suit your needs, choose the **Custom Filters** action. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+1. To specify when to start the schedule, and how often it runs:
+   1. To manually specify a start date and time, fill in the **Next Run Date/Time** field. To calculate the start date, leave this field blank and instead, enter a date formula in the **Start Date Filter Formula** field. To learn more about date formulas, go to [Use date formulas](ui-enter-date-ranges.md#use-date-formulas).
+   1. To specify how often to run the report, enter a date formula in the **Recurrence Run Date Formula** field.
+
+## Review financial report runs
+
+[!INCLUDE [finance-review-fin-rep-runs](includes/finance-review-fin-rep-runs.md)] 
 
 ## Related information
 <!-- 
@@ -14015,7 +13904,7 @@ ms.reviewer: bholtorf
 
 People in businesses send information and documents, such as sales and purchase orders and invoices, by email every day. Administrators can connect one or more email accounts to [!INCLUDE[prod_short](includes/prod_short.md)], letting you send documents without having to open an email app. You can compose each message individually with basic formatting tools, such as fonts, styles, colors, and so on, and add attachments of up to 100 MB. Additionally, report layouts enable administrators to include only the key information from documents. Learn more at [Send Documents by Email](ui-how-send-documents-email.md).
 
-Email capabilities in [!INCLUDE[prod_short](includes/prod_short.md)] are for outbound messages only. You can't receive replies, that is, there's no "Inbox" page.
+Email in [!INCLUDE[prod_short](includes/prod_short.md)] is only for sending messages, except with AI agents like Sales Order Agent or Payables Agent. For users, there's no inbox page or reply capability inside [!INCLUDE[prod_short](includes/prod_short.md)]. Agents, on the other hand, can monitor and read incoming emails to a specific email account, and then formulate and send replies.
 
 > [!NOTE]
 > You can use the email capabilities of [!INCLUDE[prod_short](includes/prod_short.md)] online only with Exchange Online. We don't support hybrid scenarios, such as connecting [!INCLUDE[prod_short](includes/prod_short.md)] online to an on-premises version of Exchange.
@@ -14051,7 +13940,7 @@ External users, such as delegated admins and external accountants, can't use the
 > [!NOTE]
 > If you’re using service-to-service (S2S) authentication, the Microsoft 365 and Current user connectors can’t authenticate the user when they send a sales or purchase document by email. When someone sends a document, the following error message displays:
 >
-> “You are not authorized to access this resource: https:\//graph.microsoft.com/.default. Contact your system administrator."
+> “You aren't authorized to access this resource: https:\//graph.microsoft.com/.default. Contact your system administrator."
 >
 > The bound actions on the document APIs that send email cause the problem. To learn more about the bound actions, go to [Bound Actions](/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_salesinvoice#bound-actions). 
 >
@@ -14133,8 +14022,8 @@ There are a few ways to specify the limit:
 * When you use the Set Up Email assisted setup guide to create a new account, specify the limit in the **Rate limit per minute** field.
 * For existing email accounts, specify:
 
-   * The number of messages an account can send per minute in the **Email rate limit** field on the account.
-   * The maximum number of messages an account can send simultaneously in the **Email Concurrency Limit** field. By default, the limit is **3**, but you can allow up to **10**.
+  * The number of messages an account can send per minute in the **Email rate limit** field on the account.
+  * The maximum number of messages an account can send simultaneously in the **Email Concurrency Limit** field. By default, the limit is **3**, but you can allow up to **10**.
 
 ## Set up reusable email texts and layouts
 
@@ -14144,16 +14033,16 @@ You can use reports to include key information from sales, purchase, and service
 > To use the layout to create content for email messages, you must use the Word file type for your layout.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Report Selections - Sales**, and then choose the related link.
-2. On the **Report Selection - Sales** page, in the **Usage** field, select **Invoice**.
-3. On a new line, in the **Report ID** field, select, for example, standard report 1306.
-4. Select the **Use for Email Body** checkbox.
-5. Choose the **Email Body Layout Description** field, and then select a layout from the list.
-6. To view or edit the layout that the email text is based on, select the layout on the **Report Layouts** page, and then choose the **Export Layout** action. If you customize the layout, use the **Import Layout** action to upload the new layout.
+1. On the **Report Selection - Sales** page, in the **Usage** field, select **Invoice**.
+1. On a new line, in the **Report ID** field, select, for example, standard report 1306.
+1. Select the **Use for Email Body** checkbox.
+1. Choose the **Email Body Layout Description** field, and then select a layout from the list.
+1. To view or edit the layout that the email text is based on, select the layout on the **Custom Report Layouts** page, and then choose the **Export Layout** action. If you customize the layout, use the **Import Layout** action to upload the new layout.
 
-    > [!NOTE]
-    > To customize a standard report layout, such as 1306, you must make a copy of the report. [!INCLUDE [prod_short](includes/prod_short.md)] creates a copy when you import your own layout for a standard report and prefixes its name with "Copy of."
-7. If you want to let customers use a payment service, such as PayPal, you have to set up the service. Afterward, the PayPal information and link are inserted in the email text. To learn more, go to [Enable Customer Payments Through PayPal](sales-how-enable-payment-service-extensions.md).
-8. Choose the **OK** button.
+   > [!NOTE]
+   > To customize a standard report layout, such as 1306, you must make a copy of the report. [!INCLUDE [prod_short](includes/prod_short.md)] helps you create a copy when you import a custom layout for a standard report. The name of your new custom report layout is prefixed with "Copy of."
+1. If you want to let customers use a payment service, such as PayPal, you have to set up the service. Afterward, the PayPal information and link are inserted in the email text. To learn more, go to [Enable Customer Payments Through PayPal](sales-how-enable-payment-service-extensions.md).
+1. Choose the **OK** button.
 
 Now, for example, when you choose the **Send** action on the **Posted Sales Invoice** page, the email body contains the document information of report 1306. The information is preceded by styled standard text according to the report layout that you selected in step 5.
 
@@ -14298,8 +14187,8 @@ After you register your application in Azure portal, in [!INCLUDE[prod_short](in
 [Send Documents by Email](ui-how-send-documents-email.md)  
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
 [Use [!INCLUDE[prod_short](includes/prod_short.md)] as Your Business Inbox in Outlook](admin-outlook.md)  
-[Getting [!INCLUDE[prod_short](includes/prod_short.md)] on My Mobile Device](install-mobile-app.md)   
-[Getting [!INCLUDE[prod_short](includes/prod_short.md)] on My Mobile Device](install-mobile-app.md)   
+[Getting [!INCLUDE[prod_short](includes/prod_short.md)] on My Mobile Device](install-mobile-app.md)  
+[Getting [!INCLUDE[prod_short](includes/prod_short.md)] on My Mobile Device](install-mobile-app.md)  
 [Analyzing Email Telemetry (administration content)](/dynamics365/business-central/dev-itpro/administration/telemetry-email-trace)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -15943,7 +15832,7 @@ ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 01/05/2026
+ms.date: 03/09/2026
 ms.update-cycle: 180-days
 ms.custom:
   - bap-template
@@ -15952,36 +15841,34 @@ ms.custom:
   - ai-seo-date:06/18/2025
 ms.search.form: 4400, 4410
 ---
-# Supervise agent activities in Copilot pane
+# Supervise agent activities in Tasks pane
 
-You interact with Business Central agents, such as Payables and Sales Order agents, directly in Copilot's **Tasks** tab. You can monitor task status, review agent-generated drafts and suggestions, and provide confirmations or input to help tasks complete responsibly and accurately.
+You manage output from Business Central agents, such as the Payables and Sales Order agents, in the **Task** pane. This side pane shows tasks from a selected agent and lets you monitor task status, review agent‑generated drafts and suggestions, and provide confirmations or input to move tasks forward.
 
-The process flow is different for each agent. This article explains the common aspects of working in the **Tasks** tab for all agents and answers frequently asked questions.
+The process flow is different for each agent. This article explains the common aspects of working with tasks for all agents and answers frequently asked questions.
 
 ## Prerequisites
 
 The agent is activated, and you have permission to use it. Learn more in [Set up Payables Agent](payables-agent-setup.md) or [Set up Sales Order Agent](sales-order-agent-setup.md).
 
-## Get started
+## Access agent tasks
 
-On the upper right of the navigation menu, select the icon for the agent:
+On the upper-right of the navigation menu, select the icon for the agent:
 
 - ![Payables Agent icon in navigation menu.](media/payables-agent-activated-icon.png) **Payables Agent**
 - ![Sales Order Agent icon in navigation menu.](media/soa-activated-number-icon.png) **Sales Order Agent**
 
-A red circle with a number on the icon indicates the number of tasks that need attention.
-
 ![Shows the agent task view with process steps](media/agent-task-view-pane.svg)
 
-Selecting the ![Task view icon in Copilot pane](media/sot-task-view-icon.png) icon opens the **Tasks** tab in the **Copilot** pane, where you can view tasks recently created by the agent. Tasks that require attention&mdash;like reviewing vendor information&mdash;are at the top of the list.  
+The **Tasks** pane opens, displaying tasks recently created by the agent. A red circle with a number on the agent icon indicates how many tasks need your attention. Tasks requiring attention&mdash;such as reviewing vendor information&mdash;appear at the top of the list.
 
-For each inquiry the agent receives, like a request for a quote or invoice, the agent adds a **task** to track, review, and follow up on until the agent creates the entity. Each task has multiple steps that create a timeline of the process. A timeline is a visual sequence that shows each step taken for the task, helping you understand the progress and history.
+The agent creates a task for each inquiry it receives, such as a request for a quote or invoice. Each task includes multiple steps that form a timeline, providing a chronological view of all actions taken to complete the task.
 
 ## View summary of agent activities
 
-Hover over the agent's icon or select the ![Show summary for agent icon](media/soa-summary-icon.png) **Show summary for agent** in the **Task** tab to get an overview of the agent's key performance indicators (KPIs) that measure the impact of the agent's work in your organization.
+To get an overview of the agent's key performance indicators (KPIs) that measure the effect of the agent's work in your organization, hover over the agent's icon or select the ![Show summary for agent icon](media/soa-summary-icon.png) **Show summary for agent** in the **Task** pane.
 
-## Review and assist
+## Review and assist with tasks
 
 The agent does most of the work autonomously, but sometimes it asks for user intervention to complete the process. When intervention is needed depends on the agent and  its setup, but here are some common situations:
 
@@ -15994,15 +15881,15 @@ Learn more about the agent's process flow in [Payables Agent process](payables-a
 
 ### Review a step
 
-Steps that need intervention appear under **Needs Attention** in the **Tasks** tab. To review a step, follow these instructions:
+Steps that need intervention appear under **Needs Attention** in the **Tasks** pane. To review a step, follow these instructions:
 
-1. In the **Task** tab, select the step requesting review or assistance.
+1. In the **Task** pane, select the step requesting review or assistance.
 
    The task *timeline* opens, focused on the selected step. The timeline displays each step of a task, past and present, in chronological order.
 
 1. Select **Review** for the step.
 
-   The **Tasks** tab switches to **Review** mode, and the review content appears in the main display area.
+   The **Tasks** pane switches to **Review** mode, and the review content appears in the main display area.
 1. Review the contents and make changes as needed.
 
 1. If the agent needs assistance, a message appears at the top of the text explaining the problem.
@@ -16017,7 +15904,7 @@ After confirmation, the agent continues with the task. When a new notification a
 
 ## Give instructions to the agent
 
-When you review a step, you might need to change something the agent created or help it get unblocked. For example, you might need to make an item available, create the correct customer or vendor, or change quantities in sales quotes before the task can continue. Instead of making the changes yourself, you can guide the agent to do the work by providing instructions in the **Tasks** tab.
+When you review a step, you might need to change something the agent created or help it get unblocked. For example, you might need to make an item available, create the correct customer or vendor, or change quantities in sales quotes before the task can continue. Instead of making the changes yourself, you can guide the agent to do the work by providing instructions in the **Tasks** pane.
 
 :::image type="content" source="media/give-instructions-to-agent.svg" alt-text="Shows a step in Copilot Task pane that includes the options to give instructions to the agent.":::
 
@@ -16049,9 +15936,9 @@ Here's what to avoid:
 
 ## Stop a task
 
-Most steps of a task include a **Stop** button that lets you terminate the process. When you select **Stop**, a task isn't terminated immediately&mdash;you're asked to confirm before the task is stopped.
+Most steps of a task include a **Stop** button that lets you terminate the process on that task only. To stop all active tasks at once, you can select the **Stop all tasks** action. This action is useful if the agent becomes blocked after importing too many tasks. It clears the task list and unblocks the agent.
 
-Before you stop a task, consider the following behavior:
+When you select **Stop**, a task isn't terminated immediately&mdash;you're asked to confirm before the task is stopped. Before you stop a task, consider the following behavior:
 
 - Stopped tasks can't be restarted.
 - Stopping the task might leave some results incomplete or unwanted, and it might require follow-up actions. Follow up actions depend on where in the process the task was stopped.
@@ -16603,8 +16490,8 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: item, variant, finished good, component, raw material, assembly item, item substitution
-ms.search.form: 30, 5717, 31, 32, 346, 9091, 5718, 5716, 5720, 1384, 1383, 35, 5404, 1378, 5719
-ms.date: 06/13/2024
+ms.search.form: 30, 5717, 31, 32, 346, 9091, 5718, 5716, 5720, 1384, 1383, 35, 5404, 1378, 5719, 5401_Primary
+ms.date: 03/04/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -16627,13 +16514,34 @@ It's easy enough to define variants for an item.
 
 Then, when you create a sales document and add the item, you can specify the variant of the item in the Variant **Code** field. The same applies to purchasing documents.  
 
+## Add attributes to variants
+
+You can assign attributes that are specific to a variant. Item variants inherit attributes from the item, and you can adjust or remove those inherited values when the variant requires different information.
+  
+You can open the **Item Variant Attribute Values** page from the **Item Variants List** or the **Item Variant Card** pages to review or edit variant-specific attributes. When you add a new variant of an item, the attributes defined for the item transfer to the variant. You can then update or delete the inherited values to ensure the variant shows the correct details. 
+
+There's also the **Update Variant Attributes** action on the **Item Card** page that lets you to force sync attributes from the item to its variants.
+
+## Add a picture to a variant
+
+Adding pictures of item variants can reduce confusion when working with large assortments of similar variants. Tiles and tall tiles modes on the list can help you quickly identify each variant, which improves accuracy in the variant selection, manufacturing, fulfillment, and sales processes.
+
+1. Open the **Item Card** and choose the **Variants** action.
+1. Select the variant that you want to update.
+1. On the **Item Variant Card**, in the **Picture** FactBox, choose one of the following actions: 
+
+   - **Import** to upload a file.
+   - **Take** to use your device camera to capture an image.
+   - **Export** if you want to save the current image.
+   - **Delete** if you don't want the picture.
+   
 ## Item availability by variant
 
 [!INCLUDE [inventory_variant-availability](includes/inventory_variant-availability.md)]
 
 ## Require use of variants
 
-Starting in 2022 release wave 2, admins can require that users specify the variant in documents and journals for items that have variants. To activate the capability, on the **Inventory Setup** page, and select the **Variant Mandatory if Exists** field. You can override this global setting for specific items.  
+Administrators can require that users specify the variant in documents and journals for items that have variants. To activate the capability, on the **Inventory Setup** page, and select the **Variant Mandatory if Exists** field. You can override this global setting for specific items.  
 
 On item cards, the **Variant Mandatory if Exists** field has the following options:
 
@@ -16739,8 +16647,8 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
-ms.search.form: 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, 37066, 37100, 37101, 37102, 37103, 37104, 37105
-ms.date: 10/26/2024
+ms.search.form: 36998, 36999, 37000, 37001, 37002, 37003, 37004, 37005, 37006, 37007, 37008, 37066, 37100, 37101, 37102, 37103, 37104, 37105, 37114, 36983,
+ms.date: 03/03/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -17535,6 +17443,10 @@ To create a new financial report, choose the **New** action. You can then give t
 * **Row Definition**
 * **Column Definition**
 * **Analysis Views**
+
+## Use default settings for financial reports
+
+When you design new reports, remember that you can take advantage of default settings for them. On the **Reporting** FastTab of the **General Ledger Setup** page, you can specify a range of settings that apply to all financial reports. Learn more at [Specify default settings that apply to all financial reports](bi-how-work-account-schedule.md#specify-default-settings-that-apply-to-all-financial-reports).
 
 ## Copy an existing report
 
@@ -19853,10 +19765,9 @@ title: Make sales quotes
 description: Read about how to create a sales offer to a customer or prospect to sell products.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: rfq
-ms.search.form: 41, 9300
-ms.date: 06/17/2025
+ms.search.form: 41, 9300_Primary, 
+ms.date: 03/06/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -19872,7 +19783,7 @@ In most cases, you send sales quotes to prospective customers. You often have a 
 > [!TIP]
 > You can use the Sales Order Agent in [!INCLUDE [prod_short](includes/prod_short.md)] to speed up the quote-to-order workflow. The agent can automate the process for creating quotes based on requests you receive by email from customers. With the agent handling the paperwork, you're free to focus on other tasks such as generating more prospects. To learn more, go to [Process sales quotes and orders with Sales Order Agent (preview)](sales-order-agent-process.md).
 
-## To create a sales quote
+## Create a sales quote
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Quotes**, and then choose the related link.
 2. Specify the contact or customer that you want to send the sales quote to.
@@ -20803,7 +20714,7 @@ ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: concept-article
 ms.collection: get-started
-ms.date: 02/23/2026
+ms.date: 03/26/2026
 ms.custom: bap-template
 ---
 
@@ -20825,7 +20736,7 @@ The following table lists Copilot features in Business Central, along with the B
 |[Chat](chat-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
 |[Map e-documents to purchase order lines](map-edocuments-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
 |[Marketing text suggestions](item-marketing-text.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Chinese Simplified (zh-CN)</li><li>Czech (cs-CZ)</li><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Greek (el-GR)</li><li>Italian (it-CH, it-IT)</li><li>Japanese (ja-JP)</li><li>Korean (ko-KR)</li><li>Norwegian Bokmål (nb-NO)</li><li>Polish (pl-PL)</li><li>Portuguese Brazil (pt-BR)</li><li>Russian (ru-RU)</li><li>Spanish (es-CO, es-ES, es-MX, es-PE)</li><li>Swedish (sv-SE)</li><li>Thai (th-TH)</li><li>Turkish (tr-TR)</li></ul>|
-|[Payables Agent](payables-agent.md)<br><br><sup>[+ planned expansions](#planned-feature-expansions)</sup> |<ul><li>AU (Australia)</li><li>CA (Canada)</li><li>DE (Germany)</li><li>DK (Denmark)</li><li>ES (Spain)</li><li>FR (France)</li><li>GB (United Kingdom)</li><li>IT (Italy)</li><li>NZ (New Zealand)</li><li>US (United States)</li></ul>|<ul><li>English (en-AU, en-GB, en-US, en-NZ)</li></ul>|
+|[Payables Agent](payables-agent.md) |[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Czech (cs-CZ)</li><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-IN, en-NZ, en-US)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Italian (it-CH, it-IT)</li><li>Norwegian Bokmål (nb-NO)</li></li><li>Spanish (es-ES, es-MX)</li><li>Swedish (sv-SE)</li></ul><ul>|
 |[Sales line suggestions](sales-suggest-sales-lines-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
 |[Sales Order Agent](sales-order-agent.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-NZ, en-US)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Italian (it-CH, it-IT)</li><li>Norwegian Bokmål (nb-NO)</li><li>Spanish (es-ES, es-MX)</li><li>Swedish (sv-SE)</li></ul>|
 |[Suggest item substitutions](suggest-item-substitutions-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
@@ -20835,11 +20746,10 @@ The following table lists Copilot features in Business Central, along with the B
 > [!NOTE]
 > Features can be used in other languages not listed, but they might not function as intended. Learn more in [Supported languages](#supported-versus-unsupported-languages).
 
-### Planned feature expansions
+<!--### Planned feature expansions
 
 The following features are planned to expand their availability in upcoming releases:
-
-- **Payables Agent** (2026 release wave 1): Expand to all Business Central countries/regions and all Microsoft-provided languages as shown in [Country/regional availability and supported languages](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations).
+-->
 
 ## Understanding Copilot availability: Geography, languages, and localization
 
@@ -21254,7 +21164,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Set up Sales Order Agent
 description: Learn how to activate Sales Order Agent and manage user access.
-ms.date: 11/24/2025
+ms.date: 02/16/2026
 ms.update-cycle: 180-days
 ms.topic: how-to
 author: jswymer
@@ -21297,7 +21207,7 @@ The agent capability is on if the ![Shows the Sales Order Agent icon](media/soa-
 
 ![Shows the Sales Order Agent icon on a role center](media/soa-in-role-center.svg "Shows the Sales Order Agent icon on a role center")
 
-If the icon isn't present, turn it on from the **Copilot & agent capabilities** page, like other Copilot features in Business Central. Sales Order Agent is listed under **Production ready previews**. Learn more in [Configure Copilot and AI agent capabilities](enable-ai.md).
+If the icon isn't present, turn it on from the **Copilot & agent capabilities** page, like other Copilot features in Business Central. Sales Order Agent is listed under **Generall available**. Learn more in [Configure Copilot and AI agent capabilities](enable-ai.md).
 
 Next, configure and activate the agent so it can process customer sales orders.
 
@@ -22890,7 +22800,7 @@ Try the report here: [Key Sales Influencers](https://businesscentral.dynamics.co
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-synchronize-outlook-contacts
 ---
-title: Synchronize Contacts in Business Central with Contacts in Microsoft Outlook
+title: Synchronize Contacts in Business Central with Contacts in Microsoft Outlook (legacy)
 description: This service has deep integration with Microsoft 365 so you can share contacts between Outlook and Business Central.
 author: brentholtorf
 ms.topic: article
@@ -22902,7 +22812,10 @@ ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Synchronize contacts in Business Central with contacts in Microsoft Outlook
+# Synchronize contacts in Business Central with contacts in Microsoft Outlook (legacy)
+
+> **APPLIES TO:**  [!INCLUDE[prod_short](includes/prod_short.md)] 2025 release wave 2 (v27) and earlier. For later versions, refer to
+ [Save business contacts to Microsoft Outlook](save-business-contacts-to-outlook.md).
 
 You can set up contact synchronization so that your contacts in [!INCLUDE[prod_short](includes/prod_short.md)] have the same information as your contacts in Microsoft Outlook. For example, if you're a sales person, you might work in Outlook and [!INCLUDE[prod_short](includes/prod_short.md)] at the same time. If the contacts are the same in both places, your work is more straightforward.  
 
@@ -22974,11 +22887,11 @@ title: Inventory KPIs and measures (Power BI)
 description: The Inventory App KPIs provides a page to clearly identify all KPIs and Measures used in the Inventory Report.
 author: kennienp
 ms.author: kepontop
-ms.reviewer: 
+ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: 
-ms.date: 11/08/2024
+ms.date: 03/03/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -22986,36 +22899,40 @@ ms.service: dynamics-365-business-central
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Inventory app. 
-
-Explore the list of KPIs below to learn more about how they can help you achieve your business goals. 
-
-Each KPI is described, including how it is calculated and what data was used in the calculations.
+This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Inventory app. Explore the list of KPIs to learn more about how they can help you achieve your business goals. Each KPI is described, including how it's calculated and the data is uses in calculations.
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
+## Assembly header measures
 
-## Assembly Header Measures
 - [Qty. on Assembly Order](#qty-on-assembly-order)
 
 ### Qty. on Assembly Order
+
 **Formula**  
+
 - This measure shows how many items are yet to be assembled for assembly orders by summing up the remaining quantity of items on all assembly headers.
 
 **Data Sources**
+
 - Assembly Header
 
 ## Assembly Line Measures
+
 - [Qty. on Asm. Component](#qty-on-asm-component)  
 
 ### Qty. on Asm. Component
+
 **Formula**  
+
 - This measure shows how many items are yet to be assembled for a finished product by summing up the remaining quantity of items on all assembly lines.
 
 **Data Sources**
+
 - Assembly Line
 
 ## Bins Measures
+
 - [ATO Components Pick Qty.](#ato-components-pick-qty)  
 - [Available Qty. to Take](#available-qty-to-take)
 - [Negative Adjmt. Qty. (Base)](#negative-adjmt-qty-base)  
@@ -23026,65 +22943,89 @@ Each KPI is described, including how it is calculated and what data was used in 
 - [Warehouse Quantity](#warehouse-quantity)  
 
 ### ATO Components Pick Qty.
+
 **Formula**  
+
 - This measure calculates the total quantity taken from the warehouse for "Assemble to Order" components by summing the qtyBase from Warehouse Activity Lines where actionType is Take, assembleToOrder is TRUE, and atoComponent is TRUE. This measure captures only the quantities picked specifically for assembling made-to-order products.
 
 **Data Sources**
+
 - Warehouse Activity Line
 
 ### Available Qty. to Take
+
 **Formula**  
+
 - This measure calculates the quantity of an item that is available to be picked. It subtracts the [Pick Quantity (Base)](#pick-quantity-base), [ATO Components Pick Qty.](#ato-components-pick-qty), and [Negative Adjmt. Qty. (Base)](#negative-adjmt-qty-base) measures from [Warehouse Quantity](#warehouse-quantity), but only for the bins that are not marked as adjustment bins.
 
 **Data Sources**
+
 - Warehouse Entry
 - Bin
 
 ### Negative Adjmt. Qty. (Base)
+
 **Formula**  
+
 - This measure calculates the total quantity of an item that has been removed from the warehouse due to adjustments. This includes any adjustments that result in inventory decreases in the Warehouse Journal Line table.
 
 **Data Sources**
+
 - Warehouse Journal Line
 
 ### Pick Quantity (Base)
+
 **Formula**  
-- This measure calculates the total quantity of an item that has been picked from the warehouse for sales or transfer orders. It only includes the quantity that has been picked, not received or moved within the warehouse.
+
+- This measure calculates the total quantity of an item that has been picked from the warehouse for sales or transfer orders. It only includes the quantity that was picked, not received or moved within the warehouse.
 
 **Data Sources**
+
 - Warehouse Activity Line
 
 ### Positive Adjmt. Qty. (Base)
+
 **Formula**  
-- This measure calculates the total quantity of an item that has been added to the warehouse due to adjustments. This includes any adjustments that result in inventory increases in the Warehouse Journal Line table.
+
+- This measure calculates the total quantity of an item that was added to the warehouse due to adjustments. This includes any adjustments that result in inventory increases in the Warehouse Journal Line table.
 
 **Data Sources**
+
 - Warehouse Journal Line
 
 ### Put-away Quantity (Base)
+
 **Formula**  
-- This measure calculates the total quantity of an item that has been placed in the warehouse for storage. It only includes the quantity that has been put away, not picked or moved within the warehouse.
+
+- This measure calculates the total quantity of an item that was placed in the warehouse for storage. It only includes the quantity that has been put away, not picked or moved within the warehouse.
 
 **Data Sources**
+
 - Warehouse Activity Line
 
 ### Quantity in Adjustment Bin
+
 **Formula**
+
 - This measure calculates the total quantity located in bins that are marked as adjustment bins. It first identifies the bins flagged as adjustment bins by creating a filtered table (AdjustmentBins). Then, it sums the Qty. (Base) values from the Warehouse Entries table, applying this filter to include only adjustment bins. The measure ensures the quantity reflects only the specified adjustment bins by removing other bin filters.
 
 **Data Sources**
+
 - Warehouse Entry
 - Location
 
 ### Warehouse Quantity
+
 **Formula**  
+
 - This measure calculates the total quantity of an item that is currently in the warehouse by summing the base quantity from the Warehouse Entry table.
 
 **Data Sources**
+
 - Warehouse Entry
 
+## Item Availability Measures
 
-## Items Availability Measures
 - [Gross Requirement](#gross-requirement)
 - [Planned Order Receipt](#planned-order-receipt)  
 - [Planned Order Releases](#planned-order-releases)    
@@ -23092,12 +23033,15 @@ Each KPI is described, including how it is calculated and what data was used in 
 - [Scheduled Receipt](#scheduled-receipt)
 
 ### Gross Requirement
+
 **Formula**  
-- This measure calculates the total quantity of an item that is needed to fulfill various orders and projects. It includes the quantity that is on sales orders, service orders, projects, production order component lines, transaction order shipments, planning issues, assembly components, and purchased returns.
+
+- This measure calculates the total quantity of an item that's needed to fulfill various orders and projects. It includes the quantity on sales orders, service orders, projects, production order component lines, transaction order shipments, planning issues, assembly components, and purchased returns.
 
   *Gross Requirement = [Qty. on Sales Order](#qty-on-sales-order) + [Qty. on Service Order](#qty-on-service-order) + [Qty. on Projects](#qty-on-projects) + [Qty. on Prod. Order Comp. Lines](#qty-on-prod-order-comp-lines) + - [Trans. Order Shipment (Qty.)](#trans-order-shipment-qty) + [Planning Issues (Qty.)](#planning-issues-qty) + [Qty. on Asm. Component](#qty-on-asm-component) + [Qty. on Purch. Return](#qty-on-purch-return)*
 
 **Data Sources**
+
 - Sales Line
 - Purchase Line
 - Transfer Line
@@ -23108,33 +23052,41 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Assembly Line
 
 ### Planned Order Receipt
+
 **Formula**  
-- This measure shows the total quantity of items that are planned to be received by the company through planned orders and purchase requisitions.
+
+- This measure shows the total quantity of items that you plan to receive through planned orders and purchase requisitions.
 
   *Planned Order Receipt = Planned Order Receipt (Qty.) + Purch. Req. Receipt (Qty.)*
 
 **Data Sources**
+
 - Production Order Line
 - Requisition Line
 
 ### Planned Order Releases
+
 **Formula**  
-- This measure shows the total quantity of items that are planned to be released through planned orders and purchase requisitions.
+
+- This measure shows the total quantity of items that you plan to release through planned orders and purchase requisitions.
 
   *Planned Order Releases = Planned Order Release (Qty.) + Purch. Req. Release (Qty.)*
 
 **Data Sources**
+
 - Production Order Line
 - Requisition Line
 
-
 ### Projected Available Balance
+
 **Formula**  
-- This measure calculates the current inventory quantity, planned order receipts, scheduled receipts, and gross requirements based on the data up until the most recent date available.
+
+- This measure calculates the current inventory quantity, planned order receipts, scheduled receipts, and gross requirements based on the data up to the most recent date available.
 
   *Projected Available Balance = [Inventory (Quantity)](#inventory-quantity) + [Planned Order Receipt](#planned-order-receipt) + [Scheduled Receipt](#scheduled-receipt) - [Gross Requirement](#gross-requirement)*
 
 **Data Sources**
+
 - Sales Line
 - Purchase Line
 - Transfer Line
@@ -23148,20 +23100,23 @@ Each KPI is described, including how it is calculated and what data was used in 
 - Production Order Line
 
 ### Scheduled Receipt
+
 **Formula**  
-- This measure shows the total quantity of items that are scheduled to be received by the company.
+
+- This measure shows the total quantity of items that are scheduled for receipt.
 
   *Scheduled Receipt = [FP Order Receipt (Qty.)](#fp-order-receipt-qty) + [Rel. Order Receipt (Qty.)](#rel-order-receipt-qty) + [Qty. on Purch. Order](#qty-on-purch-order) + [Qty. in Transit](#qty-in-transit) + [Trans. Order Receipt (Qty.)](#trans-order-receipt-qty) + [Qty. on Assembly Order](#qty-on-assembly-order) + [Qty. on Sales Return Order](#qty-on-sales-return-order)*
 
 **Data Sources**
+
 - Sales Line
 - Purchase Line
 - Transfer Line
 - Assembly Header
 - Production Order Line
 
-
 ## Item Ledger Entry Measures
+
 - [Expired Inventory](#expired-inventory) 
 - [Inventory (Quantity)](#inventory-quantity)  
 - [Invoiced Quantity](#invoiced-quantity)
@@ -23174,41 +23129,51 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Expired Inventory
 
 **Formula**  
-- This measure shows how much inventory has expired and is no longer available for sale or use by calculating the remaining quantity of items on all item ledger entries.
+
+- This measure shows how much inventory is expired and no longer available for sale or use. It calculates the remaining quantity of items on all item ledger entries.
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ### Inventory (Quantity)
 
 **Formula**  
-- This measure shows the total quantity of inventory on hand for all items by summing up the quantity of items on all item ledger entries.
+
+- This measure shows the total quantity of inventory on hand for all items. It sums up the quantity of items on all item ledger entries.
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ### Invoiced Quantity
 
 **Formula**  
-- This measure calculates the total quantity that has been invoiced by summing all values in the [invoicedQuantity] column from the Item Ledger Entries table. 
+
+- This measure calculates the total quantity that was invoiced. It sums all values in the [invoicedQuantity] column from the Item Ledger Entries table. 
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ###  Net Qty. Purchased
 
 **Formula**  
-- This measure shows the total quantity of items that have been purchased and received by the company by calculating the quantity, filtered to only include item ledger entries that have an entry type of "Purchase".
+
+- This measure shows the total quantity of items that you purchased and received calculating the quantity, filtered to only include item ledger entries that have an entry type of "Purchase".
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ###  Net Qty. Sold
 
 **Formula**  
-- This measure shows the total quantity of items that have been sold by the company by calculating the quantity, filtered to only include item ledger entries that have an entry type of "Sale".
+
+- This measure shows the total quantity of items that you sold by calculating the quantity, filtered to only include item ledger entries that have an entry type of "Sale".
 
 **Data Sources**
+
 - Item Ledger Entry
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
@@ -23216,24 +23181,31 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Quantity
 
 **Formula**  
-- This measure shows the total quantity of items that have been processed through the item ledger by summing up the quantity of items on all item ledger entries including sales, purchases, adjustments, and other types of transactions.
+
+- This measure shows the total quantity of items that you processed through the item ledger by summing up the quantity of items on all item ledger entries including sales, purchases, adjustments, and other types of transactions.
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ### Quantity (Forecasting)
 
 **Formula**  
+
 - This measure calculates the **Quantity** within the period of dates with item transactions and inserts zero values for dates without item ledger entries, for compatibility with forecasting.
 
 **Data Sources**
+
 - Item Ledger Entry
 
 ### Remaining Quantity
 
 **Formula**  
+
 - This measure calculates the total remaining quantity of items by summing all values in the [Remaining Qty.] column from the Item Ledger Entries table.
+
 **Data Sources**
+
 - Item Ledger Entry
 
 ## Planning Component Line Measures
@@ -23243,11 +23215,12 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Planning Issues (Qty.)
 
 **Formula**  
-- This measure shows how many items are expected to be consumed for planned production orders by summing up the expected quantity of items that are required for production.
+
+- This measure shows how many items you expect to consume for planned production orders by summing up the expected quantity of items that are required for production.
 
 **Data Sources**
-- Planning Component
 
+- Planning Component
 
 ## Prod. Order Component Line Measures
 
@@ -23256,9 +23229,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. on Prod. Order Comp. Lines
 
 **Formula**  
+
 - This measure shows how many items are yet to be completed on a production order by summing up the total remaining quantity of items on all production order component lines.
 
 **Data Sources**
+
 - Prod. Order Component
 
 ## Production Order Line Measures
@@ -23271,33 +23246,41 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### FP Order Receipt (Qty.)
 
 **Formula**  
-- This measure is abbreviated for Firmed Planned Order Receipt (Qty.) and hows how many items are expected to be received for firm planned production orders by summing up the remaining quantity of items on all firm planned production order lines.
+
+- This measure is abbreviated for Firmed Planned Order Receipt (Qty.) and shows how many items you expect to receive for firm planned production orders by summing up the remaining quantity of items on all firm planned production order lines.
 
 **Data Sources**
+
 - Production Order Line
 
 ### Qty. on Prod. Order
 
 **Formula**  
+
 - This measure shows how many items are yet to be produced for production orders by summing up the remaining quantity of items on all planned, firm planned, and released production order lines.
 
 **Data Sources**
+
 - Production Order Line
 
 ### Rel. Order Receipt (Qty.)
 
 **Formula**  
+
 - This measure is abbreviated for Released Production Order Receipt (Qty.) and shows how many items are expected to be received for released production orders by summing up the remaining quantity of items on all released production order lines.
 
 **Data Sources**
+
 - Production Order Line
 
 ### Scheduled Receipt (Qty.)
 
 **Formula**
-- This measure calculates the total scheduled receipt quantity from production orders by summing the [remainingQtyBase] column in the Production Order Lines table. It includes only those orders where the [Status] is either "Firm Planned" or "Released," which represents production orders expected to be completed. This measure gives an overview of pending quantities that are scheduled for receipt in the near future.
+
+- This measure calculates the total scheduled receipt quantity from production orders by summing the [remainingQtyBase] column in the Production Order Lines table. It includes only those orders where the status is either **Firm Planned** or **Released**, which represents production orders expected to be completed. This measure gives an overview of pending quantities that are scheduled for receipt in the near future.
 
 **Data Source**
+
 - Production Order Line
 
 ## Project Planning Line Measures
@@ -23307,9 +23290,11 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. on Projects
 
 **Formula**  
+
 - This measure shows how many items or hours are yet to be completed on a project by summing up the total outstanding quantity of items or hours on all project lines.
 
 **Data Sources**
+
 - Project Planning Line
 
 ## Purchase Line Measures
@@ -23320,17 +23305,21 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. on Purch. Order
 
 **Formula**  
+
 - This measure shows how many items are yet to be received for purchase orders by summing up the outstanding quantity of items on all purchase order lines.
 
 **Data Sources**
+
 - Purchase Line
 
 ### Qty. on Purch. Return
 
 **Formula**  
-- This measure shows how many items have been returned to the supplier but are yet to be received or credited by summing up the total outstanding quantity of items on all purchase return order lines.
+
+- This measure shows how many items were returned to the supplier but are yet to be received or credited. It sums up the total outstanding quantity of items on all purchase return order lines.
 
 **Data Sources**
+
 - Purchase Line
 
 ## Sales Line Measures
@@ -23341,19 +23330,21 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. on Sales Order
 
 **Formula**  
-- This measure shows how many items have been ordered by customers but are yet to be delivered or shipped by summing up the total outstanding quantity of items on all sales order lines. 
+
+- This measure shows how many items have been ordered by customers but are yet to be delivered or shipped. It sums up the total outstanding quantity of items on all sales order lines. 
 
 **Data Sources**
+
 - Sales Line
 
 ### Qty. on Sales Return Order
 
 **Formula**  
-- This measure shows how many items are yet to be returned by customers for sales return orders by summing up the outstanding quantity of items on all sales lines that are associated with return orders.
+- This measure shows how many items are yet to be returned by customers for sales return orders. It sums up the outstanding quantity of items on all sales lines that are associated with return orders.
 
 **Data Sources**
-- Sales Line
 
+- Sales Line
 
 ## Service Line Measures
 
@@ -23362,11 +23353,12 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. on Service Order
 
 **Formula**  
-- This measure represents how many service items or hours have been ordered by customers but are yet to be fulfilled by summing up the total outstanding quantity of items or hours on all service order lines.
+
+- This measure represents how many service items or hours were ordered by customers but are yet to be fulfilled. It sums up the total outstanding quantity of items or hours on all service order lines.
 
 **Data Sources**
-- Service Line
 
+- Service Line
 
 ## Transfer Line Measures
 
@@ -23378,34 +23370,78 @@ Each KPI is described, including how it is calculated and what data was used in 
 ### Qty. in Transit
 
 **Formula**  
-- This measure shows how many items are currently in transit between locations by summing up the quantity of items in transit on all transfer lines.
+
+- This measure shows how many items are currently in transit between locations. It sums up the quantity of items in transit on all transfer lines.
 
 **Data Sources**
+
 - Transfer Line
 
 ### Trans. Order Outstanding Qty.
 
 **Formula**
-- This measure calculates the total outstanding quantity for transfer orders by summing all values in the [outstandingQtyBase] column from the Transfer Lines table. 
+
+- This measure calculates the total outstanding quantity for transfer orders. It sums up all values in the **outstandingQtyBase** column from the Transfer Lines table. 
 
 **Data Sources**
+
 - Transfer Line
 
 ### Trans. Order Shipment (Qty.)
 
 **Formula**  
-- This measure shows how many items have been shipped between two locations by summing up the total outstanding quantity of items on all transfer order lines that are associated with the specified location codes and shipment date.
+
+- This measure shows how many items were shipped between two locations. It sums up the total outstanding quantity of items on all transfer order lines that are associated with the specified location codes and shipment date.
 
 **Data Sources**
+
 - Transfer Line
 
 ### Trans. Order Receipt (Qty.)
 
 **Formula**  
-- This measure shows how many items are expected to be received for transfer orders by summing up the outstanding quantity of items on all transfer lines.
+
+- This measure shows how many items you expect to receive for transfer orders. It sums up the outstanding quantity of items on all transfer lines.
 
 **Data Sources**
+
 - Transfer Line
+
+## ABC Classification Measures
+
+- [No. of Items in Class](#no-of-items-in-class)
+- [Sales Amount (ABC)](#sales-amount-abc)
+- [Sales Quantity (ABC)](#sales-quantity-abc)
+
+### No. of Items in Class
+
+**Formula**  
+
+- This measure returns the number of items based on the ABC classification. The ABC classification is determined by calculating the cumulated sales amount for an item, divided by the total sales amount for all items, to return the Cumulative Sales Amount Percent. Each item is assigned an ABC Classification based on whether the Cumulative Sales Amount Percent is within the lower and upper ABC class boundaries, as defined in the ABC Analysis Setup.
+
+**Data Sources**
+
+- Item Ledger Entry
+
+### Sales Amount ABC
+
+**Formula**  
+
+- This measure returns the [Sales Amount](#sales-amount-abc) for each item based on the ABC classification. The ABC classification is determined by calculating the cumulated sales amount for an item, divided by the total sales amount for all items, to return the Cumulative Sales Amount Percent. Each item is assigned an ABC Classification based on whether the Cumulative Sales Amount Percent is within the lower and upper ABC class boundaries, as defined in the ABC Analysis Setup.
+
+**Data Sources**
+
+- Item Ledger Entry
+
+### Sales Quantity ABC
+
+**Formula** 
+
+- This measure returns the [Sales Quantity](#sales-quantity-abc) for each item based on the ABC classification. The ABC classification is determined by calculating the cumulated sales quantity for an item, divided by the total sales quantity for all items, to return the Cumulative Sales Quantity Percent. Each item is assigned an ABC Classification based on whether the Cumulative Sales Quantity Percent is within the lower and upper ABC class boundaries, as defined in the ABC Analysis Setup.
+
+**Data Sources**
+
+- Item Ledger Entry
 
 ## Related information
 
@@ -25183,152 +25219,6 @@ To verify that your setup is ready for production, the following steps will help
 [Overview of Business Central Access with Microsoft 365 licenses](admin-access-with-m365-license.md#minimum-requirements)  
 [Troubleshoot Access with Microsoft 365 Licenses](admin-access-with-m365-license-troubleshooting.md)  
 [Business Central and Microsoft Teams Integration](across-teams-overview.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/hr-manage-human-resources
----
-title: Manage human resources
-description: Register and manage employee records, maintain employment details, and track and analyze absences.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: v-soumramani
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: personnel, people, employee, staff, HR
-ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212, 5221, 5228
-ms.date: 10/03/2025
-ms.service: dynamics-365-business-central
----
-
-# Manage human resources
-
-In [!INCLUDE[prod_short](includes/prod_short.md)], you can keep detailed records of your employees. You can register and maintain employee information, such as employment contracts, confidential information, qualifications, and employee contacts.
-
-You can also register employee absences, which allows you to analyze registered absences as necessary.
-
-To start using the Human Resources functionality, you must set up employees and other basic information. You can then associate various codes to an employee, which allows you to filter information for specific employees.
-
-The following table describes a sequence of tasks, with links to the articles that describe them.
-
-| To | Go to |
-|--|--|
-| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. | [Register Employees](hr-how-register-employees.md) |
-| Record employees' absence and view absence statistics by various filters. | [Manage Employee Absence](hr-how-manage-absence.md) |
-
-## Related information
-
-[Finance](finance.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-access-with-m365-license-flow
----
-title: User Access Flow for Microsoft 365 Licenses
-description: Get an overview of what happens when a user accesses Business Central data using their Microsoft 365 license for the first time.
-author: mikebc
-ms.author: mikebc
-ms.reviewer: bholtorf
-ms.service: dynamics-365-business-central
-ms.topic: article
-ms.date: 11/03/2022
-ms.custom: bap-template
-ms.search.keywords: License, access, Microsoft 365, collaborate, collaboration, Teams, Microsoft Teams
----
-# User Access Flow for Microsoft 365 Licenses
-
-[!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
-
-This article describes what happens when a user accesses Business Central data using their Microsoft 365 license for the first time. Understanding this flow allows administrators to plan their approach and configure Business Central to match their business needs.
-
-1. First, the user’s identity is authenticated 
-2. Business Central verifies that all the [minimum requirements](admin-access-with-m365-license.md#minimum-requirements) are met.
-3. Business Central verifies that this user does not have a greater license, such as a Business Central license or an administrative role such as a delegated admin role. 
-4. Business Central verifies whether the user is accessing data that belongs to an environment that has enabled access with Microsoft 365 licenses. 
-5. The user record is provisioned in Business Central, assigning the User Group, Profile and Permission Sets defined in the Microsoft 365 license configuration page. By default, the Teams Users user group is assigned, the Employee profile is assigned, and only the Login permission set is assigned. Any other defaulting of user settings is also applied, just like a licensed Business Central user. 
-6. The full Business Central security model is applied, to determine whether the user should be able to access the record, page, in the specified company and specified environment. 
-
-If all steps succeed, the user can now view this Business Central data in Teams. The Business Central service automatically ensures read-only access and simplifies the UI. 
-
-The user account is now registered in Business Central and can be managed like any Business Central user.
-
-> [!NOTE]
-> Steps may vary depending on any additional security configuration that you have specified in Microsoft 365 or Business Central.
-
-## Related information
-
-[Business Central Access with Microsoft 365 licenses](admin-access-with-m365-license.md#minimum-requirements)  
-[Set Up Access with Microsoft 365 Licenses](admin-access-with-m365-license-setup.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-planning-assignment-table
----
-title: Design details - Planning assignment table
-description: This topic provides insight into what happens when a change in the demand or supply patterns requires that you calculate how you plan for an item.
-author: brentholtorf
-ms.topic: concept-article
-ms.search.keywords:
-ms.date: 03/17/2026
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.custom: bap-template
----
-# Design details: Planning assignment table
-
-All items should be planned for, however, there is no reason to calculate a plan for an item unless there has been a change in the demand or supply pattern since the last time a plan was calculated.  
-
-If the user has entered a new sales order or changed an existing one, there is reason to recalculate the plan. Other reasons include a change in forecast or the desired safety stock quantity. Changing a bill of material by adding or removing a component would most likely indicate a change, but for the component item only.  
-
-For multiple locations, the assignment takes place at the level of item per location combination. If, for example, a sales order has been created at only one location, application will assign the item at that specific location for planning.  
-
-The reason for selecting items for planning is a matter of system performance. If no change in an item’s demand-supply pattern has occurred, the planning system will not suggest any actions to be taken. Without the planning assignment, the system would have to perform the calculations for all items in order to find out what to plan for, and that would drain system resources.  
-
-The **Planning Assignment** table monitors demand and supply events and assigns the appropriate items for planning. The following events are monitored:  
-
-* A new sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
-* Change of item, quantity, location, variant, or date on a sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
-* Cancellation of a sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
-* Consumption of items other than planned.  
-* Output of items other than planned.  
-* Unplanned changes in inventory.  
-
-For these direct supply-demand displacements, the order tracking and action messaging system maintains the Planning Assignment table and states a planning reason as an action message.  
-
-The following changes in master data can also cause a planning imbalance:  
-
-* Change of status to Certified in the production BOM header (for all items using that header).  
-* Deleted line (child item).  
-* Change of status to Certified in the routing header (for all items using that routing).  
-* Changes in the following item card fields.  
-* Safety Stock Quantity or Safety Lead Time.  
-* Lead Time Calculation.  
-* Reorder Point.  
-* Production BOM No. (and all children of old BOM reference).  
-* Routing No.  
-* Reordering Policy.  
-
-In these cases, a new function, Planning Assignment Management, maintains the table and states the planning reason as Net Change.  
-
-The following changes do not cause a planning assignment:  
-
-* Calendars  
-* Other planning parameters on the item card  
-
-When calculating an MPS or an MRP, the following restrictions apply:  
-
-* MPS: The planning system checks that the item carries a demand forecast or a sales order. If not, the item is not included in the plan.  
-* MRP: If the planning system detects that the item is being replenished by an MPS planning line or MPS supply order, the item will be left out of the planning. However, any demand from relevant components is included.  
-
-## Related information  
-[Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md)   
-[Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)   
-[Design Details: Transfers in Planning](design-details-transfers-in-planning.md)   
-[Design Details: Planning Parameters](design-details-planning-parameters.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/LocalFunctionality/Germany/how-to-export-data-for-a-digital-audit

@@ -1,3 +1,968 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-setup-additional-currencies
+---
+title: Set up additional currencies
+description: Your general ledger is set up to use your local currency (LCY), and another currency is set up as an additional currency, with a current exchange rate assigned.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: multiple currencies, foreign exchange rates
+ms.search.form: 5, 16, 118, 483, 495, Report_86_Primary
+ms.date: 06/13/2024
+ms.service: dynamics-365-business-central
+
+---
+# Set up an additional reporting currency
+
+As companies operate in increasingly more countries/regions, it becomes more important that they're able to review and report financial data in more than one currency.
+
+> [!NOTE]  
+> In [!INCLUDE[prod_short](includes/prod_short.md)], if you're looking for real time information about foreign exchange (FX) rates or historical rates, it's referred to as currency. In addition to this article, see also [Update Currency Exchange Rates](finance-how-update-currencies.md).
+
+Your general ledger is set up to use your local currency (LCY), but you can set it up to also use another currency with a current exchange rate assigned. If you designate a second currency as an additional reporting currency (ACY), [!INCLUDE[prod_short](includes/prod_short.md)] automatically records amounts in both LCY and ACY on each G/L entry and other entries, such as VAT entries.
+
+> [!WARNING]
+> You shouldn't use the ACY feature as a basis for financial statement translation unless you understand its limitations. It can't translate foreign subsidiary financial statements as part of a company consolidation. The ACY can only be used to prepare reports in another currency, as if that currency was the company's LCY.
+>
+> For example, you have a large amount of accounts receivable in British pounds (GBP), and you have set up your ACY to be GBP. In this scenario, amounts in the accounts receivable that use GBP aren't adjusted for currency exchange gains/losses in the ACY, only amounts in the accounts receivable that are in other currencies. That means that if you use ACY to report your financial statements, it might result in understated or overstated outstanding balances of accounts receivable.
+
+## Displaying reports and amounts in ACY
+
+Using an ACY can assist the reporting process for a company in the following cases:
+
+- Companies in non-EU countries/regions that have a high proportion of transactions with EU country/region companies. In this case, the non-EU company might also want to report in euro to make its financial reports more usable for EU trade partners.
+- Companies that also wish to display reports in a more internationally traded currency than their own local currency.
+
+Several financial reports are based on G/L entries. To display report data in the ACY, select the **Show Amounts in Add. Reporting Currency** checkbox on the **Options** FastTab for the relevant G/L report.
+
+## Adjusting exchange rates
+
+Because exchange rates fluctuate constantly, ACY equivalents in your system must be adjusted periodically. If these adjustments aren't done, amounts that converted from foreign (or additional) currencies and posted to the general ledger in LCY can be misleading. In addition, daily entries posted before a daily exchange rate is entered into application must be updated after the daily exchange rate information is entered. The **Adjust Exchange Rates** batch job is used to adjust the exchange rates of posted customer, vendor, and bank account entries. It can also update ACY amounts on G/L entries. To learn more, go to [Update Currency Exchange Rates](finance-how-update-currencies.md).
+
+## Setting up an ACY
+
+To set up an ACY, complete the following steps in this order:
+
+1. [Specify general ledger accounts for posting exchange rate adjustments](#specify-general-ledger-accounts-for-posting-exchange-rate-adjustments).  
+1. [Specify the exchange rate adjustment method for all general ledger accounts](#specify-the-exchange-rate-adjustment-method-for-all-general-ledger-accounts).
+1. [Specify exchange rate adjustment method for VAT entries](#specify-exchange-rate-adjustment-method-for-vat-entries).
+1. [Activate the ACY](#activate-the-acy).  
+
+### Specify general ledger accounts for posting exchange rate adjustments  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Currencies**, and then choose the related link.  
+2. On the **Currencies** page, fill in the following fields for the ACY.  
+
+|Field|Description|  
+|---------------------------------|---------------------------------------|  
+|**Realized GL Gains Account**|The general ledger account to which exchange rate gains for currency adjustments between LCY and the ACY are posted.|  
+|**Realized GL Losses Account**|The general ledger account to which exchange rate losses for currency adjustments between LCY and the ACY are posted.|  
+|**Residual Gains Account**|The general ledger account to which residual amounts that are gains are posted if you post in the general ledger application area in both LCY and an ACY.|  
+|**Residual Losses Account**|The general ledger account to which residual amounts that are losses are posted if you post in the general ledger application area in both LCY and an ACY.|
+
+> [!NOTE]  
+> Residual amounts can occur when [!INCLUDE[prod_short](includes/prod_short.md)] rounds debit and credit amounts that have been converted from LCY to an ACY.  
+
+For each general ledger account, you must specify how general ledger amounts for that account are adjusted for exchange rate fluctuations between LCY and the ACY.  
+
+### Specify the exchange rate adjustment method for all general ledger accounts
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.  
+2. On the **Chart of Accounts** page, select the relevant account, and then choose the **Edit** action.  
+3. On the **GL Account Card** page, select the relevant method in the **Exchange Rate Adjustment** field.  
+
+    If you post in an ACY, in the **Exchange Rate Adjustment** field, specify how this general ledger account is adjusted for exchange-rate fluctuations between LCY and the ACY. The following table describes the options.  
+
+    |Field|Description|  
+    |----------------------------------|---------------------------------------|  
+    |**No Adjustment**|No exchange rate adjustment is made to the general ledger account. This setting is the default option.<br /><br /> **NOTE:** Select this option if the exchange rate between the LCY and ACY is always fixed.|  
+    |**Adjust Amount**|The LCY amount is adjusted for any exchange rate gains or losses. Exchange rate gains or losses are posted to the general ledger account in the **Amount** field and to the accounts you specified for gains or losses in the **Realized G/L Gains Account** and **Realized G/L Losses Account** fields on the **Currencies** page.|  
+    |**Adjust Additional-Currency Amount**|The ACY is adjusted for any exchange rate gains or losses. Exchange rate gains or losses are posted to the general ledger account in the **Additional-Currency Amount** field and to the accounts you specified for gains or losses in the **Realized G/L Gains Account** and **Realized G/L Losses Account** fields on the **Currencies** page.|  
+
+    Exchange rate gains and losses are posted when you run the **Adjust Exchange Rates** batch job. In that batch job, the adjustment exchange rate is identified on the **Currency Exchange Rates** page, and then the amounts in the **Amount** and **Additional-Currency Amount** fields on the general ledger entry are compared to determine whether there's an exchange rate gain or loss. The batch job uses the option that you select in the **Exchange Rate Adjustment** field to determine how to calculate and post exchange rate gains or losses for general ledger accounts.  
+
+4. Close the **G/L Account Card** page.  
+
+### Specify exchange rate adjustment method for VAT entries
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup**, and then choose the related link.  
+2. On the **General Ledger Setup** page, select the relevant method in the **VAT Exchange Rate Adjustment** field.  
+3. If you post in an ACY, in the **VAT Exchange Rate Adjustment** field you can specify how the accounts set up for VAT posting on the **VAT Posting Setup** page are adjusted for exchange-rate fluctuations between LCY and the ACY.  
+
+    When you run the **Adjust Exchange Rates** batch job, the adjustment exchange rate is identified on the **Currency Exchange Rate** page and then the amounts in the **Amount** and **Additional-Currency Amount** fields on the VAT entry are compared to determine if there's an exchange rate gain or loss. The batch job uses the option that you select in this field to determine how to post exchange rate gains or losses for VAT accounts.  
+
+    You have the same options as with general ledger entries but in this case the entries adjusted are the VAT entries. The following table describes the options.
+
+    |Field|Description|  
+    |----------------------------------|---------------------------------------|  
+    |**No Adjustment**|No exchange rate adjustment is made to the general ledger account. This setting is the default option.|  
+    |**Adjust Amount**|The LCY amount is adjusted for any exchange rate gains or losses. Exchange rate gains or losses are posted to the general ledger account in the **Amount** field and to the accounts you specified for gains or losses in the **Realized G/L Gains Account** and **Realized G/L Losses Account** fields on the **Currencies** page.|  
+    |**Adjust Additional-Currency Amount**|The ACY is adjusted for any exchange rate gains or losses. Exchange rate gains or losses are posted to the general ledger account in the **Additional-Currency Amount** field and to the accounts you specified for gains or losses in the **Realized G/L Gains Account** and **Realized G/L Losses Account** fields on the **Currencies** page.|  
+
+### Activate the ACY  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup**, and then choose the related link.  
+2. On the **General Ledger Setup** page, in the **Additional Reporting Currency** field, choose the additional currency that you want to report in.  
+3. When you leave the field, [!INCLUDE[prod_short](includes/prod_short.md)] displays a confirmation message describing the effects of activating the ACY.  
+4. Choose the **Yes** button to confirm that you want to activate the currency.  
+5. The **Adjust Add. Reporting Currency** batch job opens.
+
+    This batch job converts LCY amounts on existing ledger entries to the ACY. The batch job uses a default exchange rate copied from the exchange rate that is valid on the work date on the **Currency Exchange Rates** page. Residual amounts that occur on conversion of LCY to ACY are posted to the residual gains and losses accounts specified on the **Currencies** page. The posting date and document number for these entries are the same as for the original general ledger entry. After you post all residual entries, the batch job posts a rounding entry on the closing date of each closed year to the retained earnings account. This posting makes sure that the ending balance of the income accounts for each closed year is 0 in both LCY and the ACY.
+6. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]      
+7. Choose the **OK** button to run the batch job. If you have a lot of ledger entries in the company, consider running the batch job outside working hours.
+
+After you run the batch job, amounts on the following existing ledger entries are in both the LCY and ACY:  
+
+- General ledger entries  
+- Item application entries  
+- VAT entries  
+- Project ledger entries  
+- Value entries  
+- Production order lines  
+- Production order ledger entries  
+
+In addition, all future entries of the same type have amounts recorded in both LCY and the ACY.  
+
+> [!NOTE]  
+> The **Add. Reporting Currency** field will only be activated after you choose the **OK** button in the **Adjust Add. Reporting Currency** batch job.  
+
+## Related information
+
+[Update Currency Exchange Rates](finance-how-update-currencies.md)  
+[Closing Years and Periods](year-close-years-periods.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-install-uninstall
+---
+title: Install and uninstall apps
+description: Learn how you can install and uninstall apps and extensions in Business Central.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: solsen
+ms.topic: install-set-up-deploy
+ms.date: 06/17/2025
+ms.custom: bap-template
+ms.search.keywords: app, add-in, manifest, customize, install, uninstall
+ms.search.form: 2500, 2514, 20350
+ms.service: dynamics-365-business-central
+---
+
+# Install and uninstall extensions (apps) in Business Central
+
+You can change [!INCLUDE[prod_short](includes/prod_short.md)] by installing apps that, for example, add functionality, change behavior, or give you access to new online services. To learn more, go to [Customizing Business Central Using Extensions](ui-extensions.md).
+
+> [!NOTE]
+> To install or uninstall apps from Marketplace or add per-tenant apps, you must have the right permissions. You must either be a member of the **D365 Extension MGT** user group, or you must have the **EXTEND. MGT. - ADMIN** permission set. If you're an administrator, you can assign user groups and permissions to other users in your company. To learn more about user groups and permissions, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+
+To use an extension, you must be assigned the permission sets that come with it.
+
+## <a name="install"></a>Install an extension
+
+You manage apps and extensions on the **Extension Management** page. You can access this page from Home. Alternatively, choose the **Search for Page or Report** icon ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") in the top-right corner, enter **Extension**, and then choose the related link.  
+
+You can get new apps from the marketplace at [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). The marketplace offers all available apps for [!INCLUDE[prod_short](includes/prod_short.md)], plus apps and content packs for other Microsoft products. Set the relevant filters, take a look at the information for each extension, and get an extension for your [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+> [!NOTE]  
+> Sign in to [Marketplace.microsoft.com](https://marketplace.microsoft.com/) using the email account that you use for [!INCLUDE[prod_short](includes/prod_short.md)]. Use the same email account for other services and products for a smooth experience.  
+
+You can also get to Marketplace from [!INCLUDE[prod_short](includes/prod_short.md)]. On the **Extension Management** page, you can see the apps that are currently installed, and you can open the **Microsoft Marketplace Apps** page that shows the [!INCLUDE[prod_short](includes/prod_short.md)] apps that are currently available in Marketplace. If you choose the **View Marketplace** action, you're taken to [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646). To learn more, go to [Manage Marketplace apps](admin-manage-appsource-apps.md).  
+
+Choose an app to learn about what it does, and you can access Help for the app to learn more. When you choose to get an app, you must agree to its terms of use. If you get the app from the Marketplace website, you're signed in to [!INCLUDE[prod_short](includes/prod_short.md)] to complete the installation.  
+
+After you install an app, you might have to set it up. Some apps require that you provide some information before you can use them. For example, after you install the **PayPal Payments Standard** app, you must specify the email or the Merchant account ID for your PayPal account. To set up an app, or to find out what information you need, on the **Installed Extensions** page, choose the **Set up** action.  
+
+Other apps simply add fields to an existing page, or they add a new page, for example.
+
+If you uninstall an app, and you then change your mind, you can install it again. When you uninstall an app that you've been using your data isn't deleted. The data is available if you install the app again.
+
+Some apps are provided by Microsoft, and other apps are provided by [other companies](ui-extensions-other.md). We recommend that you learn more about the app before you choose to install it.
+
+Microsoft provides the following apps:
+
+* [AMC Banking 365 Fundamentals Extension](ui-extensions-amc-banking.md)
+* [Ceridian Payroll](ui-extensions-ceridian-payroll.md)
+* [Company Hub](ui-extensions-company-hub.md)  
+* [Dynamics GP Data Migration](ui-extensions-dynamicsgp-data-migration.md)
+* [Envestnet Yodlee Bank Feeds](ui-extensions-yodlee-bank-feeds.md)
+* [Essential Business Insights](ui-extensions-essential-business-insights.md)
+* [Image Analyzer](ui-extensions-image-analyzer.md)
+* [Intelligent Cloud](ui-extensions-data-replication.md)
+* [Intelligent Cloud Base](ui-extensions-intelligent-cloud.md)  
+* [Late Payment Predictions](ui-extensions-late-payment-prediction.md)
+* [Microsoft Pay](ui-extensions-microsoft-pay-payments.md)
+* [PayPal Payments Standard](ui-extensions-paypal-payments-standard.md)
+* [QuickBooks Data Migration](ui-extensions-quickbooks-data-migration.md)
+* [QuickBooks Online Data Migration](ui-extensions-quickbooks-online-data-migration.md)
+* [QuickBooks Payroll File Import](ui-extensions-quickbooks-payroll.md)
+* [Sales and Inventory Forecast](ui-extensions-sales-forecast.md)
+* [VAT Group](ui-extensions-vat-group.md)
+* [WorldPay Payments Standard](ui-extensions-worldpay-payments-standard.md)
+* [DK - C5 Data Migration](ui-extensions-c5-data-migration.md)
+* [DK - Payments and Reconciliations](ui-extensions-payments-reconciliation-formats-dk.md)
+* [DK - Tax File Formats](ui-extensions-tax-file-formats-dk.md)
+* [IdealPostcodes extension in the British version](LocalFunctionality/UnitedKingdom/ui-extensions-idealpostcodes.md)
+* [US/CA/UK/AU/NZ/ZA - Send Remittance Advice](ui-extensions-send-remittance-advice.md)
+
+## Set up an app
+
+After you install an app, you might have to set it up. For example, for the **PayPal Payments Standard for [!INCLUDE[prod_short](includes/prod_short.md)]** app you must specify the PayPal account to use. If that's the case, when installation completes [!INCLUDE[prod_short](includes/prod_short.md)] asks whether you want to set up the app right away. Setups can be required for the app to work, or optional.
+
+If you choose to set up your app right away, and it has a required setup, [!INCLUDE[prod_short](includes/prod_short.md)] opens the required setup. The setup can be either a page where you enter information, or an assisted setup guide that helps you through the steps. If you don't complete the setup in one go, you can use the **Setups for _name of app_** page, which lists all setups for the app. Required setups indicated by **bold letters**.
+
+## Upload a per-tenant extension (PTE)
+
+You upload a PTE by using the **Extension Management** page. On the **Extension Management** page, go to **Manage**, then choose **Upload Extension**. On the **Upload and Deploy Extension** page, specify the .app file to upload. To proceed, choose the **Accept** button, and then the **Deploy** action to  start deploying the PTE.
+
+If the PTE contains breaking schema changes, it's possible to *force* an upload of it. To do that, in **Schema Sync Mode** choose the **Force** option, and then confirm that you want to proceed. 
+
+## Uninstall an app
+
+You uninstall an app by using the **Extension Management** page. To uninstall an app, select it on the page, then select the **Uninstall** action. If you uninstall an app, and you then change your mind, you can install the app again.
+
+By default, when you uninstall an app that you've been using your data isn't deleted. If you're sure you won't reinstall the app, you can delete the data when you uninstall it. To delete data when you uninstall an app, turn on the **Delete Extension Data** toggle and then confirm your action. Afterward, you can uninstall the app. Reconfirm that you want to uninstall the app and delete the data.
+
+> [!IMPORTANT]  
+> * There might be apps that require or depend on the app that you want to uninstall. These apps are referred to as *dependents*. You can't uninstall an app unless you also uninstall its dependents. When you uninstall an app that has dependents, a dialog lists the dependents. To continue, select **Yes** to uninstall the app and its dependents.
+> * If you turn on the **Delete Extension Data** toggle, uninstalling the app deletes all data for the app *plus* data for all dependent apps. The action can't be undone.
+> * Some apps are required and you can't delete them on the **Extension Management** page.  
+
+If you want to keep the data for an uninstalled app, you can delete the data later. The **Delete Orphaned Extension Data** page lists the apps that you still have data for. To delete the data, choose the app, and then choose **Delete Data**.
+
+## Related information
+
+[Customize Business Central](ui-customizing-overview.md)  
+[Business Central Extensions by Other Providers](ui-extensions-other.md)  
+[Manage Marketplace apps](admin-manage-appsource-apps.md)  
+[Set Up the Envestnet Yodlee Bank Feeds Service](bank-how-setup-bank-statement-service.md)  
+[Enable Customer Payment Through PayPal](sales-how-enable-payment-service-extensions.md)  
+[Migrate Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
+[Set Up the GetAddress.io UK Postal Code extension](LocalFunctionality/UnitedKingdom/uk-setup-postal-code-service.md)  
+[[!INCLUDE[prod_short](includes/prod_short.md)] Extensions by Other Providers](ui-extensions-other.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+
+## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/work-outlook-addin
+---
+title: Using Business Central with Outlook
+description: This service has deep integration with Microsoft 365 enabling you to manage all your business interactions and mail with customers and vendors directly in Outlook.
+author: jswymer
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: SMTP, mail, Microsoft 365
+ms.date: 03/10/2026
+ms.author: jswymer
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+# Use Business Central as your Business Inbox in Outlook
+
+[!INCLUDE[prod_short](includes/prod_short.md)] offers an add-in that lets you manage business interactions with your customers and vendors, directly in Microsoft Outlook. With the [!INCLUDE[prod_short](includes/prod_short.md)] add-in for Outlook, you can see financial data related to customers and vendors, and create and send financial documents, such as quotes and invoices.
+
+[!INCLUDE[prod_short](includes/prod_short.md)] add-in consists of two separate add-ins that provide the following capabilities:
+
+- Contact insights
+
+   This add-in lets you look up [!INCLUDE[prod_short](includes/prod_short.md)] customer or vendor information in Outlook emails and calendar appointments. It also lets you create and send [!INCLUDE[prod_short](includes/prod_short.md)] business documents, such a sales quote or invoice to a contact.
+
+- Document view
+
+   When a business document is sent in an email, the add-in provides a direct link from email to the actual business document in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+## Get started
+
+1. The first thing to do is get the [!INCLUDE[prod_short](includes/prod_short.md)] add-in installed in Outlook. Your administrator may have already installed the add-in for you. So if you're not sure, check with your administrator or see the next step to verify whether it's installed.
+
+    If the add-in hasn't been installed for you, go to [Install the add-in for your own use](admin-outlook.md#install). 
+
+2. With the add-in installed, you can access the **[!INCLUDE[prod_short](includes/prod_short.md)]** add-in from any new or existing email message or calendar appointment in Outlook.
+
+    Start by signing in to Outlook and opening an email message. Then, if you're using the Outlook app, go to the ribbon, and look for **[!INCLUDE[prod_short](includes/prod_short.md)]**.  Or if you're using Outlook on the web, at the top the email message, select **Apps** ![Shows the apps button in Outlook.](media/apps-icon.png) > **Business Central** ![Business Central add-in icon in Outlook.](media/outlook-business-central-icon.png) or go to the more actions ![Show more actions for an email in Outlook.](media/outlook-more-actions-button.png) button.
+
+    ![Access Business Central add-ins in Outlook.](media/outlook-business-central-addin.png)
+
+   If you've installed the add-in on your own and chose to get a sample email, check your inbox for the welcome email. This email provides information to help you get started.
+
+The first time you use the add-in, in [!INCLUDE[prod_short](includes/prod_short.md)] add-in pane, you might be asked to sign in. In this case, choose **Sign in now** and follow the instructions onscreen to sign in to Business Central using your account.
+
+> [!TIP]
+> If you use the new Outlook on the web, you can pin **[!INCLUDE[prod_short](includes/prod_short.md)]** so that it is always immediately visible, instead of having to go to the more actions button, making it convenient to view contact insights while you browse through different emails.
+
+For more information, see [Use add-ins in Outlook on the web](https://support.office.com/article/using-add-ins-in-outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce?ns=OLWAO365B&version=16).  
+
+## Work with contacts and documents using the Contact Insights add-in
+
+Let's say that you get an email from a customer that wants to get a quote on some items. Directly in Outlook, you open the [!INCLUDE[prod_short](includes/prod_short.md)] add-in, which recognizes the sender as a customer, and opens the customer card for that company. From this dashboard, you see overview information for the customer, and drill down for more detail on specific documents. You can also dig into the sales history for the customer. If it's a new contact, you can create them as a new customer in [!INCLUDE[prod_short](includes/prod_short.md)] without leaving Outlook.  
+
+In the add-in, you can create a sales quote and send it back to this customer without leaving Outlook. All of the information that you need to send the sales quote is available in your business inbox in Outlook. Once you have the data entered, you post the quote and send it by email. [!INCLUDE[prod_short](includes/prod_short.md)] generates a .PDF file with the sales quote and attaches it to the email message that you draft in the add-in.  
+
+Similarly, if you get an email from a vendor, you can use the add-in to work with vendors and purchase invoices.  
+
+Sometimes you want to see more fields than you can see in the add-in, such as when you want to fill in lines in an invoice. To give you a bit more space to work with, you can pop out the add-in to a separate page. It's still part of Outlook, but you have more space. As you enter data for the document in the pop-out view, the changes are automatically saved. 
+The following sections lead you through some basic tasks to give you a general understanding how to use it.
+
+> [!TIP]
+> The tasks explain how to use the add-in from an email message. But you can do the same from a calendar appointment in Outlook.
+
+### Look up a business contact when composing an email
+
+1. Create a new email message.
+2. In the ribbon, go to **[!INCLUDE[prod_short](includes/prod_short.md)]** and choose **Contact Insights**. Or if you're using Outlook on the web, at the top of the message, select **Apps** ![Shows the apps button in Outlook.](media/apps-icon.png) > **Business Central** ![Business Central add-in icon in Outlook.](media/outlook-business-central-icon.png) > **Contact Insights**.
+3. In the **[!INCLUDE[prod_short](includes/prod_short.md)]** add-in pane that opens, scan for and choose the contact you want.
+
+    An overview of the contact displays in the pane and the contact is added in the **To** line of the email.
+
+### View and change the contact details or switch company
+
+The action bar at the top of the [!INCLUDE[prod_short](includes/prod_short.md)] add-in pane includes several actions that let you dig deeper into details about the contact and change things.
+
+![Business Central add-in action bar in Outlook.](media/outlook-addin-action-bar.png)
+
+For example, you can open the full contact details as you would see them in [!INCLUDE[prod_short](includes/prod_short.md)]. If you work with more than one [!INCLUDE[prod_short](includes/prod_short.md)] company, you can easily switch between companies.
+
+### Track incoming documents
+
+Perhaps you use the **Incoming Documents** list in [!INCLUDE[prod_short](includes/prod_short.md)] to track documents for processing that vendors send to you, such as a purchase invoice that needs to be paid. If you do, you can easily create Incoming Documents records from the Outlook add-in and include the email attachments.
+
+1. When you receive an email from a vendor that has an attachment, choose ![Business Central add-in icon in Outlook.](media/outlook-business-central-icon.png) **[!INCLUDE[prod_short](includes/prod_short.md)]**  > **Contact Insights**.  
+
+2. In the action bar of the add-in, choose **Show more actions**, then choose the **Send to Incoming Documents…** action.  
+
+### Create and send new document to a contact
+
+1. In the ribbon or at the bottom of the email message, choose ![Business Central add-in icon in Outlook.](media/outlook-business-central-icon.png) **[!INCLUDE[prod_short](includes/prod_short.md)]** > **New**, then choose the type of document you want to create, such as **Sales Quote**.
+2. Make changes to the document in the **[!INCLUDE[prod_short](includes/prod_short.md)]** add-in pane.
+3. When the document is ready to send to the contact, in the action bar, choose **Show more actions**, then choose the **Send by Email** action.
+
+### Attach files to records
+
+Your email inbox often serves as a source of incoming files that initiate or unblock workflows. Files can include things like PDF invoice payments, photos of goods, or requirements in a Word document. When working in Outlook with Business Central records like vendors, customers, purchase invoices, or sales orders, you can attach these files to the records.
+
+There's a couple ways you can attach files. One way is to upload files from your device. The other way is to upload files that are attached to an email. For example, suppose you get an email with files from a contact. The add-in will automatically display the contact record that matches the email sender. From there, you can navigate to a document for the contact, like the latest sales order. Once you've identified the order that the email relates to, you quickly upload the files from the email to that order.
+
+![Shows how to add attachments from an email to records in Business Central.](media/outlook-attach-files.png)
+
+After attaching a file, coworkers can instantly download and view the file from the **Attachments** FactBox in any of their Business Central clients. Or, they can open the file in OneDrive to share and collaborate with their department.
+
+#### How to attach a file
+
+1. Open the email, choose ![Business Central add-in icon in Outlook.](media/outlook-business-central-icon.png) **[!INCLUDE[prod_short](includes/prod_short.md)]**  > **Contact Insights**.
+2. In the action bar of the add-in, choose **Show more actions** > **Attachments**.
+
+    The **Attached Documents** page opens to list any documents that are already attached to the record.
+3. Choose **Attached File(s)...**, then choose one of the following options:
+
+   - Choose **Attach from email** to upload all or selected files that are attached to the email.
+   - Choose **Upload from file** to upload one or files from your device.
+
+> [!NOTE]
+> You can't attach files to all records. This feature is available for records that use the **Attachments** FactBox, such as a vendor, customer, purchase invoice, or sales order.
+
+## View a document from an email using the Document View add-in
+
+Whether it's an email you sent or received, you can surface any [!INCLUDE[prod_short](includes/prod_short.md)] document, like the sales quote, directly in Outlook. From there, you can make changes and navigate to related information&mdash;just as you would from within [!INCLUDE[prod_short](includes/prod_short.md)].
+
+If you're using the Outlook app, just choose **Document Link** at the top of the email message. For Outlook on the web, look for the document reference link in the email message. The reference link text will include the document number, which is based on the number series used in [!INCLUDE[prod_short](includes/prod_short.md)]. For example, the link for a sales quote would be something like **Sales Quote S-QUO1000**.  
+
+> [!TIP]
+> Starting in 2022 release wave 1, documents open in a new browser window with all the capabilities that you know from [!INCLUDE [prod_short](includes/prod_short.md)]. You can navigate from a document to a list and back again, open lists in Excel, send documents to be printed, and run or preview related reports. You also have all of the familiar keyboard shortcuts right there when you open documents from Outlook.  
+
+## Related information
+
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Getting Business Central on my Mobile Device](install-mobile-app.md)  
+[Send Documents by Email](ui-how-send-documents-email.md)  
+[Finance](finance.md)  
+[Sales](sales-manage-sales.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Minimum Requirements for Outlook](product-requirements.md#outlook)  
+[Use add-ins in Outlook on the web](https://support.office.com/article/Using-Add-ins-in-Outlook-on-the-web-8f2ce816-5df4-44a5-958c-f7f9d6dabdce?appver=OWB150)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-manage-many-income-document-records
+---
+title: Define Which incoming docs to see
+description: Adjust the default view of incoming documents, such as e-invoices, to improve your overview of processed and unprocessed records.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
+ms.date: 10/15/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Manage many incoming document records
+
+As you create or process incoming document records, the number of lines on the **Incoming Documents** page may grow to an extent where you lose overview. Therefore, you can set incoming document records to *Processed* to remove them from the default view. When you choose the **Show All** action, you can view both processed and unprocessed records.
+
+> [!NOTE]  
+> You can't edit information, attach files, or perform other processes on incoming document records that are set to *Processed*. You must first set it to *Unprocessed*.
+
+The **Processed** check box is automatically selected on incoming document records that have been processed, but you can also select or deselect the check box manually. Depending on your business process, an incoming document record may be processed when a related document has been created for it or a file has been attached.
+
+> [!NOTE]  
+> When you open the **Incoming Documents** page with the **My Incoming Documents** action on the Role Center, only unprocessed incoming document records are shown by default. This is referred to in this article as "the default view".
+
+## To remove incoming document records from the default view
+
+1. On the **Incoming Documents** page, select one or more lines for incoming document records that you want to remove from the default view.
+2. Choose the **Set to Processed** action.
+
+    The incoming document records are removed from the default view, and the **Processed** check box is selected on the lines.
+
+> [!NOTE]  
+> You can also perform this action for the individual record on the **Incoming Document Card** page.
+
+## To view all incoming document records
+
+1. On the **Incoming Documents** page, choose the **Show All** action.
+
+All incoming document records are displayed, including records where the **Processed** check box isn't selected.
+
+## To add incoming document records to the default view
+
+1. On the **Incoming Documents** page, choose the **Show All** action.
+2. Select one or more lines for incoming document records that you want to appear in the default view.
+3. Choose the **Set to Unprocessed** action.  
+
+> [!NOTE]  
+> You can also perform this action for the individual record on the **Incoming Document Card** page.
+
+## Related information
+  
+[Create Incoming Document Records](across-how-create-income-document-records.md)  
+[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)  
+[Incoming Documents](across-income-documents.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-data-access-intent
+---
+title: Manage database access intent in Business Central
+description: Change the database access intent for reports, API pages, and queries.
+author: jswymer
+
+ms.topic: how-to
+ms.devlang: al
+ms.search.form: 9880
+ms.date: 04/01/2021
+ms.author: jswymer
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+# Managing Database Access Intent
+
+As a super user or administrator, you can change the database access intent on reports, pages of the type API, and queries to improve performance of the service.
+
+## Overview
+
+[!INCLUDE[prod_short](includes/prod_short.md)] can be set up to use read-only replicas of the primary (read-write) database. Using the database replica reduces the load on the primary database. In some cases, it will also improve the performance when viewing data in the client. Replicas are beneficial for objects, like reports, queries, and API pages, that are used for viewing data only, not modifying data.
+
+When objects run, the database access intent determines whether to use a read-only replica, if one is available, or the primary database. Reports, API pages, and queries are developed with a predefined database access intent (see [DatabaseAccessIntent property](/dynamics365/business-central/dev-itpro/developer/properties/devenv-dataaccessintent-property)).
+
+The **Database Access Intent List** page lets you override the predefined database access intent for objects when they're run.
+
+In database terms, this feature is commonly known as *read scale-out*. For more information about read-scale out and data access intent in [!INCLUDE[prod_short](includes/prod_short.md)], see [Utilizing Read Scale-Out for Better Performance](/dynamics365/business-central/dev-itpro/administration/database-read-scale-out-overview) in the [!INCLUDE[prod_short](includes/prod_short.md)] Developer and Administration help.
+
+## To change the database access intent
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Database Access Intent List**, and then choose the related link.
+
+    The page lists all reports, pages, and queries. The **Access Intent** column includes one of the following values:
+
+    |**Setting**|**Description**|  
+    |------------|-------------|  
+    |**Default**|Indicates that the object uses the predefined database access intent.|
+    |**Allow Write**|Sets the object to use the primary database, allowing the user to modify data.|
+    |**Read Only**|Sets the object to use the database replica, which means that the user can only view data, not change data.|
+
+2. Choose the **Edit List** action.
+
+3. On the **Edit - Database Access Intent List** page, change the **Access Intent** field for the objects.
+
+    > [!NOTE]
+    > If an object that is editable, like the Customer Card, is set to **Read Only**, the primary database will still be used, regardless of the access intent, allowing users to make changes as normal.
+
+## Related information
+[Business Functionality](across-business-functionality.md)  
+[General Business Functionality](ui-across-business-areas.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)    
+
+## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-setup-projects
+---
+title: Set Up Resources, Time Sheets, and Projects
+description: This topic outlines how to set up resources, time sheets, to manage projects and their budgets.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: projects
+ms.search.form: 289, 290, 376, 462, 463, 1029, 8904, 9014, 9015
+ms.date: 02/22/2024
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Setting up project management
+
+Before you can use [!INCLUDE[prod_short](includes/prod_short.md)] to manage projects, you must set up resources, time sheets, and projects.
+
+Then you can create projects and schedule resources for projects as well as manage budgets and track machine and employee hours with time sheets. For more information, see [Managing Projects](projects-manage-projects.md).  
+
+The following table describes a sequence of tasks, with links to the topics that describe them.
+
+| To | See |
+| --- | --- |
+| Set up project management.|[Set general information for projects](projects-how-setup-jobs.md#to-set-general-information-for-projects)|
+| Set up your resources and the related costs and prices, either for individual resources, resource groups, or for all available resources of the company. |[Set Up Resources](projects-how-setup-resources.md) |
+| Enable resources to report time usage for an individual or a machine and enable a manager to review the usage and its allocation. |[Set Up Time Sheets](projects-how-setup-time-sheets.md) |
+| Create project cards and prepare project tasks. Set up prices for project items and project resources and define project posting groups. |[Set Up Projects](projects-how-setup-jobs.md) |
+
+## Related information
+
+[Managing Projects](projects-manage-projects.md)  
+[Video: How to create a project in Dynamics 365 Business Central](https://www.youtube.com/watch?v=VqaPWr7BWmw)  
+[Finance](finance.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Sales](sales-manage-sales.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-view-archived-workflow-step-instances
+---
+title: How to view archived workflow step instances
+description: Completed workflow step instances are stored on the Archived Workflow Step Instances page. Each step includes a workflow event and a workflow response.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: archived workflow, step instances, workflow steps
+ms.search.form: 1530
+ms.date: 10/16/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# View archived workflow step instances
+
+All completed workflow step instances are saved on the **Archived Workflow Step Instances** page.  
+
+On the **Workflow** page, you create a workflow by listing the involved steps on the lines. Each step consists of a workflow event, moderated by event conditions, and a workflow response, moderated by response options. You define workflow steps by filling in fields on workflow lines using fixed lists of event and response values representing scenarios supported by the application code. Learn more at [Create Approval Workflows](across-how-to-create-workflows.md).  
+
+> [!NOTE]
+> To view the history and status of workflows using Power Automate integration, choose the **My flows** action on the **Power Automate** page, then choose a flow to view its run history and status.
+
+## To view archived workflow step instances
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, then choose the related link.  
+2. Open the workflow for which you want to view all archived workflow step instances.  
+3. On the **Workflow** page, choose the **Archived Workflow Step Instances** action.  
+
+   The **Archived Workflow Step Instances** page opens showing the archived workflow step instances of the selected workflow.  
+4. Alternatively, [!INCLUDE[open-search](includes/open-search.md)], enter **Archived Workflow Step Instances**, and then choose the related link.  
+
+   The **Archived Workflow Step Instances** page opens showing all archived workflow step instances. In the **Workflow Code** field, you can see which workflow the archived workflow step instance belonged to.  
+
+## Related information
+
+[Delete Approval Workflows](across-how-to-delete-workflows.md)  
+[Create Approval Workflows](across-how-to-create-workflows.md)  
+[Enable Approval Workflows](across-how-to-enable-workflows.md)  
+[Use Approval Workflows](across-use-workflows.md)  
+[Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
+[Workflow](across-workflow.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/power-bi-faq
+---
+title: Power BI FAQ
+description: Get answers for some typical questions about working with Power BI and Business Central.
+author: jswymer
+ms.topic: get-started
+ms.devlang: al
+ms.search.keywords: Power BI, reports, faq, errors
+ms.date: 01/19/2026
+ms.author: jswymer
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+# Power BI FAQ
+
+This article answers some of the questions you might have about working with Power BI and [!INCLUDE [prod_short](includes/prod_short.md)].
+
+<!-- ## [General questions](#tab/general) -->
+## General questions
+
+<!-- 26 -->
+### I selected a report for my role center in Business Central. If I later make changes to the report's visuals online, does the role center automatically update to my changes?
+
+Yes. The reports you see inside [!INCLUDE [prod_short](includes/prod_short.md)] are embedded directly from Power BI, and not a copy.
+
+<!-- 3 -->
+### Are the Business Central apps for Power BI available in languages other than English?
+
+No. These apps are currently only available in English.
+
+<!-- 24 -->
+### Once a report is published on my powerbi.com workspace, can I download its pbix? 
+
+Yes. Learn more at [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).  
+
+<!-- 27 -->
+### Can I download the apps as pbix files?
+
+No. Currently, we don’t offer downloading pbix files for the official Power BI apps, because they're published on Marketplace.
+
+<!-- ## [User access and licensing](#tab/license) -->
+## Questions about user access and licensing
+
+
+<!-- 14 -->
+### Do I need a Power BI Pro license to publish reports?
+
+<!-- todo What does " or for every user that consults the published report" mean? fixed -->
+No. A Pro license isn't needed to publish reports. The standard (free) Power BI license is enough. Learn more in [Power BI Licensing](admin-powerbi-setup.md#license).
+
+<!-- 15 -->
+### Is there anything I can't do with the free license?
+
+You can't share reports or install the Business Central apps for Power BI. The free license allows you to create almost all variations of charts and reports.
+
+<!-- 16 -->
+### If someone shares a report with another person, then that person needs a Pro license to see the report. Are there plans to make this capability possible with the free license?
+
+We don't have control over this requirement. Power BI sets this requirement. Learn more at [Share Power BI dashboards and reports with coworkers and others](/power-bi/collaborate-share/service-share-dashboards).  
+
+### How do guest users and delegated admins access my organization's data and reports?
+
+There are some differences and limitations for external users, like guest users and delegated admins. For instance, external users typically have a Power BI license assigned by their own organization. When they sign in to Power BI or Power BI Desktop, they connect to their organization's tenant and shared workspaces by default.
+
+To access your organization's data and shared workspaces or reports, external users must connect to your Microsoft 365 tenant. From Power BI service, they can use the tenant switcher (preview) to connect. Power BI Desktop doesn't support connecting to a provider tenant's data source or service for creating and publishing reports. External users need to use the Power BI service to upload Power BI Desktop files.
+
+<!--
+1. Sign in to [Power BI](https://app.powerbi.com).
+1. In the upper-right corner, select the profile picture to open the account manager, and then select **Switch** next to **Tenant name**.
+1. In the **Switch tenant (preview)** dialog, open the dropdown menu and choose the tenant.-->
+
+Learn more about the features and limitations for guests users in [Distribute Power BI content to external guest users](/power-bi/enterprise/service-admin-azure-ad-b2b).
+<!--
+To access and design reports with your organization's data, external users must connect to your Microsoft 365 tenant. The connection method differs in Power BI service and Power BI Desktop.
+
+#### In Power BI service
+From the Power BI service, use the tenant switcher:
+
+1. Sign in to [Power BI](https://app.powerbi.com).
+1. Select your profile picture to open your account manager and select **Switch** next to **Tenant name**.
+1. In the **Switch tenant (preview)** dialog, open the dropdown menu and choose the tenant you want to navigate to.
+
+Learn more in [Distribute Power BI content to external guest users](/power-bi/enterprise/service-admin-azure-ad-b2b#tenant-switcher).
+
+#### In Power BI Desktop
+
+The methods in this section require that guest users know the domain name of your Microsoft 365 tenant, such as `contoso.onmicrosoft.com`.
+
+> [!NOTE]
+> The methods described in this section aren't supported. You might experience unexpected behavior.
+
+##### Creating and refreshing reports: Change data source to host's Business Central tenant
+
+1. Clear the current data source connection. Learn more in [How do I change or clear the user account I'm currently using to connect to Business Central from Power BI Desktop](#how-do-i-change-or-clear-the-user-account-im-currently-using-to-connect-to-business-central-from-power-bi-desktop).
+1. Select **Get Data**.
+1. On the **Get Data** page, select **Online Services** > **Dynamics 365 Business Central** > **Connect**.
+1. On the **Dynamics Business Central** connector dialog box, select **Sign in** and then follow the instructions to [sign in to the host's organization](#sign-in-to-hosts-organization).
+
+   :::image type="content" source="media/power-bi-desktop-connector-sign-in.png" alt-text="Shows a screenshot of the the Business Central connector sign-in dialog box":::
+
+##### Publishing reports: Switch to host's Business Central tenant
+
+1. Open Power BI Desktop.
+1. In the upper-right corner, select **Sign in**.
+
+   If you're already signed in, first sign out by selecting your name or profile picture, and then **Sign out**.
+
+1. Enter your email address, select **Continue**, and then follow the instructions to [sign in to the host's organization](#sign-in-to-hosts-organization).
+
+##### Sign in to host's organization
+
+1. On the **Pick an account** dialog box, select **Use another account**.
+1. On the **Sign in** dialog box, select **Sign-in options**.
+1. On the **Sign in options** dialog box, select **Sign in to an organization**.
+1. On the **Find your organization** dialog box, enter the domain name of the tenant, for example, `contoso.onmicrosoft.com`.
+1. Select **Next**.
+1. On the **Pick an account** dialog box, select your account, and then sign in usual.
+1. On the **Dynamics Business Central** connector dialog, select **Connect**.-->
+
+<!-- ## [Designer](#tab/designer) -->
+## Questions about the Power BI Designer
+
+<!-- 7 -->
+### Does the connector work with pages exposed as web services?
+
+Web services are an old technology and aren't recommended to use with Power BI. The Power BI connector supports both Business Central web services and API pages, but API pages generally have better performances and are more suited for making data available to other systems. Learn more at [Enable Power BI connector to work with Business Central APIs, instead of with web services only](/dynamics365-release-plan/2021wave1/smb/dynamics365-business-central/enable-power-bi-connector-work-business-central-apis-instead-web-services-only).
+
+### Can I build a Power BI report using the Sales Invoice Lines or Journal Lines APIs?
+
+The most commonly used line records are available in the [Business Central APIs v2.0](/dynamics365/business-central/dev-itpro/api-reference/v2.0/)). So you can use them to build reports in Power BI by selecting them in the **Dynamics 365 Business Central** connector. However, the **Lines** APIs are designed for use with specific filters only, and might not work in your scenario. You might get an error similar to "You must specify an ID or a Document ID to get the lines." To fix this problem, do the following steps when getting data from Business Central for the report in Power BI Desktop:
+
+1. Instead of including the data source for the lines entity, add the parent data source. For example, add **Sales Invoice** instead of **Sales Invoice Lines**.
+2. Select **Transform Data** in the Power BI Desktop action bar.
+3. Select the query you just added, for example **Sales Invoices**.
+4. To reduce the number of records loaded in your report, apply any needed filtering on the records.
+5. Scroll vertically until you find a column named as the lines, for example **SalesInvoiceLines**.
+6. Select the expand button in the header of the column, next to the column name.
+
+   :::image type="content" source="media/saleinvoicelines.png" alt-text="Shows the SalesInvoiceLines column in Power BI Desktop.":::
+<!-- 11 --> 
+### Is it possible to choose which Business Central environment to get data from for Power BI, for example, like a sandbox or production environment? 
+
+Yes. It can be easily chosen. When you connect to Business Central using the connector, you have to choose the environment and company name.
+
+<!-- 6 --> 
+### Can I merge data from several production environments of the same tenant?
+
+Yes. In Power BI, just run the "get data" operation again and choose the environment you want.
+
+<!-- 25 -->
+### Which pages in Business Central have the Power BI Report part?  
+
+Currently, there are a few selected pages that have a FactBox with a **Power BI Reports** part for displaying a report. 
+
+On list pages, the **Power BI Reports** part is filtered to show reports that pertain to data in the list. Here's the list type pages that include the **Power BI Reports** part:
+
+|Page ID|Name|
+|-------|----|
+|22|Customer List|
+|27|Vendor List|
+|31|Item List|
+|9305|Sales Order List|
+|9308|Purchase Invoices|
+
+Here are other pages that contain the larger, nonfiltered **Power BI Reports** part:
+
+|Page ID|Name|
+|-------|----|
+|1156|Company Detail|
+|4013|Intelligent Cloud Insights |
+|9006|Order Processor Role Center|
+|9008|Whse. Basic Role Center|
+|9010|Production Planner Role Center|
+|9015|Job Project Manager RC|
+|9016|Service Dispatcher Role Center|
+|9022|Business Manager Role Center|
+|9024|Security Admin Role Center|
+|9026|Sales & Relationship Mgr. RC|
+|9027|Accountant Role Center|
+
+> [!TIP]
+> We don't have plans to add it to all list pages at the moment. However, you can create a simple page extension that adds the **Power BI Reports** part in a FactBox. Learn more at [Adding Power BI Report Parts to Pages](/dynamics365/business-central/dev-itpro/developer/devenv-power-bi-report-parts) in the Developer and IT Pro help.
+
+<!-- 5 -->
+### Is there any way to filter a dataset from Business Central *before* I pull it into Power BI, instead of applying filters afterwards?
+
+To filter larger datasets, the easiest way is to set a filter on your Power BI report by editing directly the Power Query formula. Most of the filters you set this way are passed on to Business Central through query folding. See [Incremental refresh for datasets](/power-bi/admin/service-premium-incremental-refresh).
+
+There's currently no way of setting a filter for the web service data from within Business Central. If your application needs to set a filter from within Business Central, you must create a custom Business Central App for this purpose.
+
+<!-- 10 -->
+### From Power BI, besides using a query, is there another way to get data from Business Central tables that don't have an associated page? For example, like the *Item Attributes Value Mapping* table.
+
+No. Not at this point.
+
+<!-- 12 --> 
+### Are published queries faster to use than published pages?
+
+When it comes to web services, published queries are usually faster than equivalent published pages. The reason is that queries are optimized for reading data and don’t contain expensive triggers like OnAfterGetRecord.
+
+Web services are based on pages or queries that are built for access from the web and not optimized for access from external services. Even though the Business Central connector still supports getting data from web services, we encourage you to use API pages instead of web services whenever possible.
+
+<!-- 13 --> 
+### Is there a way for an end user to create a web service with a column that's in a Business Central table, but not a page? Or does the developer have to create a custom query? 
+
+There's currently no way of adding a new field to a web service. API pages offer full flexibility on the page structure, so a developer can create a new API page to meet this requirement. 
+
+<!-- 28 --> 
+### Can I connect Power BI to a read-only database server of [!INCLUDE [prod_short](includes/prod_short.md)] online? 
+
+By default, the Power BI connector reads data from a read-only replica of the Business Central database, which is the case for all reports created after February 2022. This behavior causes your reports to refresh faster and has less impact on performance if you're using Business Central while a report is refreshing. We still recommend that you schedule your reports to refresh outside of normal working hours whenever possible.
+
+If you have old reports based on Business Central data, they don't connect to the read-only database replica. In this case, consider recreating the query inside Power BI so that it uses the latest defaults.
+
+### <a name="databasemods"></a>When I use the Power BI connector to connect to my custom [!INCLUDE [prod_short](includes/prod_short.md)] API page, I get the error "Cannot insert a record. Current connection intent is Read-Only." How can I fix it?
+
+Reports that use Business Central data connect to a read-only replica of the Business Central database by default. In rare cases, this behavior might cause the error "Current connection intent is Read-Only.". This error typically happens because your custom API is making modifications to Business Central records while Power BI tries to get the data. In particular, it happens as part of the AL triggers: OnInit, OnOpenPage, OnFindRecord, OnNextRecord, OnAfterGetRecord, and OnAfterGetCurrRecord.
+
+To fix this issue by forcing the Business Central connector to allow this behavior, see [Building Power BI Reports to Display Business Central Data - Fix Problems](across-how-use-financials-data-source-powerbi.md#fix-problems).
+
+<!--
+In general, we recommend avoiding any database modifications in API pages when they're opening or loading records, because they cause performance issues and might cause your report refresh to fail. In some cases, you might still need to make a database modification when your custom API page opens or loads records. You can force the Business Central connector to allow this behavior. Do the following steps when getting data from Business Central for the report in Power BI Desktop:
+
+1. Start Power BI Desktop.
+2. In the ribbon, select **Get Data** > **Online Services**.
+3. In the **Online Services** pane, select **Dynamics 365 Business Central**, then **Connect**.
+4. In the **Navigator** window, select the API endpoint that you want to load data from.
+5. In the preview pane on the right, you'll see the following error:
+
+   *Dynamics365BusinessCentral: Request failed: The remote server returned an error: (400) Bad Request. (Cannot insert a record. Current connection intent is Read-Only. CorrelationId: [...])".*
+
+6.	Select **Transform Data** instead of **Load** as you might normally do.
+7. In **Power Query Editor**, select **Advanced Editor** from the ribbon.
+8.	Replace the following line:
+
+   ```
+   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+   ```
+
+   with the line:
+
+   ```
+   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, [UseReadOnlyReplica = false]),
+   ```
+
+9.	Select **Done**.
+10. Select **Close & Apply** from the ribbon to save the changes and close Power Query Editor.
+
+-->
+### <a name="perms"></a>How do I change or clear the user account I'm currently using to connect to Business Central from Power BI Desktop?
+
+In Power BI Desktop, do the following steps:
+
+1. In the File menu, select **Options and settings** > **Data source settings**.
+2. Select **Dynamics Business Central** from the list, then select **Clear permissions** > **Delete**.
+
+Then next time you connect to Business Central to get data, you'll be asked to sign in.
+
+
+<!-- ## [Performance](#tab/performance) -->
+## Questions about data refresh performance
+
+<!-- 17 -->
+
+### Is it faster to get data using API pages than using web services?
+
+Yes. Our tests indicate that API pages are up to 25% more performant than web services.
+
+<!-- 18 -->
+### Are there plans to have a mirror on the Azure SQL Database instance, which I can connect to directly?
+
+No. Not at this point. You can only communicate with Business Central through APIs.
+
+<!-- 19 -->
+### Loading data from Business Central web services seems slow. Is there any way to get data directly from the SQL database table?
+
+No. Direct access to the database isn't possible, but switching to API pages helps greatly.
+
+## Troubleshooting questions
+
+### My semantic model does not refresh. How do I see what is wrong?
+
+[!INCLUDE [powerbi-refresh-tsg-include](includes/powerbi-refresh-tsg-include.md)]
+
+<!-- ## [Advanced](#tab/advanced) -->
+## Advanced questions
+<!-- 1 -->
+
+### Are there plans for the Power BI connector to support the incremental refresh features in the Power BI Service?
+
+Yes. It's on our roadmap.
+
+<!-- 2 -->
+### If a Business Central on-premises solution doesn't have internet access, can I still use Power BI?
+<!-- todo: please explain this one-->
+
+Yes. In this case, you use Power BI Desktop locally and connect to the Business Central on-premises. Once connected, can create and view reports, but you just can't publish them to the Power BI Service. 
+<!-- 20 -->
+### Are there any plans to make it possible to replicate Business Central online databases so they're accessible for read-only SQL queries? This capability would support incremental refresh and be a lot faster than APIs or web services.
+
+<!-- todo: what does "BC-Saas-DB-replicated DB accessible" mean? fixe-->
+Yes. We have this feature on our long-term roadmap. 
+
+<!-- 21 -->
+### If I use Azure Data Factory to get data from Business Central and consume it on Power BI, does that help in increase in performance? 
+
+Yes. This advanced scenario helps Business Central stay performant, because the data access would be done via the Azure Data Factory.
+
+<!-- 22 -->
+### Are there any plans to support Power BI deployment pipelines or a way to build deployment pipelines for PBI reports, similar to extensions? Or maybe even a simple API in the Business Admin Center? 
+
+We're looking into this feature. Power BI offers rich APIs to control report deployments. Learn more at [Introduction to deployment pipelines](/power-bi/create-reports/deployment-pipelines-overview).
+
+### When I get data from Business Central to use in my Power BI reports, I see some values like "_x0020_". What are these values?
+
+Some API pages, including most API v2.0 pages, have fields based on [AL Enum objects](/dynamics365/business-central/dev-itpro/developer/devenv-extensible-enums). Fields based on AL enum objects must have names that are consistent and always the same, so that filters on the report always work&mdash;no matter the language or operating system you're using. For this reason, the fields based on AL enums aren't translated and are encoded to avoid any special character, including the space. In particular, whenever there's an empty option in the AL Enum object, it's encoded to "_x0020_". You can always apply a transformation to your data on Power BI if you want to display some different value for these fields, for example "Empty".
+
+---
+
+## Related information
+
+[Power BI licensing](admin-powerbi-setup.md#license)  
+[Business Central and Power BI introduction](admin-powerbi.md)  
+[Power BI Integration Overview](admin-powerbi-overview.md)  
+[Enabling Power BI in Business Central](admin-powerbi-setup.md)  
+[Work with Power BI reports in Business Central](across-working-with-powerbi.md)  
+[Connect to Power BI from Business Central on-premises](across-working-with-business-central-in-powerbi.md)  
+[Building Power BI Reports to display Business Central data](across-how-use-financials-data-source-powerbi.md)  
+[Power BI documentation](/power-bi/)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-feature-management
+---
+title: Enabling upcoming features ahead of time
+description: Learn how to enable select, optional features before they become mandatory.
+author: mikebcMSFT
+ms.topic: concept-article
+ms.search.keywords: administration, admin, key, optional, feature management, early access, preview
+ms.search.form: 2610_Primary
+ms.date: 09/23/2024
+ms.author: mikebc
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Enabling new and upcoming features ahead of time
+
+Some new features can be enabled ahead of time, letting you take advantage of them as early as possible. Enabling features early gives you the time to test and prepare your organization for change.
+
+When Microsoft releases features or feature design improvements as part of minor updates, some of the features aren't immediately enabled. Administrators can enable each feature from the **Feature Management** page. After a feature is enabled, it becomes available for all users on that environment no matter how they access [!INCLUDE[prod_short](includes/prod_short.md)]. Features can be safely turned off again. These features are only optional for a while.
+
+Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).  
+
+## Related information
+
+[New and planned features](/dynamics365-release-plan/2021wave1/)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/about-export-data
 ---
 title: Export your Business Central data to Excel
@@ -1485,9 +2450,8 @@ title: How to create service orders
 description: Learn the different tasks involved in creating service orders in Business Central such as creating a new service order or orders based on a service contract.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: service order, create service order, service management, service management setup, service item, service contract, service quote
-ms.date: 10/03/2025
+ms.date: 03/18/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -1525,8 +2489,6 @@ You can automatically create service orders for the maintenance of service items
     > There's a limit to the number of days you can use as the date range each time you use this batch job. You set this limit in the **Contract Serv. Ord. Max. Days** field on the **Service Management Setup** page.  
 
 4. In the **Action** field, choose **Create Service Order**.  
-    > [!NOTE]  
-    > You can't create order with multiple service item, if you set **One Service Item Line/Order** field on the **Service Management Setup** page.
 
 ## Convert a service quote to a service order
 
@@ -3821,8 +4783,6 @@ ms.custom: bap-template
 
 # Purchase receipt inspections without warehouse handling
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains how to set up and use automatic quality inspection creation for purchase receipts in locations without warehouse handling. For example, the Silver location in the Contoso demo data.
 
 For locations without warehouse handling, quality inspections are created automatically when you post purchase receipts. This simpler workflow is ideal for:
@@ -5447,29 +6407,19 @@ ms.custom: bap-template
 
 # Block or unblock lots
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+This article explains how to automatically block and unblock inventory lots (serial numbers and packages) using workflows and result-specific controls. 
 
-This article explains how to automatically block and unblock inventory lots based on quality inspection results using workflows and result-specific controls. There are two main approaches for lot blocking:
+There are two main approaches for lot blocking:
 
-- **Workflow-Based Blocking**: Block lots using workflows.
-- **Grade-Based Blocking**: Document-specific blocking based on inspection results.
+- **Workflow-Based Blocking**: Block lots,serial numbers and pacakges using workflows.
+- **Result-Based Blocking**: Document-specific blocking based on quality inspection results.
 
 Both approaches help ensure that noncompliant inventory isn't used inappropriately, while allowing flexible quality control processes.
-
-<!--### Enable workflow integration
-
-1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Management Setup**, and then choose the related link.
-2. On the **Defaults** FastTab, turn on the **Workflow Integration Enabled** toggle.
-
-   > [!TIP]
-   > By default, the toggle is hidden. To access it, you might have to choose **Show more**.
-
-> [!NOTE]
-> If you don't turn on the **Workflow Integration Enabled** toggle, the quality management events for workflows aren't available. -->
 
 ## Workflow-based lot blocking
 
 Workflow-based blocking creates or modifies **Lot No. Information Card** pages to completely block lots for all transactions (except warehouse operations when configured). You access **Lot No. Information Card** pages from the **Lot No. Information List** page.
+Similar for **Serial No. Information Card** and **Package No. Informatuion Card**.
 
 ### Set up a block-on-fail workflow
 
@@ -5508,182 +6458,21 @@ Result-based blocking provides granular, document-specific controls based on the
 
 The following list describes how [!INCLUDE [prod_short](includes/prod_short.md)] evaluates results:
 
-- The system evaluates current inspection results for the lot/serial number.
-- The result configuration determines transaction permissions.
-- Multiple inspections for the same lot might have different results.
-- The system can consider specific inspections when it evaluates restrictions.
-
-To learn more about quality inspection results, go to [Configure quality inspection results](qms-configuring-grades.md).
+- Multiple inspections for the same lot might have different results. The **Quality inspection selection criteria** field on the **Quality Management Setup** page specifies which inspections to consider when evaluating whether to block a document-specific transaction.
+- Result priorities determine which controls take precedence. Higher priority results override lower priority results.
 
 ### Examples of result configurations
 
-#### INPROGRESS result (priority 0)
+The following table shows a sample configuration for three inspection results. The **INPROGRESS** result restricts most transactions while inspections are in progress — you can store and move items for inspections, but not use them in business transactions. The **FAIL** result requires quarantine when a quality inspection fails, blocking all use and allowing only quarantine and disposal activities. The **PASS** result allows normal business operations when a quality inspection passes, enabling all transactions for items with confirmed quality.
 
-Use this result configuration to restrict most transactions when inspections are in progress. The business logic is that you can store and move items for inspections, but not use them in business transactions.
+| Result | Priority | Allow Sales | Allow Transfer | Allow Consumption | Allow Pick | Allow Put-away | Allow Movement | 
+|---|---|---|---|---|---|---|---|
+|**INPROGRESS**| 0 | **No** <br> (can't sell unconfirmed quality) | **No** <br>  prevent distribution before inspection is complete | **No** <br> can't use in production |  **No** <br> prevent picking for shipments | **Yes** <br> allow warehouse storage| **Yes** <br> allow movement to inspection areas| 
+|**FAIL**| 1 |  **No** <br> (can't sell nonconforming items) |  **No** <br> prevent distribution of failed items | **No** <br> can't use defective materials |  **No** <br> prevent accidental picking | **Yes** <br> allow quarantine storage | **Yes** <br> allow movement for disposal| 
+|**PASS**| 2 | **Yes** <br> (approved for customer shipment) | **Yes** <br> approved for distribution| **Yes** <br> approved for production use | **Yes** <br> approved for warehouse operations | **Yes** <br> normal warehouse operations | **Yes** <br> normal warehouse operations| 
 
-- **Allow Sales**: No (can't sell unconfirmed quality)
-- **Allow Transfer**: No (prevent distribution before inspection is complete)
-- **Allow Consumption**: No (can't use in production)
-- **Allow Pick**: No (prevent picking for shipments)
-- **Allow Put-away**: Yes (allow warehouse storage)
-- **Allow Movement**: Yes (allow movement to inspection areas)
-- **Allow Output**: Yes (might be acceptable for work-in-progress)
+To learn more about quality inspection results, go to [Configure quality inspection results](qms-configuring-grades.md).
 
-#### FAIL result (priority 1+)
-
-Use this result configuration to require quarantine when a quality inspection fails. The business logic is to block all use and allow only quarantine and disposal activities.
-
-- **Allow Sales**: No (can't sell nonconforming items)
-- **Allow Transfer**: No (prevent distribution of failed items)
-- **Allow Consumption**: No (can't use defective materials)
-- **Allow Pick**: No (prevent accidental picking)
-- **Allow Put-away**: Yes (allow quarantine storage)
-- **Allow Movement**: Yes (allow movement for disposal)
-- **Allow Output**: No (prevent use in production)
-
-#### PASS result (highest priority, evaluated last)
-
-Use this result configuration to allow normal business operations when a quality inspection passes. The business logic is to allow transactions for items with confirmed quality.
-
-- **Allow Sales**: Yes (approved for customer shipment)
-- **Allow Transfer**: Yes (approved for distribution)
-- **Allow Consumption**: Yes (approved for production use)
-- **Allow Pick**: Yes (approved for warehouse operations)
-- **Allow Put-away**: Yes (normal warehouse operations)
-- **Allow Movement**: Yes (normal warehouse operations)
-- **Allow Output**: Yes (approved for production output)
-
-#### Example of a CONDITIONAL (medium priority) custom result
-
-Use this result configuration when a grade is conditionally acceptable with restrictions. The business logic is to allow limited use, and perhaps require management approval.
-
-- **Allow Sales**: No (requires customer approval)
-- **Allow Transfer**: Yes (can transfer with documentation)
-- **Allow Consumption**: Yes (acceptable for noncritical applications)
-- **Allow Pick**: Yes (with proper documentation)
-- **Allow Put-away**: Yes (normal storage)
-- **Allow Movement**: Yes (normal handling)
-- **Allow Output**: No (not suitable for finished goods)
-
-## Implement lot blocking scenarios
-
-This section describes some typical scenarios for lot blocking.
-
-### Block on failure only
-
-**Business Rule**: Lots remain available until inspections fail.
-
-**Implementation**:
-
-1. **Workflow**: Block lot when an inspection finishes with "FAIL" result.
-2. **Result Setup**: The **INPROGRESS** result allows all transactions.
-
-The following process is a sample flow for this implementation:
-
-1. You receive the item and put it away normally.
-2. You create and run a quality inspection.  
-3. The lot remains available for all operations.
-4. If the inspection fails, the lot becomes blocked. If it passes, no blocking happens.
-
-### Block during inspection
-
-**Business Rule**: Block lots immediately when an inspection begins.
-
-**Implementation**:
-
-1. **Workflow 1**: Block lot when an inspection is created.
-2. **Workflow 2**: Unblock lot when an inspection passes with "PASS" result.
-3. **Result Setup**: Configure document-specific controls if needed.
-
-The following process is a sample flow for this implementation:
-
-1. You receive the item.
-2. You create and run a quality inspections, and the lot is immediately blocked.
-3. Put-away might still be allowed (warehouse operations).
-4. If the inspection fails, the lot remains blocked. If it passes, normal operations resume.
-
-### Document-specific controls
-
-**Business Rule**: Prevent sales, but allow warehouse operations during inspections.
-
-**Implementation**:
-
-1. **No Workflows**: Rely entirely on result controls.
-2. **In Progress Result**:
-   - Allow Put-away: Yes
-   - Allow Movement: Yes
-   - Allow Pick: No
-   - Allow Sales: No
-
-The following is a sample process flow for this implementation:
-
-1. You receive the item and create an inspection.
-2. Put-away proceeds normally (allowed).
-3. Sales orders can't be posted (blocked).
-4. Warehouse movements are allowed for the quality area.
-5. Inspection completion changes the result, updating permissions.
-
-## Work with blocked lots
-
-The following sections describe some actions you can take while a lot is blocked.
-
-### Identify blocked lots
-
-It't easy to find out whether a lot is blocked. Open the **Lot No. Information List** page, and check the **Blocked** field. You can also use quality inspection references.
-
-For **Quality Inspection Integration**, inspections show related lot blocking status. You can go from inspections to lot information and review blocking history.
-
-### Manage blocked inventory
-
-You can do the following for warehouse operations:
-
-- Blocked lots might still allow warehouse movements.
-- Use for quarantine and disposal processes.
-- Configure result controls for specific needs.
-
-For disposal, you can take the following actions:
-
-- Move to quarantine areas.
-- Process through rework procedures.
-- Create negative adjustments for disposal.
-- Return to vendors if appropriate.
-
-<!--## Test lot blocking configuration
-
-### Test Scenario: Purchase receipt with blocking
-
-1. **Create a purchase order**:
-   - Item with lot tracking.
-   - Location with appropriate setup.
-   - Post warehouse receipt.
-
-2. **Verify test creation**:
-   - Quality inspection is created automatically.
-   - Check the lot blocking status (depends on configuration).
-
-3. **Test a sales transaction**:
-   - Create a sales order for the same lot.
-   - Try to post a shipment.
-   - Verify the blocking behavior.
-
-4. **Complete a quality test**:
-   - Enter the measurement values.
-   - Finish the inspection with a pass or fail result.
-   - Verify that the lot status changes appropriately.
-
-### Validation points
-
-**Automatic Blocking**:
-
-- Inspections are created and lots are blocked as configured.
-- Blocking prevents inappropriate transactions.
-- Warehouse operations follow result settings.
-
-**Test Completion**:
-
-- Passing inspections unblock lots (if configured).
-- Failing inspections maintain or create blocking.
-- Result changes update transaction permissions. -->
 
 ## Related information
 
@@ -5691,7 +6480,8 @@ For disposal, you can take the following actions:
 [Purchase Receipt Inspections with Warehouse Handling](qms-purchase-receipt-testing-warehouse.md)  
 [Configuring Workflows](qms-quality-workflows.md)  
 [Processing Non-Compliant Items](qms-non-compliant-processing.md)  
-[Quality Management Overview](qms-overview.md)end of article
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/welcome
 ---
@@ -6967,6 +7757,59 @@ You set up the description and code for each shipment method on the **Shipment M
 [Incoterms on iccwbo.org](https://iccwbo.org/resources-for-business/incoterms-rules)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-analyze-data-dimension-perspective
+---
+title: Analyze data for some or all values of a dimension
+description: Learn how to set up dimension perspectives that let you analyze data for all dimension values in one financial report.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 03/17/2026
+ms.custom: bap-template
+ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
+ms.search.form: 8364_Primary,
+---
+
+# Analyze data for some or all values of a dimension
+
+You can set up financial report dimension perspectives to analyze data for some or all of a dimension's values in one report. For example, if you want to analyze data for all of the departments that are dimension values for the Department dimension. After you create a perspective, you can use it in multiple reports.
+
+## View report results
+
+When you send a report to PDF, the dimension perspective creates a report for each dimension value and organizes them in rows. You might notice a mismatch between the number of pages that the PDF viewer lists and the number of pages that the report includes. The mismatch can happen because each page has multiple reports, but the PDF viewer thinks there's one page for each report.
+
+Financial report dimension perspectives also work if you send your report results to Excel. The worksheet contains a tab for the main report, and tabs for each dimension value.
+
+## Set up a financial report dimension perspective
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Financial Report Dimension Perspective**, and then choose the related link.
+1. In the **Name** field, enter a name that indicates the use or subject of the perspective.
+1. In the **Description** field, enter a brief description of the perspective.
+1. Optionally, in the **Analysis View** field, specify the view that you want to apply to the results. Learn more at [Analyze data by dimensions](bi-how-analyze-data-dimension.md).
+1. In the **Internal Description** field, provide more context about the perspective, for example, so someone else can quickly understand what it does. The final report doesn't show this description.
+1. Choose the **Edit definition** action.
+1. In the **Perspective Type** field, specify how you want to total values for the perspective.
+
+   > [!TIP]
+   > The **Custom** perspective type lets you set up more advanced totaling. For example, you can set up a perspective to total multiple dimension values from multiple dimensions. Learn more at [Set up custom totaling](#set-up-custom-totaling).
+
+## Set up custom totaling
+
+If you specify **Custom** as the perspective type for a perspective, you can set up your perspective to total amounts across dimensions to meet your specific needs.
+
+In the **Perspective Header** field, indicate what the totaling includes, and then use the other fields to specify your combinations.
+
+## Related information
+
+[View a financial report on-screen, as a PDF, or in Excel](finance-financial-reporting-view-a-report.md)   
+[Prepare financial reporting with financial data and account categories](bi-how-work-account-schedule.md)  
+
+[!INCLUDE [footer-banner](includes/footer-banner.md)]
+
+
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-process-sales-returns-cancellations
@@ -8880,18 +9723,16 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 title: Posting sales documents
 description: Learn about the different posting functions to post sales documents, and how you can update posted documents.
 author: brentholtorf
-ms.topic: concept-article
-ms.devlang: al
 ms.reviewer: bholtorf
-ms.search.form: 130, 142, 1350
-ms.date: 02/13/2024
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
+ms.topic: concept-article
+ms.search.form: 130, 142, 1350
+ms.date: 03/09/2026
+ms.custom: bap-template
 ---
 # Posting sales
 
-Under the **Posting** menu in a sales document, you can choose between the following posting functions:
+Under the **Posting** menu in a sales document, you can choose between the following posting actions:
 
 * **Post**
 * **Post and New**
@@ -8901,29 +9742,46 @@ Under the **Posting** menu in a sales document, you can choose between the follo
 * **Test Report**
 
 > [!NOTE]
-> For sales orders, you can also see options related to the prepayments functionality. For more information, see [Invoicing Prepayments](finance-invoice-prepayments.md).
+> For sales orders, you can also access options related to the prepayments. To learn more, go to [Invoicing Prepayments](finance-invoice-prepayments.md).
 
-When you have completed all the lines and entered all the information on the sales order, you can post it. This creates a shipment and an invoice.
+After you complete all the lines and enter all the information on the sales order, you can post it to create a shipment and an invoice.
 
 When a sales order is posted, the customer's account, the general ledger, and the item ledger entries are updated.
 
 For each sales order, a sales entry is created in the **G/L Entry** table. An entry is also created in the customer's account in the **Cust. Ledger Entry** table and a general ledger entry is created in the relevant receivables account. In addition, posting the order might result in a VAT entry and a general ledger entry for the discount amount. Whether an entry for the discount is posted depends on the contents of the **Discount Posting** field on the **Sales & Receivables Setup** page.
 
-For each sales order line, an item ledger entry will be created in the **Item Ledger Entry** table (if the sales lines contain item numbers) or a general ledger entry will be created in the **G/L Entry** table (if the sales lines contain a general ledger account). In addition to this, sales orders are always recorded in the **Sales Shipment Header** and **Sales Invoice Header** tables.
+For each sales order line, an item ledger entry is created in the **Item Ledger Entry** table (if the sales lines contain item numbers) or a general ledger entry is created in the **G/L Entry** table (if the sales lines contain a general ledger account). Also, sales orders are always recorded in the **Sales Shipment Header** and **Sales Invoice Header** tables.
 
 [!INCLUDE [order-ship-invoice](includes/order-ship-invoice.md)]
 
-You can either post, or post and send. If you choose to post and send, a PDF file is generated that you can then send. You can also choose the **Post Batch** function, which lets you post several orders at the same time. For more information, see [Post Multiple Documents at the Same Time](ui-batch-posting.md).
+You can either post, or post and send. If you choose to post and send, a PDF file is generated that you can then send. You can also choose the **Post Batch** function, which lets you post several orders at the same time. To learn more, go to [Post Multiple Documents at the Same Time](ui-batch-posting.md).
 
-## Viewing ledger entries
+## Review ledger entries
 
-When the posting is completed, the posted sales lines are removed from the order. A message tells you when the posting is completed. After this, you'll be able to see the posted entries in the various pages that contain posted entries, such as the **Cust. Ledger Entries**, **G/L Entries**, **Item Ledger Entries**, **Posted Sales Shipments**, and **Posted Sales Invoices** pages.  
+When posting is complete, the posted sales lines are removed from the order. A message tells you when the posting is completed. Afterward, you can access the posted entries in the various pages that contain posted entries, such as the **Cust. Ledger Entries**, **G/L Entries**, **Item Ledger Entries**, **Posted Sales Shipments**, and **Posted Sales Invoices** pages.  
 
 In most cases, you can open ledger entries from the affected card or document. For example, on the **Customer Card** page, choose the **Ledger Entries** action.
 
-## Editing ledger entries
+## Edit ledger entries
 
-You can edit certain fields on posted purchase documents, such as the **Package Tracking No.** field. For more information, see [Edit Posted Documents](across-edit-posted-document.md). For more critical fields that affect the auditing trail, you must reverse or undo posting. For more information, see [Reverse Journal Postings and Undo Receipts/Shipments](finance-how-reverse-journal-posting.md).
+You can edit certain fields on posted sales documents, such as the **Package Tracking No.** field. To learn more, go to [Edit Posted Documents](across-edit-posted-document.md). For more critical fields that affect the auditing trail, you must reverse or undo posting. To learn more, go to [Reverse Journal Postings and Undo Receipts/Shipments](finance-how-reverse-journal-posting.md).
+
+## Send posted sales invoices by email
+
+Sales shipments are important documents for customers, and often need to be delivered promptly and accurately. By sending posted shipments and invoices by email, you reduce reliance on manual printing and mailing. This streamlined process improves communication with customers, and supports scenarios where you want to share shipment or invoice details with different contacts than the ones specified on the invoices.
+
+The ability so send posted sales shipments and posted sales invoices by email compliments the **Print** option. There are several options:
+
+- **Send by Email**: Send the posted document by email to the customer.
+- **Send**: Use the standard sending options that are available for other posted documents.
+- **Attach as PDF**: Generate and add the generated document in PDF format to the **Attachment** part.
+
+The **Attachment** part allows you to store and manage printed document versions for future reference, and is now also available on the following pages:
+
+ - **Posted Return Receipt** (page 6660)
+ - **Posted Return Receipts** (page 6662)
+ - **Posted Sales Shipment** (page 130)
+ - **Posted Sales Shipments** (page 142)
 
 ## Related information
 
@@ -9082,10 +9940,10 @@ title: Set up service management processes
 description: Learn how to set up processes that help ensure your customers are satisfied with your services.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: service, number sequences, setup, warnings, fee, contracts, warranties
-ms.date: 10/03/2025
+ms.date: 03/18/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -9100,7 +9958,7 @@ The following are some examples of the settings you can apply to service managem
 * Settings for contracts, such as the maximum number of days that you can use for contract service orders, whether to use reason codes when a contract is canceled, standard texts for descriptions, and contract values.  
 * The number sequences to use for service-related documents and items.  
 
-## Enter general and mandatory settings
+### Enter general and mandatory settings
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Management Setup**, and then choose the related link.
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
@@ -9139,6 +9997,15 @@ The following table describes the effects on different documents.
 Your business probably deals with multiple customer and vendor contacts who are responsible for different areas of operation. For example, accountants, purchasers, and warehouse staff. Because their interests typically differ, you might want to generate and send different types of documents to them. You can save time when you send documents to different customer or vendor contacts by setting up specific contacts to use with specific documents. For example, send service invoices to accountant contacts and service orders to your customers' purchasers.
 
 You can use the **Document Layouts** page to specify who to send service quotes, orders, invoices, and credit memos to for vendors and customers based on settings on the **Report Selection** page. To send specific documents to specific company contacts, choose the company contacts to use for specific document layouts. Learn more in [Define document layouts for customers and vendors](ui-define-customer-vendor-document-layouts.md) for information about document layouts.
+
+## Allow only one service item per order
+
+On the **Service Management Setup** page, the **One Service Item Line/Order** toggle restricts service orders to have only one service item line. The restriction can help sharpen focus in your service workflow because it means you handle and track each service item individually.
+
+The same logic applies to orders that you create in-bulk from service contracts.
+
+* If you turn on the **One Service Item Line/Order** toggle, the create contract service orders process creates one service order per service item in the contract. For example, a contract with four service items results in four separate service orders.
+* If you turn off the toggle, the process creates a single service order that contains all service items from the contract.
 
 ## Related information  
 
@@ -9948,7 +10815,7 @@ The most important feature of the financial reports that [!INCLUDE [prod_short](
 
 ## Generate financial reports
 
-After you set up categories and subcategories have and map all accounts on the chart of accounts, choose **Generate Financial Reports**. This action updates financial reports with the M- prefix with the mapping provided for your chart of accounts.  
+After you set up categories and subcategories and map all accounts on the chart of accounts, choose **Generate Financial Reports**. This action updates financial reports with the M- prefix with the mapping provided for your chart of accounts.  
 
 To control which reports update when you generate financial reports, update the fields in the **Reporting** section of the **General Ledger Setup** page.  
 
@@ -10453,11 +11320,13 @@ The following table describes a sequence of tasks, with links to the articles th
 | Set up Intrastat reporting, and submit the report to an authority. | [Set Up and Report Intrastat](finance-how-setup-report-intrastat.md)|
 |Ensure a journal entry is allocated between different accounts, such as quantity, percentage, or amount, when you post it to the journal.|[Use Allocation Keys in General Journals](ui-how-use-allocation-keys-general-journals.md)|
 |Set up source codes and reason codes to help track audit trails.|[Setting Up Source Codes and Reason Codes for Audit Trails](finance-setup-trail-codes.md)|
-| Set up audit on changes to your finance setup | [Audit changes to your setup](across-setup-auditing.md) |
+| Set up audit on changes to your finance setup. | [Audit changes to your setup](across-setup-auditing.md) |
 |Specify default reports to be used for different document types.|[Report Selection in Business Central](across-report-selections.md)|
+|Set up excise tax registrations if your country/region requires those. | [Set up excise tax](finance-set-up-excise-tax.md) |
+|Set up withholding tax if your country/region requires you to report it.| [Set up withholding tax](finance-set-up-withholding-tax.md)|
 
 > [!TIP]
-> Depending on your geographical location, some Business Central pages might contain fields that aren't described in the articles because they apply to local functionality or customizations. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+> Depending on your geographical location, some [!INCLUDE [prod_short](includes/prod_short.md)] pages might contain fields that aren't described in the articles because they apply to local functionality or customizations. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 
 ## Related information
 
@@ -11894,13 +12763,13 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-how-work-account-schedule
 ---
-title: Build Financial Reports Using Financial Data and Account Categories
+title: Build financial reports using financial data and account categories
 description: Describes how to use financial reports to create various views and reports for analyzing financial performance data.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 10/04/2025
+ms.date: 03/17/2026
 ms.custom: bap-template
 ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
 ms.search.form: Report_25_Primary, 103, 104, 108_Primary, 195, 196, 197, 198, 488, 489, 490_Primary, 764, 765, 766
@@ -11929,6 +12798,22 @@ If you want to view general ledger entries as percentages of budget entries, you
 ## Report selection for built-in finance reports
 
 [!INCLUDE[prod_short](includes/prod_short.md)] provides built-in Balance Sheet, Income Statement, Cash Flow, and Retained Earnings reports. The **Financial Reporting** feature defines the data and layouts for these reports. You can replace the standard layouts provided in [!INCLUDE[prod_short](includes/prod_short.md)] with your own. Learn more at [Report selection for finance reports](finance-financial-reporting-report-selection.md).
+
+## Specify default settings that apply to all financial reports
+
+To save some time and control consistency, on the **Reporting** FastTab of the **General Ledger Setup** page, you can specify settings that apply to all financial reports. For example, you can specify:
+
+- The additional currency, and whether to adjust exchange rates for taxes. 
+- The default category to use for accounts payable and receivable accounts.
+- The specific report setup to use for various reports, including row and column definitions.
+- The length of the period for which to show amounts.
+- How to format negative amounts.
+- Where to position your company logo when you print reports.
+- The default status to assign to new reports.
+
+[!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+You can change the default settings on each report, if needed.
 
 ## Financial reports
 
@@ -11964,6 +12849,16 @@ You can also use formulas to compare two or more financial reports and column de
 - Set up various report layouts and print the reports with the current figures.
 
 To learn more about comparisons, go to [When to use a comparison period formula and comparison date formula in a column definition](bi-design-financial-reports.md#when-to-use-a-comparison-period-formula-and-comparison-date-formula-in-a-column-definition).
+
+## Manage the lifecycle of financial reports
+
+[!INCLUDE [block-row-column-def](includes/block-row-column-def.md)]
+
+## Categorize financial reports
+
+To make it easier to find various financial reports, you can assign them to financial report categories. These categories often mirror the chart of accounts, and organize reports in a similar way as account categories organize general ledger accounts. [!INCLUDE [prod_short](includes/prod_short.md)] provides some financial report categories, but you can create your own and assign them to your reports. 
+
+To create or view financial report categories, [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **Financial Report Categories**, and choose the related link. You assign categories to your reports in the **Category** field on the **Financial Reports** page.
 
 ## Learning path: Create financial reports in Microsoft Dynamics 365 Business Central
 
@@ -13468,7 +14363,8 @@ To configure these settings, follow these steps:
     | **Item Emissions** | Enable a default sustainability account and emissions on the **Item Card** page. |
     | **Item Charge Emissions** | Enable a default sustainability account on the **Item Charge** page.</br></br> **Important:** This field isn't currently supported. |
     | **Resource Emissions** | Enable a default sustainability account and emissions on the **Resource Card** page. |
-    | **Work Machine Center Emissions** | Enable a default sustainability account and emissions on the **Work Center** and **Machine Center** pages. |
+    | **Work/Machine Center Emissions** | Enable a default sustainability account and emissions on the **Work Center** and **Machine Center** pages. |
+    |**Fixed Asset Emissions**| Enable a default sustainability account and emissions on the **Fixed Asset Card**, **Fixed Asset Journal**, **Fixed Asset G/L Journal**, and **FA Reclassification Journal** pages.<br><br> There are a few things to note about this setting:<br><br>- For journals, you can enter the default values only if you choose **Acquisition Cost** in the **FA Posting Type** field.<br>- For FA reclassification journal lines, if only one asset transfers to another, the **New Sustainability Account** can be the same for both assets. However, if the asset transfers to more than one asset, you must manually enter the new account. Emissions follow the same rules as amounts when they transfer from one asset to another.<br>- When you sell an asset, the emissions transfer from the FA ledger entry to the sales line.  |
 
 > [!NOTE]
 > Keep in mind that selecting the **Use Emissions In Purchase Documents** field doesn't activate the sustainability value chain features. The field only enables you to record emissions in purchase documents. If you want to use purchase documents in value chain operations, you must also select the **Enable Value Chain tracking** field.  
@@ -13679,19 +14575,18 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000764, 99000765, 99000766, 99000767, 99000794, 99000796, 99000798, 99000806, 99000808, 99000810, 99000817, 99000834, 99000835, 99000836, 99000837, 99000840, 99000841, 99000844, 99000845
-ms.date: 06/06/2024
+ms.date: 03/10/2026
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 
 ---
 # Create routings
 
-Manufacturing companies use routings to visualize and direct the manufacturing process.
+Manufacturing companies use routings to visualize and direct the manufacturing process. The routing is the basis of process scheduling, capacity scheduling, scheduled assignment of material needs, and manufacturing documents.  
 
-The routing is the basis of process scheduling, capacity scheduling, scheduled assignment of material needs, and manufacturing documents.  
+As for production bills of material (BOMs), routings are assigned to the manufacturing end item. A routing holds master data that captures the process requirements of a given produced item. After a production order is created for an item, its routing governs the scheduling of operations as represented on the **Prod. Order Routing** page under the production order.  
 
-As for production bills of material (BOMs), the routings are assigned to the manufacturing end item. A routing holds master data that captures the process requirements of a given produced item. After a production order is created for an item, its routing governs the scheduling of operations as represented on the **Prod. Order Routing** page under the production order.  
-
-Before you can set up a routing, the following setups must be in place:  
+Before you can create a routing, the following setups must be in place:  
 
 - Item cards are created for parent items that take part in manufacturing. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
 - Production resources are set up. To learn more, go to [Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md).
@@ -13746,7 +14641,10 @@ Another important benefit is that linked components and operations display in a 
 
 5. Set the routing status to **Certified**.  
 
-    Routing link codes are now assigned to operations. Next, you must create the actual link by assigning the same codes to specific components in the relevant production BOM.  
+   > [!TIP]
+   > Certifying the routing is optional, though we do recommend it if it's ready to use. For example, if you're in the design phase, you can work with the routing in a uncertified state. Learn more at [Work with uncertified production BOMs and routings](#work-with-uncertified-production-boms-and-routings).
+
+   Routing link codes are now assigned to operations. Next, you must create the actual link by assigning the same codes to specific components in the relevant production BOM.  
 
 6. Open the **Production BOM** that contains the components that you want to link to the above operations. To learn more, go to [Create Production BOMs](production-how-to-create-production-boms.md).
 7. Make sure the BOM status is **Under Development**.  
@@ -13785,6 +14683,10 @@ The version principle enables you to manage several versions of a routing. The s
     The operation lines are in ascending order by operation numbers. To be able to make changes later, we recommend that you select adequate step widths. The **Next Operation No.** field refers to the next operation in the routing.
 
 7. When you're done setting up the routing version, in the **Status** field, choose **Certified**.
+
+## Work with uncertified production BOMs and routings
+
+[!INCLUDE [production-turn-off-uncertified-notifications](includes/production-turn-off-uncertified-notifications.md)]
 
 ## Related information
 
@@ -16070,10 +16972,9 @@ title: Multilanguage and localization
 description: Learn how language and region influence your experience in Business Central. Change the language of the user interface in My Settings.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: language, locale, localization, culture, region, regional settings
-ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 12/19/2024
+ms.search.form: 1, 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
+ms.date: 03/04/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -16095,6 +16996,14 @@ You can't change the texts that are stored as application data. Examples of such
 
 > [!NOTE]  
 > [!INCLUDE[prod_short](includes/prod_short.md)] only supports a single character set for data. Some characters might not be supported in your environment. You might experience problems when you try to view data that was entered using a different character set. For instance, your environment might support only English and Russian characters. In this case, if you enter data in a different language, [!INCLUDE [prod_short](includes/prod_short.md)] might not store it correctly. Contact your system administrator to make sure you understand which languages are supported by your [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+## Set a default language for documents
+
+You can specify a company-wide default language for all customer-facing documents. Setting a default language can help ensure that the invoices and sales documents your customers receive are easy for them to understand. Otherwise, the documents arrive in the language of the user who generated and sent them. Decoupling the document language from the individual user’s UI language eliminates the risk of accidentally sending invoices in the wrong language, an issue that might arise in multilingual teams that primarily serve a local market. As a result, local customers always receive documents in the expected language, improving clarity, reducing follow-up questions or misunderstandings, and strengthening trust in your business. 
+
+For example, even if all customers are local and expect documents in the local language, people who use [!INCLUDE [prod_short](includes/prod_short.md)] in a different UI language might inadvertently generate invoices in a foreign language that's difficult for customers to read.
+
+To specify a default language, on the **Company Information** page, select a language in the **Default Language Code** field.
 
 ## Changing your region setting
 
@@ -18871,6 +19780,10 @@ Before you change a column definition, it can be helpful to know which reports u
 1. On the **(Financial Report) Column Definitions** page, select the definition, and then choose the **Edit Column Definition** action.
 1. To open a list of reports that use the definition, choose the **Where-Used** action.
 
+## Manage the lifecycle of a column definition
+
+[!INCLUDE [block-row-column-def](includes/block-row-column-def.md)]
+
 ## Best practices for working with column definitions
 
 [!INCLUDE [report-best-practices-column-defs](includes/report-best-practices-column-defs.md)]
@@ -19205,760 +20118,5 @@ Users accessing Business Central with their Microsoft 365 license don't have the
 
 [Overview of Business Central Access with Microsoft 365 licenses](admin-access-with-m365-license.md#minimum-requirements)  
 [Set Up Access with Microsoft 365 Licenses](admin-access-with-m365-license-setup.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-purchase-products-sale
----
-title: Purchase items for a sale
-description: Create a purchase invoice for a vendor or supplier directly from a sales invoice to buy products needed for a sale.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: supply planning, sales demand, replenish
-ms.search.form: 50, 51, 56, 9308
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Purchase items for a sale by creating purchase invoices
-
-From sales orders and sales invoices, you can use functions to quickly create purchase documents for missing item quantities that are required by the sale. You can use two different functions depending on the document type.
-
-> [!Note]
-> This functionality is for replenishing sales items into your own inventory. To purchase items for direct delivery from your vendor to your customer, you must create a drop shipment. Learn more in [Make Drop Shipments](sales-how-drop-shipment.md).
-
-|Function|Description|
-|--------|-----------|
-|**Create Purchase Orders**|From a sales order, this function creates a purchase order for each vendor of items on the sales order. You can edit the purchase quantity before you create the purchase orders. Only unavailable sales quantities are suggested.
-|**Create Purchase Invoice**|From a sales order and from a sales invoice, this function creates a purchase invoice for a selected vendor for all lines or selected lines on the sales document. The full sales quantity is suggested.|
-
-## Create one or more purchase orders from a sales order
-
-To create a purchase order for each unavailable item quantity on the sales order, you use the **Create Purchase Orders** function.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
-2. Open a sales order that you want to purchase items for.
-3. Choose the **Create Purchase Orders** action.
-
-    The **Create Purchase Orders** page opens showing a line for each different item on the sales order. Lines for both fully available sales quantities and unavailable sales quantities (grayed) are shown by default. You can choose the **Show Unavailable** action to only see lines for unavailable sales quantities.
-
-    The **Quantity to Purchase** field contains the unavailable sales quantity by default.
-4. To purchase another quantity than the unavailable sales quantity, edit the value in the **Quantity to Purchase** field.
-
-    > [!NOTE]  
-    > You can also change the **Quantity to Purchase** field on grayed lines even though they represent fully available sales quantities.
-5. Choose the **OK** button.
-
-    A purchase order is created for each vendor of items on the sales order, including any quantity changes that you made on the **Create Purchase Orders** page.
-6. Proceed to process the purchase order or orders, for example, by editing or adding purchase order lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
-
-## Create a purchase invoice from a sales order or sales invoice
-
-To create a single purchase invoice for one or more lines on a sales document by first selecting which vendor to buy from, you use the **Create Purchase Invoice** function.
-
-> [!NOTE]  
-> This function creates a purchase invoice for the exact item quantity on the selected sales document. To change the purchase quantity, you must edit the purchase invoice after it's created.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
-2. Open a sales invoice that you want to purchase items for.
-3. Select one or more sales invoice lines that you want to use on the purchase invoice. To use all the sales invoice lines, select either all of them or don't select any lines.
-4. Choose the **Create Purchase Invoice** action.
-5. Select either **All Lines** or **Selected Lines**, and then choose the **OK** button.  
-6. In the list of vendors that appears, select the vendor that you want to buy all the items from, and then choose the **OK** button.
-
-   A purchase invoice is created that contains one, more than one, or all the lines on the sales invoice.
-7. Proceed to process the purchase invoice, for example, by editing or adding purchase invoice lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
-
-## Related information
-
-[Purchasing](purchasing-manage-purchasing.md)  
-[Record Purchases](purchasing-how-record-purchases.md)  
-[Invoice Sales](sales-how-invoice-sales.md)  
-[Register New Vendors](purchasing-how-register-new-vendors.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-powerbi-business-central-apps
----
-title: Use the Business Central apps in Power BI
-description: Easily gain insights, business intelligence, and KPIs from your Business Central data using the Business Central apps for Power BI.
-author: jswymer
-ms.topic: get-started
-ms.devlang: al
-ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 10/17/2025
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Use the [!INCLUDE [prod_short](includes/prod_short.md)] apps in Power BI
-
-> **APPLIES TO:** [!INCLUDE [prod_long](includes/prod_long.md)] online
-
-[!INCLUDE [prod_long](includes/prod_long.md)] publishes the following Power BI apps, which provide detailed dashboards for viewing data:
-
-- [!INCLUDE [prod_long](includes/prod_long.md)] - CRM  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Finance  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Sales
-
-## Overview
-
-Each app includes several reports that you can drill into for data, including the following features:
-
-- Choose any visual on the dashboard to bring up one of the underlying reports.  
-- Filter the report or add fields that you want to monitor.  
-- Pin a customized view to the dashboard to continue tracking.  
-  You can refresh data manually, and you can set up a refresh schedule. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).  
-
-The apps are designed to work with data from any company in [!INCLUDE[prod_short](includes/prod_short.md)]. When you install the Power BI app, you specify one or more parameters to connect to your [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-> [!NOTE]
-> You can also build your own reports and dashboards in Power BI based on your [!INCLUDE[prod_short](includes/prod_short.md)] data. Learn more in [Connecting Your Business Data to Power BI](across-how-use-financials-data-source-powerbi.md).
-
-## Prerequisites
-
-Power BI apps require permissions to the tables where data is retrieved and the web services used to retrieve data. The following table lists the web services required for each Power BI app:
-
-|App|Web services |
-|--|-------------|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – CRM| <ul><li>Sales Opportunities</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Finance| <ul><li>PowerBIFinance</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Sales| <ul><li>Item Sales by Customer</li><li>Sales Dashboard</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-
-> [!TIP]
-> An easy way to find the web services is to search for *web services* in [!INCLUDE[prod_short](includes/prod_short.md)]. In the **Web Services** page, make sure that the **Publish** field is selected for the web services listed above. Learn more in [Publishing a Web Service](across-how-publish-web-service.md).
-
-## Get ready
-
-Sign up for the Power BI service. If you haven't already signed up, go to [https://powerbi.microsoft.com](https://powerbi.microsoft.com). When you sign up, use your work email address and password.
-
-## Install a [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-1. Open your browser, navigate to [https://powerbi.microsoft.com](https://powerbi.microsoft.com), and sign in to your account.
-2. Select **Apps** on the navigation pane.
-
-    The **Apps** page appears.
-
-3. On the **Apps** page, select **Get apps** from the upper right corner of the page.
-
-    The **Power BI apps** page opens, where you can browse for the apps that are available for [!INCLUDE[prod_short](includes/prod_short.md)].
-
-    ![Navigating to Get apps.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-get-data.png)
-
-    > [!TIP]
-    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft Marketplace will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
-
-4. In the **Search** box, enter **Dynamics 365 Business Central**.
-5. Select app that you want to use, select **Get it now**, and then **Install**.  
-
-    When completed, the app is available from **Apps** on the navigation menu in Power BI.
-
-## Connect the [!INCLUDE[prod_short](includes/prod_short.md)] app to your data
-
-1. Under **Apps**, select the Business Central app, then **Connect**.
-2. When prompted, fill in the **Company Name** and **Environment** with information about the [!INCLUDE[prod_short](includes/prod_short.md)] instance that you want to connect to.
-
-    - For **Company Name**, make sure to use the full name, not the display name. You can find the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-    - For **Environment**, if you haven't created multiple environments, enter **Production**.
-
-3. Select **Next**.
-4. Select **Sign-in**.
-5. When prompted, enter the user name and password for signing into [!INCLUDE[prod_short](includes/prod_short.md)].
-6. Once connected, a dashboard and reports are added to your Power BI workspace. When completed, the tiles show data from your [!INCLUDE[prod_short](includes/prod_short.md)] company.
-
-    ![Select Dynamics 365 Business Central  and select Get it now.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-workspace-dashboard-report-dataset.png)
-
-## Fix problems
-
-The Power BI dashboard relies on the published web services that are listed above. It shows data from the demonstration company or your own company if you import data from your current finance solution. However, if something goes wrong, this section provides a workaround for the most typical issues.  
-
-### You don't have a Power BI account
-
-A Power BI account hasn't been set up. You must have a license to get a valid Power BI account. Also, you must have previously signed into Power BI to create your Power BI workspace.  
-
-### Message: There are no enabled reports. Select report to see a list of reports that you can display
-
-This message appears if the default report failed to deploy to your Power BI workspace. Or the report deployed but didn't successfully refresh. If this problem happens, navigate to the report in your Power BI workspace, select **Dataset**, **Settings**, and then manually update the credentials. Once the dataset successfully refreshes, navigate back to [!INCLUDE[prod_short](includes/prod_short.md)] and manually select the report from the **Select Reports** page.
-
-### You need a Power BI Pro license to install the [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-You need a [Power BI Pro license](/power-bi/service-features-license-type) to share your content, and the people you share it with do too. The content must be in a workspace in a [Premium capacity](/power-bi/service-premium-what-is). Learn more in [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).  
-
-### "Parameter validation failed, please make sure all parameters are valid"
-
-This error indicates that one more of the parameters aren't valid.
-
-- The specified environment parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] production or sandbox environment.
-- The specified company parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] companies. Verify the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-- If connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you entered a URL that isn't valid. You can verify the URL in the **Web Services** page in [!INCLUDE[prod_short](includes/prod_short.md)]  
-- A port isn't open to allow the request through your firewall.
-
-### Can't sign in
-
-If you get a "login failed" error after using your [!INCLUDE[prod_short](includes/prod_short.md)] user credentials to sign in, then you're probably experiencing one of the following issues:
-
-- The account that you're using doesn't have permissions to retrieve the [!INCLUDE[prod_short](includes/prod_short.md)] data from your account. Verify that you have permissions to the required data in [!INCLUDE[prod_short](includes/prod_short.md)] and try again.
-- You've selected an authentication type other than Basic, if connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises.
-- You haven't entered a valid user name or password.
-
-### Message: Your data source can't be refreshed because the credentials are invalid. Please update your credentials and try again
-
-For [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, the problem might be that the OData URL is only exposed to the local network.
-
-### Incorrect company name
-
-A common mistake is to enter the company display name instead of the company name. To find the company name search for **Companies**. Then use the **Name** field when entering your company name.
-
-### The key didn't match any rows in the table
-
-If you enter a non-valid company name during the connection process, you may get the error message "The key didn't match any rows in the table". Provide the correct company name and try connecting again.
-
-### Historical data appears to be missing
-
-Once the Power BI app installs and your data show in Power BI, you notice that not all your data displays. The datasets are filtered to only return the previous 365 days of data. This default is in place to help make the reports faster.  
-
-### I only see data for a single company
-
-The Power BI app will only display data from the [!INCLUDE[prod_short](includes/prod_short.md)] company that was defined when the Power BI app was installed. Data from additional companies can be added to the reports by adding new queries that use different companies as the data source.  
-
-### What now?
-
-- Try [asking a question in the Q&A box](/power-bi/service-q-and-a-tips) at the top of the dashboard.
-- [Change the tiles](/power-bi/service-dashboard-edit-tile) in the dashboard.  
-- [Select a tile](/power-bi/service-dashboard-tiles) to open the underlying report.  
-- By default, your dataset isn't scheduled to refresh. You can change the refresh schedule or try refreshing it on demand using **Refresh Now**. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).
-
-## Related information
-
-[Business Central and Power BI](admin-powerbi.md)  
-[Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
-[Connect to Power BI from [!INCLUDE [prod_short](includes/prod_short.md)] on-premises](across-working-with-business-central-in-powerbi.md)  
-[Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
-[Business Intelligence](bi.md)  
-[Get Ready for Doing Business](ui-get-ready-business.md)  
-[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power Apps Data Source](across-how-use-financials-data-source-powerapps.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] in Power Automate](across-how-use-financials-data-source-flow.md)  
-[Power BI documentation](/power-bi/)  
-[What is Power BI?](/power-bi/fundamentals/power-bi-overview)  
-[Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
-[Introduction to datamarts](/power-bi/transform-model/datamarts/datamarts-overview)  
-[Introduction to dataflows and self-service data prep](/power-bi/transform-model/dataflows/dataflows-introduction-self-service)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-manage-appsource-apps
----
-title: Manage Marketplace apps
-description: Learn how to browse and install Marketplace apps from Business Central.
-author: SusanneWindfeldPedersen
-ms.author: solsen
-ms.reviewer: jswymer
-ms.topic: article
-ms.search.keywords: app, apps, install, integration, Marketplace
-ms.date: 04/08/2025
-ms.custom: bap-template
-ms.service: dynamics-365-business-central
----
-
-# Manage Marketplace apps
- 
-From inside [!INCLUDE[prod_short](includes/prod_short.md)], you can discover, view, sort, and filter available Marketplace apps that integrate with [!INCLUDE[prod_short](includes/prod_short.md)].
-
-On the **Microsoft Marketplace Apps** page, you can filter available Marketplace apps by name, publisher name, install state, popularity, average rating, number of ratings, and last modified date. You can also select a given app and see the details for that specific app.
-
-To locate the page, in [!INCLUDE[prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Microsoft Marketplace Apps**, and then choose the related link.
-
-On the page, you find the following actions:
-
-- **View Marketplace** to open the online Marketplace marketplace in a new browser window. 
-- **View in Marketplace** to open and view a selected app in the online Marketplace Marketplace. 
-- **Refresh list from Microsoft Marketplace** to force a refresh of the list of all apps to Marketplace marketplace content—for example, if you're looking for a newly submitted Marketplace app.
-
-As with other list pages, you get support for Analysis Mode, for example, so that you can group apps by publisher. Use Copilot to design an **Analysis Mode** view for you.
-
-## Install and update Marketplace apps
-
-Install Marketplace apps using the **Extension Management** page in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more in [Customizing Business Central online using apps](ui-extensions.md).  
-
-Upgrade Marketplace apps using the [!INCLUDE[prod_short](includes/prod_short.md)] admin center. Learn more in [Managing Apps](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-apps).  
-
-## Related information
-
-[Customizing Business Central online using apps](ui-extensions.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-work-with-vat
----
-title: How to work with VAT on sales and purchases
-description: This article describes the various ways of working with VAT both manually and with automatic setup, to help you meet country/region specific regulations.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: VAT, sales, purchases
-ms.search.form: 7, 118, 130, 142, 459, 460, 525
-ms.date: 05/29/2024
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Work with VAT on sales and purchases
-
-If your country or region requires you to calculate and report value-added tax (VAT) on sales and purchase transactions, you can set up [!INCLUDE[prod_short](includes/prod_short.md)] to calculate VAT. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
-
-There are, however, some VAT-related tasks that you can do manually. For example, you might need to correct a posted amount if you discover that a vendor uses a different rounding method.  
-
-> [!TIP]
-> You can let [!INCLUDE[prod_short](includes/prod_short.md)] validate VAT registration numbers and other company information when you create or update documents. For more information, see [Validate VAT Registration Numbers](finance-how-validate-vat-registration-number.md).
-
-## Calculating and displaying VAT amounts on sales and purchase documents  
-
-When you choose an item number in the **No.** field on a sales or purchase document, [!INCLUDE[prod_short](includes/prod_short.md)] fills in the **Unit Price** and **Line Amount** fields. The unit price comes from either the **Item** card or the item prices allowed for the item and customer. [!INCLUDE[prod_short](includes/prod_short.md)] calculates the line amount when you enter a quantity for the line.  
-
-If you want the unit prices and line amounts to include VAT, for example, if you sell to retail consumers, choose the **Prices Including VAT** check box on the document. For more information, see [Including or Excluding VAT in Prices and Line Amounts](#including-or-excluding-vat-in-prices-and-line-amounts). 
-
-You can calculate and display VAT amounts in sales and purchase documents differently. The difference depends on the type of customer or vendor you're dealing with. You can also change the calculated VAT amount manually, for example, so that it matches the VAT amount calculated by your vendor on a given transaction.
-
-### Including or excluding VAT in prices and line amounts
-
-If you choose the **Prices Including VAT** checkbox on a sales document, the **Unit Price** and **Line Amount** fields include VAT. By default, the values in these fields don't include VAT. The names of the fields reflect whether prices include VAT.  
-
-You can set up the default setting of the **Prices Including VAT** for all sales documents for a customer in the **Prices Including VAT** field on the **Customer** card. You can also set up item prices to include or exclude VAT. Typically, prices on the Item Card exclude VAT.
-
-The following table provides an overview of how the application calculates the unit price amounts for a sales document when prices aren't set up on the **Sales Prices** page:  
-
-|**Price Includes VAT field on Item Card**|**Prices Including VAT field**|**Action Performed**|  
-|-----------------------------------------------|----------------------------------------------------|--------------------------|  
-|Not Enabled|Not Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Excl. VAT** field on the sales lines.|  
-|Not Enabled|Enabled|The application calculates the VAT amount per unit and adds to the **Unit Price** on the Item Card. This total unit price is then entered in the **Unit Price Incl. VAT field** on the sales lines.|  
-|Enabled|Not Enabled|The application calculates the VAT amount included in the **Unit Price** field on the **Item Card** using the VAT percentage related to the VAT Bus. Posting Gr. (Price) and the VAT Prod. Posting Group combination. The **Unit Price** on the Item Card, reduced by the VAT amount, is then entered in the **Unit Price Excl. VAT** field in the sales lines. For more information, see [Using VAT Business Posting Groups and Customer Price Groups](finance-work-with-vat.md#using-vat-business-posting-groups-and-customer-price-groups).|  
-|Enabled|Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Incl. VAT** field on the sales lines.|
-
-#### Using VAT business posting groups and customer price groups 
-
-If you want prices to include VAT, you can use VAT business posting groups to calculate the amount based on the VAT posting setup for the group. For more information, see [Set up VAT business posting groups](finance-setup-vat.md#set-up-vat-business-posting-groups).
-
-Depending on what you want to do, you can assign a VAT business posting group to customers or sales documents in the following ways:
-
-* To use the same VAT rate for all customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Sales & Receivables Setup** page.
-* To use a VAT rate for a specific customer, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Card** page. 
-* To use a VAT rate for a specific of customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Price Group** page. For example, this setting is useful when you want a price to apply to all customers in a certain geographical region or a specific industry.
-* On all sales documents, in the **VAT Business Posting Group** field. The VAT amount specified for the group is used only for the document you're currently working on.
-
-> [!NOTE]
-> If you do not specify a group in the **VAT Business Posting Group (Price)** field VAT will not be included in prices.
-
-#### Examples
-
-Factors such as the country or region you're selling in, or the type of industries you sell to, can affect the amount of VAT that you must account for. For example, a restaurant might charge 6% VAT for meals that are eaten in-house, and 17% for takeaway. To accomplish that, you create a VAT business posting group (price) for in-house and one for takeaway.
-
-## Working with VAT Date
-
-### VAT Date in documents
-
-When you create new sales or purchase documents, the **VAT Date** is based on the setting in the **Default VAT Date** field on the **General Ledger Setup** page. This default value can be the same as **Posting Date** or **Document Date**. If you need a different VAT date, you can manually change the value in the **VAT Date** field. When you post the document, the **VAT Date** is shown on the posting document and on the VAT and G/L entries.
-
-> [!NOTE]
-> If the **VAT Date** field isn't available on your documents or journals, that means that **Do not use VAT Date functionality** is chosen in the **VAT Date Usage** field on the **General Ledger Setup** page.  
-
-> [!IMPORTANT]
-> If you configure **Control VAT Period** in the **General Ledger Setup** as **Block posting within closed period**, or **Block posting within closed and warn for released period**, you can post document or journal only if the date in the **VAT Date** field is not in a closed period in **VAT Return Periods**. Even if the period in **VAT Return Periods** is open, you might get a warning based on the **VAT Return Status** and configuration in the **Control VAT Period**.
-
-> [!IMPORTANT]
-> Starting in version 23.1, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow VAT Date From** and **Allow VAT Date To** fields in the **VAT Setup** and the **User Setup**. If you are using older versions, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow Posting From** and **Allow Posting To** fields in the **General Ledger Setup** and the **User Setup**.  
-
-> [!NOTE]
-> If you leave the **VAT Date** blank, [!INCLUDE [prod_short](includes/prod_short.md)] will use your default setup from **Default VAT Date** in the **General Ledger Setup** as a **VAT Date** in the posted transaction.  
-
-### Modifying the VAT Date in posted entries
-
-If needed, you can change the VAT date posted documents. To change the date in the **VAT Date** field for posted documents, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Entries**, and then choose the related link. 
-2. Find the entry with wrong VAT date.  
-3. Choose the **Edit list** action, and then enter the correct date in the **VAT Date** field.  
-4. When you close the page, the VAT date changes in related **G/L Entries** and in the posted document.  
-
-> [!NOTE]
-> You can change the **VAT Date** field in **VAT Entries** only if your current date is not in a closed VAT return period. Even if the period in the **VAT Return Periods** field is open, you might get a warning based on the **VAT Return Status**.  
-
-> [!NOTE]
-> If your document has more than one **VAT Entry**, you only need to change the value in the **VAT Date** field in one entry related to the document. To keep entries consistent, [!INCLUDE[prod_short](includes/prod_short.md)] automatically changes the VAT date in VAT entries related to this transaction. [!INCLUDE [prod_short](includes/prod_short.md)] will update the **VAT Date** in other tables (GL Entries and documents), but only related to this transaction.  
-
-## Correcting VAT amounts manually on sales and purchase documents  
-
-You can make corrections to posted VAT entries so that you can change the total sales or purchase VAT amounts without changing the VAT base. For example, if you receive an invoice from a vendor with an incorrect VAT amount.  
-
-Although you might have one or more combinations set up to handle import VAT, you must set up at least one VAT product posting group. For example, you can name it **CORRECT** for correction purposes, unless you can use the same general ledger account in the **Purchase VAT Account** field on the VAT posting setup line. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
-
-If a payment discount was calculated based on an invoice amount that includes VAT, you revert the payment discount part of the VAT amount when you grant the payment discount. You must activate the **Adjust for Payments Disc.** field in both the general ledger setup in general and the VAT posting setup for specific combinations of a VAT business posting group and a VAT product posting group.  
-
-### To set the system up for manual VAT entry in sales documents
-
-To enable manual VAT changes on sales documents, follow these steps. The steps are similar on the **Purchases & Payables Setup** page.
-
-1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
-2. On the **Sales & Receivables Setup** page, turn on the **Allow Vat Difference** toggle.  
-
-### To adjust VAT for a sales document
-
-1. Open the relevant sales order.  
-2. Choose the **Statistics** action.  
-3. On the **Invoicing** FastTab, choose the value in the **No. of Tax Lines** field.
-4. Edit the **VAT Amount** field.   
-
-> [!NOTE]  
-> The total VAT amount for the invoice, grouped by VAT identifier, is displayed in the lines. You can manually adjust the amount in the **VAT Amount** field on the lines for each VAT identifier. When you modify the **VAT Amount** field, application checks to ensure that you have not changed the VAT by more than the amount you have specified as the maximum difference allowed. If the amount is outside the range of the **Max. VAT Difference Allowed**, a warning will be displayed stating the maximum allowed difference. You will be unable to proceed until the amount is adjusted to within the acceptable parameters. Click **OK** and enter another **VAT Amount** that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, the VAT will be divided proportionally among the document lines that have the same VAT identifier.  
-
-## Calculating VAT manually using journals  
-
-You can also adjust VAT amounts in general, sales, and purchase journals. For example, you might need an adjustment if you enter a vendor invoice in your journal and the VAT amount that [!INCLUDE[prod_short](includes/prod_short.md)] calculated and the VAT amount on the vendor's invoice differ.  
-
-### To set the system up for manual VAT entry in general journals
-
-You must perform the following steps before you manually enter VAT in a general journal.  
-
-1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
-2. On the **General Journal Templates** page, choose the **Allow VAT Difference** check box for the relevant journal.  
-
-### To set the system up for manual VAT entry in a sales and purchase journals
-
-You must perform the following steps before you manually enter VAT in a sales or purchase journal.
-
-1. On the **Purchases & Payables Setup** page, choose the **Allow VAT Difference** check box.  
-2. Repeat step 1 for the **Sales & Receivables Setup** page.
-3. After you complete the setup, you can adjust the **VAT Amount** field on the general journal line, or the **Bal. VAT Amount** field on the sales or purchase journal line. [!INCLUDE[prod_short](includes/prod_short.md)] verifies that the difference isn't greater than the specified maximum.  
-
-> [!NOTE]  
-> If the difference is greater, a warning will be displayed stating the maximum allowed difference. To continue, you must adjust the amount. Choose **OK** and then enter an amount that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, [!INCLUDE[prod_short](includes/prod_short.md)] will show the difference in the **VAT Difference** field.  
-
-## Posting Import VAT with Purchase Invoices
-Instead of using journals to post an import VAT invoice, you can use a purchase invoice.  
-
-### To set up purchasing for posting import VAT invoices
-
-1. Set up a vendor card for the import authority that sends you the import VAT invoice. The **Gen. Bus. Posting Group** and **VAT Bus. Posting Group** must be set up in the same way as the general ledger account for the import VAT.  
-2. Create a **Gen. Product Posting Group** for the import VAT and set up an import VAT **Def. VAT Product Posting Group** for the related **Gen. Product Posting Group**.  
-3. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.  
-4. Select the import VAT general ledger account, and then choose the **Edit** action.  
-5. On the **Posting** FastTab, select the **Gen. Prod. Posting Group** setup for import VAT. [!INCLUDE[prod_short](includes/prod_short.md)] automatically fills in the **VAT Prod. Posting Group** field.  
-6. [!INCLUDE[open-search](includes/open-search.md)], enter **General Posting Setup**, and then choose the related link.  
-7. Create a combination of the **Gen. Bus. Posting Group** for the VAT authority and the **Gen. Prod. Posting Group** for import VAT. For this combination, in the **Purchase Account** field, choose the import VAT general ledger account.  
-
-### To create a new invoice for the import authority vendor after you complete the setup  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.  
-2. Create a new purchase invoice.  
-3. In the **Buy-from Vendor No.** field, choose the import authority vendor, and then choose the **OK** button.  
-4. In the purchase line, in the **Type** field, choose **G/L Account**, and in the **No.** field, choose the import VAT general ledger account.  
-5. In the **Quantity** field, type **1**.  
-6. In the **Direct Unit Cost Excl. VAT** field, specify the VAT amount.  
-7. Post the invoice.  
-
-## Processing certificates of supply
-
-When you sell goods to a customer in another EU country/region, you must send the customer a certificate of supply that the customer must sign and return to you. The following procedures are for processing certificates of supply for sales shipments, but the same steps apply for service shipments of items, and return shipments to vendors.  
-
-### To view certificate of supply details  
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. Choose **Certificate of Supply Details**.  
-4. By default, if the **Certificate of Supply Required** check box is selected for VAT Posting Group setup for the customer, the **Status** field is set to **Required**. You can update the field to indicate whether the customer returned the certificate.  
-
-> [!Note]  
->  If the VAT Posting Group setup does not have the **Certificate of Supply Required** check box selected, then a record is created and the **Status** field is set to **Not Applicable**. You can update the field to reflect the correct status information. You can manually change the status from **Not Applicable** to **Required**, and from **Required** to **Not Applicable** as needed.  
-
-   When you update the **Status** field to **Required**, **Received**, or **Not Received**, a certificate is created.  
-
-> [!TIP]  
->  You can use the **Certificates of Supply** page to get a view of the status of all posted shipments for which a certificate of supply has been created.  
-
-5. Choose **Print Certificate of Supply**.  
-
-> [!Note]  
-> You can preview or print the document. When you choose **Print Certificate of Supply** and print the document, the **Printed** check box is automatically selected. In addition, if not already specified, the status of the certificate is updated to **Required**. If needed, you include the printed certificate with the shipment.  
-
-### To print a certificate of supply
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. Choose the **Print Certificate of Supply** action.  
-
-> [!NOTE]  
-> Alternatively, you can print a certificate from the **Certificate of Supply** page.  
-
-4. To include information from the lines on the shipment document in the certificate, turn on the **Print Line Details** toggle.  
-5. To have [!INCLUDE[prod_short](includes/prod_short.md)] create certificates for posted shipments that didn't have one, turn on the **Create Certificates of Supply if Not Already Created** toggle. When you turn on the toggle, new certificates are created for all posted shipments that don't have certificates within the selected range.  
-6. By default, the filter settings are for the shipment document that you selected. Fill in the filter information to select a specific certificate of supply that you want to print.  
-7. On the **Certificate of Supply** page, choose the **Print** action to print the report, or choose the **Preview** action to view it on the screen.  
-
-   > [!Note]  
-   > The **Certificate of Supply Status** field and the **Printed** field are updated for the shipment on the **Certificates of Supply** page.  
-
-8. Send the printed certificate of supply to the customer for signature.  
-
-### To update the status of a certificate of supply for a shipment  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. In the **Status** field, choose the relevant option.  
-
-   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
-
-   You can modify the date to reflect the date that you received the customer's signed certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] linking.  
-
-   If the customer doesn't return the signed certificate of supply, choose **Not Received**. You must then send the customer a new invoice that includes VAT, because the tax authority won't accept the original invoice.  
-
-To view a group of certificates, start from the **Certificates of Supply** page, and then update the information about the status of outstanding certificates as you receive them from your customers. The updated information can be useful when you want to search for all certificates that have a certain status, for example, **Required**, for which you want to update their status to **Not Received**.  
-
-### To update the status of a group of certificates of supply  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Certificates of Supply**, and choose the related link.  
-2. Filter the **Status** field to the value that you want in order to create the list of certificates that you want to manage.  
-3. To update the status information, choose **Edit List**.  
-4. In the **Status** field, choose the relevant option.  
-
-   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
-
-   You can modify the date to reflect the date that you received the signed the certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] document linking.  
-
-> [!NOTE]
-> You cannot create a new certificate of supply on the **Certificate of Supply** page when you navigate to it using this procedure. To create a certificate for a shipment that was not set up to require one, open the posted sales shipment, and use either of two procedures described earlier:  
->
-> * To manually create a certificate of supply certificate  
-> * To print a certificate of supply.
-
-## Related information
-
-[Setting Up Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md)  
-[Report VAT to a Tax Authority](finance-how-report-vat.md)  
-[Validate a VAT Registration Number](finance-how-validate-vat-registration-number.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-liabilities
----
-title: Liabilities
-description: The Liabilities report provides an overview of all liabilities broken down by current liabilities, payroll liabilities, and long-term liabilities. 
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 36990_Primary
-ms.date: 10/31/2024
-ms.service: dynamics-365-business-central
----
-
-# Liabilities (Power BI report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Liabilities** report provides an overview of your company's financial obligations, highlighting total liabilities, current liabilities, payroll liabilities, and long-term liabilities. It also shows key performance indicators such as debt ratio and dept-to-equity ratio, along with total assets.
-
-These key performance indicators can help you understand the balance between debt and equity while monitoring liabilities that affect future cash flow and operational flexibility.
-
-Drill through into the **Liabilities Drill-Through** page to explore the underlying ledger entries that make up the balance.
-
-:::image type="content" source="media/finance/liabilities-report.png" alt-text="Screenshot of the Liabilities report" lightbox="media/finance/liabilities-report.png":::
-
-## Use the report
-
-The audiences for the report are:
-
-- Executives
-- Directors
-- Other high-level decision makers
-
-Executives can use the report to evaluate your company's financial position before engaging in a new expansive initiative. By first analyzing current liabilities, you can gauge your immediate debt burden. This analysis helps you determine whether there are enough liquid assets to meet short term obligations, and ensure you have cash-flow to support existing operations and new development.
-
-Next, you could assess the debt ratio and debt-to-equity ratios. These key performance indicators provide insight into the company's leverage and risk profile. For example, a high debt-to-equity ratio could indicate that the company has a high reliance on borrowed funds. This type of data can help inform how you decide to finance the expansion project.  
-
-## Key Performance Indicators (KPIs)
-
-The *Liabilities* report includes the following KPIs and measures: 
-
-- [**Liabilities**](finance-powerbi-kpis.md#liabilities)
-- [**Current Liabilities**](finance-powerbi-kpis.md#current-liabilities)
-- [**Payroll Liabilities**](finance-powerbi-kpis.md#payroll-liabilities)
-- [**Longterm Liabilities**](finance-powerbi-kpis.md#longterm-liabilities)
-- [**Debt Ratio**](finance-powerbi-kpis.md#debt-ratio)
-- [**Debt/Equity Ratio**](finance-powerbi-kpis.md#debtequity-ratio)
-- [**Assets**](finance-powerbi-kpis.md#assets)
-- [**Balance at Date (Neg)**](finance-powerbi-kpis.md#balance-at-date-neg)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- G/L Entry
-- G/L Accounts
-- G/L Account Categories
-
-## Try the report
-
-Try the report here: [Liabilities](https://businesscentral.dynamics.com?page=36990)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI finance app](finance-powerbi-app.md)  
-[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Built-in core finance reports](finance-reports.md)  
-[Built-in fixed assets reports](fa-reports.md)  
-[Built-in accounts receivable reports](receivables-reports.md)  
-[Built-in accounts payable reports](payables-reports.md)  
-[Financial analytics overview](bi.md)  
-[Finance overview](finance.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/year-allocate-costs-income
----
-title: Overview of tasks to allocate costs and income
-description: Outlines the tasks to allocate an entry in a recurring general journal to several different accounts when you post the journal.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: overview
-ms.devlang: al
-ms.search.form: 283, 5629
-ms.date: 12/06/2024
-ms.custom: bap-template
-ms.service: dynamics-365-business-central
----
-
-# Allocate recurring costs and income
-
-You can allocate an entry in a recurring general journal to several accounts when you post the journal. To learn more about recurring general journals, go to [Work with recurring journals](ui-work-general-journals.md#work-with-recurring-journals).
-
-The following allocation methods are available:
-
-* Quantity
-* Percentage (%)
-* Amount
-
-The allocation features work with recurring general journals and in fixed asset journals.
-<!--You can also distribute the cost or revenue of a line to an intercompany partner when you post a sales or purchase document. When you post the document, a line will be posted in your general journal, and a corresponding line will be created in the intercompany outbox.-->
-
-The following procedures describe how to prepare to allocate costs in a recurring general journal by defining allocation keys. When allocation keys are defined, you complete and post the journal like any other recurring general journal. For more information, see [Work with General Journals](ui-work-general-journals.md).
-
-> [!IMPORTANT]  
-> **Allocation Accounts** aren't supported in recurring journals. While the **Allocation Account** option is available in the **Account Type** field on the lines of the journal, this option isn't supported. Instead, use the allocations feature as described in this article.
->
-> If you defined allocation accounts in a previous version of [!INCLUDE [prod_short](includes/prod_short.md)], update the setup to use allocations.
-
-## To set up allocation keys
-
-You can allocate an entry in a recurring general journal to several different accounts when you post the journal. The allocation can be a quantity, percentage, or amount.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring General Journals**, and then choose the related link.
-2. Choose the **Batch Name** field to open the **General Journal Batches** page.
-3. You can either modify allocations on an existing batch in the list or create a new batch with allocations.
-   * To create a new batch, choose the **New** action, and go to the next step.
-   * To change the allocations of an existing journal, select the journal and go to step 7.    
-4. In the **Name** field, enter a name for the batch, such as CLEANING. In the **Description** field, enter a description, such as Cleaning Expenses Journal.
-5. When you're done, close the page. A new, empty recurring journal opens.
-6. Fill in the fields on the line.
-7. Choose the **Allocations** action.
-8. Add a line for each allocation. You must fill in either the **Allocation %**, **Allocation Quantity**, or **Amount** field. You must also fill in the **Account No.** field and, if you're allocating the transaction among global dimensions, the global dimension fields.
-9. If you enter a percentage on a line, the amount in the **Amount** field is calculated automatically. These amounts have the opposite sign from the total amount in the **Amount** field in the recurring journal.
-10. After entering the allocations lines, choose **OK** to return to the **Recurring General Journal** page. The **Allocated Amt. (USD)** field is filled in and matches the **Amount** field.
-11. Post the journal.
-
-## To change an allocation key that is already set up
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring General Journals**, and then choose the related link.
-2. On the **Recurring General Journals** page, select the journal with the allocation.
-3. Choose the line with the allocation, and then choose the **Allocations** action.
-4. Change the relevant fields, and then choose **OK**.
-
-## Related information
-
-[Closing Years and Periods](year-close-years-periods.md)    
-[Work with General Journals](ui-work-general-journals.md)    
-[Posting Documents and Journals](ui-post-documents-journals.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-review-accounts
----
-title: Review general ledger accounts 
-description: You can track your progress when you review amounts in general ledger accounts.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.date: 08/06/2024
-ms.custom: bap-template
-ms.search.form: 20, 22207,
-ms.service: dynamics-365-business-central
----
-
-# Review amounts in general ledger accounts
-
-You might have general ledger accounts that you frequently keep an eye on. Or you might want to speed up the review process at the end of the month. For help with keeping track of what you've done, and to speed up reviews, use the **Review Entries** action on the **Chart of Accounts** or the **G/L Account Card** page for each account. 
-
-## Set up accounts for reviews
-
-On the **G/L Account Card** page for each account, specify how to allow reviews in the **Review Policy** field.
-
-|Review Policy  |Description  |
-|---------|---------|
-|None     | You can't mark entries for the account as reviewed. For example, use this option for accounts such as payables, receivables, and bank accounts where there are other ways to review their amounts.        |
-|Allow Review     | You don't have to include entries in a review, and the amounts of the debit and credit entries don't have to balance. You remove a review, for example, if you've made a mistake.        |
-|Allow Review and Match Balance     | The total amounts of the debit and credit entries in the review must match. The **Debit** and **Credit** fields show those amounts, and the **Balance** field shows the total. This setting also lets you remove a review. When you remove a review from one or more entries, the debit and credit entries must still balance.        |
-
-## Mark entries as reviewed
-
-Choose the entries you've reviewed, and then use the **Set selected as reviewed** action. Each time you mark one or more entries as reviewed the entries are given the same number in the **Reviewed Identifier** column. The review identifier is a handy way to keep track of the entries that were reviewed at the same time. [!INCLUDE [prod_short](includes/prod_short.md)] also records the user who did the review, and when they did it.
-
-If you mark entries as reviewed, but regret doing so, use the **Set selected as not reviewed** action.
-
-* If the Review allowed policy is assigned to the account, the action resets the reviewed identifier to 0 and removes the person and date and time of the review. 
-* If the Review allowed and match balance policy is assigned, the credit and debit must still balance. For example, if one of the entries in a review is a mistake, you can choose another entry with the correct value. The replacement entry doesn't have to have the same reviewed identifier.
-
-> [!TIP]
-> A fast way to choose multiple entries is to hold down Ctrl or Shift while you choose the entries. *Ctrl* lets you selects specific entries, and *Shift* selects all entries between the first and last entries you select.
-
-## Review accounts that have old entries
-
-You might have entries from past periods that you've already reviewed or just don't need a review. You just want to start reviewing entries from, for example, the beginning of the year or accounting period. You can leave the entries as is. However, if you want to analyze data in Excel or by using Analysis Mode, mark the entries as reviewed. To learn more about analyzing entries, go to [Analyze entries](#analyze-entries). To mark the entries as reviewed, add a filter on the Filter pane to display only those entries, and then choose the **Mark selected entries as reviewed** action.
-
-## Filter entries
-
-To get a clearer picture, there are several ways to filter entries on the **Review G/L Entries** page.
-
-* Use the **Show Reviewed Entries** and **Hide Reviewed Entries** actions to show only the entries you have or haven't reviewed. To clear the filters, use the **Show all entries** action.
-* Use the Filter pane. For example, you might filter by account number or, if you have older entries and want to mark them all as reviewed, by a posting date.
-
-## Analyze entries
-
-There are a couple of ways to analyze the general ledger entries you've reviewed.
-
-* Turn on Analysis Mode, for example, to group entries according to their reviewed identifier. To learn more about Analysis Mode, go to [Analyze List Page Data Using Analysis Mode](analysis-mode.md).
-* Export the entries to Excel.
-
-## Related information
-
-[Understand the General Ledger and Chart of Accounts](finance-general-ledger.md)    
-[Set Up or Change the Chart of Accounts](finance-setup-chart-accounts.md)    
 end of article
 

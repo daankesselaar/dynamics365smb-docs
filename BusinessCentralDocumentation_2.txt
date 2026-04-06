@@ -1,3 +1,149 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/hr-manage-human-resources
+---
+title: Manage human resources
+description: Register and manage employee records, maintain employment details, and track and analyze absences.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: v-soumramani
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: personnel, people, employee, staff, HR
+ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212, 5221, 5228
+ms.date: 10/03/2025
+ms.service: dynamics-365-business-central
+---
+
+# Manage human resources
+
+In [!INCLUDE[prod_short](includes/prod_short.md)], you can keep detailed records of your employees. You can register and maintain employee information, such as employment contracts, confidential information, qualifications, and employee contacts.
+
+You can also register employee absences, which allows you to analyze registered absences as necessary.
+
+To start using the Human Resources functionality, you must set up employees and other basic information. You can then associate various codes to an employee, which allows you to filter information for specific employees.
+
+The following table describes a sequence of tasks, with links to the articles that describe them.
+
+| To | Go to |
+|--|--|
+| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. | [Register Employees](hr-how-register-employees.md) |
+| Record employees' absence and view absence statistics by various filters. | [Manage Employee Absence](hr-how-manage-absence.md) |
+
+## Related information
+
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Change Which Features are Displayed](ui-experiences.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-access-with-m365-license-flow
+---
+title: User Access Flow for Microsoft 365 Licenses
+description: Get an overview of what happens when a user accesses Business Central data using their Microsoft 365 license for the first time.
+author: mikebc
+ms.author: mikebc
+ms.reviewer: bholtorf
+ms.service: dynamics-365-business-central
+ms.topic: article
+ms.date: 11/03/2022
+ms.custom: bap-template
+ms.search.keywords: License, access, Microsoft 365, collaborate, collaboration, Teams, Microsoft Teams
+---
+# User Access Flow for Microsoft 365 Licenses
+
+[!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
+
+This article describes what happens when a user accesses Business Central data using their Microsoft 365 license for the first time. Understanding this flow allows administrators to plan their approach and configure Business Central to match their business needs.
+
+1. First, the user’s identity is authenticated 
+2. Business Central verifies that all the [minimum requirements](admin-access-with-m365-license.md#minimum-requirements) are met.
+3. Business Central verifies that this user does not have a greater license, such as a Business Central license or an administrative role such as a delegated admin role. 
+4. Business Central verifies whether the user is accessing data that belongs to an environment that has enabled access with Microsoft 365 licenses. 
+5. The user record is provisioned in Business Central, assigning the User Group, Profile and Permission Sets defined in the Microsoft 365 license configuration page. By default, the Teams Users user group is assigned, the Employee profile is assigned, and only the Login permission set is assigned. Any other defaulting of user settings is also applied, just like a licensed Business Central user. 
+6. The full Business Central security model is applied, to determine whether the user should be able to access the record, page, in the specified company and specified environment. 
+
+If all steps succeed, the user can now view this Business Central data in Teams. The Business Central service automatically ensures read-only access and simplifies the UI. 
+
+The user account is now registered in Business Central and can be managed like any Business Central user.
+
+> [!NOTE]
+> Steps may vary depending on any additional security configuration that you have specified in Microsoft 365 or Business Central.
+
+## Related information
+
+[Business Central Access with Microsoft 365 licenses](admin-access-with-m365-license.md#minimum-requirements)  
+[Set Up Access with Microsoft 365 Licenses](admin-access-with-m365-license-setup.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-planning-assignment-table
+---
+title: Design details - Planning assignment table
+description: This topic provides insight into what happens when a change in the demand or supply patterns requires that you calculate how you plan for an item.
+author: brentholtorf
+ms.topic: concept-article
+ms.search.keywords:
+ms.date: 03/17/2026
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.custom: bap-template
+---
+# Design details: Planning assignment table
+
+All items should be planned for, however, there is no reason to calculate a plan for an item unless there has been a change in the demand or supply pattern since the last time a plan was calculated.  
+
+If the user has entered a new sales order or changed an existing one, there is reason to recalculate the plan. Other reasons include a change in forecast or the desired safety stock quantity. Changing a bill of material by adding or removing a component would most likely indicate a change, but for the component item only.  
+
+For multiple locations, the assignment takes place at the level of item per location combination. If, for example, a sales order has been created at only one location, application will assign the item at that specific location for planning.  
+
+The reason for selecting items for planning is a matter of system performance. If no change in an item’s demand-supply pattern has occurred, the planning system will not suggest any actions to be taken. Without the planning assignment, the system would have to perform the calculations for all items in order to find out what to plan for, and that would drain system resources.  
+
+The **Planning Assignment** table monitors demand and supply events and assigns the appropriate items for planning. The following events are monitored:  
+
+* A new sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
+* Change of item, quantity, location, variant, or date on a sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
+* Cancellation of a sales order, forecast, component, purchase order, production order, assembly order, or transfer order.  
+* Consumption of items other than planned.  
+* Output of items other than planned.  
+* Unplanned changes in inventory.  
+
+For these direct supply-demand displacements, the order tracking and action messaging system maintains the Planning Assignment table and states a planning reason as an action message.  
+
+The following changes in master data can also cause a planning imbalance:  
+
+* Change of status to Certified in the production BOM header (for all items using that header).  
+* Deleted line (child item).  
+* Change of status to Certified in the routing header (for all items using that routing).  
+* Changes in the following item card fields.  
+* Safety Stock Quantity or Safety Lead Time.  
+* Lead Time Calculation.  
+* Reorder Point.  
+* Production BOM No. (and all children of old BOM reference).  
+* Routing No.  
+* Reordering Policy.  
+
+In these cases, a new function, Planning Assignment Management, maintains the table and states the planning reason as Net Change.  
+
+The following changes do not cause a planning assignment:  
+
+* Calendars  
+* Other planning parameters on the item card  
+
+When calculating an MPS or an MRP, the following restrictions apply:  
+
+* MPS: The planning system checks that the item carries a demand forecast or a sales order. If not, the item is not included in the plan.  
+* MRP: If the planning system detects that the item is being replenished by an MPS planning line or MPS supply order, the item will be left out of the planning. However, any demand from relevant components is included.  
+
+## Related information  
+[Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md)   
+[Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)   
+[Design Details: Transfers in Planning](design-details-transfers-in-planning.md)   
+[Design Details: Planning Parameters](design-details-planning-parameters.md)  
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/setup-best-practices-supply-planning
 ---
 title: Setup Best Practices - Supply Planning
@@ -303,7 +449,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 08/07/2024
+ms.date: 03/27/2026
 ms.custom: bap-template
 ms.search.keywords: sales, crm, integration, sync, synchronize, table mapping
 ms.service: dynamics-365-business-central
@@ -316,7 +462,7 @@ The basis of synchronizing data is mapping the tables and fields in [!INCLUDE[pr
 
 An integration table is a table in the [!INCLUDE[prod_short](includes/prod_short.md)] database that represents a table, such as an account, in [!INCLUDE[cds_long_md](includes/cds_long_md.md)]. Integration tables include fields that correspond to columns in the [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table. For example, the Account integration table connects to the Accounts table in [!INCLUDE[cds_short_md](includes/cds_long_md.md)]. There must be an integration table mapping for each table in [!INCLUDE[cds_short_md](includes/cds_short_md.md)] that you want to synchronize with data in [!INCLUDE[prod_short](includes/prod_short.md)].
 
-When you create the connection between the apps, [!INCLUDE[prod_short](includes/prod_short.md)] sets up some default mappings. You can change the table mappings if you want. For more information, see [Standard Table Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization). If you changed the default mappings and want to revert your changes, on the **Integration Table Mappings** page, choose **Use Default Synchronization Setup**.
+When you create the connection between the apps, [!INCLUDE[prod_short](includes/prod_short.md)] sets up some default mappings. You can change the table mappings if you want. Learn more in [Standard Table Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization). If you changed the default mappings and want to revert your changes, on the **Integration Table Mappings** page, choose **Use Default Synchronization Setup**.
 
 > [!Note]
 > If you are using an on-premises version of [!INCLUDE[prod_short](includes/prod_short.md)], the integration table mappings are stored in table 5335 Integration Table Mappings, where you can view and edit the mappings. Complex mappings and synchronization rules are defined in codeunit 5341.
@@ -335,14 +481,16 @@ On the **Integration Table Mappings** page, you can use the New Table Mapping ac
 The guide lets you map the tables in [!INCLUDE [prod_short](includes/prod_short.md)] with existing integration tables in Dataverse. You can also specify the Dataverse table's unique identifier in **Integration Table Unique Identifier Field Name** and the **Integration Table Modified on Field Name**, which are needed for data synchronization to work.
 
 > [!NOTE]
-> The lookup on the Table column shows all [!INCLUDE [prod_short](includes/prod_short.md)] tables, including custom tables, that aren't yet mapped. It excludes those that already exist on your Integration Table Mappings page. The lookup on the Integration Table column shows only Dataverse tables (AL Proxy Tables) that are part of out-of-the-box integrations. To add additional or custom Dataverse tables, you'll need help from a developer to create and deploy them through an extension.
+> The lookup on the **Table** column shows all [!INCLUDE [prod_short](includes/prod_short.md)] tables, including custom tables, that aren't yet mapped. It excludes tables that already exist on your **Integration Table Mappings** page.
+>
+> In [!INCLUDE [prod_short](includes/prod_short.md)] 2025 release wave 2 (v27.0) and earlier, the lookup on the **Integration Table** column shows only Dataverse tables (AL Proxy Tables) that are part of out-of-the-box integrations. To add new or custom Dataverse tables, you need help from a developer to create and deploy them through an extension. Starting with 2026 release wave 1 (v28), new and custom Dataverse tables are readily available for mapping from the lookup on **Integration Table** column.
 
 The Advanced action opens extra table mapping settings that you can set up. In the **Advanced** section, the **Table Filter** field lets you specify filters for [!INCLUDE [prod_short](includes/prod_short.md)]. Use the **Integration Table Filter** field for Dataverse data to consider in data synchronization together with the configuration template codes in **Table Config. Template Code** and **Int. Tbl. Config. Code** to prefill missing data when new data comes from either application.
 
 The guide also helps you specify the fields you want the new mapping to contain. You can match a [!INCLUDE [prod_short](includes/prod_short.md)] field in the **Field Name** column with a Dataverse field name in the **Integration Field Name** column. You can also specify a **Direction**, whether the field always has the same value in the **Constant** column, and whether validations or transformations need to be applied during field mapping.
 
 > [!NOTE]
-> To reduce errors, the lookup for the **Integration Table Field** column filters to a list of available fields. To map fields that the filters don't include, you'll need help from a developer.
+> In 2025 release wave 2 (v27.0) and earlier, you can't map new or custom fields using the **Integration Table Field** column&mdash;you can in later versions. Also, to reduce errors, the lookup for the **Integration Table Field** column filters to a list of available fields. To map fields that the filters don't include, you need help from a developer.
 >
 > * Fields must be enabled.
 > * You can't use the guide to map FlowField and FlowFilter fields.
@@ -373,20 +521,20 @@ After you specify the strategy, on the **Coupled Data Synchronization Errors** p
 
 ## Mapping integration fields
 
-Mapping tables is only the first step. You must also map the fields on the tables. Integration field mappings link fields in [!INCLUDE[prod_short](includes/prod_short.md)] tables with corresponding columns in [!INCLUDE[prod_short](includes/cds_long_md.md)], and determine whether to synchronize data in each table. The standard table mapping that [!INCLUDE[prod_short](includes/prod_short.md)] provides includes field mappings, but you can change the mappings. For more information, see [Viewing Table Mappings](admin-synchronizing-business-central-and-sales.md#tip-for-admins-viewing-table-mappings).
+Mapping tables is only the first step. You must also map the fields on the tables. Integration field mappings link fields in [!INCLUDE[prod_short](includes/prod_short.md)] tables with corresponding columns in [!INCLUDE[prod_short](includes/cds_long_md.md)], and determine whether to synchronize data in each table. The standard table mapping that [!INCLUDE[prod_short](includes/prod_short.md)] provides includes field mappings, but you can change the mappings. Learn more in [Viewing Table Mappings](admin-synchronizing-business-central-and-sales.md#tip-for-admins-viewing-table-mappings).
 
 > [!Note]
 > If you are using an on-premises version of [!INCLUDE[prod_short](includes/prod_short.md)], integration field mappings are defined in table 5336 Integration Field Mapping.
 
-You can manually map the fields, or you can automate the process by mapping multiple fields at the same time based on criteria for matching their values. For more information, see [To couple multiple records based on field value matching](admin-how-to-couple-and-synchronize-records-manually.md).
+You can manually map the fields, or you can automate the process by mapping multiple fields at the same time based on criteria for matching their values. Learn more in [To couple multiple records based on field value matching](admin-how-to-couple-and-synchronize-records-manually.md).
 
 ### Handle differences in field values
 
-Sometimes the values in the fields that you want to map are different. For example, in [!INCLUDE[crm_md](includes/crm_md.md)] the language code for the United States is "U.S.," but in [!INCLUDE[prod_short](includes/prod_short.md)] it's "US." That means you must transform the value when you synchronize data. You can specify transformation rules for the fields on the **Integration Table Mappings** page by choosing **Mapping**, and then **Fields**. Predefined rules are provided, but you can also create your own. For more information, see [Transformation Rules](across-how-to-set-up-data-exchange-definitions.md#transformation-rules).
+Sometimes the values in the fields that you want to map are different. For example, in [!INCLUDE[crm_md](includes/crm_md.md)] the language code for the United States is "U.S.," but in [!INCLUDE[prod_short](includes/prod_short.md)] it's "US." That means you must transform the value when you synchronize data. You can specify transformation rules for the fields on the **Integration Table Mappings** page by choosing **Mapping**, and then **Fields**. Predefined rules are provided, but you can also create your own. Learn more in [Transformation Rules](across-how-to-set-up-data-exchange-definitions.md#transformation-rules).
 
 ### Handle missing option values
 
-[!INCLUDE[prod_short](includes/cds_long_md.md)] contains option set columns that provide values that you can map to [!INCLUDE[prod_short](includes/prod_short.md)] fields of the type **Option** for automatic synchronization. During synchronization, nonmapped options are ignored and the missing options are appended to the related [!INCLUDE[prod_short](includes/prod_short.md)] table and added to the **CDS Option Mapping** system table to be handled manually later. For example, by adding the missing options in either product and then updating the mapping. For more information, see [Handling Missing Option Values](admin-cds-missing-option-values.md).
+[!INCLUDE[prod_short](includes/cds_long_md.md)] contains option set columns that provide values that you can map to [!INCLUDE[prod_short](includes/prod_short.md)] fields of the type **Option** for automatic synchronization. During synchronization, nonmapped options are ignored and the missing options are appended to the related [!INCLUDE[prod_short](includes/prod_short.md)] table and added to the **CDS Option Mapping** system table to be handled manually later. For example, by adding the missing options in either product and then updating the mapping. Learn more in [Handling Missing Option Values](admin-cds-missing-option-values.md).
 
 ## Couple records
 
@@ -397,7 +545,7 @@ Coupling links rows in [!INCLUDE[prod_short](includes/cds_long_md.md)] to record
 
 Coupling requires that the apps are already integrated.
 
-Couplings can be set up automatically by using the synchronization jobs, or manually by editing the record in [!INCLUDE[prod_short](includes/prod_short.md)]. For more information, see [Synchronizing Data in [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md) and [Couple and Synchronize Records Manually](admin-manual-synchronization-of-table-mappings.md#synchronize-individual-table-mappings).
+Couplings can be set up automatically by using the synchronization jobs, or manually by editing the record in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more in [Synchronizing Data in [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[prod_short](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md) and [Couple and Synchronize Records Manually](admin-manual-synchronization-of-table-mappings.md#synchronize-individual-table-mappings).
 
 ## Filter records and rows  
 
@@ -430,7 +578,7 @@ If you install the default synchronization setup, most of the time, two configur
 
 * **CDSACCOUNT** creates and synchronizes new accounts in [!INCLUDE[prod_short](includes/cds_long_md.md)] based on an account in [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-You can add more templates, and use filters to define conditions under which [!INCLUDE [prod_short](includes/prod_short.md)] applies them. The templates apply to data moving in either direction. For example, you might use a template for domestic customers in the United States, and another for foreign customers in the European Union, or vice versa. In that case, when the data synchronizes, [!INCLUDE [prod_short](includes/prod_short.md)] uses the country/region code for the customer to apply the appropriate template.
+You can add more templates, and use filters to define conditions under which [!INCLUDE [prod_short](includes/prod_short.md)] applies them. The templates apply to data moving in either direction. For example, you might use a template for domestic customers in the United States and another for foreign customers in the European Union&mdash;or vice versa. In that case, when the data synchronizes, [!INCLUDE [prod_short](includes/prod_short.md)] uses the country/region code for the customer to apply the appropriate template.
 
 ### To specify configuration templates on a table mapping  
 
@@ -907,8 +1055,8 @@ title: Company information overview
 description: The Company Information page specifies basic information for a business entity, such as name, addresses, and shipping information. 
 author: jswymer
 ms.topic: how-to
-ms.search.form: 1
-ms.date: 04/24/2024
+ms.search.form: 1_Primary,
+ms.date: 03/04/2026
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.service: dynamics-365-business-central
@@ -941,7 +1089,7 @@ When there's more than one company or environment, the company switcher shows on
 
 :::image type="content" source="media/ui-experience/company-switch-2.png" alt-text="Shows the company switcher icon in the heading of the Business Central client.":::  
 
-Starting in 2023 release wave 2, version 23, the company badge appears in the browser tab when using the web client. It's also in page links that you [copy and paste](across-share-data-features.md#copying-a-link) in rich text editors, like Word, Outlook, and Teams.
+The company badge appears in the browser tab when using the web client. It's also in page links that you [copy and paste](across-share-data-features.md#copying-a-link) in rich text editors, like Word, Outlook, and Teams.
 
 The following video shows how to work with company badges.
 
@@ -1495,8 +1643,6 @@ ms.custom: bap-template
 
 # Manual inspection creation
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains various ways to manually create quality inspections. Manual inspection creation provides flexibility for:
 
 - Reactive inspections, where you create inspections in response to discovered quality issues.
@@ -1586,9 +1732,19 @@ This method is best for creating inspections that are independent of specific do
 4. Set up parameters for your inspection, as follows:
 
    - **Source**: Enter the source document reference.
-   - **Item Number**: Select the item to inspect.
    - **Lot/Serial Number**: Enter a lot or serial number, if needed.
-   - **Quantity**: Specify the quantity to inspect.
+
+### Create an inspection by running the Schedule Inspection report
+
+This method is best for bulk-creating inspections across multiple items or generation rules at once. Unlike other manual methods, you don't need to select a specific source record such as a purchase line or item ledger entry - the report automatically finds matching source records based on the conditions defined in each generation rule. 
+
+> [!Important]
+> The report creates inspections for all enabled generation rules that match your filters. If you don't apply filters, it processes every enabled rule against all matching source records, which can generate a large number of inspections. Always filter by **Template Code** or other criteria to limit the scope before running the report.
+
+1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Inspection - Schedule Inspection**, and then choose the related link.
+2. Use the **Template Code** filter to target generation rules linked to a specific template. Use additional filters to narrow the scope and avoid creating too many inspections.
+3. Choose **OK** to run the report. Inspections are created for all matching, enabled generation rules.
+
 
 <!--
 ## Scenarios where you might create inspections manually
@@ -1705,7 +1861,8 @@ The following are some recommendations for inspection protocol:
 [Production Output Quality Inspections](qms-production-output-testing.md)  
 [Creating Quality Inspection Templates](qms-quality-templates.md)  
 [Setting Up Inspection Generation Rules](qms-test-generation-rules.md)  
-[Quality Management Overview](qms-overview.md)end of article
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-how-to-set-up-a-dynamics-crm-connection
 ---
@@ -2653,7 +2810,9 @@ The agent performance is monitor through user feedback and automated quality che
 
 ## What are the limitations of Payables Agent? How can users minimize the impact of these limitations?
 
-- **File Format and Language Support:** The agent works with PDF invoices only, and doesn't support other file formats. The agent only processes emails that have PDF attachments. Emails without PDF attachments are not processed for invoice creation. The invoices must arrive via email to monitored mailboxes. Users can't upload files directly. The agent only supports English.
+- **File Format and Language Support:** The agent works with PDF invoices only, and doesn't support other file formats. The agent only processes emails that have PDF attachments. Emails without PDF attachments are not processed for invoice creation. The invoices must arrive via email to monitored mailboxes. Users can't upload files directly.
+
+- **Geographic and language availability:** [!INCLUDE[copilot-geo-and-language-availability](includes/copilot-geo-and-language-availability.md)]
 
 - **Email Attachment Limits:** The agent skips emails with more than 10 attachments. To ensure proper processing, limit each email to 10 or fewer attachments.
 
@@ -3043,6 +3202,90 @@ If you accidentally delete a purchase invoice or credit memo, you can't proceed 
 
 > [!NOTE]
 > The action works only with unposted purchase invoices and credit memos. It doesn't work for purchase orders.
+
+### Link an e-document to an existing purchase document
+
+The **Link to Existing Document** action allows you to associate an incoming e-document with a purchase document that already exists in [!INCLUDE [prod_short](includes/prod_short.md)], rather than creating a new document. This is useful when:
+
+- The purchase document was created manually before the e-document arrived.
+- You want to attach the e-document as supporting documentation to an existing transaction.
+- You need to correct a previous linking by choosing a different document.
+
+#### When to use this action
+
+> [!IMPORTANT]
+> We generally recommend using the e-document processing engine to automatically create new purchase documents rather than linking to existing documents. This ensures proper document tracking and audit trails.
+
+However, certain scenarios might require linking to existing documents. Currently, the **Link to Existing Document** action only supports intercompany scenarios. For example, with intercompany invoices, you might receive an e-document from the e-document service while an existing purchase document is already in the system.
+
+> [!NOTE]
+> The **Link to Existing Document** action is hidden by default. To make it visible, use [personalization](ui-personalization-user.md) to show the action on the page.
+
+#### Prerequisites
+
+Before you can use the **Link to Existing Document** action:
+
+- The e-document must have a vendor number assigned in the draft
+- The vendor must have an **IC Partner Code** configured on the vendor card (this is required because the action currently only supports intercompany scenarios)
+
+#### How to link an e-document to an existing document
+
+To link an e-document to an existing purchase document, follow these steps:
+
+1. Open the **E-Document Purchase Draft** page.
+1. Make sure a vendor is assigned to the e-document.
+1. Select the **Link to Existing Document** action from the **Process** menu.
+1. A list of purchase documents opens, pre-filtered by:
+   - The vendor from the e-document
+   - The total amount (Amount Incl. VAT) from the e-document
+1. Select the document you want to link to.
+1. Confirm the linking action when prompted.
+
+#### What happens after linking
+
+When you link an e-document to an existing purchase document:
+
+|Field |Value |
+|--------|-----------------|
+|**E-Document Link** (on Purchase Document) |Set to the e-document's system ID |
+|**Doc. Amount Incl. VAT** |Transferred from e-document total |
+|**Doc. Amount VAT** |Transferred from e-document VAT total |
+|**Created from E-Document** |Set to **No** (the document existed before linking) |
+|**E-Document Status** |Changed to **Processed** |
+
+> [!IMPORTANT]
+> No new purchase document is created when linking to an existing document.
+
+#### Relinking to a different document
+
+If the e-document is already processed (linked to a document) and you want to link it to a different document:
+
+1. When you select **Link to Existing Document**, a warning message appears:
+
+   > "This e-document is already linked to a document. Linking to [Document Type] [Document No.] will unlink the currently linked document. If it was created from this e-document, it will be deleted. Do you want to continue?"
+
+1. If you proceed:
+   - If the previously linked document was created from this e-document: The document is deleted
+   - If the previously linked document was NOT created from this e-document: The document is unlinked only (**E-Document Link** field is cleared, but the document remains)
+1. The newly selected document becomes linked to the e-document.
+
+#### Document type matching
+
+The **Link to Existing Document** action opens the appropriate document list based on the e-document type:
+
+|E-Document Type |Opens Page |
+|--------|-----------------|
+|Purchase Invoice |Purchase Invoices |
+|Purchase Credit Memo |Purchase Credit Memos |
+
+#### Error messages
+
+When using the **Link to Existing Document** action, you might encounter the following errors:
+
+|Error |Cause |Resolution |
+|--------|-----------------|-----------------|
+|"Cannot link e-document to existing purchase document because vendor number is missing" |No vendor assigned to e-document |Assign a vendor in the **Vendor No.** field |
+|"IC Partner Code must have a value" |Vendor doesn't have IC Partner Code |Configure **IC Partner Code** on the vendor card |
 
 #### Map text on an e-document to a specific vendor account
 
@@ -6925,7 +7168,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: SMTP, mail, Microsoft 365, Outlook
 ms.search.form: 1831, 1832
-ms.date: 10/21/2024
+ms.date: 03/10/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
@@ -6952,7 +7195,7 @@ The Business Central add-in for Outlook consists of two smaller add-ins:
 
     When an email refers to a business document number in the email body, this add-in provides a direct, in-line link from email body to the actual business document in [!INCLUDE[prod_short](includes/prod_short.md)].
 
-For more information about what you do with the add-ins, see [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md).
+Learn about what you do with the add-ins in [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md).
 
 Each add-in is provided as an XML file, called a *manifest*, which must be installed in Outlook of anyone who wants this functionality. These files describe how to activate the add-ins and connect to Business Central when they're used in Outlook. Working with these files is typically done by an admin. As a user, in most cases, you won't have to handle with these files directly. Either your admin will set up the add-in to install automatically for you or you'll use the built-in assisted setup to handle the installation.
 
@@ -6964,7 +7207,7 @@ Each add-in is provided as an XML file, called a *manifest*, which must be insta
 Centralized Deployment is a feature in Microsoft 365 admin center that you use to automatically install add-ins in users' Office apps, like Outlook. It's the recommended way for admins to deploy for Office add-ins to users and groups within your organization.
 
 > [!NOTE]
-> For Business Central on-premises, see [Setting Up the Add-In for Outlook Integration with Business Central On-Premises](/dynamics365/business-central/dev-itpro/administration/setting-up-office-add-ins-outlook-inbox) in the administration content (English only).
+> For Business Central on-premises, learn how to set up the add-in in [Setting Up the Add-In for Outlook Integration with Business Central On-Premises](/dynamics365/business-central/dev-itpro/administration/setting-up-office-add-ins-outlook-inbox) (English only).
 
 ### Prerequisites
 
@@ -7001,40 +7244,26 @@ Centralized Deployment is a feature in Microsoft 365 admin center that you use t
 > [!IMPORTANT]
 > A green check mark appears when the add-in is deployed to the admin center. However, it can take up to 24 hours before users see the add-in in the [!INCLUDE [outlook-name-short](includes/outlook-name-short.md)] app. Users might have to restart Outlook as well.
 
-When finished, you can always change the deployment in Microsoft 365 admin center, like assigning more users. For more information about deploying add-ins in the admin center, see [Deploy add-ins in the admin center](/microsoft-365/admin/manage/centralized-deployment-faq?view=o365-worldwide#how-do-you-target-add-in-user-assignments-with-centralized-deployment-&preserve-view=true).
+When finished, you can always change the deployment in Microsoft 365 admin center, like assigning more users. Learn more about deploying add-ins in the admin center in [Deploy add-ins in the admin center](/microsoft-365/admin/manage/centralized-deployment-faq?view=o365-worldwide#how-do-you-target-add-in-user-assignments-with-centralized-deployment-&preserve-view=true).
 
 ## <a name="install"></a>Install the add-in for your own use
 
-If your organization allows it, you can install the Business Central add-in for just yourself. Contact your administrator if you're not sure.
-
-1. In Business Central, go to the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Get the Outlook Add-in**, and then select the related link.
-2. Read the page and select **Next** when ready.
-3. If you want to receive a welcome email message from Business Central with overview of using the add-in, turn on **Send sample email message**.
-4. Select **Finish** to complete the installation.
-
-Business Central now connects to your email server and installs the add-in in your [!INCLUDE [outlook-name-short](includes/outlook-name-short.md)]. This operation doesn't take long. You're now ready to start using the add-in in [!INCLUDE [outlook-name-short](includes/outlook-name-short.md)].
-
-### <a name="onprem"></a>For Business Central on-premises
-
-If you're using Business Central on-premises, installing the add-in might be slightly different.
-
-1. In Business Central, go to the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Get the Outlook Add-in**, then select the related link.
+1. In Business Central, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Get the Outlook Add-in**, then select the related link.
 1. Read the page and select **Next** when ready.
-1. Do one of the following steps, depending on the page you see:
+1. The **Configure Outlook** page opens to display the steps you need to complete to install the add-in. Do the following steps:
 
     - If you see the **Install to my Outlook** button, select it and you're all done.
-    - If you see the **Next** button, select it. On the next page, if you want to receive a welcome email message from Business Central with overview of using the add-in, turn on **Send sample email message**. Then, select **Finish** and you're all done.
+    - If you see the **Next** button, select it. On the next page, if you want to receive a welcome email message from Business Central with an overview of using the add-in, turn on **Send sample email message**. Then, select **Finish** and you're all done.
     - If you see the **Download Add-in** button, select it, then continue to the next step.
 1. When you select **Download Add-in**, a file with the name *OutlookAddins.zip* is downloaded to your device. You should find the file at the top of the browser.
 
-   Go the folder where the OutlookAddins.zip was downloaded, and extract the **Contact Insights.xml** and **Document View.xml** file from the .zip to a folder of your choice. For more information about how to extract files, see [Zip and Unzip files and folders](https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5).
-
+   Go to the folder where the OutlookAddins.zip was downloaded, and extract the **Contact Insights.xml** and **Document View.xml** files from the .zip to a folder of your choice. Learn more about extracting files in [Zip and Unzip files and folders](https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5).
 1. In your browser, visit [https://aka.ms/olksideload](https://aka.ms/olksideload). This link opens Outlook on the web, and then loads the **Add-Ins for Outlook** dialog.
 1. Select **My add-ins** > **Add a custom add-in** > **Add from a file**.
 1. Select one of the .xml files that you extracted, like **Contact Insights.xml**, then select **Open** > **Install**.
-1. Repeat step 6 and 7 for the other .xml file, if you downloaded one.
+1. Repeat steps 6 and 7 for the other .xml file, if you downloaded one.
 
-You're now ready to start using the add-in in Outlook.
+You're now ready to start using the add-in in Outlook. Learn more in [Use Business Central as your Business Inbox in Outlook](work-outlook-addin.md).
 
 Learn more about installing add-ins in Outlook at [Use add-ins in Outlook](https://support.microsoft.com/en-us/office/use-add-ins-in-outlook-1ee261f9-49bf-4ba6-b3e2-2ba7bcab64c8).
 
@@ -9152,11 +9381,7 @@ The tables in the following sections explain the accounts in more detail. They s
 
 |Account  |Balancing account  |
 |---------|---------|
-|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly order line.|
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code is blank.|Page: General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the work center.<br><br>Page General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the subcontracting vendor.<br>* The General Product Posting Group comes from the work center.|
+|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly.<br><br>Page: General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the work center.<br><br>Page General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the subcontracting vendor.<br>* The General Product Posting Group comes from the work center.|
 
 ## Related information  
 
@@ -10717,7 +10942,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 5430,
-ms.date: 09/11/2025
+ms.date: 03/18/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -10848,6 +11073,38 @@ The attention warning displays in two situations:
 
 > [!NOTE]
 > In planning lines with warnings, the **Accept Action Message** field isn't selected, because the planner is expected to further investigate these lines before carrying out the plan.
+
+### Missing SKU Planning Policy
+
+Two fields on the **Location Card** give you per-location control over SKU-related behavior during supply planning and SKU creation.
+
+When the planning system detects demand at a location, it checks whether a SKU exists for the item at that location. If a SKU exists, the item is planned according to planning parameters on the SKU card. 
+
+The **Missing SKU Planning Policy** field on the **Location Card** page lets you choose what happens when no SKU exists. You can preserve the original behavior, use the item card parameters instead, or skip planning entirely for that location.
+
+### Missing SKU Planning Policy
+
+When the planning system detects demand at a location, it checks for a SKU in the following sequence. The **Missing SKU Planning Policy** field determines what happens at step 2 when no SKU exists. If it finds a SKU, the item is planned according to planning parameters on the SKU card. This is the same for all three policy values. If it doesn't find a SKU, it checks the **Missing SKU Planning Policy** field on the demand location. What happens next depends on the policy value, as described in the following table.
+
+| Policy value | System behavior |
+|---|---|
+|Minimal (default) | This policy preserves the existing behavior described in [Planning with or without locations](/dynamics365/business-central/production-planning-with-without-locations):<br><br>- If the **Components at Location** field in **Manufacturing Setup** equals the demand location, the item is planned according to planning parameters on the item card.<br>- If **Components at Location** differs from the demand location and the **Reordering Policy** on the item card is **Order**, the item is planned according to planning parameters on the item card. Items using the reordering policy **Order** continue to use the policy and the other settings.<br>- Otherwise, the item is planned according to the minimal alternative where the **Reordering Policy** is set to **Lot-for-Lot**, **Include Inventory** is **Yes**, all other planning parameters are empty. |
+|Item Card| The item is planned according to planning parameters on the item card, regardless of the **Components at Location** setting. The system creates a temporary SKU by copying planning parameters from the item for the planning run. It logs an entry on the **Planning Error Log** page, noting that planning parameters were taken from the item card because the SKU doesn't exist. |
+| Don't Plan | The system skips planning for the item at this location entirely, similar to what happens when the **Reordering Policy** field is blank on the item or SKU. It logs an entry on the **Planning Error Log** page, noting that the item wasn't planned because the SKU doesn't exist and the **Missing SKU Planning Policy** is set to **Don't Plan**. |
+   
+> [!NOTE]
+> The **Don't Plan** setting takes priority over the **Components at Location** field on **Manufacturing Setup** page. Even if **Components at Location** equals the demand location, the item isn't planned when the policy is **Don't Plan**.
+
+#### SKU Creation Policy field
+
+This field controls whether stockkeeping units can be created for the location. The field complements the **Missing SKU Planning Policy** field by preventing people from accidentally creating SKUs at locations where SKU-level management isn't needed. The following table describes the available options-
+
+| Field value | System behavior |
+|---|---|
+| Allowed (default) | You can create SKUs manually. The **Create Stockkeeping Unit** report (5706) creates SKUs for this location. |
+| Blocked | You can't create SKUs manually for this location. The **Create Stockkeeping Unit** report skips this location silently. |
+
+Blocking applies only to real (persisted) SKUs. Temporary SKUs that the planning engine creates internally aren't affected.
 
 ## Planning worksheets and requisition worksheets
 
@@ -13287,18 +13544,20 @@ ms.reviewer: jswymer
 ms.topic: article
 ms.collection:
   - bap-ai-copilot
-ms.date: 10/27/2025
+ms.date: 03/29/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.search.form: 4400, 4410_Primary
 ---
 # Item availability in Sales Order Agent (preview)
 
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+
 The **Item Availability** page is part of Sales Order Agent for checking item availability during the sales order-taking process. This article provides a detailed overview of how the **Item Availability** page functions, including configuration and field descriptions.
 
 ![Screenshot of Item Availability page](media/soa-item-availability-page-clip.svg "Screenshot of Item Availability page")
 
-
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
 ## Overview
 
@@ -13322,7 +13581,11 @@ The agent creates an email about the unavailable items for your review.
 
 ## How to check item availability page
 
-Before the agent calculates the availability and prices for requested items, it searches for the customer making the request, retrieves the customer's specific location, and then sets the **Customer No.** and **Location Filter** fields on the **Item Availability** page.
+Before the agent calculates the availability and prices for requested items, it searches for the customer making the request, retrieves the customer's specific location, and then sets the **Customer No.** and **Location Filter** fields on the **Item Availability** page:
+
+- If a location is assigned to the customer, the agent automatically copies the location code from the **Customer Card** page to the **Location Filter** field based on the value in the **Customer No.** field.
+- If the **Location Code** field on the **Customer Card** is blank, but a responsibility center is assigned to the user or customer, the agent copies the location code from the **Responsibility Center** page.
+- If neither of these applies, the agent copies the location code from the **Location Code** field on the **Company Information** page.
 
 After setting these fields, the agent calculates the availability of each item in the request one at a time. The agent sets the **Date filter** with the customer's requested delivery date, if any, and the **Quantity Filter** to the requested quantity, currently only in the base unit of measure.
 
@@ -13854,8 +14117,6 @@ ms.custom: bap-template
 
 # Create quality inspection templates
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 Quality inspection templates define the measurements and attributes you want to collect during quality testing. Templates serve as the foundation for all quality tests, and contain:
 
 - A **Template Code**, which is the unique identifier for the template.
@@ -14020,8 +14281,6 @@ ms.custom: bap-template
 ---
 
 # Configure quality inspection results
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
 This article explains how to configure and use quality inspection results in quality management.
 
@@ -14875,41 +15134,47 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-to-combine-receipts
 ---
-title: Combine receipts on a single invoice
+title: Combine receipts or PO lines on a single invoice
 description: Use the Combine Receipts function to invoice multiple purchase receipts from the same vendor on a single purchase invoice.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: combine receipts, single invoice, purchase invoice, purchase receipt, purchase order, blanket purchase order, post purchase invoice, get receipt lines
 ms.search.form: 136, 145, 146, 9308
-ms.date: 10/03/2025
+ms.date: 03/23/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ---
 
-# Combine receipts on a single invoice
+# Combine receipts or purchase order lines on a single invoice
 
-If you want to invoice more than one purchase receipt at a time, you can select multiple receipt lines on the purchase invoice.  
+If you work with purchase orders and invoices, you might experience that:
 
-Before you can create a combined purchase receipt, more than one receipt from the same vendor in the same currency must be posted. In other words, you must have filled in two or more purchase orders and posted them as received, but not invoiced.  
+- A vendor invoice arrives before you receive the goods they're billing you for.
+- A vendor invoice covers multiple receipts or purchase order lines.
 
-When purchase receipts are combined on an invoice and posted, then a posted purchase invoice is created for the invoiced lines. The **Quantity Invoiced** field on the originating purchase order, or blanket purchase order, is updated based on the invoiced quantity. However, this original purchase document isn't deleted, even if it has been fully received and invoiced, and you must therefore delete the purchase document.  
+To handle situations like these, you can use the **Get Receipt Lines** or **Get Order Lines** actions on the **Purchase Invoices** page. This article describes these actions.
+
+## Use the Get Receipt Lines action
+
+If you want to invoice more than one purchase receipt at a time, you can select multiple receipt lines on the purchase invoice. Before you can create a combined purchase receipt, you must post more than one receipt from the same vendor in the same currency. In other words, you must create two or more purchase orders and post them as received but not invoiced.  
+
+When you combine and post purchase receipts on an invoice, a posted purchase invoice is created for the invoiced lines. The **Quantity Invoiced** field on the originating purchase order or blanket purchase order updates based on the invoiced quantity. However, the original purchase document isn't deleted, even if it was fully received and invoiced. If needed, you can manually delete the purchase document.
 
 > [!NOTE]
-> The resulting purchase invoice cannot later be corrected or canceled. If you want to modify a purchase invoice that is created in this way, you must use purchase credit memos. Learn more in [Correct or Cancel Unpaid Purchase Invoices](purchasing-how-correct-cancel-unpaid-purchase-invoices.md).
+> You can't change or cancel the resulting purchase invoice, for example, to correct a mistake. If you want to modify a purchase invoice that you created in this way, you must use a purchase credit memo. Learn more in [Correct or Cancel Unpaid Purchase Invoices](purchasing-how-correct-cancel-unpaid-purchase-invoices.md).
 
-## Combine receipts
+To att lines from receipts, follow these steps:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.  
 2. Choose the **New** action. Learn more in [Record Purchases](purchasing-how-record-purchases.md).  
 3. On the **Lines** FastTab, choose the **Get Receipt Lines** action.  
 4. Select multiple receipt lines that you want to include in the invoice.  
 
-    If an incorrect receipt line was selected or you want to start over, you can just delete the lines on the purchase invoice and then use the **Get Receipt Lines** function again.  
+    If you chose an incorrect receipt line or you want to start over, you can just delete the lines on the purchase invoice and then use the **Get Receipt Lines** action again.  
 5. To post the invoice, choose the **Post** action.  
 
-## Remove open purchase orders after combined receipt posting
+### Remove open purchase orders after combined receipt posting
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Delete Invoiced Purchase Orders**, and select the related link.  
 2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)].
@@ -14918,6 +15183,34 @@ When purchase receipts are combined on an invoice and posted, then a posted purc
 Alternatively, delete the individual orders manually.
 
 Repeat steps 1 through 3 for any other affected documents, such as blanket purchase orders.
+
+## Use the Get Order Lines action
+
+The **Get Order Lines** action on the **Purchase Invoice** page opens a list of order lines that are received but not invoiced, or order lines that aren't received. You can match each invoice line to any number of purchase order lines, regardless of whether receipts exist. When receipts exist, they display with the relevant details. When receipts don't exist, you can match the invoice line directly to the purchase order lines and decide later whether to receive manually or to use the autoreceipt capability.
+
+From each invoice line, you can open the **Matched Order Lines** page to review and adjust the order lines that you'll invoice with that invoice line. You can edit quantities, add more purchase order lines or posted receipt lines, and review discrepancies such as price or amount differences. You can also open the **Matched Order Lines** page on the invoice header to review and correct matching across the entire document.
+
+On purchase orders, the **Matched Invoice Lines** field shows the quantity matched through invoice lines to each order line. 
+
+When you turn on the **Receipt on Invoice** toggle on the order, posting the linked invoice automatically creates the required receipts. However, you can't enable this option for orders that use advanced warehouse operations or item tracking, or are already partially received.
+
+To add lines from purchase orders, follow these steps:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.  
+2. Choose the **New** action. Learn more in [Record Purchases](purchasing-how-record-purchases.md).  
+3. On the **Lines** FastTab, choose the **Get Order Lines** action.  
+4. Select the orders that you want to include in the invoice.  
+
+    If you chose an incorrect order or you want to start over, you can just delete the lines on the purchase invoice and then use the **Get Order Lines** action again.  
+5. To post the invoice, choose the **Post** action.
+
+### Known limitations for the Get Order Lines action
+
+This feature has a few limitations to be aware of:
+ 
+- It doesn’t work with orders that have prepayments, or lines of the **Item Charges** type.
+- You can’t use it with orders linked to projects, subcontracting, blanket orders, or intercompany transactions.
+- You can’t use autoreceive with partially received lines, or locations that use directed put-away and pick (in warehouse management).
 
 ## Related information
 
@@ -16094,8 +16387,6 @@ ms.custom: bap-template
 
 # Quality management workflows
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
 This article explains how to set up and use workflows to automate quality management processes.
 
 Quality Management integrates with workflows in [!INCLUDE [prod_short](includes/prod_short.md)] to automate responses to quality inspection events. Workflows can automatically run business actions when quality inspections are created, finished, or when specific conditions are met. For example, quality management workflows can:
@@ -16103,21 +16394,6 @@ Quality Management integrates with workflows in [!INCLUDE [prod_short](includes/
 - Block and unblock lots.
 - Move inventory.
 - Create negative adjustments.
-
-## Enable workflow integration
-
-Before creating quality management workflows, ensure that workflow integration is enabled:
-
-1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Management Setup**, and then choose the related link.
-2. On the **Defaults** FastTab, turn on the **Workflow Integration Enabled** toggle.
-
-   > [!TIP]
-   > By default, the toggle is hidden. To access it, you might have to choose **Show more**.
-
-3. Configure the required journal batches for automated processes.
-
-> [!IMPORTANT]
-> If you don't enable workflow integration, quality inspection events aren't available when you configure your quality management workflows.
 
 ## Typical quality workflow events
 
@@ -16158,7 +16434,7 @@ The following sections describe the responses, or actions, that happen after an 
 
 ### Lot, serial, and package number blocking actions
 
-**Block the Lot (Serial, Package) in the Test**:
+**Block the Lot (Serial, Package) in the Inspection**:
 
 - Creates a **Lot No. Information Card** page with the status **Blocked**. The status prevents all transactions for the lot until you manually unblock it.
 - The standard lot blocking functionality in [!INCLUDE [prod_short](includes/prod_short.md)] applies. To learn more, go to [Block items or item variants from use in sales, purchasing, service, and production](inventory-how-block-items.md).
@@ -16182,6 +16458,11 @@ The following sections describe the responses, or actions, that happen after an 
 - Useful for quarantine or rework locations.
 - You can configure the action for automatic or manual posting.
 
+**Create Internal Put-away**:
+
+- Generates a warehouse put-away for inventory staging.
+- Supports quality inspection workflows in warehouse environments.
+
 ### Inventory adjustment actions
 
 **Create Negative Adjustment**:
@@ -16199,10 +16480,22 @@ The following sections describe the responses, or actions, that happen after an 
 - Useful for corrective action processes.
 - Can use the same or different inspection templates.
 
-**Create Internal Put-away**:
+> [!NOTE]
+> Some workflows actions require that you configure journal and worksheet batches on the **Quality Management Setup** page:
+>
+> - Use **Item Journal Batch** for nonwarehouse location adjustments.
+> - Use **Warehouse Item Journal Batch** for warehouse location adjustments.
+> - Use **Warehouse Movement Worksheet** for directed put-away/pick movements.
+> - Use **Warehouse Reclass Journal Batch** for warehouse reclassifications.
+> - Use **Item Reclass Journal Batch** for nonwarehouse reclassifications.
+> 
+> When a disposition action creates multiple journal lines, for example, when the same lot exists in multiple bins, the system posts each line independently rather than as a single transaction. This means:
+> - Lines that post successfully are committed immediately.
+> - Lines that fail, for example, due to inventory shortages, locked records, or bin conflicts, remain in the journal for manual resolution.
+> - The inspection status still transitions, for example, to **Finished**, even if some disposition lines fail. A single failing line doesn't block the entire operation.
+>  
+> This partial posting behavior preserves forward progress in high-volume or semi-automated environments and avoids rolling back successfully posted lines when an unrelated line fails. After a partial posting, check the relevant journal (warehouse journal or item journal) for unposted lines. These lines require manual attention before the disposition is fully complete.
 
-- Generates a warehouse put-away for inventory staging.
-- Supports quality inspection workflows in warehouse environments.
 
 ## Examples of workflow configuration
 
@@ -16286,70 +16579,8 @@ The following are outcomes of this example:
 - Accurate cost accounting for quality losses.
 - An audit trail for the disposed materials.
 
-## Advanced workflow scenarios
 
-The following sections describe examples of advanced scenarios in which quality management workflows are useful.
 
-### Conditional, result-based processing
-
-You can use multiple failure types:
-
-- Create separate workflows for different failure results.
-- Use different responses based on the severity of the failure.
-- Implement escalation procedures for critical failures.
-
-You can use location-specific processing:
-
-- Create different workflows for different locations.
-- Implement location-specific quarantine procedures.
-- Meet country/regional compliance requirements.
-
-### Integration with other features
-
-You can integrate your quality management workflows with purchase returns:
-
-- Automatically create purchase returns for vendor defects.
-- Link to vendor quality performance tracking.
-- Streamline vendor corrective action processes.
-
-You can integrate your quality management workflows with production processes:
-
-- Automatically create rework orders for repairable items.
-- Control the quality of production output.
-- Enable work center quality tracking.
-
-### Requirements for batches
-
-Workflows require that you configure journal batches on the **Quality Management Setup** page:
-
-- Use **Item Journal Batch** for nonwarehouse location adjustments.
-- Use **Warehouse Item Journal Batch** for warehouse location adjustments.
-- Use **Warehouse Movement Worksheet** for directed put-away/pick movements.
-- Use **Warehouse Reclass Journal Batch** for warehouse reclassifications.
-- Use **Item Reclass Journal Batch** for nonwarehouse reclassifications.
-
-## Validate your workflow configuration
-
-The following are high-level steps to validate your workflow configuration:
-
-1. Create an inspections scenario:
-   - Generate a quality inspection through a normal business process.
-   - Verify that the workflow events trigger correctly.
-   - Confirm that the conditions evaluate correctly.
-2. Check the response actions:
-   - Verify that the intended actions happen.
-   - Review the journal entries that you created.
-   - Confirm the blocking and unblocking behavior.
-3. Business process integration:
-   - Use inspections with actual business transactions.
-   - Verify that documents post correctly.
-   - Confirm that the user experience meets your expectations.
-
-## Best practices
-
-Be diligent when you design your workflow. Start simple, with basic scenarios and gradually add complexity. Be sure to thoroughly validate your workflows in a development environment before you use them in production. Document your process and keep clear records of your workflow business rules. Also, keep an eye on performance. Regularly review your workflow runs, and maintain override capabilities for exceptions.
-
-Monitor the business effects of your workflows, and set up audit trails and approval processes. Help your users engage by ensuring that they understand the automated process, and incorporate their suggestions for process improvements.
 
 ## Related information
 
@@ -16357,7 +16588,8 @@ Monitor the business effects of your workflows, and set up audit trails and appr
 [Processing Non-Compliant Items](qms-non-compliant-processing.md)  
 [Configuring Results](qms-configuring-grades.md)  
 [Quality Management Setup](qms-setup.md)  
-[Quality Management Overview](qms-overview.md)end of article
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-log-changes
 ---
@@ -18574,7 +18806,7 @@ ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: supplier, register vendor, vendor card, vendor template, create vendor, add vendor, new vendor, create new vendor, add new vendor
 ms.search.form: 26, 27, 34, 461, 786, 1379, 1385, 1386, 1628
-ms.date: 10/03/2025
+ms.date: 03/06/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -18590,7 +18822,7 @@ Vendor cards hold the information required to buy products from each vendor. Lea
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=7188b662-bc49-45ef-8152-82898076b235]
 
-## Adding new vendors
+## Add new vendors
 
 You can add new vendors manually, by filling out the **Vendor Card** page, or you can use templates that contain predefined information. For example, you can create templates for different types of vendor profiles. Using templates saves time when adding new vendors, and helps ensure the information is correct each time.
 
@@ -18624,7 +18856,7 @@ The vendor is now registered, and the vendor card is ready to use on purchase do
 
 If you want to use this vendor card as a template when you create new vendor cards, you can save it as a vendor template. Learn more in the [Save the vendor card as a template](#save-the-vendor-card-as-a-template) section.
 
-### Deleting and editing vendor information
+### Delete or edit vendor information
 
 You can edit the information on vendor cards at any time. However, if you posted a transaction for a vendor, you can't delete the card because you might need the ledger entries for auditing. To delete vendor cards with ledger entries, contact your Microsoft partner to do so through code.
 
@@ -18641,6 +18873,16 @@ You can edit the information on vendor cards at any time. However, if you posted
 4. Edit or enter dimension codes to apply to new vendor cards created using the template.
 5. After you complete the new vendor template, choose **OK**.  
    The vendor template is added to the list of vendor templates. You can use it to create new vendor cards.
+
+## Use self-billed invoices for vendors
+
+Self‑billing reduces operational friction by allowing buyers to generate invoices on behalf of suppliers under a mutual agreement. This improves accuracy, accelerates processing, and eliminates delays caused by missing or inconsistent supplier‑issued invoices. With automated layouts, posting rules, and vendor configuration, you can streamline both compliance and internal controls while ensuring clean financial records.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] supports self‑billed invoices in the purchase process. Buyers can generate invoices on behalf of a vendor when a self‑billing agreement is in place. If you turn on the **Self-Billing Agreement** toggle on the **Vendor Card** page, and all **Purchase Invoices** created for that vendor, whether from **Purchase Orders** or directly, are automatically marked as self‑billed. You can also assign a number series that's dedicated for self‑billed invoices, ensuring correct document sequencing.
+
+The **Posted Purchase Invoice – Self‑Billing Invoice** report layout formats the invoice to align with the style of sales invoices, showing buyer company information, vendor details, VAT information, and all essential invoice data.
+
+For Danish localizations, the posting process can automatically create **Digital Vouchers** when you enable self‑billing, ensuring compliance with local audit and documentation rules. To prevent conflicts between buyer‑issued and supplier‑issued documents, vendors with a self‑billing agreement can't receive inbound e‑documents for accounts payable. This guarantees data integrity and avoids duplicate or contradictory documents in the purchase flow.
 
 ## Related information
 
@@ -19065,59 +19307,6 @@ You can create various put-away templates and then apply them as you see fit. Th
 [Inventory](inventory-manage-inventory.md)                                
 [Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-bookings
----
-title: Invoice your bookings in Business Central
-description: This topic explains learning how you can perform bulk invoicing from Microsoft Bookings in Business Central.
-author: brentholtorf
-ms.topic: reference
-ms.devlang: al
-ms.search.keywords: invoicing, bookings
-ms.search.form: 1638, 6702, 6704
-ms.date: 05/20/2022
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Bulk Invoicing for Microsoft Bookings in [!INCLUDE[prod_short](includes/prod_short.md)]
-
-If your company uses the Bookings app in Microsoft 365, you can do bulk invoicing for appointments. The **Bookings Not Invoiced** page in [!INCLUDE[prod_short](includes/prod_short.md)] provides a list of the company's completed bookings. In this page you can quickly select the appointments that you want to invoice and create draft invoices for the services provided.  
-
-## Connect to Bookings
-
-To connect your [!INCLUDE[prod_short](includes/prod_short.md)] with Bookings, you must specify your Bookings company, what to synchronize with Bookings, how often to synchronize, and which templates to use. You set up this information on the **Booking Sync. Setup** page, which you can launch from the **Exchange Sync. Setup** page, which you can find through [Search](ui-search.md).  
-
-For example, if you want to synchronize customers between Bookings and [!INCLUDE[prod_short](includes/prod_short.md)], you must specify the default template to use to add new customers in [!INCLUDE[prod_short](includes/prod_short.md)] based on the customers in your Bookings company.  
-
-> [!NOTE]
-> The Bookings app is designed to book appointments for individual customers rather than companies. The synchronization with [!INCLUDE[prod_short](includes/prod_short.md)] will, therefore, only synchronize customer contacts with a Type of *Person*. An email address is also required for the contact to synchronize.  
-
-Similarly, if you want to synchronize service items between Bookings and [!INCLUDE[prod_short](includes/prod_short.md)], you must specify the default template to use to add new service items in [!INCLUDE[prod_short](includes/prod_short.md)] based on the services in our Bookings company.  
-
-> [!NOTE]
-> Only items of type *Service* will synchronize between Bookings and [!INCLUDE[prod_short](includes/prod_short.md)]. The template that you set up in the **Configuration Templates** page so it can be used for the item synchronization must define the type as *Service*.
-
-## Invoice Appointments
-
-When it is time to send invoices for the completed bookings, you go to the **Bookings Not Invoiced** page. Depending on how often the information is synchronized, the list is long or short. You can create invoices for all bookings in the list or one booking at a time. You can select one or more entries in the list and invoice those only.  
-
-The support for invoicing appointments from Bookings is simpler than the fuller workflow of working with sales quotes, sales orders, and sales invoices. For more information, see [Invoice Sales](sales-how-invoice-sales.md). You can choose to sell your services using [!INCLUDE[prod_short](includes/prod_short.md)] or choose to use Bookings, depending on your business needs.  
-
-> [!NOTE]
-> In May 2022, we discovered an issue in the integration with Bookings. Currently, the sync from Bookings to [!INCLUDE [prod_short](includes/prod_short.md)] requires you to manually associate the invoices with customers in [!INCLUDE [prod_short](includes/prod_short.md)].
-
-## Related information
-
-[Finance](finance.md)  
-[Invoice Sales](sales-how-invoice-sales.md)  
-[Setting Up Sales](sales-setup-sales.md)  
-[Microsoft Bookings](https://products.office.com/business/scheduling-and-booking-app)  
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -20382,216 +20571,5 @@ You can chat with Copilot by using voice typing to talk instead of type your wor
 ## Next steps
 
 - [Chat with Copilot (preview)](chat-with-copilot.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/marketing-campaigns
----
-title: Set up marketing campaigns in Business Central
-description: Describes how you can set up and conduct marketing campaigns in Business Central to help you identify and attract prospects and retain customers.
-author: brentholtorf
-ms.topic: concept-article
-ms.devlang: al
-ms.search.keywords: marketing, campaign, promo, prospect
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
-ms.custom: bap-template
----
-
-# Manage marketing campaigns
-
-Having a strong marketing plan in place enables you to identify, attract, and retain customers. A marketing plan consists of various campaigns and other interactions with your sales and marketing activities. While you plan a campaign, you make a few decisions:
-
-- Which contacts to target
-- What type campaign you want to run (such as trade shows or direct mail)
-- What tasks salespeople perform
-
-Each campaign has various activities or tasks. You can combine multiple tasks in activities. For example, when each task represents a step. Activity tasks are related to each other by a date formula. Individual tasks can only be assigned to salespeople. Activities can be assigned to opportunities, salespeople, groups of sales people, and contacts. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
-
-## Define individual campaigns
-
-Before you can create a campaign, you must set up *campaign status codes*. Using these codes help you manage your campaigns by assigning a status to the campaign. As you work through the stages of a campaign, you're able to see what step a campaign is at and what step comes next. You set up campaign status codes on the **Campaign Status** page.
-
-You can create a campaign card for each campaign that you want to keep track of. You can also view these campaign cards to view general information about your campaigns.
-You can delete campaign entries, such as if the entry records an action that is canceled. Only canceled campaign entries can be deleted.
-
-### Select the target audience
-
-After you create a campaign, you can create segments that specify its target audience. Learn more at [Managing Segments](marketing-segments.md).
-
-### Register discount percentages
-
-After you set up your campaign, you can register a discount percentage that the customer receives. You register the discount percentage on individual items on the **Sales Line Discounts** page. You can also register the sales prices for the individual items on the lines on the **Sales Prices** page. You can access both pages from the campaign card.
-
-After you set up the sales prices/line discounts and the segments on the campaign card, you must activate them so that the campaign prices/discounts are reflected on the lines.
-
-> [!NOTE]  
-> In order to activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
-
-If the sales prices/line discounts aren't to be offered to all the contacts in the segment, you can clear the **Campaign Target** field for the relevant contacts. If you can't see this field, you can add it to your view. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
-
-## Conduct campaigns
-
-As a campaign runs, all interactions with your contacts, or segment, are recorded so that you can get statistics and other information about the costs and success rates of the campaign.
-
-Salespeople run campaigns, and you must create activities to represent each task and assign them to the relevant salespeople. Learn more at [Set Up Opportunity Sales Cycles and Cycle Stages](marketing-how-setup-opportunity-sales-cycles-stages.md).
-
-## Related information
-
-[Manage Contacts](marketing-contacts.md)  
-[Manage Segments](marketing-segments.md)  
-[Manage Sales Opportunities](marketing-manage-sales-opportunities.md)  
-[Work with Business Central](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-making-cash-flow-forecasts-by-using-account-schedules
----
-title: Make cash flow forecasts using financial reports
-description: This walkthrough describes how you can use financial reports to make cash flow forecasts in Business Central. 
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords:
-ms.date: 08/01/2024
-ms.author: bholtorf
-ms.search.form: 103, 104, 108, 488, 489
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Walkthrough: Make cash flow forecasts using financial reports
-
-This walkthrough describes how you can use the financial reports feature to make cash flow forecasts. Financial reports perform calculations that cannot be done directly in the chart of cash flow accounts. In the financial reports, you can set up subtotals for cash flow receipts and disbursements. These subtotals can be included in new totals that can then be used to make cash flow forecasts.  
-
-## About this walkthrough
-
-This walkthrough describes the following tasks:  
-
-- Setting up a new cash flow financial report name.  
-- Setting up financial report lines.  
-- Setting up a new column definition.  
-- Assigning a column definition to a financial report.  
-- Viewing and printing the cash flow forecast.  
-
-### Prerequisites
-
-To complete this walkthrough, you will need:  
-
-- [!INCLUDE[prod_short](includes/prod_short.md)]  
-- A cash flow worksheet with registered lines  
-
-## Roles
-
-This walkthrough demonstrates tasks that are performed by the following user role:  
-
-- Controller  
-
-## Story
-
-Ken is a controller at CRONUS who makes monthly cash flow forecasts. Ken includes finance, sales, purchase, and fixed assets in the forecasts, and presents to CFO Sara for business insight.  
-
-## Set up a new financial report name
-
-The financial report name is the name you give the cash flow forecast that includes a series of defined lines and a column definition.  
-
-### Set up a new financial report name  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Financial Reports**, and then choose the related link.  
-2. On the **Financial Reports** page, choose **New** to create a new cash flow financial report name.  
-3. In the **Name** field, enter **Forecast**.  
-4. In the **Description** field, enter **Cash Flow Forecast**.  
-5. Leave the **Row Definition** and **Column Definition** fields blank.
-
-## Set up row definition lines
-
-After a financial report name is set up, Ken defines each line in the cash flow financial report. Ken defines lines to be shown in reports in addition to lines that are only for calculation purposes.  
-
-### Set up row definition lines  
-
-1. On the **Financial Reports** page, select the new **Forecast** financial report you created, then choose the **Edit Row Definition** action.  
-2. On the **Row Definition** page, enter each line as shown in the following table.  
-
-    > [!TIP]  
-    > Use the **Insert CF Accounts** function to quickly mark, in the cash flow accounts chart, the cash flow accounts you want and copy them to row definition lines.  
-
-    | Row No. | Description              | Totaling Type            | Totaling | Row Type   | Amount Type | Show |
-    |---------|--------------------------|--------------------------|----------|------------|-------------|------|
-    | R10     | Receivables              | Cash Flow Entry Accounts | 10       |Net Change | Net Amount  | Yes  |
-    | R10     | Open sales orders        | Cash Flow Entry Accounts | 20       |Net Change | Net Amount  | Yes  |
-    | R10     | Rentals                  | Cash Flow Entry Accounts | 30       |Net Change | Net Amount  | Yes  |
-    | R10     | Financial assets         | Cash Flow Entry Accounts | 40       |Net Change | Net Amount  | Yes  |
-    | R10     | Fixed assets disposal    | Cash Flow Entry Accounts | 50       |Net Change | Net Amount  | Yes  |
-    | R10     | Private investments      | Cash Flow Entry Accounts | 60       |Net Change | Net Amount  | Yes  |
-    | R10     | Miscellaneous receipts   | Cash Flow Entry Accounts | 70       |Net Change | Net Amount  | Yes  |
-    | R10     | Open service orders      | Cash Flow Entry Accounts | 80       |Net Change | Net Amount  | Yes  |
-    | R20     | Total cash receipts      | Formula                  | R10      |Net Change | Net Amount  | Yes  |
-    | R30     | Payables                 | Cash Flow Entry Accounts | 1010     |Net Change | Net Amount  | Yes  |
-    | R30     | Open purchase orders     | Cash Flow Entry Accounts | 1020     |Net Change | Net Amount  | Yes  |
-    | R30     | Personnel costs          | Cash Flow Entry Accounts | 1030     |Net Change | Net Amount  | Yes  |
-    | R30     | Running costs            | Cash Flow Entry Accounts | 1040     |Net Change | Net Amount  | Yes  |
-    | R30     | Finance costs            | Cash Flow Entry Accounts | 1050     |Net Change | Net Amount  | Yes  |
-    | R30     | Investments              | Cash Flow Entry Accounts | 1070     |Net Change | Net Amount  | Yes  |
-    | R30     | Private consumptions     | Cash Flow Entry Accounts | 1090     |Net Change | Net Amount  | Yes  |
-    | R30     | VAT due                  | Cash Flow Entry Accounts | 1100     |Net Change | Net Amount  | Yes  |
-    | R30     | Other expenses           | Cash Flow Entry Accounts | 1110     |Net Change | Net Amount  | Yes  |
-    | R40     | Total cash disbursements | Formula                  | R30      |Net Change | Net Amount  | Yes  |
-    | R50     | Surplus                  | Formula                  | R20+R40  |Net Change | Net Amount  | Yes  |
-    | R60     | Cash flow funds          | Cash Flow Entry Accounts | 2100     |Net Change | Net Amount  | Yes  |
-    | R70     | Total cash flow          | Formula                  | R50+R60  |Net Change | Net Amount  | Yes  |
-
-    > [!NOTE]
-    > The row number R10 is used to capture the account totals for receivables. The row number R20 is used to calculate the sum of all cash receipts. The row number R30 is used to capture the account totals for payables. The row number R40 is used to calculate the sum of all cash disbursements. The row number R50 is used to capture the sum of cash surplus. The row number R60 is used to capture the liquid funds. The row number R70 is used to calculate the forecasted cash flow.
-
-## Set up a new column definition
-
-Before printing the cash flow forecast, Ken needs to create the column definition for the numerical information. In the columns, Ken defines the information needed to use from the lines.
-
-- The first column has the number *C10* with the title **Amount** and contains the net change.  
-- The second column has the number *C20* with the title **Balance at Date** and contains the transactions for the period.  
-- The third column has the number *C30* with the title **Entire Year** and contains the net change in the balances for the entire fiscal year.  
-- Finally, Ken assigns the column definition as the default option for the **Forecast** financial report.  
-
-### Set up a new column definition
-
-1. On the **Financial Reports** page, select the new **Forecast** financial report name you created. On the **Home** tab, in the **Process** group, choose **Edit Column Definition**.
-
-2. Create a new column definition with the name **Cash Flow**.
-
-3. Choose the **OK** button.
-
-4. Enter each line exactly as shown in the following table.
-
-    |Column No.|Column Header|Column Type|Ledger Entry Type|Amount Type|Show|  
-    |----------|-------------|-----------|-----------------|-----------|----|
-    |C10|Amount|Net Change|Entries|Net Amount|Always|  
-    |C20|Amount Until Date|Balance at Date|Entries|Net Amount|Always|  
-    |C30|Entire Fiscal Year|Entire Fiscal Year|Entries|Net Amount|Always|
-
-## Assig the column definition to the financial report name
-
-Ken is now ready to assign the column definition to the financial report name.  
-
-### Assign the column definition to the financial report name
-
-1. In the **Financial Reports** page, select the **Forecast** financial report, then choose the **Edit Column Definition** action.  
-2. In the **Name** field, choose the column definition **Cash Flow** to assign as the default column definition.  
-
-## View and print the cash flow forecast
-
-1. On the **Financial Reports** page, choose the **Forecast** financial report [Financial analytics overview](bi.md)  to view the cash flow forecast.  
-2. On the **Financial Report** page, you can select an amount and then view the cash flow forecast entries that make up the amount. In addition, you can view the formula used to calculate that amount. You can also filter the amounts by date and dimension.  
-3. Choose the **Print** action to print the cash flow forecast.  
-
-## Related information
-
-[Prepare financial reporting](bi-how-work-account-schedule.md)  
-[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
-[Financial analytics overview](bi.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
