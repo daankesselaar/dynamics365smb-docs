@@ -1,755 +1,619 @@
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-purchase-products-sale
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/hr-manage-human-resources
 ---
-title: Purchase items for a sale
-description: Create a purchase invoice for a vendor or supplier directly from a sales invoice to buy products needed for a sale.
+title: Manage human resources
+description: Register and manage employee records, maintain employment details, and track and analyze absences.
 author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: supply planning, sales demand, replenish
-ms.search.form: 50, 51, 56, 9308
-ms.date: 10/03/2025
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: personnel, people, employee, staff, HR
+ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212, 5221, 5228
+ms.date: 10/03/2025
+ms.service: dynamics-365-business-central
 ---
 
-# Purchase items for a sale by creating purchase invoices
+# Manage human resources
 
-From sales orders and sales invoices, you can use functions to quickly create purchase documents for missing item quantities that are required by the sale. You can use two different functions depending on the document type.
+In [!INCLUDE[prod_short](includes/prod_short.md)], you can keep detailed records of your employees. You can register and maintain employee information, such as employment contracts, confidential information, qualifications, and employee contacts.
 
-> [!Note]
-> This functionality is for replenishing sales items into your own inventory. To purchase items for direct delivery from your vendor to your customer, you must create a drop shipment. Learn more in [Make Drop Shipments](sales-how-drop-shipment.md).
+You can also register employee absences, which allows you to analyze registered absences as necessary.
 
-|Function|Description|
-|--------|-----------|
-|**Create Purchase Orders**|From a sales order, this function creates a purchase order for each vendor of items on the sales order. You can edit the purchase quantity before you create the purchase orders. Only unavailable sales quantities are suggested.
-|**Create Purchase Invoice**|From a sales order and from a sales invoice, this function creates a purchase invoice for a selected vendor for all lines or selected lines on the sales document. The full sales quantity is suggested.|
+To start using the Human Resources functionality, you must set up employees and other basic information. You can then associate various codes to an employee, which allows you to filter information for specific employees.
 
-## Create one or more purchase orders from a sales order
+The following table describes a sequence of tasks, with links to the articles that describe them.
 
-To create a purchase order for each unavailable item quantity on the sales order, you use the **Create Purchase Orders** function.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
-2. Open a sales order that you want to purchase items for.
-3. Choose the **Create Purchase Orders** action.
-
-    The **Create Purchase Orders** page opens showing a line for each different item on the sales order. Lines for both fully available sales quantities and unavailable sales quantities (grayed) are shown by default. You can choose the **Show Unavailable** action to only see lines for unavailable sales quantities.
-
-    The **Quantity to Purchase** field contains the unavailable sales quantity by default.
-4. To purchase another quantity than the unavailable sales quantity, edit the value in the **Quantity to Purchase** field.
-
-    > [!NOTE]  
-    > You can also change the **Quantity to Purchase** field on grayed lines even though they represent fully available sales quantities.
-5. Choose the **OK** button.
-
-    A purchase order is created for each vendor of items on the sales order, including any quantity changes that you made on the **Create Purchase Orders** page.
-6. Proceed to process the purchase order or orders, for example, by editing or adding purchase order lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
-
-## Create a purchase invoice from a sales order or sales invoice
-
-To create a single purchase invoice for one or more lines on a sales document by first selecting which vendor to buy from, you use the **Create Purchase Invoice** function.
-
-> [!NOTE]  
-> This function creates a purchase invoice for the exact item quantity on the selected sales document. To change the purchase quantity, you must edit the purchase invoice after it's created.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Orders**, and then choose the related link.
-2. Open a sales invoice that you want to purchase items for.
-3. Select one or more sales invoice lines that you want to use on the purchase invoice. To use all the sales invoice lines, select either all of them or don't select any lines.
-4. Choose the **Create Purchase Invoice** action.
-5. Select either **All Lines** or **Selected Lines**, and then choose the **OK** button.  
-6. In the list of vendors that appears, select the vendor that you want to buy all the items from, and then choose the **OK** button.
-
-   A purchase invoice is created that contains one, more than one, or all the lines on the sales invoice.
-7. Proceed to process the purchase invoice, for example, by editing or adding purchase invoice lines. Learn more in [Record Purchases](purchasing-how-record-purchases.md).
+| To | Go to |
+|--|--|
+| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. | [Register Employees](hr-how-register-employees.md) |
+| Record employees' absence and view absence statistics by various filters. | [Manage Employee Absence](hr-how-manage-absence.md) |
 
 ## Related information
 
-[Purchasing](purchasing-manage-purchasing.md)  
-[Record Purchases](purchasing-how-record-purchases.md)  
-[Invoice Sales](sales-how-invoice-sales.md)  
-[Register New Vendors](purchasing-how-register-new-vendors.md)  
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Change Which Features are Displayed](ui-experiences.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-date-calculation-for-sales
+---
+title: Delivery date calculation for sales
+description: The application automatically calculates the date on which you must order an item to have it in inventory on a certain date and available for picking.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords:
+ms.date: 03/06/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Delivery date calculation for sales
+
+[!INCLUDE[prod_short](includes/prod_short.md)] automatically calculates the earliest possible date that an item on a sales order line can be shipped.
+
+* If the customer has requested a specific delivery date, then the date on which the items must be available to pick to meet that delivery date is calculated.
+* If the customer doesn't request a specific delivery date, then the date on which the items can be delivered is calculated. The calculation starts from the date on which the items are available for picking.
+
+## Calculating a requested delivery date
+
+If you specify a requested delivery date on the sales order line, that date becomes the starting point for the following calculations.
+
+- *requested delivery date - shipping time = planned shipment date*
+- *planned shipment date - outbound whse. handling time = shipment date*
+
+If the items are available to pick on the shipment date, then the sales process can continue. Otherwise, a stock-out warning is displayed.
+
+> [!NOTE]
+> If your process is based on backward calculation, for example, if you use the requested delivery date to get the planned shipment date, we recommend you use date formulas with fixed durations, such as "5D" for five days or "1W" for one week. Date formulas without fixed durations, such as "CW" for current week or CM for current month, can result in incorrect date calculations. Learn more about date formulas at [Work with Calendar Dates and Times](ui-enter-date-ranges.md).
+
+## Calculating the earliest possible delivery date
+
+If you don't specify a requested delivery date on the sales order line, or if the requested delivery date can't be met, then the earliest date on which the items are available is calculated. That date is then entered in the **Shipment Date** field on the line, and the date on which you plan to ship the items and the date on which they'll be delivered to the customer are calculated using the following formulas.
+
+- *shipment date + outbound whse. handling time = planned shipment date*
+- *planned shipment date + shipping time = planned delivery date*
+
+## Related information
+
+[Date Calculation for Purchases](purchasing-date-calculation-for-purchases.md)  
+[Calculate Order Promising Dates](sales-how-to-calculate-order-promising-dates.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-powerbi-business-central-apps
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-work-assembly-boms
 ---
-title: Use the Business Central apps in Power BI
-description: Easily gain insights, business intelligence, and KPIs from your Business Central data using the Business Central apps for Power BI.
-author: jswymer
-ms.topic: get-started
-ms.devlang: al
-ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 10/17/2025
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Use the [!INCLUDE [prod_short](includes/prod_short.md)] apps in Power BI
-
-> **APPLIES TO:** [!INCLUDE [prod_long](includes/prod_long.md)] online
-
-[!INCLUDE [prod_long](includes/prod_long.md)] publishes the following Power BI apps, which provide detailed dashboards for viewing data:
-
-- [!INCLUDE [prod_long](includes/prod_long.md)] - CRM  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Finance  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Sales
-
-## Overview
-
-Each app includes several reports that you can drill into for data, including the following features:
-
-- Choose any visual on the dashboard to bring up one of the underlying reports.  
-- Filter the report or add fields that you want to monitor.  
-- Pin a customized view to the dashboard to continue tracking.  
-  You can refresh data manually, and you can set up a refresh schedule. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).  
-
-The apps are designed to work with data from any company in [!INCLUDE[prod_short](includes/prod_short.md)]. When you install the Power BI app, you specify one or more parameters to connect to your [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-> [!NOTE]
-> You can also build your own reports and dashboards in Power BI based on your [!INCLUDE[prod_short](includes/prod_short.md)] data. Learn more in [Connecting Your Business Data to Power BI](across-how-use-financials-data-source-powerbi.md).
-
-## Prerequisites
-
-Power BI apps require permissions to the tables where data is retrieved and the web services used to retrieve data. The following table lists the web services required for each Power BI app:
-
-|App|Web services |
-|--|-------------|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – CRM| <ul><li>Sales Opportunities</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Finance| <ul><li>PowerBIFinance</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Sales| <ul><li>Item Sales by Customer</li><li>Sales Dashboard</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-
-> [!TIP]
-> An easy way to find the web services is to search for *web services* in [!INCLUDE[prod_short](includes/prod_short.md)]. In the **Web Services** page, make sure that the **Publish** field is selected for the web services listed above. Learn more in [Publishing a Web Service](across-how-publish-web-service.md).
-
-## Get ready
-
-Sign up for the Power BI service. If you haven't already signed up, go to [https://powerbi.microsoft.com](https://powerbi.microsoft.com). When you sign up, use your work email address and password.
-
-## Install a [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-1. Open your browser, navigate to [https://powerbi.microsoft.com](https://powerbi.microsoft.com), and sign in to your account.
-2. Select **Apps** on the navigation pane.
-
-    The **Apps** page appears.
-
-3. On the **Apps** page, select **Get apps** from the upper right corner of the page.
-
-    The **Power BI apps** page opens, where you can browse for the apps that are available for [!INCLUDE[prod_short](includes/prod_short.md)].
-
-    ![Navigating to Get apps.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-get-data.png)
-
-    > [!TIP]
-    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft Marketplace will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
-
-4. In the **Search** box, enter **Dynamics 365 Business Central**.
-5. Select app that you want to use, select **Get it now**, and then **Install**.  
-
-    When completed, the app is available from **Apps** on the navigation menu in Power BI.
-
-## Connect the [!INCLUDE[prod_short](includes/prod_short.md)] app to your data
-
-1. Under **Apps**, select the Business Central app, then **Connect**.
-2. When prompted, fill in the **Company Name** and **Environment** with information about the [!INCLUDE[prod_short](includes/prod_short.md)] instance that you want to connect to.
-
-    - For **Company Name**, make sure to use the full name, not the display name. You can find the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-    - For **Environment**, if you haven't created multiple environments, enter **Production**.
-
-3. Select **Next**.
-4. Select **Sign-in**.
-5. When prompted, enter the user name and password for signing into [!INCLUDE[prod_short](includes/prod_short.md)].
-6. Once connected, a dashboard and reports are added to your Power BI workspace. When completed, the tiles show data from your [!INCLUDE[prod_short](includes/prod_short.md)] company.
-
-    ![Select Dynamics 365 Business Central  and select Get it now.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-workspace-dashboard-report-dataset.png)
-
-## Fix problems
-
-The Power BI dashboard relies on the published web services that are listed above. It shows data from the demonstration company or your own company if you import data from your current finance solution. However, if something goes wrong, this section provides a workaround for the most typical issues.  
-
-### You don't have a Power BI account
-
-A Power BI account hasn't been set up. You must have a license to get a valid Power BI account. Also, you must have previously signed into Power BI to create your Power BI workspace.  
-
-### Message: There are no enabled reports. Select report to see a list of reports that you can display
-
-This message appears if the default report failed to deploy to your Power BI workspace. Or the report deployed but didn't successfully refresh. If this problem happens, navigate to the report in your Power BI workspace, select **Dataset**, **Settings**, and then manually update the credentials. Once the dataset successfully refreshes, navigate back to [!INCLUDE[prod_short](includes/prod_short.md)] and manually select the report from the **Select Reports** page.
-
-### You need a Power BI Pro license to install the [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-You need a [Power BI Pro license](/power-bi/service-features-license-type) to share your content, and the people you share it with do too. The content must be in a workspace in a [Premium capacity](/power-bi/service-premium-what-is). Learn more in [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).  
-
-### "Parameter validation failed, please make sure all parameters are valid"
-
-This error indicates that one more of the parameters aren't valid.
-
-- The specified environment parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] production or sandbox environment.
-- The specified company parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] companies. Verify the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-- If connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you entered a URL that isn't valid. You can verify the URL in the **Web Services** page in [!INCLUDE[prod_short](includes/prod_short.md)]  
-- A port isn't open to allow the request through your firewall.
-
-### Can't sign in
-
-If you get a "login failed" error after using your [!INCLUDE[prod_short](includes/prod_short.md)] user credentials to sign in, then you're probably experiencing one of the following issues:
-
-- The account that you're using doesn't have permissions to retrieve the [!INCLUDE[prod_short](includes/prod_short.md)] data from your account. Verify that you have permissions to the required data in [!INCLUDE[prod_short](includes/prod_short.md)] and try again.
-- You've selected an authentication type other than Basic, if connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises.
-- You haven't entered a valid user name or password.
-
-### Message: Your data source can't be refreshed because the credentials are invalid. Please update your credentials and try again
-
-For [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, the problem might be that the OData URL is only exposed to the local network.
-
-### Incorrect company name
-
-A common mistake is to enter the company display name instead of the company name. To find the company name search for **Companies**. Then use the **Name** field when entering your company name.
-
-### The key didn't match any rows in the table
-
-If you enter a non-valid company name during the connection process, you may get the error message "The key didn't match any rows in the table". Provide the correct company name and try connecting again.
-
-### Historical data appears to be missing
-
-Once the Power BI app installs and your data show in Power BI, you notice that not all your data displays. The datasets are filtered to only return the previous 365 days of data. This default is in place to help make the reports faster.  
-
-### I only see data for a single company
-
-The Power BI app will only display data from the [!INCLUDE[prod_short](includes/prod_short.md)] company that was defined when the Power BI app was installed. Data from additional companies can be added to the reports by adding new queries that use different companies as the data source.  
-
-### What now?
-
-- Try [asking a question in the Q&A box](/power-bi/service-q-and-a-tips) at the top of the dashboard.
-- [Change the tiles](/power-bi/service-dashboard-edit-tile) in the dashboard.  
-- [Select a tile](/power-bi/service-dashboard-tiles) to open the underlying report.  
-- By default, your dataset isn't scheduled to refresh. You can change the refresh schedule or try refreshing it on demand using **Refresh Now**. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).
-
-## Related information
-
-[Business Central and Power BI](admin-powerbi.md)  
-[Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
-[Connect to Power BI from [!INCLUDE [prod_short](includes/prod_short.md)] on-premises](across-working-with-business-central-in-powerbi.md)  
-[Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
-[Business Intelligence](bi.md)  
-[Get Ready for Doing Business](ui-get-ready-business.md)  
-[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power Apps Data Source](across-how-use-financials-data-source-powerapps.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] in Power Automate](across-how-use-financials-data-source-flow.md)  
-[Power BI documentation](/power-bi/)  
-[What is Power BI?](/power-bi/fundamentals/power-bi-overview)  
-[Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
-[Introduction to datamarts](/power-bi/transform-model/datamarts/datamarts-overview)  
-[Introduction to dataflows and self-service data prep](/power-bi/transform-model/dataflows/dataflows-introduction-self-service)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-manage-appsource-apps
----
-title: Manage Marketplace apps
-description: Learn how to browse and install Marketplace apps from Business Central.
-author: SusanneWindfeldPedersen
-ms.author: solsen
-ms.reviewer: jswymer
-ms.topic: article
-ms.search.keywords: app, apps, install, integration, Marketplace
-ms.date: 04/08/2025
-ms.custom: bap-template
-ms.service: dynamics-365-business-central
----
-
-# Manage Marketplace apps
- 
-From inside [!INCLUDE[prod_short](includes/prod_short.md)], you can discover, view, sort, and filter available Marketplace apps that integrate with [!INCLUDE[prod_short](includes/prod_short.md)].
-
-On the **Microsoft Marketplace Apps** page, you can filter available Marketplace apps by name, publisher name, install state, popularity, average rating, number of ratings, and last modified date. You can also select a given app and see the details for that specific app.
-
-To locate the page, in [!INCLUDE[prod_short](includes/prod_short.md)], [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Microsoft Marketplace Apps**, and then choose the related link.
-
-On the page, you find the following actions:
-
-- **View Marketplace** to open the online Marketplace marketplace in a new browser window. 
-- **View in Marketplace** to open and view a selected app in the online Marketplace Marketplace. 
-- **Refresh list from Microsoft Marketplace** to force a refresh of the list of all apps to Marketplace marketplace content—for example, if you're looking for a newly submitted Marketplace app.
-
-As with other list pages, you get support for Analysis Mode, for example, so that you can group apps by publisher. Use Copilot to design an **Analysis Mode** view for you.
-
-## Install and update Marketplace apps
-
-Install Marketplace apps using the **Extension Management** page in [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more in [Customizing Business Central online using apps](ui-extensions.md).  
-
-Upgrade Marketplace apps using the [!INCLUDE[prod_short](includes/prod_short.md)] admin center. Learn more in [Managing Apps](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-apps).  
-
-## Related information
-
-[Customizing Business Central online using apps](ui-extensions.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-work-with-vat
----
-title: How to work with VAT on sales and purchases
-description: This article describes the various ways of working with VAT both manually and with automatic setup, to help you meet country/region specific regulations.
+title: Work with assembly BOMs
+description: You create an assembly BOM to specify the components required to put together the item that the BOM represents.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.search.keywords: VAT, sales, purchases
-ms.search.form: 7, 118, 130, 142, 459, 460, 525
-ms.date: 05/29/2024
+ms.devlang: al
+ms.search.keywords: assembly bom, bills of material, 
+ms.search.form: 36, 5870, 5872, 5874
+ms.date: 06/13/2024
 ms.service: dynamics-365-business-central
-ms.custom: bap-template
+
 ---
-# Work with VAT on sales and purchases
+# Work with assembly BOMs
 
-If your country or region requires you to calculate and report value-added tax (VAT) on sales and purchase transactions, you can set up [!INCLUDE[prod_short](includes/prod_short.md)] to calculate VAT. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
+You use assembly bills of materials (BOMs) to structure parent items that must be assembled from components with little to no resource use. An assembly BOM can be used, for example, to sell a parent item as a kit consisting of component items.
 
-There are, however, some VAT-related tasks that you can do manually. For example, you might need to correct a posted amount if you discover that a vendor uses a different rounding method.  
+Use assembly orders to make finished items from components in a process that one or more basic resources can perform, which aren't machine or work centers, or without any resources. For example, an assembly process could be to pick two wine bottles and one coffee sack and pack them as a gift item.  
+
+An assembly BOM is the master data that defines which component items go into an assembled end item and which resources are used to assemble the assembly item. When you enter an assembly item and a quantity on an assembly order, the assembly order lines are filled in according to the assembly BOM. The order has one assembly order line per component or resource. Learn more at [Assembly Management](assembly-assemble-items.md).
+
+[!INCLUDE[prod_short](includes/prod_short.md)] also supports production BOMs. Production BOMs differ from assembly BOMs because they involve more complex procedures, such as resource usage, production routing, and work or machine centers. Learn more about the differences at [Work with Bills of Material](inventory-how-work-BOMs.md) and [Create Production BOMs](production-how-to-create-production-boms.md).
+
+## To create an assembly BOM
+
+To define an item that consists of other items, and perhaps the resources that assemble the item, you must create an assembly BOM.  
+
+Assembly BOMs can have multiple levels, which means that a component on the assembly BOM can be an assembly item itself. In that case, the **Assembly BOM** field on the assembly BOM line contains **Yes**.
+
+Special requirements apply to items on assembly BOMs regarding availability. Learn more at [To see the availability of an item by its use in assembly BOMs](inventory-how-availability-overview.md#to-view-the-availability-of-an-item-by-its-use-in-assembly-or-production-boms).
+
+There are two parts to creating an assembly BOM:
+
+- Setting up a new item.
+- Defining the BOM structure of the assembly item.
+
+1. Set up a new item. Learn more at [Register New Items](inventory-how-register-new-items.md).
+
+   Proceed to enter components or resources on the assembly BOM.  
+2. On the **Item Card** page for an assembly item, choose the **Assembly** action, then choose the **Assembly BOM** action.
+3. On the **Assembly BOM** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 > [!TIP]
-> You can let [!INCLUDE[prod_short](includes/prod_short.md)] validate VAT registration numbers and other company information when you create or update documents. For more information, see [Validate VAT Registration Numbers](finance-how-validate-vat-registration-number.md).
+> Assembly items can have variants, just like any other item, which helps you keep your list of products shorter. Learn more about the feature at [Manage Product Variants](inventory-item-variants.md).
 
-## Calculating and displaying VAT amounts on sales and purchase documents  
+## To edit assembly BOMs
 
-When you choose an item number in the **No.** field on a sales or purchase document, [!INCLUDE[prod_short](includes/prod_short.md)] fills in the **Unit Price** and **Line Amount** fields. The unit price comes from either the **Item** card or the item prices allowed for the item and customer. [!INCLUDE[prod_short](includes/prod_short.md)] calculates the line amount when you enter a quantity for the line.  
+You can edit the lines on an assembly BOM at any time. However, the BOM might be in use by ongoing sales or assemblies of the parent. Changing the BOM might affect those activities. Choose the **Where-Used** action to explore the items that use it and whether sales or assembly orders might be affected.
 
-If you want the unit prices and line amounts to include VAT, for example, if you sell to retail consumers, choose the **Prices Including VAT** check box on the document. For more information, see [Including or Excluding VAT in Prices and Line Amounts](#including-or-excluding-vat-in-prices-and-line-amounts). 
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
+2. Choose the **Yes** value in the **Assembly BOM** column.
+3. On the **Assembly BOM** page, choose the **Edit List** action, then change any field as needed.
 
-You can calculate and display VAT amounts in sales and purchase documents differently. The difference depends on the type of customer or vendor you're dealing with. You can also change the calculated VAT amount manually, for example, so that it matches the VAT amount calculated by your vendor on a given transaction.
+## To view components and resources indented according to the BOM structure
 
-### Including or excluding VAT in prices and line amounts
+From the **Assembly BOM** page, you can open a separate page that shows the components and any resources indented according to their BOM position under the assembly item.
 
-If you choose the **Prices Including VAT** checkbox on a sales document, the **Unit Price** and **Line Amount** fields include VAT. By default, the values in these fields don't include VAT. The names of the fields reflect whether prices include VAT.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
+2. Open the card for an assembly item. (The **Assembly BOM** field on the **Items** page contains **Yes**.)
+3. On the **Item Card** page, choose the **Assembly** action, then choose the **Assembly BOM** action.
+4. On the **Assembly BOM** page, choose the **Show BOM** action.
 
-You can set up the default setting of the **Prices Including VAT** for all sales documents for a customer in the **Prices Including VAT** field on the **Customer** card. You can also set up item prices to include or exclude VAT. Typically, prices on the Item Card exclude VAT.
+## To replace the assembly item with its components on document lines
 
-The following table provides an overview of how the application calculates the unit price amounts for a sales document when prices aren't set up on the **Sales Prices** page:  
+From any sales and purchase document that contains an assembly item, you can use a special action to replace the line for the assembly item with new lines for its components. This action is useful, for example, if you want to sell the components as a kit that represents the assembly item.
 
-|**Price Includes VAT field on Item Card**|**Prices Including VAT field**|**Action Performed**|  
-|-----------------------------------------------|----------------------------------------------------|--------------------------|  
-|Not Enabled|Not Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Excl. VAT** field on the sales lines.|  
-|Not Enabled|Enabled|The application calculates the VAT amount per unit and adds to the **Unit Price** on the Item Card. This total unit price is then entered in the **Unit Price Incl. VAT field** on the sales lines.|  
-|Enabled|Not Enabled|The application calculates the VAT amount included in the **Unit Price** field on the **Item Card** using the VAT percentage related to the VAT Bus. Posting Gr. (Price) and the VAT Prod. Posting Group combination. The **Unit Price** on the Item Card, reduced by the VAT amount, is then entered in the **Unit Price Excl. VAT** field in the sales lines. For more information, see [Using VAT Business Posting Groups and Customer Price Groups](finance-work-with-vat.md#using-vat-business-posting-groups-and-customer-price-groups).|  
-|Enabled|Enabled|The **Unit Price** on the Item Card is copied to **Unit Price Incl. VAT** field on the sales lines.|
+The **Explode BOM** action is also available on the **Assembly BOM** page as a way to view subassembly items on an assembly BOM.
 
-#### Using VAT business posting groups and customer price groups 
+> [!CAUTION]  
+> When you have used the **Explode BOM** action, you can't easily undo it. You must delete the sales order lines for the components and then reenter a sales order line for the assembly item.
 
-If you want prices to include VAT, you can use VAT business posting groups to calculate the amount based on the VAT posting setup for the group. For more information, see [Set up VAT business posting groups](finance-setup-vat.md#set-up-vat-business-posting-groups).
+The following procedure is based on a sales invoice. The same steps apply to other sales documents and all purchase documents.
 
-Depending on what you want to do, you can assign a VAT business posting group to customers or sales documents in the following ways:
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Invoices**, then choose the related link.
+2. Open a sales invoice that contains a line for an assembly item.
+3. Choose the line for an assembly item, then **Explode BOM** line action.
 
-* To use the same VAT rate for all customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Sales & Receivables Setup** page.
-* To use a VAT rate for a specific customer, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Card** page. 
-* To use a VAT rate for a specific of customers, you can choose a group in the **VAT Business Posting Group (Price)** field on the **Customer Price Group** page. For example, this setting is useful when you want a price to apply to all customers in a certain geographical region or a specific industry.
-* On all sales documents, in the **VAT Business Posting Group** field. The VAT amount specified for the group is used only for the document you're currently working on.
-
-> [!NOTE]
-> If you do not specify a group in the **VAT Business Posting Group (Price)** field VAT will not be included in prices.
-
-#### Examples
-
-Factors such as the country or region you're selling in, or the type of industries you sell to, can affect the amount of VAT that you must account for. For example, a restaurant might charge 6% VAT for meals that are eaten in-house, and 17% for takeaway. To accomplish that, you create a VAT business posting group (price) for in-house and one for takeaway.
-
-## Working with VAT Date
-
-### VAT Date in documents
-
-When you create new sales or purchase documents, the **VAT Date** is based on the setting in the **Default VAT Date** field on the **General Ledger Setup** page. This default value can be the same as **Posting Date** or **Document Date**. If you need a different VAT date, you can manually change the value in the **VAT Date** field. When you post the document, the **VAT Date** is shown on the posting document and on the VAT and G/L entries.
+All fields on the sales invoice line for the assembly item are cleared except for the **Item** and **Description** fields. Complete sales invoice lines are inserted for the components and possible resources that comprise the assembly item.
 
 > [!NOTE]
-> If the **VAT Date** field isn't available on your documents or journals, that means that **Do not use VAT Date functionality** is chosen in the **VAT Date Usage** field on the **General Ledger Setup** page.  
+> The **Picking List by Order** report is also changed to show the components only. This means that a warehouse worker picking the parent item, the assembly item, will not see it in the picking list. Learn more at [Print the Picking List](sales-how-print-picking-list.md).
 
-> [!IMPORTANT]
-> If you configure **Control VAT Period** in the **General Ledger Setup** as **Block posting within closed period**, or **Block posting within closed and warn for released period**, you can post document or journal only if the date in the **VAT Date** field is not in a closed period in **VAT Return Periods**. Even if the period in **VAT Return Periods** is open, you might get a warning based on the **VAT Return Status** and configuration in the **Control VAT Period**.
+## To calculate the standard cost of an assembly item
 
-> [!IMPORTANT]
-> Starting in version 23.1, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow VAT Date From** and **Allow VAT Date To** fields in the **VAT Setup** and the **User Setup**. If you are using older versions, you can prevent or allow posting of the **VAT Date** for specific data range, using the **Allow Posting From** and **Allow Posting To** fields in the **General Ledger Setup** and the **User Setup**.  
+You calculate the unit cost of an assembly item by rolling up the unit cost of each component and resource in the item's assembly BOM.
 
-> [!NOTE]
-> If you leave the **VAT Date** blank, [!INCLUDE [prod_short](includes/prod_short.md)] will use your default setup from **Default VAT Date** in the **General Ledger Setup** as a **VAT Date** in the posted transaction.  
-
-### Modifying the VAT Date in posted entries
-
-If needed, you can change the VAT date posted documents. To change the date in the **VAT Date** field for posted documents, follow these steps:
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **VAT Entries**, and then choose the related link. 
-2. Find the entry with wrong VAT date.  
-3. Choose the **Edit list** action, and then enter the correct date in the **VAT Date** field.  
-4. When you close the page, the VAT date changes in related **G/L Entries** and in the posted document.  
+The unit cost of an assembly BOM always equals the total of the unit costs of its components, including other assembly BOMs, and any resources.  
 
 > [!NOTE]
-> You can change the **VAT Date** field in **VAT Entries** only if your current date is not in a closed VAT return period. Even if the period in the **VAT Return Periods** field is open, you might get a warning based on the **VAT Return Status**.  
+> [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)]
 
-> [!NOTE]
-> If your document has more than one **VAT Entry**, you only need to change the value in the **VAT Date** field in one entry related to the document. To keep entries consistent, [!INCLUDE[prod_short](includes/prod_short.md)] automatically changes the VAT date in VAT entries related to this transaction. [!INCLUDE [prod_short](includes/prod_short.md)] will update the **VAT Date** in other tables (GL Entries and documents), but only related to this transaction.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
+2. Open the card for an assembly item. (The **Assembly BOM** field on the **Items** page contains **Yes**.)
+3. On the **Item Card** page, choose the **Assembly BOM** action.
+4. On the **Assembly BOM** page, choose the **Calc. Standard Cost** action.
+5. Select one of the following options, then choose the **OK** button.
 
-## Correcting VAT amounts manually on sales and purchase documents  
+|Option |Description |
+|-------|------------|
+|**Top Level**|Calculates the assembly item's standard cost as the total cost of all purchased or assembled items on that assembly BOM regardless of any underlying assembly BOMs.|
+|**All Levels**|Calculates the assembly's item standard cost as the sum of:</br></br>* The calculated cost of all underlying assembly BOMs on the assembly BOM.</br>* The cost of all purchased items on the assembly BOM.|
 
-You can make corrections to posted VAT entries so that you can change the total sales or purchase VAT amounts without changing the VAT base. For example, if you receive an invoice from a vendor with an incorrect VAT amount.  
+The costs of the items that make up the assembly BOM are copied from the component item cards. The cost of each item is multiplied by the quantity, and the total cost is shown in the **Unit Cost** field on the item card.
 
-Although you might have one or more combinations set up to handle import VAT, you must set up at least one VAT product posting group. For example, you can name it **CORRECT** for correction purposes, unless you can use the same general ledger account in the **Purchase VAT Account** field on the VAT posting setup line. For more information, see [Setting Up to Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md).
-
-If a payment discount was calculated based on an invoice amount that includes VAT, you revert the payment discount part of the VAT amount when you grant the payment discount. You must activate the **Adjust for Payments Disc.** field in both the general ledger setup in general and the VAT posting setup for specific combinations of a VAT business posting group and a VAT product posting group.  
-
-### To set the system up for manual VAT entry in sales documents
-
-To enable manual VAT changes on sales documents, follow these steps. The steps are similar on the **Purchases & Payables Setup** page.
-
-1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
-2. On the **Sales & Receivables Setup** page, turn on the **Allow Vat Difference** toggle.  
-
-### To adjust VAT for a sales document
-
-1. Open the relevant sales order.  
-2. Choose the **Statistics** action.  
-3. On the **Invoicing** FastTab, choose the value in the **No. of Tax Lines** field.
-4. Edit the **VAT Amount** field.   
-
-> [!NOTE]  
-> The total VAT amount for the invoice, grouped by VAT identifier, is displayed in the lines. You can manually adjust the amount in the **VAT Amount** field on the lines for each VAT identifier. When you modify the **VAT Amount** field, application checks to ensure that you have not changed the VAT by more than the amount you have specified as the maximum difference allowed. If the amount is outside the range of the **Max. VAT Difference Allowed**, a warning will be displayed stating the maximum allowed difference. You will be unable to proceed until the amount is adjusted to within the acceptable parameters. Click **OK** and enter another **VAT Amount** that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, the VAT will be divided proportionally among the document lines that have the same VAT identifier.  
-
-## Calculating VAT manually using journals  
-
-You can also adjust VAT amounts in general, sales, and purchase journals. For example, you might need an adjustment if you enter a vendor invoice in your journal and the VAT amount that [!INCLUDE[prod_short](includes/prod_short.md)] calculated and the VAT amount on the vendor's invoice differ.  
-
-### To set the system up for manual VAT entry in general journals
-
-You must perform the following steps before you manually enter VAT in a general journal.  
-
-1. On the **General Ledger Setup** page, specify a **Max. VAT Difference Allowed** between the amount calculated by application and the manual amount.  
-2. On the **General Journal Templates** page, choose the **Allow VAT Difference** check box for the relevant journal.  
-
-### To set the system up for manual VAT entry in a sales and purchase journals
-
-You must perform the following steps before you manually enter VAT in a sales or purchase journal.
-
-1. On the **Purchases & Payables Setup** page, choose the **Allow VAT Difference** check box.  
-2. Repeat step 1 for the **Sales & Receivables Setup** page.
-3. After you complete the setup, you can adjust the **VAT Amount** field on the general journal line, or the **Bal. VAT Amount** field on the sales or purchase journal line. [!INCLUDE[prod_short](includes/prod_short.md)] verifies that the difference isn't greater than the specified maximum.  
-
-> [!NOTE]  
-> If the difference is greater, a warning will be displayed stating the maximum allowed difference. To continue, you must adjust the amount. Choose **OK** and then enter an amount that is within the allowed range. If the VAT difference is equal to or lower than the maximum allowed, [!INCLUDE[prod_short](includes/prod_short.md)] will show the difference in the **VAT Difference** field.  
-
-## Posting Import VAT with Purchase Invoices
-Instead of using journals to post an import VAT invoice, you can use a purchase invoice.  
-
-### To set up purchasing for posting import VAT invoices
-
-1. Set up a vendor card for the import authority that sends you the import VAT invoice. The **Gen. Bus. Posting Group** and **VAT Bus. Posting Group** must be set up in the same way as the general ledger account for the import VAT.  
-2. Create a **Gen. Product Posting Group** for the import VAT and set up an import VAT **Def. VAT Product Posting Group** for the related **Gen. Product Posting Group**.  
-3. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.  
-4. Select the import VAT general ledger account, and then choose the **Edit** action.  
-5. On the **Posting** FastTab, select the **Gen. Prod. Posting Group** setup for import VAT. [!INCLUDE[prod_short](includes/prod_short.md)] automatically fills in the **VAT Prod. Posting Group** field.  
-6. [!INCLUDE[open-search](includes/open-search.md)], enter **General Posting Setup**, and then choose the related link.  
-7. Create a combination of the **Gen. Bus. Posting Group** for the VAT authority and the **Gen. Prod. Posting Group** for import VAT. For this combination, in the **Purchase Account** field, choose the import VAT general ledger account.  
-
-### To create a new invoice for the import authority vendor after you complete the setup  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.  
-2. Create a new purchase invoice.  
-3. In the **Buy-from Vendor No.** field, choose the import authority vendor, and then choose the **OK** button.  
-4. In the purchase line, in the **Type** field, choose **G/L Account**, and in the **No.** field, choose the import VAT general ledger account.  
-5. In the **Quantity** field, type **1**.  
-6. In the **Direct Unit Cost Excl. VAT** field, specify the VAT amount.  
-7. Post the invoice.  
-
-## Processing certificates of supply
-
-When you sell goods to a customer in another EU country/region, you must send the customer a certificate of supply that the customer must sign and return to you. The following procedures are for processing certificates of supply for sales shipments, but the same steps apply for service shipments of items, and return shipments to vendors.  
-
-### To view certificate of supply details  
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. Choose **Certificate of Supply Details**.  
-4. By default, if the **Certificate of Supply Required** check box is selected for VAT Posting Group setup for the customer, the **Status** field is set to **Required**. You can update the field to indicate whether the customer returned the certificate.  
-
-> [!Note]  
->  If the VAT Posting Group setup does not have the **Certificate of Supply Required** check box selected, then a record is created and the **Status** field is set to **Not Applicable**. You can update the field to reflect the correct status information. You can manually change the status from **Not Applicable** to **Required**, and from **Required** to **Not Applicable** as needed.  
-
-   When you update the **Status** field to **Required**, **Received**, or **Not Received**, a certificate is created.  
-
-> [!TIP]  
->  You can use the **Certificates of Supply** page to get a view of the status of all posted shipments for which a certificate of supply has been created.  
-
-5. Choose **Print Certificate of Supply**.  
-
-> [!Note]  
-> You can preview or print the document. When you choose **Print Certificate of Supply** and print the document, the **Printed** check box is automatically selected. In addition, if not already specified, the status of the certificate is updated to **Required**. If needed, you include the printed certificate with the shipment.  
-
-### To print a certificate of supply
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. Choose the **Print Certificate of Supply** action.  
-
-> [!NOTE]  
-> Alternatively, you can print a certificate from the **Certificate of Supply** page.  
-
-4. To include information from the lines on the shipment document in the certificate, turn on the **Print Line Details** toggle.  
-5. To have [!INCLUDE[prod_short](includes/prod_short.md)] create certificates for posted shipments that didn't have one, turn on the **Create Certificates of Supply if Not Already Created** toggle. When you turn on the toggle, new certificates are created for all posted shipments that don't have certificates within the selected range.  
-6. By default, the filter settings are for the shipment document that you selected. Fill in the filter information to select a specific certificate of supply that you want to print.  
-7. On the **Certificate of Supply** page, choose the **Print** action to print the report, or choose the **Preview** action to view it on the screen.  
-
-   > [!Note]  
-   > The **Certificate of Supply Status** field and the **Printed** field are updated for the shipment on the **Certificates of Supply** page.  
-
-8. Send the printed certificate of supply to the customer for signature.  
-
-### To update the status of a certificate of supply for a shipment  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Sales Shipments**, and then choose the related link.  
-2. Choose the relevant sales shipment to a customer in another EU country/region.  
-3. In the **Status** field, choose the relevant option.  
-
-   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
-
-   You can modify the date to reflect the date that you received the customer's signed certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] linking.  
-
-   If the customer doesn't return the signed certificate of supply, choose **Not Received**. You must then send the customer a new invoice that includes VAT, because the tax authority won't accept the original invoice.  
-
-To view a group of certificates, start from the **Certificates of Supply** page, and then update the information about the status of outstanding certificates as you receive them from your customers. The updated information can be useful when you want to search for all certificates that have a certain status, for example, **Required**, for which you want to update their status to **Not Received**.  
-
-### To update the status of a group of certificates of supply  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Certificates of Supply**, and choose the related link.  
-2. Filter the **Status** field to the value that you want in order to create the list of certificates that you want to manage.  
-3. To update the status information, choose **Edit List**.  
-4. In the **Status** field, choose the relevant option.  
-
-   If the customer returned the signed certificate of supply, choose **Received**. The **Receipt Date** field is updated. By default, the receipt date is set to the current work date.  
-
-   You can modify the date to reflect the date that you received the signed the certificate of supply. You can also add a link to the signed certificate using standard [!INCLUDE[prod_short](includes/prod_short.md)] document linking.  
-
-> [!NOTE]
-> You cannot create a new certificate of supply on the **Certificate of Supply** page when you navigate to it using this procedure. To create a certificate for a shipment that was not set up to require one, open the posted sales shipment, and use either of two procedures described earlier:  
->
-> * To manually create a certificate of supply certificate  
-> * To print a certificate of supply.
+You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. Learn more at [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).
 
 ## Related information
 
-[Setting Up Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md)  
-[Report VAT to a Tax Authority](finance-how-report-vat.md)  
-[Validate a VAT Registration Number](finance-how-validate-vat-registration-number.md)  
+[Register New Items](inventory-how-register-new-items.md)  
+[Manage Product Variants](inventory-item-variants.md)  
+[View the Availability of Items](inventory-how-availability-overview.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with Bills of Material](inventory-how-work-BOMs.md)  
+[Create Production BOMs](production-how-to-create-production-boms.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-liabilities
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-setup-cash-flow-analyses
 ---
-title: Liabilities
-description: The Liabilities report provides an overview of all liabilities broken down by current liabilities, payroll liabilities, and long-term liabilities. 
+title: Setting up cash flow analysis
+description: Use Accountant Role Center charts to analyze the flow of money in your business, including expenses and income, liquidity, and cash receipts minus cash payments.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: money flow, expense and income, liquidity, cash receipts minus cash payments, Cartera, funds
+ms.search.form: 846, 847, 849, 851, 855, 862, 869, 1818
+ms.date: 07/01/2024
+ms.service: dynamics-365-business-central
+
+---
+# Setting up cash flow analysis
+
+If you want some help to decide what to do with your cash, have a look at the charts on the Accountant Role Center:
+
+* **Cash Cycle**  
+* **Income & Expense**  
+* **Cash Flow**  
+* **Cash Flow Forecasts**  
+
+This article describes where the data in the charts comes from and, if necessary, what to do to start using the charts.
+<br><br>  
+
+> [!Video https://learn-video.azurefd.net/vod/player?id=4ecab63b-f107-4666-b88f-656a133a0f78]
+
+## The Cash Cycle and Income & Expense charts
+
+The **Cash Cycle** and **Income & Expense** charts are ready to go, based on the Chart of Accounts and financial reports. The accounts are where the data comes from, and financial reports calculate the relationship between sales and receivables. Some accounts and financial reports are provided. You can use them as-is, change them, and add new ones. If you add G/L accounts to your chart of accounts, for example, by importing them from QuickBooks, map the accounts on the **Financial Reports** page for the following reports:
+
+| Financial report name | Where it's used |
+| --- | --- |
+| **I_CACYCLE** |Cash Cycle |
+| **I_CASHFLOW** |Cash Flow |
+| **I_INCEXP** |Income & Expense |
+| **I_MINTRIAL** |As an income statement if you don't use the chart of accounts |
+
+> [!NOTE]
+> It's a good idea to keep the calculations that are provided for the financial report.
+
+Enter accounts in the **Totaling** field for **Total Revenue**, **Total Receivables**, **Total Payables**, and **Total Inventory**. To map to a range of accounts, enter the account numbers separated by ".." as in **1111..4444**. Alternately, to map to specific accounts, enter the account numbers separated by a vertical bar as in **2222|3333|5555**.  
+
+> [!TIP] 
+> Verify your mapping by choosing the **Overview** action.  
+
+## Set up the Cash Flow chart
+
+The Cash Flow chart is based on:  
+
+* A chart of cash flow accounts.
+* One or more cash flow setups. These setups specify the accounts to use for general ledger, purchases, sales, services, and fixed assets.  
+
+To help you get going, [!INCLUDE [prod_short](includes/prod_short.md)] provides some accounts and cash flow setups. You can add, change, or remove them.  
+
+To set up the accounts, search for **Chart of Cash Flow Accounts**, choose the link, and then fill in the fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Repeat these steps for **Cash Flow Setup**.
+
+## Set up cash flow forecasts
+
+The **Cash Flow Forecast** chart uses cash flow accounts, cash flow setups, and cash flow forecasts. Some are provided, however, you can set up your own by using an assisted setup guide. The guide helps you specify things like:
+
+* When to update the forecast
+* Which accounts to base it on
+* When you pay taxes
+* Whether to turn on [Azure AI](https://azure.microsoft.com/overview/ai-platform/).  
+
+Cash flow forecasts can use Azure AI to create a more comprehensive forecast. The connection to Azure AI is already set up for you. You just need to turn it on. When you sign in to [!INCLUDE[prod_short](includes/prod_short.md)], a notification displays in a blue bar and provides a link to the default cash flow setup. The notification displays only once. If you close it, but then decide to turn on Azure AI, you can use the assisted setup guide or a manual process.  
+
+> [!NOTE]
+>
+> Alternatively, you can use your own predictive web service. For more information, see [Create and use your own predictive web service for cash flow forecasts](#AnchorText).  
+
+To use the assisted setup guide:  
+
+1. In the Accountant Role Center, under the **Cash Flow Forecast** chart, choose the **Open Assisted Setup** action.
+2. Fill in the fields in each step of the guide. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+3. Back in the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
+
+To use a manual process:  
+
+1. In the Accountant Role Center, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Cash Flow Setup**, then choose the related link.
+2. Expand the **Azure AI** FastTab, then choose the **Azure AI Enabled** field.
+3. Back in the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
+
+> [!TIP]  
+> Consider the length of the periods that the service will use in its calculations. The more data you provide, the more accurate the predictions will be. Also, watch out for large variances in periods. They will also impact predictions. If Azure AI does not find enough data, or the data varies a lot, the service will not make a prediction.  
+
+## Design details
+
+Subscriptions for [!INCLUDE[prod_short](includes/prod_short.md)] come with access to several predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Learn more at the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central]( https://www.microsoft.com/dynamics-365/products/business-central/) website.
+
+These web services are stateless, meaning they use data only to calculate predictions on demand. They don't store data.
+
+> [!NOTE]
+>
+> You can use your own predictive web service instead of ours. For more information, see [Create and use your own predictive web service for cash flow forecasts](#AnchorText).
+
+### Data required for forecast
+
+To make predictions about future revenue and expenses, web services require historical data from receivables, payables, and taxes.
+
+#### Receivables
+
+**Due Date**, **Amount (LCY)** fields of the **Customer Ledger Entries** page, where:
+
+* The document type is *Invoice* or *Credit Memo*.
+* The due date is between date that is calculated based on the values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
+
+Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Due Date** based on the value in the **Period Type** field on the **Cash Flow Setup** page.
+
+#### Payables
+
+**Due Date**, **Amount (LCY)** fields on the **Vendor Ledger Entries** page, where:
+
+* The document type is *Invoice* or *Credit Memo*.
+* The due date is between date that is calculated based on values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
+
+Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Due Date** based on the value in the **Period Type** field on the **Cash Flow Setup** page.
+
+#### Tax
+
+**Document Date**, **Amount** fields on the **VAT (Tax) Ledger Entries** page, where:
+
+* The document type is *sales*.
+* The document date is between the date that is calculated based on values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
+
+Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Document Date** based on value in the **Period Type** field in the **Cash Flow Setup** page.
+
+## <a name="AnchorText"></a>Create and use your own predictive web service for cash flow forecasts
+
+For [!INCLUDE[prod_short](includes/prod_short.md)] online, the model is published by Microsoft and connected to the Microsoft subscription. For other deployment options, you have to create Machine Learning resources in your own Azure subscription. You can find sample steps in the [sample repo](https://github.com/microsoft/BCTech/tree/master/samples/MachineLearning). The purpose of this task is to get the API URI and API key.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Cash Flow Setup**, and then choose the related link.  
+2. Expand the **Azure AI** FastTab, and then fill in the fields, including the API URL and API key provided from Azure Machine Learning studio. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+3. In the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
+
+## Related information
+
+[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
+[Setting Up Finance](finance-setup-finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Forecasting API overview](/dynamics365/business-central/dev-itpro/developer/ml-forecasting-api-overview)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-receiving-and-putting-away-in-basic-warehousing
+---
+title: Walkthrough - Receive and put away in basic warehouse configurations
+description: Learn about the different ways to handle inbound processes for receiving and putting away.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: article
+ms.date: 02/27/2023
+ms.custom: bap-template
+ms.service: dynamics-365-business-central
+---
+# Walkthrough: Receiving and Putting Away in Basic Warehouse Configurations
+
+In [!INCLUDE[prod_short](includes/prod_short.md)], you receive items and put them away using one of four methods, as described in the following table.
+
+|Method|Inbound Process|Require Receipts|Require Put-aways|Complexity Level (Learn more at [Warehouse Management Overview](design-details-warehouse-management.md))|  
+|------------|---------------------|--------------|----------------|------------|  
+|A|Post receipt and put-away from the order line|||No dedicated warehouse activity.|  
+|B|Post receipt and put-away from an inventory put-away document||Turned on|Basic: Order-by-order.|  
+|C|Post receipt and put-away from a warehouse receipt document|Turned on||Basic: Consolidated receive/ship posting for multiple orders.|  
+|D|Post receipt from a warehouse receipt document and post put-away from a warehouse put-away document|Turned on|Turned on|Advanced|  
+
+Learn more at [Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md).
+
+The following walkthrough demonstrates method B in the previous table.  
+
+## About this walkthrough  
+
+In basic warehouse configurations where your location is set up to require put-away processing but not receive processing, use the **Inventory Put-away** page to record and post put-away and receipt information for your inbound source documents. The following documents are inbound source documents:
+
+* Purchase order
+* Sales return order
+* Inbound transfer order
+* Production order with output that's ready to be put away
+
+> [!NOTE]
+> Even though the settings are called **Require Pick** and **Require Put-away**, you can still post receipts and shipments directly from the source business documents at locations where you select these checkboxes.  
+
+This walkthrough demonstrates the following tasks:  
+
+* Set up SILVER location for inventory put aways.  
+* Set up SILVER location for bin handling.  
+* Define a default bin for item LS-81. (LS-75 is already set up in CRONUS.)  
+* Create a purchase order for vendor 10000 for 40 loudspeakers.  
+* Verify that the put-away bins are preset by setup.  
+* Release the purchase order for warehouse handling.  
+* Create an inventory put-away based on a released source document.  
+* Verify that the put-away bins are inherited from the purchase order.  
+* Register the warehouse movement into the warehouse and post the purchase receipt for the source purchase order.  
+
+> [!NOTE]
+> [!INCLUDE [locations-cronus](includes/locations-cronus.md)]
+
+## Roles  
+
+The following user roles perform the tasks that this walkthrough demonstrates:  
+
+* Warehouse Manager  
+* Purchasing Agent  
+* Warehouse Worker  
+
+## Prerequisites  
+
+To complete this walkthrough, you'll need:  
+
+* CRONUS International Ltd. data  
+* To be a warehouse employee at SILVER location. To set yourself up, follow these steps:  
+
+    1. [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Employees**, and then choose the related link.  
+    2. Choose the **User ID** field, and select your user account on the **Users** page.  
+    3. In the **Location Code** field, choose **SILVER**.  
+    4. Select the **Default** checkbox.  
+
+## Story  
+
+Ellen, the warehouse manager at CRONUS International Ltd., creates a purchase order for 10 units of item LS-75 and 30 units of item LS-81 from vendor 10000 to be delivered to SILVER Warehouse. When the delivery arrives at the warehouse, John, the warehouse worker, puts the items away in the default bins defined for the items. When John posts the put-away, the items are posted as received into inventory and available for sale or other demand.  
+
+## Setting up the location  
+
+Settings on the **Location Card** page define the company's warehouse flows.  
+
+### To set up the location  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.  
+2. Open the SILVER location card.  
+3. Turn on the **Require Put-away** toggle.  
+
+    Set up a default bin for the two item numbers to control where they're put away.  
+
+4. Choose the **Bins** action.  
+5. Select the first row, for bin **S-01-0001**, and then choose the **Contents** action.  
+
+    Notice on the **Bin Content** page that item **LS-75** is already set up as content in bin S-01-0001.  
+
+6. Choose the **New** action.  
+7. Select the **Fixed** and the **Default** fields.  
+8. In the **Item No.** field, enter **LS-81**.  
+
+## Create the purchase order  
+
+Purchase orders are the most common type of inbound source document.  
+
+### To create the purchase order  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Orders**, and then choose the related link.  
+2. Choose the **New** action.  
+3. Create a purchase order for vendor 10000 on the work date (January 23) with the following purchase order lines.  
+
+    |Item|Location code|Bin code|Quantity|  
+    |----------|-------------------|--------------|--------------|  
+    |LS_75|SILVER|S-01-0001|10|  
+    |LS-81|SILVER|S-01-0001|30|  
+
+    > [!NOTE]  
+    > The bin code is entered automatically according to the setup you created in the [Setting up the location](#setting-up-the-location) section.  
+
+    Next, notify the warehouse that the purchase order is ready for warehouse handling when the delivery arrives.  
+
+4. Choose the **Release** action.  
+
+    The delivery of loudspeakers from vendor 10000 has arrived at SILVER warehouse, and John proceeds to put them away.  
+
+## Receive and put the items away  
+
+Use the **Inventory Put-away** page to manage all inbound warehouse activities for a specific source document, such as a purchase order.  
+
+### To receive and put the items away  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Put-aways**, and then choose the related link.  
+2. Choose the **New** action.  
+3. Select the **Source Document** field, and then select **Purchase Order**.  
+4. Select the **Source No.** field, select the line for the purchase from vendor 10000, and then choose the **OK** button.  
+
+    Alternatively, choose the **Get Source Document** action, and then select the purchase order.  
+
+5. Choose the **Autofill Qty. to Handle** action.  
+
+    Alternatively, in the **Qty. to Handle** field, enter 10 and 30 respectively on the two inventory put-away lines.  
+
+6. Choose the **Post** action, select the **Receive** action, and then choose the **OK** button.  
+
+    The 40 loudspeakers are now registered as put away in bin S-01-0001, and a positive item ledger entry is created reflecting the posted purchase receipt.  
+
+## Related information  
+
+[Put Items Away with Inventory Put-aways](warehouse-how-to-put-items-away-with-inventory-put-aways.md)  
+[Set Up Basic Warehouses with Operations Areas](warehouse-how-to-set-up-basic-warehouses-with-operations-areas.md)  
+[Pick for Production or Assembly](warehouse-how-to-pick-for-production.md)  
+[Move Items Ad Hoc in Basic Warehouse Configurations](warehouse-how-to-move-items-ad-hoc-in-basic-warehousing.md)  
+[Design Details: Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md)  
+[Business Process Walkthroughs](walkthrough-business-process-walkthroughs.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-released-production-orders
+---
+title: Released Production Orders
+description: The Released Production Orders report shows information about all released production orders, including expected versus finished quantities and the variance.
 author: kennienp
 ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
-ms.search.form: 36990_Primary
-ms.date: 10/31/2024
+ms.search.form: 37049_Primary
+ms.date: 11/01/2024
 ms.service: dynamics-365-business-central
 ---
 
-# Liabilities (Power BI report)
+# Released Production Orders (Power BI Report)
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-The **Liabilities** report provides an overview of your company's financial obligations, highlighting total liabilities, current liabilities, payroll liabilities, and long-term liabilities. It also shows key performance indicators such as debt ratio and dept-to-equity ratio, along with total assets.
+The **Released Production Orders** report provides detailed information about all released production orders, including expected versus finished quantities and the variance.
 
-These key performance indicators can help you understand the balance between debt and equity while monitoring liabilities that affect future cash flow and operational flexibility.
-
-Drill through into the **Liabilities Drill-Through** page to explore the underlying ledger entries that make up the balance.
-
-:::image type="content" source="media/finance/liabilities-report.png" alt-text="Screenshot of the Liabilities report" lightbox="media/finance/liabilities-report.png":::
+:::image type="content" source="media/manufacturing/released-production-orders-v26.png" alt-text="Screenshot of the Released Production Orders Power BI Report" lightbox="media/manufacturing/released-production-orders-v26.png":::
 
 ## Use the report
 
-The audiences for the report are:
+The report is meant for manufacturing managers and supervisors.
 
-- Executives
-- Directors
-- Other high-level decision makers
+Manufacturing managers use the report to track released production orders. By analyzing the expected versus finished quantities, you can find issues that might affect the production process. For example, if the finished quantity is much lower than the expected quantity, it might indicate a problem with the manufacturing process or materials. By identifying and addressing these issues, you can improve efficiency and reduce costs.
 
-Executives can use the report to evaluate your company's financial position before engaging in a new expansive initiative. By first analyzing current liabilities, you can gauge your immediate debt burden. This analysis helps you determine whether there are enough liquid assets to meet short term obligations, and ensure you have cash-flow to support existing operations and new development.
-
-Next, you could assess the debt ratio and debt-to-equity ratios. These key performance indicators provide insight into the company's leverage and risk profile. For example, a high debt-to-equity ratio could indicate that the company has a high reliance on borrowed funds. This type of data can help inform how you decide to finance the expansion project.  
+Production supervisors use this report to monitor expected and finished quantities. This information helps you prioritize and schedule the next items for production. For example, if the finished quantity is close to the expected quantity, you can prioritize the next item for production. If the finished quantity is much lower than the expected quantity, you might need to adjust the production schedule to ensure you compete the order on time.
 
 ## Key Performance Indicators (KPIs)
 
-The *Liabilities* report includes the following KPIs and measures: 
+The *Released Production Orders* report includes the following KPIs and measures:
 
-- [**Liabilities**](finance-powerbi-kpis.md#liabilities)
-- [**Current Liabilities**](finance-powerbi-kpis.md#current-liabilities)
-- [**Payroll Liabilities**](finance-powerbi-kpis.md#payroll-liabilities)
-- [**Longterm Liabilities**](finance-powerbi-kpis.md#longterm-liabilities)
-- [**Debt Ratio**](finance-powerbi-kpis.md#debt-ratio)
-- [**Debt/Equity Ratio**](finance-powerbi-kpis.md#debtequity-ratio)
-- [**Assets**](finance-powerbi-kpis.md#assets)
-- [**Balance at Date (Neg)**](finance-powerbi-kpis.md#balance-at-date-neg)
+- [**Planned Quantity**](manufacturing-powerbi-kpis.md#planned-quantity)
+- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
+- [**Variance Quantity**](manufacturing-powerbi-kpis.md#variance-quantity)
+- [**Remaining %**](manufacturing-powerbi-kpis.md#remaining-percent)
+- [**Finished %**](manufacturing-powerbi-kpis.md#finished-percent)
+- [**Total Actual Cost**](manufacturing-powerbi-kpis.md#total-actual-cost)
+- [**Expected Total Cost**](manufacturing-powerbi-kpis.md#total-expected-cost)
+- [**Standard Total Cost**](manufacturing-powerbi-kpis.md#total-standard-cost)
+- [**Total Expected Cost Variance**](manufacturing-powerbi-kpis.md#total-expected-cost-variance)
+- [**Total Standard Cost Variance**](manufacturing-powerbi-kpis.md#total-standard-cost-variance)
+- [**Total Expected Cost Dev %**](manufacturing-powerbi-kpis.md#total-expected-cost-dev-percent)
+- [**Total Standard Cost Dev %**](manufacturing-powerbi-kpis.md#total-standard-cost-dev-percent)
+- [**No. of Production Orders**](manufacturing-powerbi-kpis.md#no-of-production-orders)
 
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]>
 
-- G/L Entry
-- G/L Accounts
-- G/L Account Categories
+- Item
+- Production Order
 
 ## Try the report
 
-Try the report here: [Liabilities](https://businesscentral.dynamics.com?page=36990)
+Try the report here: [Released Production Orders](https://businesscentral.dynamics.com?page=37049)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
 ## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI finance app](finance-powerbi-app.md)  
-[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Built-in core finance reports](finance-reports.md)  
-[Built-in fixed assets reports](fa-reports.md)  
-[Built-in accounts receivable reports](receivables-reports.md)  
-[Built-in accounts payable reports](payables-reports.md)  
-[Financial analytics overview](bi.md)  
-[Finance overview](finance.md)
+[Power BI Manufacturing app](manufacturing-powerbi-app.md)  
+[Built-in production reports](production-reports.md)  
+[Manufacturing overview](production-manage-manufacturing.md)
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/year-allocate-costs-income
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-other
 ---
-title: Overview of tasks to allocate costs and income
-description: Outlines the tasks to allocate an entry in a recurring general journal to several different accounts when you post the journal.
+title: Business Central Extensions by Other Providers
+description: This article lists the apps and extensions to customize Business Central provided by other companies.
 author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: overview
+ms.topic: article
 ms.devlang: al
-ms.search.form: 283, 5629
-ms.date: 12/06/2024
-ms.custom: bap-template
+ms. search.keywords: app, add-in, manifest, customize
+ms.date: 02/17/2025
+ms.author: bholtorf
 ms.service: dynamics-365-business-central
+ms.reviewer: solsen
 ---
 
-# Allocate recurring costs and income
+# Business Central extensions by other providers
 
-You can allocate an entry in a recurring general journal to several accounts when you post the journal. To learn more about recurring general journals, go to [Work with recurring journals](ui-work-general-journals.md#work-with-recurring-journals).
+At [Marketplace.microsoft.com](https://marketplace.microsoft.com/), you can get extensions for [!INCLUDE[prod_short](includes/prod_short.md)]. Some extensions are provided by Microsoft, and other extensions are provided by other companies. We refer to the websites that these companies provide for more information about the extensions that aren't published by Microsoft. You can find this information at [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).  
 
-The following allocation methods are available:
+The list of the extensions by other companies grows each month. So keep an eye out for [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646) and get apps to help you in your work in [!INCLUDE[prod_short](includes/prod_short.md)].
 
-* Quantity
-* Percentage (%)
-* Amount
+## Understanding the risks of installing apps
 
-The allocation features work with recurring general journals and in fixed asset journals.
-<!--You can also distribute the cost or revenue of a line to an intercompany partner when you post a sales or purchase document. When you post the document, a line will be posted in your general journal, and a corresponding line will be created in the intercompany outbox.-->
-
-The following procedures describe how to prepare to allocate costs in a recurring general journal by defining allocation keys. When allocation keys are defined, you complete and post the journal like any other recurring general journal. For more information, see [Work with General Journals](ui-work-general-journals.md).
-
-> [!IMPORTANT]  
-> **Allocation Accounts** aren't supported in recurring journals. While the **Allocation Account** option is available in the **Account Type** field on the lines of the journal, this option isn't supported. Instead, use the allocations feature as described in this article.
->
-> If you defined allocation accounts in a previous version of [!INCLUDE [prod_short](includes/prod_short.md)], update the setup to use allocations.
-
-## To set up allocation keys
-
-You can allocate an entry in a recurring general journal to several different accounts when you post the journal. The allocation can be a quantity, percentage, or amount.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring General Journals**, and then choose the related link.
-2. Choose the **Batch Name** field to open the **General Journal Batches** page.
-3. You can either modify allocations on an existing batch in the list or create a new batch with allocations.
-   * To create a new batch, choose the **New** action, and go to the next step.
-   * To change the allocations of an existing journal, select the journal and go to step 7.    
-4. In the **Name** field, enter a name for the batch, such as CLEANING. In the **Description** field, enter a description, such as Cleaning Expenses Journal.
-5. When you're done, close the page. A new, empty recurring journal opens.
-6. Fill in the fields on the line.
-7. Choose the **Allocations** action.
-8. Add a line for each allocation. You must fill in either the **Allocation %**, **Allocation Quantity**, or **Amount** field. You must also fill in the **Account No.** field and, if you're allocating the transaction among global dimensions, the global dimension fields.
-9. If you enter a percentage on a line, the amount in the **Amount** field is calculated automatically. These amounts have the opposite sign from the total amount in the **Amount** field in the recurring journal.
-10. After entering the allocations lines, choose **OK** to return to the **Recurring General Journal** page. The **Allocated Amt. (USD)** field is filled in and matches the **Amount** field.
-11. Post the journal.
-
-## To change an allocation key that is already set up
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring General Journals**, and then choose the related link.
-2. On the **Recurring General Journals** page, select the journal with the allocation.
-3. Choose the line with the allocation, and then choose the **Allocations** action.
-4. Change the relevant fields, and then choose **OK**.
+[!INCLUDE [ui-extensions-risk-install-apps](includes/ui-extensions-risk-install-apps.md)]
 
 ## Related information
 
-[Closing Years and Periods](year-close-years-periods.md)    
-[Work with General Journals](ui-work-general-journals.md)    
-[Posting Documents and Journals](ui-post-documents-journals.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-review-accounts
----
-title: Review general ledger accounts 
-description: You can track your progress when you review amounts in general ledger accounts.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.date: 08/06/2024
-ms.custom: bap-template
-ms.search.form: 20, 22207,
-ms.service: dynamics-365-business-central
----
-
-# Review amounts in general ledger accounts
-
-You might have general ledger accounts that you frequently keep an eye on. Or you might want to speed up the review process at the end of the month. For help with keeping track of what you've done, and to speed up reviews, use the **Review Entries** action on the **Chart of Accounts** or the **G/L Account Card** page for each account. 
-
-## Set up accounts for reviews
-
-On the **G/L Account Card** page for each account, specify how to allow reviews in the **Review Policy** field.
-
-|Review Policy  |Description  |
-|---------|---------|
-|None     | You can't mark entries for the account as reviewed. For example, use this option for accounts such as payables, receivables, and bank accounts where there are other ways to review their amounts.        |
-|Allow Review     | You don't have to include entries in a review, and the amounts of the debit and credit entries don't have to balance. You remove a review, for example, if you've made a mistake.        |
-|Allow Review and Match Balance     | The total amounts of the debit and credit entries in the review must match. The **Debit** and **Credit** fields show those amounts, and the **Balance** field shows the total. This setting also lets you remove a review. When you remove a review from one or more entries, the debit and credit entries must still balance.        |
-
-## Mark entries as reviewed
-
-Choose the entries you've reviewed, and then use the **Set selected as reviewed** action. Each time you mark one or more entries as reviewed the entries are given the same number in the **Reviewed Identifier** column. The review identifier is a handy way to keep track of the entries that were reviewed at the same time. [!INCLUDE [prod_short](includes/prod_short.md)] also records the user who did the review, and when they did it.
-
-If you mark entries as reviewed, but regret doing so, use the **Set selected as not reviewed** action.
-
-* If the Review allowed policy is assigned to the account, the action resets the reviewed identifier to 0 and removes the person and date and time of the review. 
-* If the Review allowed and match balance policy is assigned, the credit and debit must still balance. For example, if one of the entries in a review is a mistake, you can choose another entry with the correct value. The replacement entry doesn't have to have the same reviewed identifier.
-
-> [!TIP]
-> A fast way to choose multiple entries is to hold down Ctrl or Shift while you choose the entries. *Ctrl* lets you selects specific entries, and *Shift* selects all entries between the first and last entries you select.
-
-## Review accounts that have old entries
-
-You might have entries from past periods that you've already reviewed or just don't need a review. You just want to start reviewing entries from, for example, the beginning of the year or accounting period. You can leave the entries as is. However, if you want to analyze data in Excel or by using Analysis Mode, mark the entries as reviewed. To learn more about analyzing entries, go to [Analyze entries](#analyze-entries). To mark the entries as reviewed, add a filter on the Filter pane to display only those entries, and then choose the **Mark selected entries as reviewed** action.
-
-## Filter entries
-
-To get a clearer picture, there are several ways to filter entries on the **Review G/L Entries** page.
-
-* Use the **Show Reviewed Entries** and **Hide Reviewed Entries** actions to show only the entries you have or haven't reviewed. To clear the filters, use the **Show all entries** action.
-* Use the Filter pane. For example, you might filter by account number or, if you have older entries and want to mark them all as reviewed, by a posting date.
-
-## Analyze entries
-
-There are a couple of ways to analyze the general ledger entries you've reviewed.
-
-* Turn on Analysis Mode, for example, to group entries according to their reviewed identifier. To learn more about Analysis Mode, go to [Analyze List Page Data Using Analysis Mode](analysis-mode.md).
-* Export the entries to Excel.
-
-## Related information
-
-[Understand the General Ledger and Chart of Accounts](finance-general-ledger.md)    
-[Set Up or Change the Chart of Accounts](finance-setup-chart-accounts.md)    
 end of article
 
