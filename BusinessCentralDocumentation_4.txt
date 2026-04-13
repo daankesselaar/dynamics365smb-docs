@@ -3568,25 +3568,23 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-setup-warehouse
 ---
-title: Configure Warehouse Processes
+title: Configure warehouse processes
 description: A company's distribution strategy is reflected in the configuration of its warehouse processes, for example the warehouse locations.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.form: 5775, 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7325, 7344, 7346, 7347, 7353, 7366
-ms.date: 09/28/2023
+ms.date: 04/07/2026
 ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Setting Up Warehouse Management
+# Setting up warehouse management
 
-A company's distribution strategy is reflected in the configuration of its warehouse processes. This includes defining how different items are handled in different warehouse locations, such as the degree of bin control and the extent of workflow required between warehouse activities.  
+A company's distribution strategy is reflected in the configuration of its warehouse processes. You can define how you handle different items in different warehouse locations, such as the degree of bin control and the extent of workflow required between warehouse activities.  
 
-The following table describes a sequence of tasks, with links to the topics that describe them.  
+The following table describes a sequence of tasks, with links to the articles that describe them.  
 
-|**To**|**See**|  
+|**To**|**Go to**|  
 |------------|-------------|  
 |Get an overview of the capabilities of basic versus advanced warehouse functionality.|[Warehouse Management Overview](design-details-warehouse-management.md)|  
 |Set up eight different bin types, such as Picking Bin, to define the flow activities that relate to each bin type.|[Set Up Bin Types](warehouse-how-to-set-up-bin-types.md)|  
@@ -3594,11 +3592,11 @@ The following table describes a sequence of tasks, with links to the topics that
 |Define which items you want to store in any given bin and set the rules that decide when to fill the bin with a particular item.|[Create Bin Contents](warehouse-how-to-set-up-bin-contents.md)|  
 |Set an item up to always be placed in a specific bin.|[Assign Default Bins to Items](warehouse-how-to-assign-default-bins-to-items.md)|
 |Create templates to govern where and how items are put away during directed put-away.|[Set Up Put-away Templates](warehouse-how-to-set-up-put-away-templates.md)|
-|Set users up as warehouse employees at specific locations.|[Set Up Warehouse Employees](warehouse-how-to-set-up-warehouse-employees.md)|
+|Set up users as warehouse employees at specific locations.|[Set Up Warehouse Employees](warehouse-how-to-set-up-warehouse-employees.md)|
 |Define different types of bins across the warehouse to control where items are placed according to their type, rank, or handling level.|[Set Up Locations to Use Bins](warehouse-how-to-set-up-locations-to-use-bins.md)|
-|Make additional settings to an existing location to enable it for warehouse activities.|[Convert Existing Locations to Warehouse Locations](warehouse-how-to-convert-existing-locations-to-warehouse-locations.md)|
+|Set up a location for warehouse activities.|[Convert Existing Locations to Warehouse Locations](warehouse-how-to-convert-existing-locations-to-warehouse-locations.md)|
 |Enable picking, moving, and putting away for assembly or production orders in basic warehouse configurations.|[Set Up Basic Warehouses with Operations Areas](warehouse-how-to-set-up-basic-warehouses-with-operations-areas.md)|  
-|Set items and locations up for the most advanced scope of warehouse management where all activities must follow a strict workflow.|[Set Up Items and Locations for Directed Put-away and Pick](warehouse-how-to-set-up-items-for-directed-put-away-and-pick.md)|  
+|Set up items and locations for the most advanced scope of warehouse management where activities follow a strict workflow.|[Set Up Items and Locations for Directed Put-away and Pick](warehouse-how-to-set-up-items-for-directed-put-away-and-pick.md)|  
 |Define when and how items in warehouse locations are counted for maintenance or financial reporting purposes.|[Count, Adjust, or Reclassify Inventory](inventory-how-count-adjust-reclassify.md)|
 |Enable warehouse workers to break a larger unit of measure into smaller units of measure to fulfill the needs of source documents.|[Enable Automatic Breaking Bulk with Directed Put-away and Pick](warehouse-enable-automatic-breaking-bulk-with-directed-put-away-and-pick.md)|  
 |Set up the warehouse to automatically suggest items to be picked that expire first.|[Enable Picking by FEFO](warehouse-picking-by-fefo.md)|
@@ -6660,7 +6658,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: project management
 ms.search.form: 211, 463, 1012
@@ -6668,7 +6666,7 @@ ms.service: dynamics-365-business-central
 ---
 # Set up projects, prices, and project posting groups
 
-As a project manager, you can set up each of the projects that you manage in [!INCLUDE[prod_short](includes/prod_short.md)]. Use the **Project Setup** page to define how you'll use project features.
+As a project manager, you can set up each of the projects that you manage in [!INCLUDE[prod_short](includes/prod_short.md)]. Use the **Project Setup** page to define how you use project features.
 
 For each project, specify various information:
 
@@ -6701,7 +6699,7 @@ After you set up usage tracking by turning on the **Apply Usage Link by Default*
 
 ### Invoice multiple customers for project tasks
 
-When projects involve multiple customers, billing the right customers for the right tasks can be challenging. [!INCLUDE [prod_short](includes/prod_short.md)] makes billing less complex by letting you specify the bill-to and sell-to customers on each project task line, so you can automatically generate invoices for the correct customers.  Use the **Default Task Billing Method** field to specify whether you're billing one customer, or multiple customers by default. You can change task billing method for a specific project by using the **Task Billing Method** field on the **Project Card** page. To learn more about invoicing multiple customers, go to [Invoice one or more customers for project tasks](projects-how-create-jobs.md#invoice-one-or-more-customers-for-project-tasks).
+When projects involve multiple customers, billing the right customers for the right tasks can be challenging. [!INCLUDE [prod_short](includes/prod_short.md)] makes billing less complex by letting you specify the bill-to and sell-to customers on each project task line, so you can automatically generate invoices for the correct customers. Use the **Default Task Billing Method** field to specify whether you're billing one customer, or multiple customers by default. You can change task billing method for a specific project by using the **Task Billing Method** field on the **Project Card** page. To learn more about invoicing multiple customers, go to [Invoice one or more customers for project tasks](projects-how-create-jobs.md#invoice-one-or-more-customers-for-project-tasks).
 
 ### Synchronize the cost of used items
 
@@ -6718,7 +6716,7 @@ If you keep it off, remember to run the **Update Job Project Cost** task manuall
 ## To set up prices for resources, items, and general ledger accounts for projects
 
 > [!NOTE]
-> In 2020 release wave 2, we released new processes for setting up and managing prices and discounts. If you're a new customer, you're using the new experience. If you're an existing customer, whether you are using the new experience depends on whether your administrator has enabled the **New sales pricing experience** feature update in **Feature Management**. For more information, see [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
+> In 2020 release wave 2, we released new processes for setting up and managing prices and discounts. If you're a new customer, you're using the new experience. If you're an existing customer, whether you're using the new experience depends on whether your administrator enabled the **New sales pricing experience** feature update in **Feature Management**. To learn more, go to [Enabling Upcoming Features Ahead of Time](/dynamics365/business-central/dev-itpro/administration/feature-management).
 
 You can set up prices for the items, resources, and general ledger accounts related to a project. 
 
@@ -6732,8 +6730,8 @@ When you choose a resource, item, or general ledger account for a project, [!INC
 
 |Column1  |Column2  |
 |---------|---------|
-|**Project Items**|The **Project Task No.**, **Currency Code**, and **Line Discount %** fields. The value in the **Unit Price** field for the item will be used on the project planning lines and project journals when this item is entered. This price overrides the regular customer price (the "best price" mechanism) for items. To use the regular customer price, don't specify project item prices for the project.|
-|**General Ledger Accounts**|The information in the **Project Task No.**, **Currency Code**, **Line Discount %**, **Unit Cost Factor**, and **Unit Cost** fields will be used on the project planning lines and project journals when this general ledger account is entered and added to a project. When you choose a general ledger account, project planning lines and project journals use the value in the **Unit Price** field for the general ledger project expense.|
+|**Project Items**|The **Project Task No.**, **Currency Code**, and **Line Discount %** fields. The value in the **Unit Price** field for the item is used on the project planning lines and project journals when this item is entered. This price overrides the regular customer price (the "best price" mechanism) for items. To use the regular customer price, don't specify project item prices for the project.|
+|**General Ledger Accounts**|The information in the **Project Task No.**, **Currency Code**, **Line Discount %**, **Unit Cost Factor**, and **Unit Cost** fields is used on the project planning lines and project journals when this general ledger account is entered and added to a project. When you choose a general ledger account, project planning lines and project journals use the value in the **Unit Price** field for the general ledger project expense.|
 |**Project Resources**|The **Project Task No.**, **Work Type**, **Currency Code**, **Line Discount %**, and **Unit Cost Factor** fields. The value in the **Unit Price** field for the resource is used on project planning lines and project journals when you enter a resource, or a resource assigned to the resource group. This price overrides prices specified on the **Resource Price/Resource Group Prices** page.|
 
 #### [New Experience](#tab/new-experience)
@@ -6763,13 +6761,13 @@ One aspect of planning projects is deciding which posting accounts to use for pr
 | **Resource Costs Applied Account** |Same as  **Project Costs Applied Account**, but used when **WIP Posting Method Used** is set to *Project Ledger Entry*.| |
 | **G/L Costs Applied Account** |Same as  **Project Costs Applied Account**, but used when **WIP Posting Method Used** is set to *Project Ledger Entry*.| |
 | **Project Costs Adjustment Account** |The balancing account to the WIP Accrued Costs account, which is an expense account. | Accrued Costs|
-| **G/L Expense Acc. (Budget)** |The sales account that will be used for general ledger expenses in project tasks with this posting group. If left empty, the general ledger account entered on the project planning line is used. | |
+| **G/L Expense Acc. (Budget)** |The sales account that is used for general ledger expenses in project tasks with this posting group. If left empty, the general ledger account entered on the project planning line is used. | |
 | **WIP Accrued Sales Account** |The WIP account for the calculated sales value of the WIP, which is an accrued revenue account for your balance sheet. When a WIP adjustment requires you to increase the recognized revenue, you post to this account. | Accrued Sales, Recognized Sales|
-| **WIP Invoiced Sales Account** |The account for the invoiced sales value of the WIP that is not able to be recognized. It is a balance sheet Unearned Revenue account. | Recognized Sales, Applied Sales|
+| **WIP Invoiced Sales Account** |The account for the invoiced sales value of the WIP that isn't able to be recognized. It's a balance sheet Unearned Revenue account. | Recognized Sales, Applied Sales|
 | **Project Sales Applied Account** |The balancing account to the WIP Invoiced Sales account, which is a contra income account. | Applied Sales, Recognized Sales|
 | **Project Sales Adjustment Account** |The balancing account to the WIP Project Sales Account, which is an income account. | Accrued Sales|
-| **Recognized Costs Account** |The expense account that contains the recognized costs for the project. It is a debit expense account ordinarily. | Recognized Costs|
-| **Recognized Sales Account** |The income account that contains the recognized income for the project. It is a credit income account ordinarily. | Recognized Sales|
+| **Recognized Costs Account** |The expense account that contains the recognized costs for the project. It's usually a debit expense account. | Recognized Costs|
+| **Recognized Sales Account** |The income account that contains the recognized income for the project. It's usually a credit income account. | Recognized Sales|
 
 ### Allow multiple people to post project transactions at the same time
 
@@ -7580,7 +7578,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: trade, partial deliveries, customer sales order, shipping advice, partial shipments, 
 ms.search.form: 42, 48, 9305
-ms.date: 03/12/2025
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -7588,7 +7586,7 @@ ms.custom: bap-template
 
 This article provides guidance on when you should use a customer sales order in addition to an invoice. If your sales process requires you to only ship part of an order, perhaps because the full quantity isn't available right away, you must process that sale by making a sales order.
 
-You must also use sales orders if you sell items that deliver directly from your vendor to your customer, in what is called a drop shipment. To learn more, go to [Make Drop Shipments](sales-how-drop-shipment.md). In all other respects, sales orders work the same way as sales invoices. To learn more, go to [Invoice Sales](sales-how-invoice-sales.md).
+You must also use sales orders if you sell items that deliver directly from your vendor to your customer in a drop shipment. To learn more, go to [Make Drop Shipments](sales-how-drop-shipment.md). In all other respects, sales orders work the same way as sales invoices. To learn more, go to [Invoice Sales](sales-how-invoice-sales.md).
 
 When you deliver the products, either fully or partially, you post the sales order as shipped or as shipped and invoiced to create the related item and customer ledger entries in your system. When you post the sales order, you can also email it as a PDF attachment. You can prefill the email body with a summary of the order and payment information, such as a link to PayPal. To learn more, go to [Ship Items](warehouse-how-ship-items.md) and [Send Documents by Email](ui-how-send-documents-email.md).
 
@@ -8359,7 +8357,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 11/13/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: consolidation, subsidiaries, consolidate
 ms.search.form: 240_Primary, Report_16, Report_17, Report_18, Report_4410, 1826, 1827
@@ -8370,7 +8368,7 @@ ms.service: dynamics-365-business-central
 
 Some organizations use [!INCLUDE [prod_short](includes/prod_short.md)] in multiple business units or legal entities. Others use [!INCLUDE [prod_short](includes/prod_short.md)] in subsidiaries that must report into parent organizations. [!INCLUDE [prod_short](includes/prod_short.md)] gives accountants tools that help them transfer general ledger entries from two or more companies (subsidiaries) into a consolidated company.  
 
-Each company involved in a consolidation is called a business unit. The company in which you combine the data is called the consolidated company.  
+Each company involved in a consolidation is a business unit. The company in which you combine the data is the consolidated company.  
 
 You can transfer financial data from subsidiaries to the consolidated company, even if the subsidiaries use [!INCLUDE [prod_short](includes/prod_short.md)] in different environments. To learn more about how to connect to other environments, go to [Set Up Company Consolidation](finance-consolidated-company-reporting-setup.md#busunit).
 
@@ -8405,10 +8403,10 @@ Before you consolidate, it's a good idea to test your data before you transfer i
 
 ### Run the consolidation
 
-After you've tested the data, you can transfer it to the consolidated company. An assisted setup guide will help you through the process.
+After you test the data, you can transfer it to the consolidated company. An assisted setup guide helps you through the process.
 
 > [!NOTE]
-> When you run the consolidation you can choose the companies to include. If your consolidated company doesn't have access to one or more subsidiaries, the guide will let you grant access to them.
+> When you run the consolidation, you can choose the companies to include. If your consolidated company doesn't have access to one or more subsidiaries, the guide lets you grant access to them.
 
 1. Sign in to the consolidated company.  
 2. On the **Business Units** page, choose the **Consolidate** action.  
@@ -8473,12 +8471,12 @@ The exported entries contain the following fields: **Account No.**, **Posting Da
 
 1. For each exported line, if the total of the **Amount** fields is a debit, the account number that is set up in the business unit's **Consol. Debit Acc.** field is exported to the line. If the total is a credit, the corresponding number in the **Consol. Credit Acc.** field is exported to the line.  
 2. The date used for each exported line is either the period's ending date or, if the transfer occurs each day, the exact date of the calculation.  
-3. The dimension value exported for the entry will be the consolidated company dimension value that is specified in the **Consolidation Code** field for that dimension value. If a consolidated company dimension value hasn't been entered in the **Consolidated Code** field for the dimension value, the dimension value itself will be exported to the line.  
+3. The dimension value exported for the entry is the consolidated company dimension value that is specified in the **Consolidation Code** field for that dimension value. If a consolidated company dimension value isn't entered in the **Consolidated Code** field for the dimension value, the dimension value itself is exported to the line.  
 4. The XML files also contain the currency exchange rates in the consolidation period. These rates are included in a separate section at the beginning of the file.  
 
 ## Use our API to automatically share data across environments
 
-[!INCLUDE [prod_short](includes/prod_short.md)] provides an API that let's you automate the process of sharing financial data from business units to the consolidated company. The API is free to use and easy to set up. It even let's you share data across [!INCLUDE [prod_short](includes/prod_short.md)] environments. For example, you might need to share across environments when business units are not in the same Azure geographies. To learn more about using the API to automate the consolidation process, go to [Set Up Company Consolidation](finance-consolidated-company-reporting-setup.md#busunit).
+[!INCLUDE [prod_short](includes/prod_short.md)] provides an API that lets you automate the process of sharing financial data from business units to the consolidated company. The API is free to use and easy to set up. It even lets you share data across [!INCLUDE [prod_short](includes/prod_short.md)] environments. For example, you might need to share across environments when business units aren't in the same Azure geographies. To learn more about using the API to automate the consolidation process, go to [Set Up Company Consolidation](finance-consolidated-company-reporting-setup.md#busunit).
 
 ## Related information
 
@@ -8492,13 +8490,13 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-reverse-journal-posting
 ---
-title: Undo a posting by posting a reversing entry
+title: Undo a posting using a reversing entry
 description: If you find a mistake in a posted general journal, you can use the Reverse Transaction action to undo the posting with a correct audit trail.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 08/07/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -12579,7 +12577,7 @@ ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: bi, power BI, analysis, KPI
 ms.search.form: 103, 108, 198, 490, 36984, 36985, 36986, 36987, 36988, 36989, 36990, 36991, 36992, 36993, 36994, 36995, Report_4, Report_6, Report_7, Report_9, Report_10, Report_17, Report_18, Report_25, Report_27, Report_28, Report_33, Report_38, Report_104, Report_120, Report_129, Report_304, Report_322, Report_329, Report_1404
-ms.date: 12/30/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -12675,7 +12673,7 @@ Sometimes, you just need to check whether the numbers add up correctly, or quick
 - Data analysis on ledger list pages
 - Open in Excel
 
-The Data analysis feature lets you open almost any list page, such as General Ledger Entries, Fixed Asset Ledger Entries, Check Ledger Entries, or Bank Account Ledger Entries, enter analysis mode, and then group, filter, and pivot data as you see fit.
+The Data analysis feature lets you open almost any list page, enter analysis mode, and then group, filter, and pivot data as you see fit.
 
 :::image type="content" source="media/data-analysis-gl-entries.png" alt-text="Example of how to do data analysis on the G/L entries page." lightbox="media/data-analysis-gl-entries.png":::
 
@@ -17614,7 +17612,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: analysis, history, track, business intelligence
 ms.search.form: 118, 408, 479, 480, 481, 484, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 548, 560, 562, 564, 567, 568, 577, 578, 580, 699, 1343, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2590, 2591, 2592, 2593, 9083, 9233, 9251, 9252, 9253
@@ -17628,10 +17626,10 @@ So, instead of setting up separate general ledger accounts for each department a
 
 Another example is to set up a dimension called *Department*, then use that dimension when you post sales documents. This way, you can use business intelligence tools to see which department sold which items. The more dimensions you use, the more detailed are the reports you base your business decisions on. In fact, a single sales entry can include information from multiple dimensions, such as:  
 
-* The account the item sale was posted to.  
-* Where the item was sold.
-* Who sold it.
-* Which customer bought it.
+* The account the item sale was posted to  
+* Where the item was sold
+* Who sold it
+* Which customer bought it
 
 ## Analyze by dimensions
 
@@ -17641,11 +17639,11 @@ Dimensions play an important role in business intelligence, such as when definin
 > A quick way to analyze transactional data by dimensions is to use the **Set Dimension Filter** action to filter totals by dimensions in the chart of accounts and on pages for entries.
 
 > [!NOTE]
-> Analysis views often use data from dimensions. If you discover an incorrect dimension has been used on posted general ledger (G/L) entries, you can correct the dimension values and update your analysis views. This helps keep your financial reports and analyses accurate. Learn more at [Troubleshooting and Correcting Dimensions](finance-troubleshooting-correcting-dimensions.md#changing-dimension-assignments-after-posting).
+> Analysis views often use data from dimensions. If you discover an incorrect dimension was used on posted general ledger (G/L) entries, you can correct the dimension values and update your analysis views. Learn more at [Troubleshooting and Correcting Dimensions](finance-troubleshooting-correcting-dimensions.md#changing-dimension-assignments-after-posting).
 
 ## Dimension sets
 
-A dimension set is a unique combination of dimension values. They're stored as dimension set entries in the database. Each dimension set entry represents a single dimension value. In addition, each dimension set, and dimension set entry within it, is identified by a common dimension set ID.  
+A dimension set is a unique combination of dimension values. They're stored as dimension set entries in the database. Each dimension set entry represents a single dimension value. Also, each dimension set, and the dimension set entry within it, get a common dimension set ID.  
 
 When you create a journal line, document header, or document line, you can specify a combination of dimension values. Instead of explicitly storing each dimension value in the database, a dimension set ID is assigned to the journal line, document header, or document line to specify the dimension set.  
 
@@ -17657,18 +17655,18 @@ You also set up values for dimensions. Let's say values represent your company's
 
 When dimensions and values are set up, you can define global and shortcut dimensions on the **General Ledger Setup** page. These dimensions are then always available for you to select as fields on journal and document lines, and ledger entries, without opening the **Dimensions** page first. Learn more in the [To set up global and shortcut dimensions](finance-dimensions.md#to-set-up-global-and-shortcut-dimensions) section.
 
-* **Global Dimensions** are used as filters, for example, on reports, batch jobs, and XMLports. You can use only two global dimensions, so choose dimensions you'll use often.
-* **Shortcut Dimensions** are available as fields on journals, document lines, and ledger entries. You can create up to eight of these.  
+* **Global Dimensions** are used as filters, for example, on reports, batch jobs, and XMLports. You can use only two global dimensions, so choose dimensions you use often.
+* **Shortcut Dimensions** are available as fields on journals, document lines, and ledger entries. You can create up to eight shortcut dimensions.  
 
 > [!NOTE]
-> After you use a new dimension in any entry, such as a line or new record, you cannot delete the dimension, even if you do not post the entry. This is because [!INCLUDE[prod_short](includes/prod_short.md)] immediately creates a dimension set for the line or record. Learn more in the [Dimension Sets](finance-dimensions.md#dimension-sets) section.
+> After you use a new dimension in any entry, such as a line or new record, you can't delete the dimension, even if you don't post the entry. [!INCLUDE[prod_short](includes/prod_short.md)] immediately creates a dimension set for the line or record. Learn more in the [Dimension Sets](finance-dimensions.md#dimension-sets) section.
 
 ### To set up default dimensions for customers, vendors, and other accounts
 
-You can assign a default dimension for a specific account. The dimension is copied to the journal or document when you enter the account number on a line, but you can delete or change the code on the line if appropriate. You can also require a dimension for posting an entry in a specific type of account. > 
+You can assign a default dimension for a specific account. The dimension is copied to the journal or document when you enter the account number on a line. However, you can delete or change the code on the line if needed. You can also require a dimension for posting an entry in a specific type of account. > 
 
 > [!NOTE]
-> Default dimension priorities open up for scenarios in sales and purchases that you might want to pay special attention to. When you use default dimension priorities on sales and purchase documents, [!INCLUDE [prod_short](includes/prod_short.md)] always considers the dimensions in the header as coming from the customer or vendor. This is true for dimensions that you set manually or by default, and is especially relevant when you use default dimensions on locations and items but not on customers or vendors.
+> Default dimension priorities open up for scenarios in sales and purchases that you might want to pay special attention to. When you use default dimension priorities on sales and purchase documents, [!INCLUDE [prod_short](includes/prod_short.md)] considers the dimensions in the header as coming from the customer or vendor. This is true for dimensions that you set manually or by default, and is especially relevant when you use default dimensions on locations and items but not on customers or vendors.
 >
 > **Example**
 >
@@ -17681,9 +17679,9 @@ You can assign a default dimension for a specific account. The dimension is copi
 >
 > When you create a new document in this scenario, dimensions are used as follows:
 >
-> * If you create a new document and add a location, the default value for new lines will be PROD. When you add lines with items, [!INCLUDE [prod_short](includes/prod_short.md)] will keep PROD because it comes from the header of the document.
+> * If you create a new document and add a location, the default value for new lines are PROD. When you add lines with items, [!INCLUDE [prod_short](includes/prod_short.md)] keeps PROD because it comes from the header of the document.
 >
-> * If you create a new document and add items that have the ADM dimension value, and then specify a location in the header of the document, [!INCLUDE [prod_short](includes/prod_short.md)] will ask whether you want to overwrite the existing lines because there's a conflict.
+> * If you create a new document and add items with the ADM dimension value, and then specify a location in the header of the document, [!INCLUDE [prod_short](includes/prod_short.md)] asks whether you want to overwrite the existing lines because there's a conflict.
 >
 > We recommend that you to test your default dimensions setup, dimension priorities, and the order in which you enter data in documents.  
 
@@ -17695,7 +17693,7 @@ You can assign a default dimension for a specific account. The dimension is copi
 > If you want to require a dimension but don't want to assign a default value to the dimension, leave the **Dimension Value Code** field blank, then select **Code Mandatory** in the **Value Posting** field.  
 
 > [!WARNING]  
-> If an account is used in an **Adjust Exchange Rates** or **Post Inventory Cost to G/L** batch job, do not select **Code Mandatory** or **Same Code**. These batch jobs cannot use dimension codes.  
+> If an account is used in an **Adjust Exchange Rates** or **Post Inventory Cost to G/L** batch job, don't select **Code Mandatory** or **Same Code**. These batch jobs can't use dimension codes.  
 
 > [!NOTE]  
 > If an account must have a different dimension than the default dimension assigned to the account type, you must set up a new default dimension for the account. The default dimension for the account then replaces the default dimension for the account type.  
@@ -17705,7 +17703,7 @@ You can assign a default dimension for a specific account. The dimension is copi
 Different account types, such as a customer account and an item account, can have different default dimensions. As a result, an entry might have more than one  proposed default dimension. To avoid such conflicts, you can apply priority rules to the different sources.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Default Dimension Priorities**, then choose the related link.  
-2. On the **Default Dimension Priorities** page, in the **Source Code** field, enter the source code for the entry table to which the default dimension priorities will apply.  
+2. On the **Default Dimension Priorities** page, in the **Source Code** field, enter the source code for the entry table to which the default dimension priorities apply.  
 3. Fill in a line for each default dimension priority you want for the selected source code.
 4. Repeat the procedure for each source code you want to set up default dimension priorities for.  
 
@@ -17725,34 +17723,34 @@ To avoid posting entries with contradictory or irrelevant dimensions, you can bl
     |**Limited**|This dimension combination has restrictions depending on which dimension values that you enter. You must define the limitations on the **Dimension Value Combination** page.|  
     |**Blocked**|This dimension combination isn't allowed.|  
 
-3. If you selected the **Limited** option, you must define which combinations of dimension values are blocked. To do this, choose the field to define the dimension value combination.  
+3. If you selected the **Limited** option, you must define which combinations of dimension values are blocked. To do so, choose the field to define the dimension value combination.  
 4. Now select a dimension value combination that is blocked and enter **Blocked** in the field. A blank field means the dimension value combination is allowed. Repeat if multiple combinations are blocked.  
 
 > [!NOTE]  
-> The same dimensions are displayed in both rows and columns, meaning all dimension combinations appear two times. [!INCLUDE[prod_short](includes/prod_short.md)] automatically displays the setting in both fields. You cannot select anything in the fields from the upper-left corner and down, because those fields have the same dimension in both rows and columns.  
+> The same dimensions are displayed in both rows and columns, meaning all dimension combinations appear two times. [!INCLUDE[prod_short](includes/prod_short.md)] automatically displays the setting in both fields. You can't select anything in the fields from the upper-left corner and down, because those fields have the same dimension in both rows and columns.  
 >
-> The selected option is not visible before you exit the field.  
+> The selected option isn't visible before you exit the field.  
 >
 > To show the name of the dimensions instead of the code, select the **Show Column Name** field.
 
 ### To set up global and shortcut dimensions
 
-Global and shortcut dimensions can be used as filters in [!INCLUDE[prod_short](includes/prod_short.md)], including on reports, batch jobs, ledger entry pages, and analysis views. Global and shortcut dimensions can be inserted directly without first opening the **Dimensions** page. On journal and document lines, you can select global and shortcut dimensions in a field on the line. You can set up two global dimensions and eight shortcut dimensions. Choose the dimensions that you use most frequently.
+You can use global and shortcut dimensions as filters on reports, batch jobs, ledger entry pages, and analysis views. You an add global and shortcut dimensions without first opening the **Dimensions** page. On journal and document lines, you can select global and shortcut dimensions in a field on the line. You can set up two global dimensions and eight shortcut dimensions. Choose the dimensions that you use most frequently.
 
 > [!IMPORTANT]
-> Changing a global or shortcut dimension requires all entries posted with the dimension be updated. To change a global dimension, you can use the **Change Global Dimensions** function, but that can be time-consuming, may affect performance, and tables may be locked during the update. Make sure you choose your global and shortcut dimensions carefully so you won't have to change them later. To change a shortcut dimension, use the **Change Dimensions** action.
+> Changing a global or shortcut dimension requires all entries posted with the dimension be updated. To change a global dimension, you can use the **Change Global Dimensions** action, but that can be time-consuming, might affect performance, and might lock tables during the update. Choose your global and shortcut dimensions carefully to avoid changing them later. To change a shortcut dimension, use the **Change Dimensions** action.
 >
 > Learn more in the [To change global dimensions](finance-dimensions.md#to-change-global-dimensions) section.
 
 > [!NOTE]
-> When you add or change a global or shortcut dimension, you are automatically signed out and back in so the new value is prepared for use.
+> When you add or change a global or shortcut dimension, [!INCLUDE [prod_short](includes/prod_short.md)] needs to prepare it for use. While it's working, you're automatically signed out and back in.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup**, then choose the related link.
 2. On the **Dimensions** FastTab, fill in the fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 #### To change global dimensions
 
-When you change a global or shortcut dimension, all entries posted with that dimension are updated. Because this process may be time-consuming and can affect performance, two different modes are provided to adapt the process to the size of the database.  
+When you change a global or shortcut dimension, all entries posted with that dimension are updated. Because this process might be time-consuming and can affect performance, two different modes are provided to adapt the process to the size of the database.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup**, and then choose the related link.
 2. Choose the **Change Global Dimensions** action.
@@ -17760,11 +17758,11 @@ When you change a global or shortcut dimension, all entries posted with that dim
 
     |Option|Description|
     |-|-|
-    |**Sequential**|(Default) The change is done in one transaction that reverts all entries to the dimensions they had before the change.<br /><br />This option is recommended if the company has relatively few posted entries, in which case the batch job takes the shortest time to complete. The process locks multiple tables and blocks other users until it's done. Note that with large databases, the process might not complete in this mode. In that case, use the **Parallel** option.|
-    |**Parallel**|The dimension change happens in multiple background sessions and the operation is split into multiple transactions. To use this option, turn on the **Parallel Processing** toggle. <br /><br />We recommended this option for large databases or companies with numerous posted entries because it will complete in the shortest time. Note that in this mode, the update process won't start if there's more than one active database session.|  
+    |**Sequential**|(Default) The change is done in one transaction that reverts all entries to the dimensions they had before the change.<br /><br />This option is recommended if the company has relatively few posted entries, in which case the batch job takes the shortest time to complete. The process locks multiple tables and blocks other users until it finishes. With large databases, the process might not complete in this mode. In that case, use the **Parallel** option.|
+    |**Parallel**|The dimension change happens in multiple background sessions and the operation is split into multiple transactions. To use this option, turn on the **Parallel Processing** toggle. <br /><br />We recommended this option for large databases or companies with numerous posted entries because it completes in the shortest time. In this mode, the update process doesn't start if there's more than one active database session.|  
 
-4. In the **Global Dimension 1 Code** and/or **Global Dimension 2 Code** fields, enter the new dimension(s). The current dimensions are displayed in gray behind the fields.
-5. Depending on the mode, do one of the following:
+4. In the **Global Dimension 1 Code** and/or **Global Dimension 2 Code** fields, enter the new dimensions. The current dimensions display in gray behind the fields.
+5. Depending on the mode, choose one of the following actions:
     * In **Sequential** mode, choose the **Start** action.
     * In **Parallel** mode, choose the **Prepare** action.
 
@@ -17798,10 +17796,10 @@ For **AREA**, add the following dimension values:
 | 80 |Non-EU |Standard |
 | 90 |Europe, Total |End-Total |
 
-For the two main geographic areas, Americas and Europe, you add subcategories for regions by indenting the dimension values. This lets you report on sales or expenses in regions, and get totals for the larger geographic areas. You could also choose to use countries, regions, counties, or cities as your dimension values, depending on your business.
+For the two main geographic areas, Americas and Europe, you add subcategories for regions by indenting the dimension values. Indenting values lets you report on sales or expenses in regions, and get totals for the larger geographic areas. You could also choose to use countries/regions, counties, or cities as your dimension values, depending on your business.
 
 > [!NOTE]  
-> To set up a hierarchy, the codes must be in alphabetical order. This includes the codes of the dimension values provided in [!INCLUDE[prod_short](includes/prod_short.md)].  
+> To set up a hierarchy, all codes must be in alphabetical order.  
 
 For **DEPARTMENT**, add the following dimension values:
 
@@ -17811,25 +17809,25 @@ For **DEPARTMENT**, add the following dimension values:
 | PROD |Production |Standard |
 | SALES |Sales |Standard |
 
-With this setup, you can add your two dimensions as the two global dimensions on the **General Ledger Setup** page. This means you can use AREA and DEPARTMENT as filters for general ledger entries, as well as on all reports. Both global dimensions are also automatically available for use on entry lines and document headers as shortcut dimensions.
+With this setup, you can add your two dimensions as the two global dimensions on the **General Ledger Setup** page. This means you can use AREA and DEPARTMENT as filters for general ledger entries, and on all reports. Both global dimensions are also automatically available for use on entry lines and document headers as shortcut dimensions.
 
 ## Getting an overview of dimensions used multiple times
 
-The **Default Dimensions-Multiple** page specifies how a group of accounts uses dimensions and dimension values. You can set this up by highlighting multiple accounts, then specifying default dimensions and dimension values for them. After that, the application suggests these dimensions and dimension values whenever one of these accounts is used, such as on a journal line. This makes entry posting easier for the user, as the dimension fields are filled in automatically. Also note, however, that the dimension values suggested can be changed on, for example, a journal line.
+The **Default Dimensions-Multiple** page specifies how a group of accounts uses dimensions and dimension values. You can control the behavior by highlighting multiple accounts, then specifying default dimensions and dimension values for them. Afterward, [!INCLUDE [prod_short](includes/prod_short.md)] suggests these dimensions and dimension values whenever one of these accounts is used, such as on a journal line. The suggestions make entry posting easier because the dimension fields fill in automatically. You can change the suggested the dimension values on, for example, a journal line.
 
-The **Default Dimensions-Multiple** page contains the following fields:
+The following table describes the fields on the **Default Dimensions-Multiple** page.
 
 |Field|Description|
 |-----|-----------|  
 |**Dimension Code**|Shows all dimensions defined as default dimensions on one or more highlighted accounts. By choosing this field, you can see a list of all available dimensions. If you select a dimension, that dimension is defined as a default dimension for all highlighted accounts.|
-|**Dimension Value Code**|Shows either a single dimension value or the term (Conflict). If a dimension value is shown in the field, then all highlighted accounts have the same default dimension value for a dimension. If the term (Conflict) is shown in the field, then not all highlighted accounts have the same default dimension value for a dimension. Upon choosing the **Dimension Code** field, you'll see a list of all available dimension values for a dimension. If you select a dimension value, it will be defined as a default dimension value for all highlighted accounts.|
-|**Value Posting**|Shows either a single value posting rule or the term (Conflict). If a value posting rule is shown in the field, then all highlighted accounts have the same value posting rule for a dimension value. If the term (Conflict) is shown in the field, then not all the highlighted accounts have the same value posting rule for a dimension value. Upon choosing the **Value Posting** field, you'll see a list of value posting rules for a dimension. If you select a value posting rule, it will be applied to all highlighted accounts.|
+|**Dimension Value Code**|Shows either a single dimension value or the term (Conflict). If a dimension value is shown in the field, then all highlighted accounts have the same default dimension value for a dimension. If the term (Conflict) is shown in the field, then not all highlighted accounts have the same default dimension value for a dimension. When you choose the **Dimension Code** field, a list of all available dimension values for a dimension displays. If you select a dimension value, it becomes a default dimension value for all highlighted accounts.|
+|**Value Posting**|Shows either a single value posting rule or the term (Conflict). If a value posting rule is shown in the field, then all highlighted accounts have the same value posting rule for a dimension value. If the term (Conflict) is shown in the field, then not all the highlighted accounts have the same value posting rule for a dimension value. When you choose the **Value Posting** field, a list of value posting rules for a dimension displays. If you select a value posting rule, it applies to all highlighted accounts.|
 
 ## Use dimensions
 
 In a document such as a sales order, you can add dimension information for both an individual document line and the document itself. So on the **Sales Order** page, you could enter dimension values for the first two shortcut dimensions on the individual sales lines, then add more dimension information if you choose the **Dimensions** button.  
 
-If you work in a journal instead, you can add dimension information to an entry in the same way, if you have set up shortcut dimensions as fields directly on journal lines.  
+If you work in a journal instead, you can add dimension information to an entry in the same way, if you set up shortcut dimensions as fields directly on journal lines.  
 
 You can also set up default dimensions for accounts or account types, so dimensions and dimension values are filled in automatically.
 
@@ -17845,7 +17843,7 @@ In a ledger entry page, you can see whether there are global dimensions for the 
 4. To see all the dimensions for an entry, select the entry, then choose the **Dimensions** action.  
 
 > [!NOTE]  
-> The **Ledger Entry Dimensions** page displays the dimensions one ledger entry at a time. You'll see as you scroll through the ledger entries, the content on the **Ledger Entry Dimensions** page changes accordingly.
+> The **Ledger Entry Dimensions** page displays the dimensions one ledger entry at a time. When you scroll through the ledger entries, the content on the **Ledger Entry Dimensions** page changes accordingly.
 
 ## Related information
 
@@ -19766,10 +19764,10 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 08/26/2024
-ms.custom: bap-template
+ms.date: 04/07/2026
 ms.search.form: 672, 673, 674, 671
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 # Use job queues to schedule tasks
 
@@ -19783,7 +19781,7 @@ The **Job Queue Entries** page lists all existing jobs. If you add a job queue e
 * The schedule for when, and how often, the job queue entry runs.
 
 > [!IMPORTANT]  
-> If you're assigned the SUPER permissions set that comes with [!INCLUDE[prod_short](includes/prod_short.md)], you have permission to run all objects included in your license. If you have the Delegated Admin role, you can create and schedule job queue entries, but only administrators and licensed users can run them.
+> If you have the SUPER permissions set that comes with [!INCLUDE[prod_short](includes/prod_short.md)], you have permission to run all objects included in your license. If you have the Delegated Admin role, you can create and schedule job queue entries, but only administrators and licensed users can run them.
 
 After a job finishes successfully, [!INCLUDE [prod_short](includes/prod_short.md)] removes it from the list of job queue entries, unless it's a recurring job. For recurring jobs, the **Earliest Start Time** field is adjusted to show the next time that the job will run.
 
@@ -19806,7 +19804,7 @@ You can use job queue entries to schedule business processes to run in the backg
 ## Important for scheduling recurring jobs
 
 > [!IMPORTANT]  
-> Recurring job queues can affect performance, so you shouldn't run them too frequently. When you set up how often to run a recurring job, try to set the largest time interval you can. For example, if you're about to set a recurrence of five minutes, consider whether it can be 15 minutes, or even once per hour instead. When planning for recurring job queues, consider which areas of the application the job will affect. Is it an area where many users work and will be impacted by heavy activity? Consider the length of a single job run and the business motivations for running jobs with a given cadence.
+> Recurring job queues can affect performance, so you shouldn't run them too frequently. When you set up how often to run a recurring job, try to set the largest time interval you can. For example, if you're about to set a recurrence of five minutes, consider whether it can be 15 minutes, or even once per hour instead. When planning for recurring job queues, consider which areas of the application the job affects. Is it an area where many people work that might be affected by heavy activity? Consider the length of a single job run and the business motivations for running jobs with a given cadence.
 
 ## The earliest start date
 
@@ -19830,13 +19828,13 @@ The following table describes the values of the **Status** field.
 | In Process | The job queue entry is in process. This field updates while the job queue is running. |
 | On Hold | The default status of the job queue entry when you create it. Choose the **Set Status to Ready** action to change the status to **Ready**. Choose the **Set On Hold** action to revert the status to **On Hold**. To learn more, go to [About On Hold](#about-on-hold).|
 | On Hold Due to Inactivity | Used primarily for job queue entries that schedule synchronization between [!INCLUDE [prod_short](includes/prod_short.md)] and another application, such as [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. To learn more about this status, go to [About inactivity timeouts](/dynamics365/business-central/admin-scheduled-synchronization-using-the-synchronization-job-queue-entries#about-inactivity-timeouts). |
-|Waiting | Only relevant for job queue entries that are assigned a category code. Indicates that the job is scheduled, but the underlying scheduled task isn't active. After the job queue entry that's currently running and is in the same category finishes, the status of the next job in the category with the status Waiting becomes Ready. |
+|Waiting | Only relevant for job queue entries that have a category code. Indicates that the job is scheduled, but the underlying scheduled task isn't active. After the job queue entry that's currently running and is in the same category finishes, the status of the next job in the category with the status Waiting becomes Ready. |
 | Error | Something went wrong. Choose **Show Error** to show the error message. |
 | Finished | The job queue entry is complete. |
 
 ### About On Hold
 
-Setting a job queue entry to **On Hold** doesn't affect a job that's already running. After a job starts, it continues to run until completion, regardless of any subsequent changes made to the job queue entry, such as putting it on hold.<br><br>The **On Hold** status is typically used to prevent a job from automatically starting when it reaches its scheduled start time. It allows you to temporarily pause a job before it begins processing. <br><br>If you need to stop or cancel a running job, you can manually intervene in the process. For example, you can stop the corresponding session or process.
+Setting a job queue entry to **On Hold** doesn't affect a job that's already running. After a job starts, it runs until it completes, regardless of changes made to the job queue entry, such as putting it on hold.<br><br>The **On Hold** status is typically used to prevent a job from automatically starting when it reaches its scheduled start time. It allows you to temporarily pause a job before it begins processing. <br><br>If you need to stop or cancel a running job, you can manually intervene in the process. For example, you can stop the corresponding session or process.
 
 ### To view status for any job
 
@@ -19886,7 +19884,7 @@ You can configure the **Job Queue Tasks** cue to use color indicators, so it's e
 
 ## Handle job queue entry issues
 
-Job queue entries stop running when there's an error. For example, this can be a problem when an entry connects to an external service, such as a bank feed. If the service is temporarily not available and the job queue entry can't connect, the entry will show an error and stop running. You'll have to manually restart the job queue entry. However, the **Maximum No. of Attempts** and **Rerun Delay (sec.)** fields can help you avoid this situation. The **Maximum No. of Attempts** field lets you specify how many times the job queue entry can fail before it stops trying to run. The **Rerun Delay (sec.)** field lets you specify the amount of time, in seconds, between attempts. The combination of these two fields might keep the job queue entry running until the external service becomes available.
+Job queue entries stop running when there's an error. For example, if there's a problem when an entry connects to an external service, such as a bank feed. If the service is temporarily unavailable and the job queue entry can't connect, the entry shows an error and stops running. You must manually restart the job queue entry. However, the **Maximum No. of Attempts** and **Rerun Delay (sec.)** fields can help you avoid this situation. The **Maximum No. of Attempts** field lets you specify how many times the job queue entry can fail before it stops trying to run. The **Rerun Delay (sec.)** field lets you specify the amount of time, in seconds, between attempts. The combination of these two fields might keep the job queue entry running until the external service becomes available.
 
 If a job queue entry shows an error, your first option to resolve the issue is to restart the job queue entry. You can set the status of the job queue entry to **On Hold** and then to **Ready**, or just restart it.
 
@@ -19918,8 +19916,8 @@ To set up notifications for job queue entry failures, start the **Set Up Job Que
 
    :::image type="content" source="media/in product notification example.png" alt-text="Shows a notification at the top of a home page.":::
 
-   Or, use [external business events](/dynamics365/business-central/dev-itpro/developer/business-events-overview#query-business-central-catalog-of-business-events-in-dataverse) to start a Power Automate flow. You can specify when, how, and who to notify for the flow. Your Power Automate flow must subscribe to the **Job queue task failed** event. To make it easier to create a flow that uses external business events, [!INCLUDE [prod_short](includes/prod_short.md)] provides the [Notify in Outlook when Job Queue in Business Central fails](https://go.microsoft.com/fwlink/?linkid=2288541) Power Platform template. An assisted setup guide helps you get set up in just a few steps. To learn more about Power Automate flows, go to [Use Power Automate flows in Business Central](/dynamics365/business-central/across-how-use-financials-data-source-flow).
-* When you want to be notified. You can choose to be notified immediately, or specify thresholds to be notified only after a number of job queue entries fail.
+   Or, use [external business events](/dynamics365/business-central/dev-itpro/developer/business-events-overview#query-business-central-catalog-of-business-events-in-dataverse) to start a Power Automate flow. You can specify when, how, and who to notify for the flow. Your Power Automate flow must subscribe to the **Job queue task failed** event. To make it easier to create a flow that uses external business events, [!INCLUDE [prod_short](includes/prod_short.md)] provides the [Notify in Outlook when Job Queue in Business Central fails](https://go.microsoft.com/fwlink/?linkid=2288541) Power Platform template. An assisted setup guide helps you get set-up in just a few steps. To learn more about Power Automate flows, go to [Use Power Automate flows in Business Central](/dynamics365/business-central/across-how-use-financials-data-source-flow).
+* When you want to be notified. You can choose to be notified immediately, or specify thresholds to be notified only after many job queue entries fail.
 
 After you set up notifications, you can always turn them on or off. On the **My Notifications** page, for the **Job Queue Failed Notification**, select or clear the **Enabled** checkbox.
 
@@ -20171,7 +20169,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
-ms.date: 08/06/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.form: 
 ms.service: dynamics-365-business-central
@@ -20199,17 +20197,17 @@ To revalue the foreign currency amounts in local currency for G/L account balanc
 If you're using an additional reporting currency (ACY), the G/L revaluation entries have an ACY amount. The amount only corresponding to the LCY amount on these entries, not the ACY balance on the G/L account. If you adjust the ACY rates after you post the adjustments, run the currency exchange rate adjustment one more time to adjust all G/L entries.
 
 > [!IMPORTANT]
-> G/L account revaluation might not meet all requirements for transaction and asset registrations that need revaluation. For example, for financial instruments, securities, leased assets, or if you use them for specific or large volumes of transactions or assets. We recommend that you discuss with your auditor whether you can use the feature, and if so, how you should use it. For example, if you'll allow currencies to mix for an account, or if you need to keep a separate account for each asset you want to track.
+> G/L account revaluation might not meet all requirements for transaction and asset registrations that need revaluation. For example, for financial instruments, securities, leased assets, or if you use them for specific or large volumes of transactions or assets. We recommend that you discuss with your auditor whether you can use the feature, and if so, how you should use it. For example, if you allow currencies to mix for an account, or if you need to keep a separate account for each asset you want to track.
 
 > [!NOTE]
-> Revaluation doesn’t provide the ability to apply or unapply entries, like you can with customer and vendor ledger entries. Adjustments happen on a balance per currency basis.
+> Revaluation doesn’t let you apply or unapply entries, like you can with customer and vendor ledger entries. Adjustments happen on a balance per currency basis.
 
 ## Revaluate accounts vs. customer and vendor exchange rate adjustments
 
 Revaluation simplifies the task of adjusting G/L account balances. The feature revaluates the balance per currency per G/L account much like you do for adjustments to G/L accounts that are linked to bank accounts. If you use a G/L account to track multiple assets, consider using a vendor or customer account instead.
 
 > [!NOTE]
-> G/L account revaluation might not meet all requirements for transaction and asset registrations that need revaluation. For example, for financial instruments, securities, leased assets, or if you use them for specific or large volumes of transactions or assets. We recommend that you discuss with your auditor whether you can use the feature, and if so, how you should use it. For example, if you'll allow currencies to mix for an account, or if you need to keep a separate account for each asset you want to track.
+> G/L account revaluation might not meet all requirements for transaction and asset registrations that need revaluation. For example, for financial instruments, securities, leased assets, or if you use them for specific or large volumes of transactions or assets. We recommend that you discuss with your auditor whether you can use the feature, and if so, how you should use it. For example, if you allow currencies to mix for an account, or if you need to keep a separate account for each asset you want to track.
 
 The following examples illustrate the difference between using a G/L account and using a vendor account to track the balance of two monetary assets that use a foreign currency.
 
@@ -20217,12 +20215,12 @@ The following examples illustrate the difference between using a G/L account and
 If you're using one G/L account to track either multiple assets (for example, loans or fixed assets) in the same currency, or individual part transactions for the same asset but still in the same currency, G/L revaluation makes one entry per revaluation for the currency. This means that you can't track the adjustments related to individual assets or individual transactions for the same asset.
 
 **Use a vendor account**
-If you set up multiple assets as vendors and you post transactions to them, either in same or different currencies, you'll get an adjustment per currency per vendor. Or, if you turn on the **Posting per entry** toggle on the **Adjust Currency Exchange Rate** job queue entry, you'll get an adjustment entry for each separate vendor ledger entry.
+If you set up multiple assets as vendors and you post transactions to them, either in same or different currencies, you get an adjustment per currency per vendor. Or, if you turn on the **Posting per entry** toggle on the **Adjust Currency Exchange Rate** job queue entry, you get an adjustment entry for each separate vendor ledger entry.
 
 This difference is important when you assess whether G/L revaluation is the right feature to you for your reporting needs.
 
 > [!TIP]
-> We recommend that you ask your accountant or auditor which type of account is best for your business. Also, there might be an app for [!INCLUDE [prod_short](includes/prod_short.md)] on [Marketplace](https://marketplace.microsoft.com/en-us/marketplace/apps?page=1&product=dynamics-365-business-central) that's just right for your business scenarios.
+> We recommend that you ask your accountant or auditor about which type of account is best for your business. Also, there might be an app for [!INCLUDE [prod_short](includes/prod_short.md)] on [Marketplace](https://marketplace.microsoft.com/en-us/marketplace/apps?page=1&product=dynamics-365-business-central) that's right for your business scenarios.
 
 ## Related information
 
@@ -20240,13 +20238,15 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: item, finished good, component, raw material, assembly item, item substitution
 ms.search.form: 30, 5717, 31, 32, 346, 9091, 5718, 5716, 5720, 1384, 1383, 35, 5404, 1378, 5719
-ms.date: 08/12/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 # Register new items
 
-Items, among other products, are the basis of your business, the goods, or services that you trade in. Each item must be registered as an item card.
+Items are the basis of your business. They're the goods or services that you trade in. You must fill in an **Item Card** page for each item you offer.
+
+This article describes how to set up and work with items in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 ## To create a new item card
 
@@ -20397,13 +20397,12 @@ title: Entering dates and times in Business Central
 description: Learn how to enter dates and times including various productivity tips such as shorthand, expressions, and ranges.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: dates, reporting, filter, calendar, shorthand, range
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 11/13/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Work with calendar dates and times
@@ -20428,10 +20427,10 @@ The **My Settings** page specifies the **Region** and **Language** that you're u
 In a date field, you can enter a date using the standard format for your region setting. Different regions can use different separators between the days, months, and years. For example, some regions use dashes (mm-dd-yyyy) and others use forward slashes (mm/dd/yyyy).  
 
 > [!TIP]
-> You can use any separators, even a space, and the date will automatically be changed to use separators that match your region.
+> You can use any separator, even a space, and the date automatically changes to use separators that match your region.
 
 > [!NOTE]
-> The format in which dates are displayed on printed reports or emailed documents isn't influenced by your personal choice of region setting.
+> Your personal choice of region setting doesn't influence the format in which dates display on printed reports or emailed documents.
 
 To work more productively with dates and times, you can use any of the methods or formats that are described in the following sections.
 
@@ -20462,7 +20461,7 @@ In a date field you can enter two, four, six, or eight digits:
 - If the date you want to enter is in the range 01/01/1950 through 12/31/2049, you can enter the year with two digits; otherwise, enter the year with four digits.
 
   > [!NOTE]
-  > If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, the two-digit year range may be different. Administrators can change the range by modifying the **CalendarTwoDigitYearMax** setting of the [!INCLUDE[prod_short](includes/prod_short.md)] server. For more information, see [Configuring Business Central Server](/dynamics365/business-central/dev-itpro/administration/configure-server-instance#General).
+  > If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, the two-digit year range might be different. Administrators can change the range by modifying the **CalendarTwoDigitYearMax** setting of the [!INCLUDE[prod_short](includes/prod_short.md)] server. For more information, see [Configuring Business Central Server](/dynamics365/business-central/dev-itpro/administration/configure-server-instance#General).
 
 ### Today
 

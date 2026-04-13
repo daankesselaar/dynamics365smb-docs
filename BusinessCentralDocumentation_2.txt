@@ -374,7 +374,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: work in process, work in progress, calculate project WIP
 ms.search.form: 1010,
-ms.date: 08/19/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -9351,13 +9351,13 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/intercompany-how-setup
 ---
-title: Set Up intercompany transaction posting
+title: Set up intercompany transaction posting
 description: Learn how to set up an intercompany partnership. 
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 09/19/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: IC, group, consolidation, affiliate, subsidiary
 ms.search.form: 605, 613, 617, 620, 602, 603, 601, 600, 652, 653, 606, 607, 609, 608, 621, 653_Primary
@@ -9397,7 +9397,7 @@ Use the **Intercompany Setup** page to set up the following components of interc
 
 ## Set up a synchronization partner
 
-All partners must use the same intercompany chart of accounts and, if needed, the same intercompany dimensions. You can save time when you set up the partnership by using the chart of accounts and dimensions for one of the partners as a baseline for the intercompany chart of accounts and dimensions. The company that you use as the baseline is called the *synchronization partner*. Typically, the synchronization partner is the headquarter company, but it doesn't have to be.
+All partners must use the same intercompany chart of accounts and, if needed, the same intercompany dimensions. When you set up the partnership, you can save time by using the chart of accounts and dimensions for one of the partners as a baseline for the intercompany chart of accounts and dimensions. The company that you use as the baseline is the *synchronization partner*. Typically, the synchronization partner is the headquarter company, but it doesn't have to be.
 
 On the **Intercompany Setup** page, each partner specifies the synchronization partner in the **Synchronization Partner** field. Afterward, the intercompany chart of accounts and intercompany dimensions are automatically specified for them, based on the setup for the synchronization partner. The partners then use the **Intercompany Chart of Accounts Mapping** and **Intercompany Dimension Mapping** pages to map their chart of accounts and dimensions to the intercompany chart of accounts and dimensions, and vice versa. 
 
@@ -9433,7 +9433,7 @@ Run the **Intercompany Setup**, **Actions**, **Connection Details** in all compa
 This process is only necessary if you want to connect with a partner whose [!INCLUDE [prod_short](includes/prod_short.md)] is in a different tenant or environment.
 
 > [!TIP]
-> It's a good idea to have a text editor open, such as Notepad, while you create your registered app. You'll need some of the information when you run the **Intercompany Setup**, **Actions**, **Connection Details**, so it's nice to have the information handy.
+> It's a good idea to have a text editor open, such as Notepad, while you create your registered app. You need some of the information when you run the **Intercompany Setup**, **Actions**, **Connection Details**, so it's nice to have the information handy.
 
 1. Go to [Azure portal](https://portal.azure.com/#home).
 2. Choose the **Microsoft Entra ID** service.
@@ -9500,7 +9500,7 @@ The synchronization company can share its chart of accounts with partners by exp
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Setup**, and then choose the related link.
 2. Choose the **IC Chart of Accounts** action.
 3. On the **Intercompany Chart of Accounts** page, choose the **Import/Export** action, and then choose either **Import** or **Export**.
-4. Choose the file to import or export.  
+4. Choose the file that you want to import or export.  
 
 The **Intercompany Chart of Accounts** page is filled with new or edited G/L account lines according to the intercompany chart of accounts in the file. Any existing, unrelated lines on the page remain unchanged.
 
@@ -9551,7 +9551,7 @@ The synchronization company can share its dimensions with partners by exporting 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Setup**, and then choose the related link.
 2. Choose the **IC Dimensions** action.  
 3. On the **Intercompany Dimensions** page, choose the **Import/Export** action, and then choose either **Import** or **Export**.
-4. Choose the file to import or export.
+4. Choose the file you want to import or export.
 
 The next step is to map the dimensions with the intercompany dimensions. Learn more at [Map intercompany dimensions to your company's dimensions](#map-intercompany-dimensions-to-your-companys-dimensions).
 
@@ -9594,16 +9594,16 @@ To learn more about general journal templates and batches, go to [Use journal te
 The following steps assume that a synchronization partner is set up with the chart of accounts and dimensions on which you base the intercompany chart of accounts and dimensions. You can set them up yourself, but it's typically faster to get started, and maintenance is easier, to you use a synchronization partner. To learn more about the synchronization partner, go to [Set up a synchronization partner](#set-up-a-synchronization-partner).
 
 > [!TIP]
-> It's a good idea to fill in the fields on the **General** FastTab on the **Intercompany Setup** page for each partner before you add their partners. When you add partner companies that are in the same tenant, [!INCLUDE [prod_short](includes/prod_short.md)] gets their IC code and company name from their setup on the General FastTab. The **Company Name** field will verify that their IC code is unique.
+> It's a good idea to fill in the fields on the **General** FastTab on the **Intercompany Setup** page for each partner before you add their partners. When you add partner companies that are in the same tenant, [!INCLUDE [prod_short](includes/prod_short.md)] gets their IC code and company name from their setup on the General FastTab. The **Company Name** field verifies that their IC code is unique.
 
 > [!NOTE]
-> If you'll use a synchronization partner, leave the **Synchronization Partner** field blank when you set that company up for the partnership.
+> If you use a synchronization partner, leave the **Synchronization Partner** field blank when you set up that company for the partnership.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Intercompany Setup**, and then choose the related link.  
 2. On the **Intercompany Setup** page, fill in the fields on the **General** FastTab. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 
 > [!NOTE]
-> In [!INCLUDE[prod_short](includes/prod_short.md)] online, you can't use file locations to transfer transactions to your partners because [!INCLUDE[prod_short](includes/prod_short.md)] can't access your local network. Therefore, if you choose **File Location** in the **Transfer Type** field, the **Folder Path** field is not available. Instead, the file will be downloaded to the **Downloads** folder on your computer. You then send the file to someone in the partner company, for example, by email. For a more direct process, we recommend that you choose **Email**.
+> In [!INCLUDE[prod_short](includes/prod_short.md)] online, you can't use file locations to transfer transactions to your partners because [!INCLUDE[prod_short](includes/prod_short.md)] can't access your local network. Therefore, if you choose **File Location** in the **Transfer Type** field, the **Folder Path** field isn't available. Instead, the file downloads to the **Downloads** folder on your computer. You then send the file to someone in the partner company, for example, by email. For a more direct process, we recommend that you choose **Email**.
 
 The next step is to set up the partner companies.
 
@@ -9631,7 +9631,7 @@ Each partner must add all other companies in the partnership as a partner.
 3. Depending on what you want to do, choose the customer or partner in the **Customer No.** or **Vendor No.** fields.
 
     > [!NOTE]
-    > If the customer or vendor hasn't been created, you can choose **+New** in the drop-down menu to set them up. To learn more about creating customers and vendors, go to [Register New Customers](sales-how-register-new-customers.md) and [Register New Vendors](purchasing-how-register-new-vendors.md).
+    > If the customer or vendor isn't created, you can choose **+New** in the drop-down menu to set them up. To learn more about creating customers and vendors, go to [Register New Customers](sales-how-register-new-customers.md) and [Register New Vendors](purchasing-how-register-new-vendors.md).
 
     > [!TIP]
     > You can also specify a customer or vendor as an intercompany partner by filling in the **IC Partner Code** field on the **Customer Card** and **Vendor Card** pages.
@@ -9653,7 +9653,7 @@ To make it faster to process intercompany transactions, you can specify that you
 * On the **Intercompany Setup** page, turn on the **Auto. Send Transactions** toggle for the synchronization partner. Then specify where to create received intercompany journal transactions by filling in the **Default IC Gen. Jnl. Template** and **Default IC Gen. Jnl. Batch** fields.
 
     > [!TIP]
-    > If the **Default IC Gen. Jnl. Template** field is blank, you need to set up a general journal template to use for your intercompany general journals. To learn more about templates and batches, go to [Set up intercompany general journal templates and batches](#set-up-intercompany-general-journal-templates-and-batches)    
+    > If the **Default IC Gen. Jnl. Template** field is blank, set up a general journal template to use for your intercompany general journals. To learn more about templates and batches, go to [Set up intercompany general journal templates and batches](#set-up-intercompany-general-journal-templates-and-batches)    
 
 * On the **Intercompany Partner** page, turn on the **Auto Accept Transactions** toggle.
 
@@ -11589,7 +11589,7 @@ ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.keywords: trade, sell
 ms.search.form: 253,
-ms.date: 11/11/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -11600,21 +11600,27 @@ You create a sales invoice or sales order to record your agreement with a custom
 
 You must use sales orders if your sales process requires you to ship parts of an order quantity, for example, because the full quantity isn't available right away. If you sell items by delivering directly from your vendor to your customer, as a drop shipment, then you must also use sales orders. In all other respects, sales orders work the same way as sales invoices. With sales orders, you can also use the order promising functionality to communicate certain delivery dates to your customers.  
 
-You can negotiate with the customer by first creating a sales quote, which you can convert to a sales invoice or sales order when you agree on the sale. After the customer confirms the agreement, you can send an order confirmation to record your obligation to deliver the products as agreed.
+## Corrections
 
-You can easily correct or cancel a posted sales invoice before the customer pays it. For example, to correct a typing mistake or if the customer requests a change early in the order process. If the posted sales invoice is paid, then you must create a sales credit memo or a sales return order to reverse the sale.
+You can easily correct or cancel a posted sales invoice before the customer pays it. For example, to correct a typing mistake or if the customer requests a change early in the order process. If the posted sales invoice is paid, then you must create a sales credit memo or a sales return order to reverse the sale. Learn more at [Correct or cancel unpaid sales invoices](sales-how-correct-cancel-sales-invoice.md).
 
-Good sales and marketing practices are all about how to make the best decisions at the right time. Marketing functionality in [!INCLUDE[prod_short](includes/prod_short.md)] provides a precise and timely overview of your contact information so you can serve your prospective customers more efficiently and increase customer satisfaction. Learn more at [Relationship Management](marketing-relationship-management.md).
+## Maximize sales
+
+Good sales and marketing practices are all about how to make the best decisions at the right time. Marketing features in [!INCLUDE[prod_short](includes/prod_short.md)] provide a precise and timely overview of your contact information so you can serve your prospective customers more efficiently and increase customer satisfaction. Learn more at [Relationship Management](marketing-relationship-management.md).
 
 If you use Microsoft Dynamics 365 Sales for customer engagement, you can enjoy seamless integration in the lead-to-cash process by using [!INCLUDE [prod_short](includes/prod_short.md)] for backend activities. For example, to process orders, manage inventory, and do your finances. Learn more at [Use Dynamics 365 Sales from Business Central](marketing-integrate-dynamicscrm.md).
 
+## Reconcile payments
+
 In business environments where the customer must pay before products are delivered, such as in retail, you must wait for the receipt of payment before you deliver the products. In most cases, you process incoming payments some weeks after delivery by applying the payments to their related posted, unpaid sales invoices. Learn more at [Reconcile Payments Using Automatic Application](receivables-how-reconcile-payments-auto-application.md).
 
-Sales documents can be sent as PDF files attached to email. The email body contains an extract of the sales document, such as products, total amount, and a link to the PayPal site. Learn more at [Send Documents by Email](ui-how-send-documents-email.md).
+## Send sales documents to customers
+
+You can send sales documents as PDF files attached to email. The email body contains an extract of the sales document, such as products, total amount, and a link to the PayPal site. Learn more at [Send Documents by Email](ui-how-send-documents-email.md).
+
+## Use workflows in your sales process
 
 For all sales processes, you can incorporate an approval workflow. For example, an approval workflow can require that a manager approves large sales to certain customers. Learn more at [Use Workflows](across-use-workflows.md).
-
-The following sections describe a sequence of tasks, with links to the articles that cover them.
 
 ## Get started with sales capabilities
 
@@ -11637,6 +11643,8 @@ This section describes the analytical tools you can use to get insights into you
 | Explore built-in sales reports. | [Built-in sales reports](sales-reports.md) |
 
 ## Quote to order to sales invoice
+
+You can negotiate with the customer by first creating a sales quote, which you can convert to a sales invoice or sales order when you agree on the sale. After the customer confirms the agreement, you can send an order confirmation to record your obligation to deliver the products as agreed.
 
 The following table describes how to use simple sales processes.
 
@@ -11708,9 +11716,9 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.search.keywords: collection, remindes
+ms.search.keywords: collection, reminders
 ms.search.form: 
-ms.date: 03/12/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -11741,7 +11749,7 @@ The setup settings differ for the Create, Issue, and Send reminder actions. The 
 ### Create
 
 * Set the highest level on all reminder lines.  
-* Create reminders for entries that are on hold. For example, this setting is useful if you're in an ongoing dispute with a customer and want them to see the big picture.
+* Create reminders for entries that are on hold. For example, this setting is useful if you're in an ongoing dispute with a customer and want to give them the full picture.
 * Create reminders for all unpaid invoices, and not just invoices that are overdue. The report displays overdue invoices and invoices that are unpaid but not overdue in separate sections.
 * Set filters to make the reminder more specific.
 
@@ -11752,7 +11760,7 @@ When you issue a reminder, you create entries in the customer ledger that contai
 ### Send
 
 > [!NOTE]
-> The Send automation requires that you've set up email in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about setting up email, go to [Set up email](admin-how-setup-email.md).
+> The Send automation requires that you set up email in [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about setting up email, go to [Set up email](admin-how-setup-email.md).
 
 The content of the emails, such as attachment texts, email body texts, and language come from the setup for the reminder term. To learn more about email settings, go to [Set Up Reminder Terms and Levels](finance-setup-reminders.md).
 
@@ -11764,11 +11772,11 @@ Use the settings on the **Send Reminders Setup** page control the following:
 
 ## Access the history of a reminder
 
-[!INCLUDE [prod_short](includes/prod_short.md)] keeps track of each time an automation runs. You can access the history by choosing the **Log entries** action. You can also use the **Issued Reminders** action to access a list of the reminders you've issued.
+[!INCLUDE [prod_short](includes/prod_short.md)] keeps track of each time an automation runs. You can access the history by choosing the **Log entries** action. You can also use the **Issued Reminders** action to access a list of the reminders you issued.
 
 ## Handle errors
 
-On the **Actions** FastTab, for each action you can specify whether you want the automation to stop if the action has an error. If you do, the automation won't process the actions that come afterward. To turn this feature on or off, use the **Set stop on error** or **Clear stop on error** actions.
+On the **Actions** FastTab, for each action you can specify whether you want the automation to stop if the action has an error. If you do, the automation doesn't process the actions that come afterward. To turn this feature on or off, use the **Set stop on error** or **Clear stop on error** actions.
 
 ## Change action settings for an automation
 
@@ -13206,13 +13214,12 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-manage-manufacturing
 ---
-title: Execute Production
+title: Manufacturing overview
 description: When demand is planned for and the materials are issued according to production BOMs, the production operations can start.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.form: 5406, 5407, 5728, 8903, 9011, 9012, 9013, 9041, 9044, 9047, 9323, 9324, 9325, 9326, 9327, 37040, 37041, 37042, 37043, 37044, 37045, 37046, 37047, 37048, 37049, 37055, 99000784, 99000785
-ms.date: 09/10/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -13670,16 +13677,16 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-general-ledger
 ---
 title: Understand the general ledger and Chart of Accounts
-description: Describes the general ledger, chart of accounts, and account categories. Use the General Ledger Setup page to specify handling accounting issues in your company.
+description: This article describes the general ledger, chart of accounts, and account categories.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: analysis, history, track
 ms.search.form: 18, 20_Primary, 37, 65, 99, 118, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
-ms.date: 08/06/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Understand the general ledger and Chart of Accounts
@@ -13702,7 +13709,7 @@ Use the **General Ledger Setup** page to specify how to handle certain accountin
 * Financial reporting
 
 > [!TIP]
-> The **General Ledger Setup** page includes generic fields, and fields that are particular to your country or region. If you're unsure of the meaning of a field, we suggest you work with your accountant to determine whether it's relevant to your organization. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
+> The **General Ledger Setup** page includes generic fields, and fields that are particular to your country/region. If you're unsure of the meaning of a field, we suggest you work with your accountant to determine whether it's relevant to your organization. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]  
 
 To open the page now, use the following link [General Ledger Setup](https://businesscentral.dynamics.com/?page=118).
 
@@ -13721,8 +13728,8 @@ The **Chart of Accounts** page shows all general ledger accounts. From the chart
 
 * View reports that show general ledger entries and balances.  
 * Close your income statement.  
-* Open the general ledger (G/L) account card to add or change settings.  
-* See a list of posting groups for that account.
+* Open the general ledger (G/L) account card, where you can add or change settings.  
+* Access a list of posting groups for that account.
 * View separate debit and credit balances for a single account.
 
 To learn more, go to [Understanding the Chart of Accounts](finance-chart-of-accounts.md).
@@ -13762,11 +13769,11 @@ When you choose the **Generate Financial Reports** action, or the next time the 
 * Lines with balances for petty cash and the checking account.  
 
 > [!NOTE]
-> If you create a G/L account without assigning an account category, when you assign the account to a posting group [!INCLUDE[prod_short](includes/prod_short.md)] automatically assigns the account category from the G/L account immediately above the account in your chart of accounts. However, to include the new account in your financial reports, you must choose the **Generate Financial Reports** action on the **G/L Account Categories** page. Alternatively, open the G/L Account Card page, specify the account category, and then regenerate your financial report.
+> If you create a G/L account without an account category, when you assign the account to a posting group [!INCLUDE[prod_short](includes/prod_short.md)] automatically assigns the account category from the G/L account immediately above the account in your chart of accounts. However, to include the new account in your financial reports, you must choose the **Generate Financial Reports** action on the **G/L Account Categories** page. Alternatively, open the G/L Account Card page, specify the account category, and then regenerate your financial report.
 
 ## Access to create and edit G/L accounts and account categories
 
-In a small organization, such as the CRONUS demonstration company, most users can edit financial entities such as G/L accounts, account categories, and the chart of accounts, except those users with a TEAM MEMBER license. However, larger organizations typically use roles and permissions to limit access to editing these entities. If you're an administrator, or have the *Business Manager* or *Accountant* role, you can control user permissions to give the right people access to the relevant tables. To learn more, go to [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).  
+In small organizations, most users can edit financial entities such as G/L accounts, account categories, and the chart of accounts, except those users with a TEAM MEMBER license. However, larger organizations typically use roles and permissions to limit access to editing these entities. If you're an administrator, or have the *Business Manager* or *Accountant* role, you can control user permissions to give the right people access to the relevant tables. To learn more, go to [Get an overview of a user's permissions](ui-define-granular-permissions.md#get-an-overview-of-a-users-permissions).  
 
 ## Use dimensions to simplify your chart of accounts
 
@@ -16591,15 +16598,14 @@ title: Set up item units of measure
 description: You can set up multiple units of measure for items.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: UOM
-ms.date: 11/13/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ms.custom: bap-template
 ---
-# Set Up Units of Measure
+# Set up units of measure
 
 As part of setting up your [!INCLUDE [prod_short](includes/prod_short.md)], you set up general units of measure on the **Units of Measure** page. Then, when you register new items, you specify the base unit of measure on the **Item Card** page. You can also add units of measure later.  
 
@@ -16912,14 +16918,14 @@ title: Overview of tasks to set up Business Central
 description: Read an overview of the tasks necessary to set up, initialize, and configure Business Central to suit your needs.
 author: brentholtorf
 ms.topic: overview
-ms.devlang: al
 ms.search.keywords: configure, initialize
-ms.date: 12/30/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ms.custom: bap-template
 ---
+
 # Overview of tasks to set up [!INCLUDE[prod_short](includes/prod_short.md)]
 
 [!INCLUDE[prod_short](includes/prod_short.md)] includes standard configurations for most business processes, but you can change the configuration to suit the needs of your organization. The [Business Central quick start](quick-start-business-central.md) articles help you take the first steps into making [!INCLUDE [prod_short](includes/prod_short.md)] your own. This article provides an overview of how you can configure [!INCLUDE [prod_short](includes/prod_short.md)] for your organization.
@@ -21728,7 +21734,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: special price, alternate price, pricing
 ms.search.form: 7022, 7024
@@ -21841,7 +21847,7 @@ When the **Allow Editing Active Price** toggle is turned off, to update prices i
 The **Prices Overview** page provides an overview of all prices across price lists. You can set filters to narrow down the list of prices you might want to modify or add to. After you modify prices, you must use the **Verify Lines** action to verify the prices against other price list lines. Verifying prices helps avoid duplicates and ambiguity during price calculation.
 
 > [!NOTE]
-> When you edit a line in an active price list the status of the line becomes **Draft**, and the line isn't considered during price calculation until you use the **Verify Lines** action. After you verify the price, the status of the line becomes **Active** and it is considered in price calculations.
+> When you edit a line in an active price list the status of the line becomes **Draft**, and the line isn't considered during price calculation until you use the **Verify Lines** action. After you verify the price, the status of the line becomes **Active** and it's considered in price calculations.
 
 To add new prices, on the **Prices Overview** page, use the **Add New Lines** action. The **Prices Worksheet** page opens, and you can add price lines either by suggesting them based on criteria, copying them from other price lists, or manually entering them. Afterward, you can use the **Implement Price Change** action to compare the new prices with other price lists to avoid duplicates and ambiguity during price calculation.
 
@@ -21888,7 +21894,7 @@ If you want to copy sales prices, such as an individual customer's sales prices 
 6. Choose the **OK** button to fill in the lines on the **Sales Price Worksheet** page with the suggested new prices, indicating that they're valid for the selected sales type.  
 
    > [!NOTE]  
-   > This batch job only creates suggestions and it doesn't implement the suggested changes. If you're satisfied with the suggestions and want to implement them, that is insert them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
+   > This batch job only creates suggestions and it doesn't implement the suggested changes. If you're satisfied with the suggestions and want to add them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
 
 #### [New experience](#tab/new-experience/)  
 
@@ -22807,7 +22813,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: journals, recurring, accrual, renumber, bulk-post
 ms.search.form: 39, 101, 102, 182, 184, 185, 201, 207, 250, 251, 253, 255, 256, 261, 262, 283, 519, 750, 751, 752, 753, 754, 755, 12409, 12410, 12411, 1290, 10101, 11400, 11402, 11403, 11405, 11300, 2000000, 2000001, 2000003, 2000020, 2000021, 2000022
@@ -22852,7 +22858,7 @@ For each journal template, you can set up your own personal journal as a journal
 
 ### Validating general journal batches
 
-You can turn on a background check that helps prevent delays when posting. The check notifies you when a mistake in the financial journal you're working on will prevent you from posting the journal. On the **General Journal Batches** page, you can choose **Background Error Check** to have [!INCLUDE[prod_short](includes/prod_short.md)] validate finance journals, such as general or payment journals, while you're working on them.
+You can turn on a background check that helps prevent delays when posting. The check notifies you when a mistake in the financial journal you're working on can prevent you from posting the journal. On the **General Journal Batches** page, you can choose **Background Error Check** to have [!INCLUDE[prod_short](includes/prod_short.md)] validate finance journals, such as general or payment journals, while you're working on them.
 
 When you enable the validation, the **Check Document** or **Journal Check** FactBoxes show issues in the current line and the whole batch. Validation happens when you load a finance journal batch, and when you choose another journal line. The **Issues total** tile in the FactBox shows the total number of issues that [!INCLUDE[prod_short](includes/prod_short.md)] found, and you can choose it to open an overview of the issues.
 
@@ -22889,7 +22895,7 @@ The **Recurring Method** field is important. It determines how to treat the amou
 |RBD Reversing Balance by Dimension|The journal line allocates costs based on a G/L account's reversing balance by dimension. You're prompted to set the dimension filters to use to calculate the source G/L account's balance by dimension from which you want to allocate costs. You can also choose the **Set Dimension Filters** action later.|
 
 > [!NOTE]  
-> The VAT fields can be filled in on either the recurring journal line or on the allocation journal line but not on both. That is, they can be filled in on the **Allocations** page only if the corresponding lines in the recurring journal are not filled in.
+> The VAT fields can be filled in on either the recurring journal line or on the allocation journal line but not on both. That is, they can be filled in on the **Allocations** page only if the corresponding lines in the recurring journal aren't filled in.
 
 ### Recurring Frequency field
 
@@ -22932,7 +22938,7 @@ To allocate recurring journal amounts based on dimensions, set the **Recurring M
 For example, your company has a couple of business units and a handful of departments that your controllers set up as dimensions. To speed up the purchase invoice entry process, you decide to require the accounts payable clerks to enter only business unit dimensions. Since each business unit has specific allocation keys for the Department dimension, such as based on the number of employees, you can use the **BD Balance by Dimension** or **RBD Reversing Balance by Dimension** recurring methods to reallocate expenses for each business unit to the right departments based on the allocation keys.  
 
 > [!NOTE]
-> Dimensions that you set on allocation lines are not automatically calculated, and you must specify which dimension values must be set on the allocation accounts. In case you want to preserve the link between the source account dimension and the allocation account dimension, we recommend that you use the [Cost Accounting](finance-about-cost-accounting.md) capabilities instead.
+> Dimensions that you set on allocation lines aren't automatically calculated, and you must specify which dimension values must be set on the allocation accounts. In case you want to preserve the link between the source account dimension and the allocation account dimension, we recommend that you use the [Cost Accounting](finance-about-cost-accounting.md) capabilities instead.
 
 #### Example: Allocating Rent Payments to Different Departments
 
@@ -22955,14 +22961,14 @@ Accruals are typically posted with **Fixed**, **Variable**, or **Balance** recur
 * If the field contains a date formula (for example, **5D** for five days), the balancing entry is posted with a posting date calculated using the reversal date calculation.
 
 > [!NOTE]
-> By default, the **Reversal Date Calculation** field is not available on the **Recurring General Journals** page. To use the field, you must add it by personalizing the page. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
+> By default, the **Reversal Date Calculation** field isn't available on the **Recurring General Journals** page. To use the field, you must add it by personalizing the page. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
 
 ## Work with standard journals
 
 When you create journal lines that you know you're likely to create again later, you can save them as a standard journal before you post the journal. The same applies for item journals and general journals.
 
 > [!NOTE]
-> Standard journals might not contain all of the fields you want to include in the resulting ledger entries. For example, if you're using a standard general journal to register a payment, the ledger entries won't contain the Payment Method Code field.
+> Standard journals might not contain all of the fields you want to include in the resulting ledger entries. For example, if you're using a standard general journal to register a payment, the Payment Method Code field isn't available on the ledger entries.
 
 > [!NOTE]  
 > The following procedures refer to the item journal, but the information also applies to the general journal.
@@ -23013,7 +23019,7 @@ To avoid posting errors caused by the document number, you can use the **Renumbe
 
 In all journals that are based on the general journal, the **Document No.** field is editable so that you can specify different document numbers for different journal lines or the same document number for related journal lines.
 
-If the **No. Series** field on the journal batch is filled, then the posting function in general journals requires that the document number on individual or grouped journal lines be in sequential order. Just choose the **Renumber Document Numbers** action, and relevant **Document No.** fields are then updated. If related journal lines are grouped by document number before you used the function, they remain grouped, but might be assigned a different document number.  
+If the **No. Series** field on the journal batch is filled, then the posting function in general journals requires that the document number on individual or grouped journal lines be in sequential order. Just choose the **Renumber Document Numbers** action, and relevant **Document No.** fields are then updated. If you group related journal lines by document number before you use the action, they remain grouped, but might be assigned a different document number.  
 
 This function also works on filtered views.
 
@@ -25228,7 +25234,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: project management, task
 ms.search.form: 88, 275, 276, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1020
-ms.date: 02/24/2025
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -25280,7 +25286,7 @@ A key part of creating a project is to specify the various tasks involved in the
 
 ## Invoice one or more customers for project tasks
 
-Sometimes the party that is receiving a service is different from the party that pays the bill. Also, sometimes you might need to invoice multiple customers for tasks in the project. On the **Project Card** page, use the **Task Billing Method** field to specify whether you're billing one customer, or multiple customers.
+Sometimes the party that's receiving a service is different from the party that pays the bill. Also, sometimes you might need to invoice multiple customers for tasks in the project. On the **Project Card** page, use the **Task Billing Method** field to specify whether you're billing one customer, or multiple customers.
 
 If the customer who is receiving the service also pays the bill, in the **Bill-to** and **Ship-to** fields, choose **Default (Customer)** and **Default (Sell-to Address)**.
 

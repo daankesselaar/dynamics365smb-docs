@@ -820,7 +820,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.search.keywords: move, warehouse
 ms.search.forms: 5746, 5745, 5759, 5753, 5743, 5758, 5752, 5744, 5749, 5740, 5741, 5742, 5757, 5748, 5747, 9285, 5756, 5755
@@ -925,7 +925,7 @@ The following procedure shows how to set up the **Batch Post Transfer Orders** r
 6. On the **Batch Post Transfer Orders** request page, choose the **Ship** option, filter on **Direct Transfer**, and then select **OK**.
 
    > [!IMPORTANT]
-   > It's important to set filters. Otherwise, [!INCLUDE [prod_short](includes/prod_short.md)] will post all documents, even if they aren't ready. Consider setting a filter on the **Status** field for the value **Released**, and a filter on the **Posting Date** field for the value **..today**. To learn more about filters, go to [Sorting, Searching, and Filtering](/dynamics365/business-central/ui-enter-criteria-filters).
+   > It's important to set filters. Otherwise, [!INCLUDE [prod_short](includes/prod_short.md)] posts all documents, even if they aren't ready. Consider setting a filter on the **Status** field for the value **Released**, and a filter on the **Posting Date** field for the value **..today**. To learn more about filters, go to [Sorting, Searching, and Filtering](/dynamics365/business-central/ui-enter-criteria-filters).
 
 7. Select all checkboxes from **Run on Mondays** to **Run on Fridays**.
 8. In the **Starting Time** field, enter **4 PM**.
@@ -933,11 +933,11 @@ The following procedure shows how to set up the **Batch Post Transfer Orders** r
 
 ### Comparison of different settings for transfer orders
 
-You can post transfer orders in different modes, with or without an in-transit location. Turn off the **Direct Transfer** toggle and select the temporary location in the **In Transit Code** field on the **Transfer Order** page. When you post the shipment of a transfer order that uses the in-transit location, the items on the line are no longer available at one of your locations because they're in transit. Direct posting ensures that an in-transit location isn't used and the shipment and receipt process simultaneously. The exact behavior of direct posting might can be different based on the value selected in the **Direct Transfer Posting** field on the **Inventory Setup** page.
+You can post transfer orders in different modes, with or without an in-transit location. Turn off the **Direct Transfer** toggle and select the temporary location in the **In Transit Code** field on the **Transfer Order** page. When you post the shipment of a transfer order that uses the in-transit location, the items become unavailable because they're in transit. Direct posting ensures that an in-transit location isn't used and the shipment and receipt process simultaneously. The exact behavior of direct posting can be different based on the value selected in the **Direct Transfer Posting** field on the **Inventory Setup** page.
 
 The following table describes how the combinations differ.
 
-|Capability|The **Direct Transfer** field is disabled in the **Transfer Order** page|**Direct Transfer** is enabled on the **Transfer Order** page</br>**Direct Transfer Posting** is set to **Direct Transfer** on the **Inventory Setup** page|**Direct Transfer** is enabled in the **Transfer Order** page</br>**Direct Transfer Posting** is set to **Receipt and Shipment** on the **Inventory Setup** page|
+|Capability|The **Direct Transfer** field is disabled in the **Transfer Order** page|**Direct Transfer** is enabled on the **Transfer Order** page</br>The **Direct Transfer Posting** field is set to **Direct Transfer** on the **Inventory Setup** page|**Direct Transfer** is enabled in the **Transfer Order** page</br>The **Direct Transfer Posting** field is set to **Receipt and Shipment** on the **Inventory Setup** page|
 |---|---|---|---|
 |Use in-transit location|Yes|No|No|
 |Can post receipt without shipment.</br>Can use **Undo receipt**.|Yes|No|No|
@@ -962,9 +962,9 @@ The numbers in the cells show the posting options that are supported.
 1. Post from transfer order. For some combinations, you might need to fill in the **Qty. to Ship** field.
 2. Create and post a warehouse shipment.
 3. Create and post an inventory pick.
-4. Create and post an inventory put-away. For some combinations you might need to fill in the **Qty. to Ship** field.
+4. Create and post an inventory put-away. For some combinations, you might need to fill in the **Qty. to Ship** field.
 
-Regardless of the method, the shipment and receipt transactions are performed. For example you can create a transfer order from a location that requires inventory-pick to a location that requires inventory put-away. You can create and post the inventory put-away, and both the shipment and receipt transactions are created. You can also post such documents from a transfer order or from an inventory pick.  
+Regardless of the method, the shipment and receipt transactions are performed. For example, you can create a transfer order from a location that requires inventory-pick to a location that requires inventory put-away. You can create and post the inventory put-away, and both the shipment and receipt transactions are created. You can also post such documents from a transfer order or from an inventory pick.  
 
 For more information about warehouse handling, see [Warehouse management overview](design-details-warehouse-management.md).
 
@@ -2192,24 +2192,24 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/year-how-post-year-end-close-entry
 ---
-title: Post the Year-End Closing entry
+title: Post the year-end closing entry
 description: Describes how to open the journal you specified in the Close Income Statement batch job, and then review and post the year-end closing entry. 
 author: brentholtorf
 ms.topic: how-to
 ms.search.keywords: year closing, close accounting period, close fiscal year, bank account detailed trial balance
-ms.search.form: 100
-ms.date: 08/05/2024
+ms.search.form: 100,
+ms.date: 04/07/2026
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
-# Post the Year-End Closing entry
+# Post the year-end closing entry
 
 After you use the **Close Income Statement** batch job to generate the year-end closing entry or entries, you must open the journal you specified in the batch job, and then review and post the entries.  
 
 > [!TIP]
-> Depending on your organizations work processes, you can choose to close or not close accounting periods and fiscal years in [!INCLUDE [prod_short](includes/prod_short.md)]. The following procedure assumes that you have closed the fiscal year using the *Accounting Periods* option, generated a year-end closing entry using the **Close Income Statement** batch job, and are now ready to post the year-end closing entry along with the offsetting equity account entries. Your organization can choose to work differently, such as post the year-end closing entry as part of closing the fiscal year.
+> Depending on your organizations work processes, you can choose to close or not close accounting periods and fiscal years in [!INCLUDE [prod_short](includes/prod_short.md)]. The following procedure assumes that you closed the fiscal year using the *Accounting Periods* option, generated a year-end closing entry using the **Close Income Statement** batch job, and are now ready to post the year-end closing entry along with the offsetting equity account entries. Your organization can choose to work differently, such as post the year-end closing entry as part of closing the fiscal year.
 
 ## To post the year end closing entry
 
@@ -2219,7 +2219,7 @@ After you use the **Close Income Statement** batch job to generate the year-end 
 4. To post the journal, choose the **Post** action.
 
 > [!NOTE]  
-> If an error is detected, an error message is displayed. If the posting is successful, the posted entries are removed from the journal. After posting is complete, an entry is posted to each income statement account so that its balance becomes zero and the year's result is transferred to the balance sheet.
+> If an error is detected, an error message is displayed. If the posting is successful, the posted entries are removed from the journal. After posting completes, an entry is posted to each income statement account so that its balance becomes zero. The year's result is transferred to the balance sheet.
 
 ## Related information
 
@@ -7813,20 +7813,18 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-managing-projects-with-jobs
 ---
-title: Walkthrough - Managing projects with projects
+title: Walkthrough - Managing projects
 description: This walkthrough introduces you to the project management features the let you schedule the use of your company's resources.
 author: brentholtorf
 ms.topic: article
 ms.devlang: al
 ms.search.keywords:
-ms.date: 05/30/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 # Walkthrough: managing projects
-
-<!-- [!INCLUDE[complete_sample_data](includes/complete_sample_data.md)]   -->
 
 This walkthrough introduces you to the project management features. Projects are a way for you to schedule the usage of your company's resources and to keep track of the various costs associated with the resources on a specific project. Projects involve the consumption of employee hours, machine hours, inventory items, and other types of usage that you might want to track as a project progresses.  
 
@@ -7851,12 +7849,12 @@ With the budget structure set up for projects, creating a project is straightfor
 
 ### Handling fixed prices
 
- You can handle fixed prices and the prices for services or goods that are agreed upon in advance with customers. In this walkthrough, you'll learn how to:  
+ You can handle fixed prices and the prices for services or goods that are agreed upon in advance with customers. This walkthrough helps you understand how to:  
 
-- See how contract and invoice values are determined.  
+- Explore how contract and invoice values are determined.  
 - Allow for extra work in the schedule that isn't invoiced.  
 
-### Copying a Project
+### Copying a project
 
  This part of the walkthrough focuses on how to copy part or all of a project in order to reduce manual data entry and improve accuracy.
 
@@ -8086,7 +8084,7 @@ CRONUS is contracted to set up conference rooms. As the project manager, Prakash
 2. Select the **Guildford** project number, and then choose the **Project Task Lines** action.  
 3. Select line 1120, and in the **Budget (Total Cost)** field, right-click the amount and choose **DrillDown**.  
 
-     By reviewing the Project Planning Lines, it's determined that Prakash needs Tricia for 30 hours for this stage of the project. Prakash agrees on a fixed price with the customer.  
+     Reviewing the project planning lines shows that Prakash needs Tricia for 30 hours for this stage of the project. Prakash agrees on a fixed price with the customer.  
 
 4. On the **Project Task Lines** page, select line 1120, and then choose the **Project Planning Lines** action. Create a planning line with the following information:  
 
@@ -8116,7 +8114,7 @@ After being added to the schedule for this task line, Tricia works 25 hours on t
 
 3. Choose the **Post** action.  
 
-     A few days later, Tricia works for another 10 hours on the project and has worked 35 hours in all. Because the agreement is for 30 hours with the customer, only five of these hours are charged to the customer. Tricia manually adds the other five hours to the schedule.  
+     A few days later, Tricia works for another 10 hours on the project to bring the total up to 35 hours. Because the agreement is for 30 hours, only five of these hours are charged to the customer. Tricia manually adds the other five hours to the schedule.  
 
 4. On the **Project Journal** page, choose the **Calc. Remaining Usage** action.  
 5. On the **Project Calc. Remaining Usage** page, on the **Options** FastTab, enter the following information:  
@@ -8133,7 +8131,7 @@ After being added to the schedule for this task line, Tricia works 25 hours on t
 
     There are five hours of work remaining for Tricia. The **Line Type** field is blank, which indicates that only the usage remains to be posted because the work was already scheduled.  
 
-8. In the **Project Journal**, create a new line with the following information. Make sure that both project numbers are sequential with the numbers you've already used:  
+8. In the **Project Journal**, create a new line with the following information. Make sure that both project numbers are sequential with the numbers you used:  
 
     - **Line Type**: **Budget**  
     - **Project No.**: **Guildford**  
@@ -8190,7 +8188,11 @@ By comparing prices, project task lines, and project planning lines for the two 
 
 ## Making payments by installments
 
-CRONUS just landed a large project that will take a year to complete. Because it requires many resources, the project manager sets up the contract so that the customer pays part of the price up front, part when the project is halfway completed, and the final payment upon completion.  
+CRONUS just landed a large project takes a year to complete. Because the project requires many resources, the project manager sets up the contract so that the customer pays: 
+
+- Part of the price up front
+- Part when the project is halfway completed
+- The final payment upon completion
 
 ### To set up a new account  
 
@@ -8204,7 +8206,7 @@ CRONUS just landed a large project that will take a year to complete. Because it
 4. On the **Posting** FastTab, in the **Gen. Prod. Posting Group** field, select **Services**. Close the page.  
 5. On the **Chart of Accounts** page, select **No. 40255 Job Payment**, and then choose the **Indent Chart of Accounts** action. Choose **Yes** to confirm.  
 
-The following procedures show how to create a new project, set pricing, and then set up payment by installment. In the project task lines, you can create specific lines dedicated to the payment by installments. All work completed on the project that is added to the schedule will be entered on the usage lines. For each payment task line on the planning lines, the line type is **Billable**, which means that the customer will be invoiced. Enter a new line for the down payment. On the usage task line, you can enter the information for the items and resources that have been used in this project, which will increase the schedule, such as employee hours and items used on the project.  
+The following procedures show how to create a new project, set pricing, and then set up payment by installment. In the project task lines, you can create specific lines dedicated to the payment by installments. All work completed on the project that is added to the schedule is entered on the usage lines. For each payment task line on the planning lines, the line type is **Billable**, which means that the customer receives an invoice. Enter a new line for the down payment. On the usage task line, enter information about the items and resources that were used in this project.  
 
 ### To make a payment by installment  
 
@@ -8251,7 +8253,7 @@ The following procedures show how to create a new project, set pricing, and then
     | 1    | Budget    | (today's date) | Resource | Tricia | 120      |
     | 2    | Budget    | (today's date) | Item     | 70104  | 10       |
 
-     Close the page. On the **Project Task Lines** page, you can see the schedule amounts have been updated.  
+     Close the page. On the **Project Task Lines** page, the schedule amounts are updated.  
 
 9. Choose task 32000, and then choose the **Project Planning Lines** action.  
 
@@ -8265,17 +8267,17 @@ The following procedures show how to create a new project, set pricing, and then
 
 11. Create a similar planning line entry for project task 4000.  
 
- Now that the task and planning lines have been entered, Prakash creates an invoice for the first payment. Prakash does this from the project task lines to make sure that the invoice only contains the lines for the first payment. You can open the sales order from the planning lines or the task lines.  
+ Now that the task and planning lines are entered, Prakash creates an invoice for the first payment. Prakash creates the invoice from the project task lines to make sure that the invoice only contains the lines for the first payment. You can open the sales order from the planning lines or the task lines.  
 
 ### To create an invoice  
 
 1. On the **Project Task Lines** page, select line 1000, and then choose the **Create Sales Invoice** action.  
 2. On the **Create Sales Invoice** page, set today's date as the posting date, specify **Per Task**, and choose the **OK** button to create an invoice with the default information. Choose the **OK** button to close the confirmation page.  
-3. Choose the **Sales Invoice/Credit Memo** action. On the sales invoice, you can see that only the down payment is included in the invoice. You can now send this to the customer as agreed.  
+3. Choose the **Sales Invoice/Credit Memo** action. On the sales invoice, you can see that only the down payment is included in the invoice. You can now send the document to the customer.  
 
 ## Summary
 
-This walkthrough has taken you through some of the basic steps of working with projects in [!INCLUDE[prod_short](includes/prod_short.md)]. You have learned about how to create a new project, how to copy a project, and how to handle payments. Also, you have seen a demonstration of how to track hours and create invoices.  
+This walkthrough took you through some of the basic steps of working with projects in [!INCLUDE[prod_short](includes/prod_short.md)]. You learned about how to create a new project, copy a project, handle payments, track hours, and create invoices.  
 
 ## Related information
 
@@ -8345,7 +8347,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: VAT, posting, tax, value-added tax
 ms.search.form: 10, 118, 391, 470, 471, 472, 575, 734, 747, 748, 1877, 
-ms.date: 08/12/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -8368,7 +8370,7 @@ However, if you want to set up the VAT calculations yourself, or just want to le
 ## Set up VAT using the assisted setup guide (recommended)
 
 > [!NOTE]
-> You can use the **VAT Setup** guide only if you have created a *My Company* and haven't posted transactions that include VAT. To learn more about a My Company, go to [Create new companies in [!INCLUDE[prod_short](includes/prod_short.md)]](about-new-company.md).
+> You can use the **VAT Setup** guide only if you create a *My Company* without posted transactions that include VAT. To learn more about a My Company, go to [Create new companies in [!INCLUDE[prod_short](includes/prod_short.md)]](about-new-company.md).
 
 To start the assisted setup guide, follow these steps:
 
@@ -8389,7 +8391,7 @@ At this point, you can just fill in the missing G/L accounts. But, when you furt
 VAT reporting in [!INCLUDE [prod_short](includes/prod_short.md)] is based on the **VAT Date** to include VAT entries on VAT reports in a VAT period. The VAT date can be changed on all documents and journals, but you must specify a default value for VAT date.
 
 > [!NOTE]
-> After posting the document or journal, the **VAT Date** will appear on **VAT Entries** and **G/L Entries** as well as on the posted document if exists.
+> After you post the document or journal, the **VAT Date** appears on **VAT Entries** and **G/L Entries** and the posted document.
 
 To set up a default value for a VAT date, follow these steps:
 
@@ -8418,7 +8420,7 @@ To set up the level of VAT date usage, follow these steps:
 3. Close the page.
 
 > [!IMPORTANT]
-> Even if you choose the **Not using VAT Date functionality** option, [!INCLUDE [prod_short](includes/prod_short.md)] will use the **VAT Date** in the background. Because the **Default VAT Date** is configured as the **Posting Date**, and you can't change it in this case, you'll get the same experience as without this feature. **VAT Date** fields will be removed from all pages, but this field will still exist in tables and reports will work based on it.
+> Even if you choose the **Not using VAT Date functionality** option, [!INCLUDE [prod_short](includes/prod_short.md)] uses the **VAT Date** in the background. Because the **Default VAT Date** is configured as the **Posting Date**, and you can't change it in this case, you get the same experience as without this feature. **VAT Date** fields are removed from all pages, but this field still exists in tables and reports work based on it.
 
 ### Limiting periods for posting and changing the VAT date
 
@@ -8447,7 +8449,7 @@ You can prevent people from posting or changing VAT entries in specific date ran
 ##### Version 23.1 or newer
 
 > [!IMPORTANT]
-> When you upgrade to a newversion, be aware that values are upgraded in the new **Allow VAT Date From/To** in the **VAT Setup** page based on the values in **Allow Posting From/To** in the **General Ledger Setup**. If you want to use different date controls, open the **VAT Setup** page and make changes.  
+> When you upgrade to a new version, values are upgraded in the new **Allow VAT Date From/To** in the **VAT Setup** page based on the values in **Allow Posting From/To** in the **General Ledger Setup**. If you want to use different date controls, open the **VAT Setup** page and make changes.  
 
 You can set up limitations on the company or at specific user levels.
 
@@ -8483,7 +8485,7 @@ To limit postings for the specific user:
 
 ## Set up VAT registration numbers for your country/region
 
-To help ensure people enter valid VAT registration numbers, you can define formats for the VAT registration numbers that are used in the countries/regions in which you do business. [!INCLUDE[prod_short](includes/prod_short.md)] displays an error message if someone makes a mistake or uses a format that is incorrect for the country/region.
+To help ensure people enter valid VAT registration numbers, you can define formats for the VAT registration numbers that are used in the countries/regions in which you do business. [!INCLUDE[prod_short](includes/prod_short.md)] displays an error message if someone makes a mistake or uses a format that's incorrect for the country/region.
 
 To set up VAT registration numbers, follow these steps:
 
@@ -8496,7 +8498,7 @@ To set up VAT registration numbers, follow these steps:
 * **?** Allows any character.  
 
     > [!TIP]
-    > You can use other characters as long as they are always present in the country or region format. So, if you need to include a period or a hyphen between sets of numbers, you can define the format as ##.####.### or @@-###-###.  
+    > You can use other characters as long as they're always present in the country/region format. So, if you need to include a period or a hyphen between sets of numbers, you can define the format as ##.####.### or @@-###-###.  
 
 ## Set up VAT business posting groups
 
@@ -8573,7 +8575,7 @@ The following sections describe how to assign VAT posting groups to individual e
 
 ## Set up clauses to explain VAT exemption or nonstandard VAT rates
 
-You set up a VAT clause to describe information about the type of VAT that is being applied. Government regulations might require this information. After you set up a VAT clause and associate it with a VAT posting setup, the VAT clause displays on printed sales documents that use the VAT posting group setup.
+You set up a VAT clause to describe information about the type of VAT that's being applied. Government regulations might require this information. After you set up a VAT clause and associate it with a VAT posting setup, the VAT clause displays on printed sales documents that use the VAT posting group setup.
 
 If needed, you can also specify how to translate VAT clauses to other languages. When you create and print a sales document that contains a VAT identifier, the document includes the translated VAT clause. The language code specified on the customer card determines the language.
 
@@ -8607,7 +8609,7 @@ You can modify or delete a VAT clause, and your modifications are reflected in a
 ### To specify extended text for VAT clauses
 
 > [!NOTE]  
-> If your country or region requires longer text for the VAT clauses than the default version supports, you can specify the longer text for the VAT clauses as *extended text* so that it prints on the sales and purchase reports.  
+> If your country/region requires longer text for the VAT clauses than the default version supports, you can specify the longer text for the VAT clauses as extended text. Extended text prints on the sales and purchase reports.  
 
 1. Choose the ![Lightbulb that opens the Tell Me feature 11.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **VAT Clauses**, and then choose the related link.  
 2. Choose the **Extended Texts** action.  
@@ -8664,7 +8666,7 @@ Amounts in documents that aren't posted are rounded and displayed to correspond 
 
 ## Set up VAT reporting
 
-You must set up information about how the tax authorities in your country or region require you to submit VAT reports. The following steps illustrate the most commonly used information. However, your country or region might require other steps. For more information, see the relevant article in the *Local functionality* section in the panel to the left.
+You must set up information about how the tax authorities in your country or region require you to submit VAT reports. The following steps illustrate the most commonly used information. However, your country/region might require other steps. 
 
 [!INCLUDE [vat-report-setup](includes/vat-report-setup.md)]
 
@@ -11645,7 +11647,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: adjustment, status, negative, positive, increase, decrease, inventory
 ms.search.forms: 5895, 6561, 6562, 6563, 6564, 6565, 6566, 5892, 5891, 5879, 5880, 5893, 5897, 5882, 5881, 5899, 5875, 5878, 5877, 5876, 5896, 6567, 6568, 6569, 6570, 6571, 6572, 5883, 5886, 884, 5898, 5885, 5890, 5888, 5889, 5887, 5894, 6774, 6775, 6776, 6780, 6781, 6782, 6783
-ms.date: 04/19/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -11681,7 +11683,7 @@ To create the physical inventory order lines, you typically use the **Calculate 
 6. Set filters, for example, to only include a subset of items to count with the first recording.
 
     > [!TIP]
-    > To plan for multiple employees to count the inventory, set different filters each time you use the **Calculate Lines** action to fill in the order with the subset of inventory items that a user will record. Then, as you generate multiple physical inventory recordings for multiple employees, you minimize the risk of counting items twice. To learn more, go to [To create a physical inventory recording](#to-create-a-physical-inventory-recording).
+    > To plan for multiple employees to count the inventory, set different filters each time you use the **Calculate Lines** action to fill in the order with the subset of inventory items that you record. Then, as you generate multiple physical inventory recordings for multiple employees, you minimize the risk of counting items twice. To learn more, go to [To create a physical inventory recording](#to-create-a-physical-inventory-recording).
 
 7. Choose the **OK** button.
 
@@ -11700,7 +11702,7 @@ You can now create one or more recordings, which are instructions to the employe
 
 For each physical inventory order, you can create one or more physical inventory recording documents on which employees enter the counted quantities. Employees can enter quantities either manually, or with a scanning device.
 
-By default, a recording is created for all the lines on the related physical inventory order. To avoid that two employees count the same items if you distribute counting, gradually fill in the physical inventory order by setting filters on the **Calculate Lines** batch job. Then create the physical inventory recording with the **Only Lines Not in Recordings** checkbox selected. This setting ensures that each new recording contains different items than those on other recordings.
+By default, a recording is created for all the lines on the related physical inventory order. To avoid that two employees count the same items if you distribute counting, gradually fill in the physical inventory order by setting filters on the **Calculate Lines** batch job. Then create the physical inventory recording with the **Only Lines Not in Recordings** checkbox selected. This setting ensures that each new recording contains different items than the items on other recordings.
 
 For manual counting, you can print the **Phys. Invt. Recording** report, which has an empty column where warehouse employees can write the counted quantities. When counting is complete, you enter the recorded quantities on the related lines on the **Phys. Inventory Recording** page. Lastly, you transfer the recorded quantities to the related physical inventory order by setting the status to **Finished**.
 
@@ -11712,7 +11714,7 @@ For manual counting, you can print the **Phys. Invt. Recording** report, which h
 1. On the **Related** tab, choose **Order**, and then choose the **Recordings** action to open the **Phys. Inventory Recording List** page.
 1. Open the relevant recording.
 1. On the **General** FastTab, fill in the fields as necessary.
-1. For items that use item tracking, create an additional line for each lot number or serial number code by choosing the **Functions** action, and then the **Copy Line** action. To learn more, go to [Handle item tracking when counting inventory](#handle-item-tracking-when-counting-inventory).  
+1. For items that use item tracking, create another line for each lot number or serial number code by choosing the **Functions** action, and then the **Copy Line** action. To learn more, go to [Handle item tracking when counting inventory](#handle-item-tracking-when-counting-inventory).  
 1. Choose the **Print** action to prepare the physical document that employees can use to note the quantities they count.
 
 ## To finish a physical inventory recording
@@ -11723,13 +11725,13 @@ After employees count the quantities, record the quantities in [!INCLUDE [prod_s
 2. On the **Lines** FastTab, fill the actual counted quantity in the **Quantity** field for each line.
 3. For items with serial or lot numbers (the **Use Item Tracking** checkbox is selected), enter the counted quantities on the lines for the item's serial and lot numbers respectively. To learn more, go to [Handle item tracking when counting inventory](#handle-item-tracking-when-counting-inventory).
 4. Select the **Recorded** checkbox on each line.
-5. When you have entered all data for a physical inventory recording, choose the **Finish** action. Note that all lines must have the **Recorded** checkbox selected.
+5. After you enter all data for a physical inventory recording, choose the **Finish** action. All lines must have the **Recorded** checkbox selected.
 
     > [!NOTE]
     > When you finish a physical inventory recording, each line is transferred to the line on the related physical inventory order that matches it exactly. To match, the values in the **Item No.**, **Variant Code**, **Location Code**, and **Bin Code** fields must be the same on the recording and the order lines.>
     > 
     > If a matching physical inventory order line doesn't exist, and if the **Allow Recording Without Order** checkbox is selected, a new line is added and the **Recorded Without Order** checkbox on the related physical inventory order line is selected. Otherwise, an error message displays and the process is canceled.>
-    > If more than one physical inventory recording lines match a physical inventory order line, then a message displays and the process is canceled. If, for some reason, two identical physical inventory lines end up on the physical inventory order, you can use a action to resolve it. To learn more, go to [To find duplicate physical inventory order lines](#to-find-duplicate-physical-inventory-order-lines).
+    > If more than one physical inventory recording lines match a physical inventory order line, then a message displays and the process is canceled. If, for some reason, two identical physical inventory lines end up on the physical inventory order, you can use an action to resolve it. To learn more, go to [To find duplicate physical inventory order lines](#to-find-duplicate-physical-inventory-order-lines).
 
 ## To complete a physical inventory order
 
@@ -11770,7 +11772,7 @@ After you complete a physical inventory order and change its status to **Finishe
 
 ### To view posted physical inventory orders
 
-After posting, the physical inventory order is deleted and you can view and evaluate the document as a posted physical inventory order. The posted order includes its physical inventory recordings and any comments made.
+After you post, the physical inventory order is deleted and you can view and evaluate the document as a posted physical inventory order. The posted order includes its physical inventory recordings and any comments made.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Phys. Invt. Orders**, and then choose the related link.
 2. On the **Posted Phys. Invt. Orders** page, select the posted inventory order to view, and then choose the **View** action.
@@ -11778,7 +11780,7 @@ After posting, the physical inventory order is deleted and you can view and eval
 
 ## Handle item tracking when counting inventory
 
-Item tracking relates to the serial or lot numbers that are assigned to items. When you count an item that's stored in inventory as, for example, 10 different lot numbers, employee must be able to record which and how many units of each lot number are on inventory. To learn more, go to [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
+Item tracking relates to the serial or lot numbers that are assigned to items. When you count an item that you store with different lot numbers, you must be able to record which, and how many units of each lot number are on inventory. To learn more, go to [Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md).
 
 The **Use Item Tracking** checkbox on physical inventory order lines is automatically selected if an item tracking code is set up for the item. You can select or clear the checkbox manually.
 
@@ -11789,7 +11791,7 @@ Consider a physical inventory for Item A, which is stored in inventory as ten di
 1. On the recording line for the item, select the **Use Item Tracking** checkbox.
 2. Choose the **Serial No.** field, select the first serial number that exists in inventory for the item, and then choose the **OK** button.
 
-    Copy the line for the first item-tracked item to insert additional lines that correspond to the number of serial numbers that are stored in inventory.
+    Copy the line for the first item-tracked item to add lines that correspond to the number of serial numbers that are stored in inventory.
 
 3. Choose the **Functions** action, and then choose **Copy Line**.
 4. On the **Copy Phys. Invt. Rec. Line** page, enter **9** in the **No. of Copies** field, and then choose the **OK** button.
@@ -14015,7 +14017,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords: reporting
-ms.date: 11/11/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -14121,7 +14123,7 @@ To learn more, go to [Production Reports and Analytics in Business Central](prod
 
 [!INCLUDE [service_reports](includes/service-reports-include.md)]
 
-For more information, see [Service management report overview](service-reports.md).
+To learn more, go to [Service management report overview](service-reports.md).
 
 
 ## Related information
@@ -15505,22 +15507,21 @@ title: Managing inventory
 description: This article describes how to manage the physical products you trade in by creating an inventory item card.
 author: brentholtorf
 ms.topic: concept-article
-ms.devlang: al
 ms.search.keywords: warehouse, stock
 ms.search.forms: 5804, 2106, 5823, 5751, 5750, 772, 5829, 5828, 513, 304, 40, 38, 167, 117, 5827, 9223, 158, 354, 9152, 286, 5754, 5402, 209, 297, 298, 99000782, Report_704, Report_707, Report_708, Report_709, Report_711, Report_713, Report_714, Report_716, Report_813, Report_1001, Report_5806, Report_5807, Report_5808, Report_5809, Report_7150, Report_7151, Report_7313, Report_7319, Report_7320
-ms.date: 11/11/2024
+ms.date: 04/07/2026
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Manage inventory
 
-For each physical product you trade in, you must create an item card of the **Inventory** type. Items you offer to customers but don't keep in inventory you can register as catalog items, which you can convert to inventory items when necessary. You can increase or decrease the quantity of an item in inventory by posting directly to the item ledger entries, such as after a physical count or if you don't record purchases.
+For each physical product, you must create an item card of the **Inventory** type. You can register items you offer to customers but don't keep in inventory as catalog items, which you can convert to inventory items when necessary. You can increase or decrease the quantity of an item in inventory by posting directly to the item ledger entries. For example, after a physical count or if you don't record purchases.
 
 Inventory increases and decreases are naturally also recorded when you post purchase and sales documents, respectively. To learn more, go to [Record Purchases](purchasing-how-record-purchases.md), [Sell Products](sales-how-sell-products.md), and [Invoice Sales](sales-how-invoice-sales.md). Transfers between locations change inventory quantities across your company's warehouses.
 
-To enhance your overview of items and to help you find them, you can categorize items and give them attributes to search and sort by.
+To make it easier to find items, you can categorize items and give them attributes to search and sort by.
 
 > [!NOTE]
 > The physical handling of items is referred to as warehouse activities. Learn more at [Warehouse Management Overview](design-details-warehouse-management.md).
@@ -15542,7 +15543,7 @@ This section describes the analytical tools you can use to get insights into you
 
 When you post inventory transactions, such as sales shipments, purchase invoices, or inventory adjustments, the changed item costs are recorded in item value entries. To reflect this change in inventory value in your financial books, the inventory costs are automatically posted to the related inventory accounts in the general ledger. For each inventory transaction you post, the appropriate values are posted to the inventory account, adjustment account, and COGS account in the general ledger. To learn more, go to [Reconcile Inventory Costs with the General Ledger](finance-how-to-post-inventory-costs-to-the-general-ledger.md).
 
-Even though inventory costs are automatically posted to the general ledger, it's still necessary to ensure that the costs of goods are forwarded to the related outbound sales transaction, especially in situations where you sell goods before you invoice the purchase of those goods. This is referred to as cost adjustment. Item costs are automatically adjusted when you post item transactions, but you can also adjust item costs manually. To learn more, go to [Adjust Item Costs](inventory-how-adjust-item-costs.md).  
+Although inventory costs automatically post to the general ledger, the costs of goods must apply to the related outbound sales transaction, especially in situations where you sell goods before you invoice the purchase of those goods. This assignment is referred to as cost adjustment. Item costs are automatically adjusted when you post item transactions, but you can also adjust item costs manually. To learn more, go to [Adjust Item Costs](inventory-how-adjust-item-costs.md).  
 
 ## Related tasks
 
@@ -15553,7 +15554,7 @@ The following table outlines related tasks.
 |Create item cards for inventory items that you trade in.|[Register New Items](inventory-how-register-new-items.md)|
 |Structure parent items you sell as kits consisting of the parent's components or that you assemble to order or to stock.|[Work with Bills of Material](inventory-how-work-BOMs.md)|
 |Maintain an overview of items and help you find and sort items by organizing them in categories.|[Categorize Items](inventory-how-categorize-items.md)|
-|Assign item attributes of different value types to your items to help you sort and find items.|[Work with Item Attributes](inventory-how-work-item-attributes.md)|
+|Assign item attributes of different value types to your items so it's easier to sort and find them.|[Work with Item Attributes](inventory-how-work-item-attributes.md)|
 |Create special item cards for items you offer to customers but don't maintain in inventory.|[Work with Catalog Items](inventory-how-work-nonstock-items.md)|
 |Perform physical counting of your inventory with the **Physical Inventory Order** and **Physical Inventory Recording** pages.|[Count Inventory Using Documents](inventory-how-count-inventory-with-documents.md)|
 |Perform physical counting, make negative or positive adjustments, and change information, such as location or lot number, on item ledger entries.|[Count, Adjust, and Reclassify Inventory Using Journals](inventory-how-count-adjust-reclassify.md)|
@@ -19345,7 +19346,7 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: accounting, auditing, bookkeeping
 ms.search.form: 1151, 1166, 9027, 9004
-ms.date: 11/11/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -19418,9 +19419,9 @@ Working with VAT in [!INCLUDE[prod_short](includes/prod_short.md)] is easy, and 
 
 ## Manage receivables and payables
 
-The core of finance is centered around managing receivables and payables, registering transactions, reconciling banks accounts, paying vendors, receiving customer payments, reimbursing employees for expenses, and so on. This section provides links to the core concepts.
+Finance centers on managing receivables and payables, registering transactions, reconciling banks accounts, paying vendors, receiving customer payments, reimbursing employees for expenses, and so on. This section provides links to the core concepts.
 
-| To... | See |
+| To... | Go to... |
 | --- | --- |
 | Apply incoming payments, reconcile bank accounts during payment application, and collect outstanding balances. |[Managing Receivables](receivables-manage-receivables.md) |
 | Make payments, apply outgoing payments, and work with checks. |[Managing Payables](payables-manage-payables.md) |
@@ -19439,9 +19440,9 @@ The core of finance is centered around managing receivables and payables, regist
 
 ## Period-end reporting and related tasks
 
-At the end of each accounting period or at the end of the fiscal year, there are a number of administrative tasks to do. For example, you'll probably want to make sure all documents and journals are posted, ensure currency data is up to date, close the books, and so on. The actual tasks will depend your company.
+At the end of each accounting period or at the end of the fiscal year, there are many administrative tasks to do. For example, you probably want to make sure all documents and journals are posted, ensure currency data is up to date, close the books, and so on. The actual tasks depend your company.
 
-| To... | See |
+| To... | Go to... |
 | --- | --- |
 |Manage inventory and manufacturing costs, and report and reconcile costs with the general ledger.|[Managing Inventory Costs](finance-manage-inventory-costs.md)|
 | Import salary transactions from your payroll provider into the general ledger. |[Import Payroll Transactions](finance-how-import-payroll-transactions.md)|
@@ -19592,58 +19593,58 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-troubleshooting-camera-location
 ---
-title: "Troubleshooting: Accessing Camera and Location"
-description: "This article describes how to troubleshoot access to camera and location information in Business Central."
+title: Troubleshooting - Accessing camera and location
+description: This article describes how to troubleshoot access to camera and location information in Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.date: 04/01/2021
-ms.topic: troubleshooting-general
-
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.date: 04/07/2026
+ms.topic: troubleshooting-general
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
-# Troubleshooting: Accessing Camera and Location
+# Troubleshooting: accessing camera and location
 
-You might come across some issues when trying to access the camera and location information of a device from [!INCLUDE[prod_short](includes/prod_short.md)]. You can find the possible causes behind these problems and how to work around them listed below.
+You might come across some issues when trying to access the camera and location information of a device from [!INCLUDE[prod_short](includes/prod_short.md)]. This article lists some possible causes and how to work around them.
 
-## Device must have Camera and Location Capabilities
+## Device must have camera and location capabilities
 
-In order to access the camera or a user's location from a device, the device must have a physical camera or the capability to retrieve location information, respectively.
+To access the camera or a user's location from a device, the device must have a physical camera or the capability to retrieve location information, respectively.
 
-If your device has camera and location capabilities but you still encounter problems, it is possible that some drivers need updating or reinstalling. Even if you are unsure, we always recommend you update your device operating system, drivers, and browser to the latest version for the best experience.
+If your device has camera and location capabilities but problems continue, you might need to update or reinstall some drivers. We always recommend that you update your device operating system, drivers, and browser to the latest version.
 
-## Access Permissions not Enabled
+## Access permissions not enabled
 
 You must enable general access to camera and location from your device's privacy settings and explicitly give permission to  [!INCLUDE[prod_short](includes/prod_short.md)] to access them. For example, to see or change permissions for a device running on Windows, go to **Settings**, choose **Privacy**, and then **App permissions**. 
 
 For mobile devices, you must give camera and location access permissions to the [!INCLUDE[prod_short](includes/prod_short.md)] Mobile App. To do so for an iOS device, go to **Settings**, choose **Privacy**, and then **Camera** or **Location**. For Android devices go to **Settings**, choose **Apps & Notifications**, **Advanced**, **Permission Manager**, and then **Camera** or **Location**.
 
-In addition, if you are using [!INCLUDE[prod_short](includes/prod_short.md)] in a browser, you must also grant the [!INCLUDE[prod_short](includes/prod_short.md)] site permission to access the camera or location information. To see or change a site's permissions in the Microsoft Edge browser, go to **Settings**, choose **Site Permissions**, and then **Camera** or **Location**. Note that this might be different for other browsers.
+In addition, if you're using [!INCLUDE[prod_short](includes/prod_short.md)] in a browser, you must also grant the [!INCLUDE[prod_short](includes/prod_short.md)] site permission to access the camera or location information. To access or change a site's permissions in the Microsoft Edge browser, go to **Settings**, choose **Site Permissions**, and then **Camera** or **Location**. These steps might differ for other browsers.
 
-By default, the device or browser will pop up a request to access these capabilities when the user activates them for the first time.
+By default, the device or browser shows a request to access these capabilities when you activate them for the first time.
 
 > [!NOTE]  
-> Some old browsers do not grant access to camera and location. For example, camera is not available in Internet Explorer or the legacy Edge browser.
+> Some older browsers don't grant access to camera and location. For example, camera isn't available in Internet Explorer or the legacy Microsoft Edge browser.
 
-## Web Client Connection not Secure
+## Web client connections not secure
 
 The camera and location capabilities are only available when accessing the Web Client through SSL secured HTTP connections, using the `https://` URI scheme. 
 
 The only exception is connecting to `http://localhost`, used for development and test purposes.
 
+## Work with virtualization technologies
 
-## Work with Virtualization Technologies
+When connecting to [!INCLUDE[prod_short](includes/prod_short.md)] through Remote Desktop or another virtualization, access to camera or location might not be available. Use the physical system instead.
 
-When connecting to [!INCLUDE[prod_short](includes/prod_short.md)] through Remote Desktop or another virtualization, the access to camera or location might not be available. If this is the case, use the physical system instead.
+## Antivirus software
 
-## Antivirus Software
-Some antivirus software block access to camera and location by default. Remember to check your antivirus software settings.
+Some antivirus software blocks access to camera and location by default. Remember to check your antivirus software settings.
 
 ## Related information
-[Implementing the Camera in AL](/dynamics365/business-central/dev-itpro/developer/devenv-implement-camera-al)  
-[Implementing the Location in AL](/dynamics365/business-central/dev-itpro/developer/devenv-implement-location-al)
 
+[Implementing the Camera in AL](/dynamics365/business-central/dev-itpro/developer/devenv-implement-camera-al)  
+[Implementing the Location in AL](/dynamics365/business-central/dev-itpro/developer/devenv-implement-location-al)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

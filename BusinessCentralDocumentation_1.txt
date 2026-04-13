@@ -2649,28 +2649,23 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-to-create-blanket-sales-orders
 ---
 title: Work with blanket sales orders or purchase orders
-description: Use blanket orders when a customer has agreed to buy large quantities that are to be delivered in several smaller shipments over a certain period of time. The same applies to purchasing.
+description: Use blanket orders when a customer agrees to buy large quantities that you deliver in small shipments over a period of time.
 author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.form: 507, 509, 6620, 6622, 6623, 9303, 9310
-ms.date: 03/20/2024
 ms.author: bholtorf
-ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 507, 509, 6620, 6622, 6623, 9303, 9310
+ms.date: 04/07/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 # Work with blanket sales orders or blanket purchase orders
 
-A blanket sales order represents a framework for a long-term agreement between you and your customer. Similarly, you use blanket purchase orders to manage long-term agreements between you and your vendor.
+Blanket sales orders and blanket purchase orders represent a framework for a long-term agreement between you and your customer or vendor. This article describes the processes for the sales blanket order side, but the steps are the same for purchasing.
 
-A blanket order is typically made when a customer has committed to purchasing large quantities that are to be delivered in several smaller shipments over a certain period of time. Often blanket orders cover only one item with predetermined delivery dates. The main reason for using a blanket order rather than a sales order is that quantities entered on a blanket order don't affect item availability and thus can be used as a worksheet for monitoring, forecasting, and planning purposes.
+Typically, you use a blanket order when a customer buys a large quantity that you deliver in small shipments over a period of time. Blanket orders often cover only one item with predetermined delivery dates. The main reason for using a blanket order rather than a sales order is that quantities entered on a blanket order don't affect item availability. You can use them as a worksheet for monitoring, forecasting, and planning.
 
 On the blanket order, each separate shipment can be set up as an order line, which can then be converted into a sales order at the time of shipping.
-
-An example of when a blanket sales order could be used is if a customer calls and places an order of 1000 units of an item and they want the items to be delivered in 250 units every week over the next month.
-
-> [!NOTE]
-> Blanket purchase orders work in a similar way as blanket sales orders. This documentation covers blanket sales orders only.
 
 ## To create a blanket sales order
 
@@ -2678,30 +2673,30 @@ An example of when a blanket sales order could be used is if a customer calls an
 2. Choose the **New** action.  
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. Leave the **Order Date** field blank. When the separate sales orders are created from the blanket order, the order date of the sales order is set to equal the actual work date.
-5. On the **Lines** FastTab, create separate lines for each shipment. For instance, if your customer wants 1000 units split out equally between four weeks, you would enter four separate lines of 250 units each.  
+5. On the **Lines** FastTab, create separate lines for each shipment. For example, if your customer wants 1,000 units split equally over four weeks, you would enter four separate lines of 250 units each.  
 
 ## To create a sales order from a blanket sales order  
 
 1. To create an order for any of the lines in the blanket sales order, remove the quantity in the **Qty. to Ship** field on all the lines that you don't wish to ship at this time.  
-2. When you're ready to create orders, choose the **Make Order** action, and then choose **Yes**. A message appears informing you that the blanket order has been assigned an order number. Note that the blanket order hasn't been deleted.  
+2. When you're ready to create orders, choose the **Make Order** action, and then choose **Yes**. A message informs you that an order number is assigned to the blanket order. The blanket order isn't deleted.  
 3. Choose the **OK** button.  
 4. To see the results of the preceding steps, choose the **Line** action, choose the **Unposted Lines** action, and then choose the **Orders** action.  
 5. On the **Sales Lines** page, select the appropriate sales order, choose the **Line** action, and then choose the **Show Document** action.  
 
-The following applies to sales orders after they have been created from blanket sales orders:  
+The following information applies to sales orders after they're created from blanket sales orders:  
 
-- After the blanket order is converted into a sales order, the sales order contains all the lines from the blanket order. The lines where the quantity in the **Qty. to Ship** field was deleted appear, but with blank **Quantity** fields. You may choose to leave, edit, or delete the lines.  
-- It's important to remember that the sales order line quantity must not exceed the quantity of the associated blanket order line. Otherwise, posting of the sales order won't be possible.  
+- After the blanket order is converted into a sales order, the sales order contains all the lines from the blanket order. The lines where the quantity in the **Qty. to Ship** field was deleted show blank **Quantity** fields. You can choose to leave, edit, or delete the lines.  
+- It's important to remember that the sales order line quantity must not exceed the quantity of the associated blanket order line. Otherwise, you can't post the sales order.  
 - When the sales order is posted as shipped and/or invoiced, the **Quantity Shipped** and **Quantity Invoiced** fields are updated on the related blanket order.  
 - The blanket order number and line number are recorded as properties of the sales lines when created from a blanket order.  
 - When sales orders aren't created directly from the blanket order but still relate to it, a link between a sales order and a blanket order can be established by entering the associated blanket order number in the **Blanket Order No.** field on the sales order line.  
-- After the sales order has been created for the total quantity of a blanket order line, no other sales order can be created for the same line. Users are prevented from entering a quantity in the **Qty. to Ship** field. If, however, additional quantities need to be added to a blanket order, the value in the **Quantity** field can be increased and additional orders can then be created.  
-- The invoiced blanket sales order remains in the system until it's deleted, either by deleting individual blanket orders or by running the **Delete Invoiced Blanket Sales Orders** batch job.  
-- If a customer is also recorded as a contact in the Marketing application area, and if you have specified an interaction template code for blanket sales order on the **Marketing Setup** page, an interaction is recorded in the Interaction Log Entry table when you select **Print** to print the blanket sales order.
+- After the sales order is created for the total quantity of a blanket order line, no other sales order can be created for the same line. Users are prevented from entering a quantity in the **Qty. to Ship** field. If, however, extra quantities need to be added to a blanket order, you can increase the value in the **Quantity** field and more orders can then be created.  
+- The invoiced blanket sales order remains in the system until you delete it, either by deleting individual blanket orders or by running the **Delete Invoiced Blanket Sales Orders** batch job.  
+- If a customer is also recorded as a contact in the Marketing application area, and if you specified an interaction template code for blanket sales order on the **Marketing Setup** page, an interaction is recorded in the Interaction Log Entry table when you select **Print** to print the blanket sales order.
 
 ## To view the status of a blanket sales order
 
-You can see the status of a blanket sales order on the **Sales Blanket Order Statistics** page. This might be relevant when you start to invoice the order that is created from the blanket sales order.  
+You can review the status of a blanket sales order on the **Sales Blanket Order Statistics** page. This review might be relevant when you start to invoice the order that is created from the blanket sales order.  
 
 1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Blanket Sales Orders**, and then choose the related link.  
 2.  Select a blanket sales order, and then choose the **Statistics** action.  
@@ -2714,7 +2709,7 @@ You can see the status of a blanket sales order on the **Sales Blanket Order Sta
 
 ## To view unposted and posted blanket sales order lines
 
-The link between the blanket sales order and the originating sales order, and any other sales document, is retained after posting as a list of posted and unposted sales order invoice lines.  
+The link between the blanket sales order and the originating sales order, and any other sales document, is kept after posting.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)] enter **Blanket Sales Orders**, and then choose the related link.
 2. Open the blanket sales order you want to view.
@@ -2723,9 +2718,9 @@ The link between the blanket sales order and the originating sales order, and an
 |Option|Description|
 |--|--|
 |**Orders**|Specifies open orders associated with the selected line.|
-|**Invoices**|Specifies open invoices that have been associated with the selected line. Open invoices are manually associated with a blanket order by entering the blanket order number on the sales invoice line.|
-|**Return Orders**|Specifies open return orders that have been associated with the selected line.|
-|**Credit Memos**|Specifies open credit memos that have been associated with the selected line.|
+|**Invoices**|Specifies open invoices that were associated with the selected line. Open invoices are manually associated with a blanket order by entering the blanket order number on the sales invoice line.|
+|**Return Orders**|Specifies open return orders that were associated with the selected line.|
+|**Credit Memos**|Specifies open credit memos that were associated with the selected line.|
 
 4. To view posted entries, select the line in question, choose the **Line** action, and then choose the **Posted Lines** action. Choose one of the following options.  
 
@@ -2733,8 +2728,8 @@ The link between the blanket sales order and the originating sales order, and an
 |---|----|
 |**Shipments**|Posted shipments associated with the selected line.|
 |**Invoices**|Posted invoices associated with the selected line.|
-|**Return Receipts**|Posted return receipts that have been associated with the selected line.|
-|**Credit Memos**|Posted credit memos that have been associated with the selected line.|
+|**Return Receipts**|Posted return receipts that were associated with the selected line.|
+|**Credit Memos**|Posted credit memos that were associated with the selected line.|
 
 5. On the **Sales Lines** page, choose the **Show Document** action to view the entry.
 
@@ -3310,7 +3305,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ---
 
@@ -3323,7 +3318,7 @@ This article describes how to reconcile bank accounts from the **Bank Acc. Recon
 However, you can also reconcile bank accounts on the **Payment Reconciliation Journal** page when you process payments. Open bank account ledger entries related to the applied customer or vendor ledger entries close when you choose the **Post Payments and Reconcile Bank Account** action. This action automatically reconciles the bank account for the payments that you post with the journal. Learn more in [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
 
 > [!NOTE]  
-> The North American versions offers the **Bank Rec. Worksheet** page, which is better suited for checks and deposits but doesn't let you import bank statement files. To use this page instead of the **Bank Acc. Reconciliation** page, clear the **Bank Recon. with Auto. Match** field on the **General Ledger Setup** page. Learn more in [Reconciling Bank Accounts](LocalFunctionality/UnitedStates/how-to-reconcile-bank-accounts.md) under United States Local Functionality.
+> The North American versions offer the **Bank Rec. Worksheet** page, which is better suited for checks and deposits but doesn't let you import bank statement files. To use this page instead of the **Bank Acc. Reconciliation** page, clear the **Bank Recon. with Auto. Match** field on the **General Ledger Setup** page. Learn more in [Reconciling Bank Accounts](LocalFunctionality/UnitedStates/how-to-reconcile-bank-accounts.md) under United States Local Functionality.
 
 The lines on the **Bank Acc. Reconciliation** page are divided into two panes. The **Bank Statement Lines** pane shows either imported bank transactions or ledger entries with outstanding payments. The **Bank Account Ledger Entries** pane shows the ledger entries in the internal bank account.
 
@@ -3385,7 +3380,7 @@ The **Bank Statement Lines** pane is filled in according to invoices in [!INCLUD
 3. In the **Ending Date** field, enter the latest posting date for the ledger entries to be reconciled.
 
     > [!NOTE]
-    > Typically, the ending date will match the date specified in the **Statement Date** field. However, if you want to reconcile transactions for only part of a period, you can enter a different ending date.
+    > Typically, the ending date matches the date specified in the **Statement Date** field. However, if you want to reconcile transactions for only part of a period, you can enter a different ending date.
 
 4. If you don't want the bank account ledger entries to include unmatched open reversed entries, choose the **Exclude Reversed Entries** toggle. By default, the list of bank account ledger entries include reversed entries up to the statement date.
 5. Choose the **OK** button.
@@ -3406,15 +3401,15 @@ You can investigate the basis for matches by using the **Match Details** action.
 4. To remove a match, select the bank statement line, and then choose the **Remove Match** action.
 
 > [!TIP]
-> You can use a mix of manual and automatic matching. If you have manually matched entries, automatic matching will not overwrite your selections.
+> You can use a mix of manual and automatic matching. If you manually matched entries, automatic matching won't overwrite your selections.
 
 ## Match bank statement lines with bank account ledger entries manually
 
 > [!TIP]
-> When matching lines and entries manually, the **Show All**, **Show Reversed Entries**, **Hide Reversed Entries**, and **Show Nonmatched** actions can make it easier to get an overview. By default, the bank account ledger entries don't include unmatched reversed entries. To include these entries in the list and match them manually, choose the **Show Reversed Entries** action. If you choose to hide reversed entries after you've made one or more matches, the matched entries are still shown.
+> When matching lines and entries manually, the **Show All**, **Show Reversed Entries**, **Hide Reversed Entries**, and **Show Nonmatched** actions can make it easier to get an overview. By default, the bank account ledger entries don't include unmatched reversed entries. To include these entries in the list and match them manually, choose the **Show Reversed Entries** action. If you choose to hide reversed entries after you make one or more matches, the matched entries still show.
 
 > [!NOTE]
-> You can't post a bank reconciliation if you do many-to-one matching and the combined amounts contain differences. This is true even if the combined differences balance to zero.
+> You can't post a bank reconciliation if you do many-to-one matching and the combined amounts contain differences. This restriction is true even if the combined differences balance to zero.
 >
 > Here's an example of a many-to-one matching that has differences. The value of 200 for bank statement entry 1 is matched to two bank ledger entries that have a total value of 180. The difference is 20. The value of 350 for bank statement 2 is matched to two other bank ledger entries that have a total value of 370. The difference is -20, which balances the value of 20 for bank statement 1.  
 >
@@ -3424,14 +3419,14 @@ You can investigate the basis for matches by using the **Match Details** action.
 2. In the **Bank Account Ledger Entries** pane, select one or more banks account ledger entries that can be matched with the selected bank statement line. To choose multiple lines, select and hold the CTRL key, and then choose the lines.
 
    > [!TIP]
-   > You can also manually match multiple bank statement lines with one bank account ledger entry. For example, this might be useful if your bank deposit contained several payment methods, such as credit cards from different issuers, and your bank lists those as separate lines.
+   > You can also manually match multiple bank statement lines with one bank account ledger entry. For example, this method might be useful if your bank deposit contained several payment methods, such as credit cards from different issuers, and your bank lists those as separate lines.
 3. Choose the **Match Manually** action.
 
     The selected bank statement line and the selected bank account ledger entries change to green font, and the **Applied** checkbox in the right pane is selected.
 4. Repeat steps 1 through 3 for all bank statement lines that aren't matched.
 
 > [!TIP]
-> To remove a match, select the bank statement line, and then choose the **Remove Match** action. If you have matched multiple bank statement lines to a ledger entry, and need to remove one or more of the matched lines, all of the manual matches are removed for the ledger entry when you choose **Remove Match**.
+> To remove a match, select the bank statement line, and then choose the **Remove Match** action. If you matched multiple bank statement lines to a ledger entry, and need to remove one or more of the matched lines, all of the manual matches are removed for the ledger entry when you choose **Remove Match**.
 
 ## Validate your bank reconciliation
 
@@ -3458,14 +3453,14 @@ The following table describes fields on the Test Report that can help you comple
 |Field  |Description  |
 |---------|---------|
 |Statement Date| The date specified in the **Statement Date** field on the **Bank Acc. Reconciliation** page.|
-|Balance Last Statement|The balance specified in the **Balance Last Statement** field on the **Bank Acc. Reconciliation** page. This field is filled in automatically from the most recent reconciliation for the same bank account. The value is zero if it's is your first bank account reconciliation.|
+|Balance Last Statement|The balance specified in the **Balance Last Statement** field on the **Bank Acc. Reconciliation** page. This field is filled in automatically from the most recent reconciliation for the same bank account. The value is zero if it's your first bank account reconciliation.|
 |Statement Ending Balance|The balance specified in the **Statement Ending Balance** field on the **Bank Acc. Reconciliation** page. |
 |G/L Account No. <*number*> Balance at <*date*> | The balance on the G/L account on the statement ending date. This value is the unfiltered balance as of that date. If your bank uses your local currency, this balance should be the same as your bank account balance (shown on the right side of the report header) when you match all statement lines. An empty **()** in the name of this field means that your bank uses local currency.<br><br>A discrepancy in this field and the previous ones might indicate that you posted directly to the G/L account. It might also indicate that you're using the same G/L account for multiple banks, which we don't recommend. Banks are linked to the general ledger through the bank account posting group specified for the account.<br><br>The Test Report shows a warning if you have direct postings, even if the balance for the posting is zero. Direct postings that aren't balanced often lead to accumulated differences for future bank reconciliations. You should check the general ledger balance and ledger entries before you post the bank reconciliation. Learn more in about direct posting in [Avoid Direct Posting](#avoid-direct-posting).|
 |G/L Account No. <*number*> Balance (<*LCY*>) at <*date*>| The balance on the G/L account on the statement ending date in local currency. The balance is converted to the bank account's currency using the exchange rate that was valid on the statement ending date. This value is the unfiltered balance as of that date. You compare to this balance to the **G/L Account No. <*number*> Balance at <*date*>* field if your bank uses a foreign currency. The value in the G/L Account No. <*number*> Balance at <*date*> field for local currency might differ slightly because currency conversion can result in small differences. Your bank's balance should be very close to this balance.  |
 |Bank Account Balance at <*date*>| The balance on the bank account at the statement ending date.|
 |Sum of Differences    | The sum of the differences for the statement lines. To access the details, turn on the **Print Outstanding Transactions** toggle when you enter criteria for the report. A difference is a bank statement line that isn't matched completely to one or more bank ledger entries. You can't post a bank account reconciliation that has differences. You can post a bank reconciliation that contains bank ledger entries that aren't matched to statement lines. This value is shown in the **Outstanding Bank Transactions** field and in a separate section if you turn on the Print Outstanding Transactions toggle.      |
 |Statement Balance     | The value specified in the **Statement Ending Balance** field on the **Bank Acc. Reconciliation** page.  |
-|Outstanding Bank Transactions     | The sum of unmatched, non-check bank ledger entries that have a posting date on or before the statement ending date. This happens when you register transactions before they're registered in your bank. For example, at the end of a period. When you create the next bank reconciliation, you can reconcile these entries.        |
+|Outstanding Bank Transactions     | The sum of unmatched, noncheck bank ledger entries that have a posting date on or before the statement ending date. This happens when you register transactions before they're registered in your bank. For example, at the end of a period. When you create the next bank reconciliation, you can reconcile these entries.        |
 |Outstanding Checks     | The sum of unmatched bank ledger entries for checks that have a posting date on or before the statement ending date. This happens when you register transactions before they're registered in your bank. For example, this can happen for checks if a vendor doesn't cash a check in the same period you registered it. When you create the next bank reconciliation, you can reconcile these entries.        |
 |Bank Account Balance     | The sum of the values for the bank statement ending balance, outstanding bank transactions, and outstanding checks. After you handle all differences on matched entries, this balance matches your bank balance. For example, you accounted for all matched entries and the entries you couldn't match for this bank statement. You can post the reconciliation.        |
 
@@ -3508,7 +3503,7 @@ If we print the report for August we get outstanding transactions for our B and 
 > [!NOTE]
 > The Bank Statement report has some known limitations if you import or manually enter bank transactions after you post a bank reconciliation.
 >
-> You can enter bank ledger entries on any date and with any posting date, so you don't always have to do it in a strict chronological order.. When you do a bank reconciliation, you reconcile a bank statement to the bank ledger entries you have registered up to the time you post the reconciliation, and with the posting date of the entries. Typically, that means a posting date on or before the statement ending date.
+> You can enter bank ledger entries on any date and with any posting date, so you don't always have to do it in a strict chronological order. When you do a bank reconciliation, you reconcile a bank statement to the bank ledger entries you registered up to the time you post the reconciliation, and with the posting date of the entries. Typically, that means a posting date on or before the statement ending date.
 >
 > When you post a bank reconciliation, [!INCLUDE [prod_short](includes/prod_short.md)] takes a snapshot of the data and uses it to fill in the bank statement report's header. But, the outstanding transactions sections are actual lookups to the bank ledger entries that existed up to the actual date and time you posted the bank reconciliation. The totals in the lines typically match the totals in the header. However, if you import bank ledger entries after you posted the bank reconciliation, but the posting dates are before the statement ending date, the totals in the header might not match the totals in the outstanding transactions sections.
 
@@ -3517,7 +3512,7 @@ If we print the report for August we get outstanding transactions for our B and 
 If you find a mistake in a posted bank reconciliation, you can use the **Undo** action on the **Bank Account Statement List** page to correct it. When you undo a posted bank reconciliation, the entries are moved to the **Bank Account Reconciliations** page and marked as **Open**, meaning they aren't reconciled. You can then correct the bank reconciliation and post it again.
 
 > [!NOTE]
-> In the North American version, to use the Undo feature for posted bank reconciliations and bank statements you must turn on the **Bank Recon. with Auto-Match** toggle on the **General Ledger Setup** page. The Undo feature is not available for bank statements posted from bank reconciliation worksheets.
+> In the North American version, to use the Undo feature for posted bank reconciliations and bank statements you must turn on the **Bank Recon. with Auto-Match** toggle on the **General Ledger Setup** page. The Undo feature isn't available for bank statements posted from bank reconciliation worksheets.
 
 ### Reusing the bank statement number
 
@@ -3531,10 +3526,10 @@ The following examples show how to fix a mistake on a posted bank reconciliation
 
 You did bank reconciliations for January, February, and March. The bank statement number was 100 for March. Later, you discover that March only included entries until the 30th, which means entries for the 31st are missing. So, you need to redo the bank reconciliation for March. In this case, we open the **Bank Account Statement List** page, choose the statement for March, and then choose **Undo**.
 
-The new bank reconciliation is given the statement number 101. To reassign the number 100, choose **Change Statement No.** and enter **100**. 
+The new bank reconciliation gets the statement number **101**. To reassign the number 100, choose **Change Statement No.** and enter **100**. 
 
 > [!TIP]
-> Remember to set the appropriate Statement ending date (in this example, that is March 31), and edit the **Balance Last Statement** field. 
+> Remember to set the appropriate Statement ending date (in this example, that's March 31), and edit the **Balance Last Statement** field. 
 
 #### Example 2
 
@@ -3547,9 +3542,9 @@ If the next bank reconciliation you do is for March, [!INCLUDE[d365fin](includes
 If the next bank reconciliation you do is for August, consider changing the values in the **Last Statement No.** and **Balance Last Statement** fields on the **Bank Account** card before you create the next bank reconciliation, or use the **Change Statement No.** action and also change the value in the **Balance Last Statement** field on the bank reconciliation page.
 
 > [!NOTE]
-> The statement number is important when you do bank reconciliations with imported CAMT files that contain statement numbers, or when you reconcile based on printed bank statements. If you just download a range of bank transactions from your online bank, the statement number is usually not important.  
+> The statement number is important when you do bank reconciliations with imported CAMT files that contain statement numbers, or when you reconcile based on printed bank statements. If you just download a range of bank transactions from your online bank, the statement number usually isn't important.  
 >
-> The Balance Last Statement is kept on the bank account to minimize mistakes when doing bank reconciliations, but it's also editable, allowing you to do your bank reconciliations in any order you want. This also means that if you undo a bank statement, the new ending balance might not be the balance last statement on the next bank statement. There's no feature that allows you to move a balance forward to all subsequent bank statements, so be aware of this when using Undo.  
+> The Balance Last Statement is kept on the bank account to minimize mistakes when doing bank reconciliations. However, it's editable, so you can do your bank reconciliations in any order you want. This flexibility also means that if you undo a bank statement, the new ending balance might not be the balance last statement on the next bank statement. There's no feature that allows you to move a balance forward to all subsequent bank statements, so be aware of this when you use Undo.  
 
 ## Avoid direct posting
 
@@ -3579,7 +3574,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: payment journal, print check, vendor payment, creditor, debt, balance due, AP
 ms.search.form: 256, 404, 
-ms.date: 07/17/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -3598,10 +3593,10 @@ These steps result in positive vendor ledger entries that are applied to negativ
 You can pay with two types of checks. For both types, the **Bal. Account Type** or the **Account Type** field must contain **Bank Account**.
 
 - **Computer Check**: Select this option if you want to print a check for the amount on the payment journal line. You must print the checks before you can post the journal lines.
-- **Manual Check**: Select this option if you have created a check manually and want to create a corresponding check ledger entry for this amount. By using this option, you can't print the check.
+- **Manual Check**: Select this option if you created a check manually and want to create a corresponding check ledger entry for this amount. By using this option, you can't print the check.
 
 > [!NOTE]  
-> To make sure that your bank only clears validated checks and amounts, you can send them a file that contains vendor, check, and payment information. To learn more, go to [Export a Positive Pay file](finance-how-positive-pay.md).
+> To ensure that your bank only clears validated checks and amounts, you can send them a file with vendor, check, and payment information. To learn more, go to [Export a Positive Pay file](finance-how-positive-pay.md).
 
 > [!IMPORTANT]
 > Your printer must be correctly set up with the check forms, and you must define which check layout to use. To learn more, go to [Select a Check Layout](finance-how-define-check-layouts.md). Alternatively, you can send the check as a PDF file, for example.  
@@ -3610,7 +3605,7 @@ You can print up to 10 invoices on a page for a check stub. If a check applies t
 
 ## To pay a vendor invoice with a check
 
-The following describes how to pay a vendor by check. The steps are similar to refund a customer by check.
+The following steps describe how to pay a vendor by check. The steps are similar to refund a customer by check.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Payment Journals**, and then choose the related link.
 2. Fill in the payment journal lines. To learn more, go to [Record Payments and Refunds](payables-how-post-payments-refunds.md).
@@ -3629,7 +3624,7 @@ The following describes how to pay a vendor by check. The steps are similar to r
 
 ## To cancel printed checks that aren't posted
 
-You can cancel non-posted checks after they have been printed by using the **Void Check** action on the **Payment Journal** page.
+You can cancel unposted checks after you printed them by using the **Void Check** action on the **Payment Journal** page.
 
 1. On the **Payment Journal** page, choose the **Void Check**, and then choose which checks to cancel.
 
@@ -4915,10 +4910,9 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.form: 99000754, 99000755, 99000756, 99000758, 99000760, 99000761, 99000762
-ms.date: 06/13/2024
-ms.service: dynamics-365-business-central
+ms.date: 04/07/2026
+ms.custom: bap-template
 
 ---
 # Set up work centers and machine centers
@@ -4978,7 +4972,7 @@ The following steps describe how to set up a work center. The steps to set up a 
 18. In the **Queue Time** field, specify a fixed time span that must pass before assigned work can begin at this work center. 
 
 > [!NOTE]
-> Use queue times to provide a buffer between the time that a component arrives at a machine or work center and when the operation actually starts. For example, a part is delivered to a machine center at 10:00 but it takes an hour to mount it on the machine so the operation does not start until 11.00. To account for that hour, the queue time would be one hour. The value of the **Queue Time** field on a machine or work center card plus the sum of the values in the **Setup Time**, **Run Time**, **Wait Time**, and **Move Time** fields on the item routing line combine to give the production lead time of the item. This helps provide accurate overall production times.  
+> Use queue times to provide a buffer between the time that a component arrives at a machine or work center and when the operation actually starts. For example, a part is delivered to a machine center at 10:00 but it takes an hour to mount it on the machine so the operation doesn't start until 11.00. To account for that hour, the queue time would be one hour. The value of the **Queue Time** field on a machine or work center card plus the sum of the values in the **Setup Time**, **Run Time**, **Wait Time**, and **Move Time** fields on the item routing line combine to give the production lead time of the item. This helps provide accurate overall production times.  
 
 ## Considerations about capacity
 
@@ -4994,7 +4988,7 @@ When you allocate a routing line to a work or machine center, [!INCLUDE [prod_sh
 To calculate the run time, the system allocates the exact time that is defined in the **Run Time** field of the routing line. Efficiency and capacity don't affect the allocated time. For example, if the run time is defined as 2 hours, then the allocated time is 2 hours, regardless of values in the efficiency and capacity fields in the work center.  
 
 > [!NOTE]
-> The capacity that is used in the calculations is defined as the minimal value between the capacity that is defined in the work or machine center and the concurrent capacity that is defined for the routing line. If a work center has a capacity of 100, but the concurrent capacity for the routing line is 2, then *2* will be used in the calculations.
+> The capacity used in the calculations is the minimum value between the capacity defined in the work or machine center and the capacity for the routing line. If a work center has a capacity of 100, but the concurrent capacity for the routing line is 2, then 2 is used in the calculations.
 
 The *duration* of an operation, on the contrary, considers both efficiency and capacity. Duration is calculated as *Run Time / Efficiency / Capacity*. The following list shows a few examples of the calculation of duration for the same run time, which is defined as 2 hours for the routing line:
 
@@ -5002,8 +4996,6 @@ The *duration* of an operation, on the contrary, considers both efficiency and c
 - Efficiency 200% means you can complete the work in one hour. You can dig the hole twice as fast if you have an excavator that is twice the size of the smaller one  
 
     You can get the same result if you use two smaller excavators instead of a large one. Use *2* as the capacity and *100%* as the efficiency  
-
-Fractional capacity is tricky. We'll discuss it later in this article. 
 
 ### Setup time
 
@@ -5018,11 +5010,11 @@ The fractal capacity is used only in specific cases.
 
 ### Work center processing multiple orders simultaneously
 
-Let's use a paint-spraying booth as an example. It has the same setup and run times for each processed lot. But each lot can contain multiple individual orders that are painted simultaneously.  
+Let's use a paint-spraying booth as an example. The booth has the same setup and run times for each lot. But, each lot can contain multiple individual orders that are painted simultaneously.  
 
 In this case, the setup time and the concurrent capacity manage the cost allocated to orders. We recommend that you don't use run time in routing lines.  
 
-The allocated setup time for each individual order will be in reverse order of the number of orders (quantities) that are executed simultaneously. Here are some more examples of the calculation of setup time when that is defined as two hours for the routing line:
+The allocated setup time for each individual order is in reverse order of the number of orders (quantities) that are executed simultaneously. Here are some more examples of the calculation of setup time when that is defined as two hours for the routing line:
 
 - If there are two orders, then the concurrent capacity in the routing line should be set to 0.5.
 
@@ -5037,7 +5029,7 @@ In both cases, the total allocated time for all orders is two hours.
 ### Efficient resource can dedicate only part of their work date to productive work
 
 > [!NOTE]
-> This scenario is not recommended. We recommend that you use efficiency instead. 
+> This scenario isn't recommended. We recommend that you use efficiency instead. 
 
 One of your work centers represents an experienced worker who works with 100% efficiency on tasks. But they can only spend 50% of their working time on tasks because the rest of the time they solve administrative tasks. While this worker is capable to complete a two hour task in exactly two hours, in average you must wait another two hours while the person is dealing with other assignments.  
 
@@ -5073,7 +5065,7 @@ If you don't want the capacities of work centers to contribute to the total capa
 
 ## To set up a capacity constrained machine or work center
 
-You must set up production resources that you regard as critical and mark them to accept a finite load instead of the default infinite load that other production resources accept. A capacity-constrained resource can be a work center or machine center that's a bottleneck and would like to establish a limited, finite load for.
+You must set up the production resources that you regard as critical to accept a finite load instead of the default infinite load. A capacity-constrained resource can be a work center or machine center that's a bottleneck and would like to establish a limited, finite load for.
 
 [!INCLUDE[prod_short](includes/prod_short.md)] doesn't support detailed shop floor control. It plans for a feasible utilization of resources by providing a rough-cut schedule, but doesn't automatically create and maintain detailed schedules based on priorities or optimization rules.
 
@@ -11033,7 +11025,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: year closing, close accounting period, close fiscal year, bank account detailed trial balance
 ms.search.form: 100,
-ms.date: 08/05/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -11056,7 +11048,7 @@ The fiscal year is closed, and the **Closed** and **Date Locked** fields for all
 
 Although a fiscal year is closed, you can still post general ledger entries to it. When you do, the entries are marked as posted to a closed fiscal year and the **Prior-Year Entry** field is selected.
 
-After a fiscal year is closed, you must close the income statement accounts and transfer the year's results to an account in the balance sheet. You can repeat this every time that you post to the closed fiscal year.
+After a fiscal year is closed, you must close the income statement accounts and transfer the year's results to an account in the balance sheet. You can repeat this process every time you post to the closed fiscal year.
 
 ## Related information
 
@@ -11487,14 +11479,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-about-item-types
 ---
 title: Understand item types
-description: Learn about the types of items you can manage in inventory, and how the types affectYou can adjust the inventory valuation of an item using the FIFO or Average costing methods when item costs change for reasons other than transactions.
+description: Learn about the types of items you can manage in inventory.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.keywords:
 ms.search.form: 9297, 5845, 30, 
-ms.date: 08/12/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -14169,8 +14161,8 @@ If your admin or reselling partner prefers not to use the **Invite External Acco
 
 #### Add your accountant as a guest user
 
-1. Sign in to [Microsoft 365 admin center](https://admin.microsoft.com) as at least a [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator).
-1. In the navigation pane, select **Users**.
+1. Sign in to [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator).
+1. In the navigation pane, select **Entra ID** > **Users**.
 1. On the **Users** page, select **New user**, and then **Invite external user**.
 1. On the **Invite external user** page, add the accountant's email address and other information about them.  
 
@@ -14295,10 +14287,9 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.keywords: postpone
 ms.search.form: 113, 120_Primary, 121, 154, 350, 422, 7132, 7133, 7138, 7139, 9203, 9219, 9239, 9373, 9374
-ms.date: 08/07/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ---
 
@@ -16168,7 +16159,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.form: HelpAndSupport
-ms.date: 10/25/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -16211,7 +16202,7 @@ The following list describes how you can access the Help pane and whether cards 
 - Choose the *Learn more* link on a tooltip for a field, if available. The *Learn more* link is only available in the mobile app or on custom fields (that is, fields from non-Mocrosoft extensions) in the web client.
 
 > [!TIP]
-> When you choose a link, the target article opens in a new browser tab. You can choose to un-dock the browser tab, then, so that you can view the relevant information side-by-side with [!INCLUDE [prod_short](includes/prod_short.md)]. The pane remains open while you navigate through [!INCLUDE [prod_short](includes/prod_short.md)] so that content you searched for remains visible.  
+> When you choose a link, the target article opens in a new browser tab. You can choose to undock the browser tab so that you can view the relevant information side-by-side with [!INCLUDE [prod_short](includes/prod_short.md)]. The pane remains open while you navigate through [!INCLUDE [prod_short](includes/prod_short.md)] so that content you searched for remains visible.  
 
 ## Search in the Help pane
 
@@ -16289,13 +16280,13 @@ Periodically, the [!INCLUDE [prod_short](includes/prod_short.md)] team gathers f
 
 On the [Dynamics 365 Ideas site](https://aka.ms/bcideas) website, you can provide suggestions for new features and capabilities. Your input goes directly into Business Central's engineering backlog for investigation and prioritization.  
 
-Make sure that you search through the list of submitted suggestions. There's a chance that someone already submitted something similar, and that entry might have already received votes. Vote if an idea already has been submitted to get it prioritized on the engineering backlog.  
+Make sure that you search through the list of submitted suggestions. There's a chance that someone already submitted something similar, and that entry has received votes. Vote if an idea was already submitted to get it prioritized on the engineering backlog.  
 
 ### Troubleshooting
 
 The **Troubleshooting** section shows technical information that your administrator or [!INCLUDE[prod_short](includes/prod_short.md)] partner can use to unblock users. The section includes information about the latest error message, the current version of your [!INCLUDE[prod_short](includes/prod_short.md)], and a link to go to the **Page Inspection** page. Learn more in [Inspecting Pages in Business Central](across-inspect-page.md).  
 
-To help you or your supporting partner troubleshoot, you can switch on additional logging in the **Report a Problem** section. You can then analyze the extra telemetry in the admin center or Application Insights, for example.  
+To help you or your supporting partner troubleshoot, you can switch on more logging in the **Report a Problem** section. You can then analyze the extra telemetry in the admin center or Application Insights, for example.  
 
 As the internal administrator, you have access to the admin center where you can continue the troubleshooting. You can view telemetry, manage environments, and manage user sessions. The following articles in the administration content provide more information:
 
@@ -16311,7 +16302,7 @@ Your [!INCLUDE[prod_short](includes/prod_short.md)] reselling partner helps you 
 Learn more in [Escalating support issues to Microsoft](/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft) in the administration content.  
 
 > [!NOTE]
-> With [!INCLUDE[prod_short](includes/prod_short.md)] online, the **Report a Problem** section is only available if you have paid for a [!INCLUDE[prod_short](includes/prod_short.md)] subscription. If you have signed up for a trial and have not yet purchased [!INCLUDE[prod_short](includes/prod_short.md)], you don't have a reselling partner, and you can't contact the Microsoft support team. You can find a [!INCLUDE[prod_short](includes/prod_short.md)] partner on the [I'm looking for a solution provider](https://go.microsoft.com/fwlink/?linkid=2038145) page. Learn more in [How do I find a reselling partner?](/dynamics365/business-central/across-faq#how-do-i-find-a-reselling-partner).  
+> With [!INCLUDE[prod_short](includes/prod_short.md)] online, the **Report a Problem** section is only available if you paid for a [!INCLUDE[prod_short](includes/prod_short.md)] subscription. If you signed up for a trial and haven't yet purchased [!INCLUDE[prod_short](includes/prod_short.md)], you don't have a reselling partner, and you can't contact the Microsoft support team. You can find a [!INCLUDE[prod_short](includes/prod_short.md)] partner on the [I'm looking for a solution provider](https://go.microsoft.com/fwlink/?linkid=2038145) page. Learn more in [How do I find a reselling partner?](/dynamics365/business-central/across-faq#how-do-i-find-a-reselling-partner).  
 >
 > With [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, this section is only available in 2020 release wave 2 (version 18) and later.
 
@@ -16320,7 +16311,7 @@ Learn more in [Escalating support issues to Microsoft](/dynamics365/business-cen
 The **Report a problem** section displays an email address or a hyperlink for you to get in contact with the customer support person or team, like: Do you need technical support? Contact support at `someone@example.com` or `https://www.contoso.com`. 
 
 > [!NOTE]
-> If support contact details aren't present, it means that your [!INCLUDE[prod_short](includes/prod_short.md)] reselling partner hasn't provided the information. As a reslling partner, you set up the preferred support contact details in the admin center. Learn more in [Configuring the support experience](/dynamics365/business-central/dev-itpro/technical-support#configuring-the-support-experience) in the administration content.  
+> If support contact details aren't present, your [!INCLUDE[prod_short](includes/prod_short.md)] reselling partner must provide the information. As a reselling partner, you set up the preferred support contact details in the admin center. Learn more in [Configuring the support experience](/dynamics365/business-central/dev-itpro/technical-support#configuring-the-support-experience) in the administration content.  
 
 To alert your partner to a problem, choose the link to either send an email or open their support site in a new browser tab. You can then add the technical information about your Microsoft Entra tenant from the **Troubleshooting** section and any other information that you find relevant.  
 
@@ -16356,7 +16347,7 @@ The table of contents includes a group of content that describes [local function
 The local functionality content describes the capabilities in [!INCLUDE [prod_short](includes/prod_short.md)] that can help you be compliant in the supported markets, such as tax statements and other reports. In some cases, the difference between the default version and the specific country/region version is invisible to users. In other cases, users must set up reporting or electronic invoicing in a specific way. If you can't find a description of a certain button or action in the general section, you can hopefully find it in the *Local Functionality* section.  
 
 > [!TIP]
-> On the learn.microsoft.com site as well as in the in-product search field and in the Help pane, the search results show some context for the target article. The context includes the link that might show the name of a country, or a short description that calls out a certain capability or a country/region, for example.
+> On the learn.microsoft.com site and in the in-product search field and in the Help pane, the search results show some context for the target article. The context includes the link that might show the name of a country/region, or a short description that calls out a certain capability or a country/region, for example.
 
 ### Find other content
 
@@ -17826,7 +17817,7 @@ ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: reporting
 ms.search.form: Report_1, Report_3, Report_4, Report_5, Report_6, Report_7, Report_9, Report_10, Report_11, Report_12, Report_13, Report_16, Report_17, Report_18, Report_19, Report_20, Report_25, Report_27, Report_28, Report_30, Report_31, Report_32, Report_33, Report_36, Report_37, Report_38, Report_512, Report_503, Report_743, Report_1123, Report_1125, Report_1126, Report_1127, Report_1128, Report_1129, Report_1133, Report_1138, Report_4405, Report_1700, Report_1701, Report_1702,  Report_2500, Report_2501, Report_2502, Report_10007, Report_10008
-ms.date: 05/20/2024
+ms.date: 04/07/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -17868,7 +17859,6 @@ ms.service: dynamics-365-business-central
 [!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
 
 [!INCLUDE [finance_reports_cost_accounting](includes/finance-reports-cost-accounting-include.md)]
-
 
 ## Related information
 
@@ -18817,7 +18807,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 99000813, 99000814, 99000815, 99000816, 99000829, 99000830, 99000831, 99000832, 99000833, 99000838, 99000839, 99000867, 99000868, 99000882, 99000897, 99000898, 99000900, 99000912, 99000913, 99000914, 99000917 
-ms.date: 03/21/2025
+ms.date: 04/08/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -18887,7 +18877,7 @@ The **Change Status** action is available for the following types of orders:
 - Released production orders
 
 > [!TIP]
-> A confirmation dialog with additional questions displays for each order individually. If there are multiple orders with partial output or consumption, confirm each one separately.
+> A confirmation dialog with questions displays for each order individually. If there are multiple orders with partial output or consumption, confirm each one separately.
 
 If the status of orders can't change, they're skipped. The **Error Message** page shows the orders that were skipped and the reasons.  
 
@@ -18904,7 +18894,7 @@ A planned production order is unique because of the following characteristics:
 
 - You can automatically create a planned production order from a sales order.  
 - Planned production orders are like released production orders and provide input to planning by showing the total capacity requirements by work center or machine center.  
-- A planned production order represents the best estimate of the future load for the work center or machine center load based on available information. Typically, they're generated from planning, but you can also manually create them. However, they're erased the next time you run planning so it isn't practical to create them manually.  
+- A planned production order represents the best estimate of the future load for the work center or machine center load based on available information. Typically, they're generated from planning, but you can also manually create them. However, [!INCLUDE [prod_short](includes/prod_short.md)] deletes them the next time you run planning so it isn't practical to create them manually.  
 - Their generation in planning results in a suggested "planned order release" that includes the quantity, release date, and due date. The planning system logic is based on the replenishment system, reorder policies, and order modifiers that it encounters in the net requirement planning process.  
 - The load for each work center or machine center on the planned production order's routing shows their effect.  
 
@@ -18936,7 +18926,7 @@ A finished production order is unique, based on the following characteristics:
 - Finished production orders are used for reporting and to support the ability to track back to other orders (for example, sales, production, and purchases). The ability to track back to a finished production order allows you to review the detailed history.  
 - You can't change finished production orders.  
 
-#### Reopen a finished production order to make corrections
+#### Reopen a finished production order
 
 After you complete a production order and set its status to **Finished**, you might discover a mistake. For example, you might find that consumption is missing or the item tracking information is incorrect. To make sure that your inventory and cost transactions are correct, use the **Reopen** action on the **Finished Production Orders** page to make adjustments. However, to protect your data there are a few restrictions:
 
@@ -19080,7 +19070,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: numbers, numbering
 ms.search.form: 456_Primary, 457_Primary, 458_Primary, 459, 460, 461, 21, 22, 26, 27, 31
-ms.date: 09/20/2024
+ms.date: 04/07/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -19094,12 +19084,12 @@ For each company that you set up, you need to assign unique identification codes
 > If you want to allow gaps in certain number series, consult with your auditor or accounting manager to ensure that you adhere to the legal requirements in your country/region. For more information, see the [Gaps in Number Series](#gaps-in-number-series) section.
 
 > [!NOTE]  
-> We recommend that you use the same number series codes as you see listed on the **No. Series List** page in the CRONUS demonstration company. Codes such as *P-INV+* might not make immediate sense to you, but [!INCLUDE[prod_short](includes/prod_short.md)] has a number of default settings that depend on these number series codes.
+> We recommend that you use the same number series codes as you see listed on the **No. Series List** page in the CRONUS demonstration company. Codes such as *P-INV+* might not make immediate sense to you, but [!INCLUDE[prod_short](includes/prod_short.md)] has several default settings that depend on these number series codes.
 
 You create a numbering system by setting up one or more codes for each type of master data or document. For example, you can set up one code for numbering customers, another code for numbering sales invoices, and another code for numbering documents in general journals. After you set up a code, you must set up at least one number series line. The number series line contains information such as the first and last number in the series and the starting date. You can set up more than one number series line per number series code, with a different starting date for each line. Number series are consecutive, starting each series on the respective starting date.
 
 > [!NOTE]
-> The maximum length of a number in a number series is 20 characters. There are some situations where [!INCLUDE[prod_short](includes/prod_short.md)] will append a number with a system-generated ID. For example, when documents such as invoices are used to apply transactions, such as payments, [!INCLUDE[prod_short](includes/prod_short.md)] generates identifiers for the applied transactions. The identifier is comprised of a number from a number series and a six character system-assigned ID, such as -12345. If you expect to process more than 9999 documents in bank or GIRO journals, or cash receipt journals, set up number series for those types of documents to include fewer than 14 characters.
+> The maximum length of a number in a number series is 20 characters. There are some situations where [!INCLUDE[prod_short](includes/prod_short.md)] appends a number with a system-generated ID. For example, when documents such as invoices are used to apply transactions, such as payments, [!INCLUDE[prod_short](includes/prod_short.md)] generates identifiers for the applied transactions. The identifier is composed of a number from a number series and a six character system-assigned ID, such as -12345. If you expect to process more than 9,999 documents in bank or GIRO journals, or cash receipt journals, set up number series for those types of documents to include fewer than 14 characters.
 
 You typically set up your number series to automatically insert the next consecutive number on new cards or documents that you create. However, you can also set up a number series to allow you to manually enter a number. To manually enter numbers, turn on the **Manual Nos.** toggle.
 
@@ -19107,7 +19097,7 @@ If you want to use more than one number series code for one type of master data 
 
 ## Get assistance from Copilot
 
-The suggest number series with Copilot feature can help administrators create and maintain number series for all entities and documents in [!INCLUDE [prod_short](includes/prod_short.md)] based on structured input or natural language. To learn more about this AI-based capability, go to [Suggest number series with Copilot](suggest-number-series-copilot.md).
+The Copilot feature that suggests number series can help administrators create and maintain number series for all entities and documents in [!INCLUDE [prod_short](includes/prod_short.md)] based on structured input or natural language. To learn more about this AI-based capability, go to [Suggest number series with Copilot](suggest-number-series-copilot.md).
 
 ## Gaps in number series
 
@@ -19126,14 +19116,13 @@ The **No.** field can be filled in three ways:
     > [!NOTE]  
     > If the number series isn't working, for example because it's reached the last number defined for its range, the **No.** field displays so you can manually enter a number. You can resolve issues on the **No. Series** page.-->
 
-2. If you have more than one number series for a type of document or card, and the **Default Nos.** checkbox isn't selected for the assigned number series, the **No.** field displays, and you can go to the **No. Series** page and select the number series you want to use. The next number in the series is then inserted in the **No.** field.
-
+2. If you have more than one number series for a type of document or card, and the **Default Nos.** checkbox isn't selected for the assigned number series, the **No.** field displays. You can go to the **No. Series** page and select the number series you want to use. The next number in the series is inserted in the **No.** field.
 3. If you don't have a number series for a type of document or card, or if the **Manual Nos.** field is selected for the number series, the **No.** field displays and you must enter a number manually. You can enter up to 20 alphanumeric characters.
 
 When you open a new document or card that a number series exists for, the **No. Series Setup** page opens so that you can set up a number series for that type of document or card and continue working.
 
 > [!NOTE]  
-> If you need to enable manual numbering on, for example, new item cards that were created with a data migration process that has hidden the **No.** by default, go to the **Inventory Setup** page and choose the **Item Nos.** field to open and set the related number series to **Manual Nos.**.
+> If you need to enable manual numbering on, for example, new item cards that were created with a data migration process that hides the **No.** by default, go to the **Inventory Setup** page and choose the **Item Nos.** field to open and set the related number series to **Manual Nos.**.
 >
 > The same is true if you're using service management features. To resolve that issue, go to the **Service Management Setup** page and choose the **Service Item Nos.** field to set the number series to **Manual Nos.**.
 
