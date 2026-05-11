@@ -2748,7 +2748,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Payables Agent Overview
 description: Payables Agent automates vendor invoice processing in Business Central. Speed up accounts payable, reduce bottlenecks, and simplify invoice management.
-ms.date: 01/19/2026
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.topic: overview
 author: dmc-dk
@@ -2935,7 +2935,7 @@ ms.author: bholtorf
 ms.reviewer: jswymer
 ms.topic: article
 ms.search.form:
-ms.date: 10/13/2025
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.service: dynamics-365-business-central
 ms.collection: bap-ai-copilot
@@ -3106,6 +3106,9 @@ ms.custom: bap-template
 # Quality management overview
 
 Quality management is a quality inspection application for [!INCLUDE [prod_short](includes/prod_short.md)]. Quality management features can help you maintain product quality standards by creating inspections at key points in your purchasing, production, assembly, and warehouse management processes. 
+
+> [!NOTE]
+> Quality Management is a Microsoft-published extension that installs automatically on new environments. For existing environments, you can install it from the **Extension Management** page or get it from [Microsoft Marketplace](https://marketplace.microsoft.com/product/PUBID.microsoftdynsmb%7CAID.bc_qualitymanagement%7CPAPPID.bc7b3891-f61b-4883-bbb3-384cdef88bec). To learn more, go to [Quality management setup and configuration](qms-setup.md#prerequisites).
 
 ## Key capabilities
 
@@ -6192,7 +6195,7 @@ ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 03/09/2026
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom:
   - bap-template
@@ -6321,7 +6324,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
@@ -11315,7 +11318,7 @@ author: jswymer
 ms.author: jswymer 
 ms.reviewer: jswymer
 ms.topic: overview 
-ms.date: 10/13/2025
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template 
 ms.collection:
@@ -13962,6 +13965,22 @@ ms.custom: bap-template
 # Quality management setup and configuration
 
 This article explains the initial setup and configuration of quality management features.
+
+## Prerequisites
+
+- Make sure that the **Quality Management** extension is installed.
+
+  The extension is preinstalled for all new environments. For existing environments, install it from the **Extension Management** page or get it from [Microsoft Marketplace](https://marketplace.microsoft.com/product/PUBID.microsoftdynsmb%7CAID.bc_qualitymanagement%7CPAPPID.bc7b3891-f61b-4883-bbb3-384cdef88bec). Learn more about installing extensions at [Installing and Uninstalling Extensions](ui-extensions-install-uninstall.md#install).
+
+- Ensure that users have the right permissions. Quality Management provides three permission sets:
+
+  |Permission set  |Purpose  |
+  |---------|---------|
+  |**Quality Admin & Supervisor**     |Full access to all quality management configuration and data, including setup, templates, tests, generation rules, and inspections.        |
+  |**Quality Inspector**     |Can record measurements, finish inspections, and update result conditions, but can't change setup, templates, or generation rules. Must be explicitly assigned to users who perform inspections.         |
+  |**Quality Auditor**     |Read-only access to all quality data for review and reporting.         |
+
+  Learn more at [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
 
 ## Typical setup scenarios
 
@@ -16866,7 +16885,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: solsen
 ms.topic: how-to
-ms.date: 02/04/2026
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.collection:
@@ -16944,6 +16963,7 @@ The following table lists the permissions needed to use the different Copilot an
 | Autofill | **Copilot Sys Features** permission set or execute permission on system object 9700 **Allow Copilot Autofill**. |
 | Bank reconciliation assist | Permission on page 7250 **Bank Acc. Rec. AI Proposal** and page 7252 **Trans. To GL Acc. AI Proposal**. |
 | Chat |**Copilot Sys Features** permission set or execute permission on system object 9690 **Allow Copilot Chat**. |
+|Expense Agent|Learn more in [Manage Expense Agent permissions and user access](expense-management/expense-agent-configuration-page.md#manage-agent-permissions-and-user-access).|
 |No. series suggestions|No permissions or permission sets control access to this Copilot feature. Users who can set up number series can use Copilot for assistance when the **No. series suggestions** feature is activated.  |
 | Suggest substitute items| Permission on page 7410 **Item Subst. Suggestion** and page 7411 **Item Subst. Suggestion Sub**.|
 | Summarize |**Copilot Sys Features** permission set or execute permission on system object 9680 **Allow Copilot Summary**. |
@@ -18040,7 +18060,7 @@ ms.topic: overview
 ms.collection:
   - bap-ai-copilot
   - get-started
-ms.date: 03/20/2026
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ---
@@ -18164,7 +18184,7 @@ ms.reviewer: solsen
 ms.topic: faq
 ms.collection:
   - bap-ai-copilot
-ms.date: 10/13/2025
+ms.date: 05/03/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template jswymer
 ---
