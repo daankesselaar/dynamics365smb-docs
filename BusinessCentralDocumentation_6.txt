@@ -1,372 +1,639 @@
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/hr-manage-human-resources
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/power-bi-faq
 ---
-title: Manage human resources
-description: Register and manage employee records, maintain employment details, and track and analyze absences.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: v-soumramani
-ms.topic: article
+title: Power BI FAQ
+description: Get answers for some typical questions about working with Power BI and Business Central.
+author: jswymer
+ms.topic: get-started
 ms.devlang: al
-ms.search.keywords: personnel, people, employee, staff, HR
-ms.search.form: 5200, 5201, 5204, 5206, 5208, 5209, 5211, 5212, 5221, 5228
-ms.date: 10/03/2025
+ms.search.keywords: Power BI, reports, faq, errors
+ms.date: 01/19/2026
+ms.author: jswymer
 ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
 ---
+# Power BI FAQ
 
-# Manage human resources
+This article answers some of the questions you might have about working with Power BI and [!INCLUDE [prod_short](includes/prod_short.md)].
 
-In [!INCLUDE[prod_short](includes/prod_short.md)], you can keep detailed records of your employees. You can register and maintain employee information, such as employment contracts, confidential information, qualifications, and employee contacts.
+<!-- ## [General questions](#tab/general) -->
+## General questions
 
-You can also register employee absences, which allows you to analyze registered absences as necessary.
+<!-- 26 -->
+### I selected a report for my role center in Business Central. If I later make changes to the report's visuals online, does the role center automatically update to my changes?
 
-To start using the Human Resources functionality, you must set up employees and other basic information. You can then associate various codes to an employee, which allows you to filter information for specific employees.
+Yes. The reports you see inside [!INCLUDE [prod_short](includes/prod_short.md)] are embedded directly from Power BI, and not a copy.
 
-The following table describes a sequence of tasks, with links to the articles that describe them.
+<!-- 3 -->
+### Are the Business Central apps for Power BI available in languages other than English?
 
-| To | Go to |
-|--|--|
-| Register new employees or edit records for existing employees, and attach related information, such as contracts and articles. | [Register Employees](hr-how-register-employees.md) |
-| Record employees' absence and view absence statistics by various filters. | [Manage Employee Absence](hr-how-manage-absence.md) |
+No. These apps are currently only available in English.
 
-## Related information
+<!-- 24 -->
+### Once a report is published on my powerbi.com workspace, can I download its pbix? 
 
-[Finance](finance.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Change Which Features are Displayed](ui-experiences.md)  
+Yes. Learn more at [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).  
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
+<!-- 27 -->
+### Can I download the apps as pbix files?
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-date-calculation-for-sales
----
-title: Delivery date calculation for sales
-description: The application automatically calculates the date on which you must order an item to have it in inventory on a certain date and available for picking.
-author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords:
-ms.date: 03/06/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Delivery date calculation for sales
+No. Currently, we don’t offer downloading pbix files for the official Power BI apps, because they're published on Marketplace.
 
-[!INCLUDE[prod_short](includes/prod_short.md)] automatically calculates the earliest possible date that an item on a sales order line can be shipped.
+<!-- ## [User access and licensing](#tab/license) -->
+## Questions about user access and licensing
 
-* If the customer has requested a specific delivery date, then the date on which the items must be available to pick to meet that delivery date is calculated.
-* If the customer doesn't request a specific delivery date, then the date on which the items can be delivered is calculated. The calculation starts from the date on which the items are available for picking.
 
-## Calculating a requested delivery date
+<!-- 14 -->
+### Do I need a Power BI Pro license to publish reports?
 
-If you specify a requested delivery date on the sales order line, that date becomes the starting point for the following calculations.
+<!-- todo What does " or for every user that consults the published report" mean? fixed -->
+No. A Pro license isn't needed to publish reports. The standard (free) Power BI license is enough. Learn more in [Power BI Licensing](admin-powerbi-setup.md#license).
 
-- *requested delivery date - shipping time = planned shipment date*
-- *planned shipment date - outbound whse. handling time = shipment date*
+<!-- 15 -->
+### Is there anything I can't do with the free license?
 
-If the items are available to pick on the shipment date, then the sales process can continue. Otherwise, a stock-out warning is displayed.
+You can't share reports or install the Business Central apps for Power BI. The free license allows you to create almost all variations of charts and reports.
+
+<!-- 16 -->
+### If someone shares a report with another person, then that person needs a Pro license to see the report. Are there plans to make this capability possible with the free license?
+
+We don't have control over this requirement. Power BI sets this requirement. Learn more at [Share Power BI dashboards and reports with coworkers and others](/power-bi/collaborate-share/service-share-dashboards).  
+
+### How do guest users and delegated admins access my organization's data and reports?
+
+There are some differences and limitations for external users, like guest users and delegated admins. For instance, external users typically have a Power BI license assigned by their own organization. When they sign in to Power BI or Power BI Desktop, they connect to their organization's tenant and shared workspaces by default.
+
+To access your organization's data and shared workspaces or reports, external users must connect to your Microsoft 365 tenant. From Power BI service, they can use the tenant switcher (preview) to connect. Power BI Desktop doesn't support connecting to a provider tenant's data source or service for creating and publishing reports. External users need to use the Power BI service to upload Power BI Desktop files.
+
+<!--
+1. Sign in to [Power BI](https://app.powerbi.com).
+1. In the upper-right corner, select the profile picture to open the account manager, and then select **Switch** next to **Tenant name**.
+1. In the **Switch tenant (preview)** dialog, open the dropdown menu and choose the tenant.-->
+
+Learn more about the features and limitations for guests users in [Distribute Power BI content to external guest users](/power-bi/enterprise/service-admin-azure-ad-b2b).
+<!--
+To access and design reports with your organization's data, external users must connect to your Microsoft 365 tenant. The connection method differs in Power BI service and Power BI Desktop.
+
+#### In Power BI service
+From the Power BI service, use the tenant switcher:
+
+1. Sign in to [Power BI](https://app.powerbi.com).
+1. Select your profile picture to open your account manager and select **Switch** next to **Tenant name**.
+1. In the **Switch tenant (preview)** dialog, open the dropdown menu and choose the tenant you want to navigate to.
+
+Learn more in [Distribute Power BI content to external guest users](/power-bi/enterprise/service-admin-azure-ad-b2b#tenant-switcher).
+
+#### In Power BI Desktop
+
+The methods in this section require that guest users know the domain name of your Microsoft 365 tenant, such as `contoso.onmicrosoft.com`.
 
 > [!NOTE]
-> If your process is based on backward calculation, for example, if you use the requested delivery date to get the planned shipment date, we recommend you use date formulas with fixed durations, such as "5D" for five days or "1W" for one week. Date formulas without fixed durations, such as "CW" for current week or CM for current month, can result in incorrect date calculations. Learn more about date formulas at [Work with Calendar Dates and Times](ui-enter-date-ranges.md).
+> The methods described in this section aren't supported. You might experience unexpected behavior.
 
-## Calculating the earliest possible delivery date
+##### Creating and refreshing reports: Change data source to host's Business Central tenant
 
-If you don't specify a requested delivery date on the sales order line, or if the requested delivery date can't be met, then the earliest date on which the items are available is calculated. That date is then entered in the **Shipment Date** field on the line, and the date on which you plan to ship the items and the date on which they'll be delivered to the customer are calculated using the following formulas.
+1. Clear the current data source connection. Learn more in [How do I change or clear the user account I'm currently using to connect to Business Central from Power BI Desktop](#how-do-i-change-or-clear-the-user-account-im-currently-using-to-connect-to-business-central-from-power-bi-desktop).
+1. Select **Get Data**.
+1. On the **Get Data** page, select **Online Services** > **Dynamics 365 Business Central** > **Connect**.
+1. On the **Dynamics Business Central** connector dialog box, select **Sign in** and then follow the instructions to [sign in to the host's organization](#sign-in-to-hosts-organization).
 
-- *shipment date + outbound whse. handling time = planned shipment date*
-- *planned shipment date + shipping time = planned delivery date*
+   :::image type="content" source="media/power-bi-desktop-connector-sign-in.png" alt-text="Shows a screenshot of the the Business Central connector sign-in dialog box":::
 
-## Related information
+##### Publishing reports: Switch to host's Business Central tenant
 
-[Date Calculation for Purchases](purchasing-date-calculation-for-purchases.md)  
-[Calculate Order Promising Dates](sales-how-to-calculate-order-promising-dates.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+1. Open Power BI Desktop.
+1. In the upper-right corner, select **Sign in**.
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
+   If you're already signed in, first sign out by selecting your name or profile picture, and then **Sign out**.
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-work-assembly-boms
----
-title: Work with assembly BOMs
-description: You create an assembly BOM to specify the components required to put together the item that the BOM represents.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: assembly bom, bills of material, 
-ms.search.form: 36, 5870, 5872, 5874
-ms.date: 06/13/2024
-ms.service: dynamics-365-business-central
+1. Enter your email address, select **Continue**, and then follow the instructions to [sign in to the host's organization](#sign-in-to-hosts-organization).
 
----
-# Work with assembly BOMs
+##### Sign in to host's organization
 
-You use assembly bills of materials (BOMs) to structure parent items that must be assembled from components with little to no resource use. An assembly BOM can be used, for example, to sell a parent item as a kit consisting of component items.
+1. On the **Pick an account** dialog box, select **Use another account**.
+1. On the **Sign in** dialog box, select **Sign-in options**.
+1. On the **Sign in options** dialog box, select **Sign in to an organization**.
+1. On the **Find your organization** dialog box, enter the domain name of the tenant, for example, `contoso.onmicrosoft.com`.
+1. Select **Next**.
+1. On the **Pick an account** dialog box, select your account, and then sign in usual.
+1. On the **Dynamics Business Central** connector dialog, select **Connect**.-->
 
-Use assembly orders to make finished items from components in a process that one or more basic resources can perform, which aren't machine or work centers, or without any resources. For example, an assembly process could be to pick two wine bottles and one coffee sack and pack them as a gift item.  
+<!-- ## [Designer](#tab/designer) -->
+## Questions about the Power BI Designer
 
-An assembly BOM is the master data that defines which component items go into an assembled end item and which resources are used to assemble the assembly item. When you enter an assembly item and a quantity on an assembly order, the assembly order lines are filled in according to the assembly BOM. The order has one assembly order line per component or resource. Learn more at [Assembly Management](assembly-assemble-items.md).
+<!-- 7 -->
+### Does the connector work with pages exposed as web services?
 
-[!INCLUDE[prod_short](includes/prod_short.md)] also supports production BOMs. Production BOMs differ from assembly BOMs because they involve more complex procedures, such as resource usage, production routing, and work or machine centers. Learn more about the differences at [Work with Bills of Material](inventory-how-work-BOMs.md) and [Create Production BOMs](production-how-to-create-production-boms.md).
+Web services are an old technology and aren't recommended to use with Power BI. The Power BI connector supports both Business Central web services and API pages, but API pages generally have better performances and are more suited for making data available to other systems. Learn more at [Enable Power BI connector to work with Business Central APIs, instead of with web services only](/dynamics365-release-plan/2021wave1/smb/dynamics365-business-central/enable-power-bi-connector-work-business-central-apis-instead-web-services-only).
 
-## To create an assembly BOM
+### Can I build a Power BI report using the Sales Invoice Lines or Journal Lines APIs?
 
-To define an item that consists of other items, and perhaps the resources that assemble the item, you must create an assembly BOM.  
+The most commonly used line records are available in the [Business Central APIs v2.0](/dynamics365/business-central/dev-itpro/api-reference/v2.0/)). So you can use them to build reports in Power BI by selecting them in the **Dynamics 365 Business Central** connector. However, the **Lines** APIs are designed for use with specific filters only, and might not work in your scenario. You might get an error similar to "You must specify an ID or a Document ID to get the lines." To fix this problem, do the following steps when getting data from Business Central for the report in Power BI Desktop:
 
-Assembly BOMs can have multiple levels, which means that a component on the assembly BOM can be an assembly item itself. In that case, the **Assembly BOM** field on the assembly BOM line contains **Yes**.
+1. Instead of including the data source for the lines entity, add the parent data source. For example, add **Sales Invoice** instead of **Sales Invoice Lines**.
+2. Select **Transform Data** in the Power BI Desktop action bar.
+3. Select the query you just added, for example **Sales Invoices**.
+4. To reduce the number of records loaded in your report, apply any needed filtering on the records.
+5. Scroll vertically until you find a column named as the lines, for example **SalesInvoiceLines**.
+6. Select the expand button in the header of the column, next to the column name.
 
-Special requirements apply to items on assembly BOMs regarding availability. Learn more at [To see the availability of an item by its use in assembly BOMs](inventory-how-availability-overview.md#to-view-the-availability-of-an-item-by-its-use-in-assembly-or-production-boms).
+   :::image type="content" source="media/saleinvoicelines.png" alt-text="Shows the SalesInvoiceLines column in Power BI Desktop.":::
+<!-- 11 --> 
+### Is it possible to choose which Business Central environment to get data from for Power BI, for example, like a sandbox or production environment? 
 
-There are two parts to creating an assembly BOM:
+Yes. It can be easily chosen. When you connect to Business Central using the connector, you have to choose the environment and company name.
 
-- Setting up a new item.
-- Defining the BOM structure of the assembly item.
+<!-- 6 --> 
+### Can I merge data from several production environments of the same tenant?
 
-1. Set up a new item. Learn more at [Register New Items](inventory-how-register-new-items.md).
+Yes. In Power BI, just run the "get data" operation again and choose the environment you want.
 
-   Proceed to enter components or resources on the assembly BOM.  
-2. On the **Item Card** page for an assembly item, choose the **Assembly** action, then choose the **Assembly BOM** action.
-3. On the **Assembly BOM** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+<!-- 25 -->
+### Which pages in Business Central have the Power BI Report part?  
+
+Currently, there are a few selected pages that have a FactBox with a **Power BI Reports** part for displaying a report. 
+
+On list pages, the **Power BI Reports** part is filtered to show reports that pertain to data in the list. Here's the list type pages that include the **Power BI Reports** part:
+
+|Page ID|Name|
+|-------|----|
+|22|Customer List|
+|27|Vendor List|
+|31|Item List|
+|9305|Sales Order List|
+|9308|Purchase Invoices|
+
+Here are other pages that contain the larger, nonfiltered **Power BI Reports** part:
+
+|Page ID|Name|
+|-------|----|
+|1156|Company Detail|
+|4013|Intelligent Cloud Insights |
+|9006|Order Processor Role Center|
+|9008|Whse. Basic Role Center|
+|9010|Production Planner Role Center|
+|9015|Job Project Manager RC|
+|9016|Service Dispatcher Role Center|
+|9022|Business Manager Role Center|
+|9024|Security Admin Role Center|
+|9026|Sales & Relationship Mgr. RC|
+|9027|Accountant Role Center|
 
 > [!TIP]
-> Assembly items can have variants, just like any other item, which helps you keep your list of products shorter. Learn more about the feature at [Manage Product Variants](inventory-item-variants.md).
+> We don't have plans to add it to all list pages at the moment. However, you can create a simple page extension that adds the **Power BI Reports** part in a FactBox. Learn more at [Adding Power BI Report Parts to Pages](/dynamics365/business-central/dev-itpro/developer/devenv-power-bi-report-parts) in the Developer and IT Pro help.
 
-## To edit assembly BOMs
+<!-- 5 -->
+### Is there any way to filter a dataset from Business Central *before* I pull it into Power BI, instead of applying filters afterwards?
 
-You can edit the lines on an assembly BOM at any time. However, the BOM might be in use by ongoing sales or assemblies of the parent. Changing the BOM might affect those activities. Choose the **Where-Used** action to explore the items that use it and whether sales or assembly orders might be affected.
+To filter larger datasets, the easiest way is to set a filter on your Power BI report by editing directly the Power Query formula. Most of the filters you set this way are passed on to Business Central through query folding. See [Incremental refresh for datasets](/power-bi/admin/service-premium-incremental-refresh).
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
-2. Choose the **Yes** value in the **Assembly BOM** column.
-3. On the **Assembly BOM** page, choose the **Edit List** action, then change any field as needed.
+There's currently no way of setting a filter for the web service data from within Business Central. If your application needs to set a filter from within Business Central, you must create a custom Business Central App for this purpose.
 
-## To view components and resources indented according to the BOM structure
+<!-- 10 -->
+### From Power BI, besides using a query, is there another way to get data from Business Central tables that don't have an associated page? For example, like the *Item Attributes Value Mapping* table.
 
-From the **Assembly BOM** page, you can open a separate page that shows the components and any resources indented according to their BOM position under the assembly item.
+No. Not at this point.
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
-2. Open the card for an assembly item. (The **Assembly BOM** field on the **Items** page contains **Yes**.)
-3. On the **Item Card** page, choose the **Assembly** action, then choose the **Assembly BOM** action.
-4. On the **Assembly BOM** page, choose the **Show BOM** action.
+<!-- 12 --> 
+### Are published queries faster to use than published pages?
 
-## To replace the assembly item with its components on document lines
+When it comes to web services, published queries are usually faster than equivalent published pages. The reason is that queries are optimized for reading data and don’t contain expensive triggers like OnAfterGetRecord.
 
-From any sales and purchase document that contains an assembly item, you can use a special action to replace the line for the assembly item with new lines for its components. This action is useful, for example, if you want to sell the components as a kit that represents the assembly item.
+Web services are based on pages or queries that are built for access from the web and not optimized for access from external services. Even though the Business Central connector still supports getting data from web services, we encourage you to use API pages instead of web services whenever possible.
 
-The **Explode BOM** action is also available on the **Assembly BOM** page as a way to view subassembly items on an assembly BOM.
+<!-- 13 --> 
+### Is there a way for an end user to create a web service with a column that's in a Business Central table, but not a page? Or does the developer have to create a custom query? 
 
-> [!CAUTION]  
-> When you have used the **Explode BOM** action, you can't easily undo it. You must delete the sales order lines for the components and then reenter a sales order line for the assembly item.
+There's currently no way of adding a new field to a web service. API pages offer full flexibility on the page structure, so a developer can create a new API page to meet this requirement. 
 
-The following procedure is based on a sales invoice. The same steps apply to other sales documents and all purchase documents.
+<!-- 28 --> 
+### Can I connect Power BI to a read-only database server of [!INCLUDE [prod_short](includes/prod_short.md)] online? 
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Invoices**, then choose the related link.
-2. Open a sales invoice that contains a line for an assembly item.
-3. Choose the line for an assembly item, then **Explode BOM** line action.
+By default, the Power BI connector reads data from a read-only replica of the Business Central database, which is the case for all reports created after February 2022. This behavior causes your reports to refresh faster and has less impact on performance if you're using Business Central while a report is refreshing. We still recommend that you schedule your reports to refresh outside of normal working hours whenever possible.
 
-All fields on the sales invoice line for the assembly item are cleared except for the **Item** and **Description** fields. Complete sales invoice lines are inserted for the components and possible resources that comprise the assembly item.
+If you have old reports based on Business Central data, they don't connect to the read-only database replica. In this case, consider recreating the query inside Power BI so that it uses the latest defaults.
 
-> [!NOTE]
-> The **Picking List by Order** report is also changed to show the components only. This means that a warehouse worker picking the parent item, the assembly item, will not see it in the picking list. Learn more at [Print the Picking List](sales-how-print-picking-list.md).
+### <a name="databasemods"></a>When I use the Power BI connector to connect to my custom [!INCLUDE [prod_short](includes/prod_short.md)] API page, I get the error "Cannot insert a record. Current connection intent is Read-Only." How can I fix it?
 
-## To calculate the standard cost of an assembly item
+Reports that use Business Central data connect to a read-only replica of the Business Central database by default. In rare cases, this behavior might cause the error "Current connection intent is Read-Only.". This error typically happens because your custom API is making modifications to Business Central records while Power BI tries to get the data. In particular, it happens as part of the AL triggers: OnInit, OnOpenPage, OnFindRecord, OnNextRecord, OnAfterGetRecord, and OnAfterGetCurrRecord.
 
-You calculate the unit cost of an assembly item by rolling up the unit cost of each component and resource in the item's assembly BOM.
+To fix this issue by forcing the Business Central connector to allow this behavior, see [Building Power BI Reports to Display Business Central Data - Fix Problems](across-how-use-financials-data-source-powerbi.md#fix-problems).
 
-The unit cost of an assembly BOM always equals the total of the unit costs of its components, including other assembly BOMs, and any resources.  
+<!--
+In general, we recommend avoiding any database modifications in API pages when they're opening or loading records, because they cause performance issues and might cause your report refresh to fail. In some cases, you might still need to make a database modification when your custom API page opens or loads records. You can force the Business Central connector to allow this behavior. Do the following steps when getting data from Business Central for the report in Power BI Desktop:
 
-> [!NOTE]
-> [!INCLUDE [bom-standard-cost](includes/bom-standard-cost.md)]
+1. Start Power BI Desktop.
+2. In the ribbon, select **Get Data** > **Online Services**.
+3. In the **Online Services** pane, select **Dynamics 365 Business Central**, then **Connect**.
+4. In the **Navigator** window, select the API endpoint that you want to load data from.
+5. In the preview pane on the right, you'll see the following error:
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, then choose the related link.
-2. Open the card for an assembly item. (The **Assembly BOM** field on the **Items** page contains **Yes**.)
-3. On the **Item Card** page, choose the **Assembly BOM** action.
-4. On the **Assembly BOM** page, choose the **Calc. Standard Cost** action.
-5. Select one of the following options, then choose the **OK** button.
+   *Dynamics365BusinessCentral: Request failed: The remote server returned an error: (400) Bad Request. (Cannot insert a record. Current connection intent is Read-Only. CorrelationId: [...])".*
 
-|Option |Description |
-|-------|------------|
-|**Top Level**|Calculates the assembly item's standard cost as the total cost of all purchased or assembled items on that assembly BOM regardless of any underlying assembly BOMs.|
-|**All Levels**|Calculates the assembly's item standard cost as the sum of:</br></br>* The calculated cost of all underlying assembly BOMs on the assembly BOM.</br>* The cost of all purchased items on the assembly BOM.|
+6.	Select **Transform Data** instead of **Load** as you might normally do.
+7. In **Power Query Editor**, select **Advanced Editor** from the ribbon.
+8.	Replace the following line:
 
-The costs of the items that make up the assembly BOM are copied from the component item cards. The cost of each item is multiplied by the quantity, and the total cost is shown in the **Unit Cost** field on the item card.
+   ```
+   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+   ```
 
-You can also calculate and update the standard cost for one or many items on the **Standard Cost Worksheet** page. Learn more at [Updating standard costs with the Standard Cost Worksheet](finance-about-calculating-standard-cost.md#updating-standard-costs-with-the-standard-cost-worksheet).
+   with the line:
+
+   ```
+   Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, [UseReadOnlyReplica = false]),
+   ```
+
+9.	Select **Done**.
+10. Select **Close & Apply** from the ribbon to save the changes and close Power Query Editor.
+
+-->
+### <a name="perms"></a>How do I change or clear the user account I'm currently using to connect to Business Central from Power BI Desktop?
+
+In Power BI Desktop, do the following steps:
+
+1. In the File menu, select **Options and settings** > **Data source settings**.
+2. Select **Dynamics Business Central** from the list, then select **Clear permissions** > **Delete**.
+
+Then next time you connect to Business Central to get data, you'll be asked to sign in.
+
+
+<!-- ## [Performance](#tab/performance) -->
+## Questions about data refresh performance
+
+<!-- 17 -->
+
+### Is it faster to get data using API pages than using web services?
+
+Yes. Our tests indicate that API pages are up to 25% more performant than web services.
+
+<!-- 18 -->
+### Are there plans to have a mirror on the Azure SQL Database instance, which I can connect to directly?
+
+No. Not at this point. You can only communicate with Business Central through APIs.
+
+<!-- 19 -->
+### Loading data from Business Central web services seems slow. Is there any way to get data directly from the SQL database table?
+
+No. Direct access to the database isn't possible, but switching to API pages helps greatly.
+
+## Troubleshooting questions
+
+### My semantic model does not refresh. How do I see what is wrong?
+
+[!INCLUDE [powerbi-refresh-tsg-include](includes/powerbi-refresh-tsg-include.md)]
+
+<!-- ## [Advanced](#tab/advanced) -->
+## Advanced questions
+<!-- 1 -->
+
+### Are there plans for the Power BI connector to support the incremental refresh features in the Power BI Service?
+
+Yes. It's on our roadmap.
+
+<!-- 2 -->
+### If a Business Central on-premises solution doesn't have internet access, can I still use Power BI?
+<!-- todo: please explain this one-->
+
+Yes. In this case, you use Power BI Desktop locally and connect to the Business Central on-premises. Once connected, can create and view reports, but you just can't publish them to the Power BI Service. 
+<!-- 20 -->
+### Are there any plans to make it possible to replicate Business Central online databases so they're accessible for read-only SQL queries? This capability would support incremental refresh and be a lot faster than APIs or web services.
+
+<!-- todo: what does "BC-Saas-DB-replicated DB accessible" mean? fixe-->
+Yes. We have this feature on our long-term roadmap. 
+
+<!-- 21 -->
+### If I use Azure Data Factory to get data from Business Central and consume it on Power BI, does that help in increase in performance? 
+
+Yes. This advanced scenario helps Business Central stay performant, because the data access would be done via the Azure Data Factory.
+
+<!-- 22 -->
+### Are there any plans to support Power BI deployment pipelines or a way to build deployment pipelines for PBI reports, similar to extensions? Or maybe even a simple API in the Business Admin Center? 
+
+We're looking into this feature. Power BI offers rich APIs to control report deployments. Learn more at [Introduction to deployment pipelines](/power-bi/create-reports/deployment-pipelines-overview).
+
+### When I get data from Business Central to use in my Power BI reports, I see some values like "_x0020_". What are these values?
+
+Some API pages, including most API v2.0 pages, have fields based on [AL Enum objects](/dynamics365/business-central/dev-itpro/developer/devenv-extensible-enums). Fields based on AL enum objects must have names that are consistent and always the same, so that filters on the report always work&mdash;no matter the language or operating system you're using. For this reason, the fields based on AL enums aren't translated and are encoded to avoid any special character, including the space. In particular, whenever there's an empty option in the AL Enum object, it's encoded to "_x0020_". You can always apply a transformation to your data on Power BI if you want to display some different value for these fields, for example "Empty".
+
+---
 
 ## Related information
 
-[Register New Items](inventory-how-register-new-items.md)  
-[Manage Product Variants](inventory-item-variants.md)  
-[View the Availability of Items](inventory-how-availability-overview.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Work with Bills of Material](inventory-how-work-BOMs.md)  
-[Create Production BOMs](production-how-to-create-production-boms.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Power BI licensing](admin-powerbi-setup.md#license)  
+[Business Central and Power BI introduction](admin-powerbi.md)  
+[Power BI Integration Overview](admin-powerbi-overview.md)  
+[Enabling Power BI in Business Central](admin-powerbi-setup.md)  
+[Work with Power BI reports in Business Central](across-working-with-powerbi.md)  
+[Connect to Power BI from Business Central on-premises](across-working-with-business-central-in-powerbi.md)  
+[Building Power BI Reports to display Business Central data](across-how-use-financials-data-source-powerbi.md)  
+[Power BI documentation](/power-bi/)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-setup-cash-flow-analyses
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-period-over-period
 ---
-title: Setting up cash flow analysis
-description: Use Accountant Role Center charts to analyze the flow of money in your business, including expenses and income, liquidity, and cash receipts minus cash payments.
-author: brentholtorf
-ms.author: bholtorf
+title: Period-Over-Period (Power BI Report)
+description: The Period-Over-Period report provides valuable insights into your organization's purchasing performance over time
+author: kennieNP
+ms.author: kepontop
 ms.reviewer: bholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: money flow, expense and income, liquidity, cash receipts minus cash payments, Cartera, funds
-ms.search.form: 846, 847, 849, 851, 855, 862, 869, 1818
-ms.date: 07/01/2024
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37014_Primary
+ms.date: 10/31/2024
 ms.service: dynamics-365-business-central
-
 ---
-# Setting up cash flow analysis
 
-If you want some help to decide what to do with your cash, have a look at the charts on the Accountant Role Center:
+# Period-Over-Period (Power BI Report)
 
-* **Cash Cycle**  
-* **Income & Expense**  
-* **Cash Flow**  
-* **Cash Flow Forecasts**  
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-This article describes where the data in the charts comes from and, if necessary, what to do to start using the charts.
-<br><br>  
+The **Period-Over-Period** report provides valuable insights into your purchasing performance over time. This report compares purchasing amounts for different time periods to the same period in the previous year, so you can identify growth trends and areas for improvement.
 
-> [!Video https://learn-video.azurefd.net/vod/player?id=4ecab63b-f107-4666-b88f-656a133a0f78]
+For example, if the analysis scope is fiscal months, the report compares the purchasing amount in October 2023 to the purchasing amount in October 2022. If the scope is fiscal years, the report compares the purchasing amount in fiscal year 2023 to the purchasing amount in 2022.
 
-## The Cash Cycle and Income & Expense charts
+:::image type="content" source="media/purchases/purchases-period-over-period.png" alt-text="Screenshot of the Period-Over-Period Power BI report" lightbox="media/purchases/purchases-period-over-period.png":::
 
-The **Cash Cycle** and **Income & Expense** charts are ready to go, based on the Chart of Accounts and financial reports. The accounts are where the data comes from, and financial reports calculate the relationship between sales and receivables. Some accounts and financial reports are provided. You can use them as-is, change them, and add new ones. If you add G/L accounts to your chart of accounts, for example, by importing them from QuickBooks, map the accounts on the **Financial Reports** page for the following reports:
+## Use the report
 
-| Financial report name | Where it's used |
-| --- | --- |
-| **I_CACYCLE** |Cash Cycle |
-| **I_CASHFLOW** |Cash Flow |
-| **I_INCEXP** |Income & Expense |
-| **I_MINTRIAL** |As an income statement if you don't use the chart of accounts |
+The report is meant for business leaders and managers.
 
-> [!NOTE]
-> It's a good idea to keep the calculations that are provided for the financial report.
+CEOs can get insights into your organization's purchase spending over time. By comparing purchase amounts for different time periods to the same period in the previous year, this report helps you identify purchasing trends and growth.
 
-Enter accounts in the **Totaling** field for **Total Revenue**, **Total Receivables**, **Total Payables**, and **Total Inventory**. To map to a range of accounts, enter the account numbers separated by ".." as in **1111..4444**. Alternately, to map to specific accounts, enter the account numbers separated by a vertical bar as in **2222|3333|5555**.  
+Purchasing managers can use this report to analyze the growth amount and growth percentage, and evaluate spending over the current fiscal year in comparison to the previous fiscal year. This information can help you adjust purchasing plans and allocate budgets effectively.
 
-> [!TIP] 
-> Verify your mapping by choosing the **Overview** action.  
 
-## Set up the Cash Flow chart
+## Key Performance Indicators (KPIs)
 
-The Cash Flow chart is based on:  
+The *Period-Over-Period* report includes the following KPIs and measures: 
 
-* A chart of cash flow accounts.
-* One or more cash flow setups. These setups specify the accounts to use for general ledger, purchases, sales, services, and fixed assets.  
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)  
+- [**Previous Period**](purchases-powerbi-kpis.md#purchase-amount-pp-fiscal)
+- [**Period-over-Period Growth Amount**](purchases-powerbi-kpis.md#purchase-amount-pop-fiscal)  
+- [**Period-over-Period Growth %**](purchases-powerbi-kpis.md#purchase-amount-pop--fiscal)  
 
-To help you get going, [!INCLUDE [prod_short](includes/prod_short.md)] provides some accounts and cash flow setups. You can add, change, or remove them.  
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
 
-To set up the accounts, search for **Chart of Cash Flow Accounts**, choose the link, and then fill in the fields. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)] Repeat these steps for **Cash Flow Setup**.
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
-## Set up cash flow forecasts
+## Data used in the report
 
-The **Cash Flow Forecast** chart uses cash flow accounts, cash flow setups, and cash flow forecasts. Some are provided, however, you can set up your own by using an assisted setup guide. The guide helps you specify things like:
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
 
-* When to update the forecast
-* Which accounts to base it on
-* When you pay taxes
-* Whether to turn on [Azure AI](https://azure.microsoft.com/overview/ai-platform/).  
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
 
-Cash flow forecasts can use Azure AI to create a more comprehensive forecast. The connection to Azure AI is already set up for you. You just need to turn it on. When you sign in to [!INCLUDE[prod_short](includes/prod_short.md)], a notification displays in a blue bar and provides a link to the default cash flow setup. The notification displays only once. If you close it, but then decide to turn on Azure AI, you can use the assisted setup guide or a manual process.  
+## Try the report
 
-> [!NOTE]
->
-> Alternatively, you can use your own predictive web service. For more information, see [Create and use your own predictive web service for cash flow forecasts](#AnchorText).  
+Try the report here: [Period-Over-Period](https://businesscentral.dynamics.com?page=37014)
 
-To use the assisted setup guide:  
-
-1. In the Accountant Role Center, under the **Cash Flow Forecast** chart, choose the **Open Assisted Setup** action.
-2. Fill in the fields in each step of the guide. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-3. Back in the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
-
-To use a manual process:  
-
-1. In the Accountant Role Center, [!INCLUDE[open-search](includes/open-search-lowercase.md)], enter **Cash Flow Setup**, then choose the related link.
-2. Expand the **Azure AI** FastTab, then choose the **Azure AI Enabled** field.
-3. Back in the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
-
-> [!TIP]  
-> Consider the length of the periods that the service will use in its calculations. The more data you provide, the more accurate the predictions will be. Also, watch out for large variances in periods. They will also impact predictions. If Azure AI does not find enough data, or the data varies a lot, the service will not make a prediction.  
-
-## Design details
-
-Subscriptions for [!INCLUDE[prod_short](includes/prod_short.md)] come with access to several predictive web services in all regions where [!INCLUDE[prod_short](includes/prod_short.md)] is available. Learn more at the Microsoft Dynamics 365 Business Central Licensing Guide. The guide is available for download on the [Business Central]( https://www.microsoft.com/dynamics-365/products/business-central/) website.
-
-These web services are stateless, meaning they use data only to calculate predictions on demand. They don't store data.
-
-> [!NOTE]
->
-> You can use your own predictive web service instead of ours. For more information, see [Create and use your own predictive web service for cash flow forecasts](#AnchorText).
-
-### Data required for forecast
-
-To make predictions about future revenue and expenses, web services require historical data from receivables, payables, and taxes.
-
-#### Receivables
-
-**Due Date**, **Amount (LCY)** fields of the **Customer Ledger Entries** page, where:
-
-* The document type is *Invoice* or *Credit Memo*.
-* The due date is between date that is calculated based on the values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
-
-Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Due Date** based on the value in the **Period Type** field on the **Cash Flow Setup** page.
-
-#### Payables
-
-**Due Date**, **Amount (LCY)** fields on the **Vendor Ledger Entries** page, where:
-
-* The document type is *Invoice* or *Credit Memo*.
-* The due date is between date that is calculated based on values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
-
-Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Due Date** based on the value in the **Period Type** field on the **Cash Flow Setup** page.
-
-#### Tax
-
-**Document Date**, **Amount** fields on the **VAT (Tax) Ledger Entries** page, where:
-
-* The document type is *sales*.
-* The document date is between the date that is calculated based on values in the **Historical Periods** and **Period Type** fields on the **Cash Flow Setup** page and the work date.
-
-Before it uses the predictive web-service, [!INCLUDE[prod_short](includes/prod_short.md)] compresses transactions by **Document Date** based on value in the **Period Type** field in the **Cash Flow Setup** page.
-
-## <a name="AnchorText"></a>Create and use your own predictive web service for cash flow forecasts
-
-For [!INCLUDE[prod_short](includes/prod_short.md)] online, the model is published by Microsoft and connected to the Microsoft subscription. For other deployment options, you have to create Machine Learning resources in your own Azure subscription. You can find sample steps in the [sample repo](https://github.com/microsoft/BCTech/tree/master/samples/MachineLearning). The purpose of this task is to get the API URI and API key.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Cash Flow Setup**, and then choose the related link.  
-2. Expand the **Azure AI** FastTab, and then fill in the fields, including the API URL and API key provided from Azure Machine Learning studio. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-3. In the Accountant Role Center, choose the **Recalculate Forecast** action under the **Cash Flow Forecast** chart.
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
 ## Related information
 
-[Analyzing Cash Flow in Your Company](finance-analyze-cash-flow.md)  
-[Setting Up Finance](finance-setup-finance.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Forecasting API overview](/dynamics365/business-central/dev-itpro/developer/ml-forecasting-api-overview)
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)end of article
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/walkthrough-receiving-and-putting-away-in-basic-warehousing
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-item-availability
 ---
-title: Walkthrough - Receive and put away in basic warehouse configurations
-description: Learn about the different ways to handle inbound processes for receiving and putting away.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
+title: Item Availability (Power BI report)
+description: The Item Availability report gives an overview of the availability of each item. 
+author: kennienp
+ms.author: kepontop
+ms.reviewer: 
 ms.topic: article
-ms.date: 02/27/2023
-ms.custom: bap-template
+ms.search.keywords: reporting
+ms.search.form: 37026_Primary
+ms.date: 10/28/2024
 ms.service: dynamics-365-business-central
 ---
-# Walkthrough: Receiving and Putting Away in Basic Warehouse Configurations
+
+# Item Availability (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Item Availability** report gives an overview of the availability of each item in terms of supply and demand. Use the report to identify items where demand exceeds supply, so you can take action to avoid delayed orders.
+
+:::image type="content" source="media/inventory/item-availability.png" alt-text="Screenshot of the Item Availability Power BI Report" lightbox="media/inventory/item-availability.png":::
+
+## Use the report
+
+The report is designed for management and customer service teams.
+
+Customer service teams use this report to identify availability of specific items for your customers. By having up-to-date information for each item, you can provide quick, accurate, and informed answers to estimates and avoid disappointing customers.
+
+For inventory management teams, the information in this report can help you keep adequate stock levels of each item. For example, the information can help you coordinate other teams to increase production of specific items, or create purchase orders to replenish stock.
+
+## Key Performance Indicators (KPIs)
+
+The *Item Availability* report includes the following KPIs:
+
+- [**Projected Available Balance**](inventory-powerbi-kpis.md#projected-available-balance)
+- [**Inventory (Quantity)**](inventory-powerbi-kpis.md#inventory-quantity)
+- [**Gross Requirement**](inventory-powerbi-kpis.md#gross-requirement)
+- [**Scheduled Receipt**](inventory-powerbi-kpis.md#scheduled-receipt)
+- [**Planned Order Receipt**](inventory-powerbi-kpis.md#planned-order-receipt)
+- [**Planned Order Release**](inventory-powerbi-kpis.md#planned-order-releases)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Item
+- Item Ledger Entries
+- Sales Lines
+- Service Lines
+- Project Planning Lines
+- Prod. Order Component Lines
+- Transfer Lines
+- Planning Component Lines
+- Assembly Lines
+- Purchase Lines
+
+## Try the report
+
+Try the report here: [Item Availability](https://businesscentral.dynamics.com?page=37026)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory app](inventory-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/autofill-fields-with-copilot
+---
+title: Autofill fields with Copilot (preview)
+description: Learn how to use Copilot's autofill feature to assist you in filling in fields on card and document pages.
+author: jswymer
+ms.author: jswymer
+ms.reviewer: jswymer
+ms.topic: how-to
+ms.date: 05/03/2026
+ms.update-cycle: 180-days
+ms.service: dynamics-365-business-central
+ms.collection: bap-ai-copilot
+ms.custom: bap-template
+---
+
+# Autofill fields with Copilot (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner.md)]
+
+Copilot's autofill feature assists you by automatically filling in editable blank fields on your page. Use autofill when creating or modifying a record to get suggestions for field values that you can choose to keep or discard. These suggestions can be based on your Business Central data, AI-generated, or based on information from the web.
+
+When Copilot generates suggestions, it only accesses the business data you can access. Copilot never saves suggestions automatically but presents them for you to decide what to keep. Copilot uses AI, and suggestions might not be correct.
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+
+<!-- [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/preview-note-d365.md)]-->
+
+## Prerequisites
+
+- Autofill is activated, and you have the required permissions to use it. Learn more in [Configure Copilot and agent capabilities](enable-ai.md).
+- To enhance suggestions with results from the web, turn on **Enable Bing Search** in the **Copilot and agent capabilities** page. Learn more in [Searching the web with Copilot](ai-search-web-copilot.md).
+
+## Supported languages
+
+[!INCLUDE[copilot-language-support-en-only](includes/copilot-language-support-en-only.md)]
+
+## Availability
+
+### Where the autofill feature is available
+
+The autofill feature is available on card and document pages, like a **Customer card** or a **Sales Order**, and only on editable fields in FastTabs on these pages, except for the fields listed in the following section.
+
+> [!NOTE]  
+> Autofill works on editable fields in FastTabs added to card and document pages by add-on apps (extensions).
+
+### Where the autofill feature isn't available
+
+The autofill feature isn't available on these types of pages:
+
+- List pages like **Customers** and **Sales Orders**.
+- Worksheet pages like the **Put-away Worksheet**.
+- Setup pages, like **Company information** and **General Ledger Setup**, and assisted setup pages, like **Set up sales tax** and **Set up outgoing email**.
+- Task dialogs.
+
+The autofill feature isn't available on these fields regardless of the page type:
+
+- Noneditable fields.
+- Fields in the FactBox pane.
+- Fields in rows and columns.
+- Multiline text fields.
+- Masked fields like passwords and secrets.
+- Date and time fields.
+- Currency code fields.
+- Fields that uniquely identify a record like IDs and numbers from a series.
+- Certain fields depending on your Business Central environment settings. For example, Copilot can't make suggestions for address fields until your admin enables Bing Search with Copilot.
+- Toggle switches.
+
+## Use autofill on fields
+
+Open the page for editing, select a field, and then select the ![Shows the Copilot icon for generating suggestions for field values.](media/copilot-star-unfilled.png) **Suggest a value for this field and related fields** icon or press <kbd>Alt</kbd>+<kbd>I</kbd>. If the icon doesn't appear, autofill isn't available for the field, so try another field.
+
+![Shows a card page with a Copilot icon for generating suggestions for field values.](media/autofill-field.svg)
+
+Suggestions are generated only for fields in the FastTab that you are on. When Copilot finds suggestions, they're automatically entered in the fields in italics along with the ![Shows the details icon for a suggestion](media/autofill-info.png) **Show details** icon. Fields remain unchanged if suggestions aren't found or they don't support the autofill feature.
+
+![Shows a suggested field with the accept and discard buttons.](media/autofill-suggested-value-field.svg)
+
+When you hover over or select a field that includes a suggestion, the ![Shows the accept button for a Copilot suggestion](media/autofill-accept.png) **Accept the suggestion** and ![Shows the discard button for a Copilot suggestion](media/autofill-discard.png) **Discard the suggestion** buttons appear.
+
+### Review suggestions
+
+Review the suggestion for each field and take appropriate action. Suggestions aren't saved until you accept them.
+
+- To learn more about a suggestion, select the ![Shows the details icon for a suggestion](media/autofill-info.png) **Show details** icon next to the field, or press <kbd>Alt</kbd>+<kbd>Up arrow</kbd>. The details include the source of the suggestion, like the most frequently or recently used value. Use the thumbs-up and thumbs-down icons to give feedback.
+
+  Suggestions that originate from searching the web include a reference link to the source website where the suggested field information was found. This link opens the source website in a new browser tab.
+- To keep a suggestion, select ![Shows the accept button for a Copilot suggestion](media/autofill-accept.png) **Accept the suggestion** or press <kbd>Enter</kbd>.
+- To reject a suggestion and keep the original value, select ![Shows the discard button for a Copilot suggestion](media/autofill-discard.png) **Discard the suggestion** or press <kbd>Delete</kbd>.
+- To change a suggestion, select **Change** in the details or press <kbd>F2</kbd>.
+
+You can also use the **Keep all** button in the upper right corner of the page to accept or discard suggestions on all fields.
+
+When you leave the page while there are unaccepted suggestions, Copilot asks you to accept or discard suggestions first.
+
+<!--The first time you use Copilot, you're asked to accept the terms to continue.-->
+
+## How Copilot provides suggestions
+
+[!INCLUDE[autofill-suggestions-source](includes/autofill-suggestions-source.md)]
+
+## About web search
+
+> [!IMPORTANT]
+> Copilot can autofill with suggestions from the web from update 26.4 onwards, initially in Sandbox environments only.
+
+When Copilot searches the web on your behalf, it looks for publicly available information that could be used to fill out certain fields, saving you time and the need for app-switching. This process is similar to what you do manually: open a new browser tab, navigate to your favorite search engine, search for key terms, browse the top resulting websites, and finally copy the relevant information into Business Central. Copilot performs these steps automatically, but only for fields that might typically contain public domain information, and always indicates the source website where it found that information. 
+
+For example, when you enter information in Business Central about a vendor, Copilot might suggest the full address, phone number, website, and registration number for that vendor.
+
+> [!TIP]
+> To try out or demonstrate Copilot's ability to search the web in an evaluation company, create a new vendor or customer record named "Adventure Works". Set the record's **Country/Region Code** field to **US**. Asking Copilot to autofill the address and contact details should result in Copilot suggesting field values from [www.adventure-works.com](https://www.adventure-works.com), a Microsoft-owned website with demonstration data for a fictitious company.
+
+## Autofill behavior with other data-entry features
+
+Business Central offers many other features that reduce data entry, such as customer templates and business process settings that default values. On some pages, for example, when you specify the value for a field, Business Central validates and automatically sets related fields, like zip code, and country/region. Unlike Copilot, these features don't use AI, and values are saved immediately.
+
+If both Copilot and another feature set a value for the same field, the other feature's value overrides and discards Copilot's suggestion.
+
+## Related information
+
+[Responsible AI FAQ for autofill (preview)](faqs-autofill.md)  
+[Configure Copilot and agent capabilities](enable-ai.md)  
+[Troubleshoot Copilot and agent capabilities](ai-copilot-troubleshooting.md)  
+[Searching the web with Copilot](ai-search-web-copilot.md)  
+[Keyboard shortcuts](keyboard-shortcuts.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-inbound-warehouse-flow
+---
+title: Design Details - Inbound Warehouse Flow
+description: Learn how to receive items at your warehouse, and register and match them to inbound source documents.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: warehouse
+ms.date: 09/18/2023
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Design details: Inbound warehouse flow
+
+The inbound flow in a warehouse begins when items arrive in the warehouse of the company location, either received from external sources or from another company location. You can receive physical and non-inventory items. To learn more about receiving non-inventory items, go to [Post non-inventory items](#post-non-inventory-items).
+
+In principle, the process of receiving inbound orders consists of two activities:
+
+* Receive items at the dock, identify them, match them to a source document, and record the received quantity.
+* Put away items in stock, and record the place you put them.
+
+The source documents for inbound warehouse flow are:
+
+* Purchase orders  
+* Inbound transfer orders  
+* Sales return orders  
+
+> [!NOTE]
+> Production and assembly output also represent inbound source documents. Learn more about handling production and assembly output for internal processes at [Design Details: Internal Warehouse Flows](design-details-internal-warehouse-flows.md).  
 
 In [!INCLUDE[prod_short](includes/prod_short.md)], you receive items and put them away using one of four methods, as described in the following table.
 
@@ -377,187 +644,165 @@ In [!INCLUDE[prod_short](includes/prod_short.md)], you receive items and put the
 |C|Post receipt and put-away from a warehouse receipt document|Turned on||Basic: Consolidated receive/ship posting for multiple orders.|  
 |D|Post receipt from a warehouse receipt document and post put-away from a warehouse put-away document|Turned on|Turned on|Advanced|  
 
-Learn more at [Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md).
+Selecting an approach depends on your company's practices and level of organizational complexity. The following are some examples that might help you decide.
 
-The following walkthrough demonstrates method B in the previous table.  
+* In an order-by-order warehouse environment, where most of the warehouse staff works directly with order documents, you might decide to use method A. 
+* An order-by-order warehouse that has a more complex put-away process, or where warehouse staff separates their put-away activities from the order document, might use method B.
+* Companies that need to plan the handling of multiple orders may find it helpful to use warehouse receipt documents, methods C and D.  
 
-## About this walkthrough  
-
-In basic warehouse configurations where your location is set up to require put-away processing but not receive processing, use the **Inventory Put-away** page to record and post put-away and receipt information for your inbound source documents. The following documents are inbound source documents:
-
-* Purchase order
-* Sales return order
-* Inbound transfer order
-* Production order with output that's ready to be put away
+In methods A, B, and C, receiving and putting away are combined in one step when posting documents as received. In method D, the receipt is posted first to record the increase of inventory and that items are available for sale. The warehouse worker then registers the put-away to make the items available to pick for outbound orders. 
 
 > [!NOTE]
-> Even though the settings are called **Require Pick** and **Require Put-away**, you can still post receipts and shipments directly from the source business documents at locations where you select these checkboxes.  
+> While warehouse put-aways and inventory put-aways sound similar, they're different documents and are used in different processes.
+> * The inventory put-away used in method B, together with registering put-away information, also posts the receipt of the source document.
+> * The warehouse put-away used in method D can't be posted and only registers the put-away. The registration makes the items available for the further processing but doesn't post the receipt. In the inbound flow, the warehouse put-away requires a warehouse receipt.
 
-This walkthrough demonstrates the following tasks:  
+## No dedicated warehouse activity
 
-* Set up SILVER location for inventory put aways.  
-* Set up SILVER location for bin handling.  
-* Define a default bin for item LS-81. (LS-75 is already set up in CRONUS.)  
-* Create a purchase order for vendor 10000 for 40 loudspeakers.  
-* Verify that the put-away bins are preset by setup.  
-* Release the purchase order for warehouse handling.  
-* Create an inventory put-away based on a released source document.  
-* Verify that the put-away bins are inherited from the purchase order.  
-* Register the warehouse movement into the warehouse and post the purchase receipt for the source purchase order.  
+The following articles provide information about how to process receipts for source documents if you don't have dedicated warehouse activities.
 
-> [!NOTE]
-> [!INCLUDE [locations-cronus](includes/locations-cronus.md)]
+* [Record Purchases](purchasing-how-record-purchases.md)
+* [Transfer Orders](inventory-how-transfer-between-locations.md)
+* [Process Sales Return Orders](sales-how-process-sales-returns-orders.md)
 
-## Roles  
+## Basic warehouse configurations  
 
-The following user roles perform the tasks that this walkthrough demonstrates:  
+In a basic warehouse configuration, the **Require Put-away** toggle is turned on, but the **Require Receipt** toggle is turned off on the **Location Card** page for the location.
 
-* Warehouse Manager  
-* Purchasing Agent  
-* Warehouse Worker  
+The following diagram illustrates the inbound warehouse flows by document type in basic warehouse configurations. The numbers in the diagram correspond with the steps in the sections following the diagram.  
 
-## Prerequisites  
+:::image type="content" source="media/design_details_warehouse_management_inbound_basic_flow.png" alt-text="The basic inbound flow in a warehouse.":::
 
-To complete this walkthrough, you'll need:  
+### 1: Release a source document to create a request for an inventory put-away  
 
-* CRONUS International Ltd. data  
-* To be a warehouse employee at SILVER location. To set yourself up, follow these steps:  
+When you receive items, release the source document, such as a purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. You can also create inventory put-away documents for individual order lines, in a push fashion, based on bins and quantities to handle.  
 
-    1. [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Employees**, and then choose the related link.  
-    2. Choose the **User ID** field, and select your user account on the **Users** page.  
-    3. In the **Location Code** field, choose **SILVER**.  
-    4. Select the **Default** checkbox.  
+### 2: Create an inventory put-away  
 
-## Story  
+On the **Inventory Put-away** page, in a pull fashion, you can get the pending source document lines based on inbound warehouse requests. In a push fashion, you can also create inventory put-away lines when you create the source document.  
 
-Ellen, the warehouse manager at CRONUS International Ltd., creates a purchase order for 10 units of item LS-75 and 30 units of item LS-81 from vendor 10000 to be delivered to SILVER Warehouse. When the delivery arrives at the warehouse, John, the warehouse worker, puts the items away in the default bins defined for the items. When John posts the put-away, the items are posted as received into inventory and available for sale or other demand.  
+### 3: Post an inventory put-away  
 
-## Setting up the location  
+On each line for items that have been put away, partially or fully, fill in the **Quantity** field and then post the inventory put-away. Source documents that are related to the inventory put-away are posted as received.  
 
-Settings on the **Location Card** page define the company's warehouse flows.  
+* Positive item ledger entries are created.
+* Warehouse entries are created for locations that require a bin code on all item transactions.
+* The put-away request is deleted, if it's fully handled. For example, the **Quantity Received** field on the inbound source document line is updated.
+* A posted receipt document is created that reflects the purchase order, for example, and the received items.  
 
-### To set up the location  
+## Advanced warehouse configurations  
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Locations**, and then choose the related link.  
-2. Open the SILVER location card.  
-3. Turn on the **Require Put-away** toggle.  
+To use an advanced warehouse configuration, turn on the **Require Receipt** toggle on the Location Card page for the location. The **Require Put-away** toggle is optional.
 
-    Set up a default bin for the two item numbers to control where they're put away.  
+The following diagram illustrates the inbound warehouse flow by document type. The numbers in the diagram correspond with the steps in the sections following the diagram.  
 
-4. Choose the **Bins** action.  
-5. Select the first row, for bin **S-01-0001**, and then choose the **Contents** action.  
+:::image type="content" source="media/design_details_warehouse_management_inbound_advanced_flow.png" alt-text="The advanced inbound flow in a warehouse.":::
 
-    Notice on the **Bin Content** page that item **LS-75** is already set up as content in bin S-01-0001.  
+### 1: Release the source document  
 
-6. Choose the **New** action.  
-7. Select the **Fixed** and the **Default** fields.  
-8. In the **Item No.** field, enter **LS-81**.  
+When you receive items, release the source document, such as the purchase order or an inbound transfer order. Releasing the document makes the items available to be put away. The put away will contain references to the source document type and number.
 
-## Create the purchase order  
+### 2: Create a warehouse receipt  
 
-Purchase orders are the most common type of inbound source document.  
+On the **Warehouse Receipt** page, get the inbound source document lines. You can combine several source document lines in one warehouse receipt document. Fill in the **Qty. to Handle** field and select the receiving zone and bin, if necessary.  
 
-### To create the purchase order  
+### 3: Post the warehouse receipt  
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Orders**, and then choose the related link.  
-2. Choose the **New** action.  
-3. Create a purchase order for vendor 10000 on the work date (January 23) with the following purchase order lines.  
+Post the warehouse receipt to create positive item ledger entries. The **Quantity Received** field on the inbound source document line is updated.  
 
-    |Item|Location code|Bin code|Quantity|  
-    |----------|-------------------|--------------|--------------|  
-    |LS_75|SILVER|S-01-0001|10|  
-    |LS-81|SILVER|S-01-0001|30|  
+If the **Require Put-away** toggle is not turned on on the location card, this is where the process stops. Otherwise, posting the inbound source document makes the items available to be put away. The put away contains references the source document type and number.  
 
-    > [!NOTE]  
-    > The bin code is entered automatically according to the setup you created in the [Setting up the location](#setting-up-the-location) section.  
+### 4: (Optional) Generate put-away worksheet lines
 
-    Next, notify the warehouse that the purchase order is ready for warehouse handling when the delivery arrives.  
+Get warehouse put-away lines in the **Put-away Worksheet** based on posted warehouse receipts or operations that produce output. On the lines you'll put-away, specify the following information:
 
-4. Choose the **Release** action.  
+* The bins to take items from.
+* The bins to put items in.
+* How many units to handle.
 
-    The delivery of loudspeakers from vendor 10000 has arrived at SILVER warehouse, and John proceeds to put them away.  
+The bins can be predefined by the setup of the warehouse location or the resource that performed the operation.  
 
-## Receive and put the items away  
+When all put-aways are planned and assigned to warehouse workers, generate the warehouse put-away documents. Fully assigned put-away lines are deleted from the **Put-away Worksheet**.  
 
-Use the **Inventory Put-away** page to manage all inbound warehouse activities for a specific source document, such as a purchase order.  
+> [!NOTE]  
+> If the **Use Put-away Worksheet** toggle is not turned on on the location card, warehouse put-away documents are created directly based on posted warehouse receipts. In that case, this step isn't needed.  
 
-### To receive and put the items away  
+### 5: Create a warehouse put-away document
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Put-aways**, and then choose the related link.  
-2. Choose the **New** action.  
-3. Select the **Source Document** field, and then select **Purchase Order**.  
-4. Select the **Source No.** field, select the line for the purchase from vendor 10000, and then choose the **OK** button.  
+Create a warehouse put-away document in a pull fashion, based on the posted warehouse receipt. Alternatively, create the warehouse put-away document and assign it to a warehouse worker in a push fashion.  
 
-    Alternatively, choose the **Get Source Document** action, and then select the purchase order.  
+### 6: Register a warehouse put-away
 
-5. Choose the **Autofill Qty. to Handle** action.  
+On each line for items that have been put away, partially or fully, fill in the **Quantity** field on the **Warehouse Put-away** page, and then register the warehouse put-away.  
 
-    Alternatively, in the **Qty. to Handle** field, enter 10 and 30 respectively on the two inventory put-away lines.  
+* Warehouse entries are created for locations that require a bin code on all item transactions.
+* The warehouse put-away lines are deleted, if they're fully handled.
+* The warehouse put-away document remains open until you register the full quantity of the related posted warehouse receipt.
+* The **Qty. Put Away** field on posted warehouse receipt order lines is updated.
 
-6. Choose the **Post** action, select the **Receive** action, and then choose the **OK** button.  
+## Related tasks
 
-    The 40 loudspeakers are now registered as put away in bin S-01-0001, and a positive item ledger entry is created reflecting the posted purchase receipt.  
+The following table describes a sequence of tasks, with links to the articles that describe them.
 
-## Related information  
+|**To**|**See**|  
+|------------|-------------|  
+|Receive items at warehouse locations with a warehouse receipt for fully or partially automated warehouse processing.|[Receive Items](warehouse-how-receive-items.md)|
+|Put away items on an order-by-order basis and post the receipt in one activity in basic warehouse configurations.|[Put Items Away with Inventory Put-aways](warehouse-how-to-put-items-away-with-inventory-put-aways.md)|  
+|Put away items received from multiple purchases, sales returns, transfers orders in an advanced warehouse configuration.|[Put Items Away with Warehouse Put-aways](warehouse-how-to-put-items-away-with-warehouse-put-aways.md)|  
 
-[Put Items Away with Inventory Put-aways](warehouse-how-to-put-items-away-with-inventory-put-aways.md)  
-[Set Up Basic Warehouses with Operations Areas](warehouse-how-to-set-up-basic-warehouses-with-operations-areas.md)  
-[Pick for Production or Assembly](warehouse-how-to-pick-for-production.md)  
-[Move Items Ad Hoc in Basic Warehouse Configurations](warehouse-how-to-move-items-ad-hoc-in-basic-warehousing.md)  
-[Design Details: Inbound Warehouse Flow](design-details-inbound-warehouse-flow.md)  
-[Business Process Walkthroughs](walkthrough-business-process-walkthroughs.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+## Post non-inventory items
+
+[!INCLUDE [post-non-inventory-items](includes/post-non-inventory-items.md)]
+
+## Related information
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-released-production-orders
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-by-salesperson
 ---
-title: Released Production Orders
-description: The Released Production Orders report shows information about all released production orders, including expected versus finished quantities and the variance.
-author: kennienp
+title: Sales by Salesperson (Power BI Report)
+description: The Sales by Salesperson report provides an overview of sales performance broken down by salesperson.
+author: kennieNP
 ms.author: kepontop
 ms.reviewer: bholtorf
-ms.topic: article
+ms.topic: concept-article
 ms.search.keywords: reporting
-ms.search.form: 37049_Primary
-ms.date: 11/01/2024
+ms.search.form: 37006_Primary
+ms.date: 10/07/2025
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
-# Released Production Orders (Power BI Report)
+# Sales by Salesperson (Power BI Report)
 
 [!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
 
-The **Released Production Orders** report provides detailed information about all released production orders, including expected versus finished quantities and the variance.
+The **Sales by Salesperson** report provides an overview of sales performance for each salesperson. It showcases key metrics such as total sales amount and quantity. You can also view this information for each customer a salesperson sells to, and the items they sold.
 
-:::image type="content" source="media/manufacturing/released-production-orders-v26.png" alt-text="Screenshot of the Released Production Orders Power BI Report" lightbox="media/manufacturing/released-production-orders-v26.png":::
+:::image type="content" source="media/powerbi/sales/sales-by-salesperson.png" alt-text="Screenshot of the Sales by Salesperson Power BI report" lightbox="media/powerbi/sales/sales-by-salesperson.png":::
 
 ## Use the report
 
-The report is meant for manufacturing managers and supervisors.
+This report helps management and sales teams track the sales amounts that each salesperson generates and their contribution to the overall revenue.
 
-Manufacturing managers use the report to track released production orders. By analyzing the expected versus finished quantities, you can find issues that might affect the production process. For example, if the finished quantity is much lower than the expected quantity, it might indicate a problem with the manufacturing process or materials. By identifying and addressing these issues, you can improve efficiency and reduce costs.
+Sales managers can use the report to monitor the sales performance of each salesperson and identify top-performers. For example, this information is helpful when you determine rewards. The report also helps identify under-performers who perhaps need support.
 
-Production supervisors use this report to monitor expected and finished quantities. This information helps you prioritize and schedule the next items for production. For example, if the finished quantity is close to the expected quantity, you can prioritize the next item for production. If the finished quantity is much lower than the expected quantity, you might need to adjust the production schedule to ensure you compete the order on time.
+For example, you might notice that a particular salesperson's sales declined over the last few months. With this information, you can provide extra training or resources to help that salesperson achieve their sales targets.
 
-## Key Performance Indicators (KPIs)
+Salespeople can use the report to monitor your own sales performance and identify areas for improvement. By analyzing the sales amount, quantity, and gross profit, you can easily identify which customers and items contribute the most to your sales. With this information, you can focus your efforts on the most profitable areas.
 
-The *Released Production Orders* report includes the following KPIs and measures:
+For example, if you notice that a particular customer contributes a significant amount to your sales numbers, you can focus on building a stronger relationship with that customer to increase their loyalty.
 
-- [**Planned Quantity**](manufacturing-powerbi-kpis.md#planned-quantity)
-- [**Finished Quantity**](manufacturing-powerbi-kpis.md#finished-quantity)
-- [**Variance Quantity**](manufacturing-powerbi-kpis.md#variance-quantity)
-- [**Remaining %**](manufacturing-powerbi-kpis.md#remaining-percent)
-- [**Finished %**](manufacturing-powerbi-kpis.md#finished-percent)
-- [**Total Actual Cost**](manufacturing-powerbi-kpis.md#total-actual-cost)
-- [**Expected Total Cost**](manufacturing-powerbi-kpis.md#total-expected-cost)
-- [**Standard Total Cost**](manufacturing-powerbi-kpis.md#total-standard-cost)
-- [**Total Expected Cost Variance**](manufacturing-powerbi-kpis.md#total-expected-cost-variance)
-- [**Total Standard Cost Variance**](manufacturing-powerbi-kpis.md#total-standard-cost-variance)
-- [**Total Expected Cost Dev %**](manufacturing-powerbi-kpis.md#total-expected-cost-dev-percent)
-- [**Total Standard Cost Dev %**](manufacturing-powerbi-kpis.md#total-standard-cost-dev-percent)
-- [**No. of Production Orders**](manufacturing-powerbi-kpis.md#no-of-production-orders)
+## Key performance indicators
+
+The report includes the following key performance indicators (KPIs) and measures:
+
+- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Sales Quantity](sales-powerbi-sales-kpis.md#sales-quantity)
+- [Adjusted Profit (LCY)](sales-powerbi-sales-kpis.md#adjusted-profit-lcy)
+- [Adjusted Profit Margin](sales-powerbi-sales-kpis.md#adjusted-profit-margin)
+- [Estimated Value](sales-powerbi-sales-kpis.md#estimated-value)
 
 [!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
 
@@ -565,53 +810,173 @@ The *Released Production Orders* report includes the following KPIs and measures
 
 ## Data used in the report
 
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]>
+The report uses data from the following tables:
 
+- Customer
+- Salesperson/Purchaser
 - Item
-- Production Order
+- G/L Account
+- Resource
+- Sales Value Entries
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
+- Opportunity Entries
 
 ## Try the report
 
-Try the report here: [Released Production Orders](https://businesscentral.dynamics.com?page=37049)
+Try the report here: [Sales by Salesperson](https://businesscentral.dynamics.com?page=37006)
 
 [!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
 
 ## Related information
 
 [Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Manufacturing app](manufacturing-powerbi-app.md)  
-[Built-in production reports](production-reports.md)  
-[Manufacturing overview](production-manage-manufacturing.md)
+[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-other
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-defer-revenue-expenses
 ---
-title: Business Central Extensions by Other Providers
-description: This article lists the apps and extensions to customize Business Central provided by other companies.
+title: Defer revenues and expenses
+description: Learn how to automatically defer or postpone revenues and expenses.
 author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms. search.keywords: app, add-in, manifest, customize
-ms.date: 02/17/2025
 ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: postpone
+ms.search.form: 1700, 1701, 1702, 1703, 1704, 1705, 1706, 1707, Report_1700, Report_1701, Report_1702
+ms.date: 04/30/2025
+ms.custom: bap-template
 ms.service: dynamics-365-business-central
-ms.reviewer: solsen
 ---
 
-# Business Central extensions by other providers
+# Defer revenues and expenses
 
-At [Marketplace.microsoft.com](https://marketplace.microsoft.com/), you can get extensions for [!INCLUDE[prod_short](includes/prod_short.md)]. Some extensions are provided by Microsoft, and other extensions are provided by other companies. We refer to the websites that these companies provide for more information about the extensions that aren't published by Microsoft. You can find this information at [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646).  
+To recognize revenues or expenses in a later period than the transaction posted in, you can set up a schedule to automatically defer them.
 
-The list of the extensions by other companies grows each month. So keep an eye out for [Marketplace.microsoft.com](https://go.microsoft.com/fwlink/?linkid=2081646) and get apps to help you in your work in [!INCLUDE[prod_short](includes/prod_short.md)].
+To distribute revenues or expenses to accounting periods, you set up a deferral template for the resource, item, or G/L account that the revenue or expense is for. When you post the sales or purchase document, the revenue or expense is deferred to the accounting periods you specify in the deferral template and the posting date.
 
-## Understanding the risks of installing apps
+> [!NOTE]
+> Sales and purchase journals validate the source code. The validation requires that the source code for sales journals and purchase journals aren't identical when you're using deferrals. If the source code is set up to be identical, you can work around this limitation by creating a template and batch that use another source code.
 
-[!INCLUDE [ui-extensions-risk-install-apps](includes/ui-extensions-risk-install-apps.md)]
+## To set up a G/L account for deferral
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Chart of Accounts**, and then choose the related link.
+2. Choose the **New** action.
+3. Fill in the fields as necessary to create a G/L account for deferred revenues. For more information, see [The General Ledger and the Chart of Accounts](finance-general-ledger.md).
+4. Repeat steps 2 and 3 to create a new G/L account for deferred expenses.
+
+For both types of deferral, select **Balance Sheet** in the **Type** field, and name the accounts appropriately, such as *Unearned Income* for deferred revenues and *Unpaid Expenses* for deferred expenses.
+
+## To set up a deferral template
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Deferral Templates**, and then choose the related link.
+2. Choose the **New** action.
+3. Fill in the fields as necessary. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+4. In the **Calc. Method** field, specify how to calculate the value in the **Amount** field for each period on the **Deferral Schedule** page. You can choose between the following options:
+
+   * **Straight-Line**: The periodic deferral amounts are calculated according to the number of periods, distributed according to period length.
+   * **Equal per Period**: The periodic deferral amounts are calculated according to the number of periods, distributed evenly on periods.
+   * **Days per Period**: The periodic deferral amounts are calculated according to the number of days in the period.
+   * **User-Defined**: The periodic deferral amounts aren't calculated. You must manually fill the **Amount** field for each period in the Deferral Schedule page. To learn more, go go [To change a deferral schedule from a sales invoice](#to-change-a-deferral-schedule-from-a-sales-invoice).
+5. In the **Period Desc.** field, specify a description that shows on entries for the deferral posting. You can enter the following placeholder codes for typical values. The values are added automatically when the period description displays.
+
+   * %1 = The day number of the period posting date
+   * %2 = The week number of the period posting date
+   * %3 = The month number of the period posting date
+   * %4 = The month name of the period posting date
+   * %5 = The accounting period name of the period posting date
+   * %6 = The fiscal year of the period posting date
+
+Example: The posting date is 02/06/2025. If you enter “Expenses deferred for %4 %6”, the description display "Expenses deferred for February 2025".
+
+## To assign a deferral template to an item
+
+> [!NOTE]  
+> The steps in this procedure are the same as when you assign a deferral template to a G/L account or a resource.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then choose the related link.
+2. Open the card for the item for which revenues or expenses must be deferred to the accounting periods when the item was sold or purchased.
+3. On the **Costs & Posting** FastTab, in the **Default Deferral Template** field, select the relevant deferral template.
+
+## To change a deferral schedule from a sales invoice
+
+> [!NOTE]  
+> The steps in this procedure are the same as when you change a deferral schedule, for expenses, from a purchase invoice.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Invoices**, and then choose the related link.
+2. Create a sales invoice for an item that has a deferral template assigned. For more information, see [Invoice Sales](sales-how-invoice-sales.md).
+
+    Notice that as soon as you enter the item (or resource or G/L account) on the invoice line, the **Deferral Code** field is filled with the code of the assigned deferral template.
+3. Choose the **Deferral Schedule** action.
+4. On the **Deferral Schedule** page, change settings on the header or values on the lines, for example, to defer the amount to another accounting period.
+5. Choose the **Calculate Schedule** action.
+6. Choose the **OK** button. The deferral schedule is updated for the sales invoice. The related deferral template is unchanged.
+
+## To preview how deferred revenues or expenses post to the general ledger
+
+> [!NOTE]  
+> The steps in this procedure are the same as when you preview how expense deferrals are posted.
+
+1. On the **Sales Invoice** page, choose the **Preview Posting** action.
+2. On the **Posting Preview** page, choose the **G/L Entry** action, and then choose the **Show Related Entries** action.
+
+G/L entries to be posted to the specified deferral account, for example, Unearned Income, are denoted by the description that you entered in the **Period Desc.** field in the deferral template, for example, "Expenses deferred for February 2016".
+
+## To review posted deferrals in the Sales Deferral Summary or the Purchasing Deferral Summary report
+
+> [!NOTE]  
+> The steps in this procedure are the same as when you review the Purchasing Deferral Summary report.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sales Deferral Summary**, and then choose the related link.
+2. On the **Sales Deferral Summary** page, in the **Balance as of** field, enter the date up to which you want to see deferred revenues.
+3. Choose the **Preview** button.
+
+## To specify a period in which to allow deferral posting
+
+You can specify a period in which people can post transactions by entering dates in the **Allow Posting From** and **Allow Posting To** fields as follows:
+
+* For all users, on the **General Ledger Setup** page
+* For specific users, on the **User Setup** page
+
+If you do that, you must make an exception for deferrals to allow them to be posted outside the period. To define the period, follow these steps.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **General Ledger Setup** or **User Setup**, and then choose the related link.
+2. In the **Allow Deferral Posting From** and **Allow Deferral Posting To** fields, enter a start and end date for the period.
+
+### Video guidance
+
+The following video shows how to define the period in which you allow people to post deferred revenue and expenses, and how to specify exceptions.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5d98a594-6b1c-45a5-b93a-1fb670a051e5]
+
+## Analyze your deferral data
+
+You can analyze your deferral data with the data analysis tool or with out-of-the-box supplied reports. 
+
+To enable ad-hoc analysis on non-posted deferral lines, [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE[prod_short](includes/2025-releasewave2-short.md)] includes three new list pages:
+
+* Sales deferral lines
+* Purchasing deferral lines
+* G/L deferral lines
+
+When you turn on analysis mode for these list pages, you can analyze deferral lines that you haven't posted yet across all documents.
+
+[!INCLUDE [tip_open_report_from_docs](includes/tip-open-report-from-docs.md)]
+
+[!INCLUDE [finance_reports_deferrals](includes/finance-reports-deferrals-include.md)]
 
 ## Related information
 
-[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Finance](finance.md)  
+[Setting Up Finance](finance-setup-finance.md)  
+[Work with General Journals](ui-work-general-journals.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
