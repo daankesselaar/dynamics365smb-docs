@@ -1,3 +1,465 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/item-marketing-text
+---
+title: Add marketing text to items
+description: Write marketing text for items in Business Central.
+author: jswymer
+ms.author: jswymer 
+ms.reviewer: jswymer
+ms.topic: how-to
+ms.date: 05/03/2026
+ms.update-cycle: 180-days
+ms.custom: bap-template
+ms.collection:
+  - bap-ai-copilot
+ms.search.form: 5839_Primary
+---
+
+# Add marketing text to items
+
+For any item registered in Business Central, you can write *marketing text* about the item. Although marketing text is a kind of description, it's different than an item's **Description** field. The **Description** field is typically used as a concise display name to quickly identify the product. The marketing text, on the other hand, is a more rich and descriptive text. Its purpose is to add marketing and promotional content, also known as *copy*. This text can then be published with the item if it's published on a web shop, like Shopify, or pasted into emails or other communications with your customers.
+
+There are two ways to create the marketing text. The easiest way to get started is to use Copilot, which suggests AI-generated text for you. The other way is to start from scratch. 
+
+## <a name=copilot></a>Get marketing text suggestions with Copilot
+
+With Copilot, you quickly get a text suggestion that's automatically generated for you. The AI-generated text is tailored to the item and provides a good starting point. The text is based in part on the following information:
+
+- Attributes defined for the item&mdash;for example, the description, color, dimensions, material, and so on. Learn more about item attributes in [Work with item attributes](inventory-how-work-item-attributes.md).
+- The item’s **Description** field.
+- The item category. [Learn more about categorizing items](inventory-how-categorize-items.md).
+- Selectable style preferences like tone of voice, format, and length.
+
+Copilot is designed to save you time and help you write creative and engaging text that reflects your brand and is consistent across your product line. Start by generating a suggestion, then change the suggested text as needed.
+
+### Supported languages
+
+[!INCLUDE[copilot-language-support](includes/copilot-language-support.md)]
+
+### Prerequisites
+
+- The **Marketing text suggestions** capability is activated by an administrator. Learn more in [Configure Copilot & agent capabilities](enable-ai.md).
+
+### Create first draft with Copilot
+
+Complete the following steps to add marketing text to an existing item. Learn how to create a new item in [Register new items](inventory-how-register-new-items.md).
+
+1. In Business Central, open the item that you want to modify by completing the following steps:
+
+   - In the upper-right corner, select the ![Lightbulb that opens the Tell Me feature 22.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link to show a list of available items.
+
+   - Double-click the item or select its value in the **No.** column.
+
+1. From the item card, there are two ways to get started writing marketing text with Copilot: from the **Marketing Text** FactBox or using the **Marketing text** action. These methods are indicated in the following figure of an item card.  
+
+   [![Shows an item card with Marketing Text pane](media/create-with-copilot.svg)](media/create-with-copilot.svg#lightbox)
+
+   To create the first draft for an item, do one of the following steps:
+
+   - In the **Marketing Text** pane in the FactBox on the right side of the page, select **Draft with Copilot**. 
+
+     Copilot starts to draft the marketing text.
+
+   - At the top of the page, select the **Marketing Text** action, then select **Draft with Copilot** on the **Edit Marketing Text** window.  The **Draft Marketing Text with Copilot** windows appears and lists all available attributes for the item.
+1. Select the attributes you want Copilot base suggestions on, then select **Generate**. You can change the selected attributes and other options later. Copilot starts to draft the marketing text. 
+
+   ![Shows the edit marketing text window](media/marketing-text-copilot-attributes.png)
+
+1. When Copilot completes the draft, the text appears in the Copilot editor window for you to review and edit.
+
+   [![Shows the create with Copilot windows](media/create-with-copilot-window.svg)](media/create-with-copilot-window.svg#lightbox)
+
+   You can now get more suggestions, try to improve the suggestions you get, edit text, and more. Go to [Review, edit, and save](#review-edit-and-save-text) for details.
+
+### Review, edit, and save text
+
+Once you have the first draft, you must review it and make changes to the text to get it ready for publishing. This work is done from the Copilot editor, which lets you get more suggestions, change preferences to influence the suggestions, and manually make changes and style the text.
+
+> [!IMPORTANT]
+> The AI-generated text from Copilot is only a suggestion and it can have mistakes. It requires human oversight and review to ensure it's accurate and appropriate. Review any suggested text and edit as needed before you save and publish it for public consumption.
+
+Use the following guidelines to finalize and save the marketing text.
+
+1. Make changes to text directly in the text box. Use the tool bar along the bottom of the box to format and style text, add links, and more.
+1. To get a new suggestion, select **Regenerate**.
+1. If you're not satisfied with the suggestions, enhance the text suggestions using the **Tone**, **Format**, and **Emphasis** preference options.
+
+   <!--Select **More Settings**, change the options that are shown under **Choose how Copilot creates suggestions**, then select **Create draft** to get a new suggestion.-->
+
+   For guidelines on improving suggestions, go to the [Improve and tailor text suggestions](#improve-and-tailor-text-suggestions).
+
+1. To go back and forth through suggestions, use the previous and next links at the top of the page (*x* **of** *y*). <!-- or select the **...** (More formatting options) along the bottom of the window, then select **Undo**. Select **Redo** to go back.-->
+1. Carefully review the text for accuracy and appropriateness:
+
+   - If you want to save the text, select **Keep it**. 
+   - If you don't want to save, select the discard button (trash can) ![Shows the trash can icon for deleting all Copilot proposal for bank account reconciliation](media/copilot-delete-trash-can.png).
+
+### Improve and tailor text suggestions
+
+There are a few steps you can do to improve the text suggestions and tweak them to suit your personal or company's preferences.
+
+1. Change the item attributes used by Copilot.
+
+   Copilot suggestions are based, in part, on the attributes assigned to the item. To view the available attributes and current settings, select the edit ![Shows the edit icon on the Copilot window for changing attributes](media/edit-pencil.png) icon in the upper-left corner. In the **Item Attributes** page, choose the attributes that best align with the characteristics that you want to promote. The more relevant attributes you include, the richer the outcome becomes. If you feel you're missing some key attributes, add more. For more information about attributes, go to [Work with item attributes](inventory-how-work-item-attributes.md)
+1. Change your preference settings for  **Tone**, **Format**, and **Emphasis** options.
+
+   |Option|Description|
+   |-|-|
+   |Tone |Use this option to influence what kind of words, phrases, and punctuation are used to engage the target audience. You can choose from several predefined tones of voice, ranging from **Formal** (which results in a business tone) to **Creative** (which results in an informal tone). |
+   |Format and length|Use this option to control the general structure of the text, which consists of three parts, covered by four different options: <ul><li>**Tagline** - A catchy phrase or short sentence that identifies the item or brand.</li><li>**Paragraph** - A single paragraph of fluent and verbose text, consisting of several complete sentences.</li><li>**Tagline + Paragraph** - A tagline followed by a paragraph</li><li>**Brief** - An introductory sentence, similar to a tagline, followed by a bulleted list of key points of interest.</li></ul> |
+   |Emphasis|Use this option to choose from a list of predefined qualities that you want to emphasize in the text. Choose a quality that best aligns with the type of item you're writing about. The qualities don't directly correspond to the item's attributes, description, or category. For example, **Quality** could be a good choice for both a bike or desk, while **Speed** would suit a bike, but not a desk.|
+
+1. Improve the **Description** field on the item card.
+
+   The text in the **Description** field is used as-is in many places in the suggested text, so it's important that the description best portrays how you want the item referenced in the marketing text. 
+
+1. Make sure the **Item Category Code** field on the item card is set to a proper category.
+
+   Copilot finds words and phrases that are related to the category and work them into the suggested text.
+
+### Working with multiple languages 
+
+Text is always generated in the language defined by your user [settings](ui-change-basic-settings.md#language). If your organization operates and enters data into Business Central using a different language, or if Business Central is connected to your online store such as with Shopify, this might result in publishing content that doesn't match similar marketing content.
+
+## Create text from scratch
+
+1. In Business Central, open the item that you want to modify as follows:
+
+    1. In the upper-right corner, select the ![Lightbulb that opens the Tell Me feature 22.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Items**, and then choose the related link to show a list of available items.
+    1. To open the item, double-click it or select its number in the  **No.** field.
+
+1. Do one of the following steps:
+
+   - In the **Marketing Text** pane of the FactBox on the right side of the page, select **Edit**.
+   - Select the **Marketing Text** action.
+1. Make changes to text directly in the **Marketing Text** box. Use the tool bar along the bottom of the box to format and style text, add links, and more.
+1. Select **OK** when done to save the text.
+
+## Related information
+
+[Marketing text suggestions overview](ai-overview.md)  
+[Troubleshoot Copilot and agent capabilities](ai-copilot-troubleshooting.md)  
+[FAQ for marketing text suggestions](faqs-marketing-text.md)  
+[Configure Copilot and agent capabilities](enable-ai.md)  
+[Register new items](inventory-how-register-new-items.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-internal-warehouse-flows
+---
+title: Design details - flows for production, assembly, and projects
+description: Learn about the flow between bins for picking components and putting away end items for assembly, production, or project orders.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.service: dynamics-365-business-central
+ms.topic: article
+ms.date: 08/12/2024
+ms.custom: bap-template
+---
+# Flows for production, assembly, and projects
+
+Internal flows, such as picking components and putting away end items for assembly, projects, and production orders are similar to inbound or outbound flows. Many of the processes might seem familiar. This article provides information about how to work with internal warehouse flows with various levels of complexity.
+
+## Overview of different configuration options
+
+You can configure warehouse features in various ways. It's important that the options you choose improve your processes without causing overhead. The following tables describe typical configurations for dealing with physical goods for production, projects, and assembly orders.
+
+### Inbound flow (put-away)
+
+|Complexity Level|Description|Settings|Bin Code|Inbound Flow of Production Order|Inbound Flow of Assembly Order|Inbound Flow of Projects|  
+|---|----------------|----------|---------|------------------|------------------|------------------|
+|No dedicated warehouse activity.|Posting from orders and journals.||Optional. Controlled by the **Bin Code is Mandatory** toggle.|Production Journal -> Output Journal</br><br/> **NOTE**: You can post output using **Production Journal**.|Assembly Order|Put-away isn't applicable for projects|  
+|Basic|Order-by-order.|Production Output Whse Handling: Inventory Put-away. </br><br/> **NOTE**: You can still post output directly from the source documents at locations where you activated these settings. |Optional. Controlled by the **Bin Code is Mandatory** toggle.|Production Order -> Inventory Put-away|Assembly Order|Put-away isn't applicable for projects|
+|Advanced|Consolidated put-away activities for multiple source documents.|No dedicated settings|Optional. Controlled by the **Bin Code is Mandatory** toggle.|Production Order(s) -> Output Journal|Assembly order(s) ->  internal movements | Put-away isn't applicable for projects|
+|Advanced|Same as above plus directed pick/put-away activities|Directed Pick and Put-away (dependent toggles are enabled automatically)|Mandatory|Same as above|Same as above| Put-away isn't applicable for projects|
+
+Some configurations don't let you use dedicated warehouse documents to register put-aways. However, if your location uses bins you can use generic movement documents to move produced or assembled items to warehouse. Learn more at [Moving Items](warehouse-move-items.md).
+
+### Outbound flow (pick)
+
+|Complexity Level|Description|Settings|Bin Code|Outbound Flow of Production Order|Outbound Flow of Assembly Order|Outbound Flow of Projects|  
+|---|----------------|----------|---------|------------------|------------------|------------------|
+|No dedicated warehouse activity.|Posting from orders and journals.||Optional. Controlled by the **Bin Code is Mandatory** toggle.|Production Journal -> Consumption Journal </br><br/> **NOTE**: You can post consumption using a **Production Journal**.|Assembly Order|Project -> Project Journal|  
+|Basic|Order-by-order.|Production, Assembly, Projects: Inventory Pick, Inventory Movement </br><br/> **NOTE**: You can still post consumption directly from the source documents at locations where you activated these settings.|Optional. Controlled by the **Bin Code is Mandatory** toggle.|Production Order -> Inventory Pick|Assembly Order -> Inventory movement</br><br/>The **Inventory Movement** can be used only with bins.|Project -> Inventory Pick|
+|Advanced|Consolidated pick activities for multiple source documents.|Production, Assembly, Projects: Warehouse Pick|Optional. Controlled by the Bin Code is Mandatory toggle|Production Order(s) -> Warehouse Pick -> Consumption Journal |Assembly order(s) -> Warehouse Pick| Project(s) -> Warehouse Pick -> Project Journal |
+|Advanced|Same as above + Directed pick/put-away activities|Directed Pick and Put-away (dependent toggles are enabled automatically)|Mandatory|Same as above|Same as above| Same as above|
+
+## Warehouses without dedicated warehouse activity
+
+Even if you don't use dedicated warehouse activities, you might want to track things like consumption and production output. The following articles provide information about how to process receipts for source documents.
+
+* [Register Consumption and Output for One Released Production order line](production-how-to-register-consumption-and-output.md)
+* [Assemble Items](assembly-how-to-assemble-items.md)
+* [Record Consumption or Usage for Projects](projects-how-record-job-usage.md)
+
+## Basic warehouse configuration
+
+### Flows to and from production in a basic warehouse configuration  
+
+The inbound and outbound flows in a basic warehouse configuration involve the following settings on the **Location Card** page for the location:
+
+* For the inbound flow (put-away), in the **Prod. Output Whse. Handling** field, select **Inventory Put-away**.
+* For the outbound flow (pick), in the **Prod. Consumption Whse. Handling** field, select **Inventory Pick/Movement**.
+
+Use **Inventory Pick** documents to pick production components in the flow to production. To put away the products you produce, use **Inventory Put-away** documents.
+
+For locations that use bins, inventory movement documents are especially useful for component flushing. To learn more about how component consumption is flushed from To-Production or Open Shop Floor bins, go to [Flushing production components in the warehouse](warehouse-how-to-pick-for-production.md#flushing-production-components-in-a-basic-warehouse-configuration).
+
+   > [!NOTE]
+   > Inventory movements are important documents if you're using **Pick + Forward** or **Pick + Backward** flushing methods. Learn more at [Flushing methods](production-how-to-flush-components-according-to-operation-output.md#flushing-methods).
+
+* The **To-Production Bin Code**, **From-Production Bin Code**, and **Open Shop Floor Bin Code** fields on the location or the machine/work center define the default flows to and from production areas.
+* Manage the movement of produced items on the **Internal Movement** page without a relation to a production order.
+
+### Flows to and from assembly in a basic warehouse configuration  
+
+The outbound flow in a basic warehouse configuration involves the following settings on the **Location Card** page for the location:
+
+* For the outbound flow (pick), in the **Asm. Consumption Whse. Handling** field, select **Inventory Movement**.
+
+Use **Inventory Movement** documents to pick assembly components in the flow to assembly. Post assembly output and consumption directly from an assembly order.
+
+> [!NOTE]
+> **Inventory Pick** and **Inventory Put-away** documents aren't supported for assembly orders.
+
+For locations that use bins:
+
+* Use **Inventory Movement** documents to move assembly components to the assembly area.
+* The **To-Assembly Bin Code**, **From-Assembly Bin Code** fields on the location card define default flows to and from assembly areas.
+* Manage the movement of assembled items on the **Internal Movement** page, without a relation to an assembly order.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] supports assemble-to-stock and assemble-to-order assembly flows. Learn more at [Understanding Assemble to Order and Assemble to Stock](assembly-assemble-to-order-or-assemble-to-stock.md#understanding-assemble-to-order-and-assemble-to-stock). In relation to warehouse management, assemble-to-stock is part of the internal warehouse flow, and assemble-to-order is in the outbound warehouse flow. Learn more at [Handling Assemble-to-Order Items with Inventory Picks](warehouse-how-to-pick-items-with-inventory-picks.md#handling-assemble-to-order-items-with-inventory-picks).
+
+### Flows for project management in a basic warehouse configuration
+
+The outbound flow in a basic warehouse configuration involves the following settings on the **Location Card** page for the location:
+
+* For the outbound flow (pick), in the **Project Consumption Whse. Handling** field, select **Inventory Pick**.
+
+Use **Inventory Pick** documents to pick project components in the flow to project management.
+
+For a location that uses bins, the **To-Project Bin Code** field on the location defines the default flows to project management.
+
+## Advanced warehouse configurations  
+
+### Flows to and from production in advanced warehouse configurations
+
+The outbound flow in an advanced warehouse configuration involves the following settings on the **Location Card** page for the location:
+
+* For the outbound flow (pick), in the **Prod. Consumption Whse. Handling** field, select **Warehouse Pick (optional)** or **Warehouse Pick (mandatory)**.
+
+Use the **Warehouse Pick** documents and the **Pick Worksheet** page to pick components for production.
+
+> [!NOTE]
+> **Warehouse Put-away** documents aren't supported for production output.
+
+For locations that use bins:
+
+* **Warehouse Movement** documents and the **Movement Worksheet** page are especially useful for component flushing. Learn more at [Flushing production components in the warehouse](warehouse-how-to-pick-for-internal-operations-in-advanced-warehousing.md#flushing-production-components-in-an-advanced-warehouse-configuration).
+* The **To-Production Bin Code**, **From-Production Bin Code**, and **Open Shop Floor Bin Code** fields on the location or machine/work center define the default flows to and from production areas. 
+* Manage the movement of produced items on the **Movement Worksheet** or **Whse. Internal Put-away** pages, without a relation to a production order.
+
+### Flows to and from assembly in advanced warehouse configurations
+
+The outbound flow in an advanced warehouse configuration involves the following settings on the **Location Card** page for the location:
+
+* For the outbound flow (pick), in the **Asm. Consumption Whse. Handling** field, select **Warehouse Pick (optional)** or **Warehouse Pick (mandatory)**. 
+
+Use **Warehouse Pick** documents and the **Pick Worksheet** page to pick components for assembly.
+
+> [!NOTE]
+> **Warehouse Put-away** document isn't supported for assembly orders.
+
+For locations that use bins:
+
+* The **To-Assembly Bin Code** and **From-Assembly Bin Code** fields on the location define the default flows to and from assembly areas.
+* Manage the movement of assembly items on the **Movement Worksheet** or **Whse. Internal Put-away** pages, without a relation to an assembly order.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] supports assemble-to-stock and assemble-to-order assembly flows. Learn more at [Understanding Assemble to Order and Assemble to Stock](assembly-assemble-to-order-or-assemble-to-stock.md#understanding-assemble-to-order-and-assemble-to-stock). 
+
+Assemble-to-stock is part of the internal warehouse flow, and assemble-to-order is in the outbound warehouse flow. Learn more at [Handling Assemble-to-Order Items in Warehouse Shipments](warehouse-how-ship-items.md#handling-assemble-to-order-items-in-warehouse-shipments).
+
+### Flows to project management in advanced warehouse configurations
+
+The outbound flow in an advanced warehouse configuration involves the following settings on the **Location Card** page for the location:
+
+* For the outbound flow (pick), in the **Project Consumption Whse. Handling** field, select **Warehouse Pick (optional)** or **Warehouse Pick (mandatory)**.
+
+Use **Warehouse Pick** documents and the **Pick Worksheet** page to pick components in the flow to project management.
+
+For locations that use bins, the **To-Projects Bin Code** field on the location defines the default flows to the project area.
+
+## Related information  
+
+[Warehouse Management Overview](design-details-warehouse-management.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-manage-many-income-document-records
+---
+title: Define Which incoming docs to see
+description: Adjust the default view of incoming documents, such as e-invoices, to improve your overview of processed and unprocessed records.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: electronic document, e-invoice, incoming document, OCR, ecommerce, document exchange, import invoice
+ms.date: 10/15/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Manage many incoming document records
+
+As you create or process incoming document records, the number of lines on the **Incoming Documents** page may grow to an extent where you lose overview. Therefore, you can set incoming document records to *Processed* to remove them from the default view. When you choose the **Show All** action, you can view both processed and unprocessed records.
+
+> [!NOTE]  
+> You can't edit information, attach files, or perform other processes on incoming document records that are set to *Processed*. You must first set it to *Unprocessed*.
+
+The **Processed** check box is automatically selected on incoming document records that have been processed, but you can also select or deselect the check box manually. Depending on your business process, an incoming document record may be processed when a related document has been created for it or a file has been attached.
+
+> [!NOTE]  
+> When you open the **Incoming Documents** page with the **My Incoming Documents** action on the Role Center, only unprocessed incoming document records are shown by default. This is referred to in this article as "the default view".
+
+## To remove incoming document records from the default view
+
+1. On the **Incoming Documents** page, select one or more lines for incoming document records that you want to remove from the default view.
+2. Choose the **Set to Processed** action.
+
+    The incoming document records are removed from the default view, and the **Processed** check box is selected on the lines.
+
+> [!NOTE]  
+> You can also perform this action for the individual record on the **Incoming Document Card** page.
+
+## To view all incoming document records
+
+1. On the **Incoming Documents** page, choose the **Show All** action.
+
+All incoming document records are displayed, including records where the **Processed** check box isn't selected.
+
+## To add incoming document records to the default view
+
+1. On the **Incoming Documents** page, choose the **Show All** action.
+2. Select one or more lines for incoming document records that you want to appear in the default view.
+3. Choose the **Set to Unprocessed** action.  
+
+> [!NOTE]  
+> You can also perform this action for the individual record on the **Incoming Document Card** page.
+
+## Related information
+  
+[Create Incoming Document Records](across-how-create-income-document-records.md)  
+[Create Incoming Document Records Directly from Documents and Entries](across-how-connect-disconnect-income-document-records.md)  
+[Incoming Documents](across-income-documents.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-accounting-periods-and-fiscal-years
+---
+title: Working with accounting periods and fiscal years
+description: Learn how to work with accounting periods to define when your company reports financial performance.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.form: 100_Primary
+ms.date: 01/12/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Work with accounting periods and fiscal years
+
+Accounting periods, also known as reporting periods, are periods of time for which a company or organization reports financial performance by generating, for example, their income statement or balance sheet. Typically, accounting periods refer to the company's fiscal year, which can contain several accounting periods, such as months or quarters.
+
+For many companies the fiscal year doesn't align with the calendar year, for instance when the fiscal year ends on June 30 rather than December 31. For newly created companies, the fiscal year might even actually be longer than 12 months.  
+
+[!INCLUDE[prod_short](includes/prod_short.md)] only requires accounting periods if you want to close an income statement, or run data compression tasks.
+
+You can use accounting periods in reporting such as when you're reviewing posted entries on the **Balance/Budget** page where the reporting interval is specified. One of the options you might specify is to report by accounting period. You can also build a financial report that compares results for different accounting periods.
+
+> [!NOTE]  
+> Posting dates are controlled by the following fields on the **General Ledger Setup** and **User Setup** pages, 
+>
+> - **Allow Posting From**
+> - **Allow Posting To**
+> - **Allow Deferral Posting From**
+> - **Allow Deferral Posting To**
+>
+> Accounting periods don't control posting dates.
+
+## Fields in an accounting period
+
+The **Accounting Periods** page includes several important fields that control structure and status. The following table describes the fields.
+
+| Field name | Description | Remark |
+| ---------- | ----------- | ------ |
+| Closed     | Indicates that the fiscal year is closed. | This setting doesn't prevent posting. When you use the **Close Year** action, this checkbox is selected automatically. You only need to close accounting periods one time per year at year-end. | 
+| Date Locked | Prevents changes to the start date of an accounting period. For example, changing 01/01/2026 to 01/05/2026. | This setting affects structure, not posting. The checkbox is automatically checked when you use the **Close Year** action. |
+| Inventory Period Closed | If you use inventory periods, you should close them on a monthly basis. When you close an inventory period, the status flows into the **Accounting Periods** checklist and supports accurate inventory reporting. ||
+
+## Creating a new fiscal year
+
+You can create accounting periods in bulk by using the **Create Fiscal Year** batch job, or by doing so manually.
+
+To clear the **New Fiscal Year** checkbox for a closed year, you must first clear the **Date Locked** checkbox.
+
+> [!TIP]  
+> The **New Fiscal Year** checkbox should only be selected for the first month of the fiscal year.
+
+### How to create accounting periods in bulk
+
+Use the **Create Fiscal Year** batch job to divide a fiscal year into periods of equal length.  
+
+1. Choose the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Accounting Periods**, then choose the related link.  
+2. Choose the **Create Year** action.
+3. In the **Starting Date** field, enter the date on which the fiscal year starts.  
+4. In the **No. of Periods** field, enter the number of accounting periods to divide the fiscal year into. There can be up to 365 periods in a year.  
+5. In the **Period Length** field, enter a duration for each period. Duration identifiers include 1M for one month, 1Q for one quarter, and 1Y for one year.  
+6. Choose **OK**.  
+
+### How to create accounting periods manually
+
+If the accounting periods in your fiscal year have different durations, such as the 4-4-5 calendar used in retail, you can manually set it up.  
+  
+1. Choose the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Accounting Periods**, then choose the related link.  
+2. In the **Starting Date** field, enter the date on which the fiscal year starts. The **Name** field shows the name of the month.  
+3. Choose the **New Fiscal Year** checkbox to indicate that this period is the first in the year. [!INCLUDE[prod_short](includes/prod_short.md)] uses this period to determine which periods to close at year-end.
+4. Repeat steps 2 and 3 for each remaining period.  
+
+## Closing a fiscal year
+
+Closing the fiscal year is one of the tasks for closing the books. After you close a fiscal year, the **Closed** and **Date Locked** check boxes are selected for all periods in the year. You can't reopen a year or clear the check boxes.
+
+> [!NOTE]  
+> You must always have at least one open fiscal year. Before you close a year, ensure that a new year is created. Also, after you close a year, you can't change the starting date of the following year.
+
+1. Choose the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Accounting Periods**, and then choose the related link.  
+2. Choose the **Close Year** action.  
+
+## Posting entries to a closed fiscal year
+
+Although a fiscal year is closed, you can still post general ledger entries to it. When you do, the entries are marked as posted to a closed fiscal year and the **Prior Year Entry** check box is selected. By default, the check box isn't displayed on the page, but you can add it. The next steps are to close the income statement accounts and transfer the year's results to an account in the balance sheet. Repeat these steps each time you post entries to a closed fiscal year.
+
+## Contributors
+
+[!INCLUDE [contributor_credit](includes/contributor_credit.md)]
+
+- [Cari Corozza](https://www.linkedin.com/in/cari-corozza-cpa) | CPA and Microsoft Certified Trainer (MCT)
+
+
+## Related information
+
+[Closing the Books](year-close-books.md)    
+[Closing Years and Periods](year-close-years-periods.md)    
+[How to Work with Financial Reports](bi-how-work-account-schedule.md)    
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-add-fields-word-report-layout
 ---
 title: Work with Word Layouts
@@ -803,6 +1265,73 @@ If you set up your email to send messages in the background using the job queue,
 [Managing Report and Document Layouts](ui-manage-report-layouts.md)  
 [Set up Email](admin-how-setup-email.md)  
 [Invoice Sales](sales-how-invoice-sales.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-worksheet
+---
+title: Use the subcontracting worksheet
+description: Learn how to use the subcontracting worksheet to find production orders ready for subcontracting and create purchase orders.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: 99000886,
+ms.date: 05/16/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Use the subcontracting worksheet
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+The subcontracting worksheet lets you find production orders with material ready to send to a subcontractor and automatically create purchase orders for subcontract operations from production order routings. The worksheet functions like the planning worksheet — it calculates the needed supply (purchase orders), which you review and then create with the **Carry Out Action Message** action.
+
+> [!TIP]
+> You can also create subcontracting purchase orders directly from released production order routings without using the worksheet. Learn more in [Order subcontracting from production orders](subcontract-order.md).
+
+> [!NOTE]
+> Only production orders with a status of **Released** can be accessed and used from a subcontracting worksheet.
+
+## Calculate the subcontracting worksheet
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Subcontracting Worksheet**, and then choose the related link.
+2. To calculate the worksheet, choose the **Calculate Subcontracts** action.
+3. On the **Calculate Subcontracts** page, set filters for the subcontracted operations, or the work centers where they're performed, to calculate only the relevant production orders.
+4. Choose the **OK** button.
+
+    Review the lines on the **Subcontracting Worksheet** page. The information in this worksheet comes from the production order and production order routing lines and flows to the purchase order when that document is created. You can delete a row from the worksheet without affecting the original information, just as you can with the other worksheets. The information reappears the next time you run the **Calculate Subcontracts** function.
+
+## Create the subcontract purchase order
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Subcontracting Worksheet**, and then choose the related link.
+2. Choose the **Carry Out Action Message** action.
+3. Select the **Print Orders** field to print the purchase order as it's created.
+4. Choose the **OK** button.
+
+If all subcontracted operations are sent to the same vendor location, then only one purchase order is created.
+
+The worksheet line that was turned into a purchase order is deleted from the worksheet. After a purchase order is created, it doesn't appear in the worksheet again.
+
+## Post subcontracting purchase orders
+
+After subcontracting purchase orders are created, you can post them. To learn about posting and its effects on production order entries, see [Post subcontracting purchase orders](subcontract-order.md#post-subcontracting-purchase-orders).
+
+## Related information
+
+[Subcontracting overview](production-how-to-subcontract-manufacturing.md)  
+[Order subcontracting from production orders](subcontract-order.md)  
+[Set up subcontracting](subcontract-setup.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Planning](production-planning.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -1999,7 +2528,7 @@ When you're signed in to [!INCLUDE[prod_short](includes/prod_short.md)], you can
 3. Choose the **OK** button.
 
 > [!TIP]
-> A good way to go directly to your default company when you sign in, and avoid having to specify an environment, is to add the the URL to your list of favorites after you sign in.
+> A good way to go directly to your default company when you sign in, and avoid having to specify an environment, is to add the URL to your list of favorites after you sign in.
 
 ## Use company hub
 
@@ -4137,7 +4666,7 @@ The Sales Order Agent is evaluated using a comprehensive test suite with over 70
 - Emailing
 
   - The agent reads inbound emails via a shared inbox on Microsoft Exchange. Learn more in [Set up email](admin-how-setup-email.md). Other ways to receive email aren't supported.
-  - The agent processes the email body and any PDF or image files attached to emails to get the details of the request. PDF attachments must be 5 MB or smaller and contain a maximum of 10 pages.
+  - The agent processes the email body and any PDF or image files attached to emails to get the details of the request. PDF attachments must be 20 MB or smaller and contain a maximum of 10 pages.
   - Large emails might exceed the number of tokens that can be processed in one request. This condition leads the agent to trigger a request for a human to investigate (similar to how a human is requested to approve whether the agent approves an email).
   - Email messages generated by the agent might contain incorrect information. The agent is designed to ask a human to review and edit every outbound message if necessary.  
 
@@ -4180,7 +4709,7 @@ The Sales Order Agent is evaluated using a comprehensive test suite with over 70
 
   - Receive notifications on the role center that come from the agent when it requires help or when the process demands human review. For example, review is required for all inbound and outbound messages, approvals, adding missing data, and similar reasons.
   - Get a better understanding of the specific task context and history (“timeline” view), including key steps involved in it.
-  - Get a detailed review of each entity created by the agent (for example, a sales quote or sales order that surfaces all changes and suggestions made by the agent within a specific task. This behavior allows humans to review and adjust changes, and then sign out on proceeding with the task.
+  - Get a detailed review of each entity created by the agent (for example, a sales quote or sales order that surfaces all changes and suggestions made by the agent within a specific task. This behavior allows humans to review and adjust changes and then sign off on proceeding with the task.
   - Get an overview of the agent's key performance indicators (KPIs) that summarize the impact of the agent's work. For example, you can get an overview of the number of sales quotes or orders created by the agent and the total number of these orders.
 
     Make sure you attend to the notifications raised by the agent to review and approve its work.  
@@ -4414,7 +4943,7 @@ The agent capability is on if the ![Shows the Sales Order Agent icon](media/soa-
 
 ![Shows the Sales Order Agent icon on a role center](media/soa-in-role-center.svg "Shows the Sales Order Agent icon on a role center")
 
-If the icon isn't present, turn it on from the **Copilot & agent capabilities** page, like other Copilot features in Business Central. Sales Order Agent is listed under **Generall available**. Learn more in [Configure Copilot and AI agent capabilities](enable-ai.md).
+If the icon isn't present, turn it on from the **Copilot & agent capabilities** page, like other Copilot features in Business Central. Sales Order Agent is listed under **Generally available**. Learn more in [Configure Copilot and AI agent capabilities](enable-ai.md).
 
 Next, configure and activate the agent so it can process customer sales orders.
 
@@ -4495,6 +5024,22 @@ When Sales Order Agent is active, a scheduled task added to job queue runs every
 
 > [!NOTE]
 > The ![Shows the Sales Order Agent icon when the agent is configured but not active](media/soa-not-activated-icon.png) icon indicates the agent is configured with the mailbox, but it's not active. To activate, select the icon, then select ![Shows the configuration icon for Sales Order Agent](media/soa-configure-icon.png) **Configure Sales Order Agent** to reopen the configuration page. From there, turn on the **Active** toggle.
+
+## Manage agent when Copilot Credits run out
+
+Sales Order Agent requires Copilot Credits to process incoming emails. When your organization's Copilot Credit quota is depleted, the agent stops retrieving and processing new emails from the monitored mailbox. However, the agent remains active — it continues to run its scheduled task and sends any pending reply emails that were already prepared.
+
+When credits become available again (for example, at the start of a new billing period or when you purchase more capacity), the agent automatically resumes processing. It picks up all unread emails that accumulated in the mailbox while credits were unavailable. Depending on the volume of unread emails, this can consume a significant portion of your renewed credits quickly.
+
+### Best practices for managing credits
+
+- **Deactivate the agent if you don't want automatic resumption.** If you're experimenting with the agent or running on limited free credits, deactivate the agent before credits run out to prevent it from automatically processing a backlog of emails when credits renew. To deactivate, select ![Sales Order Agent icon](media/soa-activated-icon.png) **Sales Order Agent** > ![Configuration icon](media/soa-configure-icon.png) **Configure Sales Order Agent**, and then turn off the **Active** toggle.
+- **Use the daily email limit to control consumption.** Set the **Daily email limit** on the **Manage mailbox** configuration card to cap how many emails the agent processes per day. This setting helps prevent the agent from consuming all credits in a short time, especially after a period of inactivity.
+- **Monitor your credit usage.** Check Copilot Credit capacity and usage in the Power Platform admin center to stay ahead of quota limits. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
+- **Manage unread emails before reactivating.** Before reactivating the agent, consider clearing or archiving old emails from the monitored mailbox that no longer need a response. This prevents the agent from processing stale requests.
+
+> [!NOTE]
+> When you reactivate the agent after deactivating it, the agent processes unread emails from the mailbox starting from when it was deactivated. If you don't want the agent to process older emails, clear them from the monitored folder before reactivating.
 
 ## Manage agent permissions and user access
 
@@ -5419,7 +5964,7 @@ For each company you set up in [!INCLUDE [prod_short](includes/prod_short.md)], 
 
 Numbering isn't only important for identification. A well-designed numbering system also makes the company more manageable and easier to analyze, and can reduce data entry errors.
 
-By letting you use natural language or structured input, Copilot can reduce the time it takes to set up number series and make it easier to maintain them. For example, when you need to update year or month-based numbering for many draft and posted documents in [!INCLUDE [prod_short](includes/prod_short.md)].
+By letting you use natural language or structured input, Copilot can reduce the time it takes to set up number series and make it easier to maintain them. For example, when you need to update year or month-based numbering for many drafts and posted documents in [!INCLUDE [prod_short](includes/prod_short.md)].
 
 ## Review the suggestions and refine your prompt
 
@@ -6961,48 +7506,50 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 9291, 9293, 9295, 99000750, 99000751, 99000752, 99000753, 99000759, 99000769, 99000770, 99000771, 99000772, 99000920
-ms.date: 06/22/2021
+ms.date: 05/20/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Set Up Shop Calendars
+# Set up shop calendars
 
-A work center or machine calendar specifies the working days and hours, shifts, holidays, and absences that determine the center’s gross available capacity, measured in time, according to its defined efficiency and capacity values.
+A work center or machine calendar specifies the working days and hours, shifts, holidays, and absences that determine the center’s gross available capacity according to its defined efficiency and capacity values. Capacity is measured in time.
 
 As a foundation for calculating a specific work or machine center calendar, you must first set up one or more general shop calendars. A shop calendar defines a standard work week according to start and end times of each working day and the work shift relation. In addition, the shop calendar defines the fixed holidays during a year.  
 
-The following describes how to set up work center calendars. The steps are similar when setting up machine center calendars.  
+The following sections describe how to set up work center calendars. The steps are similar when setting up machine center calendars.  
 
 ## To create work shifts  
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Work Shifts**, and then choose the related link.  
-2.  On a blank line, enter a number in the **Code** field to identify the work shift, for example, **1**.  
-3.  Describe the work shift in the **Description** field, for example, **1st shift**.  
-4.  Optionally, fill in lines for a second or third work shift.  
 
-Even if your work centers do not work in different work shifts, enter at least one work shift code.  
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Work Shifts**, and then choose the related link.  
+2. On a blank line, enter a number in the **Code** field to identify the work shift, for example, **1**.  
+3. Describe the work shift in the **Description** field, for example, **1st shift**.  
+4. Optionally, fill in lines for a second or third work shift.  
+
+Even if your work centers don't work in different work shifts, enter at least one work shift code.  
 
 ## To set up a shop calendar  
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Shop Calendars**, and then choose the related link.  
-2.  On a blank line, enter a number in the **Code** field to identify the shop calendar.  
-3.  Describe the shop calendar in the **Description** field.  
-4.  Choose the **Working Days** action.
-5.  On the **Shop Calendar Working Days** page, define a complete work week, with the start and end times for each day.  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Shop Calendars**, and then choose the related link.  
+2. On a blank line, enter a number in the **Code** field to identify the shop calendar.  
+3. Describe the shop calendar in the **Description** field.  
+4. Choose the **Working Days** action.
+5. On the **Shop Calendar Working Days** page, define a complete work week, with the start and end times for each day.  
 
     In the **Work Shift Code** field, select one of the shifts that you previously defined. Add a line for every working day and every shift. For example:  
 
     Monday  07:00 15:00 1   
     Tuesday 07:00 15:00 1  
 
-    If you need a shop calendar with two work shifts, you must fill it in in this manner:  
+    If you need a shop calendar with two work shifts, you must fill it in as follows:  
 
     Monday 07:00 15:00 1   
     Monday 15:00 23:00 2  
     Tuesday 07:00 15:00 1  
     Tuesday 15:00 23:00 2  
 
-    Any week days that you do not define in the shop calendar, such as Saturday and Sunday, are considered non-working days and will have zero available capacity in a work center calendar.  
+    Any weekdays that you don't define in the shop calendar, such as Saturday and Sunday, are considered nonworking days and have zero available capacity in a work center calendar.  
 
     When all the working days of a week are defined, you can close the **Shop Calendar Working Days** page and proceed to enter holidays.  
 
@@ -7013,9 +7560,9 @@ Even if your work centers do not work in different work shifts, enter at least o
     05/07/14 0:00:00 23:59:00 Summer Holiday  
     06/07/14 0:00:00 23:59:00 Summer Holiday  
 
-The defined holidays will have zero available capacity in a work center calendar.  
+The defined holidays have zero available capacity in a work center calendar.  
 
-The shop calendar can now be assigned to a work center to calculate the work shop calendar that will govern all operation scheduling at that work center.  
+The shop calendar can now be assigned to a work center to calculate the work shop calendar that governs all operation scheduling at that work center.  
 
 ## To calculate a work center calendar  
 
@@ -7033,7 +7580,7 @@ The shop calendar can now be assigned to a work center to calculate the work sho
     To reflect the new shop calendar as a line on the selected work center, it must first be calculated.  
 
 6.  Choose the **Calculate** action.  
-7.  On the **Work Center** FastTab, you can set a filter to only calculate for one work center. If you do not set a filter, all existing work center calendars will be calculated.  
+7.  On the **Work Center** FastTab, you can set a filter to only calculate for one work center. If you don't set a filter, all existing work center calendars are calculated.  
 8.  Define the starting and ending dates of the calendar period that should be calculated, for example, one year from 01/01/14 to 31/12/14.
 9. Choose the **OK** button to calculate capacity.  
 
@@ -7043,7 +7590,7 @@ Calendar entries are now created or updated displaying the available capacity fo
 - The value in the **Capacity** field on the work center card.  
 - The value in the **Efficiency** field on the work center card.  
 
-The calculated work center calendar will now define when and how much capacity is available at this work center. This controls the detailed scheduling of operations performed at the work center.  
+The calculated work center calendar now defines when and how much capacity is available at this work center. This calendar controls the detailed scheduling of operations performed at the work center.  
 
 ## To record work center absence  
 1.  On the **Work Center Calendar** page, choose the **Show Matrix** action.
@@ -7054,7 +7601,7 @@ The calculated work center calendar will now define when and how much capacity i
 
 4.  Choose the **Update** action, and then close the **Absence** page.  
 
-The capacity of the selected day has now decreased by the recorded absence time.  
+The capacity of the selected day is decreased by the recorded absence time.  
 
 ## Related information  
 [Set Up Base Calendars](across-how-to-assign-base-calendars.md)  
@@ -8980,7 +9527,7 @@ You can delete a profile by choosing the **Delete** action on the **Profiles (Ro
 
 ### Delete all personalizations made by a specific user
 
-You can delete all changes that a user makes to any pages, which reverts the pages to the the original layout. Personalizations aren't associated with a profile (role). If a user personalizes a page, they experience the personalizations on the page no matter which role they're using.
+You can delete all changes that a user makes to any pages, which reverts the pages to the original layout. Personalizations aren't associated with a profile (role). If a user personalizes a page, they experience the personalizations on the page no matter which role they're using.
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **User Settings**, and then select the related link.
 
@@ -9937,6 +10484,118 @@ Avoid these common KPI mistakes:
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-order
+---
+title: Order subcontracting from production orders
+description: Learn how to create subcontracting purchase orders directly from released production orders and print subcontracting dispatch lists.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, production order, purchase order, dispatch list
+ms.search.form: 99000886
+ms.date: 01/15/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Order subcontracting from production orders
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+You can create subcontracting purchase orders directly from released production orders. This article describes how to order subcontracting operations and print dispatch lists to send with unfinished products.
+
+## Create a subcontracting purchase order from a production order
+
+The following steps describe how to create a subcontracting purchase order from a released production order.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Released Production Orders**, and then choose the related link.
+2. Open the production order.
+3. On the production order lines, select the line for which you want to order subcontracting.
+4. Choose the **Routing** action to view the operations.
+5. Select the routing line that contains the subcontracting operation you want to order.
+6. Choose the **Order Subcontracting** action.
+7. On the confirmation page, choose **Yes**.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] creates a purchase order with the information from your setup. The subcontractor prices are also transferred. You can send or print the purchase document to your vendor.
+
+## Use the Subcontracting Details FactBox
+
+On the purchase order, the **Subcontracting Details** FactBox shows related production orders, transfer orders, routing operations, components, and subcontractor prices for the selected purchase line. Choose a value to open the related document or list.
+
+## View subcontracting purchase orders
+
+You can view the purchase order lines for a subcontracting operation directly from the routing.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Released Production Orders**, and then choose the related link.
+2. Open the production order.
+3. On the production order lines, select the line.
+4. Choose the **Routing** action to view the operations.
+5. Select the routing line that contains the subcontracting operation.
+6. Choose **Subcontracting Order Lines** action.
+7. To view the purchase order, choose the **Show Document** action.
+
+## Print a subcontracting dispatch list
+
+In addition to the purchase order and production order, you can print a subcontracting dispatch list to send with the unfinished product.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, and then choose the related link.
+2. Open the purchase order for subcontracting.
+3. Choose the **Print Subcontracting Dispatch List** action.
+4. On the request page, specify your selection and output options.
+5. Choose **Print** or **Preview** to print or send the report.
+
+## Post subcontracting purchase orders
+
+After subcontracting purchase orders are created, they can be posted. Receiving the order posts a capacity ledger entry to the production order, and invoicing the order posts the direct cost of the purchase order to the production order.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, and then select the related link.
+2. Open a purchase order that was created from a production order routing or from the subcontracting worksheet.
+
+    On the purchase order lines, the **Prod. Order No.**, **Prod. Order Line No.**, **Operation No.**, and **Work Center No.** fields are filled in with information from the source production order.
+
+3. Choose the **Post** action.
+
+When the purchase is posted as received, an output journal entry is automatically posted for the production order if the subcontract operation is the last operation on the production order routing.
+
+> [!CAUTION]
+> Posting output automatically for an ongoing production order when subcontracted items are received might not be desired. The expected output quantity that is posted might differ from the actual quantity, and the posting date of the automatic output can be misleading.
+>
+> To avoid that the expected output of a production order is posted when subcontract purchases are received, make sure the subcontracted operation isn't the last one. Alternatively, insert a new last operation for the final output quantity.
+
+When the purchase order is posted as invoiced, the direct cost of the purchase order is posted to the production.
+
+> [!NOTE]
+> Expected costs are only managed for item transactions, not for immaterial transaction types such as capacity posted via subcontract purchase orders. Posting a receipt might trigger posting of output, but these transactions are separate, and the expected cost of output is calculated independently.
+
+## Undo subcontracting receipts
+
+You can undo subcontracting receipts before you post them as invoiced. To undo a subcontracting receipt, follow these steps:
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Posted Purchase Receipts**, and then choose the related link.
+2. Open the posted purchase receipt that contains the subcontracting line.
+3. Select the line, and then choose the **Undo Receipt** action.
+
+This action creates an identical line with the opposite sign in the **Quantity** field, along with the capacity ledger entry. If the canceled receipt line links to the last routing operation, the undo action also creates an item ledger entry of the type **Output**.
+
+> [!NOTE]
+> You can't undo a receipt if it's invoiced or if the production order is finished.
+
+> [!IMPORTANT]
+> If posting the subcontracting receipt consumed components because of the flushing method, the undo action doesn't revert the consumption transactions. To reverse these transactions, use an output journal or the **Reverse Production Order Transaction** action. Learn more in [Cancel production orders that have consumption](production-cancel-production-orders-that-have-consumption.md).
+
+## Related information
+
+[Subcontracting overview](production-how-to-subcontract-manufacturing.md)  
+[Use the subcontracting worksheet](subcontract-worksheet.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-manage
 ---
@@ -20909,40 +21568,43 @@ ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: postpone
 ms.search.form: Report_3, 20, 116_Primary
-ms.date: 02/12/2025
+ms.date: 05/20/2026
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Analyze general ledger (G/L) transactions
 
-When a transaction is posted to the general ledger, the following data is stored in the [!INCLUDE[prod_short](includes/prod_short.md)] database: a single row in the G/L register table and one or more rows in the G/L Entry table.
+When you post a transaction to the general ledger, the following data is stored in the [!INCLUDE[prod_short](includes/prod_short.md)] database: 
+
+- A single row in the G/L register table
+- One or more rows in the G/L Entry table
 
 ## Analyzing the G/L register
 
-You can use the G/L Registers page for financial reporting and transaction tracking. The page gives you an overview of all transactions to the general ledger with the ability to navigate to related entries in subledgers, such as VAT entries or Customer Ledger Entries. You can also see which type of transaction that occured, the user who did the transaction and when it was recorded in the database.
+You can use the G/L Registers page for financial reporting and transaction tracking. The page gives you an overview of all transactions to the general ledger with the ability to go to related entries in subledgers, such as VAT entries or customer ledger entries. You can also review the type of transaction, the user who made the transaction, and when it was recorded in the database.
 
-The G/L Registers page is particularly useful during audits, as it provides auditors with easy access to related detailed transaction information. It helps identify any discrepancies, errors, or unusual entries that may require further investigation. 
+The G/L Registers page is useful during audits. The page provides auditors with easy access to related detailed transaction information. It helps identify any discrepancies, errors, or unusual entries that might require further investigation. 
 
 ## Example: use analysis mode to get an overview of G/L transaction types and volume
 
 [!INCLUDE [gl-register-analysis-example](includes/gl-register-analysis-example.md)]
 
-
 ## Analyzing general ledger (G/L) entries
 
 Depending on your need for details or aggregation when analyzing general ledger (G/L) entries, you have several options:
 
-- use the G/L entries page in analysis mode. To learn more, go to [Ad-hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-- use the Chart of Accounts page to get a summary across all your G/L accounts. To learn more, go to [Analyze finance data from the Chart of Accounts](finance-general-ledger.md).
-- run or define a financial report. To learn more, go to [Primary capabilities of financial reporting](finance-financial-reporting-capabilities.md).
+- Use the G/L entries page in analysis mode. To learn more, go to [Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+- Use the Chart of Accounts page for a summary across all your G/L accounts. To learn more, go to [Analyze finance data from the Chart of Accounts](finance-general-ledger.md).
+- Run or define a financial report. To learn more, go to [Primary capabilities of financial reporting](finance-financial-reporting-capabilities.md).
 
 ## Related information
 
 [Understand the general ledger](finance-general-ledger.md)  
 [Understand the chart of accounts](finance-chart-of-accounts.md)  
-[Ad-hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Financial analytics overview](bi.md)   
-[Finance overview](finance.md)   
+[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+[Financial analytics overview](bi.md)  
+[Finance overview](finance.md)  
 
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
@@ -21262,868 +21924,4 @@ You can view entries that are posted with withholding tax for a specified genera
 [Financial management](finance.md)  
 
 [!INCLUDE [footer-banner](includes/footer-banner.md)]end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-view-archived-workflow-step-instances
----
-title: How to view archived workflow step instances
-description: Completed workflow step instances are stored on the Archived Workflow Step Instances page. Each step includes a workflow event and a workflow response.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: archived workflow, step instances, workflow steps
-ms.search.form: 1530
-ms.date: 10/16/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# View archived workflow step instances
-
-All completed workflow step instances are saved on the **Archived Workflow Step Instances** page.  
-
-On the **Workflow** page, you create a workflow by listing the involved steps on the lines. Each step consists of a workflow event, moderated by event conditions, and a workflow response, moderated by response options. You define workflow steps by filling in fields on workflow lines using fixed lists of event and response values representing scenarios supported by the application code. Learn more at [Create Approval Workflows](across-how-to-create-workflows.md).  
-
-> [!NOTE]
-> To view the history and status of workflows using Power Automate integration, choose the **My flows** action on the **Power Automate** page, then choose a flow to view its run history and status.
-
-## To view archived workflow step instances
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, then choose the related link.  
-2. Open the workflow for which you want to view all archived workflow step instances.  
-3. On the **Workflow** page, choose the **Archived Workflow Step Instances** action.  
-
-   The **Archived Workflow Step Instances** page opens showing the archived workflow step instances of the selected workflow.  
-4. Alternatively, [!INCLUDE[open-search](includes/open-search.md)], enter **Archived Workflow Step Instances**, and then choose the related link.  
-
-   The **Archived Workflow Step Instances** page opens showing all archived workflow step instances. In the **Workflow Code** field, you can see which workflow the archived workflow step instance belonged to.  
-
-## Related information
-
-[Delete Approval Workflows](across-how-to-delete-workflows.md)  
-[Create Approval Workflows](across-how-to-create-workflows.md)  
-[Enable Approval Workflows](across-how-to-enable-workflows.md)  
-[Use Approval Workflows](across-use-workflows.md)  
-[Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
-[Set Up Approval Workflows](across-set-up-workflows.md)  
-[Workflow](across-workflow.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-valuation-powerbi-inventory-valuation-by-location
----
-title: Inventory Valuation by Location (Power BI report)
-description: The Inventory Valuation by Location report shows the item values on a location by location basis. 
-author: kennienp
-ms.author: kepontop
-ms.reviewer: 
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 37058_Primary
-ms.date: 10/30/2024
-ms.service: dynamics-365-business-central
----
-
-# Inventory Valuation by Location (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Inventory Valuation by Location** report shows item values on a location by location basis for an organization. Use this report to identify high-value locations.
-
-The report focuses on the value of each location, and shows the following information for a period you specify:
-
-- Beginning balance value
-- Increases and decreases
-- End balance value
-
-:::image type="content" source="media/inventory-valuation/inventory-valuation-by-location.png" alt-text="Screenshot of the Inventory Valuation by Location Power BI Report" lightbox="media/inventory-valuation/inventory-valuation-by-Location.png":::
-
-## Use the report
-
-The report is designed to help executives and managers to identify high-value locations.
-
-Executives use this report to get an overall understanding of your organizations inventory and its value. This information can help you make informed strategic decisions for managing inventory, supplier relationships, and forecasts.
-
-Managers use the report to monitor the value of on-hand inventory. This information can keep you informed about increases and decreases in the value of your stock over time.
-
-## Key Performance Indicators (KPIs)
-
-The *Inventory Valuation by Location* report includes the following KPIs:
-
-- [**Beginning Balance Value**](inventory-valuation-powerbi-kpis.md#beginning-balance-value)
-- [**Increases Value**](inventory-valuation-powerbi-kpis.md#increases-qty)
-- [**Decrease Qty.**](inventory-valuation-powerbi-kpis.md#decrease-qty)
-- [**Ending Balance Value**](inventory-valuation-powerbi-kpis.md#ending-balance-value)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the Inventory Valuation by Location report
-
-The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
-
-- Location
-- Value Entries
-
-## Try the report
-
-Try the report here: [Inventory Valuation by Location](https://businesscentral.dynamics.com?page=37058)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md)  
-[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
-[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
-[Inventory analytics overview](inventory-analytics-overview.md)  
-[Inventory overview](inventory-manage-inventory.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-plan-service
----
-title: Planning service processes
-description: Learn how to configure rules and values to establish your organization's service policies and processes.
-author: brentholtorf
-ms.topic: concept-article
-ms.devlang: al
-ms.search.keywords: service, work hours, configure, price, pricing
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Plan services
-
-With [!INCLUDE[prod_short](includes/prod_short.md)], you can set up the standard tasks that you need to fulfill your customer service requirements. To do this, you must determine what service items and offerings your service organization supports, and at what price.
-
-[!INCLUDE[prod_short](includes/prod_short.md)] also provides some statistics tools that you can use to determine how well things are going, and identify areas where you can improve.
-  
-The following table describes a sequence of tasks, with links to the articles that describe them.   
-  
-| **To** | **See** |
-|--|--|
-| Establish pricing for the services you provide. | [Managing Service Pricing](service-service-price-management.md) |
-| Set up and customize service items and service groups. This includes establishing which skills a service requires and troubleshooting guidance. | [Create Service Items](service-how-to-create-service-items.md) |
-| Know how to manage the status of repairs on service orders, and how to identify their priority. | [Understanding Service Order and Repair Status](service-service-order-status-and-repair-status.md) |
-| Understand the relationship between the status of a repair, and the effect they have on allocated resources, and vice versa. | [Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md) |
-| Use statistics to analyze your service processes. | [Viewing Service Statistics](service-service-statistics.md) |
-
-## Related information
-
-[Fulfill Service Contracts](service-fulfill-service-contracts.md)  
-[Deliver Service](service-deliver-service.md)  
-[Set Up Pricing and Additional Costs for Services](service-how-setup-service-costs-pricing.md)  
-[Set Up Service Items and Service Item Components](service-how-setup-service-items.md)  
-[Set Up Statuses for Service Orders and Repairs](service-order-repair-status.md)  
-[Set Up Service Management](service-setup-service.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-work-recurring-purchase-lines
----
-title: Standard recurring purchase lines
-description: Set up frequently used purchase lines to insert them on purchase documents and quickly fill the lines with standard information.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: trade, purchase, replenishment, vendor order
-ms.search.form: 177
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Create recurring purchase lines
-
-If you often need to create purchase lines with similar information, you can set up standard lines that you can then insert on recurring purchase documents, for example, for recurring replenishment orders.
-
-## Set up recurring purchase lines
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring Purchase Lines**, and then choose the related link.
-2. On the **Recurring Purchase Lines** page, choose the **New** action.
-3. On the **General** FastTab, fill the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-4. On the **Lines** FastTab, enter the information in the fields that reflect the standard lines you expect to use as recurring lines on purchase documents.
-
-> [!NOTE]
-> You can't define prices on recurring purchase lines because prices, discounts, etc. are calculated on the actual purchase documents after you insert the recurring purchase lines.
-
-[!INCLUDE [line-no-info](includes/line-no-info.md)]
-
-## Assign recurring purchase lines to a vendor
-
-Assign one or more recurring purchase lines to a vendor so that they're available to insert on purchase documents from that vendor.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then choose the related link.
-2. Open the card for a relevant vendor.
-3. Choose the **Recurring Purchase Lines** action.
-4. On the **Recurring Purchase Lines** page, select codes for the recurring purchase lines that you want to be able to insert on purchase documents for the vendor.
-5. Fill in the other fields to define when, how, and where the recurring purchase lines are to be used.
-6. In the four fields where you select how the lines are inserted on each document type, select one of the following options:
-
-|Option|Description|
-|------|-----------|
-|**Manual**|You must manually look up and insert a recurring purchase line that exists for the vendor.|
-|**Automatic**|If multiple recurring purchase lines exist for the vendor, you get a notification from where you can pick which one to insert. If only one recurring purchase line exists, it's inserted automatically.<br /><br />This only works if the new document was created from a document list, for example by choosing the **New** action on the **Purchase Orders** page. It doesn't work if the document was created from a vendor card, for example.|
-|**Always Ask**|A notification appears and all existing recurring purchase lines are shown so that you can select one.
-
-## Insert recurring purchase lines on a purchase invoice
-
-If recurring purchase lines exist for the vendor, you can insert them, or have them automatically added, on all types of purchase documents, such as a purchase invoice. If you have activated the **Always Ask** options while assigning recurring purchase lines to vendors, you're informed if recurring purchase lines exist.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.
-2. Open the purchase invoice that you want to insert one or more standard purchase lines on.
-3. Choose the **Get Recurring Purchase Lines** action.
-4. On the **Recurring Purchase Lines** page, choose the lookup button in the **Code** field, and then select a set of standard purchase lines.
-5. Choose the **OK** button to insert the standard purchase lines on the invoice where you can reuse them as is or edit the information.
-
-## Related information
-
-[Purchasing](purchasing-manage-purchasing.md)  
-[Set Up Purchasing](purchasing-setup-purchasing.md)  
-[Create Recurring Sales](sales-how-work-standard-lines.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-multi-tenant-smtp
----
-title: Use SMTP for email in a multitenant environment
-author: brentholtorf
-description: Learn how to resolve SMTP email challenges in multitenant environments. Follow this guide to configure OAuth 2.0 authentication in Microsoft 365.
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: get-started
-ms.search.keywords: SMTP, mail, Microsoft 365
-ms.date: 03/19/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-
-# Use SMTP for email in a multitenant environment
-
-> [!NOTE]
-> This feature is available in 2025 release wave 2 (version 27.2) and later.
-
-This article explains how to configure your Microsoft 365 tenant so that [!INCLUDE [prod_short](includes/prod_short.md)] can send emails through the SMTP Connector using OAuth 2.0 (client credentials flow).
-
-This article also covers how to enable cross-tenant scenarios. For example, where you have an app registration in Azure portal in one Microsoft Entra tenant but you use it to send emails from another tenant.
-
-## Tenant roles used in the example in this article
-
-The examples in this article involve two Microsoft Entra tenants, as described in the following table.
-
-|Tenant name in this article  |Description |
-|---------|---------|
-|Tenant A (App / Mailbox tenant) | The tenant where the app registration is created and where the Exchange Online mailbox used for sending emails exists. |
-|Tenant B (Business Central tenant)   | The tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and where SMTP is configured. |
-
-> [!NOTE]
-> Here are a couple of key rules to remember:
->
-> * Business Central configuration is set in Tenant B.
-> * Mailbox permissions and Exchange Online configuration are set in Tenant A.
-
-> [!IMPORTANT]
-> Exchange Online is deprecating Basic authentication for SMTP. This change doesn't affect tenants that currently use SMTP AUTH. However, we recommend that you use the latest version, and set up OAuth 2.0 authentication for SMTP. If you can't set up OAuth 2.0 authentication, we encourage you to explore non-Microsoft alternatives if you want to use SMTP email in earlier versions.
->
-> [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support certificate-based authentication.
-
-## Overview of the process and the tenant used in each step
-
-The following list gives an overview of the steps to use OAuth 2.0 with the SMTP connector, and links to descriptions of each step. This is a long article, so it can serve as a mini table of contents.
-
-|Step  |Action  |Tenant  |
-|------|---------|---------|
-|1     | [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal)  | Tenant A (App / Mailbox tenant)        |
-|2     | [Grant API permissions](#grant-api-permissions)|  Tenant A (App / Mailbox tenant)       |
-|3     | [Create a client secret or certificate](#create-a-client-secret-or-certificate)     |Tenant A (App / Mailbox tenant)|
-|4     | [Register the service principal in Exchange Online](#register-the-service-principal-in-exchange-online)  | Tenant A (App / Mailbox tenant)        |
-|5     | [Grant the app permission to send as your mailbox](#grant-the-app-permission-to-send-as-your-mailbox)| Tenant A (App / Mailbox tenant)        |
-|6     | [Verify your SMTP OAuth configuration](#verify-your-smtp-oauth-configuration) | Tenant A (App / Mailbox tenant)        |
-|7     | [Set up the SMTP connector in Business Central](#set-up-the-smtp-connector-in-business-central) | Tenant B (Business Central tenant)        |
-
-> Some of the steps require that you run one or more commands in PowerShell. Be sure to run the commands as an administrator.
-
-## Prerequisites
-
-Before you start, ensure that you have:
-
-- A Microsoft 365 tenant with Exchange Online.  
-- Global Administrator or Exchange Administrator permissions.  
-- A mailbox, for example, service@yourdomain.com, that you use as the "From" address in Tenant A(App / Mailbox tenant).  
-- A [!INCLUDE [prod_short](includes/prod_short.md)] online or on-premises environment in Tenant B(Business Central tenant).
-
-## Create an application registration in Azure portal
-
-The first step is to create an app registration for the app you have in "Tenant A" (App / Mailbox tenant) in Microsoft Entra ID. The app registration lets [!INCLUDE [prod_short](includes/prod_short.md)] send email from a mailbox that's in another Microsoft Entra tenant.
-
-> [!NOTE]
-> Be sure to sign in with the Global Administrator account for Tenant A.
-
-1. Go to [Azure portal](https://portal.azure.com).
-1. Under **Azure services**, choose **Microsoft Entra ID**.
-1. In the navigation pane, choose **App registrations**.
-1. On the **App registrations** page, choose **New registration**.
-1. On the **Register an application** page, fill in the fields as follows:
-
-    1. In the **Name** field, enter a name for your app. For example, **SMTP_OAuth_App**.
-    1. Under **Supported account types**, choose **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. This setting is required for cross-tenant consent.
-    1. Under **Redirect URI (optional)**, for the platform, choose **Web**, and then enter the URI:
-       1. Business Central online (SaaS): https://businesscentral.dynamics.com/oauthlanding.htm
-       2. Business Central on-premises: Specify a redirect URI appropriate for your on-premises deployment.
-
-1. Choose **Register**.
-
-> [!NOTE]
-> After you register the app in Microsoft Entra ID, make a note of the following information. You need it to complete a later step.
->
-> |Field  |Example  |Description  |
-> |---------|---------|---------|
-> |Application (client) ID | 00001111-aaaa-2222-bbbb-3333cccc4444 |  App ID       |
-> |Directory (tenant) ID   | aaaabbbb-0000-cccc-1111-dddd2222eeee | Tenant ID     |
-> |Object ID   | aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb       | Service Principal ID|
-
-## Grant API permissions
-
-The next step is to give the app permission to send email. In this example, this is Tenant A (the app / mailbox tenant).
-
-> [!NOTE]
-> Be sure to sign in with the Global Administrator account for Tenant A.
-
-1. In Azure portal, on the app page, choose **API permissions**, and then choose **Add a permission**.
-1. Choose **APIS my organization uses**.
-1. Search for **Office 365 Exchange Online**.
-1. Choose **Application permissions**.
-1. Expand **SMTP**, and then choose **SMTP.SendAsApp**.
-1. Choose **Add permissions**.
-1. Double-check that **SMTP.SendAsApp** has a green checkmark.
-
-## Create a client secret or certificate
-
-> * Tenant: Tenant A (App / Mailbox tenant)
-> * Sign in with: Tenant A Global Administrator
-
-1. In Azure portal, on the app page, choose **Certificates & secrets**.
-1. In the **Client secret** field, choose **New client secret**, give it a name and define an expiry period.
-
-   > [!IMPORTANT]
-   > Make a note of the **Client Secret Value**. The value displays only one time, and you need it to generate tokens.
-
-## Register the service principal in Exchange Online
-
-To learn more about the service principal, go to [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
-
-> [!NOTE]
-> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A. 
-
-1. Open your browser, use the following link to consent. Replace the `TenantA_ID` and `Client_ID from Tenant A` (App ID) with the values for your "Tenant A."
-
-   `https://login.microsoftonline.com/<TenantA_ID>/oauth2/v2.0/authorize?client_id=<Client_ID from Tenant A>&scope=https://graph.microsoft.com/.default&response_type=code&response_mode=query&prompt=consent`
-
-2. In Microsoft Entra admin center of **Tenant A**, go to **Enterprise apps**, find your app, and then copy the value in the **Object ID** field. The object ID is used as the service ID in the command in the next step in this process.
-3. To create a new service principal in your tenant, in PowerShell, run the following command as an administrator.
-
-   ```powershell
-
-   Install-Module ExchangeOnlineManagement -Scope CurrentUser
-
-   Import-Module ExchangeOnlineManagement
-   # Login with Tenant A admin
-   Connect-ExchangeOnline -UserPrincipalName admin@yourtenantA.onmicrosoft.com
-
-   $AppId     = <your app ID> # The App ID of the enterprise app in Tenant A's Microsoft Entra admin center.
-   $ServiceId = <your service ID> # The object ID of the enterprise app in Tenant A's Microsoft Entra admin center.
-   $Display   = "SMTP_OAuth_App" # The name of the service principal you want to create.
-
-   New-ServicePrincipal -AppId $AppId -ServiceId $ServiceId -DisplayName $Display
-
-   ```
-
-> [!NOTE]
-> If a service principal already exists, the command might show an error, but you can safely ignore it.
-
-## Grant the app permission to send as your mailbox
-
-Sometimes Azure portal hides the SMTP option, so you must use PowerShell to grant permission to send as your mailbox. Do this in Tenant A (App / Mailbox tenant).
-
-> [!NOTE]
-> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
-
-1. Retrieve the service principal Object ID from the Microsoft Entra admin center (Enterprise applications), and use that Object ID in the following commands. Then go to PowerShell, run the following command:
-
-   ```powershell
-       # Replace this with the mailbox you use as the from_addr / user= in XOAUTH2.
-      $Mailbox = "someuser@xxx.onmicrosoft.com"
-      $ObjectID = "{Your object ID}"
-
-      Add-MailboxPermission -Identity $Mailbox `
-          -User $ObjectId `
-          -AccessRights FullAccess `
-          -AutoMapping:$false
-
-      Add-RecipientPermission -Identity $Mailbox `
-          -Trustee $ObjectId `
-          -AccessRights SendAs `
-          -Confirm:$false 
-                
-
-       # If you have multiple users, create a group for them and then assign them.
-      Get-DistributionGroupMember "Your group name" |
-        ForEach-Object {
-            Add-MailboxPermission -$_.PrimarySmtpAddress `
-                -User $ObjectId `
-                -AccessRights FullAccess `
-                -AutoMapping:$false
-
-            Add-RecipientPermission -Identity $Mailbox `
-                -Trustee $ObjectId `
-                -AccessRights SendAs `
-                -Confirm:$false             
-        }
-
-      ```
-
-1. To verify the permissions, run the following command:
-
-   ```powershell
-   Get-MailboxPermission  -Identity $Mailbox | ? {$_.User -eq $Display}
-   ```
-
-   You should have **FullAccess**, or **SendAs**.
-
-## Verify your SMTP OAuth configuration
-
-Do this step in Tenant A (App / Mailbox tenant).
-
-> [!NOTE]
-> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
-
-1. In PowerShell, connect to Exchange Online in Tenant A and verify that SMTP AUTH and OAuth2 are enabled:
-
-   ```powershell
-   
-   Import-Module ExchangeOnlineManagement
-   Connect-ExchangeOnline -UserPrincipalName admin@yourtenantA.onmicrosoft.com
-
-   # Organization-level settings (recommended starting point)
-   Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
-   Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
-
-   # If SMTP AUTH is disabled at the organization level, enable it (false means enabled):
-   Set-TransportConfig -SmtpClientAuthenticationDisabled $false
-
-   # If OAuth2 client profiles are not enabled, enable them (true means enabled):
-   Set-OrganizationConfig -OAuth2ClientProfileEnabled $true
-
-
-   ```
-
-1. If you need to enable SMTP AUTH for a specific mailbox (mailbox-level override), verify and update the mailbox setting:
-
-   ```powershell
-
-   Get-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com | Format-List SmtpClientAuthenticationDisabled
-
-   # If SMTP AUTH is disabled for the mailbox, enable it:
-
-   Set-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com -SmtpClientAuthenticationDisabled $false
-
-   ```
-
-1. Verify the expected values:
-
-   ```powershell
-
-    Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
-    Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
-
-   ```
-
-   The following are the expected output:
-
-   - `SmtpClientAuthenticationDisabled` is `False`.
-   - `OAuth2ClientProfileEnabled` is `True`.
-
-## Set up the SMTP connector in Business Central
-
-Do this step in Tenant B (Business Central tenant).
-
-To learn more about the SMTP connector, go to [Set up email](admin-how-setup-email.md).
-
-1. In [!INCLUDE [prod_short](includes/prod_short.md)], [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **Assisted Setup**, and then choose the related link.
-1. Choose **Set up SMTP Account**.
-1. Fill in the fields as described in the following table.
-
-   |Field  |Example value  |Notes  |
-   |---------|---------|---------|
-   |Server     | smtp.office365.com        |         |
-   |Server Port     |  587       |         |
-   |Authentication Type     | OAuth 2.0        |         |
-   |Client ID | 00001111-aaaa-2222-bbbb-3333cccc4444 | The application ID from Tenant A. |
-   |Client Secret     |         | The secret generated in the app from Tenant A.        |
-   |Tenant ID     | aaaabbbb-0000-cccc-1111-dddd2222eeee  | The ID of Tenant A (App / Mailbox tenant). |
-   |Redirect URI     |         | This URI is only relevant for [!INCLUDE [prod_short](includes/prod_short.md)] on-premises. You can customize the value, but if you do, you must update your app registration in Azure portal.     |
-   |Use custom app registration| | If you want to use a custom app registration, turn on the toggle. |
-
-1. To complete the account setup, choose **Next**, and then give consent.
-
-### Important: Admin consent and tenant selection
-
-When the consent prompt appears, sign in with an *admin account from Tenant A*, not Tenant B. The account must have one of the following roles in Tenant A:
-
-  - **Global Administrator**  
-  - **Exchange Administrator**
-
-This consent grants the application the **SMTP.SendAsApp** permission in **Tenant A’s Exchange Online**.
-
-> [!NOTE]
-> Although you do the setup in Tenant B ([!INCLUDE [prod_short](includes/prod_short.md)] tenant), the consent always applies to Tenant A, which hosts Exchange Online and the mailboxes.
-
-## Send a test email
-
-The following example shows a way to test OAuth 2.0 for the SMTP connector.
-
-```powershell
-param(
-    [string]$TenantId     = "<Tenant A ID>",  
-    # Tenant A (App registration tenant)
-    # Application (Client) ID of the app registered in Tenant A
-    [string]$ClientId     = "<Tenant A Client ID>",  
-    # Tenant A (App registration tenant)
-    # Client Secret created for the app in Tenant A
-    [string]$ClientSecret = "<Tenant A Client Secret>",
-    # Tenant B (Business Central tenant)
-    # Must be a mailbox that exists in Tenant A and has SendAs permission granted
-    [string]$From         = "<Tenant A mailbox address>",
-    # Any valid email address (internal or external)
-    [string]$To           = "<Recipient email address>",
-    # Email subject
-    [string]$Subject      = "SMTP OAuth Test",
-    # Email body
-    [string]$Body         = "Hello! This is a test email using SMTP OAuth."
-)
-
-#---------------------------
-# 0. Prepare & Import Module
-#---------------------------
-# If you don't have MSAL.PS module, uncomment the next line to install it
-# Install-Module MSAL.PS -Scope CurrentUser
-Import-Module MSAL.PS -ErrorAction Stop
-
-#---------------------------
-# 1. Get Access Token
-#---------------------------
-Write-Host "Getting access token from AAD..." -ForegroundColor Cyan
-
-$secureSecret = ConvertTo-SecureString $ClientSecret -AsPlainText -Force
-
-$tokenResult = Get-MsalToken `
-    -ClientId      $ClientId `
-    -ClientSecret  $secureSecret `
-    -TenantId      $TenantId `
-    -Scopes        "https://outlook.office365.com/.default"
-
-$accessToken = $tokenResult.AccessToken.Trim()
-
-function Convert-FromBase64Url {
-    param([string]$InputString)
-
-    $pad = 4 - ($InputString.Length % 4)
-    if ($pad -lt 4) {
-        $InputString += "=" * $pad
-    }
-
-    $InputString = $InputString.Replace('-', '+').Replace('_', '/')
-    $bytes = [System.Convert]::FromBase64String($InputString)
-    return $bytes
-}
-
-$parts = $accessToken.Split('.')
-$payloadBytes = Convert-FromBase64Url -InputString $parts[1]
-$payloadJson  = [System.Text.Encoding]::UTF8.GetString($payloadBytes)
-$claims       = $payloadJson | ConvertFrom-Json
-
-Write-Host "Access token acquired."
-Write-Host "aud   =" $claims.aud
-Write-Host "roles =" ($claims.roles -join ", ")
-Write-Host "appid =" $claims.appid
-Write-Host "tid   =" $claims.tid
-Write-Host ""
-
-#---------------------------
-# 2. Build AUTH XOAUTH2
-#---------------------------
-
-function New-XOAuth2String {
-    param(
-        [string]$User,
-        [string]$Token
-    )
-    $ctrlA = [char]1
-
-    $auth  = "user=$User$ctrlA" + "auth=Bearer $Token$ctrlA$ctrlA"
-    $bytes = [System.Text.Encoding]::UTF8.GetBytes($auth)
-    return [System.Convert]::ToBase64String($bytes)
-}
-
-$authB64 = New-XOAuth2String -User $From -Token $accessToken
-Write-Host "AUTH (base64) generated." -ForegroundColor Cyan
-
-
-$msg =
-"From: $From`r`n" +
-"To: $To`r`n" +
-"Subject: $Subject`r`n" +
-"`r`n" +
-"$Body`r`n"
-
-
-function Read-SmtpResponse {
-    param([System.IO.StreamReader]$Reader)
-
-    $line = $Reader.ReadLine()
-    if ($line -ne $null) {
-        Write-Host $line
-    }
-    return $line
-}
-
-$server = "smtp.office365.com"
-$port   = 587
-
-Write-Host ""
-Write-Host "Connecting to $server : $port ..." -ForegroundColor Cyan
-
-$tcpClient     = New-Object System.Net.Sockets.TcpClient($server, $port)
-$networkStream = $tcpClient.GetStream()
-
-$reader = New-Object System.IO.StreamReader($networkStream)
-$writer = New-Object System.IO.StreamWriter($networkStream)
-$writer.NewLine   = "`r`n"
-$writer.AutoFlush = $true
-
-# init  banner
-Read-SmtpResponse -Reader $reader | Out-Null
-
-# EHLO (before STARTTLS)
-$writer.WriteLine("EHLO localhost")
-do {
-    $line = Read-SmtpResponse -Reader $reader
-} while ($line -match "^[0-9]{3}-")
-
-# STARTTLS
-$writer.WriteLine("STARTTLS")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("220")) {
-    throw "STARTTLS failed: $line"
-}
-
-#Define Tls12 forSsslTream 
-$sslStream = New-Object System.Net.Security.SslStream( 
-    $networkStream, 
-    $false 
-) 
-
-$sslStream.AuthenticateAsClient( 
-    $server,                                # Target host (must match cert) 
-    $null,                                  # Client certificates 
-    [System.Security.Authentication.SslProtocols]::Tls12, 
-    $false                                  # Check certificate revocation 
-) 
-
-$reader = New-Object System.IO.StreamReader($sslStream)
-$writer = New-Object System.IO.StreamWriter($sslStream)
-$writer.NewLine   = "`r`n"
-$writer.AutoFlush = $true
-
-# EHLO (after STARTTLS)
-$writer.WriteLine("EHLO localhost")
-do {
-    $line = Read-SmtpResponse -Reader $reader
-} while ($line -match "^[0-9]{3}-")
-
-# AUTH XOAUTH2
-Write-Host ""
-Write-Host "Sending AUTH XOAUTH2 ..." -ForegroundColor Cyan
-$writer.WriteLine("AUTH XOAUTH2 $authB64")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("235")) {
-    throw "AUTH failed: $line"
-}
-
-# MAIL FROM
-$writer.WriteLine("MAIL FROM:<$From>")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("250")) {
-    throw "MAIL FROM failed: $line"
-}
-
-# RCPT TO
-$writer.WriteLine("RCPT TO:<$To>")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("250")) {
-    throw "RCPT TO failed: $line"
-}
-
-# DATA
-$writer.WriteLine("DATA")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("354")) {
-    throw "DATA command failed: $line"
-}
-
-$writer.WriteLine($msg)
-$writer.WriteLine(".")
-$line = Read-SmtpResponse -Reader $reader
-if (-not $line.StartsWith("250")) {
-    throw "Message send failed: $line"
-}
-
-# QUIT
-$writer.WriteLine("QUIT")
-Read-SmtpResponse -Reader $reader | Out-Null
-
-$reader.Close()
-$writer.Close()
-$sslStream.Close()
-$networkStream.Close()
-$tcpClient.Close()
-
-Write-Host ""
-Write-Host "✅ Email sent successfully from $From to $To" -ForegroundColor Green
-
-```
-
-## Troubleshooting
-
-This section lists some typical issues, their causes, and provides suggestions for how to resolve them.
-
-### AADSTS50011: redirect_uri mismatch
-
-- Cause: A Redirect URI isn't configured for your app registration in Azure portal.
-- Resolution: Update your app registration in Azure portal to use the same `.../oauthlanding.htm` redirect URI. Learn more at [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal).
-
-### 535 Authentication unsuccessful
-
-- Cause: SMTP AUTH is disabled, has an incorrect tenant ID or OAuth2ClientProfileEnabled is not enabled in the Exchange Online organization.
-
-- Resolution: Check `Get-TransportConfig` to be sure that `SmtpClientAuthentidationDisabled` is `False` and `OAuth2ClientProfileEnabled` is `true`.
-
-### 530 5.7.57 Client not authenticated
-
-- Cause: The token is missing or invalid.
-- Resolution: Verify `SMTP.SendAsApp` and admin consent.
-
-### 430 mailbox sign in failure
-
-- Cause: Missing `SendAs` rights.
-- Resolution: Run `Set-CASMailbox`.
-
-### 550 5.7.708 Service unavailable
-
-- Cause: The new tenant is restricted or has an incorrect tenant ID. For example, you entered Tenant A's ID but your account is from Tenant B.
-- Resolution: Contact Microsoft 365 support or check your tenant ID.
-
-## Related information
-
-[Set up email](admin-how-setup-email.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-app
----
-title: Power BI Manufacturing app
-description: The Power BI Manufacturing app provides insights into your manufacturing activities.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.search.form: 37063_Primary, 37040, 37041, 37042, 37043, 37044, 37045, 37046, 37047, 37048, 37049, 37055, 37094, 37095, 37096, 37097, 37098, 37099, 37107
-ms.date: 03/17/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Manufacturing Power BI app
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The Power BI Manufacturing app gives insights into your manufacturing activities. Its detailed analytics and visualizations of manufacturing data help:
-
-- Streamline manufacturing processes
-- Improve decision-making at all levels of the organization
-- Optimize production efficiency
-
-## Manufacturing analytics for the leadership team
-
-To fit this category, you might have a role such as:
-
-- Chief Operating Officer
-- Chief Manufacturing Officer
-  
-### Example scenario: analyzing current utilization
-
-COOs need to ensure that your manufacturing plant is operating at optimal levels. By analyzing the [Current Utilization](manufacturing-powerbi-current-utilization.md) and [Historical Utilization](manufacturing-powerbi-historical-utilization.md) reports, you can get a better understanding of how efficiently you're using your resources and identify areas for improvement.
-
-You can also use the [Work Center Load](manufacturing-powerbi-work-center-load.md) report to identify bottlenecks in your production process, and make informed decisions to increase efficiency and productivity.
-
-## Manufacturing analytics for the management team
-
-To fit this category, you might have a role such as:
-
-- Manufacturing Manager
-- Operations Manager
-
-### Example scenario: improving resource usage
-
-Manufacturing managers ensure that all production orders are completed on time and within budget. Using the [Finished Production Order Breakdown](manufacturing-powerbi-finished-production-order-breakdown.md) and [Average Production Times](manufacturing-powerbi-average-production-times.md) reports, you can analyze the production time for each order and identify opportunities to optimize the production process.
-
-The [Allocated Hours](manufacturing-powerbi-allocated-hours.md) report provides a detailed breakdown of allocated hours and aggregates them by work center. This report can help you catch unexpected spikes in resource usage.
-
-By using the [Released Production Orders](manufacturing-powerbi-released-production-orders.md) report, you can also identify discrepancies in production patterns across different orders and make decisions.
-
-## Manufacturing analytics for warehouse staff
-
-To fit this category, you might have a role such as:
-
-- Manufacturing Supervisor
-- Production Operator
-
-### Example scenario: tracking production lines
-
-Manufacturing supervisors ensure that goods and materials flow smoothly through the manufacturing facility. Your role is critical in maintaining the production schedule and meeting customer demand. The [Current Utilization](manufacturing-powerbi-current-utilization.md) report shows the use of work centers in real-time, which helps you spot bottlenecks and optimize production processes.
-
-You notice that one work center is consistently operating at full capacity, while others are underused. You use the [Historical Utilization](manufacturing-powerbi-historical-utilization.md) report to analyze the historical use of work centers and find trends and patterns. This report helps you plan for future capacity needs and balance production across work centers.
-
-To improve production efficiency, you track the allocated hours for each work center using the [Allocated Hours](manufacturing-powerbi-allocated-hours.md) report. This report helps you understand workloads and adjust staffing levels accordingly.
-
-## Use the reports
-
-[!INCLUDE [power-bi-manufacturing-app](includes/power-bi-manufacturing-app.md)]
-
-## Manage subcontractors in manufacturing reports
-
-The Manufacturing Power BI App includes subcontracted costs and subcontractor work centres by default. To exclude subcontracted costs from manufacturing reporting, a **Subcontracting** filter is available on each report page. You can choose to exclude, include, or only show manufacturing insights for work centers assigned a subcontractor.
-
-> [!NOTE]
-> The Subcontracting filter is based on the work center configuration, rather than historical subcontractor status. If you change the subcontractor assignment on a work center, the historical capacity ledger entry insights might be inaccurate.
-
-## Related information
-
-[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)   
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Built-in production reports](production-reports.md)  
-[Manufacturing overview](production-manage-manufacturing.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
 

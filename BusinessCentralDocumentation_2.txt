@@ -1,3 +1,290 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-how-setup-bank-statement-service
+---
+title: Set Up Yodlee Bank Feeds
+description: You can convert payment information to any data format that your bank requires and enable the export or import of bank files.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: Yodlee, feed, stream, payment process
+ms.search.form: 1280, 1290
+ms.date: 03/20/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Set up the Envestnet Yodlee bank feeds service
+
+You can import electronic bank statements from your bank to quickly fill on the **Payment Reconciliation Journal** page so you can apply payments and reconcile the bank account. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
+
+> [!IMPORTANT]
+> Due to the Payment Services Directive in Europe (PSD2), after September 14, 2019, you will no longer be able to automatically import bank statements from banks in the United Kingdom into [!INCLUDE[prod_short](includes/prod_short.md)]. We are looking into the possibility of offering this feature again in the future.
+
+> [!NOTE]
+> The Envestnet Yodlee Bank Feeds service is only supported in the online version of Business Central. This functionality is not supported for on-premises versions of [!INCLUDE [prod_short](includes/prod_short.md)], or for [!INCLUDE [prod_short](includes/prod_short.md)] environments hosted on Embed ISV application services. To use this functionality on-premises, you must obtain a co-brand account from Envestnet, and you must add code to integrate with the Yodlee API.
+>
+> The Envestnet Yodlee Bank Feeds service is only supported in the United States and Canada.
+> Only banks residing in these countries/regions are supported, even though banks from other countries/regions may appear in the Envestnet Yodlee Bank Feeds bank selection window in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+> [!IMPORTANT]
+> For technical assistance with the Envestnet Yodlee functionality, contact Microsoft Support. Do not contact Envestnet Yodlee. For more information, see [Configuring Technical Support for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/technical-support).
+
+The Envestnet Yodlee Bank Feeds service is installed as an extension to [!INCLUDE[prod_short](includes/prod_short.md)] online and is ready to be enabled in the supported countries/regions. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
+
+After you enable the bank feed service, you must link a bank account to the online bank account that the feed will come from. You link bank accounts to online bank accounts in the following different scenarios:
+
+* A bank account doesn't exist in [!INCLUDE[prod_short](includes/prod_short.md)] for your online bank account. Therefore, you create the bank account by linking from the online bank account.
+* A bank account exists in [!INCLUDE[prod_short](includes/prod_short.md)], which you want to link to an online bank account.
+* A linked bank account must be unlinked because you want to stop using the bank feed service for the account.
+* Online bank accounts have changed and you want to update the information on bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+When the bank feed service is enabled, you can set a bank account up to automatically import new bank statements into the **Payment Reconciliation Journal** page every two hours. Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page won't be imported. For more information, see the “To enable automatic import of bank statements” section.
+
+> [!NOTE]  
+> If you use the Set Up Company assisted setup guide, some of the steps in the following procedures happen automatically when you get to the company bank account setup. For more information, see [Getting Ready for Doing Business](ui-get-ready-business.md).
+
+## To enable the bank feed service
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Open the bank account that you'll use for the bank feed service.
+3. On the **Bank Account Card** page, in the **Bank Statement Import Format** field, select YODLEEBANKFEED.  
+
+The bank feed service is enabled when you link a bank account to its related online bank account. See the next procedure.  
+
+> [!NOTE]
+> If you use the **Company Setup** assisted setup guide, then you enable the service by selecting the **Use a bank feed service** check box. For more information, see [Creating New Companies in Business Central](about-new-company.md).
+
+## To create a new linked bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the relevant bank account, and then choose the **Create New Linked Bank Account**. The **Bank Account Linking** page opens after a few moments.
+
+    > [!NOTE]  
+    > This page shows the actual web page of the Envestnet Yodlee Bank Feeds service. Terminology and functionality on the page may not match instructions provided in this topic.  
+3. On the **Online Bank Account Linking** page, in the **Link Account** pane, use the Search function to find the bank where you have one or more online bank accounts.
+4. Choose the bank name. The **Log In** pane opens.
+5. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
+6. The bank feed service prepares to link the first online bank account at the specified bank to a new bank account in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+    > [!NOTE]  
+    > If you have more than one online bank account at the bank, you must create additional bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] for them. See steps 8 through 10.  
+
+    After the process completes, the bank name will appear in the **My Accounts** pane on the **Linked** tab. The number in brackets indicates how many online bank accounts were linked.  
+7. Choose the **OK** button.
+
+    If you're only linking one online bank account, the **Bank Account Card** page opens and displays the name of the online bank account. In this case, the bank account linking task is completed. All that's left to do is to set up the bank account. For more information, see [Set Up Bank Accounts](bank-how-setup-bank-accounts.md).
+
+    If you're linking more than one online bank accounts, the **Bank Account Linking** page opens and lists the online bank accounts that aren't yet linked to bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)]. In that case, follow the next step.  
+8. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to New Bank Account** action.  
+
+    The **Bank Account Card** page for a new bank account opens and displays the name of the online bank account.
+
+    If a bank account already exists in [!INCLUDE[prod_short](includes/prod_short.md)] that you want to link the additional online bank account to, follow the next step.  
+9. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to Existing Bank Account** action.
+10. On the **Bank Account List** page, select the bank account that you want to link to, and then choose the **OK** button.
+
+## To link a bank account to an online bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the line for a bank account that isn't linked to an online bank account, and then choose the **Link to Online Bank Account** action. The **Online Bank Account Linking** page opens with the name of the bank prefilled in the **Link Account** pane.
+3. Choose the bank name. The **Log In** pane opens.
+4. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
+
+    The bank feed service prepares to link your bank account in [!INCLUDE[prod_short](includes/prod_short.md)] to the related online bank account.  
+
+    When the process has completed successfully, the bank name will appear in the **My Accounts** pane on the **Linked** tab. If the bank has more than one bank account, only the bank account that you selected in step 2 is linked.  
+5. Choose the **OK** button.
+
+On the **Bank Account List** page, the **Linked** check box is selected.
+
+## To edit the credentials for an online bank account
+
+1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.  
+2. Choose the line for a bank account that is linked to an online bank account, and then choose the **Edit Online Bank Account Information** action.
+3. Update the credentials.
+
+## To unlink a bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.  
+2. Select the line for a linked bank account that you want to unlink from its related online bank account, and the choose the **Unlink Online Bank Account** action.
+
+> [!NOTE]  
+> If you choose **Yes** on the confirmation dialog, the link to the online bank account is removed, and the log-in details are cleared. To link the bank account to the online bank account again, you must log on to the bank again. For more information, see the “To link a bank account to an online bank account“ section.
+
+## To update bank account linking
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the relevant bank account, and then choose the **Update Bank Account Linking** action.
+
+If issues exist for any of the linked bank accounts on the **Bank Account List** page, the **Bank Account Linking** page opens specifying which bank accounts have issues. Issues can best be resolved by unlinking the online bank account and then re-creating the link. For more information, see the “To link a bank account to an online bank account“ section.
+
+## To enable automatic import of bank statements
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the line for a linked bank account, and then choose the **Automatic Bank Statement Import Setup** action.
+3. On the **Automatic Bank Statement Import Setup** page, in the **Number of Days Included** field, specify how far back in time to get new bank transactions for.
+
+    > [!NOTE]  
+    > It is recommended that you set this value to 7 days or more.  
+4. Select the **Enabled** check box.  
+
+Every hour, the **Payment Reconciliation Journal** page will display new payments that are made on the online bank account.
+
+> [!NOTE]  
+> Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page will not be imported.
+
+## Related information
+
+[Setting Up Banking](bank-setup-banking.md)  
+[Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
+[Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md)  
+[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-accounts-in-the-general-ledger
+---
+title: Design details accounts in the general ledger
+description: To reconcile inventory and capacity ledger entries with the general ledger, the related value entries post to different accounts in the general ledger.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords:
+ms.date: 03/17/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+# Design details: Accounts in the general ledger
+
+To reconcile inventory and capacity ledger entries with the general ledger, the related value entries are posted to different accounts in the general ledger. For more information, see [Design Details: Reconciliation with the General Ledger](design-details-reconciliation-with-the-general-ledger.md).  
+
+## From the Inventory Ledger  
+
+The following table shows the relationship between different types of inventory value entries and the accounts and balancing accounts in the general ledger.  
+
+|**Item Ledger Entry Type**|**Value Entry Type**|**Variance Type**|**Expected Cost**|**Account**|**Balancing Account**|  
+|--------------------------------|--------------------------|-----------------------|-----------------------|-----------------|---------------------------|  
+|Purchase|Direct Cost||Yes|Inventory  (Interim)|Invt. Accrual Acc. (Interim)|  
+|Purchase|Direct Cost||No|Inventory|Direct Cost Applied|  
+|Purchase|Indirect Cost||No|Inventory|Overhead Applied|  
+|Purchase|Variance|Purchase|No|Inventory|Purchase Variance|  
+|Purchase|Revaluation||No|Inventory|Inventory Adjmt.|  
+|Purchase|Rounding||No|Inventory|Inventory Adjmt.|  
+|Sale|Direct Cost||Yes|Inventory  (Interim)|COGS (Interim)|  
+|Sale|Direct Cost||No|Inventory|COGS|  
+|Sale|Revaluation||No|Inventory|Inventory Adjmt.|  
+|Sale|Rounding||No|Inventory|Inventory Adjmt.|  
+|Positive Adjmt., Negative Adjmt., Transfer|Direct Cost||No|Inventory|Inventory Adjmt.|  
+|Positive Adjmt., Negative Adjmt., Transfer|Revaluation||No|Inventory|Inventory Adjmt.|  
+|Positive Adjmt., Negative Adjmt., Transfer|Rounding||No|Inventory|Inventory Adjmt.|  
+|(Production) Consumption<br><br>Learn more at [Production consumption](#production-consumption).|Direct Cost||No|Inventory|WIP|  
+|(Production) Consumption|Revaluation||No|Inventory|Inventory Adjmt.|  
+|(Production) Consumption|Rounding||No|Inventory|Inventory Adjmt.|  
+|Assembly Consumption<br><br>Learn more at [Assembly consumption](#assembly-consumption).|Direct Cost||No|Inventory|Inventory Adjmt.|  
+|Assembly Consumption|Direct Cost||No|Direct Cost Applied|Inventory Adjmt.|  
+|Assembly Consumption|Indirect Cost||No|Overhead Applied|Inventory Adjmt.|  
+|(Production) Output<br><br>Learn more at [Production output](#production-output).|Direct Cost||Yes|Inventory  (Interim)|WIP|  
+|(Production) Output|Direct Cost||No|Inventory|WIP|  
+|(Production) Output|Indirect Cost||No|Inventory|Overhead Applied|  
+|(Production) Output|Direct Cost - Non Inventory||No|Inventory|Direct Cost Non-Inventory Applied Account|
+|(Production) Output|Variance|Material|No|Inventory|Material Variance|  
+|(Production) Output|Variance|Capacity|No|Inventory|Capacity Variance|  
+|(Production) Output|Variance|Subcontracted|No|Inventory|Subcontracted Variance|  
+|(Production) Output|Variance|Capacity Overhead|No|Inventory|Cap. Overhead Variance|  
+|(Production) Output|Variance|Manufacturing Overhead|No|Inventory|Mfg. Overhead Variance|  
+|(Production) Output|Variance|Material-Non Inventory|No|Inventory|Material Non-Inventory Variance Account|
+|(Production) Output|Revaluation||No|Inventory|Inventory Adjmt.|  
+|(Production) Output|Rounding||No|Inventory|Inventory Adjmt.|  
+|Assembly Output<br><br>Learn more at [Assembly output](#assembly-output).|Direct Cost||No|Inventory|Inventory Adjmt.|  
+|Assembly Output|Revaluation||No|Inventory|Inventory Adjmt.|  
+|Assembly Output|Indirect Cost||No|Inventory|Overhead Applied|  
+|Assembly Output|Variance|Material|No|Inventory|Material Variance|  
+|Assembly Output|Variance|Capacity|No|Inventory|Capacity Variance|  
+|Assembly Output|Variance|Capacity Overhead|No|Inventory|Cap. Overhead Variance|  
+|Assembly Output|Variance|Manufacturing Overhead|No|Inventory|Mfg. Overhead Variance|  
+|Assembly Output|Rounding||No|Inventory|Inventory Adjmt.|  
+
+## From the Capacity Ledger  
+
+The following table shows the relationship between different types of capacity value entries and the accounts and balancing accounts in the general ledger. Capacity ledger entries represent labor time consumed in assembly or production work.  
+
+|**Work Type**|**Capacity Ledger Entry Type**|**Value Entry Type**|**Account**|**Balancing Account**|  
+|-------------------|------------------------------------|--------------------------|-----------------|---------------------------|  
+|Assembly<br><br>Learn more at [Assembly consumption](#assembly-consumption).|Resource|Direct Cost|Direct Cost Applied|Inventory Adjmt.|  
+|Assembly|Resource|Indirect Cost|Overhead Applied|Inventory Adjmt.|  
+|Production<br><br>Learn more at [Production consumption](#production-consumption).|Machine Center/Work Center|Direct Cost|WIP Account|Direct Cost Applied|  
+|Production|Machine Center/Work Center|Indirect Cost|WIP Account|Overhead Applied|  
+
+## Assembly costs are always actual  
+
+As the table shows, assembly postings aren't represented in interim accounts. They're excluded because the concept of work in process (WIP) doesn't apply in assembly output posting, unlike in production output posting. Assembly costs are only posted as actual cost, never as expected cost.  
+
+Learn more at [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md).  
+
+## Calculating the amount to post to the general ledger  
+
+The following fields in the **Value Entry** table are used to calculate the expected cost amount that is posted to the general ledger:  
+
+- Cost Amount (Actual)  
+- Cost Posted to G/L  
+- Cost Amount (Expected)  
+- Expected Cost Posted to G/L  
+
+The following table shows how the amounts to post to the general ledger are calculated for the two different cost types.  
+
+|Cost Type|Calculation|  
+|---------------|-----------------|  
+|Actual Cost|Cost Amount (Actual) – Cost Posted to G/L|  
+|Expected Cost|Cost Amount (Expected) –  Expected Cost Posted to G/L|  
+
+## Examples
+
+The tables in the following sections explain the accounts in more detail. They show the posting setups that include the accounts, and how the records are used.
+
+### Assembly output
+
+|Account  |Balancing account  |
+|---------|---------|
+|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the assembly item.<br>* The Location Code comes from the assembly order.     |Page: General Posting Setup<br>Field: Inventory Adjustment Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the assembly item.          |
+||Page: Inventory Posting Setup<br>Fields: Material Variance, Capacity Variance Account, Capacity Overhead Variance Account, Manufacturing Overhead Variance Account<br><br> * The Inventory Posting Group comes from the assembly item.<br> * The Location Code comes from the assembly order.|
+
+### Assembly consumption
+
+|Account  |Balancing account  |
+|---------|---------|
+|Page: General Posting Setup<br>Field: Inventory Adjmt. Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the component.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly order line.| 
+
+|Account  |Balancing account  |
+|---------|---------|
+|Page: General Posting Setup<br>Field: Inventory Adjmt. Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the resource.|Page: General Posting Setup<br>Field: Direct Cost Applied Account<br>Field: Overhead Applied Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the resource.|
+
+### Production output
+
+|Account  |Balancing account  |
+|---------|---------|
+|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.<br><br>Page: General Posting Setup<br>Field: Direct Cost Non-Invent. Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the finished item.<br><br>Page: General Posting Setup<br>Field: Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the finished item.<br><br>Page: Inventory Posting Setup<br>Fields: Material Variance Account, Capacity Variance Account, Cap. Overhead Variance Account, Mfg. Overhead Variance Account, Subcontracted Variance Account, Material Non-Inventory Variance Account<br><br>* The Inventory Posting group comes from the finished item.<br>* The Location Code comes from the production order line.|
+
+### Production consumption
+
+|Account  |Balancing account  |
+|---------|---------|
+|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly.<br><br>Page: General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the work center.<br><br>Page General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the subcontracting vendor.<br>* The General Product Posting Group comes from the work center.|
+
+## Related information  
+
+[Design Details: Inventory Costing](design-details-inventory-costing.md)  
+[Design Details: Inventory Posting](design-details-inventory-posting.md)  
+[Design Details: Expected Cost Posting](design-details-expected-cost-posting.md)  
+[Managing Inventory Costs](finance-manage-inventory-costs.md)  
+[Finance](finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-setup-banking
 ---
 title: Set Up Banking
@@ -4191,7 +4478,7 @@ When custom report layouts are defined, you can select them from customer and ve
    The **Report Layout Selection** page lists all the reports that are available for the company that's specified in the **Company** field at the top of the page. The **Layout Description** <!-- **Selected Layout** -->field specifies the layout that's currently used on the report.
 2. Set the **Company** field at the top the company that includes the report.
 
-   This field let's you set a different layouts for same report report in different companies.
+   This field let's you set a different layouts for same report in different companies.
 
 3. To change the layout that is used by a report, on the row for the report, set the **Selected Layout** field to one of the following options:
    * **RDLC (built-in)**, uses the built-in RDLC report layout on the report.
@@ -4266,7 +4553,7 @@ To configure these settings, follow these steps:
     | Field | Description |
     |-------|-------------|
     | **Emission Unit of Measure Code** | Enter the unit of measure code that you use to register emissions.<br><br>**Note:** To maintain consistency in environmental data, [!INCLUDE [prod_short](includes/prod_short.md)] restricts changes to this field after you create entries in the sustainability ledger. This restriction prevents accidental or intentional changes that could compromise emissions calculations or audit compliance. We recommend that you finalize your unit of measure during initial configuration to ensure consistent reporting. |
-    | **Waste Unit of Measure Code** | Enter the the waste unit of measure code that you use to register waste intensity. |
+    | **Waste Unit of Measure Code** | Enter the waste unit of measure code that you use to register waste intensity. |
     | **Water Unit of Measure Code** | Enter the water unit of measure code that you use to register water intensity. |
     | **Disch. Into Water Unit of Measure Code** | Enter the unit of measure code that you use to register discharged into water. |
     | **Emission Decimal Places** | Enter the number of decimal places that show for emission amounts. The default setting, *2:5*, means that a minimum of two decimal places and a maximum of five decimal places are shown for all amounts. You can also enter a fixed number. For example, if you enter *2*, two decimal places show for all amounts. |
@@ -9235,7 +9522,7 @@ The app uses data from the following table:
 | Project No. | No. | Specifies the number of Project record. |
 | Project No. & Description | - | Specifies a concatenated name generated by combining the resource no. and name. | 
 | Project Posting Group | Job Posting Group | Specifies the posting group that links transactions made for the project with the appropriate general ledger accounts according to the general posting setup. |
-| Project Project Manager | Project Manager | Specifies the person who is assigned to manage the project. |
+| Project Manager | Project Manager | Specifies the person who is assigned to manage the project. |
 | Project Starting Date | Starting Date | Specifies the date on which the project actually starts. |
 | Project Status | Status | Specifies a current status of the project. |
 
@@ -9822,7 +10109,7 @@ ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 # Consolidate Balances for a Company that is a Customer and a Vendor
-A company that you do business with might be both a customer and a vendor. When that's the case, you can avoid making unnecessary payments or receipts, and perhaps save on transaction fees, by consolidating the company's customer and vendor balances. Consolidation compares the company's balances as a vendor and as a customer, and then nets the amount so that that either the customer or vendor balance remains, depending on which amount was higher. 
+A company that you do business with might be both a customer and a vendor. When that's the case, you can avoid making unnecessary payments or receipts, and perhaps save on transaction fees, by consolidating the company's customer and vendor balances. Consolidation compares the company's balances as a vendor and as a customer, and then nets the amount so that either the customer or vendor balance remains, depending on which amount was higher. 
 
 To consolidate the balances, you must first link the customer and vendor companies through a contact that has the type **Company**. A customer or vendor can only have one contact of the type **Company**. For more information, see [Create Contacts](marketing-create-contact-companies.md).
 
@@ -11965,7 +12252,7 @@ You can even create directly paid orders for unregistered customers by first set
     Leave the **No.** field empty if the line is for a:
 
     * Comment. Write the comment in the **Description** field.
-    * Catalog item. Choose the **Select Catalog Items** action. To learn more about catalog items, go to To learn more, go to [Work With Catalog Items](inventory-how-work-nonstock-items.md).
+    * Catalog item. Choose the **Select Catalog Items** action. To learn more, go to [Work With Catalog Items](inventory-how-work-nonstock-items.md).
 7. In the **Quantity** field, enter the number of items to be sold.
 
     > [!NOTE]  
@@ -15122,7 +15409,7 @@ You can assign various machine centers to work centers. A machine center can onl
 The planned capacity of a work center consists of the availability of the corresponding machine centers and the planned availability of the work center. The planned availability of the work center group is, therefore, the sum of all corresponding availabilities of the machine centers and work centers. Availability is stored in calendar entries.  
 
 > [!IMPORTANT]
-> Before you set up work or machine centers, you must set up shop calendars. For more information, see [Create Shop Calendars](production-how-to-create-work-center-calendars.md).
+> Before you set up work or machine centers, you must set up shop calendars. Learn more at [Create Shop Calendars](production-how-to-create-work-center-calendars.md).
 
 ## To set up a work center
 
@@ -15165,10 +15452,17 @@ The following steps describe how to set up a work center. The steps to set up a 
 15. In the **Efficiency** field, enter the percentage of the expected standard output that this work center actually outputs. If you enter **100**, it means that the work center has an actual output that is the same as the standard output.  
 16. Turn on the **Consolidated Calendar** toggle if you're also using machine centers. This setting ensures that calendar entries are rolled up from machine center calendars.  
 17. In the **Shop Calendar Code** field, select a shop calendar. For more information, see [Create Shop Calendars](production-how-to-create-work-center-calendars.md).  
-18. In the **Queue Time** field, specify a fixed time span that must pass before assigned work can begin at this work center. 
+18. In the **Queue Time** field, specify a fixed time span that must pass before assigned work can begin at this work center.
+19. If the location uses bins, fill in the fields on the **Warehouse** FastTab:
+    * In the **Location Code** field, select the location that the bin codes apply to. The bin codes are copied to production order routing lines only when the production order line's location matches this value.
+    * In the **Open Shop Floor Bin Code** field, specify the default bin for components that use **Manual**, **Forward**, or **Backward** flushing methods.
+    * In the **To-Production Bin Code** field, specify the default bin for components that use pick-based flushing methods (**Pick + Forward**, **Pick + Backward**, **Pick + Manual**).
+    * In the **From-Production Bin Code** field, specify the default bin for finished output. At the last routing operation, this bin code flows to the production order line's **Bin Code** field.
+
+    The same fields are available on machine center cards. When you assign a machine center to a work center, the machine center inherits the work center's location code. To learn more about how these bins flow to production order components, go to [Fill in the consumption bin](warehouse-how-to-set-up-locations-to-use-bins.md#fill-in-the-consumption-bin).
 
 > [!NOTE]
-> Use queue times to provide a buffer between the time that a component arrives at a machine or work center and when the operation actually starts. For example, a part is delivered to a machine center at 10:00 but it takes an hour to mount it on the machine so the operation doesn't start until 11.00. To account for that hour, the queue time would be one hour. The value of the **Queue Time** field on a machine or work center card plus the sum of the values in the **Setup Time**, **Run Time**, **Wait Time**, and **Move Time** fields on the item routing line combine to give the production lead time of the item. This helps provide accurate overall production times.  
+> Use queue times to provide a buffer between the time a component arrives at a machine or work center and when the operation actually starts. For example, a part is delivered to a machine center at 10:00, but it takes an hour to mount it on the machine so the operation doesn't start until 11.00. To account for that hour, the queue time would be one hour. The value of the **Queue Time** field on a machine or work center card plus the sum of the values in the **Setup Time**, **Run Time**, **Wait Time**, and **Move Time** fields on the item routing line combine to give the production lead time of the item. This combination helps provide accurate overall production times.  
 
 ## Considerations about capacity
 
@@ -15206,7 +15500,7 @@ The fractal capacity is used only in specific cases.
 
 ### Work center processing multiple orders simultaneously
 
-Let's use a paint-spraying booth as an example. The booth has the same setup and run times for each lot. But, each lot can contain multiple individual orders that are painted simultaneously.  
+Let's use a paint-spraying booth as an example. The booth has the same set-up time and run time for lots. But, each lot can contain multiple individual orders that are painted simultaneously.  
 
 In this case, the setup time and the concurrent capacity manage the cost allocated to orders. We recommend that you don't use run time in routing lines.  
 
@@ -17894,9 +18188,9 @@ To locate the page, in [!INCLUDE[prod_short](includes/prod_short.md)], [!INCLUDE
 
 On the page, you find the following actions:
 
-- **View Marketplace** to open the online Marketplace marketplace in a new browser window. 
-- **View in Marketplace** to open and view a selected app in the online Marketplace Marketplace. 
-- **Refresh list from Microsoft Marketplace** to force a refresh of the list of all apps to Marketplace marketplace content—for example, if you're looking for a newly submitted Marketplace app.
+- **View Marketplace** to open the online Marketplace in a new browser window. 
+- **View in Marketplace** to open and view a selected app in the online Marketplace. 
+- **Refresh list from Microsoft Marketplace** to force a refresh of the list of all apps to Marketplace content—for example, if you're looking for a newly submitted Marketplace app.
 
 As with other list pages, you get support for Analysis Mode, for example, so that you can group apps by publisher. Use Copilot to design an **Analysis Mode** view for you.
 
@@ -18046,17 +18340,17 @@ ms.collection:
 
 This article gives a quick tour of AI in Business Central, covering Copilot and agent capabilities that help you streamline your processes and free up time for what is most impactful to your business. Each section explains what a capability does at a glance and links to detailed docs and AI FAQs so you can decide where it fits in your workflows.
 
-**Copilot** is an AI-powered assistant that helps you work more efficiently by sparking creativity, boosting productivity, and eliminating tedious tasks. Copilot works collaboratively with you&mdash; you initiate actions, and Copilot provides suggestions, analysis, and assistance to help you complete them faster. Chat with Copilot at any time, or look for the Copilot icon on Business Central pages for specific things it can help with.
+**Copilot** is an AI-powered assistant that helps you work more efficiently by sparking creativity, boosting productivity, and eliminating tedious tasks. Copilot works collaboratively with you. You initiate actions, and Copilot provides suggestions, analysis, and assistance to help you complete them faster. Chat with Copilot at any time, or look for the Copilot icon on Business Central pages for specific things it can help with.
 
-**Agents** are autonomous AI workers that can independently handle tasks with minimal human input. They automate specific processes, becoming a valuable member of the team where their work is transparent, reviewable and keeps people in the loop as work progresses. Agents are ideal for automating tedious, repetitive tasks or work that must happen around the clock, such as processing invoices or generating orders from emails.
+**Agents** are autonomous AI workers that can independently handle tasks with minimal human input. They automate specific processes, becoming a valuable member of the team where their work is transparent, reviewable, and keeps people in the loop as work progresses. Agents are ideal for automating tedious, repetitive tasks or work that must happen around the clock, such as processing invoices or generating orders from emails.
 
 **Benefits** of using AI in Business Central include:
 
 - Eliminate tedious tasks, freeing up time for what is most impactful to your business.
-- You won’t need to transfer your data to other unmanaged AI apps and risk your company data.
+- You don’t need to transfer your data to other unmanaged AI apps and risk your company data.
 - Seamlessly integrated into your workflows and safely connected to your data.
-- Designed for work and with the privacy, safety, and compliance that businesses expect, and built on Microsoft's Responsible AI principles.
-- Makes Business Central easier to learn and use, and accessible to more people.
+- It's designed for work and with the privacy, safety, and compliance that businesses expect, and built on Microsoft's Responsible AI principles.
+- Makes [!INCLUDE [prod_short](includes/prod_short.md)] easier to learn and use, and accessible to more people.
 
 Check for [availability in your country/region and preferred language](copilot-agents-region-language-availability.md), or feature documentation to learn which features are currently in preview or have specific license requirements.
 
@@ -18066,7 +18360,7 @@ No matter your role, task, or the industry you work in, these Copilot features a
 
 ### Chat
 
-Chat with Copilot to find your company data or learn how to do things in Business Central. With just a few words, Copilot will quickly locate the records you're looking for and provide links to get to the details, and will help you understand fields, processes and features of Business Central, including those from your add-on apps.
+Chat with Copilot to find your company data or learn how to do things in Business Central. With just a few words, Copilot can quickly find the records you're looking for and provide links to get to the details. Copilot helps you understand fields, processes, and features of [!INCLUDE [prod_short](includes/prod_short.md)], including those from your add-on apps.
 
 [Video](https://go.microsoft.com/fwlink/?linkid=2250609)
 
@@ -18077,7 +18371,7 @@ Chat with Copilot to find your company data or learn how to do things in Busines
 
 ### Analysis assist
 
-Use natural language to transform a list of records into a more meaningful layout, so that you can make data-driven decisions. Copilot helps you arrange raw data into analysis views with grouping, pivots, filters and totals, without having to leave Business Central.
+Use natural language to transform a list of records into a more meaningful layout, so that you can make data-driven decisions. Copilot helps you arrange raw data into analysis views with grouping, pivots, filters, and totals, without having to leave Business Central.
 
 [Video](https://www.youtube.com/watch?v=ofq4OBTuPvE)
 
@@ -18088,7 +18382,7 @@ Use natural language to transform a list of records into a more meaningful layou
 
 ### Summarize
 
-Copilot provides quick insights, summarizing a record into a few key points tailored to your role, and displaying them automatically right alongside your data. Summaries help you understand what’s urgent and important, so you can grasp context and act faster without having to comb through fields or FactBoxes, and providing inline links to quickly get to the details.
+Copilot provides quick insights, summarizing a record into a few key points tailored to your role and displaying them automatically right alongside your data. Summaries help you understand what’s urgent and important, so you can grasp context and act faster without having to comb through fields or FactBoxes. Copilot provides inline links so you can quickly get to the details.
 
 [Video](https://www.youtube.com/watch?v=MfdNppomGJE&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=6)
 
@@ -18114,7 +18408,7 @@ Whether you're in Accounts Payable or Accounts Receivable, there's AI to help yo
 
 ### Payables Agent
 
-Payables Agent streamlines accounts payable by monitoring your company mailbox for incoming vendor invoices, extracting the details, matching them to purchase orders and receipts, proposing posting accounts for unmatched lines, and routing exceptions, reducing manual data entry and speeding up invoice processing around the clock.
+Payables Agent streamlines accounts payable by monitoring your company mailbox for incoming vendor invoices. It extracts the details, matches them to purchase orders and receipts, proposes posting accounts for unmatched lines and routing exceptions. This assistance reduces manual data entry and speeds up invoice processing around the clock.
 
 [Video](https://youtu.be/uThNFjsjZBc?si=9GJ4iy4oYi2Ga8UX)
 
@@ -18136,7 +18430,7 @@ Copilot's e-document matching helps you map vendor e-invoices to purchase orders
 
 ### Bank account reconciliation assist
 
-Copilot makes periodic reconciliation of your bank accounts much easier, by using AI to propose matches between bank statement transactions and ledger entries and to suggest posting accounts for unmatched lines.
+Copilot makes periodic reconciliation of your bank accounts easier, by using AI to propose matches between bank statement transactions and ledger entries and to suggest posting accounts for unmatched lines.
 
 [Video](https://www.youtube.com/watch?v=4Te11l2BxmQ)
 
@@ -18158,7 +18452,7 @@ Formerly Copilot for Finance, this role-based solution for Copilot brings AI ass
 
 ### Item substitute suggestions
 
-Copilot analyzes product data to propose compatible alternatives that show up when items are out of stock or discontinued, helping sales and service teams keep orders moving with suitable replacements.
+Copilot analyzes product data to propose good alternatives that show up when items are out of stock or discontinued. The proposals help sales and service teams keep orders moving with suitable replacements.
 
 [Video](https://www.youtube.com/watch?v=4bTtvhjPjFE&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=8)
 
@@ -18167,7 +18461,7 @@ Copilot analyzes product data to propose compatible alternatives that show up wh
 - [Suggest substitute items with Copilot](suggest-item-substitutions-copilot.md)
 - [Responsible AI FAQ for suggest item substitutions](faq-suggest-item-substitutions-with-copilot.md)
 
-### Suggest gas emissions in sustainability journals 
+### Suggest greenhouse gas emissions in sustainability journals 
 
 For greenhouse gas (GHG) emissions, Copilot estimates total emissions from descriptions and input parameters and adjusts emission factors for future use.
 
@@ -18192,7 +18486,7 @@ The Sales Order Agent automates sales orders by handling customer requests via e
 
 ### Sales line suggestions
 
-Write a few words, paste in a conversation or upload a file, and Copilot will identify the matching line items to add to a quote or order, helping you build complete, accurate sales documents faster. 
+Write a few words, paste in a conversation or upload a file, and Copilot identifies the matching line items to add on a quote or order, helping you build complete, accurate sales documents faster. 
 
 [Video](https://www.youtube.com/watch?v=qmGxeq5FJis)
 
@@ -18203,7 +18497,7 @@ Write a few words, paste in a conversation or upload a file, and Copilot will id
 
 ### Marketing text suggestions
 
-Copilot drafts compelling product descriptions for your items based on your tone preferences and attributes already in Business Central, giving you on-brand copy you can review and refine. If you're using the Shopify add-on to Business Central, you can publish marketing copy straight to your online store.
+Copilot drafts compelling product descriptions for your items based on your tone preferences and attributes already in [!INCLUDE [prod_short](includes/prod_short.md)]. You get on-brand copy you can review and refine. If you're using the Shopify add-on to [!INCLUDE [prod_short](includes/prod_short.md)], you can publish marketing copy straight to your online store.
 
 [Video](https://www.youtube.com/watch?v=0b6e7ROHgpk&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=10)
 
@@ -18218,7 +18512,7 @@ Whether you’re onboarding to Business Central for the first time, or expanding
 
 ### Number series suggestions
 
-Number series suggestions helps you quickly set up consistent, collision-free numbering for documents and master records. Copilot proposes prefixes, formats, and lengths based on your existing data and setup conventions, so you can standardize numbering and avoid manual errors.
+Number series suggestions help you quickly set up consistent, collision-free numbering for documents and master records. Copilot proposes prefixes, formats, and lengths based on your data and setup conventions, so you can standardize numbering and avoid manual errors.
 
 [Video](https://www.youtube.com/watch?v=2Tv_Nlh1jlo&list=PL8_VXqhvJI9BQMAf1t1QRIBk_U8zABZSZ&index=9)
 
@@ -18229,7 +18523,7 @@ Number series suggestions helps you quickly set up consistent, collision-free nu
 
 ## Other AI and machine learning features
 
-Business Central also includes various features that do not use generative AI, but use other AI models to help accomplish specific tasks. 
+Business Central also includes various features that don't use generative AI, but use other AI models to help accomplish specific tasks. 
 
 ### Search for pages and reports
 
@@ -18280,6 +18574,96 @@ If these AI features aren't sufficient to support the unique needs of your busin
 [Configure Copilot and AI capabilities](enable-ai.md)  
 [Copilot data security and privacy](/dynamics365/faqs-copilot-data-security-privacy?toc=/dynamics365/business-central/toc.json)
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-setup
+---
+title: Set up subcontracting
+description: Learn how to configure subcontracting settings, work center groups, and purchase provisions for manufacturing operations.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, setup, work center group, purchase provisions
+ms.search.form: 99000080
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Set up subcontracting
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+To use subcontracting, you must configure several settings. This article describes how to configure the basic subcontracting settings and work center groups.
+
+## Configure general settings
+
+You can specify which information from a subcontracting order to transfer to your purchase documents.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Manufacturing Setup**, and then choose the related link.
+2. On the **Subcontracting** FastTab, in the **General** section, fill in the fields as described in the following table. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+|Field|Description|
+|-----|----------|
+|**Create Prod. Order Info Line**|Specifies whether to create an additional information line with the production order description in the subcontracting purchase order.<br><br>When turned on, the description from the production order line is automatically added as an extra text line. This helps identify which production order item the subcontracting work relates to.|
+|**Subcontracting Inbound Whse. Handling Time**|Specifies the time for calculating the receipt date in the transfer line.<br><br>The calculation follows the formula: **Receipt Date = Due Date of Subcontracting Component - Whse. Handling Time**. This formula enables realistic planning of material provision at the subcontractor.|
+
+## Configure other subcontracting settings
+
+On the **Subcontracting** FastTab, in the **General** section, you can also configure the following fields.
+
+|Field|Description|
+|-----|----------|
+|**Subcontracting Journal Template Name**|Specifies the name of the subcontracting journal template to use for direct creation of subcontracting from a released operation.|
+|**Component Direct Unit Cost**|Specifies which direct unit cost of a production order component to use in the subcontracting purchase order. The following options are available:<br><br>**Standard** - Uses normal price finding based on purchase prices and discounts.<br><br>**Prod. Order Component** - Uses the calculated direct unit cost from the production order component line.<br><br>This setting influences cost calculation and should be chosen according to your calculation strategy.|
+|**Item Charge to Subcontracting Purch. Receipt Lines**|Specifies whether to activate item charge assignment for purchase receipt lines with subcontracting. When you turn on this toggle, an extra option becomes available in the charge assignment in purchasing.|
+
+<!-- For detailed configuration of purchase provisions and the provision setup guide, learn more in [Set up purchase provisions and use the provision setup guide](subcontract-setup-configurator.md). -->
+
+## Set up work center groups for subcontracting
+
+To use a work center group for subcontracting, you must assign it to a vendor number.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Work Center Groups**, and then choose the related link.
+2. Open the work center group.
+3. On the **Posting** FastTab, in the **Subcontractor No.** field, enter the vendor number. Learn more in [Set up work and machine centers](production-how-to-set-up-work-and-machine-centers.md).
+4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Vendors**, and then choose the related link.
+5. Open the vendor card.
+6. On the **Shipping** FastTab, in the **Subcontracting Location Code** field, specify the subcontracting location.
+
+   This setting specifies the subcontracting location. Component items provided to the vendor are posted from this location by default after execution of the subcontracting. The **Linked to Work Center Group No.** field shows whether a vendor is connected to a work center group.
+
+   > [!NOTE]
+   > We recommend that you define a separate location for each vendor.
+
+## Set up subcontract work center fields
+
+Subcontract work centers are set up the same as regular work centers, but have more fields. They're assigned to routings in the same manner as other work centers.
+
+The **Subcontractor No.** field designates the work center as a subcontract work center. Enter the number of a subcontractor who supplies the work center. You can use this field to administer work centers that aren't in-house but perform processing under contract.
+
+If you subcontract with the vendor for a different rate for each process, select the **Specific Unit Cost** field. This setting lets you set up a cost on each routing line and saves the time of reentering each purchase order. The cost on the routing line is used in processing instead of the cost on the work center cost fields. When you select **Specific Unit Cost**, costs are calculated for the vendor by the routing operation.
+
+If you subcontract at a single rate per vendor, leave the **Specific Unit Cost** field blank. Instead, set up costs by filling in the **Direct Unit Cost**, **Indirect Cost %**, and **Overhead Rate** fields.
+
+### Routings that use subcontract work centers
+
+You can use subcontract work centers for operations on routings in the same way as regular work centers. You can set up a routing that uses a subcontract work center as a standard operational step, or modify the routing for a particular production order to include a subcontracted operation. Learn more in [Create Routings](production-how-to-create-routings.md).
+
+> [!IMPORTANT]
+> On routing lines for subcontracting operations, the **Type** field must be set to **Work Center** (not **Machine Center**). Machine centers don't support subcontractor assignments, so automatic location changes, pricing, and purchase order creation don't work for machine center operations.
+
+## Related information
+
+[Subcontracting overview](production-how-to-subcontract-manufacturing.md)  
+<!-- [Set up purchase provisions and provision wizard](subcontract-setup-configurator.md)   -->
+[Set up work and machine centers](production-how-to-set-up-work-and-machine-centers.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/payables-manage-payables
 ---
@@ -18581,6 +18965,175 @@ Currently, back links don't consider all visual and page filters applied in the 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-item-charges
+---
+title: Assign item charges to subcontracting receipts
+description: Learn how to assign item charges such as transport and packaging costs to subcontracting purchase receipts for accurate production order costing.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, item charges, production order, capacity costs
+ms.search.form: 99000886,
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Assign item charges to subcontracting receipts
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+You can assign item charges to subcontracting receipts to include costs such as transport, packaging, and other incidental expenses directly in your production order costs. When you post additional costs that should be distributed to subcontracting receipts, you can record them as a separate invoice with **Type** set to **Charge (Item)**. The item charges link to the capacity ledger entries of the production order.
+
+## Turn on item charges for subcontracting
+
+Before you can assign item charges to subcontracting receipts, you must turn on the feature.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Manufacturing Setup**, and then choose the related link.
+2. In the **Subcontracting** section, turn on the **Item Charge to Subcontracting Purch. Receipt Lines** toggle.
+
+After you turn on the feature, the **Get Receipt Lines for Subcontracting** action becomes available when you assign item charges.
+
+## How item charges work with subcontracting
+
+When you assign item charges to subcontracting receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries differently than for standard item charges.
+
+### Standard item charge assignment
+
+When you assign item charges to regular purchase receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries that:
+
+- Reference item ledger entries.
+- Use **Direct Cost** as the cost type.
+- Affect inventory.
+
+### Subcontracting item charge assignment
+
+When you assign item charges to subcontracting receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries that:
+
+- Don't reference item ledger entries.
+- Reference capacity ledger entries.
+- Use **Direct Cost** as the cost type.
+- Use **Production** as the order type.
+- Have an invoiced quantity of 0 because the costs are capacity costs.
+
+## Assign item charges to subcontracting receipts
+
+Before you assign item charges to a subcontracting receipt, the following must be in place:
+
+- A posted subcontracting purchase order.
+- A purchase receipt with a subcontracting reference.
+
+The following steps describe how to assign an item charge to a subcontracting receipt.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders** or **Purchase Invoices**, and then choose the related link.
+2. Create a new purchase order or invoice.
+3. On the lines, in the **Type** field, choose **Charge (Item)**.
+4. Fill in the remaining fields on the line, such as the item charge, quantity, and unit cost. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+5. Choose the **Item Charge Assignment** action.
+6. On the **Item Charge Assignment** page, choose the **Get Receipt Lines for Subcontracting** action.
+
+   [!INCLUDE [prod_short](includes/prod_short.md)] filters the receipt lines to show only subcontracting receipts.
+
+7. Select the subcontracting receipt line, and then enter the quantity and amount to assign.
+8. Close the **Item Charge Assignment** page.
+9. Post the purchase order or invoice.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] creates the value entries and links them to the capacity ledger entries.
+
+## About the Get Receipt Lines for Subcontracting action
+
+The **Get Receipt Lines for Subcontracting** action simplifies the process of assigning item charges to subcontracting receipts. When you use the action, [!INCLUDE [prod_short](includes/prod_short.md)] filters purchase receipt lines to show only those related to subcontracting. Receipt lines must have values in the following fields to be included:
+
+- **Production Order No.**
+- **Routing No.**
+- **Operation No.**
+
+> [!NOTE]
+> The **Get Receipt Lines for Subcontracting** action is only available when you turn on the **Item Charge to Subcontracting Purch. Receipt Lines** toggle on the **Manufacturing Setup** page.
+
+## Value entries for subcontracting item charges
+
+When you post an item charge assigned to a subcontracting receipt, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries with the following characteristics:
+
+|Field|Value|
+|-----|-----|
+|Item Ledger Entry No.|0 (empty)|
+|Capacity Ledger Entry No.|Reference to the capacity ledger entry|
+|Order Type|Production|
+|Order No.|Production order number|
+|Invoiced Quantity|0|
+|Cost Type|Direct Cost|
+
+The costs are assigned directly to the production order and don't affect item inventories.
+
+### Differences from standard item charges
+
+The following table describes the differences between standard item charges and subcontracting item charges.
+
+|Aspect|Standard item charge|Subcontracting item charge|
+|------|-------------------|-------------------------|
+|Item Ledger Entry No.|Filled|0 (empty)|
+|Capacity Ledger Entry No.|0 (empty)|Filled|
+|Order Type|Purchase|Production|
+|Inventory impact|Yes|No|
+|Cost distribution|Item|Capacity/Production order|
+
+## Benefits of assigning item charges to subcontracting
+
+Assigning item charges to subcontracting receipts offers the following benefits:
+
+- **More accurate cost assignment** - Costs are assigned directly to production orders rather than to items.
+- **Better cost separation** - Manufacturing costs are separated from material costs.
+- **Improved calculation** - Manufacturing cost calculations are more precise.
+- **Better reporting** - You can analyze subcontracting costs separately from item costs.
+- **Better traceability** - You can track the total cost of subcontracting more easily.
+
+## Examples
+
+The following examples show how you can use item charges with subcontracting.
+
+### Example 1: Transport costs
+
+A subcontracting invoice includes 1,000 EUR for processing and 50 EUR for transport. You assign the transport costs as an item charge to the subcontracting receipt.
+
+### Example 2: Packaging costs
+
+Special packaging for sensitive parts costs 30 EUR in addition to 800 EUR for processing. You assign the packaging costs as an item charge for direct assignment to manufacturing costs.
+
+### Example 3: Testing costs
+
+Quality testing at the subcontractor costs 100 EUR in addition to 1,200 EUR for processing. You assign the testing costs as an item charge for better cost transparency.
+
+## Things to consider
+
+Keep the following in mind when you work with item charges for subcontracting:
+
+- You must turn on the feature on the **Manufacturing Setup** page before you use it. After you turn it on, the feature only affects new postings.
+- After you post an item charge to a subcontracting receipt, you can't reverse it.
+- Make sure that you assign the item charge to the correct subcontracting receipt because the assignment affects cost distribution.
+- Without the Subcontracting app, standard [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support assigning item charges to purchase receipts for subcontracting operations. If you try to assign charges to a receipt line with a work center, you get an error. The Subcontracting app removes this limitation and routes the charges to capacity ledger entries instead of item ledger entries.
+
+## Verify postings
+
+To verify that [!INCLUDE [prod_short](includes/prod_short.md)] posted item charges correctly, check the value entries.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Value Entries**, and then choose the related link.
+2. Filter the entries by the production order number.
+3. Filter by **Cost Type** set to **Direct Cost**.
+4. Verify that the **Capacity Ledger Entry No.** field is filled and the **Item Ledger Entry No.** field is empty.
+
+The item charge costs appear in the production order cost overview under capacity costs.
+
+## Related information
+
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-enter-data
 ---
@@ -20342,7 +20895,7 @@ When you post or run a batch job, the correct source code is automatically attac
 
 1. Choose the ![Search for Page or Report.](media/ui-search/search_small.png "Search for Page or Report icon") icon, enter **Source Code Setup**, and then choose the related link.  
 
-2. In the **Source Code Setup** window, for each each posting type and batch job, specify the relevant source code.  
+2. In the **Source Code Setup** window, for each posting type and batch job, specify the relevant source code.  
 
 You can change the contents of a field later, and that change will then impact future postings.
 
@@ -20647,7 +21200,7 @@ If you purchase the same item from more than one vendor, you can connect those v
 
 The vendors appear on the **Item Vendor Catalog** page, which you open from the item card, so that you can easily select an alternate vendor.
 
-If you purchase the same item from more than one vendor additionally you can set up prices and discounts discounts.  For more information, see [Record Special Purchase Prices and Discounts](purchasing-how-record-purchase-price-discount-payment-agreements.md).
+If you purchase the same item from more than one vendor additionally you can set up prices and discounts.  For more information, see [Record Special Purchase Prices and Discounts](purchasing-how-record-purchase-price-discount-payment-agreements.md).
 
 ## Manage inventory in warehouses
 
@@ -21634,259 +22187,6 @@ Before you can send and receive electronic documents or import and export bank f
 [Record Purchases](purchasing-how-record-purchases.md)  
 [Incoming Documents](across-income-documents.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-setup-item-tracking
----
-title: Set up item tracking with serial, lot, and package numbers
-description: Set up item tracking with serial numbers, lot numbers, and package numbers
-author: brentholtorf
-ms.author: bholtorf    
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 07/14/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-# Set up item tracking with serial, lot, and package numbers
-
-Keep track of inventory items, even in complex warehouse configurations, by assigning numbers that are specific to each item. You can use numbers for individual objects, lots, or packages. With item tracking, you can trace items across internal warehouse movements, and outbound and inbound documents.
-
-Items with serial and lot numbers can be traced both backwards and forward in the supply chain. Tracing is useful for general quality assurance and for product recalls. For more information, see [Trace Item-Tracked Items](inventory-how-to-trace-item-tracked-items.md).  
-
-## Numbers and item tracking
-
-As part of your warehouse processes, you can bundle your stock in packages, boxes, containers, and so on. But in order to keep track of the items, you assign unique numbers as identification. For example, you manufacture and sell a chair that has the item number *1900-S*. Each chair has a serial number, *1001*, but you also bundle four chairs into a lot, *LOT0001*. You also ship the chairs in a container with the package number *CONTAINER010* that also includes *LOT0100* with side tables, and *LOT200* with lamps.  
-
-Depending on your configuration, you use these different numbers to keep track of inventory in [!INCLUDE [prod_short](includes/prod_short.md)] at the various stages of purchasing, sales, warehouse operations, and so on.
-
-## To set up item tracking codes
-
-An item tracking code reflects the different considerations regarding the use of serial and lot numbers for items moving through the inventory.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Item Tracking Codes**, and then choose the related link.  
-2. Choose the **New** action.
-3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
-4. On the **Serial No.**, **Lot No.**, and the **Package Tracking** FastTabs, define policies of item tracking by serial, lot, and package numbers respectively.  
-
-> [!NOTE]  
-> If you want to track specific items or specific lots throughout their lifetime, you must choose the **SN Specific Tracking**, **Lot Specific Tracking**, and **Package Specific Tracking** fields, respectively. As a result, when you handle an outbound unit of an item with this item tracking code, you must always specify which serial number or lot number to handle. This means that when you sell a unit of the item, it must be applied against a specific pool of serial numbers or lot numbers. In other words, the serial, lot, or package number assigned to the item when it enters inventory must follow the item when it leaves inventory.
-
-Because these setup fields cover all possible transactions with the item, the individual inbound/outbound fields are selected. However, the individual inbound and outbound fields have nothing to do with application across inventory. They merely define your company's work flow concerning when to assign item tracking numbers.  
-
-> [!NOTE]  
-> To assign item tracking numbers in warehouse activities, you must turn on the **SN Warehouse Tracking** and **Lot Warehouse Tracking** toggles on the item tracking code that you assign to the item. The toggles are available on the **Item Tracking Code Card** page.
-
-## To set up expiration rules for serial or lot numbers
-
-For some items, you might want to set up specific expiration dates and rules in the item tracking code. This functionality allows you to keep track of when specific serial numbers and lot numbers expire.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Item Tracking Codes**, and then choose the related link.
-2. Select an existing item tracking code, and then choose the **Edit** action.  
-3. On the **Misc.** FastTab, select the following fields:  
-
-    |Field|Description|  
-    |---------------------------------|---------------------------------------|  
-    |**Strict Expiration Posting**|Specifies that the expiration date for the item tracking number when it entered inventory is respected when it exits inventory.|  
-    |**Require Expiration Date Entry**|Specifies that you must enter an expiration date on the item tracking line.|  
-    |**Use Expiration Dates**|Specifies that you want to calculate expiration dates. |  
-
-## To set up warranties for serial or lot numbers
-
-For some items, you might want to set up specific warranties in the item tracking code. This functionality allows you to keep track of when the warranties on specific serial or lot numbers in your inventory expire.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Item Tracking Codes**, and then choose the related link.  
-2. Select an existing item tracking code, and then choose the **Edit** action.  
-3. On the **Misc.** FastTab, fill in the **Warranty Date Formula** field, and then select the fields as follows:  
-
-    |Field|Description|  
-    |---------------------------------|---------------------------------------|  
-    |**Warranty Date Formula**|Specifies the last day of warranty for the item.|  
-    |**Require Warranty Date Entry**|Specifies that you must manually enter a warranty date on the item tracking line.|  
-
-## To set up items for tracking with the correct item tracking codes
-
-To enable item tracking, you first have to assign the item tracking codes to an item. There are two ways to add item tracking codes, by selecting the code from a predefined list or by assigning a new unique code. Hover over the fields to read a short description.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Item**, and then choose the related link.
-2. Select an existing item from the list, and open the **Item Card** page.  
-3. On the **Item Tracking** FastTab, assign the appropriate item tracking codes and choose the **Item Tracking Code**, the **Serial Nos.**, and the **Lot Nos.**.
-    1. Alternatively you can also create a new item tracking code by selecting the **New** action.
-
-
-## Related information
-
-[Work with Serial and Lot Numbers](inventory-how-work-item-tracking.md)  
-[Trace Item-Tracked Items](inventory-how-to-trace-item-tracked-items.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Design Details: Item Tracking](design-details-item-tracking.md)  
-[Design Details - Item Tracking and Reservations](design-details-item-tracking-and-reservations.md)  
-[Reserve Items](inventory-how-to-reserve-items.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/set-up-complex-application-areas-using-best-practices
----
-title: Set Up Complex Application Areas Using Best Practices | Microsoft Docs
-description: Entering the correct setup values from the start is important to the success of any new business software.
-author: brentholtorf
-ms.topic: best-practice
-ms.devlang: al
-ms.search.keywords:
-ms.date: 04/01/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Set Up Complex Application Areas Using Best Practices
-Entering the correct setup values from the start is important to the success of any new business software.  
-
- Whether you use Rapid Start to implement setup values or you manually enter them in the new company, you can support your setup decisions with some general recommendations for selected setup fields that are known to potentially cause the solution to be inefficient if defined incorrectly.  
-
- Help in [!INCLUDE[prod_short](includes/prod_short.md)] includes best-practice information about how to set up key fields in the following application areas:  
-
--   [Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
-
--   [Setup Best Practices: Costing Method](setup-best-practices-costing-method.md)  
-
-## Related information  
-[Design Details: Supply Planning](design-details-supply-planning.md)   
-[Design Details: Costing Methods](design-details-costing-methods.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
- 
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-project-overview
----
-title: Project Overview (Power BI report)
-description: The Project Overview report highlights key high-level information about your organization's project activity.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.search.form: 37033_Primary
-ms.date: 09/25/2025
-ms.service: dynamics-365-business-central
----
-
-# Project Overview (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Projects Overview** report shows key metrics based on all ongoing projects for your organization and high-level summaries.
-
-Use this report to investigate metrics such as the percent invoiced, percent complete, and other values that offer insights about the status your projects.
-
-:::image type="content" source="media/projects/project-overview.png" alt-text="Screenshot of the Projects Overview Power BI Report" lightbox="media/projects/project-overview.png":::
-
-## Use the report
-
-Leadership and project managers use the report for high-level information about specific projects, and overall overview of the organization's projects.
-
-People on leadership teams use the report to get a bird's eye view of your organizations projects. This view can show the overall progress of projects and break down your resource allocation per project manager. It shows high-level costing information, so you can identify where to make changes and ensure that projects are under budget.
-
-Project managers use the report to gain a better understanding of the health of all your projects. The report helps them understand what's going well and what isn't, and where to make changes.
-
-## Key Performance Indicators (KPIs)
-
-The *Project Overview* report includes the following KPIs:
-
-- [Completed (%)](projects-powerbi-kpis.md#completed-)
-- [Invoiced (%)](projects-powerbi-kpis.md#invoiced-)
-- [Realization (%)](projects-powerbi-kpis.md#realization-)
-- [Actual Profit](projects-powerbi-kpis.md#actual-profit)
-- [Actual Profit Margin %](projects-powerbi-kpis.md#actual-profit-margin-)
-- [Actual (Total Cost)](projects-powerbi-kpis.md#actual-total-cost)
-- [Budget (Total Cost)](projects-powerbi-kpis.md#budget-total-cost)
-- [Project Count](projects-powerbi-kpis.md#project-count)
-- [No. of Completed Projects](projects-powerbi-kpis.md#no-of-completed-projects)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Job
-- Job Ledger Entry
-- Job Planning Line
-
-## Try the report
-
-Try the report here: [Project Overview](https://businesscentral.dynamics.com?page=37033)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Projects app](projects-powerbi-app.md)  
-[Built-in Projects reports](project-reports.md)  
-[Project management overview](projects-manage-projects.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/assembly-how-to-create-blanket-assembly-orders
----
-title: Create Blanket Assembly Orders
-description: Create blanket sales orders for customized assembly items before periodically making the actual sales orders according to the blanket order agreement.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: kit, kitting
-ms.search.form: 900, 901, 902, 903, 904, 907, 910, 916, 920, 921, 922, 923, 940, 941, 942, 930, 931, 932, 914, 915, 905
-ms.date: 04/01/2021
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Create Blanket Assembly Orders
-
-You can use assembly management to customize an assembly item to a customer's request during the sales process. For more information, see [Sell Items Assembled to Order](assembly-how-to-sell-items-assembled-to-order.md).  
-
- As with any other type of item, you can also create blanket sales orders for customized assembly items before periodically making the actual sales orders according to the blanket order agreement. This process involves several extra steps when you compare it to creating a regular blanket sales order, and it uses a variation of a linked assembly order, which is a blanket assembly order.
-
-> [!NOTE]  
->  Like all blanket orders, quantities on assembly blanket orders are only forecasts and are not operational until they are converted to actual assembly orders. Therefore, order functionality, such as availability calculation, reservation, and item tracking, is not active on blanket assembly orders.  
-
-## To create a blanket assembly order for an assemble\-to\-order item  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Blanket Sales Orders**, and then choose the related link.  
-2. Create a new blanket sales order with one line for an assembly item. For more information, see [Create Blanket Sales Orders](sales-how-to-create-blanket-sales-orders.md).  
-3. In the **Qty. to Assemble to Order** field on the blanket assembly order line, enter the full quantity.
-
-    > [!NOTE]  
-    >  You should not create blanket order agreements for a partial quantity. Therefore, you must enter the same quantity that you entered in the **Quantity** field on the blanket sales order line.  
-
-4. Choose the **Assemble to Order** action, and then choose the **Assemble-to-Order Lines** action. Alternatively, choose the **Qty. to Assemble to Order)** field on the line.  
-5. On the **Assemble-to-Order Lines** page, review or modify the assembly order lines according to the blanket order agreement that you have made with the customer. If you want to view more information, choose the **Show Document** action to open the complete blanket assembly order. You cannot change the contents of most fields, and you cannot post.  
-6. When you have adjusted the assembly order lines according to the blanket order agreement, close the **Assemble-to-Order Lines** page to return to the **Blanket Sales Order** page.  
-7. When the customer requests to create a sales order based on the agreed blanket sales order, create a sales order for the agreed assembly item or items. For more information, see [Create Blanket Sales Orders](sales-how-to-create-blanket-sales-orders.md).
-
-The linked blanket assembly order and any customizations are linked to that new sales order to prepare for assembly of the item or items to be sold.  
-
-## Related information
-
-[Create Blanket Sales Orders](sales-how-to-create-blanket-sales-orders.md)  
-[Assembly Management](assembly-assemble-items.md)  
-[Work with Assembly BOMs](assembly-how-work-assembly-boms.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Warehouse Management Overview](design-details-warehouse-management.md)
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

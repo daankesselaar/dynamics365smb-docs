@@ -618,6 +618,103 @@ When production requirements change, such as components or operations, you can q
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-prices
+---
+title: Set up subcontractor prices
+description: Learn how to set up and maintain subcontractor prices for work center groups, including copying prices between vendors and filtering options.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, prices, work center group, vendor
+ms.search.form: 99000886
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Set up subcontractor prices
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+You can store subcontractor prices and view all prices for each item at a glance. You can maintain subcontractor prices by assigning them to vendors, standard catalog filters, and work center groups. You can access subcontractor prices from the work center group card and the vendor card.
+
+## Set up subcontractor prices
+
+The following steps describe how to set up subcontractor prices.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Subcontractor Prices**, and then choose the related link.
+2. On the **General** FastTab, use the filters to find specific subcontractor prices. The following filters are available:
+
+   - **Vendor No. Filter**
+   - **Work Center Group No. Filter**
+   - **Standard Catalog Code Filter**
+   - **Item No. Filter**
+   - **Starting Date Filter**
+
+3. In the lines, fill in the following required fields:
+   - **Work Center Group No.**
+   - **Vendor No.**
+   - **Item No.**
+
+4. In the **Standard Catalog Code** field, enter specific activities for the work center group.
+5. In the **Purchase Price** field, enter the activity-related price. You can specify prices for items, time periods, units of measure, and quantities.
+
+> [!NOTE]
+> The **Work Center Group No.**, **Vendor No.**, and **Item No.** fields are required.
+
+## Set up prices from a work center group
+
+You can store activity-related prices for individual work center groups.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Work Center Groups**, and then choose the related link.
+2. Open the work center group.
+3. Choose the **Subcontractor Prices** action.
+
+   [!INCLUDE [prod_short](includes/prod_short.md)] displays the **Subcontractor Prices** page with the **Work Center Group No. Filter** already filled in.
+
+4. In the lines, in the **Standard Catalog Code** field, enter specific activities for the work center group.
+5. In the **Purchase Price** field, enter the activity-related price. You can specify prices for items, item variants, time periods, units of measure, and quantities. You can also specify minimum quantities.
+6. If you agreed on a minimum amount per process with your subcontracting vendor for each production order quantity, enter it in the **Minimum Amount** field.
+
+   Price determination for the production order operation considers this amount and determines the purchase price based on the order quantity.
+
+> [!NOTE]
+> The **Work Center Group No.**, **Vendor No.**, and **Item No.** fields are required.
+
+## Copy prices between vendors
+
+You can copy subcontractor prices from one vendor to another vendor.
+
+1. On the **Subcontractor Prices** page, in the **Vendor No. Filter** field, enter the vendor number from which you want to copy prices.
+2. In the **Work Center Group No. Filter** field, enter the work center group number.
+3. Choose the **Copy Subcontractor Prices** action.
+4. Select the lines you want to copy.
+5. Choose **OK**.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] copies the selected lines for the specified vendor.
+
+## View prices from a routing
+
+You can view subcontractor prices from a routing.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Routing**, and then choose the related link.
+2. Open the routing.
+3. On the lines, select the subcontracting operation.
+4. Choose the **Subcontractor Prices** action.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] displays the **Subcontractor Prices** page where you can view or edit the information for the item.
+
+## Related information
+
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-released-production-orders
 ---
 title: Released Production Orders
@@ -4323,6 +4420,66 @@ When you correct an application, correcting entries are created and posted for a
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-location-management
+---
+title: Set up locations for subcontracting
+description: Learn how to configure subcontracting locations on vendor cards and set up transfer routes between your warehouse and subcontractor locations.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, location, transfer routes
+ms.search.form: 99000886,
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Set up locations for subcontracting
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+Each subcontractor needs a location so that [!INCLUDE [prod_short](includes/prod_short.md)] knows where components are consumed or transferred. This article explains how to configure subcontracting locations on vendor cards and set up transfer routes.
+
+To learn more about how locations are assigned to components at runtime, and how transfer orders move materials, go to [Manage components in subcontracting](subcontract-components.md).
+
+## Set up subcontracting locations for vendors
+
+Each subcontractor must have a location for subcontracting operations. We recommend that you create a separate location for each subcontractor to keep inventories separate.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Vendors**, and then choose the related link.
+2. Open the vendor card for the subcontractor.
+3. On the **Shipping** FastTab, in the **Subcontracting Location Code** field, specify the location.
+
+The **Linked to Work Center Group No.** field shows whether the vendor is connected to a work center group. [!INCLUDE [prod_short](includes/prod_short.md)] creates this link automatically through the **Subcontractor No.** field in the work center group.
+
+## Set up transfer routes
+
+For components with the **Transfer** subcontracting type, set up transfer routes between your locations and the subcontractor locations.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Transfer Routes**, and then choose the related link.
+2. Create a new route with the following information:
+   - **Transfer-from Code**: The location where the component is stored.
+   - **Transfer-to Code**: The subcontracting location code from the vendor card.
+   - **In-Transit Code**: A transit location for the transfer.
+
+If no transfer route is configured between two locations, [!INCLUDE [prod_short](includes/prod_short.md)] automatically uses a direct transfer (without a transit location) when creating transfer orders.
+
+> [!IMPORTANT]
+> Correct location configuration is important for subcontracting processes to work properly. Incorrect configurations can lead to posting errors and inconsistent inventories.
+
+## Related information
+
+[Manage components in subcontracting](subcontract-components.md)  
+[Set up subcontracting](subcontract-setup.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-automate-reminders
 ---
 title: Automate reminders in collections
@@ -5326,7 +5483,7 @@ If you have internal operation areas, such as production or assembly areas, you 
 - **Inventory Pick** page.  
 - **Inventory Put-away** page.
 
-To use these documents, you must set up one or more of the following fields on the the **Location Card** page for the location:
+To use these documents, you must set up one or more of the following fields on the **Location Card** page for the location:
 
 - The **Bin Mandatory** field.
 - The **Inventory Pick/Movement** option in the **Prod. Consumption Whse. Handling** field.
@@ -5377,9 +5534,7 @@ The following procedures are based on setting up basic warehouse activities arou
 
 Now, production order component lines with the default bin code require that forward-flushed components are placed there. However, until the components are consumed from that bin, other component demands might pick or consume from that bin because they're still considered available bin contents. To make sure that bin content is only available to component demand that uses that to-production bin, you must select the **Dedicated** field on the line for that bin code on the **Bins** page that you open from the location card.
 
-This flow chart shows how the **Bin Code** field on production order component lines is filled according to your setup.  
-
-![Bin flow chart.](media/binflow.png "BinFlow")
+[!INCLUDE [production-bin-code-flow](includes/production-bin-code-flow.md)]
 
 ## To define a default bin structure in the assembly area
 
@@ -6744,8 +6899,8 @@ The following steps describe settings you can use to get started with quality ma
    |Field  |Description  |
    |---------|---------|
    |**Quality Inspection Nos.** | Specify the default number series to use for quality inspection documents when there isn't a number series defined on a quality inspection template. The number series defined on a template takes precedence.  |
-   |**Inspection Creation Option** | Specify when to create a new inspection:<br><br>- **Always create new inspection** creates a new inspection every time, and doesn't search for existing inspections.<br>- **Create a reinspection if matching inspection is finished** searches for an existing, completed inspection that matches. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Always create a reinspection** searches for an existing inspection. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Use existing open inspection if available** searches for an existing, open inspection. If it finds an open inspection, it reuses it without any changes. If it finds an inspection that matches but is completed, or doesn't find a matching inspection, it creates a new inspection.<br>- **Use any existing inspection if available** searches for an existing inspection. If it finds one, it reuses it regardless of its status. If it doesn't fine one, it creates a new inspection.<br><br>**Important:** When an existing inspection is reused, the test data (status, results, measurements) remains unchanged.<br><br>**Tip:** If you automate inspection creation but manually create an inspection, for example, for the first receipt of a lot that you'll receive in multiple shipments, and you want automation to reuse that inspection for subsequent receipts, choose **Use existing open inspection if available** or **Use any existing inspection if available**. Then, in the **Inspection Search Criteria** field, choose **By Item Tracking** to find inspections by lot or serial numbers.  |
-   |**Inspection Search Criteria** | Specify the search criteria to use to find existing inspections. All of the options in the **Create Inspection Behavior** field use this setting, with the exception of **Always create a new inspection**, which skips the search entirely.<br><br>- **By Standard Source Fields** searches by template, source table, document number, item, variant, and lot, serial, and package numbers. Use this option for the most comprehensive matching.<br>- **By Source Record** searches by the specific source record ID that triggered the inspection. Use this option when you want to find inspections linked to a specific document line.<br>- **By Item Tracking** searches primarily by item number, variant, and lot, serial, an package numbers. This option ignores the source document. Use this option to find inspections for a specific lot or serial number across different documents.<br>- **By Document and Item only** searches by document number and item only, and ignores lot, serial, and package numbers. Use this option to find inspections for an item on a document, regardless of tracking information.<br><br>**Note:** The search always returns the most recent inspection (highest retest number) that matches the criteria.    |
+   |**Inspection Creation Option** | Specify when to create a new inspection:<br><br>- **Always create new inspection** creates a new inspection every time, and doesn't search for existing inspections.<br>- **Create a reinspection if matching inspection is finished** searches for an existing, completed inspection that matches. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Always create a reinspection** searches for an existing inspection. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Use existing open inspection if available** searches for an existing, open inspection. If it finds an open inspection, it reuses it without any changes. If it finds an inspection that matches but is completed, or doesn't find a matching inspection, it creates a new inspection.<br>- **Use any existing inspection if available** searches for an existing inspection. If it finds one, it reuses it regardless of its status. If it doesn't find one, it creates a new inspection.<br><br>**Important:** When an existing inspection is reused, the test data (status, results, measurements) remains unchanged.<br><br>**Tip:** If you automate inspection creation but manually create an inspection, for example, for the first receipt of a lot that you'll receive in multiple shipments, and you want automation to reuse that inspection for subsequent receipts, choose **Use existing open inspection if available** or **Use any existing inspection if available**. Then, in the **Inspection Search Criteria** field, choose **By Item Tracking** to find inspections by lot or serial numbers.  |
+   |**Inspection Search Criteria** | Specify the search criteria to use to find existing inspections. All of the options in the **Create Inspection Behavior** field use this setting, with the exception of **Always create a new inspection**, which skips the search entirely.<br><br>- **By Standard Source Fields** searches by template, source table, document number, item, variant, and lot, serial, and package numbers. Use this option for the most comprehensive matching.<br>- **By Source Record** searches by the specific source record ID that triggered the inspection. Use this option when you want to find inspections linked to a specific document line.<br>- **By Item Tracking** searches primarily by item number, variant, and lot, serial, and package numbers. This option ignores the source document. Use this option to find inspections for a specific lot or serial number across different documents.<br>- **By Document and Item only** searches by document number and item only, and ignores lot, serial, and package numbers. Use this option to find inspections for an item on a document, regardless of tracking information.<br><br>**Note:** The search always returns the most recent inspection (highest retest number) that matches the criteria.    |
    |**Certificate of Analysis Contact** | Specify the contact details that appear on the **Certificate of Analysis** report when supplied.        |
    |**Maximum Rows To Fetch in Lookups** | Specify the maximum number of rows to fetch on data lookups. Keep the number as low as possible to increase usability and performance.        |
    |**Additional Picture Handling** | Specify what to do with pictures.<br><br>- **None** means not to take an action with pictures.<br>- **Save as attachment** attaches the picture as a document.<br>- **Save as attachment and upload to OneDrive** attaches the picture and uploads it to OneDrive.        |
@@ -6759,7 +6914,7 @@ The following steps describe settings you can use to get started with quality ma
    |**Sales Returns Trigger** | - **Never** means no automatic inspection creation.<br>- **When Sales Return is received** creates an inspection when you post a sales return order receipt.        |
    |**Transfer Orders Trigger** | - **Never** means no automatic inspection creation.<br>- **When Transfer Order is received** creates an inspection when you post a transfer order receipt.        |
    |**Production Order Trigger**| - **Never** means no automatic inspection creation.<br>- **When Production Output is posted** creates an inspection when you post production output.<br>- **When Production Order is released** creates an inspection when you release a production order.<br>- **When a Released Production Order is refreshed** creates an inspection when you refresh a production order that is already released.|
-   |**Prod. trigger output condition**|- **Any Output Entry** creates an inspection when you enter any output.- **Any Quantity Output** creates an inspection when you post a quantity.<br>- **Only with Quantity** creates an inspection only when you post an output quantity.<br>- **Only with Scrap** creates an inspection only when you post output with scrap.|
+   |**Prod. trigger output condition**|- **Any Output Entry** creates an inspection when you enter any output.<br>- **Any Quantity Output** creates an inspection when you post a quantity.<br>- **Only with Quantity** creates an inspection only when you post an output quantity.<br>- **Only with Scrap** creates an inspection only when you post output with scrap.|
    |**Assembly Trigger**|- **Never** means no automatic inspection creation.<br>- **When Output is posted** creates an inspection when you post assembly output.|
    |**Warehouse Movement Trigger**|- **Never** means no automatic inspection creation.<br>- **When Warehouse Movement is registered** creates an inspection when you register the movement of goods.|
 
@@ -7118,7 +7273,7 @@ If Copilot functionality, such as the **Draft with Copilot** action for marketin
 
 ## Copilot appears on pages, but you get an error that it's not activated
 
-When you try to use Copilot and you get an error similar to **Sorry, Copilot is not activated for \[feature\]**, there are a couple things to check:
+When you try to use Copilot and you get an error similar to **Sorry, Copilot is not activated for \[feature\]**, there are a couple of things to check:
 
 - First, make sure that the feature is activated on the **Copilot & agent capabilities** page. [Learn more about activating Copilot and agent capabilities](enable-ai.md#activate-features). 
 - Next, make sure that privacy notice statement for Azure OpenAI integration isn't set to **Disagree for everyone**. If it is, change it to **Agree for everyone**. [Learn more about privacy notices](privacy-notices-status.md).
@@ -8058,112 +8213,75 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-subcontract-manufacturing
 ---
-title: Subcontract manufacturing
-description: This article gives an extended overview of the extended functionality of subcontracting, including work center fields and routing.
+title: Subcontracting overview
+description: Get an overview of subcontracting capabilities for manufacturing, including subcontractor prices, component posting, transfer orders, and location management.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: 99000886,
-ms.date: 06/22/2024
+ms.topic: overview
+ms.search.keywords: subcontracting, manufacturing, production, vendor, prices
+ms.search.form: 99000886,
+ms.date: 05/18/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
-# Subcontract manufacturing
+# Subcontracting overview
 
-Subcontracting selected operations to vendor is common in many manufacturing companies. Subcontracting can be a rare occurrence or can be an integral part of all production processes.
+Subcontracting selected operations to a vendor is common in many manufacturing companies. Subcontracting can be a rare occurrence or an integral part of all production processes.
 
-[!INCLUDE[prod_short](includes/prod_short.md)] provides several tools for managing subcontract work:  
+<!--[!INCLUDE[prod_short](includes/prod_short.md)] provides basic subcontracting support through subcontract work centers. For extended capabilities — such as the subcontracting worksheet, subcontractor price management, component posting, transfer orders, item charges, and location management — install the **Subcontracting** app from [Microsoft AppSource](https://go.microsoft.com/fwlink/?linkid=2311183). Learn more about installing apps at [Install and uninstall extensions](ui-extensions-install-uninstall.md#install). -->
 
-- Work Centers with assigned vendor: This feature enables you to set up a work center that is associated with a vendor (subcontractor). This work center is called a subcontract work center. You can specify a subcontract work center on a routing operation, which allows you to easily process the subcontracted activity. In addition, the cost of the operation can be designated at the routing or the work center level.  
-- Work Center cost based on units or time: This feature enables you to specify whether costs associated with the work center are based on the production time or a flat charge per unit. Although subcontractors commonly use a flat charge per unit to charge for their services, the application can handle both options (production time and flat charge per unit).  
-- Subcontracting Worksheet: This feature allows you to find the production orders with material ready to send to a subcontractor and to automatically create purchase orders for subcontract operations from production order routings. The application automatically posts the purchase order charges to the production order during the posting of the purchase order. Only production orders with a status of released can be accessed and used from a subcontracting worksheet.  
+## Basic subcontracting tools
 
-## Subcontract work centers  
+The following tools are available without the Subcontracting app:
 
-Subcontract Work Centers are set up the same as regular work centers with additional information. They're assigned to routings in the same manner as other work centers.  
+- **Work centers with an assigned vendor**. You can set up a work center that is associated with a vendor (subcontractor). You specify this subcontract work center on routing operations, and the cost of the operation can be designated at the routing or work center level. Learn more in [Set up subcontracting](subcontract-setup.md).
+- **Work center cost based on units or time**. You can specify whether costs for the work center are based on production time or a flat charge per unit. Although subcontractors commonly use a flat charge per unit, [!INCLUDE[prod_short](includes/prod_short.md)] can handle both options.
 
-### Subcontract work center fields  
+## Extended capabilities in the Subcontracting app
 
-This **Subcontractor No.** field designates the work center as a subcontract work center. You can enter the number of a subcontractor who supplies the work center. This field can be used to administer work centers, which aren't in-house but perform processing under contract.  
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
-If you subcontract with the vendor for a different rate for each process, then select the **Specific Unit Cost** field. This setting lets you set up a cost on each routing line and saves the time of reentering each purchase order. The cost on the routing line is used in processing instead of the cost on the work center cost fields. Selecting the **Specific Unit Cost** field calculates costs for the vendor by the routing operation.  
+The following sections outline the extra capabilities that the Subcontracting app offers.
 
-If you subcontract at a single rate per vendor, leave the **Specific Unit Cost** field blank. The costs are set up by filling in **Direct Unit Cost**, **Indirect Cost %**, and **Overhead Rate** fields.  
+### Subcontracting worksheet
 
-### Routings that use subcontract work centers
+Use the subcontracting worksheet to find production orders with material ready to send to a subcontractor and automatically create purchase orders for subcontract operations. Learn more in [Use the subcontracting worksheet](subcontract-worksheet.md).
 
-Subcontract work centers can be used for operations on routings in the same way as regular work centers.  
+### Order subcontracting from production orders
 
-You can set up a routing that uses an outside work center as a standard operational step. Alternatively, you can modify the routing for a particular production order to include an outside operation. This might be needed in an emergency such as a server not working correctly, or during a temporary period of higher demand where work you normally do in-house must be sent to a subcontractor.  
+Create subcontracting purchase orders directly from released production order routings. You don't need to use worksheets or other journals, which reduces the risk of errors when you verify purchase invoices. Learn more in [Order subcontracting from production orders](subcontract-order.md).
 
-For more information, see [Create Routings](production-how-to-create-routings.md).  
+### Subcontractor prices
 
-## Calculate subcontracting worksheets and create subcontract purchase orders  
+Store prices from subcontractors and view all item prices at a glance. You can use filters to search for specific prices. Learn more in [Manage subcontractor prices](subcontract-prices.md).
 
-After you calculate the subcontracting worksheet, the relevant document is created. In this case, a purchase order.  
+### Component management
 
-The **Subcontracting Worksheet** page functions like the **Planning Worksheet** by calculating the needed supply, in this case purchase orders, which you review in the worksheet and then create with the **Carry Out Action Message** function.  
+Subcontracting types control how to handle components. For example, whether the subcontractor purchases them, they're already stocked at their location, or transferred from your warehouse. [!INCLUDE [prod_short](includes/prod_short.md)] automatically manages locations and supports transfer orders for moving materials. Learn more in [Manage components in subcontracting](subcontract-components.md).
 
-> [!NOTE]  
-> Only production orders with status **Released** can be accessed and used from a subcontracting worksheet.  
+### Item charges
 
-### To calculate the subcontracting worksheet  
+Assign other costs such as transport, packaging, or other incidental costs directly to subcontracting operations. Item charges enable precise cost allocation to production orders. Learn more in [Assign item charges to subcontracting receipts](subcontract-item-charges.md).
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Subcontracting Worksheet**, and then choose the related link.  
-2. To calculate the worksheet, choose the **Calculate Subcontracts** action.  
-3. On the **Calculate Subcontracts** page, set filters for the subcontracted operations, or the work centers where they're performed, to calculate only the relevant production orders.  
-4. Choose the **OK** button.  
+### Location management
 
-    Review the lines on the **Subcontracting Worksheet** page. The information in this worksheet comes from the production order and production order routing lines and flows to the purchase order when that document is created. You can delete a row from the worksheet without affecting the original information, just as you can with the other worksheets. The information will reappear the next time you run the **Calculate Subcontracts** function.  
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically assigns and manages locations in subcontracting, from provisioning components to transferring them to the subcontractor. Learn more in [Set up locations for subcontracting](subcontract-location-management.md).
 
-### To create the subcontract purchase order  
+<!--### Purchase provisions
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Subcontracting Worksheet**, and then choose the related link.  
-2. Choose the **Carry Out Action Message** action.  
-3. Select the **Print Orders** field to print the purchase order as it is created.  
-4. Choose the **OK** button.  
+Create subcontracting from purchase orders through production orders and complete the subcontracting process. Default settings support automatic posting processes to save time and reduce costs. Learn more in [Set up purchase provisions for subcontracting](subcontract-purchase-provisions.md). -->
 
-If all subcontracted operations are sent to the same vendor location, then only one purchase order is created.  
+## Related information
 
-The worksheet line that was turned into a purchase order is deleted from the worksheet. After a purchase order is created, it won't appear in the worksheet again.  
-
-## Posting subcontract purchase orders  
-
-After the Subcontractor Purchase Orders are created, they can be posted. Receiving the order posts a Capacity Ledger Entry to the production order and invoicing the order posts the direct cost of the purchase order to the production order.  
-
-## To post a subcontract purchase order
- 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Orders**, and then select the related link.  
-2. Open a purchase order that is created from the subcontracting worksheet.  
-
-    On the purchase order lines, you see the same information that was in the worksheet. The **Prod. Order No.**, **Prod. Order Line No.**, **Operation No.**, and **Work Center No.** fields are filled in with the information from the source production order.  
-
-3. Choose the **Post** action.  
-
-When the purchase is posted as received, an output journal entry is automatically posted for the production order if the subcontract operation is the last operation on the production order routing.  
-
-> [!CAUTION]  
-> Posting output automatically for an ongoing production order when subcontracted items are received may not be desired. Reasons for this could be that the expected output quantity that is posted may be different from the actual quantity and that the posting date of the automatic output is misleading.  
->
-> To avoid that the expected output of a production order is posted when subcontract purchases are received, make sure the subcontracted operation is not the last one. Alternatively, insert a new last operation for the final output quantity.  
-
-When the purchase order is posted as invoiced, then the direct cost of the purchase order is posted to the production.  
-
-> [!NOTE]  
-> Expected costs are only managed for item transactions. Expected costs are not for immaterial transaction types, such as capacity posted via subcontract purchase orders. Don't be confused by the fact that posting a receipt might trigger posting of output. These transactions are separate and the expected cost of output is calculated independently.  
-
-## Related information  
-
-[Manufacturing](production-manage-manufacturing.md)    
+[Set up subcontracting](subcontract-setup.md)  
+[Order subcontracting from production orders](subcontract-order.md)  
+[Use the subcontracting worksheet](subcontract-worksheet.md)  
+[Manufacturing](production-manage-manufacturing.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
-[Planning](production-planning.md)      
-[Inventory](inventory-manage-inventory.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -12737,7 +12855,7 @@ External users, such as delegated admins and external accountants, can't use the
 If you want to use SMTP protocol to send emails from [!INCLUDE[prod_short](includes/prod_short.md)], you can use the SMTP Connector extension. When you set up an account that uses SMTP, the **Sender Type** field is important. If you choose **Specific User**, emails are sent using the name and other information from the account you're setting up. However, if you choose **Current User**, emails are sent from the email account specified for each user's account. Current User is similar to the Send As feature. To learn more, go to [Use a Substitute Sender Address on Outbound Email Messages](admin-how-setup-email.md#use-a-substitute-sender-address-on-outbound-email-messages). 
 
 > [!IMPORTANT]
-> To use Auth 2.0 for SMTP authentication, consider the following:
+> To use OAuth 2.0 for SMTP authentication, consider the following:
 >
 > - All users must be on the same Microsoft Entra tenant.
 > - For [!INCLUDE [prod_short](includes/prod_short.md)] on-premises, you must create an application registration in the Azure portal, and then run the **Set up Microsoft Entra ID** assisted setup guide in [!INCLUDE[prod_short](includes/prod_short.md)] to connect to Microsoft Entra ID. Learn more at [Create an App Registration for Business Central in Azure portal](admin-how-setup-email.md#create-an-app-registration-for-business-central-in-azure-portal).
@@ -14758,7 +14876,7 @@ Reclassifying item tracking for an item means to change a lot or serial number t
 
     > [!IMPORTANT]  
     > * If you're reclassifying a lot to the same lot number but with a different expiration date, you must reclassify the entire lot using one item reclassification journal line.
-    > * If you're reclassifying more than one lot to one new lot number, meaning you're merging several lots into one new lot, you must give all lots the the same new expiration date.
+    > * If you're reclassifying more than one lot to one new lot number, meaning you're merging several lots into one new lot, you must give all lots the same new expiration date.
     > * If you're reclassifying one existing lot to a second existing lot that has a different expiration date, you must use the expiration date from the second lot.
     > * If you leave the **New Expiration Date** field blank, the lot or serial number is reclassified with a blank expiration date.  
 
@@ -15709,9 +15827,7 @@ The following steps provide an example of the actions that different people take
 8. The shop floor supervisor uses the output journal or production journal to post the output. The quantity of component items that use **Pick + Forward** or **Pick + Backward** flushing methods with routing links is deducted from the To-Production bin.
 9. The production manager changes the status of the production order to **Finished**. The quantity of component items that use **Backward** flushing method is deducted from the open shop floor bin, and the quantity of component items that use **Pick + Backward** flushing method and no routing link is deducted from the To-Production bin.  
 
- The following illustration shows when the **Bin Code** field on the component list is filled according to your location or machine/work center setup.  
-
-:::image type="content" source="media/binflow.png" alt-text="Overview of when and how the Bin Code field is filled in.":::
+[!INCLUDE [production-bin-code-flow](includes/production-bin-code-flow.md)]
 
 ## Related information
 
@@ -17703,7 +17819,7 @@ The **Sales Demographics** report provides a comprehensive analysis of sales per
 
 ## Use the report
 
-Leadership and management teams use the report to to gain a deeper understanding of sales performance based on demographic factors. This report is helpful for analyzing sales metrics by item category, customer posting group, document type, and geographical location to identify trends and opportunities for growth.
+Leadership and management teams use the report to gain a deeper understanding of sales performance based on demographic factors. This report is helpful for analyzing sales metrics by item category, customer posting group, document type, and geographical location to identify trends and opportunities for growth.
 
 CEOs want to understand how demographic factors including item categories, posting groups or geographical regions impact sales performance.
 
@@ -18917,7 +19033,7 @@ A company functions as a container for data in [!INCLUDE[prod_short](includes/pr
 The **Company** field shows the company you're currently working in, and you can use it to switch to another company. The company name is always displayed at the upper-left corner and works as an action that you can choose to go back to the Role Center.
 
 > [!TIP]
-> You can also change the company by using the company switcher (Crtl+O). For more information about about this feature and other ways to change company or environment, see [Switching to Another Company or Environment](ui-organization-switch.md).
+> You can also change the company by using the company switcher (Crtl+O). For more information about this feature and other ways to change company or environment, see [Switching to Another Company or Environment](ui-organization-switch.md).
 
 The default company is called CRONUS and contains demonstration data only. You can create a new company with custom data. For more information, see [Creating New Companies](about-new-company.md).
 
@@ -20001,7 +20117,7 @@ ms.collection:
 Some Copilot features in [!INCLUDE [prod_short](includes/prod_short.md)] can search the web for additional information. Allowing Copilot to search the web improves the quality of Copilot responses by grounding them in the latest information from public website content, and saves you time from having to switch apps to manually find things yourself. Copilot is powered by Microsoft Bing, and connecting Copilot to Bing search is optional.
 
 > [!IMPORTANT]
-> Bing Search is available from update 26.3 in sandbox environments only. Starting in update 27.0, it's also available in production enviroments. Bing Search isn't available for on-premises deployments of [!INCLUDE [prod_short](includes/prod_short.md)] because it's intended only for use with AI features in online environments.
+> Bing Search is available from update 26.3 in sandbox environments only. Starting in update 27.0, it's also available in production environments. Bing Search isn't available for on-premises deployments of [!INCLUDE [prod_short](includes/prod_short.md)] because it's intended only for use with AI features in online environments.
 
 [!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
 
@@ -21915,293 +22031,6 @@ There are a few things to note about creating retention policies for archived do
 [Track Document Lines](across-how-to-track-document-lines.md)  
 [Sales](sales-manage-sales.md)  
 [General Business Functionality](ui-across-business-areas.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-how-setup-bank-statement-service
----
-title: Set Up Yodlee Bank Feeds
-description: You can convert payment information to any data format that your bank requires and enable the export or import of bank files.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: Yodlee, feed, stream, payment process
-ms.search.form: 1280, 1290
-ms.date: 03/20/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Set up the Envestnet Yodlee bank feeds service
-
-You can import electronic bank statements from your bank to quickly fill on the **Payment Reconciliation Journal** page so you can apply payments and reconcile the bank account. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
-
-> [!IMPORTANT]
-> Due to the Payment Services Directive in Europe (PSD2), after September 14, 2019, you will no longer be able to automatically import bank statements from banks in the United Kingdom into [!INCLUDE[prod_short](includes/prod_short.md)]. We are looking into the possibility of offering this feature again in the future.
-
-> [!NOTE]
-> The Envestnet Yodlee Bank Feeds service is only supported in the online version of Business Central. This functionality is not supported for on-premises versions of [!INCLUDE [prod_short](includes/prod_short.md)], or for [!INCLUDE [prod_short](includes/prod_short.md)] environments hosted on Embed ISV application services. To use this functionality on-premises, you must obtain a co-brand account from Envestnet, and you must add code to integrate with the Yodlee API.
->
-> The Envestnet Yodlee Bank Feeds service is only supported in the United States and Canada.
-> Only banks residing in these countries/regions are supported, even though banks from other countries/regions may appear in the Envestnet Yodlee Bank Feeds bank selection window in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-> [!IMPORTANT]
-> For technical assistance with the Envestnet Yodlee functionality, contact Microsoft Support. Do not contact Envestnet Yodlee. For more information, see [Configuring Technical Support for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/technical-support).
-
-The Envestnet Yodlee Bank Feeds service is installed as an extension to [!INCLUDE[prod_short](includes/prod_short.md)] online and is ready to be enabled in the supported countries/regions. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
-
-After you enable the bank feed service, you must link a bank account to the online bank account that the feed will come from. You link bank accounts to online bank accounts in the following different scenarios:
-
-* A bank account doesn't exist in [!INCLUDE[prod_short](includes/prod_short.md)] for your online bank account. Therefore, you create the bank account by linking from the online bank account.
-* A bank account exists in [!INCLUDE[prod_short](includes/prod_short.md)], which you want to link to an online bank account.
-* A linked bank account must be unlinked because you want to stop using the bank feed service for the account.
-* Online bank accounts have changed and you want to update the information on bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-When the bank feed service is enabled, you can set a bank account up to automatically import new bank statements into the **Payment Reconciliation Journal** page every two hours. Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page won't be imported. For more information, see the “To enable automatic import of bank statements” section.
-
-> [!NOTE]  
-> If you use the Set Up Company assisted setup guide, some of the steps in the following procedures happen automatically when you get to the company bank account setup. For more information, see [Getting Ready for Doing Business](ui-get-ready-business.md).
-
-## To enable the bank feed service
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
-2. Open the bank account that you'll use for the bank feed service.
-3. On the **Bank Account Card** page, in the **Bank Statement Import Format** field, select YODLEEBANKFEED.  
-
-The bank feed service is enabled when you link a bank account to its related online bank account. See the next procedure.  
-
-> [!NOTE]
-> If you use the **Company Setup** assisted setup guide, then you enable the service by selecting the **Use a bank feed service** check box. For more information, see [Creating New Companies in Business Central](about-new-company.md).
-
-## To create a new linked bank account
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
-2. Select the relevant bank account, and then choose the **Create New Linked Bank Account**. The **Bank Account Linking** page opens after a few moments.
-
-    > [!NOTE]  
-    > This page shows the actual web page of the Envestnet Yodlee Bank Feeds service. Terminology and functionality on the page may not match instructions provided in this topic.  
-3. On the **Online Bank Account Linking** page, in the **Link Account** pane, use the Search function to find the bank where you have one or more online bank accounts.
-4. Choose the bank name. The **Log In** pane opens.
-5. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
-6. The bank feed service prepares to link the first online bank account at the specified bank to a new bank account in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-    > [!NOTE]  
-    > If you have more than one online bank account at the bank, you must create additional bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] for them. See steps 8 through 10.  
-
-    After the process completes, the bank name will appear in the **My Accounts** pane on the **Linked** tab. The number in brackets indicates how many online bank accounts were linked.  
-7. Choose the **OK** button.
-
-    If you're only linking one online bank account, the **Bank Account Card** page opens and displays the name of the online bank account. In this case, the bank account linking task is completed. All that's left to do is to set up the bank account. For more information, see [Set Up Bank Accounts](bank-how-setup-bank-accounts.md).
-
-    If you're linking more than one online bank accounts, the **Bank Account Linking** page opens and lists the online bank accounts that aren't yet linked to bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)]. In that case, follow the next step.  
-8. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to New Bank Account** action.  
-
-    The **Bank Account Card** page for a new bank account opens and displays the name of the online bank account.
-
-    If a bank account already exists in [!INCLUDE[prod_short](includes/prod_short.md)] that you want to link the additional online bank account to, follow the next step.  
-9. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to Existing Bank Account** action.
-10. On the **Bank Account List** page, select the bank account that you want to link to, and then choose the **OK** button.
-
-## To link a bank account to an online bank account
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
-2. Select the line for a bank account that isn't linked to an online bank account, and then choose the **Link to Online Bank Account** action. The **Online Bank Account Linking** page opens with the name of the bank prefilled in the **Link Account** pane.
-3. Choose the bank name. The **Log In** pane opens.
-4. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
-
-    The bank feed service prepares to link your bank account in [!INCLUDE[prod_short](includes/prod_short.md)] to the related online bank account.  
-
-    When the process has completed successfully, the bank name will appear in the **My Accounts** pane on the **Linked** tab. If the bank has more than one bank account, only the bank account that you selected in step 2 is linked.  
-5. Choose the **OK** button.
-
-On the **Bank Account List** page, the **Linked** check box is selected.
-
-## To edit the credentials for an online bank account
-
-1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.  
-2. Choose the line for a bank account that is linked to an online bank account, and then choose the **Edit Online Bank Account Information** action.
-3. Update the credentials.
-
-## To unlink a bank account
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.  
-2. Select the line for a linked bank account that you want to unlink from its related online bank account, and the choose the **Unlink Online Bank Account** action.
-
-> [!NOTE]  
-> If you choose **Yes** on the confirmation dialog, the link to the online bank account is removed, and the log-in details are cleared. To link the bank account to the online bank account again, you must log on to the bank again. For more information, see the “To link a bank account to an online bank account“ section.
-
-## To update bank account linking
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
-2. Select the relevant bank account, and then choose the **Update Bank Account Linking** action.
-
-If issues exist for any of the linked bank accounts on the **Bank Account List** page, the **Bank Account Linking** page opens specifying which bank accounts have issues. Issues can best be resolved by unlinking the online bank account and then re-creating the link. For more information, see the “To link a bank account to an online bank account“ section.
-
-## To enable automatic import of bank statements
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
-2. Select the line for a linked bank account, and then choose the **Automatic Bank Statement Import Setup** action.
-3. On the **Automatic Bank Statement Import Setup** page, in the **Number of Days Included** field, specify how far back in time to get new bank transactions for.
-
-    > [!NOTE]  
-    > It is recommended that you set this value to 7 days or more.  
-4. Select the **Enabled** check box.  
-
-Every hour, the **Payment Reconciliation Journal** page will display new payments that are made on the online bank account.
-
-> [!NOTE]  
-> Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page will not be imported.
-
-## Related information
-
-[Setting Up Banking](bank-setup-banking.md)  
-[Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
-[Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md)  
-[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-accounts-in-the-general-ledger
----
-title: Design details accounts in the general ledger
-description: To reconcile inventory and capacity ledger entries with the general ledger, the related value entries post to different accounts in the general ledger.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords:
-ms.date: 03/17/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Design details: Accounts in the general ledger
-
-To reconcile inventory and capacity ledger entries with the general ledger, the related value entries are posted to different accounts in the general ledger. For more information, see [Design Details: Reconciliation with the General Ledger](design-details-reconciliation-with-the-general-ledger.md).  
-
-## From the Inventory Ledger  
-
-The following table shows the relationship between different types of inventory value entries and the accounts and balancing accounts in the general ledger.  
-
-|**Item Ledger Entry Type**|**Value Entry Type**|**Variance Type**|**Expected Cost**|**Account**|**Balancing Account**|  
-|--------------------------------|--------------------------|-----------------------|-----------------------|-----------------|---------------------------|  
-|Purchase|Direct Cost||Yes|Inventory  (Interim)|Invt. Accrual Acc. (Interim)|  
-|Purchase|Direct Cost||No|Inventory|Direct Cost Applied|  
-|Purchase|Indirect Cost||No|Inventory|Overhead Applied|  
-|Purchase|Variance|Purchase|No|Inventory|Purchase Variance|  
-|Purchase|Revaluation||No|Inventory|Inventory Adjmt.|  
-|Purchase|Rounding||No|Inventory|Inventory Adjmt.|  
-|Sale|Direct Cost||Yes|Inventory  (Interim)|COGS (Interim)|  
-|Sale|Direct Cost||No|Inventory|COGS|  
-|Sale|Revaluation||No|Inventory|Inventory Adjmt.|  
-|Sale|Rounding||No|Inventory|Inventory Adjmt.|  
-|Positive Adjmt., Negative Adjmt., Transfer|Direct Cost||No|Inventory|Inventory Adjmt.|  
-|Positive Adjmt., Negative Adjmt., Transfer|Revaluation||No|Inventory|Inventory Adjmt.|  
-|Positive Adjmt., Negative Adjmt., Transfer|Rounding||No|Inventory|Inventory Adjmt.|  
-|(Production) Consumption<br><br>Learn more at [Production consumption](#production-consumption).|Direct Cost||No|Inventory|WIP|  
-|(Production) Consumption|Revaluation||No|Inventory|Inventory Adjmt.|  
-|(Production) Consumption|Rounding||No|Inventory|Inventory Adjmt.|  
-|Assembly Consumption<br><br>Learn more at [Assembly consumption](#assembly-consumption).|Direct Cost||No|Inventory|Inventory Adjmt.|  
-|Assembly Consumption|Direct Cost||No|Direct Cost Applied|Inventory Adjmt.|  
-|Assembly Consumption|Indirect Cost||No|Overhead Applied|Inventory Adjmt.|  
-|(Production) Output<br><br>Learn more at [Production output](#production-output).|Direct Cost||Yes|Inventory  (Interim)|WIP|  
-|(Production) Output|Direct Cost||No|Inventory|WIP|  
-|(Production) Output|Indirect Cost||No|Inventory|Overhead Applied|  
-|(Production) Output|Direct Cost - Non Inventory||No|Inventory|Direct Cost Non-Inventory Applied Account|
-|(Production) Output|Variance|Material|No|Inventory|Material Variance|  
-|(Production) Output|Variance|Capacity|No|Inventory|Capacity Variance|  
-|(Production) Output|Variance|Subcontracted|No|Inventory|Subcontracted Variance|  
-|(Production) Output|Variance|Capacity Overhead|No|Inventory|Cap. Overhead Variance|  
-|(Production) Output|Variance|Manufacturing Overhead|No|Inventory|Mfg. Overhead Variance|  
-|(Production) Output|Variance|Material-Non Inventory|No|Inventory|Material Non-Inventory Variance Account|
-|(Production) Output|Revaluation||No|Inventory|Inventory Adjmt.|  
-|(Production) Output|Rounding||No|Inventory|Inventory Adjmt.|  
-|Assembly Output<br><br>Learn more at [Assembly output](#assembly-output).|Direct Cost||No|Inventory|Inventory Adjmt.|  
-|Assembly Output|Revaluation||No|Inventory|Inventory Adjmt.|  
-|Assembly Output|Indirect Cost||No|Inventory|Overhead Applied|  
-|Assembly Output|Variance|Material|No|Inventory|Material Variance|  
-|Assembly Output|Variance|Capacity|No|Inventory|Capacity Variance|  
-|Assembly Output|Variance|Capacity Overhead|No|Inventory|Cap. Overhead Variance|  
-|Assembly Output|Variance|Manufacturing Overhead|No|Inventory|Mfg. Overhead Variance|  
-|Assembly Output|Rounding||No|Inventory|Inventory Adjmt.|  
-
-## From the Capacity Ledger  
-
-The following table shows the relationship between different types of capacity value entries and the accounts and balancing accounts in the general ledger. Capacity ledger entries represent labor time consumed in assembly or production work.  
-
-|**Work Type**|**Capacity Ledger Entry Type**|**Value Entry Type**|**Account**|**Balancing Account**|  
-|-------------------|------------------------------------|--------------------------|-----------------|---------------------------|  
-|Assembly<br><br>Learn more at [Assembly consumption](#assembly-consumption).|Resource|Direct Cost|Direct Cost Applied|Inventory Adjmt.|  
-|Assembly|Resource|Indirect Cost|Overhead Applied|Inventory Adjmt.|  
-|Production<br><br>Learn more at [Production consumption](#production-consumption).|Machine Center/Work Center|Direct Cost|WIP Account|Direct Cost Applied|  
-|Production|Machine Center/Work Center|Indirect Cost|WIP Account|Overhead Applied|  
-
-## Assembly costs are always actual  
-
-As the table shows, assembly postings aren't represented in interim accounts. They're excluded because the concept of work in process (WIP) doesn't apply in assembly output posting, unlike in production output posting. Assembly costs are only posted as actual cost, never as expected cost.  
-
-Learn more at [Design Details: Assembly Order Posting](design-details-assembly-order-posting.md).  
-
-## Calculating the amount to post to the general ledger  
-
-The following fields in the **Value Entry** table are used to calculate the expected cost amount that is posted to the general ledger:  
-
-- Cost Amount (Actual)  
-- Cost Posted to G/L  
-- Cost Amount (Expected)  
-- Expected Cost Posted to G/L  
-
-The following table shows how the amounts to post to the general ledger are calculated for the two different cost types.  
-
-|Cost Type|Calculation|  
-|---------------|-----------------|  
-|Actual Cost|Cost Amount (Actual) – Cost Posted to G/L|  
-|Expected Cost|Cost Amount (Expected) –  Expected Cost Posted to G/L|  
-
-## Examples
-
-The tables in the following sections explain the accounts in more detail. They show the posting setups that include the accounts, and how the records are used.
-
-### Assembly output
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the assembly item.<br>* The Location Code comes from the assembly order.     |Page: General Posting Setup<br>Field: Inventory Adjustment Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the assembly item.          |
-||Page: Inventory Posting Setup<br>Fields: Material Variance, Capacity Variance Account, Capacity Overhead Variance Account, Manufacturing Overhead Variance Account<br><br> * The Inventory Posting Group comes from the assembly item.<br> * The Location Code comes from the assembly order.|
-
-### Assembly consumption
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: General Posting Setup<br>Field: Inventory Adjmt. Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the component.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly order line.| 
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: General Posting Setup<br>Field: Inventory Adjmt. Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the resource.|Page: General Posting Setup<br>Field: Direct Cost Applied Account<br>Field: Overhead Applied Account<br><br>* The General Business Posting Group comes from the assembly order.<br>* The General Product Posting Group comes from the resource.|
-
-### Production output
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.<br><br>Page: General Posting Setup<br>Field: Direct Cost Non-Invent. Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the finished item.<br><br>Page: General Posting Setup<br>Field: Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the finished item.<br><br>Page: Inventory Posting Setup<br>Fields: Material Variance Account, Capacity Variance Account, Cap. Overhead Variance Account, Mfg. Overhead Variance Account, Subcontracted Variance Account, Material Non-Inventory Variance Account<br><br>* The Inventory Posting group comes from the finished item.<br>* The Location Code comes from the production order line.|
-
-### Production consumption
-
-|Account  |Balancing account  |
-|---------|---------|
-|Page: Inventory Posting Setup<br>Field: WIP Account<br><br>* The Inventory Posting Group comes from the finished item.<br>* The Location Code comes from the production order line.|Page: Inventory Posting Setup<br>Field: Inventory Account<br><br>* The Inventory Posting Group comes from the component.<br>* The Location Code comes from the assembly.<br><br>Page: General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the production order.<br>* The General Product Posting Group comes from the work center.<br><br>Page General Posting Setup<br>Fields: Direct Cost Applied Account, Overhead Applied Account<br><br>* The General Business Posting Group comes from the subcontracting vendor.<br>* The General Product Posting Group comes from the work center.|
-
-## Related information  
-
-[Design Details: Inventory Costing](design-details-inventory-costing.md)  
-[Design Details: Inventory Posting](design-details-inventory-posting.md)  
-[Design Details: Expected Cost Posting](design-details-expected-cost-posting.md)  
-[Managing Inventory Costs](finance-manage-inventory-costs.md)  
-[Finance](finance.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
@@ -26623,10 +26452,10 @@ author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: extensible business reporting, ICP declaration, Dutch version, Netherlands, XBRL, electronic VAT declaration, electronic ICP declaration, Netherlands
-ms.date: 03/14/2025
+ms.date: 05/08/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ---
 
 # Submitting electronic VAT and ICP declarations in the Dutch version
@@ -26637,8 +26466,7 @@ Companies must submit periodic VAT and Intracommunautaire leveringen (ICP) decla
 - ICP declarations must be submitted on a quarterly basis.
 
 > [!NOTE]  
-> ICP declarations must be submitted by companies/regions that sell goods or services to European Union (EU) countries. Purchases aren't included in this declaration. <br><br/>
-For a transaction to qualify for ICP, it's required that the merchandise crossed the border physically. It isn't enough that the location of an invoice address or the office of the vendor or customer is in another EU country or region.  
+> Companies that sell goods or services to European Union (EU) countries/regions ICP declarations must submit. Purchases aren't included in this declaration. For a transaction to qualify for ICP, the merchandise must physically cross a border. It isn't enough that the location of an invoice address or the office of the vendor or customer is in another EU country/region.  
 
 You can submit the VAT declarations and ICP declarations in the following ways:  
 
@@ -26651,9 +26479,12 @@ Before you can send electronic declarations to the tax authorities, you must per
 
 1. Ensure that you obtain the certificates from the government. If you haven't, take the following steps to obtain the certificates:
 
-    - Obtain a PKIoverheid certificate for the company if you don't have one already. You can find a list of certificate providers on this [website](https://www.logius.nl/producten/toegang/pkioverheid/aansluiten/toegetreden-csps).  
+    - Obtain a **PKIoverheid** client certificate for the company if you don't have one already. You can find a list of certificate providers on this [website](https://www.logius.nl/producten/toegang/pkioverheid/aansluiten/toegetreden-csps).  
     - You can register a user of Digipoort on this [website](https://aansluiten.procesinfrastructuur.nl/site/registratienieuw).
-    - You can obtain a **Digipoort Service certificate**, on the [Dutch Tax Administration website](https://aansluiten.procesinfrastructuur.nl).
+    - Download the **Digipoort WUS service signing certificate** from the [Aansluit Suite Digipoort](https://aansluiten.procesinfrastructuur.nl/site/documentatie/digipoort-migratie-instructie-voor-het-wus-koppelvlak) site. The download link is also listed in [Setting up electronic VAT and ICP declarations](how-to-set-up-electronic-vat-and-icp-declarations.md#digipoort-service-signing-certificate).
+
+    > [!NOTE]
+    > If you already submit declarations through the legacy Digipoort environment, you must migrate to the new Digipoort. Update the endpoint URLs and the service signing certificate on the **Elec. Tax Declaration Setup** page. Learn more in [Migrating to the new Digipoort](how-to-set-up-electronic-vat-and-icp-declarations.md#migrating-to-the-new-digipoort).
 
 1. Enter general data and personal data received from the tax authorities on the **Elec. Tax Declaration Setup** page. Learn more in [Setting Up Electronic VAT and ICP Declarations](how-to-set-up-electronic-vat-and-icp-declarations.md).
 
@@ -26672,7 +26503,7 @@ The XBRL reporter ensures that all account numbers that are imported from Busine
 
 ## Submit an electronic declaration
 
-With the XBRL reporter, you can submit the Intracommunautaire Leveringen (ICP) declaration or the VAT declaration in the required XML format. When it's submitted, the file is sent to the tax authorities as defined on the **Elec. Tax Declaration Setup** page.
+With the XBRL reporter, you can submit the Intracommunautaire Leveringen (ICP) declaration or the VAT declaration in the required XML format. When submitted, the file is sent to the tax authorities as defined on the **Elec. Tax Declaration Setup** page.
 
 1. On the **Elec. Tax Declaration Card** page, choose the **Submit Electronic Tax Declaration** action.
 1. Fill in the fields as described in the following table.
@@ -27479,10 +27310,10 @@ title: Electronic VAT and ICP Declarations [NL]
 description: Learn how to set up electronic VAT and ICP declarations in the Dutch Version.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 05/08/2026
 ms.custom: bap-template
 ---
 
@@ -27494,7 +27325,7 @@ When electronic declarations are set up, you can begin to declare VAT and ICP to
 
 ## Set up electronic declarations  
 
-Ensure that you've uploaded the certificates needed to communicate with Digipoort. Use the **Certificates** page to upload a client and a service certificate. When they're added to the list of certificates, you can continue with setting up electronics declarations.
+Ensure that you upload the certificates needed to communicate with Digipoort. Use the **Certificates** page to upload a client and a service certificate. When they're added to the list of certificates, you can continue with setting up electronics declarations.
 
 1. Choose the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Elec. Tax Declaration Setup**, and then choose the related link.  
 1. On the **Elec. Tax Declaration Setup** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](../../includes/tooltip-inline-tip_md.md)]
@@ -27502,27 +27333,64 @@ Ensure that you've uploaded the certificates needed to communicate with Digipoor
 1. If you want to send electronic ICP declarations for a subsidiary company of a fiscal entity, select the **Part of Fiscal Entity** checkbox.  
 
    > [!NOTE]  
-   > If a company has several companies registered as subsidiaries of a holding company, they have the option to submit the VAT declaration individually or combined for one fiscal entity. To set up electronic declarations for subsidiaries of a holding company, you must select the **Part of Fiscal Entity** field on the **Elec. Tax Declaration Setup** page. You can then create an electronic declaration for only one company.<br><br/>
-   If you want to combine the tax information for all subsidiaries of a holding company, you must create a VAT statement on paper for each subsidiary company and manually calculate the total amounts for the holding company. These total amounts of the holding company must be entered on the website of the tax authorities.<br><br/>
-   You can't combine tax information for ICP declarations. ICP declarations must always be submitted individually.<br><br/>
-   For each subsidiary company, an electronic ICP declaration can be created and submitted to the tax authorities. These electronic ICP declarations must contain the VAT registration number of the subsidiary company and the value of the **Fiscal Entity No.** field on the **Company Information** page of the holding company.
+   > If a company has several companies registered as subsidiaries of a holding company, they can submit the VAT declaration individually or combined for one fiscal entity. To set up electronic declarations for subsidiaries of a holding company, you must select the **Part of Fiscal Entity** field on the **Elec. Tax Declaration Setup** page. You can then create an electronic declaration for only one company.
+   >
+   > If you want to combine the tax information for all subsidiaries of a holding company, you must create a VAT statement on paper for each subsidiary company and manually calculate the total amounts for the holding company. These total amounts of the holding company must be entered on the website of the tax authorities.
+   >
+   > You can't combine tax information for ICP declarations. ICP declarations must always be submitted individually.
+   >
+   > For each subsidiary company, an electronic ICP declaration can be created and submitted to the tax authorities. These electronic ICP declarations must contain the VAT registration number of the subsidiary company and the value of the **Fiscal Entity No.** field on the **Company Information** page of the holding company.
 
-1. On the **Digipoort** FastTab, set up the following configurations:
-   - In the **Digipoort Delivery URL** field, specify the URL for the production version of the Digipoort Aanlever service. Learn more on [digipoort](https://www.logius.nl/producten/gegevensuitwisseling/digipoort).  
-   - In the **Digipoort Status URL** field, specify the URL for the status information that is coming from the Digipoort Statusinformatie service. Learn more in [Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md).
+1. On the **Digipoort** FastTab, fill in the fields as follows:
+
+   - In the **Digipoort Delivery URL** field, specify the URL for the Digipoort Aanlever (delivery) service. Use the URL from the [Digipoort endpoint URLs](#digipoort-endpoint-urls) section.
+   - In the **Digipoort Status URL** field, specify the URL for the Digipoort Statusinformatie (status) service. Use the URL from the [Digipoort endpoint URLs](#digipoort-endpoint-urls) section.
    - Select **Use Certificate Setup** to specify that the certificate codes specified in the next step must be considered to transfer data to the information service.
-   - In the **Client Certificate Code** field, specify the client certificate.
-   - In the **Service Certificate Code** field, specify the service certificate.
+   - In the **Client Certificate Code** field, specify the client certificate. This certificate must be a **PKIoverheid** client certificate.
+   - In the **Service Certificate Code** field, specify the WUS service signing certificate. Download the certificate from the [Digipoort service signing certificate](#digipoort-service-signing-certificate) section, then upload it on the **Certificates** page.
 
 1. To set up endpoints, add the endpoint URLs on the **Endpoints** FastTab.
 
    > [!NOTE]  
-   > Endpoints set up is deployed to 21.1 tenants. However, all values are blank, but the Digipoort solution still works by taking hardcoded values if there are no values in the setup. In the 21.2 release, [!INCLUDE [prod_short](../../includes/prod_short.md)] automatically runs an upgrade.
+   > The endpoints setup is deployed to 21.1 tenants. However, all values are blank, but the Digipoort solution still works by taking hardcoded values if there are no values in the setup. In the 21.2 release, [!INCLUDE [prod_short](../../includes/prod_short.md)] automatically runs an upgrade.
+
+## Digipoort endpoint URLs
+
+Use the following Digipoort production endpoint URLs.
+
+| Service | URL |
+|---|---|
+| Aanlever (delivery) | `https://wus.digipoort.logius.nl/wus/2.0/aanleverservice/1.2` |
+| Statusinformatie (status) | `https://wus.digipoort.logius.nl/wus/2.0/statusinformatieservice/1.2` |
+
+Learn more at [digipoort](https://www.logius.nl/producten/gegevensuitwisseling/digipoort).
+
+## Digipoort service signing certificate
+
+Digipoort signs every response message with a service signing certificate. You must upload this certificate as the **Service Certificate** in [!INCLUDE[prod_short](../../includes/prod_short.md)] so that the response signature can be verified.
+
+Download the certificate from [wus.productie.digipoort.logius.nl.cert](https://aansluiten.procesinfrastructuur.nl/site/binaries/content/assets/documentatie/nieuwe-digipoort/wus.productie.digipoort.logius.nl.cert).
+
+Always verify that you use the most recent certificate. Logius publishes the current version on the [Aansluit Suite Digipoort](https://aansluiten.procesinfrastructuur.nl/site/documentatie/digipoort-migratie-instructie-voor-het-wus-koppelvlak) site.
+
+## Migrating to the new Digipoort
+
+Logius is migrating Digipoort to a new production environment with a new endpoint URL and a new service signing certificate. If your company already submits VAT or ICP declarations through Digipoort, you must migrate your connection.
+
+To migrate your connection, follow these steps:
+
+1. Replace the values in the **Digipoort Delivery URL** and **Digipoort Status URL** fields with the new URLs from the [Digipoort endpoint URLs](#digipoort-endpoint-urls) section.
+1. Upload the new service signing certificate from the [Digipoort service signing certificate](#digipoort-service-signing-certificate) section and select it in the **Service Certificate Code** field.
+
+When you connect to the new Digipoort, the connection to the legacy Digipoort must be terminated. For the full list of changes, go to the official [Digipoort migration instruction for the WUS interface](https://aansluiten.procesinfrastructuur.nl/site/documentatie/digipoort-migratie-instructie-voor-het-wus-koppelvlak).
+
+> [!NOTE]
+> [!INCLUDE[prod_short](../../includes/prod_short.md)] online customers don't need to install any PKIoverheid root or intermediate certificates. The [!INCLUDE[prod_short](../../includes/prod_short.md)] service the trust relationship with the new Digipoort. The only customer-side actions required are updating the endpoint URL fields and uploading the new service signing certificate.
 
 ## Related information
 
-- [Submitting Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md)  
-- [Netherlands Local Functionality](netherlands-local-functionality.md)
+[Submitting Electronic VAT and ICP Declarations](electronic-vat-and-icp-declarations.md)  
+[Netherlands Local Functionality](netherlands-local-functionality.md)
 
 [!INCLUDE[footer-include](../../includes/footer-banner.md)]
 end of article

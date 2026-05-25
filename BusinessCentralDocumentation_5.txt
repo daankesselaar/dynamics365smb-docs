@@ -1,3 +1,867 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-to-view-archived-workflow-step-instances
+---
+title: How to view archived workflow step instances
+description: Completed workflow step instances are stored on the Archived Workflow Step Instances page. Each step includes a workflow event and a workflow response.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: archived workflow, step instances, workflow steps
+ms.search.form: 1530
+ms.date: 10/16/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# View archived workflow step instances
+
+All completed workflow step instances are saved on the **Archived Workflow Step Instances** page.  
+
+On the **Workflow** page, you create a workflow by listing the involved steps on the lines. Each step consists of a workflow event, moderated by event conditions, and a workflow response, moderated by response options. You define workflow steps by filling in fields on workflow lines using fixed lists of event and response values representing scenarios supported by the application code. Learn more at [Create Approval Workflows](across-how-to-create-workflows.md).  
+
+> [!NOTE]
+> To view the history and status of workflows using Power Automate integration, choose the **My flows** action on the **Power Automate** page, then choose a flow to view its run history and status.
+
+## To view archived workflow step instances
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflows**, then choose the related link.  
+2. Open the workflow for which you want to view all archived workflow step instances.  
+3. On the **Workflow** page, choose the **Archived Workflow Step Instances** action.  
+
+   The **Archived Workflow Step Instances** page opens showing the archived workflow step instances of the selected workflow.  
+4. Alternatively, [!INCLUDE[open-search](includes/open-search.md)], enter **Archived Workflow Step Instances**, and then choose the related link.  
+
+   The **Archived Workflow Step Instances** page opens showing all archived workflow step instances. In the **Workflow Code** field, you can see which workflow the archived workflow step instance belonged to.  
+
+## Related information
+
+[Delete Approval Workflows](across-how-to-delete-workflows.md)  
+[Create Approval Workflows](across-how-to-create-workflows.md)  
+[Enable Approval Workflows](across-how-to-enable-workflows.md)  
+[Use Approval Workflows](across-use-workflows.md)  
+[Walkthrough: Setting Up and Using a Purchase Approval Workflow](walkthrough-setting-up-and-using-a-purchase-approval-workflow.md)  
+[Set Up Approval Workflows](across-set-up-workflows.md)  
+[Workflow](across-workflow.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-valuation-powerbi-inventory-valuation-by-location
+---
+title: Inventory Valuation by Location (Power BI report)
+description: The Inventory Valuation by Location report shows the item values on a location by location basis. 
+author: kennienp
+ms.author: kepontop
+ms.reviewer: 
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37058_Primary
+ms.date: 10/30/2024
+ms.service: dynamics-365-business-central
+---
+
+# Inventory Valuation by Location (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Inventory Valuation by Location** report shows item values on a location by location basis for an organization. Use this report to identify high-value locations.
+
+The report focuses on the value of each location, and shows the following information for a period you specify:
+
+- Beginning balance value
+- Increases and decreases
+- End balance value
+
+:::image type="content" source="media/inventory-valuation/inventory-valuation-by-location.png" alt-text="Screenshot of the Inventory Valuation by Location Power BI Report" lightbox="media/inventory-valuation/inventory-valuation-by-Location.png":::
+
+## Use the report
+
+The report is designed to help executives and managers to identify high-value locations.
+
+Executives use this report to get an overall understanding of your organizations inventory and its value. This information can help you make informed strategic decisions for managing inventory, supplier relationships, and forecasts.
+
+Managers use the report to monitor the value of on-hand inventory. This information can keep you informed about increases and decreases in the value of your stock over time.
+
+## Key Performance Indicators (KPIs)
+
+The *Inventory Valuation by Location* report includes the following KPIs:
+
+- [**Beginning Balance Value**](inventory-valuation-powerbi-kpis.md#beginning-balance-value)
+- [**Increases Value**](inventory-valuation-powerbi-kpis.md#increases-qty)
+- [**Decrease Qty.**](inventory-valuation-powerbi-kpis.md#decrease-qty)
+- [**Ending Balance Value**](inventory-valuation-powerbi-kpis.md#ending-balance-value)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the Inventory Valuation by Location report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Location
+- Value Entries
+
+## Try the report
+
+Try the report here: [Inventory Valuation by Location](https://businesscentral.dynamics.com?page=37058)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory Valuation app](inventory-valuation-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-plan-service
+---
+title: Planning service processes
+description: Learn how to configure rules and values to establish your organization's service policies and processes.
+author: brentholtorf
+ms.topic: concept-article
+ms.devlang: al
+ms.search.keywords: service, work hours, configure, price, pricing
+ms.date: 10/03/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Plan services
+
+With [!INCLUDE[prod_short](includes/prod_short.md)], you can set up the standard tasks that you need to fulfill your customer service requirements. To do this, you must determine what service items and offerings your service organization supports, and at what price.
+
+[!INCLUDE[prod_short](includes/prod_short.md)] also provides some statistics tools that you can use to determine how well things are going, and identify areas where you can improve.
+  
+The following table describes a sequence of tasks, with links to the articles that describe them.   
+  
+| **To** | **See** |
+|--|--|
+| Establish pricing for the services you provide. | [Managing Service Pricing](service-service-price-management.md) |
+| Set up and customize service items and service groups. This includes establishing which skills a service requires and troubleshooting guidance. | [Create Service Items](service-how-to-create-service-items.md) |
+| Know how to manage the status of repairs on service orders, and how to identify their priority. | [Understanding Service Order and Repair Status](service-service-order-status-and-repair-status.md) |
+| Understand the relationship between the status of a repair, and the effect they have on allocated resources, and vice versa. | [Understanding Allocation Status and Repair Status](service-allocation-status-and-repair-status.md) |
+| Use statistics to analyze your service processes. | [Viewing Service Statistics](service-service-statistics.md) |
+
+## Related information
+
+[Fulfill Service Contracts](service-fulfill-service-contracts.md)  
+[Deliver Service](service-deliver-service.md)  
+[Set Up Pricing and Additional Costs for Services](service-how-setup-service-costs-pricing.md)  
+[Set Up Service Items and Service Item Components](service-how-setup-service-items.md)  
+[Set Up Statuses for Service Orders and Repairs](service-order-repair-status.md)  
+[Set Up Service Management](service-setup-service.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-work-recurring-purchase-lines
+---
+title: Standard recurring purchase lines
+description: Set up frequently used purchase lines to insert them on purchase documents and quickly fill the lines with standard information.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: trade, purchase, replenishment, vendor order
+ms.search.form: 177
+ms.date: 10/03/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Create recurring purchase lines
+
+If you often need to create purchase lines with similar information, you can set up standard lines that you can then insert on recurring purchase documents, for example, for recurring replenishment orders.
+
+## Set up recurring purchase lines
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Recurring Purchase Lines**, and then choose the related link.
+2. On the **Recurring Purchase Lines** page, choose the **New** action.
+3. On the **General** FastTab, fill the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+4. On the **Lines** FastTab, enter the information in the fields that reflect the standard lines you expect to use as recurring lines on purchase documents.
+
+> [!NOTE]
+> You can't define prices on recurring purchase lines because prices, discounts, etc. are calculated on the actual purchase documents after you insert the recurring purchase lines.
+
+[!INCLUDE [line-no-info](includes/line-no-info.md)]
+
+## Assign recurring purchase lines to a vendor
+
+Assign one or more recurring purchase lines to a vendor so that they're available to insert on purchase documents from that vendor.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendors**, and then choose the related link.
+2. Open the card for a relevant vendor.
+3. Choose the **Recurring Purchase Lines** action.
+4. On the **Recurring Purchase Lines** page, select codes for the recurring purchase lines that you want to be able to insert on purchase documents for the vendor.
+5. Fill in the other fields to define when, how, and where the recurring purchase lines are to be used.
+6. In the four fields where you select how the lines are inserted on each document type, select one of the following options:
+
+|Option|Description|
+|------|-----------|
+|**Manual**|You must manually look up and insert a recurring purchase line that exists for the vendor.|
+|**Automatic**|If multiple recurring purchase lines exist for the vendor, you get a notification from where you can pick which one to insert. If only one recurring purchase line exists, it's inserted automatically.<br /><br />This only works if the new document was created from a document list, for example by choosing the **New** action on the **Purchase Orders** page. It doesn't work if the document was created from a vendor card, for example.|
+|**Always Ask**|A notification appears and all existing recurring purchase lines are shown so that you can select one.
+
+## Insert recurring purchase lines on a purchase invoice
+
+If recurring purchase lines exist for the vendor, you can insert them, or have them automatically added, on all types of purchase documents, such as a purchase invoice. If you have activated the **Always Ask** options while assigning recurring purchase lines to vendors, you're informed if recurring purchase lines exist.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Invoices**, and then choose the related link.
+2. Open the purchase invoice that you want to insert one or more standard purchase lines on.
+3. Choose the **Get Recurring Purchase Lines** action.
+4. On the **Recurring Purchase Lines** page, choose the lookup button in the **Code** field, and then select a set of standard purchase lines.
+5. Choose the **OK** button to insert the standard purchase lines on the invoice where you can reuse them as is or edit the information.
+
+## Related information
+
+[Purchasing](purchasing-manage-purchasing.md)  
+[Set Up Purchasing](purchasing-setup-purchasing.md)  
+[Create Recurring Sales](sales-how-work-standard-lines.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-multi-tenant-smtp
+---
+title: Use SMTP for email in a multitenant environment
+author: brentholtorf
+description: Learn how to resolve SMTP email challenges in multitenant environments. Follow this guide to configure OAuth 2.0 authentication in Microsoft 365.
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: get-started
+ms.search.keywords: SMTP, mail, Microsoft 365
+ms.date: 03/19/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Use SMTP for email in a multitenant environment
+
+> [!NOTE]
+> This feature is available in 2025 release wave 2 (version 27.2) and later.
+
+This article explains how to configure your Microsoft 365 tenant so that [!INCLUDE [prod_short](includes/prod_short.md)] can send emails through the SMTP Connector using OAuth 2.0 (client credentials flow).
+
+This article also covers how to enable cross-tenant scenarios. For example, where you have an app registration in Azure portal in one Microsoft Entra tenant but you use it to send emails from another tenant.
+
+## Tenant roles used in the example in this article
+
+The examples in this article involve two Microsoft Entra tenants, as described in the following table.
+
+|Tenant name in this article  |Description |
+|---------|---------|
+|Tenant A (App / Mailbox tenant) | The tenant where the app registration is created and where the Exchange Online mailbox used for sending emails exists. |
+|Tenant B (Business Central tenant)   | The tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and where SMTP is configured. |
+
+> [!NOTE]
+> Here are a couple of key rules to remember:
+>
+> * Business Central configuration is set in Tenant B.
+> * Mailbox permissions and Exchange Online configuration are set in Tenant A.
+
+> [!IMPORTANT]
+> Exchange Online is deprecating Basic authentication for SMTP. This change doesn't affect tenants that currently use SMTP AUTH. However, we recommend that you use the latest version, and set up OAuth 2.0 authentication for SMTP. If you can't set up OAuth 2.0 authentication, we encourage you to explore non-Microsoft alternatives if you want to use SMTP email in earlier versions.
+>
+> [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support certificate-based authentication.
+
+## Overview of the process and the tenant used in each step
+
+The following list gives an overview of the steps to use OAuth 2.0 with the SMTP connector, and links to descriptions of each step. This is a long article, so it can serve as a mini table of contents.
+
+|Step  |Action  |Tenant  |
+|------|---------|---------|
+|1     | [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal)  | Tenant A (App / Mailbox tenant)        |
+|2     | [Grant API permissions](#grant-api-permissions)|  Tenant A (App / Mailbox tenant)       |
+|3     | [Create a client secret or certificate](#create-a-client-secret-or-certificate)     |Tenant A (App / Mailbox tenant)|
+|4     | [Register the service principal in Exchange Online](#register-the-service-principal-in-exchange-online)  | Tenant A (App / Mailbox tenant)        |
+|5     | [Grant the app permission to send as your mailbox](#grant-the-app-permission-to-send-as-your-mailbox)| Tenant A (App / Mailbox tenant)        |
+|6     | [Verify your SMTP OAuth configuration](#verify-your-smtp-oauth-configuration) | Tenant A (App / Mailbox tenant)        |
+|7     | [Set up the SMTP connector in Business Central](#set-up-the-smtp-connector-in-business-central) | Tenant B (Business Central tenant)        |
+
+> Some of the steps require that you run one or more commands in PowerShell. Be sure to run the commands as an administrator.
+
+## Prerequisites
+
+Before you start, ensure that you have:
+
+- A Microsoft 365 tenant with Exchange Online.  
+- Global Administrator or Exchange Administrator permissions.  
+- A mailbox, for example, service@contoso.com, that you use as the "From" address in Tenant A(App / Mailbox tenant).  
+- A [!INCLUDE [prod_short](includes/prod_short.md)] online or on-premises environment in Tenant B(Business Central tenant).
+
+## Create an application registration in Azure portal
+
+The first step is to create an app registration for the app you have in "Tenant A" (App / Mailbox tenant) in Microsoft Entra ID. The app registration lets [!INCLUDE [prod_short](includes/prod_short.md)] send email from a mailbox that's in another Microsoft Entra tenant.
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator account for Tenant A.
+
+1. Go to [Azure portal](https://portal.azure.com).
+1. Under **Azure services**, choose **Microsoft Entra ID**.
+1. In the navigation pane, choose **App registrations**.
+1. On the **App registrations** page, choose **New registration**.
+1. On the **Register an application** page, fill in the fields as follows:
+
+    1. In the **Name** field, enter a name for your app. For example, **SMTP_OAuth_App**.
+    1. Under **Supported account types**, choose **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. This setting is required for cross-tenant consent.
+    1. Under **Redirect URI (optional)**, for the platform, choose **Web**, and then enter the URI:
+       1. Business Central online (SaaS): https://businesscentral.dynamics.com/oauthlanding.htm
+       2. Business Central on-premises: Specify a redirect URI appropriate for your on-premises deployment.
+
+1. Choose **Register**.
+
+> [!NOTE]
+> After you register the app in Microsoft Entra ID, make a note of the following information. You need it to complete a later step.
+>
+> |Field  |Example  |Description  |
+> |---------|---------|---------|
+> |Application (client) ID | 00001111-aaaa-2222-bbbb-3333cccc4444 |  App ID       |
+> |Directory (tenant) ID   | aaaabbbb-0000-cccc-1111-dddd2222eeee | Tenant ID     |
+> |Object ID   | aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb       | Service Principal ID|
+
+## Grant API permissions
+
+The next step is to give the app permission to send email. In this example, this is Tenant A (the app / mailbox tenant).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator account for Tenant A.
+
+1. In Azure portal, on the app page, choose **API permissions**, and then choose **Add a permission**.
+1. Choose **APIS my organization uses**.
+1. Search for **Office 365 Exchange Online**.
+1. Choose **Application permissions**.
+1. Expand **SMTP**, and then choose **SMTP.SendAsApp**.
+1. Choose **Add permissions**.
+1. Double-check that **SMTP.SendAsApp** has a green checkmark.
+
+## Create a client secret or certificate
+
+> * Tenant: Tenant A (App / Mailbox tenant)
+> * Sign in with: Tenant A Global Administrator
+
+1. In Azure portal, on the app page, choose **Certificates & secrets**.
+1. In the **Client secret** field, choose **New client secret**, give it a name and define an expiry period.
+
+   > [!IMPORTANT]
+   > Make a note of the **Client Secret Value**. The value displays only one time, and you need it to generate tokens.
+
+## Register the service principal in Exchange Online
+
+To learn more about the service principal, go to [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A. 
+
+1. Open your browser, use the following link to consent. Replace the `TenantA_ID` and `Client_ID from Tenant A` (App ID) with the values for your "Tenant A."
+
+   `https://login.microsoftonline.com/<TenantA_ID>/oauth2/v2.0/authorize?client_id=<Client_ID from Tenant A>&scope=https://graph.microsoft.com/.default&response_type=code&response_mode=query&prompt=consent`
+
+2. In Microsoft Entra admin center of **Tenant A**, go to **Enterprise apps**, find your app, and then copy the value in the **Object ID** field. The object ID is used as the service ID in the command in the next step in this process.
+3. To create a new service principal in your tenant, in PowerShell, run the following command as an administrator.
+
+   ```powershell
+
+   Install-Module ExchangeOnlineManagement -Scope CurrentUser
+
+   Import-Module ExchangeOnlineManagement
+   # Login with Tenant A admin
+   Connect-ExchangeOnline -UserPrincipalName admin@yourtenantA.onmicrosoft.com
+
+   $AppId     = <your app ID> # The App ID of the enterprise app in Tenant A's Microsoft Entra admin center.
+   $ServiceId = <your service ID> # The object ID of the enterprise app in Tenant A's Microsoft Entra admin center.
+   $Display   = "SMTP_OAuth_App" # The name of the service principal you want to create.
+
+   New-ServicePrincipal -AppId $AppId -ServiceId $ServiceId -DisplayName $Display
+
+   ```
+
+> [!NOTE]
+> If a service principal already exists, the command might show an error, but you can safely ignore it.
+
+## Grant the app permission to send as your mailbox
+
+Sometimes Azure portal hides the SMTP option, so you must use PowerShell to grant permission to send as your mailbox. Do this in Tenant A (App / Mailbox tenant).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
+
+1. Retrieve the service principal Object ID from the Microsoft Entra admin center (Enterprise applications), and use that Object ID in the following commands. Then go to PowerShell, run the following command:
+
+   ```powershell
+       # Replace this with the mailbox you use as the from_addr / user= in XOAUTH2.
+      $Mailbox = "someuser@xxx.onmicrosoft.com"
+      $ObjectID = "{Your object ID}"
+
+      Add-MailboxPermission -Identity $Mailbox `
+          -User $ObjectId `
+          -AccessRights FullAccess `
+          -AutoMapping:$false
+
+      Add-RecipientPermission -Identity $Mailbox `
+          -Trustee $ObjectId `
+          -AccessRights SendAs `
+          -Confirm:$false 
+                
+
+       # If you have multiple users, create a group for them and then assign them.
+      Get-DistributionGroupMember "Your group name" |
+        ForEach-Object {
+            Add-MailboxPermission -$_.PrimarySmtpAddress `
+                -User $ObjectId `
+                -AccessRights FullAccess `
+                -AutoMapping:$false
+
+            Add-RecipientPermission -Identity $Mailbox `
+                -Trustee $ObjectId `
+                -AccessRights SendAs `
+                -Confirm:$false             
+        }
+
+      ```
+
+1. To verify the permissions, run the following command:
+
+   ```powershell
+   Get-MailboxPermission  -Identity $Mailbox | ? {$_.User -eq $Display}
+   ```
+
+   You should have **FullAccess**, or **SendAs**.
+
+## Verify your SMTP OAuth configuration
+
+Do this step in Tenant A (App / Mailbox tenant).
+
+> [!NOTE]
+> Be sure to sign in with the Global Administrator or Exchange Administrator account for Tenant A.
+
+1. In PowerShell, connect to Exchange Online in Tenant A and verify that SMTP AUTH and OAuth2 are enabled:
+
+   ```powershell
+   
+   Import-Module ExchangeOnlineManagement
+   Connect-ExchangeOnline -UserPrincipalName admin@yourtenantA.onmicrosoft.com
+
+   # Organization-level settings (recommended starting point)
+   Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+   Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
+
+   # If SMTP AUTH is disabled at the organization level, enable it (false means enabled):
+   Set-TransportConfig -SmtpClientAuthenticationDisabled $false
+
+   # If OAuth2 client profiles are not enabled, enable them (true means enabled):
+   Set-OrganizationConfig -OAuth2ClientProfileEnabled $true
+
+
+   ```
+
+1. If you need to enable SMTP AUTH for a specific mailbox (mailbox-level override), verify and update the mailbox setting:
+
+   ```powershell
+
+   Get-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com | Format-List SmtpClientAuthenticationDisabled
+
+   # If SMTP AUTH is disabled for the mailbox, enable it:
+
+   Set-CASMailbox -Identity admin@yourtenantA.onmicrosoft.com -SmtpClientAuthenticationDisabled $false
+
+   ```
+
+1. Verify the expected values:
+
+   ```powershell
+
+    Get-TransportConfig | Format-List SmtpClientAuthenticationDisabled
+    Get-OrganizationConfig | Format-List OAuth2ClientProfileEnabled
+
+   ```
+
+   The following are the expected output:
+
+   - `SmtpClientAuthenticationDisabled` is `False`.
+   - `OAuth2ClientProfileEnabled` is `True`.
+
+## Set up the SMTP connector in Business Central
+
+Do this step in Tenant B (Business Central tenant).
+
+To learn more about the SMTP connector, go to [Set up email](admin-how-setup-email.md).
+
+1. In [!INCLUDE [prod_short](includes/prod_short.md)], [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **Assisted Setup**, and then choose the related link.
+1. Choose **Set up SMTP Account**.
+1. Fill in the fields as described in the following table.
+
+   |Field  |Example value  |Notes  |
+   |---------|---------|---------|
+   |Server     | smtp.office365.com        |         |
+   |Server Port     |  587       |         |
+   |Authentication Type     | OAuth 2.0        |         |
+   |Client ID | 00001111-aaaa-2222-bbbb-3333cccc4444 | The application ID from Tenant A. |
+   |Client Secret     |         | The secret generated in the app from Tenant A.        |
+   |Tenant ID     | aaaabbbb-0000-cccc-1111-dddd2222eeee  | The ID of Tenant A (App / Mailbox tenant). |
+   |Redirect URI     |         | This URI is only relevant for [!INCLUDE [prod_short](includes/prod_short.md)] on-premises. You can customize the value, but if you do, you must update your app registration in Azure portal.     |
+   |Use custom app registration| | If you want to use a custom app registration, turn on the toggle. |
+
+1. To complete the account setup, choose **Next**, and then give consent.
+
+### Important: Admin consent and tenant selection
+
+When the consent prompt appears, sign in with an *admin account from Tenant A*, not Tenant B. The account must have one of the following roles in Tenant A:
+
+  - **Global Administrator**  
+  - **Exchange Administrator**
+
+This consent grants the application the **SMTP.SendAsApp** permission in **Tenant A’s Exchange Online**.
+
+> [!NOTE]
+> Although you do the setup in Tenant B ([!INCLUDE [prod_short](includes/prod_short.md)] tenant), the consent always applies to Tenant A, which hosts Exchange Online and the mailboxes.
+
+## Send a test email
+
+The following example shows a way to test OAuth 2.0 for the SMTP connector.
+
+```powershell
+param(
+    [string]$TenantId     = "<Tenant A ID>",  
+    # Tenant A (App registration tenant)
+    # Application (Client) ID of the app registered in Tenant A
+    [string]$ClientId     = "<Tenant A Client ID>",  
+    # Tenant A (App registration tenant)
+    # Client Secret created for the app in Tenant A
+    [string]$ClientSecret = "<Tenant A Client Secret>",
+    # Tenant B (Business Central tenant)
+    # Must be a mailbox that exists in Tenant A and has SendAs permission granted
+    [string]$From         = "<Tenant A mailbox address>",
+    # Any valid email address (internal or external)
+    [string]$To           = "<Recipient email address>",
+    # Email subject
+    [string]$Subject      = "SMTP OAuth Test",
+    # Email body
+    [string]$Body         = "Hello! This is a test email using SMTP OAuth."
+)
+
+#---------------------------
+# 0. Prepare & Import Module
+#---------------------------
+# If you don't have MSAL.PS module, uncomment the next line to install it
+# Install-Module MSAL.PS -Scope CurrentUser
+Import-Module MSAL.PS -ErrorAction Stop
+
+#---------------------------
+# 1. Get Access Token
+#---------------------------
+Write-Host "Getting access token from AAD..." -ForegroundColor Cyan
+
+$secureSecret = ConvertTo-SecureString $ClientSecret -AsPlainText -Force
+
+$tokenResult = Get-MsalToken `
+    -ClientId      $ClientId `
+    -ClientSecret  $secureSecret `
+    -TenantId      $TenantId `
+    -Scopes        "https://outlook.office365.com/.default"
+
+$accessToken = $tokenResult.AccessToken.Trim()
+
+function Convert-FromBase64Url {
+    param([string]$InputString)
+
+    $pad = 4 - ($InputString.Length % 4)
+    if ($pad -lt 4) {
+        $InputString += "=" * $pad
+    }
+
+    $InputString = $InputString.Replace('-', '+').Replace('_', '/')
+    $bytes = [System.Convert]::FromBase64String($InputString)
+    return $bytes
+}
+
+$parts = $accessToken.Split('.')
+$payloadBytes = Convert-FromBase64Url -InputString $parts[1]
+$payloadJson  = [System.Text.Encoding]::UTF8.GetString($payloadBytes)
+$claims       = $payloadJson | ConvertFrom-Json
+
+Write-Host "Access token acquired."
+Write-Host "aud   =" $claims.aud
+Write-Host "roles =" ($claims.roles -join ", ")
+Write-Host "appid =" $claims.appid
+Write-Host "tid   =" $claims.tid
+Write-Host ""
+
+#---------------------------
+# 2. Build AUTH XOAUTH2
+#---------------------------
+
+function New-XOAuth2String {
+    param(
+        [string]$User,
+        [string]$Token
+    )
+    $ctrlA = [char]1
+
+    $auth  = "user=$User$ctrlA" + "auth=Bearer $Token$ctrlA$ctrlA"
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($auth)
+    return [System.Convert]::ToBase64String($bytes)
+}
+
+$authB64 = New-XOAuth2String -User $From -Token $accessToken
+Write-Host "AUTH (base64) generated." -ForegroundColor Cyan
+
+
+$msg =
+"From: $From`r`n" +
+"To: $To`r`n" +
+"Subject: $Subject`r`n" +
+"`r`n" +
+"$Body`r`n"
+
+
+function Read-SmtpResponse {
+    param([System.IO.StreamReader]$Reader)
+
+    $line = $Reader.ReadLine()
+    if ($line -ne $null) {
+        Write-Host $line
+    }
+    return $line
+}
+
+$server = "smtp.office365.com"
+$port   = 587
+
+Write-Host ""
+Write-Host "Connecting to $server : $port ..." -ForegroundColor Cyan
+
+$tcpClient     = New-Object System.Net.Sockets.TcpClient($server, $port)
+$networkStream = $tcpClient.GetStream()
+
+$reader = New-Object System.IO.StreamReader($networkStream)
+$writer = New-Object System.IO.StreamWriter($networkStream)
+$writer.NewLine   = "`r`n"
+$writer.AutoFlush = $true
+
+# init  banner
+Read-SmtpResponse -Reader $reader | Out-Null
+
+# EHLO (before STARTTLS)
+$writer.WriteLine("EHLO localhost")
+do {
+    $line = Read-SmtpResponse -Reader $reader
+} while ($line -match "^[0-9]{3}-")
+
+# STARTTLS
+$writer.WriteLine("STARTTLS")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("220")) {
+    throw "STARTTLS failed: $line"
+}
+
+#Define Tls12 forSsslTream 
+$sslStream = New-Object System.Net.Security.SslStream( 
+    $networkStream, 
+    $false 
+) 
+
+$sslStream.AuthenticateAsClient( 
+    $server,                                # Target host (must match cert) 
+    $null,                                  # Client certificates 
+    [System.Security.Authentication.SslProtocols]::Tls12, 
+    $false                                  # Check certificate revocation 
+) 
+
+$reader = New-Object System.IO.StreamReader($sslStream)
+$writer = New-Object System.IO.StreamWriter($sslStream)
+$writer.NewLine   = "`r`n"
+$writer.AutoFlush = $true
+
+# EHLO (after STARTTLS)
+$writer.WriteLine("EHLO localhost")
+do {
+    $line = Read-SmtpResponse -Reader $reader
+} while ($line -match "^[0-9]{3}-")
+
+# AUTH XOAUTH2
+Write-Host ""
+Write-Host "Sending AUTH XOAUTH2 ..." -ForegroundColor Cyan
+$writer.WriteLine("AUTH XOAUTH2 $authB64")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("235")) {
+    throw "AUTH failed: $line"
+}
+
+# MAIL FROM
+$writer.WriteLine("MAIL FROM:<$From>")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("250")) {
+    throw "MAIL FROM failed: $line"
+}
+
+# RCPT TO
+$writer.WriteLine("RCPT TO:<$To>")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("250")) {
+    throw "RCPT TO failed: $line"
+}
+
+# DATA
+$writer.WriteLine("DATA")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("354")) {
+    throw "DATA command failed: $line"
+}
+
+$writer.WriteLine($msg)
+$writer.WriteLine(".")
+$line = Read-SmtpResponse -Reader $reader
+if (-not $line.StartsWith("250")) {
+    throw "Message send failed: $line"
+}
+
+# QUIT
+$writer.WriteLine("QUIT")
+Read-SmtpResponse -Reader $reader | Out-Null
+
+$reader.Close()
+$writer.Close()
+$sslStream.Close()
+$networkStream.Close()
+$tcpClient.Close()
+
+Write-Host ""
+Write-Host "✅ Email sent successfully from $From to $To" -ForegroundColor Green
+
+```
+
+## Troubleshooting
+
+This section lists some typical issues, their causes, and provides suggestions for how to resolve them.
+
+### AADSTS50011: redirect_uri mismatch
+
+- Cause: A Redirect URI isn't configured for your app registration in Azure portal.
+- Resolution: Update your app registration in Azure portal to use the same `.../OAuthLanding.htm` redirect URI. Learn more at [Create an application registration in Azure portal](#create-an-application-registration-in-azure-portal).
+
+### 535 Authentication unsuccessful
+
+- Cause: SMTP AUTH is disabled, has an incorrect tenant ID or OAuth2ClientProfileEnabled is not enabled in the Exchange Online organization.
+
+- Resolution: Check `Get-TransportConfig` to be sure that `SmtpClientAuthenticationDisabled` is `False` and `OAuth2ClientProfileEnabled` is `true`.
+
+### 530 5.7.57 Client not authenticated
+
+- Cause: The token is missing or invalid.
+- Resolution: Verify `SMTP.SendAsApp` and admin consent.
+
+### 430 mailbox sign in failure
+
+- Cause: Missing `SendAs` rights.
+- Resolution: Run `Set-CASMailbox`.
+
+### 550 5.7.708 Service unavailable
+
+- Cause: The new tenant is restricted or has an incorrect tenant ID. For example, you entered Tenant A's ID but your account is from Tenant B.
+- Resolution: Contact Microsoft 365 support or check your tenant ID.
+
+## Related information
+
+[Set up email](admin-how-setup-email.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-app
+---
+title: Power BI Manufacturing app
+description: The Power BI Manufacturing app provides insights into your manufacturing activities.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37063_Primary, 37040, 37041, 37042, 37043, 37044, 37045, 37046, 37047, 37048, 37049, 37055, 37094, 37095, 37096, 37097, 37098, 37099, 37107
+ms.date: 03/17/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Manufacturing Power BI app
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The Power BI Manufacturing app gives insights into your manufacturing activities. Its detailed analytics and visualizations of manufacturing data help:
+
+- Streamline manufacturing processes
+- Improve decision-making at all levels of the organization
+- Optimize production efficiency
+
+## Manufacturing analytics for the leadership team
+
+To fit this category, you might have a role such as:
+
+- Chief Operating Officer
+- Chief Manufacturing Officer
+  
+### Example scenario: analyzing current utilization
+
+COOs need to ensure that your manufacturing plant is operating at optimal levels. By analyzing the [Current Utilization](manufacturing-powerbi-current-utilization.md) and [Historical Utilization](manufacturing-powerbi-historical-utilization.md) reports, you can get a better understanding of how efficiently you're using your resources and identify areas for improvement.
+
+You can also use the [Work Center Load](manufacturing-powerbi-work-center-load.md) report to identify bottlenecks in your production process, and make informed decisions to increase efficiency and productivity.
+
+## Manufacturing analytics for the management team
+
+To fit this category, you might have a role such as:
+
+- Manufacturing Manager
+- Operations Manager
+
+### Example scenario: improving resource usage
+
+Manufacturing managers ensure that all production orders are completed on time and within budget. Using the [Finished Production Order Breakdown](manufacturing-powerbi-finished-production-order-breakdown.md) and [Average Production Times](manufacturing-powerbi-average-production-times.md) reports, you can analyze the production time for each order and identify opportunities to optimize the production process.
+
+The [Allocated Hours](manufacturing-powerbi-allocated-hours.md) report provides a detailed breakdown of allocated hours and aggregates them by work center. This report can help you catch unexpected spikes in resource usage.
+
+By using the [Released Production Orders](manufacturing-powerbi-released-production-orders.md) report, you can also identify discrepancies in production patterns across different orders and make decisions.
+
+## Manufacturing analytics for warehouse staff
+
+To fit this category, you might have a role such as:
+
+- Manufacturing Supervisor
+- Production Operator
+
+### Example scenario: tracking production lines
+
+Manufacturing supervisors ensure that goods and materials flow smoothly through the manufacturing facility. Your role is critical in maintaining the production schedule and meeting customer demand. The [Current Utilization](manufacturing-powerbi-current-utilization.md) report shows the use of work centers in real-time, which helps you spot bottlenecks and optimize production processes.
+
+You notice that one work center is consistently operating at full capacity, while others are underused. You use the [Historical Utilization](manufacturing-powerbi-historical-utilization.md) report to analyze the historical use of work centers and find trends and patterns. This report helps you plan for future capacity needs and balance production across work centers.
+
+To improve production efficiency, you track the allocated hours for each work center using the [Allocated Hours](manufacturing-powerbi-allocated-hours.md) report. This report helps you understand workloads and adjust staffing levels accordingly.
+
+## Use the reports
+
+[!INCLUDE [power-bi-manufacturing-app](includes/power-bi-manufacturing-app.md)]
+
+## Manage subcontractors in manufacturing reports
+
+The Manufacturing Power BI App includes subcontracted costs and subcontractor work centres by default. To exclude subcontracted costs from manufacturing reporting, a **Subcontracting** filter is available on each report page. You can choose to exclude, include, or only show manufacturing insights for work centers assigned a subcontractor.
+
+> [!NOTE]
+> The Subcontracting filter is based on the work center configuration, rather than historical subcontractor status. If you change the subcontractor assignment on a work center, the historical capacity ledger entry insights might be inaccurate.
+
+## Related information
+
+[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)   
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Built-in production reports](production-reports.md)  
+[Manufacturing overview](production-manage-manufacturing.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-how-transfer-bank-funds
 ---
 title: Transfer bank funds
@@ -208,7 +1072,7 @@ ms.service: dynamics-365-business-central
 ---
 # Export your business data to Excel
 
-Excel is a powerful tool to work with data. From inside [!INCLUDE[prod_short](includes/prod_short.md)], you can open any list in Excel. You can even modify data in Excel and then submit it back to [!INCLUDE [prod_short](includes/prod_short.md)]. The same capability makes it easy for you to take your data with you if you decide to cancel your subscription.
+Excel is a powerful tool to work with data. From inside [!INCLUDE[prod_short](includes/prod_short.md)], you can open any list in Excel. You can even modify data in Excel and then submit it back to [!INCLUDE[prod_short](includes/prod_short.md)]. The same capability makes it easy for you to take your data with you if you decide to cancel your subscription.
 
 ## Opening and exporting lists in Excel
 
@@ -452,6 +1316,225 @@ Try the report here: [Profitability](https://businesscentral.dynamics.com?page=3
 [Built-in accounts payable reports](payables-reports.md)  
 [Financial analytics overview](bi.md)  
 [Finance overview](finance.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-setup-configurator
+---
+title: Set up purchase provisions and provision wizard
+description: Learn how to configure purchase provisions and the provision setup guide for subcontracting operations.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, purchase provisions, wizard, setup, BOM, routing
+ms.search.form: 99000886,
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Set up purchase provisions and use the provision setup guide
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+To use purchase provisions, you must configure settings for:
+
+- Routing link codes
+- Source warehouse selection
+- Automatic transfers
+- Creation of production ordersT
+- Receipt and consumption postings
+
+If the master data you use in the order process, such as items, stockkeeping units, production BOMs, and routings, don't use other values, [!INCLUDE [prod_short](includes/prod_short.md)] applies the setup values for purchase orders.
+
+## Configure purchase provisions settings
+
+Purchase provision settings are split across two pages. Fields for work centers, flushing method, and the provision wizard are on the **Subcontracting Setup** page. Fields for routing link codes, component locations, and item charges are on the **Manufacturing Setup** page (in the **Subcontracting** section).
+
+The following table describes each field.
+
+> [!TIP]
+> Use the Tell Me feature to search for **Subcontracting Setup** or **Manufacturing Setup** to open the respective page. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+|Field|Description|
+|-----|----------|
+|**Routing Link Code for Purchase Provision**|Specifies which routing link code to use for purchase provisions when you manually enter BOMs and routings. A routing link code connects component lines with routing lines. When an operation finishes, the material with the identical routing link code is consumed with the required quantity.|
+|**Default Component Item No.**|Specifies the default component item number for purchase provisions.|
+|**Work Center Group No. General**|Specifies the work center group number to use for purchase provisions.|
+|**Work Center Put-away**|Specifies the work center for put-away in purchase provisions.|
+|**Default Flushing Method**|Specifies the default flushing method to use for purchase provisions. The following options are available:<br><br>**Manual** - You must manually post the consumption of components in the production order after the finished product returns to your warehouse.<br><br>**Forward** - When you register receipt of the finished product, [!INCLUDE [prod_short](includes/prod_short.md)] automatically posts consumption of components with the expected consumption quantity.<br><br>**Backward** - When you register receipt of the finished product, [!INCLUDE [prod_short](includes/prod_short.md)] automatically posts consumption of individual components with the consumption quantity based on the current shipment quantity of the receipt.<br><br>You can enter the same options for the provision BOMs in the item card and the components on the **Replenishment** FastTab.|
+|**Direct Transfer for Subcontracting**|Specifies that the transfer of a subcontracting component doesn't use a transit location for transfers. When you turn on direct transfer, the **Qty. to Ship** field of the transfer is filled with the same value as the quantity to be shipped. Transfer and posting automatically occur from a source warehouse to the target warehouse (vendor warehouse).|
+|**Components at Location**|Specifies which location to use as the source location when you create a transfer of subcontracting components (provision). [!INCLUDE [prod_short](includes/prod_short.md)] determines the data from the following options:<br>**Purchase Line**<br>**Company Information** (the **Location Code** field on the **Shipping** FastTab)<br>**Manufacturing Setup** (the **Components at Location** field)<br>**Empty** - Specify further details only when ordering.<br><br>The **Subcontracting Location Code** on the vendor card, **Shipping** FastTab, applies to both subcontracting transfer and purchase provision.|
+<!-- |**Always Save Changed Versions**|Specifies whether changed BOM and routing versions are always saved in the provision wizard.|
+|**Allow Edit UI Selection**|Specifies whether users can edit the UI selection in the provision wizard.| -->
+
+> [!NOTE]
+> You can also enter the work center group number on the vendor card in the **Work Center Group No.** field on the **Shipping** FastTab.
+
+Make sure that you set up the data for the work center groups assigned to the provisions, including their work calendars. Learn more in [Set up work and machine centers](production-how-to-set-up-work-and-machine-centers.md).
+
+## Set up default component locations
+
+You can specify which location [!INCLUDE [prod_short](includes/prod_short.md)] uses by default to provide components for subcontracting.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Manufacturing Setup**, and then choose the related link.
+2. In the **Subcontracting** section, in the **Default Component Location Source** field, choose one of the following options:
+
+   |Option|Description|
+   |------|----------|
+   |**Purchase**|Components come from the standard purchase location. [!INCLUDE [prod_short](includes/prod_short.md)] determines the location automatically.|
+   |**Company**|Components come from the company location specified in the **Location Code** field on the **Company Information** page.|
+   |**Manufacturing**|Components come from the manufacturing location specified in the **Components at Location** field on the **Manufacturing Setup** page.|
+
+> [!NOTE]
+> If you choose **Company** or **Manufacturing**, make sure the location code is specified in the respective setup pages.
+
+### Location assignment scenarios
+
+The following scenarios show how [!INCLUDE [prod_short](includes/prod_short.md)] assigns locations in different situations.
+
+#### Purchase provision without existing data
+
+- **Component location**: From the **Components at Location** field in the setup.
+- **Subcontracting location**: From the **Subcontracting Location Code** field on the vendor card.
+
+#### Purchase provision with existing bill of materials
+
+- **Component location**: From the **Components at Location** field on the **Manufacturing Setup** page.
+- **Adjustment**: Based on the subcontracting type of the components.
+
+## About the provision assisted setup guide
+
+The provision assisted setup guide helps you create production orders for purchase provisions. It guides you through the selection and configuration of BOMs and routings for production orders.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically starts the wizard when you use the **Create Production Order** action in a purchase order. Depending on your existing data and configuration, different steps are displayed or skipped.
+
+### Steps in the assisted setup guide
+
+The provision assisted setup has the following steps:
+
+1. **Welcome** - Overview of the item and general settings.
+2. **BOM** - Select and configure the production BOM.
+3. **Routing** - Select and configure of the routing.
+4. **Components** - Preview production order components.
+5. **Operations** - Preview production order operations.
+
+> [!NOTE]
+> Which steps display depends on your configuration in the **Subcontracting Setup**.
+
+### Processing scenarios
+
+The setup guide processes different scenarios depending on which data is stored in the item or in the stockkeeping units.
+
+#### When no BOM or routing is available
+
+When you don't store a BOM or a routing in the item or stockkeeping units:
+
+- **BOM** - Created automatically from the setup configuration.
+- **Routing** - Created with standard operations (subcontracting, optional put-away).
+- **Components** - Use the predefined component item from the setup.
+- **Location** - Components are assigned to the subcontracting location.
+
+#### When both BOM and routing are available
+
+When both a BOM and a routing are available from the item or stockkeeping units:
+
+- **BOM** - All existing components are transferred.
+- **Routing** - All existing operations are transferred.
+- **Components** - Use the actual items and quantities from the BOM.
+- **Location** - Components are assigned to the production location.
+
+#### When only a BOM or only a routing is available
+
+When only a BOM or only a routing is available from the item or stockkeeping units:
+
+- **Existing data** - Transferred from the item or stockkeeping units.
+- **Missing data** - Created from the setup configuration.
+- **Flexibility** - Enables gradual introduction of item-specific data.
+
+> [!NOTE]
+> The assisted setup guide first checks the stockkeeping units and then uses the item master data as a fallback option.
+
+### Display and edit options
+
+For different scenarios, you can specify what the setup guide does.
+
+|Option|Description|
+|------|----------|
+|**Hide**|The step is skipped and automatically processed.|
+|**Show**|The step is displayed for display or selection only.|
+|**Edit**|The step is displayed with full editing available.|
+
+### Scenario-specific configuration
+
+The settings are divided according to the following scenarios.
+
+|Scenario|Description|
+|--------|----------|
+|**Both Available**|Configuration when both BOM and routing are available.|
+|**Partially Available**|Configuration when only BOM or only routing is available.|
+|**Nothing Available**|Configuration when no BOM or routing are available.|
+
+For each scenario, you can set the following options:
+
+- **Operation/BOM Selection** - How the wizard handles the selection of routing and BOM.
+- **Production Operation/Components Selection** - How the wizard handles the preview of components and operations.
+
+### Application scenarios
+
+#### Fully automatic processing
+
+When all setup guide steps are configured to **Hide**:
+
+- The setup guide doesn't open.
+- The production order is automatically created.
+- Existing or setup-based BOMs and routings are used.
+
+#### Selection without editing
+
+When the steps are configured to **Show**:
+
+- You can select different BOMs and routings.
+- You can't edit lines.
+- You can preview generated components and operations.
+
+#### Full editing
+
+When the steps are configured to **Edit**:
+
+- All steps display.
+- You can fully edit BOM and routing lines.
+- You can create new versions.
+- You can save in the item or stockkeeping units.
+
+### Version management
+
+The setup guide supports the management of BOM and routing versions:
+
+- Automatic creation of new versions when editing.
+- Configurable saving of versions.
+- Automatic cleanup of temporary data.
+
+### Save options
+
+You can specify where to save changes.
+
+|Option|Description|
+|------|----------|
+|**Do not save**|Temporary data is deleted after wizard completion.|
+|**Save in Item**|BOM and routing are assigned to the item.|
+|**Save in Stockkeeping Units**|BOM and routing are assigned to the stockkeeping unit.|
+
+## Related information
+
+[Set up purchase provisions for subcontracting](subcontract-purchase-provisions.md)  
+[Set up subcontracting](subcontract-setup.md)  
+[Set up work and machine centers](production-how-to-set-up-work-and-machine-centers.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchases-by-vendor
@@ -777,9 +1860,7 @@ The following steps describe the actions that different people take and the rela
 8. The shop floor supervisor uses the output journal or production journal to post the output. The quantity of component items that use **Pick + Forward** or **Pick + Backward** flushing methods with routing links is deducted from the To-Production bin.
 9. The production manager changes the status of the production order to **Finished**. The quantity of component items that use **Backward** flushing method is deducted from the open shop floor bin, and the quantity of component items that use **Pick + Backward** flushing method and no routing link is deducted from the To-Production bin.  
 
-The following illustration shows when the **Bin Code** field on the component list is filled according to your location or machine/work center setup.  
-
-:::image type="content" source="media/binflow.png" alt-text="Overview of when and how the Bin Code field is filled in.":::
+[!INCLUDE [production-bin-code-flow](includes/production-bin-code-flow.md)]
 
 ## Make-to-Order (MTO) production components in an advanced warehouse configuration
 
@@ -2778,7 +3859,7 @@ The Budget Quantity measure sums the Quantity column from the Purchase Budget ta
 [!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
 
 **Formula**
-The Purchase Amount measure sums the the Purchase Amount column of the Purchases table.
+The Purchase Amount measure sums the Purchase Amount column of the Purchases table.
 
 **Data Sources**
 - Value Entry
@@ -2786,7 +3867,7 @@ The Purchase Amount measure sums the the Purchase Amount column of the Purchases
 ### Purchase Quantity
 
 **Formula**
-The Purchase Quantity measure sums the the Purchase Quantity column of the Purchases table.
+The Purchase Quantity measure sums the Purchase Quantity column of the Purchases table.
 
 **Data Sources**
 - Value Entry
@@ -6904,6 +7985,9 @@ The general flow is illustrated in the figure, which is followed by more details
 
 Sales Order Agent uses Copilot Credits for AI interactions, which incur charges based on interaction complexity. Before using the agent, set up a billing model for your Business Central environment. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
+> [!IMPORTANT]
+> When Copilot Credits are depleted, the agent stops processing new emails but remains active and scheduled. When credits become available again, the agent automatically resumes and processes all unread emails that accumulated during the outage. To prevent unintended credit consumption after renewal, deactivate the agent when you don't need it running. Learn more in [Manage agent when Copilot Credits run out](sales-order-agent-setup.md#manage-agent-when-copilot-credits-run-out).
+
 ## Next steps
 
 - [Set up the Sales Order Agent](sales-order-agent-setup.md)
@@ -10540,6 +11624,246 @@ This topic shows an example of how to define allocations by using the dynamic al
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-components
+---
+title: Manage components in subcontracting
+description: Learn how subcontracting types determine how you handle components, assign locations, create transfer orders and returns, and how flushing works.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, components, production BOM, routing, flushing, transfer order, location
+ms.search.form: 99000886
+ms.date: 01/15/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Manage components in subcontracting
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+When you subcontract manufacturing operations, components must be available at the right location. That is, either at the subcontractor's site or at your own warehouse. This article explains the subcontracting types that control how you handle components, assign locations, and use transfer orders to move materials to and from subcontractors.
+
+## About subcontracting types
+
+The subcontracting type on a component determines where the component is consumed and how it gets there. You can set the type in the production BOM (for master data) or directly on components in released production orders.
+
+There are three subcontracting types:
+
+- **Purchase with Service**: The subcontractor procures the component directly and provides it alongside the manufacturing service. [!INCLUDE [prod_short](includes/prod_short.md)] automatically adds a purchase line for the component on the subcontracting purchase order. You don't supply the material, the vendor does. The component location changes to the subcontractor's location.
+- **Inventory by Vendor**: The component is already physically at the subcontractor's location, available for them to consume. The components are your property, and you're responsible for keeping that location stocked. For example, by shipping materials in bulk or purchasing directly to the vendor's location. You can use standard [!INCLUDE [prod_short](includes/prod_short.md)] planning tools (requisition worksheets, reorder policies on the SKU at that location) to manage replenishment. The subcontracting extension doesn't create purchase lines or transfer orders for this type. The subcontractor draws from available stock. The component location changes to the subcontractor's location.
+- **Transfer**: You ship the exact quantity of the component to the subcontractor for each production order. You create transfer orders from the subcontracting purchase order to move materials from your warehouse to the vendor location. The component keeps its original location until the transfer order moves it. You can also create return transfer orders for unused quantities. Learn more in [Create transfer orders](#create-transfer-orders).
+
+> [!NOTE]
+> You can set subcontracting types in the production BOM and in released production orders.
+
+## Set up components in master data
+
+To link components to subcontracting operations, set up routing link codes in your routing and production BOM.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Routing**, and then choose the related link.
+2. Open the routing for the item you want to manufacture.
+3. In the line for the subcontracting operation, add the appropriate routing link code.
+4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOM**, and then choose the related link.
+5. Open the production BOM for the item you want to manufacture.
+6. In the line for the component to provide for subcontracting, add the routing link code from the subcontracting operation.
+7. In the **Subcontracting Type** field, select the type. Learn more in [About subcontracting types](#about-subcontracting-types).
+
+## Change subcontracting types in production orders
+
+You can change the subcontracting type on components in released production orders.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Released Production Orders**, and then choose the related link.
+2. Open the production order.
+3. On the production order lines, select the line.
+4. Choose the **Components** action.
+5. In the routing link code field, enter the appropriate code.
+6. In the **Subcontracting Type** field, select or change the type.
+
+## How locations are assigned to components
+
+When you create production orders, [!INCLUDE [prod_short](includes/prod_short.md)] automatically assigns locations to components based on your setup and the subcontracting type.
+
+### Initial assignment
+
+When [!INCLUDE [prod_short](includes/prod_short.md)] explodes the production BOM to create component lines, it determines the component location using the following priority:
+
+1. **Stockkeeping unit (SKU) for the finished good**: [!INCLUDE [prod_short](includes/prod_short.md)] looks up the SKU for the *parent item on the production order line* (not the component item) at the production order line's location. If the SKU's **Components at Location** field has a value, components use that location.
+2. **Manufacturing Setup**: If the SKU doesn't exist or its **Components at Location** field is blank, [!INCLUDE [prod_short](includes/prod_short.md)] uses the **Components at Location** field from the **Manufacturing Setup** page.
+3. **Production order line location**: If both the SKU and Manufacturing Setup fields are blank, components use the same location as the production order line.
+
+### Location changes by subcontracting type
+
+When you set or change the subcontracting type, [!INCLUDE [prod_short](includes/prod_short.md)] adjusts the component location automatically:
+
+- **Purchase with Service and Inventory by Vendor**: The location changes to the **Subcontracting Location Code** specified on the vendor card, because the components are consumed at the subcontractor's site.
+- **Transfer**: The component keeps the location from the initial assignment (based on the SKU, manufacturing setup, or production order line priority). [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order later to move the component to the subcontractor.
+
+### Planning components
+
+During demand planning, [!INCLUDE [prod_short](includes/prod_short.md)] assigns locations the same way:
+
+- **Purchase subcontracting type**: The location is set to the subcontracting location of the vendor.
+- **Transfer subcontracting type**: The location remains at the standard location.
+
+## Create transfer orders
+
+For components with the **Transfer** subcontracting type, you create transfer orders to move materials from your warehouse to the subcontractor.
+
+### Prerequisites
+
+Before you create a transfer order, the following things must be in place:
+
+- A purchase order with subcontracting. Learn more in [Order subcontracting from production orders](subcontract-order.md) or [Use the subcontracting worksheet](subcontract-worksheet.md).
+- Production order components with the **Transfer** subcontracting type.
+- Transfer routes between locations (optional, if not configured, direct transfers are used). Learn more in [Set up locations for subcontracting](subcontract-location-management.md#set-up-transfer-routes).
+- A **Subcontracting Location Code** on the vendor card.
+
+### Create a transfer order from a purchase order
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, and then choose the related link.
+2. Open the subcontracting purchase order.
+3. Choose the **Create Transfer Order for Subcontracting** action.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] opens the **Transfer Order** page. On the **General** FastTab, you can see the source and destination locations, which are filled in automatically.
+
+> [!NOTE]
+> You must choose the action to create transfer orders. The process isn't automated.
+
+### How locations are determined for transfer orders
+
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically determines the locations:
+
+- **Transfer-from**: The location of the production order component. If you change the component location after creating the transfer order, [!INCLUDE [prod_short](includes/prod_short.md)] automatically uses the new location.
+- **Transfer-to**: The **Subcontracting Location Code** from the vendor card.
+
+### Use direct transfers
+
+When [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order for subcontracting (both outbound and return orders), it checks the transfer route between the two locations:
+
+- If a transfer route exists and has an **In-Transit Code**, [!INCLUDE [prod_short](includes/prod_short.md)] creates a regular transfer order that uses the transit location.
+- If no transfer route exists, or the route doesn't have an **In-Transit Code**, [!INCLUDE [prod_short](includes/prod_short.md)] automatically creates a **direct transfer** order instead.
+
+### How receipt dates are calculated
+
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the receipt date in the transfer order using the following formula:
+
+   **Receipt Date = Due date of the production order component - Subcontracting Inbound Whse. Handling Time**
+
+The **Subcontracting Inbound Whse. Handling Time** is defined on the **Manufacturing Setup** page.
+
+### Use the Subcontracting Details FactBox
+
+On the transfer order, the **Subcontracting Details** FactBox shows the related purchase order, production order, routing operations, and components for the selected transfer line. Choose a value to open the related document or list.
+
+### Post a transfer order
+
+You can post the transfer order using one of the following methods:
+
+- Post from the **Transfer Order** page.
+- Post through warehouse shipments.
+- Post through picking.
+
+After you post the transfer order, [!INCLUDE [prod_short](includes/prod_short.md)] changes the status in the **Operation Status** field in the production order routing to **In Process**.
+
+### Access transfer entries
+
+You can access posted subcontracting transfer entries from the production order.
+
+1. On the production order, choose the **Subcontracting Transfer Entries** action.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] displays the **Item Ledger Entries** page, where you can view all processes and details of the transfer.
+
+## Create a return from the subcontractor
+
+If the subcontractor didn't completely consume the provided components, you can transfer the unused quantities back to your source location.
+
+1. On the purchase order, choose the **Create Return from Subcontractor** action.
+
+   [!INCLUDE [prod_short](includes/prod_short.md)] opens the **Transfer Order** page. The **Transfer-from** location is the vendor's subcontracting location. The **Transfer-to** location is your original source location.
+
+2. The components with the **Transfer** subcontracting type are available for transfer in the lines. In the lines, enter the quantities you want to post with this transfer order.
+3. Post the transfer order from the **Transfer Order** page, through warehouse shipments, or through picking.
+
+### How return quantities are calculated
+
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the maximum quantity you can return for each component. The calculation considers:
+
+- Components in transit to the subcontractor (shipped but not yet received).
+- Components that arrived at the subcontractor and aren't consumed.
+- Components already on a return transfer order or in transit back.
+- The quantity still needed for remaining production (based on outstanding purchase order quantity).
+
+The return quantity is the lesser of what's physically available at the subcontractor and what's no longer needed for production.
+
+**Example:** You ordered 100 units from the subcontractor. The BOM requires 2 kg of steel per unit, so you transferred 200 kg to the subcontractor.
+
+- The subcontractor delivered 80 units (you posted receipt for 80), consuming 160 kg.
+- Remaining at subcontractor: 40 kg.
+- Outstanding purchase order quantity: 20 units, which need 40 kg.
+- **Return quantity: 40 kg** (the lesser of 40 kg available and 40 kg needed).
+
+If you cancel the remaining 20 units on the purchase order, the outstanding quantity drops to zero, and the return quantity also becomes zero because no production remains to justify a return.
+
+> [!NOTE]
+> When the subcontractor delivers the finished goods (you post the purchase receipt), [!INCLUDE [prod_short](includes/prod_short.md)] automatically reduces the components available for return. Only unconsumed components can be returned.
+
+### One return per purchase order line
+
+You can create one return transfer order per purchase order line. If you try to create a second return for the same line, you receive the error message: "The Return from Subcontractor has already been created."
+
+If you need to return a different quantity, delete the existing return transfer order (if it isn't posted) and create a new one.
+
+## Set up flushing for subcontracting components
+
+If a component is used for subcontracting, we recommend that you set its flushing method to **Backward** in the stockkeeping unit card for the subcontracting location.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Stockkeeping Units**, and then choose the related link.
+2. Open the stockkeeping unit card for the subcontracting location.
+3. On the **Replenishment** FastTab, in the **Flushing Method** field, choose **Backward**.
+
+When you use backward flushing, [!INCLUDE [prod_short](includes/prod_short.md)] automatically consumes the material in the subcontracting warehouse without requiring other posting.
+
+## Restrictions and validations
+
+[!INCLUDE [prod_short](includes/prod_short.md)] applies the following restrictions to help ensure data consistency.
+
+### Location changes after transfer orders
+
+After [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order for a production order component:
+
+- You can't change the component location.
+- You receive the error message: "The component has already been assigned to the subcontracting transfer order."
+
+### Item tracking restrictions
+
+When transfer orders exist for a component:
+
+- You can't open item tracking lines.
+- You receive the error message: "You cannot open Tracking Specification because this component is already specified in Transfer Order [Number]."
+
+### Bin code management
+
+[!INCLUDE [prod_short](includes/prod_short.md)] manages bin codes automatically:
+
+- When it creates transfer orders, it saves the original bin code.
+- When you delete the transfer order, it restores the location and bin code to the original values.
+
+## Related information
+
+[Manage locations in subcontracting](subcontract-location-management.md)  
+[Set up subcontracting](subcontract-setup.md)  
+[Assign item charges to subcontracting receipts](subcontract-item-charges.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-payment-terms
 ---
 title: Set up payment terms
@@ -11103,7 +12427,7 @@ After you create a service order, when you're ready you can post it. The order m
 If you have a large number of service orders, you can save time by using a batch job to post them. You can run the batch job from any service order.
 
 > [!Tip]
-> Before you post a service document, it's a good idea to use the **Test Report** action to to check for errors or missing information. If there are errors, you must correct the problem. You can print a new test report to verify the fix, and then post the document.
+> Before you post a service document, it's a good idea to use the **Test Report** action to check for errors or missing information. If there are errors, you must correct the problem. You can print a new test report to verify the fix, and then post the document.
 
 ## Post a service order
 
@@ -11504,9 +12828,7 @@ The next step is to design the item flow at the location by specifying bin codes
 
 ## Fill in the consumption bin
 
-The following flow chart shows how the **Bin Code** field on production order component lines is filled in according to your location setup.
-
-:::image type="content" source="media/binflow.png" alt-text="Bin code field on production order component lines.":::
+[!INCLUDE [production-bin-code-flow](includes/production-bin-code-flow.md)]
 
 ## Related information
 
@@ -11528,7 +12850,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.form: 20400, 20408, 20404, 20402, 20416,
-ms.date: 01/08/2026
+ms.date: 05/20/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -11560,22 +12882,21 @@ To set up a quality tests, follow these steps.
 
 1. [!INCLUDE [open-search](includes/open-search.md)], enter **Quality Tests**, and then choose the related link.
 1. Choose **New** to create a new template.
-1. In the **Description** field, enter a short description of the measurement. For example, **Example Measurement**, **Weight**, or **Dimension**. This description will be visible when recording inspections and will show up on the Certificate of Analysis and other reports. 
+1. In the **Description** field, enter a short description of the measurement. For example, **Example Measurement**, **Weight**, or **Dimension**. This description is visible when recording inspections and show up on the Certificate of Analysis and other reports. 
 1. In the **Test Value Type** you can choose the value type collected for this test, such as entering numbers, selecting from a list of options, or choosing values from another table. The following list describes the purpose of each option.
 
    - **Decimal** or **Integer** for tests that allow numerical values.
    - **Boolean** if you want to record simples *Yes* or *No*.
    - **Text**, **Date**, or **Date and Time** - The inspector enters results as free text or a date. 
    - **Option** - Inspector select one of the values from a simple list you defined in the **Allowable Values** field.
-   - **Lookup** - List of values is build dynamically based on **Lookup Table No.**, **Lookup Field No.** with respect of **Lookup Table Filter**. For example if you want to show a list of available reason codes from the **Reason code** table, then you would use table *231* with field *1* which represents the **Code** field on that table. You can also use table *20408* **Quality Test Lookup Value** and populate it with your own values. **Allowable Values** do not affect 
-   - **Label** - you cannot enter value in this field, it is used for splitting lines when printing report.
+   - **Lookup** - List of values is build dynamically based on **Lookup Table No.**, **Lookup Field No.** with respect of **Lookup Table Filter**. For example if you want to show a list of available reason codes from the **Reason code** table, then you would use table *231* with field 1, which represents the **Code** field on that table. You can also use table *20408* **Quality Test Lookup Value** and populate it with your own values. 
+   - **Label** - You can't enter value in this field because it's used for splitting lines when printing the report.
   
-1. In the **Allowed Values** you can specify what values inspection can enter. The format depends on the **Test Value Type**. Pass, fail or acceptance conditions are configured separately. For integer or decimal, you might enter something like '5..90' and the system accepts any value in this range. For the **Test Value Type** set to *Lookup* the **Allowable Values** field is ignored, though it is convenient to use for populateing values in the **Quality Test Lookup Value** page.
-2. The **Result conditions** part inlcude pairs **Condition** and **Description** fields for each quality result where **Result Visibility** is set to *Priority*. The value in the **Condition** field depends on the **Test Value Type**. The following are examples for different types:
+1. In the **Allowed Values** field, you can specify what values inspection can enter. The format depends on the **Test Value Type**. Pass, fail, or acceptance conditions are configured separately. For integer or decimal, you might enter something like '5..90' and the system accepts any value in this range. For the **Test Value Type** set to *Lookup* the **Allowable Values** field is ignored, though it's convenient to use for populating values in the **Quality Test Lookup Value** page.
+1. The **Result conditions** part includes pairs of **Condition** and **Description** fields for each quality result where **Result Visibility** is set to *Priority*. The value in the **Condition** field depends on the **Test Value Type**. The following are examples for different types:
    - For integer or decimal, it can be '10..20' (range), '>=20' (greater than or equal), '<>0' (not equal to zero), '10|20|30' (equals 10, 20 or 30).
    - For text: 'A*' (starts with "A").
    - For date: 'TODAY..TODAY+30D' (Today through 30 days from today), '>=01/01/2026'(on or after specific date).
-
 
 ## Create a new template
 
@@ -11585,9 +12906,9 @@ To set up a quality inspection template, follow these steps.
 1. Choose **New** to create a new template.
 1. Fill in the **Template Code** field with a short name that indicates the purpose of the inspection. For example, enter **EXAMPLE** or **INCOMING-PARTS**.
 1. Fill in the **Description** field. This field often contains an elaboration of the code. For example, **Example Template** or **Incoming Parts Inspection**.
-1. In the **Sample Source** field, specify the size of the sample the test includes. Depending on your choice, the **Sample Amount** or **Sample %** fields display, so you can add those values. The **Sample quantity** in the created inspection cannot exceed the **Quantity (Base)** and if necessary it will be changed automatically on the inspection to be equal to the the source quantity. If you leave the **Sample Source** field blank, the amount or percentage fields don't display. 
+1. In the **Sample Source** field, specify the size of the sample the test includes. Depending on your choice, the **Sample Amount** or **Sample %** fields display, so you can add those values. The **Sample quantity** in the created inspection can't exceed the **Quantity (Base)** and if necessary it's changed automatically on the inspection to equal the source quantity. If you leave the **Sample Source** field blank, the amount or percentage fields don't display. 
 1. Add the tests that represent what the inspection measures.
-2. If necessary you can override conditions frorm tests for specific inspection template requirements.
+1. If necessary, you can override conditions from tests for specific inspection template requirements.
 
 ## Assign a test generation rule
 
@@ -14898,21 +16219,22 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-to-work-with-inventory-periods
 ---
 title: Work with inventory periods
-description: You can control the timeframe in which people can post post changes to inventory by defining inventory periods.
+description: You can control the timeframe in which people can post changes to inventory by defining inventory periods.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: inventory, periods
-ms.search.form: 5828
-ms.date: 07/29/2024
+ms.search.form: 5828,
+ms.date: 05/20/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
 
 # Work with inventory periods
 
-Inventory periods define a period of time in which you can post changes to inventory. An inventory period is defined by the date on which it ends, or the ending date. When you close an inventory period, you can't post any changes to inventory, either expected or invoiced, before this ending date. You can't post any new values to inventory before the ending date. If you have open item entries in the closed period, meaning positive quantities that haven't yet been applied to outbound transactions, you can still apply outbound quantities to these entries, even if the period is closed.  
+Inventory periods define a period of time in which you can post changes to inventory. An inventory period is defined by the date on which it ends. When you close an inventory period, you can't post any changes to inventory, either expected or invoiced, before this ending date. You can't post any new values to inventory before the ending date. If you have open item entries in a closed period, meaning positive quantities that aren't applied to outbound transactions, you can still apply outbound quantities to these entries, even if the period is closed.  
 
 The following sections describe how to:
 
@@ -14924,49 +16246,51 @@ The following sections describe how to:
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Periods**, and then choose the related link.  
 2. Create a new line.  
-3. In the **Ending Date** field, enter the last date in the inventory period that you want to define. When the period is closed, you won't be able to post inventory changes before this date.  
+3. In the **Ending Date** field, enter the last date in the inventory period that you want to define. When the period is closed, you can't post inventory changes before this date.  
 4. Enter a descriptive name in the **Name** field. Choose the **OK** button.  
 
 ## To close inventory periods
 
 The **Closed** field indicates whether or not the inventory period is closed to inventory value changes. You can't edit this field.  
 
-You can close any inventory period, if the following is true:  
+You can close any inventory period if the following conditions are true:  
 
 * There are no open outbound item ledger entries, meaning negative inventory, in that period.  
-* The cost of all items has been adjusted using the **Adjust Cost – Item Entries** batch job.  
+* The cost of all items was adjusted using the **Adjust Cost – Item Entries** batch job.  
 
-This means that all outbound transaction quantities, such as those from sales orders, outbound transfers, sales invoices, purchase returns, or purchase credit memos, must be applied to existing quantity in inventory.  
+You must apply all outbound transaction quantities, such as those from sales orders, outbound transfers, sales invoices, purchase returns, or purchase credit memos, to existing quantity in inventory.  
 
 ### To close an inventory period  
 
 1. Before closing an inventory period, choose the **Adjust Cost – Item Entries** action to ensure that all cost adjustments are posted.
 
-    Run the **Close Inventory Period – Test** report to determine if there are any open outbound item entries within the inventory period or any items whose cost hasn't yet been adjusted.  
+    Run the **Close Inventory Period – Test** report to determine whether there are open outbound item entries in the inventory period, or any items whose cost wasn't adjusted.  
 2. Choose the **Test Report** action.  
 
     Run the **Post Inventory Cost to G/L** batch job to ensure that all costs are posted to the general ledger.  
 3. Choose the **Post Inventory to G/L** action.  
 4. On the **Inventory Periods** page, select the inventory period you want to close.  
-5. Choose the **Close Period** action. After the inventory period has been closed, you can't post inventory changes before the ending date. The cost of all items must be adjusted with the **Adjust Cost – Item Entries** batch job before you close the inventory period.  
+5. Choose the **Close Period** action. After the inventory period is closed, you can't post inventory changes before the ending date. The cost of all items must be adjusted with the **Adjust Cost – Item Entries** batch job before you close the inventory period.  
 6. Choose the **Yes** button to confirm that you want to close the period, or choose **No** to cancel the closing.  
-7. The inventory period is closed and a confirmation message is displayed when it's finished.  
+7. The inventory period is closed and a confirmation message displays.  
 
 ## Reopening inventory periods  
-After you have closed the inventory period, you can't delete the inventory period. You can, however, reopen it, if you would like to allow posting before the ending date of the inventory period. Reopening a period also reopens all inventory periods with ending dates later than the period you reopen.  
+
+After you close an inventory period, you can't delete it. You can, however, reopen it. For example, if you would like to allow posting before the ending date of the inventory period. Reopening a period also reopens all inventory periods with ending dates later than the period you reopen.  
 
 ### To reopen an inventory period  
+
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Inventory Periods**, and then choose the related link.  
 2. Select the inventory period you want to reopen.  
 3. Choose the **Reopen Period** period action. Confirm that you want to reopen the period.  
 4. All inventory periods with ending dates later than the period you selected are reopened.  
 
 ## Related information  
-[Design Details: Inventory Periods](design-details-inventory-periods.md)    
-[Finance](finance.md)    
-[Inventory](inventory-manage-inventory.md)    
-[Work with Financials](ui-work-product.md)  
 
+[Design Details: Inventory Periods](design-details-inventory-periods.md)  
+[Finance](finance.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Work with Financials](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -15807,6 +17131,117 @@ For more information and additional things you can do when creating customer sal
 [Sell Products with a Customer Sales Order](sales-how-sell-products.md)  
 [Invoice Sales](sales-how-invoice-sales.md)  
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-purchase-provisions
+---
+title: Set up purchase provisions for subcontracting
+description: Learn how to create and post purchase provisions with linked production orders and transfer orders for subcontracting operations.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: subcontracting, purchase provisions, production order, BOM
+ms.search.form: 99000886,
+ms.date: 05/20/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+
+---
+
+# Set up purchase provisions for subcontracting
+
+[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+
+Subcontracting outsources individual production steps or manufacturing work to external vendors. For example, you might outsource milling work, cutting, or surface treatments. Purchase provisions involve processing individual components by an external service provider into a finished product. With the purchase order, you invoice a service from the vendor. The purchase order links to the corresponding production order.
+
+After completion, the product returns to your warehouse. You can set up when transfers, receipts, and issues are posted. You can create, edit, and view the production orders and transfer orders required for posting the provision from the purchase order. You can specify the required components for a specific order or use components from existing production BOMs.
+
+## Create a purchase order with a production order
+
+The following steps describe how to create a purchase provision with a linked production order. Depending on your setup and whether you have existing BOMs, you create the order and assign the necessary BOM components using a production order. When you use the **Transfer** subcontracting type, you create the transfer order. You can post inventory changes in the purchase order card or use warehouse functions.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, and then choose the related link.
+2. Create a new purchase order and fill in the relevant fields. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+   > [!NOTE]
+   > The **Location Code** for subcontracting is maintained on the vendor card.
+
+3. On the lines, select the item to be procured.
+4. In the **Quantity** field, specify how many finished produced items should return.
+5. In the **Direct Unit Cost** field, specify the price of the service. A price might already be preset. Learn more in [Set up subcontractor prices](subcontract-prices.md).
+6. Choose the **Create Production Order** action.
+
+   Depending on the flushing method you selected in the **Subcontracting Setup**, consumption is posted with shipment posting of the subcontracting service using the production order, and the receipt of the item produced by the supplier in the warehouse. [!INCLUDE [prod_short](includes/prod_short.md)] creates the details in the background through the creation of the production order.
+
+<!-- 7. The provision starts automatically and guides you through the configuration of BOMs and routings. Depending on your configuration in the **Subcontracting Setup**, [!INCLUDE [prod_short](includes/prod_short.md)] displays various steps or automatically processes them. Learn more in [Set up purchase provisions and provision wizard](subcontract-setup-configurator.md). -->
+
+8. To transfer the provision components with the **Transfer** subcontracting type, choose the **Create Transfer Order for Subcontracting** action.
+
+   [!INCLUDE [prod_short](includes/prod_short.md)] transfers the required BOM component lines to a transfer order. The **Transfer-from Code** and **Transfer-to Code** fields are filled based on your setup. If an open transfer order exists for the vendor's location code, [!INCLUDE [prod_short](includes/prod_short.md)] adds the required lines to it.
+
+To view information about the production orders and transfer orders linked to the purchase order, choose the **Production** action on the **Lines** FastTab. Learn more about transfers in [Transfer inventory between locations](inventory-how-transfer-between-locations.md).
+
+## Synchronize changes between purchase and production orders
+
+Because the production order is created from the purchase order, [!INCLUDE [prod_short](includes/prod_short.md)] keeps the two documents in sync when you change key fields on the purchase line. This synchronization applies only to purchase lines that haven't been partially received.
+
+### Date synchronization
+
+When you change the **Expected Receipt Date** on the purchase line, [!INCLUDE [prod_short](includes/prod_short.md)] automatically updates the **Due Date** on the linked production order to match. The production order's ending dates are recalculated accordingly. 
+
+### Quantity synchronization
+
+When you change the **Quantity** or **Unit of Measure Code** on the purchase line, [!INCLUDE [prod_short](includes/prod_short.md)] automatically updates the linked production order header, the production order line, and recalculates the quantities on the production order components. 
+
+> [!NOTE]
+> Both date and quantity synchronization work in one direction only, from the purchase order to the production order. If you change the **Due Date** or **Quantity** directly on the production order, the purchase line isn't updated. To keep the documents aligned, make changes on the purchase line.
+
+## Post purchase provisions
+
+The following sections describe how to post purchase provisions.
+
+### Transfer BOM components
+
+The components transferred to a transfer order are posted with the warehouse functionalities of the specified location codes, depending on your setup.
+
+### Consume provided BOM components
+
+The consumption method depends on the flushing method:
+
+- **Forward or Backward** - BOM components assigned with the **Forward** or **Backward** flushing method are automatically posted with the entry type **Consumption** through the created production order from the vendor's location when you post the **Qty. to Receive**.
+
+  > [!NOTE]
+  > Items with the **Purchase with Service** subcontracting type must first be posted in the purchase order with **Qty. to Receive**.
+
+- **Manual** - BOM components assigned with the **Manual** flushing method must be posted separately after receipt of the produced item. To post manually:
+
+  1. Open the production order linked to the purchase line.
+  2. Choose the **Production Journal** action.
+  3. Post the journal.
+
+### Receive the produced item
+
+You post the receipt of the produced item in the purchase order.
+
+1. On the purchase order, in the **Qty. to Receive** field, specify the quantity.
+2. Choose the **Post** action, and then choose **Receive**.
+
+[!INCLUDE [prod_short](includes/prod_short.md)] creates an item ledger entry with the entry type **Output** with a reference to the linked production order. If you work with different bins in your location, you can put away the inventory to the target bin code with bin transfers.
+
+### Post the invoice
+
+Post the invoice as you would for other purchase invoices for received goods. The posted line amount is transferred to the production order for valuation of the produced items and supplemented by the value of the consumed items. After you post the invoice, change the status of the production order to **Finished**. Learn more in [Work with production orders](production-about-production-orders.md).
+
+## Related information
+
+<!-- [Set up purchase provisions and provision wizard](subcontract-setup-configurator.md)   -->
+[Transfer inventory between locations](inventory-how-transfer-between-locations.md)  
+[Work with production orders](production-about-production-orders.md)  
+[Manufacturing](production-manage-manufacturing.md)  
+[Setting Up Manufacturing](production-configure-production-processes.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-create-service-quotes
 ---
@@ -19553,831 +20988,6 @@ Learn more about Power BI metrics at [Get started with metrics in Power BI](/pow
 [Introduction to Business Central and Power BI](admin-powerbi.md)  
 [Work with Power BI reports](across-working-with-powerbi.md)  
 [Analytics overview](reports-bi-reporting.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-how-to-view-synchronization-status
----
-title: View the Status of Synchronization Jobs
-description: Use the Coupled Data Synchronization Errors page to view the status of synchronization jobs that have been run for coupled records in integrations.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: sales, crm, integration, sync, synchronize
-ms.search.form: 6250
-ms.date: 06/14/2021
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# View the Status of Synchronization Jobs
-
-
-Use the **Coupled Data Synchronization Errors** page to view the status of synchronization jobs that have been run for coupled records in a Dataverse or [!INCLUDE[crm_md](includes/crm_md.md)] integrations. This includes jobs that were run from the job queue and manual synchronization jobs that ran on records from [!INCLUDE[prod_short](includes/prod_short.md)]. For example, viewing their status is helpful when troubleshooting because it gives you access to details about errors related to coupled records. Typically, these types of errors are caused by user actions, for example, when:  
-
-* Two people made a change to the same data in both business apps.
-* Someone deleted data in one of the apps, but not both.
-
-> [!Note]
-> The **Coupled Data Synchronization Errors** page shows information about jobs related to coupled records. If you resolve all of the errors but records are still not synchronizing, it might have something to do with a setting for the integration. Typically, your administrator will need to resolve those types of errors.   
-
-## Example
-This video shows an example of how to troubleshoot errors that happened while synchronizing with [!INCLUDE[prod_short](includes/cds_long_md.md)]. The process will be the same for all integrations. 
-
-> [!VIDEO https://go.microsoft.com/fwlink/?linkid=2097304]
-
-
-## To view and resolve synchronization errors for coupled records
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Coupled Data Synchronization Errors**, and then choose the related link.
-2. The **Coupled Data Synchronization Errors** page shows issues that occurred when you synchronized coupled records. The following table includes actions that you can use to resolve issues one by one:
-
-|Action|Description|
-|----|----|
-|**Remove Coupling**|Uncouples the records and they will no longer synchronize. To restart the synchronization you must couple them again. |
-|**Retry** and **Retry All**|For each record where an error is found, synchronization is skipped unless you fix the issue. Retry will include the selected record in the next synchronization, and **Retry All** includes all of the records.|
-|**Synchronize**|The app will try to resolve a conflict where data was changed in both business apps. You can choose the data to use.|
-|**Restore Records** and **Delete Records**|These are useful when a record was deleted in one of the business apps. Delete Records deletes the record or row in the app where it still exists. Restore Records recreates the record or row in the business app where it was deleted.|
-
-> [!NOTE]
-> To reduce the number of conflicts you need to resolve, you can set up your integration table mappings to apply these actions automatically. For more information, [Mapping Integration Tables](admin-how-to-modify-table-mappings-for-synchronization.md#mapping-integration-tables).
-
-## To view the synchronization log for a specific (manually synchronized) record
-1. Open, for example, a customer, item or any other record that is synchronizing data between [!INCLUDE[prod_short](includes/prod_short.md)] and Dataverse or [!INCLUDE[crm_md](includes/crm_md.md)].
-2. Choose the **Synchronization Log** action to view the synchronization log for a selected record. For example, a specific customer you synchronized manually.
-
-## Remove Couplings Between Records
-When something goes wrong in your integration and you need to uncouple records to stop synchronizing them, you can do so for one or more records at a time. You can uncouple one or more records from list pages or the **Coupled Data Synchronization Errors** page by choosing one or more lines and choosing **Delete Coupling**. You can also remove all couplings for one or more table mappings on the **Integration Table Mappings** page. 
-
-If an entity with a unidirectional coupling is deleted in [!INCLUDE[prod_short](includes/prod_short.md)], you must manually delete the broken coupling. To do that, on the **Coupled Data Synchronization Errors** page, choose the **Find for Deleted** action, and then delete the couplings.
-
-## Related information  
-[Setting Up User Accounts for Integrating with Dynamics 365 Sales](admin-setting-up-integration-with-dynamics-sales.md)  
-[Use Dynamics 365 Sales from Business Central](marketing-integrate-dynamicscrm.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-quality-workflows
----
-title: Quality management workflows
-description: Learn how to automate quality management processes using workflows.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.form: 
-ms.date: 03/10/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-
-# Quality management workflows
-
-This article explains how to set up and use workflows to automate quality management processes.
-
-Quality Management integrates with workflows in [!INCLUDE [prod_short](includes/prod_short.md)] to automate responses to quality inspection events. Workflows can automatically run business actions when quality inspections are created, finished, or when specific conditions are met. For example, quality management workflows can:
-
-- Block and unblock lots.
-- Move inventory.
-- Create negative adjustments.
-
-## Typical quality workflow events
-
-The following sections describe often-used workflow events and conditions.
-
-### When events
-
-**When a Quality Inspection is Created**:
-
-- This event triggers automatically when inspection generation rules create new inspections.
-- Use the event for immediate actions, such as blocking lots when you create inspections for them.
-- The event is available for all inspection creation methods. For example, purchase receipts, production output, and manual creation.
-
-**When a Quality Inspection is Finished**:
-
-- This event triggers when inspections are completed and finalized.
-- Use the event for disposal actions based on inspection results.
-- This event is the most popular for quality workflows.
-
-### Workflow conditions
-
-**Result code conditions**:
-
-- Result code equals "PASS" for successful inspection completion.
-- Result code equals "FAIL" for failed inspection processing.
-- Result code equals "INPROGRESS" for inspections in progress.
-- Custom Result codes you configure.
-
-**Additional conditions**:
-
-- Location codes for site-specific workflows.
-- Item numbers for product-specific processing.
-- Inspection template codes for template-specific responses.
-
-## Workflow response actions
-
-The following sections describe the responses, or actions, that happen after an event.
-
-### Lot, serial, and package number blocking actions
-
-**Block the Lot (Serial, Package) in the Inspection**:
-
-- Creates a **Lot No. Information Card** page with the status **Blocked**. The status prevents all transactions for the lot until you manually unblock it.
-- The standard lot blocking functionality in [!INCLUDE [prod_short](includes/prod_short.md)] applies. To learn more, go to [Block items or item variants from use in sales, purchasing, service, and production](inventory-how-block-items.md).
-
-**Unblock the Lot (Serial, Package) in the Inspection**:
-
-- Removes lot blocking from previously blocked lots, and restores normal transaction abilities.
-- This action is typically used with passing inspection results.
-
-### Inventory movement actions
-
-**Move Inventory to Different Bin**:
-
-- Automatically relocates inventory based on inspection results.
-- Uses movement worksheets, movement documents, or reclassification journals.
-- Supports directed put-away and pick locations.
-
-**Create Transfer Order**:
-
-- Moves inventory between locations.
-- Useful for quarantine or rework locations.
-- You can configure the action for automatic or manual posting.
-
-**Create Internal Put-away**:
-
-- Generates a warehouse put-away for inventory staging.
-- Supports quality inspection workflows in warehouse environments.
-
-### Inventory adjustment actions
-
-**Create Negative Adjustment**:
-
-- Removes inventory for disposal or destructive testing.
-- Uses item journals or warehouse item journals.
-- Supports reason codes for audit trails.
-- Can process full lots, specific quantities, or failed quantities only.
-
-### Inspection creation actions
-
-**Create Reinspection**:
-
-- Automatically generates follow-up inspections.
-- Useful for corrective action processes.
-- Can use the same or different inspection templates.
-
-> [!NOTE]
-> Some workflows actions require that you configure journal and worksheet batches on the **Quality Management Setup** page:
->
-> - Use **Item Journal Batch** for nonwarehouse location adjustments.
-> - Use **Warehouse Item Journal Batch** for warehouse location adjustments.
-> - Use **Warehouse Movement Worksheet** for directed put-away/pick movements.
-> - Use **Warehouse Reclass Journal Batch** for warehouse reclassifications.
-> - Use **Item Reclass Journal Batch** for nonwarehouse reclassifications.
-> 
-> When a disposition action creates multiple journal lines, for example, when the same lot exists in multiple bins, the system posts each line independently rather than as a single transaction. This means:
-> - Lines that post successfully are committed immediately.
-> - Lines that fail, for example, due to inventory shortages, locked records, or bin conflicts, remain in the journal for manual resolution.
-> - The inspection status still transitions, for example, to **Finished**, even if some disposition lines fail. A single failing line doesn't block the entire operation.
->  
-> This partial posting behavior preserves forward progress in high-volume or semi-automated environments and avoids rolling back successfully posted lines when an unrelated line fails. After a partial posting, check the relevant journal (warehouse journal or item journal) for unposted lines. These lines require manual attention before the disposition is fully complete.
-
-
-## Examples of workflow configuration
-
-The following sections provide examples of how to configure different workflows.
-
-### Block a lot when an inspection fails
-
-This sample configuration automatically quarantines lots that fail an inspection.
-
-1. **Workflow Name**: **Block Lot on Failure**
-2. **When Event**: **When a Quality Inspection is Finished**
-3. **Condition**: **Result** equals **Fail**.
-4. **Response**: Block the lot in the inspection.
-
-The following are the outcomes of this example:
-
-- Failed lots are immediately blocked from all transactions.
-- Creates a **Lot No. Information Card** page for tracking.
-- Prevents the accidental use of nonconforming materials.
-
-### Preemptive lot blocking
-
-These sample configurations block lots during inspections, and unblock them when they pass.
-
-**Blocking workflow**:
-
-1. **Workflow Name**: **Block Lot on Inspection Creation**
-2. **When Event**: **When a Quality Inspection is Created**
-3. **Condition**: None (applies to all tests)
-4. **Response**: Block the lot in the inspection.
-
-**Unblocking workflow**:
-
-1. **Workflow Name**: **Unblock Lot on Pass**
-2. **When Event**: **When a Quality Inspection is Finished**
-3. **Condition**: **Result Code** equals **"Pass"**
-4. **Response**: Unblock the lot in the inspection.
-
-The following are the outcomes of this example:
-
-- Lots are quarantined immediately when you create an inspection.
-- Only passing inspections unblock lots for normal use.
-- Prevents the use of materials you haven't inspected.
-
-### Automatic movement between bins
-
-This sample configuration moves failed items to the quarantine bin.
-
-1. **Workflow Name**: **Move Failed Items to Quarantine**
-2. **When Event**: **When a Quality Inspection is Finished**
-3. **Condition**: **Result Code** equals **"Fail"**
-4. **Response**: Move inventory to a different bin.
-5. **Details**:
-   - **Method**: Reclassification Journal
-   - **Quantity**: Entire Lot
-   - **Destination**: Quarantine bin
-   - **Post Immediately**: No (requires manual review)
-
-The following are outcomes of this example:
-
-- Failed items are automatically staged for quarantine.
-- Physical separation of conforming and nonconformant items.
-- Maintain an audit trail of disposals.
-
-### Negative adjustment for disposal
-
-This sample configuration automatically disposes of failed or destructively inspected items.
-
-1. **Workflow Name**: **Dispose Failed Items**
-2. **When Event**: **When a Quality Inspection is Finished**
-3. **Condition**: **Result Code** equals **"Fail"**
-4. **Response**: Create a negative adjustment.
-5. **Details**:
-   - **Quantity**: Failed quantity (or entire lot)
-   - **Reason Code**: **Quality Assurance**
-   - **Post Immediately**: No (review required)
-
-The following are outcomes of this example:
-
-- An automatic inventory reduction for the unrecoverable items.
-- Accurate cost accounting for quality losses.
-- An audit trail for the disposed materials.
-
-
-
-
-## Related information
-
-[Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
-[Processing Non-Compliant Items](qms-non-compliant-processing.md)  
-[Configuring Results](qms-configuring-grades.md)  
-[Quality Management Setup](qms-setup.md)  
-[Quality Management Overview](qms-overview.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-how-process-purchase-returns-cancellations
----
-title: Process returns or cancellations
-description: Explains how to create and post a purchase credit memo when you want to return items to a vendor or cancel purchased services.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: cancel, undo, correct
-ms.search.form: 6640, 6643, 9307, 9309, 9308, 6652, 145, 147
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Process purchase returns or cancellations
-
-If you want to return items to your vendor or cancel services you purchased, you can create and post a purchase credit memo that specifies the requested change to the original purchase invoice. To include the correct purchase invoice information, you can create the purchase credit memo directly from the posted purchase invoice or you can create a new purchase credit memo with copied invoice information.
-
-If you need more control of the purchase return process, such as warehouse documents for the item handling or better overview when shipping back items from multiple purchase documents with one purchase return, then you can create purchase return orders. A purchase return order automatically issues the related purchase credit memo. Learn more at [Create a purchase return order based on one or more a posted purchase documents](purchasing-how-process-purchase-returns-cancellations.md#create-a-purchase-credit-memo-from-a-posted-purchase-invoice).
-
-> [!NOTE]  
-> If a posted purchase invoice isn't paid, you can use the **Correct** or **Cancel** actions on the posted purchase invoice to automatically reverse the transactions. These actions only work for unpaid invoices, and they don't support partial returns or cancellations. Also, you can't correct or cancel purchase invoices that were posted with receipts from more than one purchase order. Learn more in [Correct or Cancel Unpaid Purchase Invoices](purchasing-how-correct-cancel-unpaid-purchase-invoices.md).
-
-Typically, you create a purchase credit memo or purchase return order in reaction to a credit memo sent to you by a vendor. You can use purchase credit memos or purchase return orders to document your credit memo process. For example, they're useful for accounting purposes or to control the shipping of the items.
-
-The change might relate to all or only some of the products on the original purchase invoice. Accordingly, you can partially return received items or ask for partial reimbursement of received services. In that case, you must edit the information on the purchase credit memo or purchase return order.
-
-In addition to the original posted purchase invoice, you can apply the purchase credit memo or purchase return order to other purchase documents. For example, another posted purchase invoice because you're also returning items delivered with that invoice.
-
-The credit memo posting also reverts item charges that were assigned to the posted document, so that the item's value entries are the same as before you assigned the item charge.
-
-## Inventory costing
-
-To keep inventory valuation correct, you typically want to pick return items from inventory at the unit cost that they were purchased at, not at their current unit cost. This process is referred to as exact cost reversing.
-
-There are two actions that assign exact cost reversing automatically.  
-
-|Function|Description|  
-|------------------|---------------------------------------|  
-|**Get Posted Document Lines to Reverse** action on the **Purchase Return Order** page|Copies lines of one or more posted documents to be reversed into the purchase return order. Learn more at [Create a purchase return order based on one or more posted purchase documents](purchasing-how-process-purchase-returns-cancellations.md#create-a-purchase-return-order-based-on-one-or-more-posted-purchase-documents).|  
-|**Copy from Document** action on the **Purchase Credit Memo** and **Purchase Return Order** pages|Copies both the header and lines of one posted document to reverse.<br/><br/> Requires that the **Exact Cost Reversing Mandatory** checkbox is selected on the **Purchases & Payables Setup** page.|
-
-To assign exact cost reversing manually, choose the **Appl.-from Item Entry** field on any type of return document line, and then select the number of the original purchase entry. This setting links the purchase credit memo or purchase return order to the original purchase sales entry. It also ensures that the item is valued at the original unit cost.
-
-Learn more in [Design Details: Inventory Costing](design-details-inventory-costing.md).
-
-## Create a purchase credit memo from a posted purchase invoice
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted Purchase Invoices**, and then choose the related link.  
-2. On the **Posted Purchase Invoices** page, select the posted purchase invoice that you want to reverse, and then choose the **Create Corrective Credit Memo** action.
-
-    Most fields on the purchase credit memo header are filled with the information from the posted purchase invoice. You can edit all the fields, for example with new information that reflects the return agreement.
-3. Edit information on the lines according to the agreement, such as the number of items returned or the amount to be reimbursement.
-4. Choose the **Apply Entries** action.
-5. On the **Apply Vendor Entries** page, select the line with the posted purchase document that you want to apply the purchase credit memo to, and then choose the **Applies-to ID** action. The number of the purchase credit memo is inserted in the **Applies-to ID** field.
-6. In the **Amount to Apply** field, enter the amount that you want to apply if smaller than the original amount.
-
-    At the bottom of the **Apply Vendor Entries** page, you can see the total amount to apply to reverse all involved entries, namely when the value in the **Balance** field is zero.
-7. Choose the **OK** button. When you post the purchase credit memo, it's applied to the specified posted purchase documents.
-8. Choose the **Post** action.
-
-The posted purchase invoices that you apply the credit memo to are now reversed. If you already paid the original invoice, the vendor should now refund the payment to you. If the credit memo is only for part of the product on the original invoice, you might only pay the remaining amount on the original purchase invoice to close it.
-
-The purchase credit memo is removed and replaced with a new document in the list of posted purchase credit memos.
-
-## Create a purchase credit memo by copying a posted purchase invoice
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Credit Memos**, and then choose the related link.
-2. Choose the **New** action to open a new empty purchase credit memo.
-3. In the **Vendor** field, enter the name of an existing vendor.
-4. Choose the **Copy from Document** action.
-5. On the **Copy Purchase Document** page, in the **Document Type** field, select **Posted Invoice**.
-6. Choose the **Document No.** field to open the **Posted Purchase Invoices** page, and then select the posted purchase invoice that contains lines that you want to reverse.
-7. Select the **Recalculate Lines** check box if you want the copied posted purchase invoice lines to be updated with any changes in item price and unit cost since the invoice was posted.
-8. Choose the **OK** button. The copied invoice lines are inserted in the purchase credit memo.
-9. Complete the purchase credit memo as explained in [Create a purchase credit memo from a posted purchase invoice](purchasing-how-process-purchase-returns-cancellations.md#create-a-purchase-credit-memo-from-a-posted-purchase-invoice).
-
-## Create a purchase return order based on one or more posted purchase documents
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Return Orders**, and then choose the related link.  
-2. Choose the **New** action.  
-3. Fill in the fields on the **General** FastTab as necessary.
-4. On the **Lines** FastTab, fill the lines manually, or copy information from other documents to fill the lines automatically:
-
-    - Use the **Get Posted Document Lines to Reverse** action to copy one or more posted document lines from one or more posted documents. This action always exactly reverses the costs from the posted document line.
-    - Use the **Copy from Document** action to copy an entire existing document to the return order. It can be either a posted or unposted document. This action only enables exact cost reversing when the **Exact Cost Reversing Mandatory** checkbox is selected on the **Sales & Receivables Setup** page.  
-
-5. Choose the **Get Posted Document Lines to Reverse** action.
-6. At the top of the **Posted Purchase Document Lines** page, select the **Show Reversible Lines Only** checkbox if you only want lines that have quantities that aren't yet returned. For example, if a posted purchase invoice quantity was already returned, you might not want to include that quantity on a new purchase return document.
-
-    > [!NOTE]  
-    > This field only works for posted receipts and posted invoice lines. It doesn't work for posted return or posted credit memo lines.  
-
-    The left side of the page lists the different document types. The number in brackets shows the number of documents available of each document type.
-
-7. In the **Document Type Filter** field, select the type of posted document lines you want to use.  
-8. Select the lines that you want to copy to the new document.  
-
-    > [!NOTE]  
-    > If you use <kbd>Ctrl</kbd>+<kbd>A</kbd> to select all lines, all lines within the filter you set are copied, but the **Show Reversible Quantity Only** filter is ignored. For example, suppose you filtered the lines to a particular document number with two lines, and one of which was already returned. Even if the **Show Reversible Quantity Only** field is selected, if you select <kbd>Ctrl</kbd>+<kbd>A</kbd> to copy all lines, both lines are copied, instead of only the one that isn't reversed.  
-
-9. Choose the **OK** button to copy the lines to the new document.  
-
-    The following processes occur:  
-
-    - For posted document lines of the type **Item**, a new document line is created as a copy of the posted document line, with the quantity that isn't reversed yet. The **Appl.-to Item Entry** field shows the number of the item ledger entry of the posted document line.  
-
-    - For posted document lines that aren't of the type **Item**, such as item charges, a new document line is created as a copy of the original posted document line.  
-
-    - Calculates the **Unit Cost (LCY)** field on the new line from the costs on the corresponding item ledger entries.  
-
-    - If the copied document is a posted shipment, posted receipt, posted return receipt, or posted return shipment, the unit price is calculated automatically from the item.  
-
-    - If the copied document is a posted invoice or credit memo, the unit price, invoice discounts, and line discounts from the posted document line are copied.  
-
-    - If the posted document line contains item tracking lines, the **Appl.-to Item Entry** field on the item tracking lines is filled with the appropriate item ledger entry numbers from the posted item tracking lines.  
-
-     When you copy from a posted invoice or posted credit memo, you copy the invoice discounts and line discounts that were valid at the time the document posted. Be aware, however, that if the **Calc. Inv. Discount** toggle on the **Purchases & Payables Setup** page is turned on, the invoice discount recalculates when you post the new document line. The amount for the new line might therefore be different than the line amount for the posted document line, depending on the new calculation of the invoice discount.  
-
-    > [!NOTE]  
-    > If part of the quantity of the posted document line is reversed, sold, or consumed, a line is created for the quantity that remains in inventory or that wasn't returned. If the full quantity of the posted document line was already reversed, a new document line isn't created.  
-    >
-    > If the flow of goods in the posted document is the same as the flow of goods in the new document, a copy of the original posted document line in the new document is created. The **Appl.-from Item Entry** field isn't filled in because exact cost reversing isn't possible. For example, if you use the **Get Posted Document Lines to Reverse** action to get a posted purchase credit memo line for a new purchase credit memo, only the original posted credit memo line is copied to the new credit memo.  
-
-10. On the **Purchase Return Order** page, in the **Return Reason Code** field on each line, select the reason for the return.
-11. Choose the **Post** action.
-
-## Create a replacement purchase order from a purchase return order
-
-You might agree with your vendor that they compensate you for a purchased item by replacing the item. The replacement item can be the same or it can be different. This situation could occur if the vendor mistakenly shipped the wrong item.  
-
-1. On the **Purchase Return Order** page for an active return process, on an empty line, make a negative entry for the replacement item by entering a negative amount in the **Quantity** field.  
-2. Choose the **Move Negative Lines** action.  
-3. On the **Move Negative Purchase Lines** page, fill in the fields as necessary.
-4. Choose the **OK** button. The negative line is deleted from the purchase return order, and a new purchase order is created. Learn more at [Record Purchases](purchasing-how-record-purchases.md).  
-
-## Create a purchase allowance
-
-If you receive items that what you want, for example, the items are damaged, the wrong color, or the wrong size, the vendor might offer you a purchase allowance.  
-
-You can post this reduced purchase cost as an item charge on a credit memo or return order and link it to the posted receipt. The following steps describe it for a purchase return order, but the same steps apply to a purchase credit memo.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Credit Memos**, and then choose the related link.
-2. Choose the **New** action to open a new empty purchase credit memo.  
-3. Fill in the credit memo header with information about the vendor who sent you the purchase allowance.  
-4. On the **Lines** FastTab, in the **Type** field, select **Charge (Item)**.  
-5. In the **No.** field, select the appropriate item charge value.  
-
-    You might want to create a special item charge number to cover purchase allowances.  
-6. In the **Quantity** field, enter **1**.  
-7. In the **Direct Unit Cost** field, enter the amount of the purchase allowance.  
-8. Assign the purchase allowance as an item charge to the items in the posted receipt. Learn more in [Use Item Charges to Account for Additional Trade Costs](payables-how-assign-item-charges.md). After you assign the allowance, return to the **Purchase Credit Memo** page.
-
-When you post the purchase return order, the purchase allowance is added to the relevant purchase entry amount. In this way, you can maintain accurate inventory valuation.  
-
-## Combine return shipments
-
-If you want to return items covered by different purchase return orders to the same vendor, you can use the **Combine Return Shipments** action.  
-
-When you ship the items, you post the related purchase return orders as shipped, which creates posted purchase return shipments.  
-
-When you're ready to invoice these items, instead of invoicing each purchase return order separately, you can create a purchase credit memo and automatically copy the posted purchase return shipment lines to it. Then you can post the purchase credit memo and invoice all the open purchase return orders at the same time.  
-
-When return shipments are combined on a credit memo and posted, then a posted purchase credit memo is created for the invoiced lines. The **Quantity Invoiced** field on the originating purchase return order is updated based on the invoiced quantity. However, the original purchase return order isn't deleted, even if it was fully received and invoiced. You must delete the purchase return order manually.
-
-> [!NOTE]  
-> The following procedure assumes that there are several purchase return orders for the vendor, and that they're posted as shipped.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchase Credit Memos**, and then choose the related link.  
-2. Choose the **New** action.  
-3. On the **General** FastTab, fill in the fields as necessary.  
-4. Choose the **Get Return Shipment Lines** action.  
-5. Select multiple return shipment lines that you want to include in the invoice.  
-
-    If an incorrect return shipment line was selected or you want to start over, you can just delete the lines on the purchase credit memo and then use the **Get Return Shipment Lines** action again.  
-6. Choose the **Post** action.  
-
-### Remove open purchase return orders after combined return shipment posting  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Delete Invoiced Purchase Return Orders**, and then choose the related link.  
-2. Fill in the fields as necessary, and then choose the **OK** button.  
-3. Alternatively, delete the individual purchase return orders manually.
-
-## Related information
-
-[Purchasing](purchasing-manage-purchasing.md)  
-[Record Purchases](purchasing-how-record-purchases.md)  
-[Correct or Cancel Unpaid Purchase Invoices](purchasing-how-correct-cancel-unpaid-purchase-invoices.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-[Process Sales Returns or Cancellations](sales-how-process-sales-returns-cancellations.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/check-purchase-amounts
----
-title: Check amounts on purchase invoices and credit memos
-description: You can verify that the total amount on purchase invoices and credit memos equals the total amounts, including VAT, on the lines.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords:
-ms.date: 03/14/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Check amounts on purchase invoices and credit memos
-
-> [!NOTE]
-> Businesses around the world can benefit from this functionality, so in 2025 release wave 1 we moved it out of the Dutch version and made it available to everyone.
-
-Before posting a purchase invoice or credit memo, [!INCLUDE [prod_short](includes/prod_short.md)] checks whether the amount including VAT and the VAT amount on the document equals the total amount on the purchase lines. This check requires that you fill in the **Doc. Amount Incl. VAT** and **Doc. Amount VAT** fields on the purchase invoice or credit memo.  
-
-When the document has only one purchase line, or all lines are subject to the same VAT percentage, [!INCLUDE [prod_short](includes/prod_short.md)] calculates the value in the **Doc. Amount VAT** field when you add purchase lines and fill in the **Doc. Amount Incl. VAT** field. If there are several lines with different VAT percentages, you must manually enter the value in the **Doc. Amount VAT** field.  
-
-By default, [!INCLUDE [prod_short](includes/prod_short.md)] checks the total amounts. If you prefer that it doesn't, you can turn off the **Check Doc. Total Amounts** toggle on the **Purchases & Payables Setup** page.  
-
-If the total amount on the document differs from the total amount of its lines, you can add a few values to the page that can help you find out why. You can add the total amount, total base amount, total VAT amount, and total amount including VAT values. The values display at the bottom of the document. To avoid clutter on the page during daily work, these values are hidden. To add these values to the document, turn on the **Show Totals on Purch. Inv.-CM.** toggle on the **Purchases & Payables Setup** page.  
-
-> [!NOTE]  
-> If you turn on this feature, [!INCLUDE [prod_short](includes/prod_short.md)] recalculates totals on all purchase invoices and credit memos which, depending on the number of documents, might take some time.
->
-> You can't turn on this feature if you have purchase invoices or credit memos that don't have lines, or where a quantity isn't specified on the lines.  
-
-## Related information
-  
-[Set Up Validation of Purchase Amounts](how-to-set-up-validation-of-purchase-amounts.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-emissions-by-category-and-scope
----
-title: Emissions by Category and Scope
-description: The Emission by Scope report organizes emission types based on the account category and scope to show how they're tracking.
-author: altotovi
-ms.author: altotovi
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.search.form: 
-ms.date: 05/26/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Emissions by Category and Scope (Power BI Report)
-
-[!INCLUDE[applies-to-2025w2](includes/2025_releasewave1.md)]
-
-The Emission by Category and Scope report gives an overview of values for individual emissions. The report organizes emissions values by account category, subcategory, and then the different scopes. With this breakdown, you can identify key account categories that are tracking high emissions and make an informed decision on where to make changes.
-
-:::image type="content" source="media\sustainability\emissions-by-category-and-scope.png" alt-text="Screenshot of the Emissions by Category and Scope Power BI report" lightbox="media\sustainability\emissions-by-category-and-scope.png":::
-
-## Use the report
-
-Sustainability Managers use the report to get clear, concise information about the organization's emissions. The report can help identify irregularities based on a specific scope or a category.
-
-Procurement Managers use this report to analyze the impacts of Scope 3 emissions related to the purchase of goods and services. This analysis can help to identify key suppliers and prioritize partnerships with more sustainable vendors.
-
-## Key performance indicators (KPIs)
-
-The Emission by Category and Scope report includes the following KPIs and measures:
-
-- [CO2 Emissions](sustainability-powerbi-kpis.md#co2-emissions)
-- [CH4 Emissions](sustainability-powerbi-kpis.md#ch4-emissions)
-- [N2O Emissions](sustainability-powerbi-kpis.md#n2o-emissions)
-
-Choose the link for a KPI to learn more about what it means, its calculation, and what data is used in the calculations.
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The Emission by Category and Scope report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Sustainability Ledger Entry
-- Sustainability Account Category
-
-## Try the report
-
-Try the report here: [Emissions by Category and Scope](https://businesscentral.dynamics.com?page=37088)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Sustainability Overview (Power BI Report)](sustainability-powerbi-sustainability-overview.md)  
-[Sustainability management overview](finance-manage-sustainability.md)  
-[Sustainability reports and analytics in Business Central](sustainability-reports.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-paypal-payments-standard
----
-title: Using the PayPal Payments Standard Extension
-description: This article describes how to use the standard extension to enable customers to make payments with PayPal.
-author: brentholtorf
-ms.author: bholtorf
-ms.topic: concept-article
-ms.search.keywords: app, add-in, manifest, customize
-ms.search.form: 1070, 1071, 1073, 1074
-ms.date: 01/20/2026
-ms.custom: bap-template
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# The PayPal Payments Standard extension
-
-The PayPal Payments Standard extension can help you increase your customer service levels by making it easier for your customers to pay their bills.
-
-As an alternative to collecting payments through bank transfer or credit cards, customers can pay through their PayPal account. When you send a sales invoice by email, there's a PayPal link in the email body and in the attached PDF document. If the customer chooses the link, the service page for their PayPal account opens and shows the payment details. The customer can then pay the invoice as any other PayPal payment.
-
-The PayPal Payments Standard service provides the following benefits:
-
-* Customer payments arrive faster in your bank account.
-* Customers have more ways to pay invoices.
-* PayPal offers a trustworthy payment service, which customers prefer to entering credit card information on web sites.
-* PayPal offers multiple ways of handling payments, including credit card processing, PayPal accounts, and other sources.
-* The PayPal link can be added automatically to sales documents or manually by the user.
-* The PayPal Payments Standard service doesn't involve monthly fees or setup fees.
-* Because it's an extension, you can easily enable the PayPal Payment Standard service when and if your business requires it.  
-
-To learn more about how to set up the extension, go to [Enable Customer Payment Through PayPal](sales-how-enable-payment-service-extensions.md).
-
-## Register payments automatically for business accounts
-
-[!INCLUDE [prod_short](includes/prod_short.md)] can register payments automatically if you have a **Business Merchant** account for the **PayPal Commerce Platform**. When your customers use the PayPal link to pay an invoice, [!INCLUDE [prod_short](includes/prod_short.md)] posts the entries and close the document.
-
-To use this capability, on the **Payment Registration Setup** page in [!INCLUDE [prod_short](includes/prod_short.md)], turn on the **Register payments automatically** toggle and verify the accounts you use for the payments. If you decide that you don't want to register payments automatically, you can turn it off again.
-
-> [!NOTE]
-> The journal batch chosen on the **Payment Registration Setup** page can't have record-level restrictions or require manual approval. All users must be able to access the journal batch.
-
-> [!TIP]
-> Developers can use sandbox accounts to test the setup. To do that, change the PayPal URL to **sandbox.paypal.com**. [!INCLUDE [prod_short](includes/prod_short.md)] uses the PayPal Instant Payment Notification (IPN) through notify_url.
-
-## Related information
-
-[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
-[Setting Up Sales](sales-setup-sales.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-design
----
-title: Design details - Item tracking design
-description: This article describes the design behind item tracking in Business Central as it matures through product versions.
-author: brentholtorf
-ms.topic: concept-article
-ms.search.keywords: design, item, tracking, tracing
-ms.date: 03/17/2026
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
-ms.custom: bap-template
----
-
-# Design details: Item tracking design
-
-Item tracking in [!INCLUDE[prod_short](includes/prod_short.md)] started with [!INCLUDE [navnow_md](includes/navnow_md.md)]. The item tracking functionality is in a separate object structure with intricate links to posted documents and item ledger entries, and it is integrated with the reservation system, which handles reservation, order tracking, and action messaging. For more information, see [Design Details: Reservation, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md) in the Supply Planning design details.  
-
-This design incorporates item tracking entries in total availability calculations throughout the system, including planning, manufacturing, and warehousing. Serial and lot numbers are applied on the item ledger entries to ensure simple access to historical data for item tracking purposes. With 2021 release wave 1, item tracking in [!INCLUDE [prod_short](includes/prod_short.md)] includes package numbers.  
-
-With the addition of serial, lot, and package numbers, the reservation system handles permanent item attributes while also handling intermittent links between supply and demand in the form of order tracking entries and reservation entries. Another different characteristic of serial or lot numbers compared to the conventional reservation data is the fact that they can be posted, either partially or fully. Therefore, the **Reservation Entry** table (T337) now works with a related table, the **Tracking Specification** table (T336), which manages and displays summing across active and posted item tracking quantities. For more information, see [Design Details: Active versus Historic Item Tracking Entries](design-details-active-versus-historic-item-tracking-entries.md).  
-
-The following diagram outlines the design of item tracking functionality in [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-![Example of item tracking flow.](media/design_details_item_tracking_design.png "Example of item tracking flow")  
-
-The central posting object is redesigned to handle the unique subclassification of a document line in the form of serial or lot numbers, and special relation tables are added to create the one-to-many relations between posted documents and their split item ledger entries and value ledger entries.  
-
-Codeunit 22, **Item Jnl. – Post Line**, now splits the posting according to the item tracking numbers that are specified on the document line. Each unique item tracking number on the line creates its own item ledger entry for the item. This means that the link from the posted document line to the associated item ledger entries is now a one-to-many relation. This relation is handled by the following item tracking relation tables.  
-
-|Field|Description|  
-|---------------|---------------------------------------|  
-|**Item Entry Relation** (T6507)|Relates shipped or received lines to item ledger entries|  
-|**Value Entry Relation** (T6508)|Relates invoiced lines to value entries|  
-
-For more information, see [Design Details: Item Tracking Posting Structure](design-details-item-tracking-posting-structure.md).  
-
-## Related information
-
-[Design Details: Item Tracking](design-details-item-tracking.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-forecasting
----
-title: Sales Forecasting (Power BI Report)
-description: The Sales Forecasting report provides insights into your organization's sales trends and future sales performance.
-author: kennieNP
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.search.form: 37109_Primary
-ms.date: 10/07/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Sales Forecasting (Power BI Report)
-
-[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
-
-The **Sales Forecasting** report predicts future sales trends based on historical data. The report uses advanced forecasting techniques to project sales values across customer, document type, item, and salesperson dimensions to help you anticipate demand and future profits.
-
-The sales forecasting visualization predicts the next three months of purchases based on the previous six months, assuming a monthly seasonality.
-
-> [!NOTE]
-> You can customize the default forecasting options in the **Forecast** section of the **Analytics** pane in Power BI Desktop. For example, you can modify the forecast length, seasonality, period, and confidence interval.
-
-:::image type="content" source="media/powerbi/sales/sales-forecasting.png" alt-text="Screenshot of the Sales Forecasting Power BI report" lightbox="media/powerbi/sales/sales-forecasting.png":::
-
-## Use the report
-
-Leadership, sales managers, and salespeople can use this report to anticipate stock requirements and predicted sales performance for the organization.
-
-CEOs need to anticipate sales trends to implement strategies based on forecasted sales metrics and predicted financial impacts. For example, you identify that sales are predicted to decrease in a future month. Using this knowledge, you invest in marketing strategies to drive future sales and maintain consistent income.
-
-Sales managers need to monitor projected sales to anticipate product demand and manage workload of their salespeople. Using the sales by item visual, you foresee higher demand for an item in the upcoming months. In response, you communicate with the purchasing team to plan sufficient inventory availability for that item and avoid stockouts. Additionally, the sales by salesperson visual might highlight a salesperson who is predicted to be over-utilized in the next week. Using this information, you redistribute workload accordingly to available salespeople, improving wellbeing and productivity.
-
-Salespeople want to track customer sales patterns to effectively manage customer relations. For example, using the sales by customer visual you identify a customer is projected to increase sales in a future month. In response, you proactively engage with the customer to encourage sales and maintain an effective customer relationship.
-
-## Key Performance Indicators (KPIs)
-
-The **Sales Forecasting** report includes the following KPIs and measures:
-
-- [Sales (LCY)](sales-powerbi-sales-kpis.md#sales-lcy)
-- [Sales (LCY) Forecasting](sales-powerbi-sales-kpis.md#sales-lcy-forecasting)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables:
-
-- Sales Value Entries
-- Sales Invoice Lines
-- Sales Credit Lines
-- Project Ledger Entries
-- Salesperson/Purchaser
-- Item
-- Customer
-
-## Try the report
-
-Try the report here: [Sales Forecasting](https://businesscentral.dynamics.com?page=37109)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Ad-hoc analysis of sales data](ad-hoc-analysis-sales.md)  
-[Built-in sales reports](sales-reports.md)  
-[Sales analytics overview](sales-analytics-overview.md)  
-[Sales overview](sales-manage-sales.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-analyze-excel
----
-title: Work with financial overviews in Excel (legacy)
-description: Learn about how you can open the financial statements in Microsoft Excel from Business Central for better analysis.
-author: brentholtorf
-ms.topic: overview
-ms.search.keywords: accountant, accounting, financial report
-ms.search.form: 9027,
-ms.date: 02/13/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Analyzing financial statements in Microsoft Excel (obsolete)
-
-> [!NOTE]
-> This feature is deprecated and will be removed in a later [!INCLUDE [prod_short](includes/prod_short.md)] release. Learn more in [Deprecated features in the base app](/dynamics365/business-central/dev-itpro/upgrade/deprecated-features-w1). Learn more about alternative finance reporting in [Financial analytics overview](bi.md).
-
-[!INCLUDE [prod_short](includes/prod_short.md)] provides KPIs and get overviews of your company's finances. The following are examples of ways to analyze KPIs and overviews in Excel:
-
-* Open lists in Excel and analyze the data.
-* Export heavy financial statements such as your balance sheet or income statement to Excel, analyze the data, and print the reports.  
-
-> [!TIP]
-> By default, the reports you can view in Excel are designed to help you analyze the current year. The Income Statement report is an exception, however. That report lets you filter the data to include previous years in your analyses.
-
-## Get the overview and the details in Excel
-
-In the Business Manager and Accountant Role Centers, the **Reports** action lets you choose the financial statements to view in Excel. When you choose a statement, it will be opened in Excel or Excel Online. An add-in connects the data to [!INCLUDE [prod_short](includes/prod_short.md)]. However, you have to sign in with the same account that you use with [!INCLUDE [prod_short](includes/prod_short.md)]. The following table lists the reports and where they're available.  
-
-|Report  |Role Center  |
-|---------|---------|
-|Balance Sheet                 | Business Manager, Accountant |
-|Income Statement              | Business Manager, Accountant |
-|Statement of Cash Flows       | Business Manager, Accountant |
-|Statement of Retained Earnings| Business Manager, Accountant |
-|Sales Taxes Collected         | Business Manager, Accountant |
-|Customer Statements           | Business Manager, Accountant |
-|Aged Accounts Payable         | Accountant |
-|Aged Accounts Receivable      | Accountant |
-
-Let's say you want to dig deeper into your cash flow. From the Business Manager or Accountant Role Center, you can open the **Statement of Cash Flows** report in Excel, but what actually happens is that we export the relevant data for you and create an Excel workbook based on a predefined template. Depending on your browser, you might be prompted to open or save the workbook.  
-
-In Excel, you see a tab where the data is laid out for you on the first worksheet. All the data that was exported is also present in other worksheets in case you need it. You can print the report right away, or you can modify it until you have the overview and the details that you want. Use the [!INCLUDE [prod_short](includes/prod_short.md)] Excel Add-in to further filter and analyze data.  
-
-### Understand the Excel templates
-
-The predefined Excel reports are based on the data in the current company. For example, the demonstration company has set up the chart of accounts to list three cash accounts under *Current Assets*: 10100 **Checking account**, 10200 **Saving account**, and 10300 **Petty Cash**. The accounts have the **Account Subcategory** field set to *Cash*, and it's their combined amount that shows up as *Cash* in the **Balance Sheet** Excel report.  
-
-Other sheets in the Excel workbook show the data behind the report. To find out what's behind the groupings in the Excel reports, you might have to filter the lists in [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-## The [!INCLUDE [prod_short](includes/prod_short.md)] Excel add-in
-
-Your [!INCLUDE [prod_short](includes/prod_short.md)] experience includes an add-in for Excel. Depending on your subscription, you're signed in automatically, or you must provide your sign-in details for [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more, go to [Viewing and Editing in Excel From Business Central](across-work-with-excel.md).  
-
-The add-in lets you get fresh data from [!INCLUDE [prod_short](includes/prod_short.md)], and you can push changes back to [!INCLUDE [prod_short](includes/prod_short.md)]. However, the ability to push data back to the database is not available for the financial reports you can view in Excel.  
-
-## Alternative to obsolete reports
-
-Explore other ways to analyze your finance data. Learn more in [Financial analytics overview](bi.md).
-
-## Related information
-
-[Financial analytics overview](bi.md)  
-[Viewing and Editing in Excel From Business Central](across-work-with-excel.md)  
-[Finance overview](finance.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
