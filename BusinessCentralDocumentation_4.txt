@@ -1,3 +1,149 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-how-setup-bank-statement-service
+---
+title: Set Up Yodlee Bank Feeds
+description: You can convert payment information to any data format that your bank requires and enable the export or import of bank files.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: Yodlee, feed, stream, payment process
+ms.search.form: 1280, 1290
+ms.date: 03/20/2024
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Set up the Envestnet Yodlee bank feeds service
+
+You can import electronic bank statements from your bank to quickly fill on the **Payment Reconciliation Journal** page so you can apply payments and reconcile the bank account. For more information, see [Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md).
+
+> [!IMPORTANT]
+> Due to the Payment Services Directive in Europe (PSD2), after September 14, 2019, you will no longer be able to automatically import bank statements from banks in the United Kingdom into [!INCLUDE[prod_short](includes/prod_short.md)]. We are looking into the possibility of offering this feature again in the future.
+
+> [!NOTE]
+> The Envestnet Yodlee Bank Feeds service is only supported in the online version of Business Central. This functionality is not supported for on-premises versions of [!INCLUDE [prod_short](includes/prod_short.md)], or for [!INCLUDE [prod_short](includes/prod_short.md)] environments hosted on Embed ISV application services. To use this functionality on-premises, you must obtain a co-brand account from Envestnet, and you must add code to integrate with the Yodlee API.
+>
+> The Envestnet Yodlee Bank Feeds service is only supported in the United States and Canada.
+> Only banks residing in these countries/regions are supported, even though banks from other countries/regions may appear in the Envestnet Yodlee Bank Feeds bank selection window in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+> [!IMPORTANT]
+> For technical assistance with the Envestnet Yodlee functionality, contact Microsoft Support. Do not contact Envestnet Yodlee. For more information, see [Configuring Technical Support for Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/technical-support).
+
+The Envestnet Yodlee Bank Feeds service is installed as an extension to [!INCLUDE[prod_short](includes/prod_short.md)] online and is ready to be enabled in the supported countries/regions. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
+
+After you enable the bank feed service, you must link a bank account to the online bank account that the feed will come from. You link bank accounts to online bank accounts in the following different scenarios:
+
+* A bank account doesn't exist in [!INCLUDE[prod_short](includes/prod_short.md)] for your online bank account. Therefore, you create the bank account by linking from the online bank account.
+* A bank account exists in [!INCLUDE[prod_short](includes/prod_short.md)], which you want to link to an online bank account.
+* A linked bank account must be unlinked because you want to stop using the bank feed service for the account.
+* Online bank accounts have changed and you want to update the information on bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+When the bank feed service is enabled, you can set a bank account up to automatically import new bank statements into the **Payment Reconciliation Journal** page every two hours. Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page won't be imported. For more information, see the “To enable automatic import of bank statements” section.
+
+> [!NOTE]  
+> If you use the Set Up Company assisted setup guide, some of the steps in the following procedures happen automatically when you get to the company bank account setup. For more information, see [Getting Ready for Doing Business](ui-get-ready-business.md).
+
+## To enable the bank feed service
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Open the bank account that you'll use for the bank feed service.
+3. On the **Bank Account Card** page, in the **Bank Statement Import Format** field, select YODLEEBANKFEED.  
+
+The bank feed service is enabled when you link a bank account to its related online bank account. See the next procedure.  
+
+> [!NOTE]
+> If you use the **Company Setup** assisted setup guide, then you enable the service by selecting the **Use a bank feed service** check box. For more information, see [Creating New Companies in Business Central](about-new-company.md).
+
+## To create a new linked bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the relevant bank account, and then choose the **Create New Linked Bank Account**. The **Bank Account Linking** page opens after a few moments.
+
+    > [!NOTE]  
+    > This page shows the actual web page of the Envestnet Yodlee Bank Feeds service. Terminology and functionality on the page may not match instructions provided in this topic.  
+3. On the **Online Bank Account Linking** page, in the **Link Account** pane, use the Search function to find the bank where you have one or more online bank accounts.
+4. Choose the bank name. The **Log In** pane opens.
+5. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
+6. The bank feed service prepares to link the first online bank account at the specified bank to a new bank account in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+    > [!NOTE]  
+    > If you have more than one online bank account at the bank, you must create additional bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] for them. See steps 8 through 10.  
+
+    After the process completes, the bank name will appear in the **My Accounts** pane on the **Linked** tab. The number in brackets indicates how many online bank accounts were linked.  
+7. Choose the **OK** button.
+
+    If you're only linking one online bank account, the **Bank Account Card** page opens and displays the name of the online bank account. In this case, the bank account linking task is completed. All that's left to do is to set up the bank account. For more information, see [Set Up Bank Accounts](bank-how-setup-bank-accounts.md).
+
+    If you're linking more than one online bank accounts, the **Bank Account Linking** page opens and lists the online bank accounts that aren't yet linked to bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)]. In that case, follow the next step.  
+8. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to New Bank Account** action.  
+
+    The **Bank Account Card** page for a new bank account opens and displays the name of the online bank account.
+
+    If a bank account already exists in [!INCLUDE[prod_short](includes/prod_short.md)] that you want to link the additional online bank account to, follow the next step.  
+9. On the **Bank Account Linking** page, select the line for an online bank account, and then choose the **Link to Existing Bank Account** action.
+10. On the **Bank Account List** page, select the bank account that you want to link to, and then choose the **OK** button.
+
+## To link a bank account to an online bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the line for a bank account that isn't linked to an online bank account, and then choose the **Link to Online Bank Account** action. The **Online Bank Account Linking** page opens with the name of the bank prefilled in the **Link Account** pane.
+3. Choose the bank name. The **Log In** pane opens.
+4. Enter the username and password that you use to sign in to the online bank, and then choose the **Next** button.  
+
+    The bank feed service prepares to link your bank account in [!INCLUDE[prod_short](includes/prod_short.md)] to the related online bank account.  
+
+    When the process has completed successfully, the bank name will appear in the **My Accounts** pane on the **Linked** tab. If the bank has more than one bank account, only the bank account that you selected in step 2 is linked.  
+5. Choose the **OK** button.
+
+On the **Bank Account List** page, the **Linked** check box is selected.
+
+## To edit the credentials for an online bank account
+
+1. Choose the ![Lightbulb that opens the Tell Me feature](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, and then choose the related link.  
+2. Choose the line for a bank account that is linked to an online bank account, and then choose the **Edit Online Bank Account Information** action.
+3. Update the credentials.
+
+## To unlink a bank account
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.  
+2. Select the line for a linked bank account that you want to unlink from its related online bank account, and the choose the **Unlink Online Bank Account** action.
+
+> [!NOTE]  
+> If you choose **Yes** on the confirmation dialog, the link to the online bank account is removed, and the log-in details are cleared. To link the bank account to the online bank account again, you must log on to the bank again. For more information, see the “To link a bank account to an online bank account“ section.
+
+## To update bank account linking
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the relevant bank account, and then choose the **Update Bank Account Linking** action.
+
+If issues exist for any of the linked bank accounts on the **Bank Account List** page, the **Bank Account Linking** page opens specifying which bank accounts have issues. Issues can best be resolved by unlinking the online bank account and then re-creating the link. For more information, see the “To link a bank account to an online bank account“ section.
+
+## To enable automatic import of bank statements
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Bank Accounts**, and then choose the related link.
+2. Select the line for a linked bank account, and then choose the **Automatic Bank Statement Import Setup** action.
+3. On the **Automatic Bank Statement Import Setup** page, in the **Number of Days Included** field, specify how far back in time to get new bank transactions for.
+
+    > [!NOTE]  
+    > It is recommended that you set this value to 7 days or more.  
+4. Select the **Enabled** check box.  
+
+Every hour, the **Payment Reconciliation Journal** page will display new payments that are made on the online bank account.
+
+> [!NOTE]  
+> Transactions for payments that have already been posted as applied and/or reconciled on the **Payment Reconciliation Journal** page will not be imported.
+
+## Related information
+
+[Setting Up Banking](bank-setup-banking.md)  
+[Reconciling Bank Accounts](bank-manage-bank-accounts.md)  
+[Applying Payments Automatically and Reconciling Bank Accounts](receivables-apply-payments-auto-reconcile-bank-accounts.md)  
+[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-work-product
 ---
 title: Working with Business Central
@@ -25589,150 +25735,6 @@ The Budget Amount AVG 3M (Fiscal) measure calculates the average budet amount fo
 [Built-in purchasing reports](purchase-reports.md)  
 [Purchasing analytics overview](purchasing-analytics-overview.md)  
 [Purchasing overview](purchasing-manage-purchasing.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-general
----
-title: Set Up General Fixed Assets (FA) Information
-description: Configure default G/L accounts, FA posting groups, allocation keys, journal templates and batches, and class and subclass codes before using fixed assets.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: v-soumramani
-ms.topic: how-to
-ms.search.form: 5623, 5615_Primary, 5616_Primary, 5661, 5662, 5627, 5620, 5629, 5633, 5609, 5631, 5630, 5617, 5612, 5613, 5608, 5609, 5635, 9277
-ms.search.keywords: fixed assets, G/L accounts, posting groups, allocation keys, journal templates, journal batches, class codes, subclass codes
-ms.date: 10/03/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Set up general fixed assets information
-
-Before you can manage fixed assets (FA), you must set up default G/L accounts, allocation keys, and journal templates and batches to post and reclassify fixed assets. Also, define a classification hierarchy (classes and sub classes) to structure your assets and, if needed, define the locations where you store assets.
-
-## Set up general behavior for fixed assets functionality
-
-Define the general behavior of the fixed asset functionality and its document number series on the **Fixed Assets Setup** page.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets Setup**, and then choose the related link.  
-2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-## Set up fixed asset posting groups
-
-Use posting groups to define groups of fixed assets. Entries for these posting groups post to the same general ledger accounts.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
-2. Choose the **New** action.
-3. On the **FA Posting Group Card** page, fill in the fields as necessary.
-
-    > [!NOTE]  
-    > To make sure that balancing accounts for different fixed assets postings are automatically inserted when you choose the **Insert FA Bal. Account** action on journal lines, follow the next step, based on appreciation posting.
-4. On the **Balancing Account** FastTab, in the **Appreciation Bal. Account** field, select the general ledger account to which you want to post balancing entries for appreciation.
-
-Learn more in [Revalue Fixed Assets](fa-how-revalue.md) for information about using the **Insert FA Bal. Account** action on fixed asset G/L journal lines.
-
-## Set up fixed asset journal templates
-
-A template is a predefined layout for a journal. The template contains information about trace codes, reports, and number series. Learn more in [Work with General Journals](ui-work-general-journals.md).
-
-[!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset journal template the first time that you open the **Fixed Asset Journal** page, but you can set up other journal templates.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
-2. Fill in the fields as necessary.
-
-## Set up fixed asset class and subclass codes
-
-In fixed assets, you can define a classification hierarchy that can be used to group assets. The hierarchy has two levels: classes and subclasses.
-
-### Fixed asset class codes
-
-Fixed asset classes are the top-level entries in the classification hierarchy in which you group assets. For example, use classes to divide assets into tangible or intangible assets. You must create at least one fixed asset class in your setup.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Classes**, and then choose the related link.
-2. Enter codes and names for the fixed asset classes that you want to create.
-
-### Fixed asset subclass codes
-
-Fixed asset subclasses are the second level entries in the classification hierarchy in which you group assets. Each subclass points to a top-level class. Use fixed asset subclass codes to group fixed assets in more specific categories, such as buildings, vehicles, furniture, or machinery. You must create at least one fixed asset subclass in your setup.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Subclasses**, and then choose the related link.
-2. Enter codes and names for the fixed asset subclasses that you want to create.
-
-## Start to register assets
-
-If you're using the fixed assets in [!INCLUDE[prod_short](includes/prod_short.md)] for the first time, you must set up the general ledger application area before you set up fixed assets. How you do so depends on whether you integrate fixed assets with the general ledger.  
-
-The following procedure is used if fixed asset transactions are to be posted to the general ledger.  
-
-1. Complete the basic setups for fixed assets.  
-2. Fill in a fixed asset card for each existing asset.  
-3. Create a fixed asset depreciation book for each depreciation purpose (such as tax and financial statements). For each depreciation book, define the terms and conditions, such as integration with the general ledger.
-
-    Enable general ledger integration by following the next steps. First, ensure that general ledger integration isn't enabled for all depreciation books, then post the opening entries, and finally, turn on general ledger integration.  
-4. [!INCLUDE[open-search](includes/open-search.md)], enter **Depreciation Books**, and then choose the related link.  
-5. Select the relevant depreciation book, and then choose the **Edit** action to open the **Depreciation Book Card** page.
-6. On the **Integration** FastTab, turn off all of the toggles. If you have more than one depreciation book, repeat this step for each one.  
-7. In the fixed asset journal, enter the following lines for each asset:
-   * A line with the acquisition cost.
-   * A line with the accumulated depreciation to the end of the previous fiscal year.
-   * A line with the accumulated depreciation from the start of the current fiscal year to the date that [!INCLUDE[prod_short](includes/prod_short.md)] is set to start calculating the depreciation.
-
-    If you have other opening balances you can also enter them now, such as write-down and appreciation.  
-8. After you enter and post the journal lines for each asset, turn on general ledger integration in the
-depreciation books.
-
-If the fixed assets aren't integrated with the general ledger, skip steps six and eight.
-
-## Set up fixed asset location codes (optional)
-
-Fixed asset location codes define identifiers for where assets can be located, such as sales department, reception, administration, production, or warehouse. You can use them to register the location of a fixed asset. This information is useful for insurance and inventory purposes.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA locations**, and then choose the related link.
-2. Enter codes and names for the fixed asset locations that you want to create.
-
-## Set up fixed asset allocation keys (optional)
-
-Use allocation keys to allocate transactions to various departments or projects. For example, you can set up an allocation key to allocate vehicle depreciation costs with 35 percent to the administration department and 65 percent to the sales department. Learn more in [Allocate Costs and Income](year-allocate-costs-income.md).
-
-Allocation keys apply to fixed asset classes, not to individual assets.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
-2. On the **FA Posting Groups** page, choose the **Allocations** action, and then choose a posting type.
-3. On the **FA Allocations** page, fill in the fields as necessary.
-4. Repeat steps 2 and 3 for each posting type that you want to define allocation keys for.
-
-## Set up fixed asset journal batches (optional)
-
-You can set up multiple journal batches, which are individual journals for each journal template. For example, employees can have their own journal batch that uses the employee’s initials as the journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
-2. Select the relevant journal template, and then choose the **Batches** action.
-3. On the **FA Journal Batches** page, fill in the fields as necessary.
-
-## Set up fixed asset reclassification journal templates (optional)
-
-Use dedicated reclassification journals to transfer, split, or combine fixed assets. [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset reclassification journal template the first time you open the **FA Reclass. Journal** page, but you can set up other reclassification journal templates. Learn more in [Work with General Journals](ui-work-general-journals.md).  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
-2. Fill in the fields as necessary.
-
-## Set up fixed asset reclassification journal batches (optional)
-
-You can set up multiple journal batches, which are individual journals for each reclassification journal template. For example, employees can have their own reclassification journal batch that uses the employee’s initials as the reclassification journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
-2. Select the relevant journal template, and then choose the **Batches** action.
-3. On the **FA Reclass. Journal Batches** page, fill in the fields as necessary.
-
-## Related information
-
-[Setting Up Fixed Assets](fa-setup.md)  
-[Fixed Assets overview](fa-manage.md)  
-[Finance](finance.md)  
-[Getting Ready for Doing Business](ui-get-ready-business.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

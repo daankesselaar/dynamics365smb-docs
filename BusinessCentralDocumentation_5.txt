@@ -1,3 +1,147 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-general
+---
+title: Set Up General Fixed Assets (FA) Information
+description: Configure default G/L accounts, FA posting groups, allocation keys, journal templates and batches, and class and subclass codes before using fixed assets.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: v-soumramani
+ms.topic: how-to
+ms.search.form: 5623, 5615_Primary, 5616_Primary, 5661, 5662, 5627, 5620, 5629, 5633, 5609, 5631, 5630, 5617, 5612, 5613, 5608, 5609, 5635, 9277
+ms.search.keywords: fixed assets, G/L accounts, posting groups, allocation keys, journal templates, journal batches, class codes, subclass codes
+ms.date: 10/03/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Set up general fixed assets information
+
+Before you can manage fixed assets (FA), you must set up default G/L accounts, allocation keys, and journal templates and batches to post and reclassify fixed assets. Also, define a classification hierarchy (classes and sub classes) to structure your assets and, if needed, define the locations where you store assets.
+
+## Set up general behavior for fixed assets functionality
+
+Define the general behavior of the fixed asset functionality and its document number series on the **Fixed Assets Setup** page.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Fixed Assets Setup**, and then choose the related link.  
+2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+## Set up fixed asset posting groups
+
+Use posting groups to define groups of fixed assets. Entries for these posting groups post to the same general ledger accounts.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
+2. Choose the **New** action.
+3. On the **FA Posting Group Card** page, fill in the fields as necessary.
+
+    > [!NOTE]  
+    > To make sure that balancing accounts for different fixed assets postings are automatically inserted when you choose the **Insert FA Bal. Account** action on journal lines, follow the next step, based on appreciation posting.
+4. On the **Balancing Account** FastTab, in the **Appreciation Bal. Account** field, select the general ledger account to which you want to post balancing entries for appreciation.
+
+Learn more in [Revalue Fixed Assets](fa-how-revalue.md) for information about using the **Insert FA Bal. Account** action on fixed asset G/L journal lines.
+
+## Set up fixed asset journal templates
+
+A template is a predefined layout for a journal. The template contains information about trace codes, reports, and number series. Learn more in [Work with General Journals](ui-work-general-journals.md).
+
+[!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset journal template the first time that you open the **Fixed Asset Journal** page, but you can set up other journal templates.  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
+2. Fill in the fields as necessary.
+
+## Set up fixed asset class and subclass codes
+
+In fixed assets, you can define a classification hierarchy that can be used to group assets. The hierarchy has two levels: classes and subclasses.
+
+### Fixed asset class codes
+
+Fixed asset classes are the top-level entries in the classification hierarchy in which you group assets. For example, use classes to divide assets into tangible or intangible assets. You must create at least one fixed asset class in your setup.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Classes**, and then choose the related link.
+2. Enter codes and names for the fixed asset classes that you want to create.
+
+### Fixed asset subclass codes
+
+Fixed asset subclasses are the second level entries in the classification hierarchy in which you group assets. Each subclass points to a top-level class. Use fixed asset subclass codes to group fixed assets in more specific categories, such as buildings, vehicles, furniture, or machinery. You must create at least one fixed asset subclass in your setup.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Subclasses**, and then choose the related link.
+2. Enter codes and names for the fixed asset subclasses that you want to create.
+
+## Start to register assets
+
+If you're using the fixed assets in [!INCLUDE[prod_short](includes/prod_short.md)] for the first time, you must set up the general ledger application area before you set up fixed assets. How you do so depends on whether you integrate fixed assets with the general ledger.  
+
+The following procedure is used if fixed asset transactions are to be posted to the general ledger.  
+
+1. Complete the basic setups for fixed assets.  
+2. Fill in a fixed asset card for each existing asset.  
+3. Create a fixed asset depreciation book for each depreciation purpose (such as tax and financial statements). For each depreciation book, define the terms and conditions, such as integration with the general ledger.
+
+    Enable general ledger integration by following the next steps. First, ensure that general ledger integration isn't enabled for all depreciation books, then post the opening entries, and finally, turn on general ledger integration.  
+4. [!INCLUDE[open-search](includes/open-search.md)], enter **Depreciation Books**, and then choose the related link.  
+5. Select the relevant depreciation book, and then choose the **Edit** action to open the **Depreciation Book Card** page.
+6. On the **Integration** FastTab, turn off all of the toggles. If you have more than one depreciation book, repeat this step for each one.  
+7. In the fixed asset journal, enter the following lines for each asset:
+   * A line with the acquisition cost.
+   * A line with the accumulated depreciation to the end of the previous fiscal year.
+   * A line with the accumulated depreciation from the start of the current fiscal year to the date that [!INCLUDE[prod_short](includes/prod_short.md)] is set to start calculating the depreciation.
+
+    If you have other opening balances you can also enter them now, such as write-down and appreciation.  
+8. After you enter and post the journal lines for each asset, turn on general ledger integration in the
+depreciation books.
+
+If the fixed assets aren't integrated with the general ledger, skip steps six and eight.
+
+## Set up fixed asset location codes (optional)
+
+Fixed asset location codes define identifiers for where assets can be located, such as sales department, reception, administration, production, or warehouse. You can use them to register the location of a fixed asset. This information is useful for insurance and inventory purposes.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA locations**, and then choose the related link.
+2. Enter codes and names for the fixed asset locations that you want to create.
+
+## Set up fixed asset allocation keys (optional)
+
+Use allocation keys to allocate transactions to various departments or projects. For example, you can set up an allocation key to allocate vehicle depreciation costs with 35 percent to the administration department and 65 percent to the sales department. Learn more in [Allocate Costs and Income](year-allocate-costs-income.md).
+
+Allocation keys apply to fixed asset classes, not to individual assets.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Posting Groups**, and then choose the related link.  
+2. On the **FA Posting Groups** page, choose the **Allocations** action, and then choose a posting type.
+3. On the **FA Allocations** page, fill in the fields as necessary.
+4. Repeat steps 2 and 3 for each posting type that you want to define allocation keys for.
+
+## Set up fixed asset journal batches (optional)
+
+You can set up multiple journal batches, which are individual journals for each journal template. For example, employees can have their own journal batch that uses the employee’s initials as the journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Journal Templates**, and then choose the related link.  
+2. Select the relevant journal template, and then choose the **Batches** action.
+3. On the **FA Journal Batches** page, fill in the fields as necessary.
+
+## Set up fixed asset reclassification journal templates (optional)
+
+Use dedicated reclassification journals to transfer, split, or combine fixed assets. [!INCLUDE[prod_short](includes/prod_short.md)] automatically creates a fixed asset reclassification journal template the first time you open the **FA Reclass. Journal** page, but you can set up other reclassification journal templates. Learn more in [Work with General Journals](ui-work-general-journals.md).  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
+2. Fill in the fields as necessary.
+
+## Set up fixed asset reclassification journal batches (optional)
+
+You can set up multiple journal batches, which are individual journals for each reclassification journal template. For example, employees can have their own reclassification journal batch that uses the employee’s initials as the reclassification journal batch name. Learn more in [Work with General Journals](ui-work-general-journals.md).
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **FA Reclass. Journal Templates**, and then choose the related link.  
+2. Select the relevant journal template, and then choose the **Batches** action.
+3. On the **FA Reclass. Journal Batches** page, fill in the fields as necessary.
+
+## Related information
+
+[Setting Up Fixed Assets](fa-setup.md)  
+[Fixed Assets overview](fa-manage.md)  
+[Finance](finance.md)  
+[Getting Ready for Doing Business](ui-get-ready-business.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-setup-digital-vouchers
 ---
 title: Set up digital vouchers
@@ -2538,12 +2682,13 @@ The following table provides descriptions on how you can use each report in the 
 |Analyze inventory levels across different bins and identify bins that have active picks. | [Bin Contents](https://businesscentral.dynamics.com?page=37031) | [About Bin Contents](inventory-powerbi-bin-contents.md)|
 |Analyze inventory levels across bins and tracking information for the items. | [Bin Contents by Item Tracking](https://businesscentral.dynamics.com?page=37032) | [About Bin Contents by Item Tracking](inventory-powerbi-bin-contents-by-item-tracking.md)|
 |Analyze forecasted inventory quantities across location, item and entry type. | [Inventory Forecasting](https://businesscentral.dynamics.com?page=37110) | [About Inventory Forecasting](inventory-powerbi-inventory-forecasting.md)|
+|Based on sales amounts in local currency (LCY), decide which items to always keep in stock and where you can afford occasional stock-outs.|[ABC Analysis](https://businesscentral.dynamics.com?page=37111)|[ABC Analysis (Power BI Report)](inventory-powerbi-abc-analysis.md)|
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
 
 ## Related information
 
-[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)   
+[Installing Power BI apps for Business Central](across-powerbi-install-business-central-apps.md)  
 [Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
 [Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
 [Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
@@ -8775,7 +8920,6 @@ The *Bin Contents by Item Tracking* report includes the following KPIs:
 
 [!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
 
-
 ## Data used in the report
 
 The report uses data from the following tables:
@@ -10670,6 +10814,7 @@ This page provides a list of all Key Performance Indicators (KPIs) included in t
 ## ABC Classification Measures
 
 - [No. of Items in Class](#no-of-items-in-class)
+- [Percent of Sales Amount](#percent-of-sales-amount)
 - [Sales Amount (ABC)](#sales-amount-abc)
 - [Sales Quantity (ABC)](#sales-quantity-abc)
 
@@ -10678,6 +10823,16 @@ This page provides a list of all Key Performance Indicators (KPIs) included in t
 **Formula**  
 
 - This measure returns the number of items based on the ABC classification. The ABC classification is determined by calculating the cumulated sales amount for an item, divided by the total sales amount for all items, to return the Cumulative Sales Amount Percent. Each item is assigned an ABC Classification based on whether the Cumulative Sales Amount Percent is within the lower and upper ABC class boundaries, as defined in the ABC Analysis Setup.
+
+**Data Sources**
+
+- Item Ledger Entry
+
+### Percent of Sales Amount
+
+**Formula**  
+
+- This measure returns the percentage share of total sales amount for a given ABC classification. It divides the [Sales Amount (ABC)](#sales-amount-abc) by the total sales amount across all selected items.
 
 **Data Sources**
 
@@ -18934,8 +19089,8 @@ ms.author: kepontop
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.keywords: bi, power BI, analysis, KPI
-ms.search.form: 37032, 37031, 37027, 37023, 37024, 37029, 37030, 37022, 37026, 37028, 37057, 37058, 37056, Report_704, Report_707, Report_708, Report_709, Report_711, Report_713, Report_714, Report_716, Report_813, Report_1001, Report_5806, Report_5807, Report_5808, Report_5809, Report_7150, Report_7151, Report_7313, Report_7319, Report_7320
-ms.date: 11/11/2024
+ms.search.form: 37032, 37031, 37027, 37023, 37024, 37029, 37030, 37022, 37026, 37028, 37057, 37058, 37056, Report_704, Report_707, Report_708, Report_709, Report_711, Report_713, Report_714, Report_716, Report_723, Report_813, Report_1001, Report_5806, Report_5807, Report_5808, Report_5809, Report_7150, Report_7151, Report_7313, Report_7319, Report_7320
+ms.date: 04/30/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -21922,63 +22077,6 @@ For more information, see [Design Details: Balancing Demand and Supply](design-d
 [Design Details: Reservation, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md)   
 [Design Details: Supply Planning](design-details-supply-planning.md)  
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-analyze-cash-flow
----
-title: Analyze cash flows
-description: Describes how to use the Cash Cycle, Income & Expense, Cash Flow, and Cash Flow Forecast charts to analyze the past and future flow of money in and out of your company.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: money flow, expense and income, liquidity, cash receipts minus cash payments, Cartera
-ms.search.form: 762, 840, 841, 847, 848, 849, 850, 851, 857, 858, 859, 860, 862, 863, 865, 866, 867, 868, 869, 1818
-ms.date: 07/31/2024
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Analyze cash flow in your company
-The charts on the Accountant Role Center provide insights that can help you make solid decisions about what to do with your cash.  
-
-| To answer questions like these | Use this chart |
-| --- | --- |
-| How long does the sales process tie up my cash?</br> Should I increase or reduce inventory levels? |Cash Cycle |
-| When did cash move in and out of my company?</br> Are some periods better than others? |Cash Flow |
-| Do the numbers seem off for a period?</br> Should I investigate? |Income & Expense |
-| When might a cash surplus or deficit happens?</br> Should I pay down debt, or borrow to meet upcoming expenses? |Cash Flow Forecasts |
-
-On the Accountant Role Center, under **Finance Performance**, the **Cash Cycle**, **Cash Flow**, and **Income & Expense** charts offer ways to analyze cash flow:  
-
-* See figures for a period by using the timeline slider.  
-* Filter the chart by choosing the source in the legend.  
-* Change the length of the period, or go to the previous or next period, by choosing options on the **Finance Performance** drop down.  
-* View the entries by choosing a point in the chart. For example, a point on the timeline or a column segment. If the numbers seem off, this is where you can make adjustments.  
-
-Although it's separate, the **Cash Flow Forecast** chart is similar. You view details, filter results, and change what is displayed in the same ways. If you change a setting, you can refresh the forecast by choosing **Cash Flow Forecast**, and then **Recalculate Forecast**.
-
-If you want to examine the forecast, in addition to forecast entries, you can also look at the cash flow worksheet. For example, you can see how the forecast:
-
-* Handles confirmed sales and purchases.  
-* Subtracts payables and adds receivables.  
-* Skips duplicate sales orders and purchase orders.  
-
-## To view a cash flow worksheet
-
-1. Search for **Cash Flow Forecasts**, and then choose the related link.  
-2. Choose a cash flow forecast, and then choose the **Cash Flow Worksheet** action.  
-3. On the **Cash Flow Worksheet** page, choose the **Suggest Worksheet Lines** action.  
-
-## Related information
-
-[Setting Up Finance](finance-setup-finance.md)    
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)   
-[Setting Up Cash Flow Analysis](finance-setup-cash-flow-analyses.md)    
-[Forecast your cash flow in Dynamics 365 Business Central](/training/modules/forecast-cash-flow-dynamics-365-business-central/index)    
-[Set up cash flow forecasts using Azure AI in Dynamics 365 Business Central](/training/modules/setup-cash-flow-forecasts/)    
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
