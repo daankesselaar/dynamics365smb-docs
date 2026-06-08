@@ -1,3 +1,1016 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-kpis
+---
+title: Purchases KPIs and measures (Power BI)
+description: Get an overview of all the KPIs and measures in the semantic model for the Purchases Power BI app.
+author: kennienp
+ms.author: kepontop
+ms.reviewer:
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 
+ms.date: 11/06/2024
+ms.service: dynamics-365-business-central
+---
+
+# Power BI Purchases app KPIs and measures
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Purchases report. 
+
+Explore the list of KPIs below to learn more about how they can help you achieve your business goals. 
+
+Each KPI is described, including how it is calculated and what data was used in the calculations.
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+
+## Budget Measures
+- [Budget Amount](#budget-amount)
+- [Budget Amount Variance](#budget-amount-variance)
+- [Budget Amount Variance %](#budget-amount-variance-)
+- [Budget Quantity](#budget-quantity)
+- [Budget Quantity Variance](#budget-quantity-variance)
+- [Budget Quantity Variance %](#budget-quantity-variance-)
+
+### Budget Amount
+
+**Formula**  
+The Budget Amount measure calculates the sum of Purchase Amount column from the Purchase Budget table.
+
+**Data Sources**
+- Item Budget Entries
+
+### Budget Amount Variance
+
+**Formula**
+*Budget Amount Variance = [Purchase Amount](#purchase-amount) - [Budget Amount](#budget-amount)*
+
+**Data Sources**
+- Item Budget Entry
+- Purchase Line
+- Value Entry
+
+### Budget Amount Variance %
+
+**Formula**  
+*Budget Amount Variance % = [Budget Amount Variance](#budget-amount-variance) / [Budget Amount](#budget-amount)*
+
+**Data Sources**
+- Item Budget Entry
+- Purchase Line
+- Value Entry
+
+### Budget Quantity
+
+**Formula**  
+The Budget Quantity measure sums the Quantity column from the Purchase Budget table.
+
+**Data Sources**
+- Item Budget Entry
+
+
+### Budget Quantity Variance
+
+**Formula**  
+*Budget Quantity Variance = [Purchase Quantity](#purchase-quantity) - [Budget Quantity](#budget-quantity)*
+
+**Data Sources**
+- Item Budget Entry
+- Purchase Line
+- Value Entry
+
+### Budget Quantity Variance %
+
+**Formula**  
+*Budget Quantity Variance % = [Budget Quantity Variance](#budget-quantity-variance) / [Budget Quantity](#budget-quantity)*
+
+**Data Sources**
+- Item Budget Entry
+- Purchase Line
+- Value Entry
+
+## Documents
+
+- [Invoiced Prepayment Amount (LCY)](#invoiced-prepayment-amount-lcy)
+- [Purchase (LCY)](#purchase-lcy)
+- [Purchase (LCY) Forecasting](#purchase-lcy-forecasting)
+- [Purchase Quantity](#purchase-quantity)
+- [Return Rate (Amount)](#return-rate-amount)
+- [Return Rate (Qty.)](#return-rate-qty)
+- [Total Credit (Amount)](#total-credit-amount)
+- [Total Credit (Qty.)](#total-credit-qty)
+- [Total Purchase (Amount)](#total-purchase-amount)
+- [Total Purchase (Qty)](#total-purchase-qty)
+
+### Purchase Amount
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**
+The Purchase Amount measure sums the Purchase Amount column of the Purchases table.
+
+**Data Sources**
+- Value Entry
+
+### Purchase Quantity
+
+**Formula**
+The Purchase Quantity measure sums the Purchase Quantity column of the Purchases table.
+
+**Data Sources**
+- Value Entry
+
+### Purchase (LCY)
+
+**Formula**  
+The Purchase (LCY) measure calculates the purchase amount across all invoiced purchase transactions by calculating the sum of [Purchase Value Entries Amount](#purchase-value-entries-amount), [Purchase Credit Line Amount](#purchase-credit-line-amount) and [Purchase Invoice Line Amount](#purchase-invoice-line-amount). Reconcile this measure to the Vendor Statistics page.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Purchase (LCY) Forecasting
+
+**Formula**  
+The Purchase (LCY) Forecasting measure calculates the [Purchase (LCY)](#purchase-lcy) within the period of dates with purchase transactions and inserts zero values for dates without purchase entries, for compatibility with forecasting.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Return Rate (Amount)
+
+**Formula**  
+*Return Rate (Amount) = - [Total Credit (Amount)](#total-credit-amount) / [Total Purchase (Amount)](#total-purchase-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Return Rate (Qty.)
+
+**Formula**  
+*Return Rate (Qty.) = - [Total Credit (Qty.)](#total-credit-qty) / [Total Purchase (Qty.)](#total-purchase-qty)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Total Credit (Amount)
+
+**Formula**  
+*Total Credit (Amount) = [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount) + [Purchase Credit Line Amount](#purchase-credit-line-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Credit Memo Line
+
+### Total Credit (Qty.)
+
+**Formula**  
+*Total Credit (Qty.)= [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Credit Memo Line
+
+### Total Purchase (Amount)
+
+**Formula**  
+*Total Purchase (Amount) = [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount) + [Purchase Invoice Line Amount](#purchase-invoice-line-amount)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+
+### Total Purchase (Qty.)
+
+**Formula**  
+*Total Purchase (Qty.)= [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity) + [Purchase Invoice Quantity Base](#purchase-invoice-line-quantity-base)*
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+
+### Invoiced Prepayment Amount (LCY)
+
+**Formula**  
+The Invoiced Prepayment Amount (LCY) measure calculates the sum of the Prepayment Amount Invoiced (LCY) from the Purchase Lines table.
+
+**Data Sources**  
+- Purchase Line
+
+## Purchase Value Entries
+
+- **Counters**
+  - [No. of Distinct Items](#no-of-distinct-items)
+  - [No. of Posted Purchase Invoices](#no-of-posted-purchase-invoices)
+  - [No. of Single Supplier Items](#no-of-single-supplier-items)
+  - [No. of Vendors](#no-of-vendors)
+
+- **Purchase Invoice**
+  - [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount)
+  - [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity)
+
+- **Purchase CR/Adj Note**
+  - [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount)
+  - [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity)
+
+- [Purchase Value Entries Amount](#purchase-value-entries-amount)
+- [Purchase Value Entries Discount %](#purchase-value-entries-discount-)
+- [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount)
+- [Purchase Value Entries Quantity](#purchase-value-entries-quantity)
+
+### No. of Distinct Items
+
+**Formula**  
+The No. of Distinct Items calculates the number of unique items that have been purchased by counting the distinct values of the Item No. column of the Purchase Value Entry table.
+
+**Data Sources**  
+- Value Entry 
+
+### No. of Posted Purchase Invoices
+
+**Formula**  
+The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases Value Entries table where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
+
+### No. of Purchase Invoices
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases table where Document Type = Purchase Invoice and Source Type = Value Entries Invoiced.
+
+**Data Sources**  
+- Purchase Line
+- Value Entry
+
+### No. of Vendors
+
+**Formula**  
+The No. of Vendors calculates the number of unique items that have been purchased by counting the distinct values of the Vendor No. column of the Purchase Value Entry table.
+
+**Data Sources**  
+- Value Entry 
+
+### No. of Single Supplier Items
+
+**Formula**  
+The No. of Single Supplier Items calculates the number of items that have been purchased from a single vendor, by filtering to items where [No. of Vendors](#no-of-vendors) equals one.
+
+**Data Sources**  
+- Value Entry 
+
+### Posted Purchase Invoice Amount
+
+**Formula**  
+The Posted Purchase Invoice Amount calculates the total cost amount that has been purchased and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
+
+### Posted Purchase Invoice Quantity
+
+**Formula**  
+The Posted Purchase Invoice Quantity calculates the total quantity that has been purchased and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
+
+**Data Sources**  
+- Value Entry
+
+### Invoiced Amount
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**
+The Invoiced Amount calculates the total amount of items that have been purchased and invoiced, by summing the Purchase Amount column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
+
+**Data Sources**  
+- Value Entry
+
+### Invoiced Quantity
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**
+The Invoiced Quantity measure calculates the total quantity of items that have been purchased and invoiced, by summing the Purchase Quantity column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
+
+**Data Sources**  
+- Value Entry
+
+### Posted Purchase CR/Adj Note Amount
+
+**Formula**
+The Posted Purchase CR/Adj Note Amount calculates the total cost amount that has been credited and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
+
+**Data Sources**  
+- Value Entry
+
+### Posted Purchase CR/Adj Note Quantity
+
+**Formula**  
+The Posted Purchase CR/Adj Note Quantity calculates the total quantity that has been credited and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Amount
+
+**Formula**  
+The Purchase Value Entries Amount calculates the total amount that has been purchased, by summing the Cost Amount Actual column of the Purchase Value Entries table, where Value Entry Type = Direct Cost and Adjustment is false.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Quantity
+
+**Formula**  
+The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Discount Amount
+
+**Formula**  
+The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
+
+**Data Sources**  
+- Value Entry
+
+### Purchase Value Entries Discount %
+
+**Formula**  
+*Purchase Value Entries Discount % = [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount) / [Purchase Value Entries Amount](#purchase-value-entries-amount)*
+
+**Data Sources**  
+- Value Entry
+
+## Purchase Lines
+
+- **Counters**
+  - [No. of Outstanding Invoices](#no-of-outstanding-invoices)
+  - [No. of Outstanding Purchase Orders](#no-of-outstanding-purchase-orders)
+  - [No. of Outstanding Return Orders](#no-of-outstanding-return-orders)
+  - [No. of Purchase Quotes](#no-of-purchase-quotes)
+  - [No. of Received Not Invd. Purchase Orders](#no-of-received-not-invd-purchase-orders)
+
+- **Outstanding**
+  - [Outstanding Invoices (LCY)](#outstanding-invoices-lcy)
+  - [Outstanding Orders (LCY)](#outstanding-orders-lcy)
+
+- **Quote**
+  - [Purchase Quote Purchase (LCY)](#purchase-quote-purchase-lcy)
+  - [Purchase Quote Quantity](#purchase-quote-quantity)
+
+- **Received Not Invoiced**
+  - [Amt. Rcd. Not Invoiced (LCY)](#amt-rcd-not-invoiced-lcy)
+
+- **Return Order**
+  - [Outstanding Return Order (LCY)](#outstanding-return-order-lcy)
+  - [Return Order Amount](#return-order-amount)
+  - [Return Order Quantity](#return-order-quantity)
+  - [Return Qty. Invoiced](#return-qty-invoiced)
+  - [Return Qty. Shipped](#return-qty-shipped)
+  - [Return Qty. to Invoice](#return-qty-to-invoice)
+  - [Return Qty. to Ship](#return-qty-to-ship)
+  - [Returned Quantity](#returned-quantity)
+
+### No. of Outstanding Invoices
+
+**Formula**  
+The No. of Outstanding Invoices calculates the number of unique purchase invoices that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Invoice.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Outstanding Purchase Orders
+
+**Formula**  
+The No. of Outstanding Purchase Orders calculates the number of unique purchase orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Outstanding Return Orders
+
+**Formula**  
+The No. of Outstanding Return Orders calculates the number of unique purchase return orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Return Order.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Purchase Quotes
+
+**Formula**  
+The No. of Purchase Quotes calculates the number of unique purchase quotes, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### No. of Received Not Invd. Purchase Orders
+**Formula**
+The No. of Received Not Invd. Purchase Orders measure calculates the number of unique purchase orders that are received but not invoiced, by counting the distinct count of Document No. column from the Purchases table where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
+
+### Outstanding Invoices (LCY)
+
+**Formula**  
+The Outstanding Invoices (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Invoice.
+
+**Data Sources**  
+- Purchase Line
+
+### Outstanding Orders (LCY)
+
+**Formula**  
+The Outstanding Orders (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Order.
+
+**Data Sources**  
+- Purchase Line
+
+### Outstanding Amount (Excl. VAT)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Outstanding Amount (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Outstanding, excluding VAT.
+
+**Data Sources**
+- Purchase Line
+
+### Outstanding Quantity
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Outstanding Quantity measure calculates the sum of Purchase Qty. (Base) column from the Purchases table where Source Type = Purchase Order Outstanding.
+
+**Data Sources**
+- Purchase Line
+
+### Purchase Quote Purchase (LCY)
+
+**Formula**  
+The Purchase Quote Purchase (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### Purchase Quote Quantity
+
+**Formula**  
+The Purchase Quote Quantity measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Quote.
+
+**Data Sources**  
+- Purchase Line
+
+### Amt. Rcd. Not Invoiced (LCY)
+
+**Formula**  
+The Amt. Rcd. Not Invoiced (LCY) measure calculates the sum of the Amount Received Not Invoiced (LCY) column from the Purchase Line table where Document Type = Order.
+
+**Data Sources**
+- Purchase Line
+
+### Amt. Rcd. Not Invd. (Excl. VAT)
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Amt. Rcd. Not Invd. (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Received Not Invoiced, excluding VAT.
+
+**Data Sources**
+- Purchase Line
+
+### Quantity Rcd. Not Invd.
+
+[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
+
+**Formula**  
+The Quantity Rcd. Not Invd. measure calculates the sum of Purchase Qty. (Base) column from the Purchases table. where Source Type = Purchase Order Received Not Invoiced.
+
+**Data Sources**
+- Purchase Line
+
+### Outstanding Return Order (LCY)
+
+**Formula**  
+The Outstanding Return Order (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Order Amount
+
+**Formula**  
+The Return Order Amount measure calculates the sum of the Amount column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Order Quantity
+
+**Formula**  
+The Return Order Quantity measure calculates the sum of the Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. Invoiced
+
+**Formula**  
+The Return Qty. Invoiced measure calculates the sum of the Quantity Invoiced column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. Shipped
+
+**Formula**  
+*Return Qty. Shipped = [Return Order Quantity](#return-order-quantity) - [Return Qty. to Ship](#return-qty-to-ship)*
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. to Invoice
+
+**Formula**  
+*Return Qty. to Invoice = [Return Order Quantity](#return-order-quantity) - [Return Qty. Invoiced](#return-qty-invoiced)*
+
+**Data Sources**  
+- Purchase Line
+
+### Return Qty. to Ship
+
+**Formula**  
+The Return Qty. to Ship measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
+
+**Data Sources**  
+- Purchase Line
+
+### Returned Quantity
+
+**Formula**  
+*Returned Quantity = [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Return Qty. to Invoice](#return-qty-to-invoice)*
+
+**Data Sources**  
+- Purchase Line
+- Value Entry
+
+## Purchase Credit Lines
+
+- [Purchase Credit Line Amount](#purchase-credit-line-amount)
+- [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)
+
+### Purchase Credit Line Amount
+
+**Formula**  
+The Purchase Credit Line Amount measure calculates the negative sum of the Amount column from the Purchase Credit Line table.
+
+**Data Sources**  
+- Purchase Credit Memo Line
+
+### Purchase Credit Line Quantity Base
+
+**Formula**  
+The Purchase Credit Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Credit Line table.
+
+**Data Sources**  
+- Purchase Credit Memo Line
+
+## Purchase Invoice Lines
+
+- [Purchase Invoice Line Amount](#purchase-invoice-line-amount)
+- [Purchase Invoice Line Quantity Base](#purchase-invoice-line-quantity-base)
+
+### Purchase Invoice Line Amount
+
+**Formula**  
+The Purchase Invoice Line Amount measure calculates the sum of the Amount column from the Purchase Invoice Line table.
+
+**Data Sources**  
+- Purchase Invoice Line
+
+### Purchase Invoice Line Quantity Base
+
+**Formula**  
+The Purchase Invoice Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Invoice Line table.
+
+**Data Sources**  
+- Purchase Invoice Line
+
+## Pareto Measures
+
+- [Pareto Color Cutoff](#pareto-color-cutoff)
+- [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy)
+- [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-)
+- [Pareto Cutoff Cumulative Purchase (LCY)](#pareto-cutoff-cumulative-purchase-lcy)
+- [Pareto Cutoff Purchase (LCY) %](#pareto-cutoff-purchase-lcy-)
+- [Pareto Cutoff Vendor](#pareto-cutoff-vendor)
+- [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank)
+- [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank)
+- [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy)
+- [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy)
+
+### Pareto Color Cutoff
+
+**Formula**  
+The color cutoff where [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) exceeds the [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank).
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cumulative Purchase (LCY)
+
+**Formula**  
+
+The [Purchase (LCY)](#purchase-lcy) based on the [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cumulative Purchase (LCY) %
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) divided by the [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Cumulative Purchase (LCY)
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Purchase (LCY) %
+
+**Formula**  
+
+The [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Vendor
+
+**Formula**  
+
+The Vendor with the maximum difference of the [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) minus the **Pareto Value**.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Cutoff Vendor Rank
+
+**Formula**  
+
+The [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Vendor Cutoff Rank
+
+**Formula**  
+
+The maximum [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank) value across all vendors.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Vendor Rank by Purchase (LCY)
+
+**Formula**  
+
+The Pareto Vendor Rank by Purchase (LCY) measure calculates the vendor rank, ordered by the [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+### Pareto Total Purchase (LCY)
+
+**Formula**  
+
+The total [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
+
+**Data Source**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Memo Line
+
+## Vendor Measures
+
+- [Item Reliance %](#item-reliance-)
+- [Spend Reliance %](#spend-reliance-)
+
+### Item Reliance %
+
+**Formula**  
+The Item Reliance % measure calculates the proportion of transactions for an item based on either the number of unique vendors or number of unique items, from the Purchase Value Entry Table. In a Vendor context, the Item Reliance % measure is calculated as [No. of Distinct Items](#no-of-distinct-items) divided by the total [No. of Distinct Items](#no-of-distinct-items) for all vendors. In an Item context, the Item Reliance % measure is calculated as one divided by the total [No. of Vendors](#no-of-vendors) who have supplied the item.
+
+### Spend Reliance %
+
+**Formula**  
+The Spend Reliance % measure calculates the [Purchase (LCY)](#purchase-lcy) divided by the total [Purchase (LCY)](#purchase-lcy) across all vendors.
+
+**Data Sources**  
+- Value Entry
+- Purchase Invoice Line
+- Purchase Credit Line
+
+
+**Data Sources**  
+- Value Entry
+
+## Purchase Amount Moving Annual Total
+- [Purchase Amount MAT (Fiscal)](#purchase-amount-mat-fiscal)  
+- [Purchase Amount PYMAT (Fiscal)](#purchase-amount-pymat-fiscal)  
+- [Purchase Amount MATG (Fiscal)](#purchase-amount-matg-fiscal)  
+- [Purchase Amount MATG % (Fiscal)](#purchase-amount-matg--fiscal)
+
+### Purchase Amount MAT (Fiscal)
+
+**Formula**  
+The Purchase Amount MAT (Fiscal) measure calculates the purchases for the last 12 months (moving annual total) using the fiscal calendar by summing up the purchases between the calculated first and last days of the 365-day period.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount PYMAT (Fiscal)
+
+**Formula**  
+The Purchase Amount PYMAT (Fiscal) measure calculates the total purchases for the prior 12 months based on the fiscal calendar. It then determines the maximum available date and calculates the range from 24 months prior to the last available day to 12 months prior. Using these dates, it sums the purchases amount for this period while maintaining filters for the day type and week day.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount MATG (Fiscal)
+
+**Formula**  
+The Purchase Amount MATG (Fiscal) measure compares the current period's moving annual total purchases to the previous period's moving annual total purchases. If both values are not blank, it subtracts the previous period's purchases from the current period's purchases to determine the growth. The result is returned, representing the change in purchases between the two periods.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount MATG % (Fiscal)
+
+**Formula**  
+*Purchase Amount MATG % (Fiscal) = [Purchase Amount MATG (Fiscal)](#purchase-amount-matg-fiscal)  / [Purchase Amount PYMAT (Fiscal)](#purchase-amount-pymat-fiscal)* 
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+## Purchase Amount Moving Averages
+- [Purchase Amount AVG 30D (Fiscal)](#purchase-amount-avg-30d-fiscal)  
+
+### Purchase Amount AVG 30D (Fiscal)
+
+**Formula**  
+The Purchase Amount AVG 30D (Fiscal) measure calculates the average purchase amount for the past 30 days.
+  
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+## Purchase Amount Period-over-Period Growth
+- [Purchase Amount PP (Fiscal)](#purchase-amount-pp-fiscal)  
+- [Purchase Amount PY (Fiscal)](#purchase-amount-py-fiscal)  
+- [Purchase Amount POP (Fiscal)](#purchase-amount-pop-fiscal)  
+- [Purchase Amount POP % (Fiscal)](#purchase-amount-pop--fiscal)  
+- [Purchase Amount YOY (Fiscal)](#purchase-amount-yoy-fiscal)  
+
+### Purchase Amount PP (Fiscal)
+
+**Formula**  
+The Purchase Amount PP (Fiscal) measure calculates the purchase amount in the previous period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount in the previous month.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount PY (Fiscal)
+
+**Formula**  
+The Purchase Amount PY (Fiscal) measure calculates the purchase amount in the previous year.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount POP (Fiscal)
+
+**Formula**  
+The Purchase Amount POP (Fiscal) measure calculates the change in purchases between the current period and the previous period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount period-over-period compared to the previous month.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount POP % (Fiscal)
+
+**Formula**  
+*Purchase Amount POP % (Fiscal) = [Purchase Amount POP (Fiscal)](#purchase-amount-pop-fiscal) / [Purchase Amount PP (Fiscal)](#purchase-amount-pp-fiscal)*
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Purchase Amount YOY (Fiscal)
+
+**Formula**  
+The Purchase Amount YOY (Fiscal) measure shows the purchase amount of a specific period compared to the same period in the previous year. It helps you understand whether your purchases have increased or decreased over time.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+## Purchase Amount Period-to-Date
+
+- [Purchase Amount YTD (Fiscal)](purchases-powerbi-kpis.md#purchase-amount-ytd-fiscal)  
+
+### Purchase Amount YTD (Fiscal)
+
+**Formula**  
+The Purchase Amount YTD (Fiscal) measure calculates the purchase amount to date for the current period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount in the current month.
+
+**Data Sources**  
+- Value Entry
+- Date (Fiscal Calendar)
+
+## Budget Amount Moving Annual Total
+- [Budget Amount MAT (Fiscal)](#budget-amount-mat-fiscal)
+- [Budget Amount MATG (Fiscal)](#budget-amount-matg-fiscal)
+- [Budget Amount MATG % (Fiscal)](#budget-amount-matg--fiscal)
+- [Budget Amount PYMAT (Fiscal)](#budget-amount-pymat-fiscal)
+
+### Budget Amount MAT (Fiscal)
+
+**Formula**  
+The Budget Amount MAT (Fiscal) measure calculates the purchases for the last 12 months (moving annual total) using the fiscal calendar by summing up the purchases between the calculated first and last days of the 365-day period.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Budget Amount MATG (Fiscal)
+
+**Formula**  
+The Budget Amount MATG (Fiscal) measure compares the current period's moving annual total purchases to the previous period's moving annual total purchases. If both values are not blank, it subtracts the previous period's purchases from the current period's purchases to determine the growth. The result is returned, representing the change in purchases between the two periods.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Budget Amount MATG % (Fiscal)
+
+**Formula**  
+*Budget Amount MATG % (Fiscal) = [Budget Amount MATG (Fiscal)](#budget-amount-matg-fiscal) / [Budget Amount PYMAT (Fiscal)](#budget-amount-pymat-fiscal)* 
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Budget Amount PYMAT (Fiscal)
+
+**Formula**  
+The Budget Amount PYMAT (Fiscal) measure calculates the previous year moving annual total (PYMAT) of the Budget Amount by subtracting one year from the current date.
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+## Budget Amount Moving Averages
+- [Budget Amount AVG 1Y (Fiscal)](#budget-amount-avg-1y-fiscal)
+- [Budget Amount AVG 30D (Fiscal)](#budget-amount-avg-30d-fiscal)
+- [Budget Amount AVG 3M (Fiscal)](#budget-amount-avg-3m-fiscal)
+
+### Budget Amount AVG 1Y (Fiscal)
+
+**Formula**  
+The Budget Amount AVG 1Y (Fiscal) measure calculates the average budet amount for the past year.
+  
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Budget Amount AVG 30D (Fiscal)
+**Formula**  
+The Budget Amount AVG 30D (Fiscal) measure calculates the average budet amount for the past 30 days.
+  
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### Budget Amount AVG 3M (Fiscal)
+**Formula**  
+The Budget Amount AVG 3M (Fiscal) measure calculates the average budet amount for the past 3 months.
+  
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+## Gross Totals
+- [% GT Purchase Amount](#-gt-purchase-amount)
+- [% GT Purchase Quantity](#-gt-purchase-quantity)
+- [% GT Purchase Amount PY (Fiscal)](#-gt-purchase-amount-py-fiscal)  
+
+### % GT Purchase Amount
+
+**Formula**  
+*% GT Purchase Amount = [Purchase Amount](#purchase-amount) / Grand Total Purchase Amount*
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### % GT Purchase Quantity
+
+**Formula**  
+*% GT Purchase Quantity = [Purchase Quantity](#purchase-quantity) / Grand Total Purchase Quantity*
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+### % GT Purchase Amount PY (Fiscal)
+
+**Formula**  
+*% GT Purchase Amount = [Purchase Amount](#purchase-amount) / Grand Total Purchase Amount (Previous Year)*
+
+**Data Sources**
+- Value Entry
+- Purchase Line
+- Date (Fiscal Calendar)
+
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)   
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/fa-how-setup-general
 ---
 title: Set Up General Fixed Assets (FA) Information
@@ -1160,7 +2173,7 @@ This walkthrough covered the following steps to set up [!INCLUDE[prod_short](inc
 
 You've also posted a prepayment invoice, created a second prepayment invoice when the order has changed, and posted the final invoice for the remaining amount.  
 
-The prepayments capabilities make it easy to set up and enforce prepayment rules for customers and items. They also let you to post every payment against an invoice.  
+The prepayments capabilities make it easy to set up and enforce prepayment rules for customers and items. They also let you post every payment against an invoice.  
 
 ## Related information
 
@@ -3558,7 +4571,7 @@ To overcome obstacles and minimize downtime, apply the expertise of colleagues o
 
 The details include the error message, error code, and other information that's helpful when troubleshooting an error. By sharing the error details, you can effectively communicate the specific issue you're facing, which helps your colleagues help you.  
 
-You can copy details by choosing the **Share icon** in in-line validation dialogs, or the **Share details** menu in error dialogs.  
+You can copy details by choosing the **Share icon** in inline validation dialogs, or the **Share details** menu in error dialogs.  
 
 In addition to copying error details, you can also choose to share details through Microsoft Teams by choosing **Share details to Teams** to do the following:
 
@@ -6378,7 +7391,7 @@ ms.custom: bap-template
 
 A large part of managing accounts payable is paying your vendors, or reimbursing your employees for expenses. You can use functions to add payments lines for purchase invoices that are due on the **Payment Journal** page. To send transactions to your bank, you can export multiple payment journal lines to a file, and then upload the file to your bank. You can also make payments by check, including transmitting checks as electronic payments.
 
-Another typical task is to apply outgoing payments to their related vendor or employee ledger entries in order to close purchase invoices, purchase credit memos, or employee accounts as paid. You apply outgoing payments to entries on the **Payment Reconciliation Journal** page by importing a bank statement file to register the payments. The payments are applied to open vendor, customer, or employee ledger entries by matching payment text and entry information. There are various ways to review and change the matches before you post the journal. You can choose to close any open bank account ledger entries related to the applied ledger entries when you post the journal. The bank account is automatically reconciled when all payments are applied.
+Another typical task is to apply outgoing payments to their related vendor or employee ledger entries to close purchase invoices, purchase credit memos, or employee accounts as paid. You apply outgoing payments to entries on the **Payment Reconciliation Journal** page by importing a bank statement file to register the payments. The payments are applied to open vendor, customer, or employee ledger entries by matching payment text and entry information. There are various ways to review and change the matches before you post the journal. You can choose to close any open bank account ledger entries related to the applied ledger entries when you post the journal. The bank account is automatically reconciled when all payments are applied.
 
 Alternatively, you can apply outgoing payments manually on the **Payment Journal** page or from the related vendor or employee ledger entries.
 
@@ -8163,7 +9176,7 @@ ms.reviewer: bholtorf
 ---
 # Set Up Items and Locations for Directed Put-away and Pick
 
-When you set up a warehouse location for directed put-away and pick, you have new functionality available to you to help run the warehouse in the most efficient way possible. In order to make full use of this functionality, you provide additional information about the items, which in turn helps to make the calculations necessary to suggest the most efficient and effective ways to conduct warehouse activities. 
+When you set up a warehouse location for directed put-away and pick, you have new functionality available to you to help run the warehouse in the most efficient way possible. In order to make full use of this functionality, you provide additional information about the items, which in turn helps make the calculations necessary to suggest the most efficient and effective ways to conduct warehouse activities. 
 
 ## To set up an item for directed put-away and pick  
 
@@ -9064,7 +10077,7 @@ The content of the **Dataverse Option Mapping** page is based on enum values in 
 
 - **Address 1: Freight Terms** of data type Enum, where values are defined as follows:
 
-```
+```al
 enum 5335 "CDS Shipment Method Code"
 {
     Extensible = true;
@@ -9076,7 +10089,7 @@ enum 5335 "CDS Shipment Method Code"
 
 - **Address 1: Shipping Method** of data type Enum, where values are defined as follows:
 
-```
+```al
 enum 5336 "CDS Shipping Agent Code"
 {
     Extensible = true;
@@ -9093,7 +10106,7 @@ enum 5336 "CDS Shipping Agent Code"
 
 - **Payment Terms** of data type Enum, where values are defined as follows:
 
-```
+```al
 enum 5334 "CDS Payment Terms Code"
 {
     Extensible = true;
@@ -9112,7 +10125,7 @@ All of the [!INCLUDE[prod_short](includes/prod_short.md)] enums are mapped to op
 
 2. Add an Enum extension for the options that you want to extend. Be sure that you use the same value. 
 
-```
+```al
 enumextension 50100 "CDS Payment Terms Code Extension" extends "CDS Payment Terms Code"
 {
     value(779800001; "Cash Payment") { Caption = 'Cash Payment'; }
@@ -9169,6 +10182,8 @@ The **Payment Terms** table in [!INCLUDE[prod_short](includes/prod_short.md)] ha
 [Mapping the Tables and Fields to Synchronize](admin-how-to-modify-table-mappings-for-synchronization.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+
+
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-define-ext-text
@@ -10098,11 +11113,18 @@ ms.custom: bap-template
 
 Before you can create approval workflows, you must set up the users who can submit requests and their approvers. For example, you can specify who receives a notification to act on a workflow step. You set up approval workflow participants on the **Approval User Setup** page. Learn more at [Set Up Approval Users](across-how-to-set-up-approval-users.md).
 
-On the **Workflow User Groups** page, you can specify where a participant engages in an approval workflow by entering a number in the **Sequence No.** field. For example, you can specify that users engage in a sequential order, such as a chain of approvers. You can also specify a flat list of approvers by entering the same number. In the latter case, only one of the approvers must approve a request.
-
 [!INCLUDE [workflow-requestor-approver](includes/workflow-requestor-approver.md)]
 
-## To set up a workflow user group
+## Order of approvals
+
+On the **Workflow User Groups** page, you can specify where a user engages in an approval workflow by entering a number in the **Sequence No.** field. Typically, sequence numbers are sequential for users in a workflow user group. That is, user A has sequence number 1, user B has 2, C has 3, and so on. However, multiple users can have the same sequence number. When that's the case:
+
+- If all users in the group have the same sequence number, only one of them needs to approve the request. For example, users A, B, and C, all have the sequence number 1. If A approves the request, B and C don't need to.
+- If some users have the same sequence number, their placement in the hierarchy affects what happens.
+   - If there are users with a higher sequence number, only one needs to approve the request. For example, user A has the sequence number 1, B and C both have 2, and user D has 3. If B *or* C approve the request, it moves on to D.
+   - If the users with the same sequence number are last in the hierarchy, however, all of them must approve the request. For example, if user A has the sequence number 1, B has 2, and C and D both have 3, both C and D must approve the request.
+
+## Set up a workflow user group
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Workflow User Groups**, then choose the related link.  
 2. Choose the **New** action. The **Workflow User Group** page opens.  
@@ -10115,8 +11137,6 @@ On the **Workflow User Groups** page, you can specify where a participant engage
    |**User Name**|Specify the user who takes part in a workflow.<br /><br /> The user must exist on the **User Setup** page. Learn more at [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).|
    |**Sequence No.**|Specify the order in which the workflow user engages in a workflow relative to other users. This field can specify, for example, when the user approves relative to other approvers by setting up the **Workflow User Group** option in the **Approver Type** field on the related workflow response.|
 
-   > [!NOTE]
-   > Typically, sequence numbers are sequential for users in a workflow user group. However, multiple users can have the same sequence number. When that's the case, only one of the users must approve a request before the workflow goes to the next step. For example, if user A and user B are both number two in the sequence, the workflow goes to the step 3 when either user A or user B approves the request.
 6. Repeat step 5 to add more workflow users to the workflow user group.  
 
 ## Related information
@@ -12495,7 +13515,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000773, 99000778, 99000823, 99000827
-ms.date: 03/10/2026
+ms.date: 05/28/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -12519,7 +13539,13 @@ The **Production Journal** page lets you do the same tasks as the **Output Journ
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Output Journal**, and then choose the related link.  
 2. Fill in the fields with the production order data and the output data and/or run time. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
   
-   You can use the **Explode Routing** action to generate journal lines from production orders.
+   You can use the **Explode Routing** action to generate journal lines from production orders. This action creates one output journal line for each routing operation on the production order, so you can record output and run time per operation rather than posting everything on a single line. Use Explode Routing when:
+
+   - You want to record setup time, run time, and scrap for each operation separately.
+   - You need to post output for individual operations as they finish, rather than waiting until the last operation.
+   - You want to track capacity consumption per work or machine center.
+
+   Each generated line includes the operation number, work or machine center number, the expected times from the routing, and the output quantity. For operations that use a subcontracting work center, the output quantity is set to zero because subcontracted output is posted through the purchase order instead.
 
    > [!NOTE]
    > When you report production output for items with serial number tracking, you often need one journal line per serial number. When you turn on **Item Tracking on Lines** in the **Output Journal** and choose **Explode Routing**, [!INCLUDE [prod_short](includes/prod_short.md)] respects the item tracking setting when it explodes routing lines in output journals:
@@ -12533,6 +13559,18 @@ The **Production Journal** page lets you do the same tasks as the **Output Journ
     Capacity ledger entries are updated for the used work or machine centers with information about time and quantity of output and scrap. If you posted the last operation, the item is added to inventory.
 
     [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
+
+## Stop codes and scrap codes
+
+When you post output, you can record downtime and scrap with reason codes that help you analyze production efficiency.
+
+- **Stop codes**: Track why a work center or machine center was idle during an operation (for example, maintenance, tool change, or machine failure). Enter the stop code and the stop time on the output journal line. The posted stop time appears on capacity ledger entries for the work or machine center.
+- **Scrap codes**: Categorize why units were scrapped during an operation (for example, defective material, setup error, or tool wear). Enter the scrap code and the scrap quantity on the output journal line. The scrap quantity is posted to the item ledger as a negative adjustment, and the scrap code appears on the capacity ledger entry.
+
+To set up stop codes and scrap codes, use the **Stop Codes** and **Scrap Codes** pages. To open them, [!INCLUDE[open-search](includes/open-search.md)], enter **Stop Codes** or **Scrap Codes**, and then choose the related link.
+
+> [!TIP]
+> Use stop code and scrap code analysis to identify recurring quality or downtime issues. Over time, this data helps you improve routing operations, reduce waste, and increase overall equipment effectiveness.
 
 [!INCLUDE [production-journals-edit-excel](includes/production-journals-edit-excel.md)]
 
@@ -13075,7 +14113,7 @@ When you change the repair status of a service item on a service item line, ther
 * When a service order allocation entry is created that indicates that no resource has been allocated, the **Status** field on the **Resource Allocation** page is set to **Nonactive**.  
 * The allocation entry status is set to **Canceled** when you reallocate the referred service item in the service order allocation entry, which indicates that the allocated resource or resource group hasn't attempted the service task.  
   
-The allocation status reflects when the service process is finished, or when another resource is necessary in order to finish the service of the service item.  
+The allocation status reflects when the service process is finished, or when another resource is necessary to finish the service of the service item.  
   
 ## Convert service quotes to service orders
 
@@ -13255,7 +14293,7 @@ After you set up your campaign, you can register a discount percentage that the 
 After you set up the sales prices/line discounts and the segments on the campaign card, you must activate them so that the campaign prices/discounts are reflected on the lines.
 
 > [!NOTE]  
-> In order to activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
+> To activate the sales prices/line discounts, you must specify if the whole segment or only some contacts are targets of the campaign. If the sales prices/line discounts covers all the contacts in the segment, select the **Campaign Target** field on the **Campaign** FastTab of the **Segment** card.
 
 If the sales prices/line discounts aren't to be offered to all the contacts in the segment, you can clear the **Campaign Target** field for the relevant contacts. If you can't see this field, you can add it to your view. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
 
@@ -17454,7 +18492,7 @@ author: brentholtorf
 ms.topic: concept-article
 ms.search.form: 5841,
 ms.author: bholtorf
-ms.date: 07/01/2025
+ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ms.custom: bap-template
@@ -17478,7 +18516,7 @@ Because the standard cost of a produced or assembled item can consist of multipl
 
 The accounting tasks for an item-processing company using standard costing are to:  
 
-- Estimate a standard cost of the finished item and set it up on the item card.  
+- Estimate a standard cost of the finished item and set it up on the item.  
 - Record and allocate the actual cost of the key cost elements and to account for variances.  
 
 To determine the direct cost of a finished item, total all component costs. An assembled or produced item can include subassemblies that also consist of multiple components.  
@@ -17496,7 +18534,7 @@ Material costs are costs that are associated with subassemblies and purchased ra
 - Direct material cost represents an invoiced amount for purchased raw materials or the processing cost of a subassembly.  
 - Indirect material cost, or *overhead*, can represent elements such as inventory carrying costs for the finished item.  
 
-The setup of the material cost for purchased items that affect direct and indirect cost depends on the costing method that you selected for the specified item. You set up cost information for either costing method on the item card. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
+The setup of the material cost for purchased items that affect direct and indirect cost depends on the costing method that you selected for the specified item. You set up cost information for either costing method on the item. To learn more, go to [Register New Items](inventory-how-register-new-items.md).
 
 The cost of scrap (production only) is another factor to consider when you calculate the total material cost. Scrapping raw materials when you assemble or produce an item often causes an increase in the quantity of components that are required to produce the item. In turn, this increases the material cost of the components that you consume when you produce a parent item. You set up scrap cost for materials on either the production BOM or routing.  
 
@@ -17536,13 +18574,36 @@ On a single-level basis, this value is the labor cost that is required to produc
 
 Subcontractor costs are the costs that are associated with services that are provided by a company's outside vendors or subcontractors. Similar to material and capacity, subcontractor costs can consist of both direct and overhead amounts. Direct subcontractor cost represents the actual charge for each unit of services that is provided. For example, overhead subcontractor cost can represent freight and handling costs that the company incurs with a subcontracted order.  
 
-Because subcontracting is an outsourced capacity, you set up the cost of both direct and indirect subcontracting services on the work center card that represents the subcontracting operation.  
+Because subcontracting is an outsourced capacity, you set up the cost of both direct and indirect subcontracting services on the work center that represents the subcontracting operation.  
+
+### Noninventory item costs
+
+Production BOMs can include noninventory items, such as consumables, services, or miscellaneous charges that are consumed during production but don't carry inventory. By default, [!INCLUDE [prod_short](includes/prod_short.md)] doesn't include the cost of noninventory items in the standard cost of the produced item.
+
+To include noninventory item costs in manufacturing, go to the **Manufacturing Setup** page and turn on the **Include Non-Inventory Items to Produced Items** toggle. When the toggle is enabled:
+
+- Noninventory item costs appear as extra value entries linked to the output item ledger entry.
+- The value entry type is **Direct Cost - Non Inventory**.
+- Variances between expected and actual noninventory costs post to a dedicated **Material Non-Inventory Variance Account** in the general ledger.
+- The **BOM Cost Shares** page shows **Rolled-up Material Non-Inventory Cost** and **Single-level Material Non-Inventory Cost** fields so you can review how noninventory items contribute to the total cost.
+
+To set up the general ledger accounts, go to the **General Posting Setup** page and fill in the **Direct Cost Non-Inventory Applied Account** and the **Material Non-Inventory Variance Account** fields for the relevant business and product posting group combinations.
+
+> [!NOTE]
+> Noninventory item costs don't apply to assembly orders, only production orders.
 
 ## Populate standard cost
 
-You can set standard cost manually or you can calculate the item's standard cost from the **Item card** page. Choose the **Production** group, then choose the **Calc. Production Std Cost** action to update cost of production items or choose the **Assembly** group, then choose the **Calc. Assembly Std. Cost** action to update cost of assembly item. The actions consolidate and roll up the component and capacity costs to calculate the total assembly or manufacturing cost of the items.
+You can set standard cost manually or you can calculate the item's standard cost from the **Item Card** page. Choose the **Production** group, then choose the **Calc. Production Std Cost** action to update cost of production items or choose the **Assembly** group, then choose the **Calc. Assembly Std. Cost** action to update cost of assembly item. The actions consolidate and roll up the component and capacity costs to calculate the total assembly or manufacturing cost of the items.
 
-To calculate the unit cost of an assembly or production BOM, the parent item and its component items must use the Standard costing method. Resources in the BOM roll-up if they have a unit cost defined on the item, resource, or workcenter. Resources don't use cost defined on stockkeeping unit (SKU).
+When you run **Calc. Production Std. Cost**, you choose one of the following calculation levels:
+
+- **Single Level**: Calculate the cost of the finished item by summing up the direct costs of its components and capacity from the item's production BOM and routing. Use this level when component costs are already correct and you only need to update the parent item.
+- **All Levels**: Recalculate costs for the entire BOM structure. Starts from the lowest-level purchased or produced items and rolls costs up through every intermediate subassembly to the top-level item. Use this level after changes to purchased item costs or to routing rates that affect multiple BOM levels.
+
+The all-levels calculation processes items in bottom-up order. Purchased raw materials and lowest-level subassemblies are evaluated first, then their costs feed into the next BOM level, until the top-level finished item cost is complete. This process ensures that each level reflects the latest component and capacity costs.
+
+To calculate the unit cost of an assembly or production BOM, the parent item and its component items must use the Standard costing method. Resources in the BOM roll-up if they have a unit cost defined on the item, resource, or work center. Resources don't use cost defined on stockkeeping unit (SKU).
 
 You can define a production BOM or routing in the SKU, which can be useful if the SKU represents a variant that requires a different set of components or different location. For example, where different production equipment is available. These changes might affect standard cost. You can use the **Calc. Production Std. Cost** action on the **Stockkeeping Unit Card** page to calculate standard cost. Subassemblies use information from items, and not the cost defined on stockkeeping unit. To enable this feature, go to the **Manufacturing Setup** page and turn on the **Load SKU Cost on Manufacturing** toggle.
 
@@ -17647,7 +18708,7 @@ This batch job only creates suggestions. It doesn't implement the suggested chan
  
 ### Implement standard cost change
 
-Updates the changes in the standard cost in the **Item** table with the ones in the **Standard Cost Worksheet** page. The standard cost change suggestions can be created with the **Suggest Item Standard Cost** and/or the **Suggest Work/Mach Ctr Std Cost** batch job, and they can also be modified. The contents of all the fields in the standard cost change suggestions are transferred. When you implement suggestions of changes to standard costs, you can see them on the item card and/or on the work/machine center cards. A revaluation journal is also created for you to update the value of existing stock.
+Updates the changes in the standard cost in the **Item** table with the ones in the **Standard Cost Worksheet** page. The standard cost change suggestions can be created with the **Suggest Item Standard Cost** and/or the **Suggest Work/Mach Ctr Std Cost** batch job, and they can also be modified. The contents of all the fields in the standard cost change suggestions are transferred. When you implement suggestions of changes to standard costs, you can see them on the item and/or on the work/machine center cards. A revaluation journal is also created for you to update the value of existing stock.
 
 #### Options
 
@@ -18702,7 +19763,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 5430,
-ms.date: 03/18/2026
+ms.date: 06/02/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -18726,14 +19787,14 @@ Another goal of the planning system is to ensure that the inventory doesn't grow
 
 Anticipated and actual customer demand, and inventory reordering parameters, drive the planning system. Running the planning calculation results in suggestions for specific actions ([Action Messages](production-how-to-run-mps-and-mrp.md#action-messages)) to take for possible replenishment from vendors, transfers between warehouses, or production. If replenishment orders already exist, the suggested actions could be to increase or expedite the orders to meet the changes in demand.  
 
-The basis of the planning routine is in the gross-to-net calculation. Net requirements drive planned order releases, which are scheduled based on the routing information (manufactured items) or the item card lead time (purchased items). Planned order release quantities are based on the planning calculation, and are affected by the parameters set on the individual item cards.  
+The basis of the planning routine is in the gross-to-net calculation. Net requirements drive planned order releases, which are scheduled based on the routing information (manufactured items) or the item lead time (purchased items). Planned order release quantities are based on the planning calculation, and the parameters set on the individual items affect them.  
 
 > [!TIP]
 > The planning system relies on how your organization uses locations. To learn more, go to [Planning With or Without Locations](production-planning-with-without-locations.md).
 
 ## Planning with manual transfer orders
 
-In the **Replenishment System** field on a SKU card, you can set up the planning system to create transfer orders to balance supply and demand across locations.  
+In the **Replenishment System** field on a SKU, you can set up the planning system to create transfer orders to balance supply and demand across locations.  
 
 In addition to such automatic transfer orders, you might need to move inventory quantities to another location, irrespective of existing demand. You can manually create a transfer order for the quantity to move. To ensure that the planning system doesn't try to manipulate this manual transfer order, you must set the **Planning Flexibility** on the transfer lines to **None**.  
 
@@ -18741,9 +19802,9 @@ Contrarily, if you do want the planning system to adjust the transfer order quan
 
 ## Planning parameters
 
-The planning parameters control when, how much, and how to replenish based on the various settings on the item card (or stockkeeping unit - SKU), and the inventory and manufacturing setups.  
+The planning parameters control when, how much, and how to replenish based on the various settings on the item (or stockkeeping unit - SKU), and the inventory and manufacturing setups.  
 
-The following planning parameters exist on the item or SKU card:  
+The following planning parameters exist on the item or stockkeeping unit (SKU):  
 
 - Dampener Period  
 - Dampener Quantity  
@@ -18760,7 +19821,7 @@ The following planning parameters exist on the item or SKU card:
 - Assembly Policy  
 - Manufacturing Policy  
 
-The following order modifiers exist on the item or SKU card:  
+The following order modifiers exist on the item or SKU:  
 
 - Minimum Order Quantity  
 - Maximum Order Quantity  
@@ -18817,7 +19878,7 @@ Any document lines with due dates before the planning starting date are consolid
 
 The exception warning displays if the projected available inventory drops below the safety stock quantity.
 
-The planning system suggests a supply order to meet the demand on its due date. The warning text states the item's safety stock quantity and the date on which it's violated.
+The planning system suggests a supply order to meet the demand on its due date. The warning text states the item's safety stock quantity and the date on which it was violated.
 
 Violating the safety stock level is considered as an exception because it shouldn't occur if the reorder point is set correctly.
 
@@ -18836,20 +19897,20 @@ The attention warning displays in two situations:
 
 ### Missing SKU Planning Policy
 
-Two fields on the **Location Card** give you per-location control over SKU-related behavior during supply planning and SKU creation.
+Two fields on the **Location Card** page give you per-location control over SKU-related behavior during supply planning and SKU creation.
 
-When the planning system detects demand at a location, it checks whether a SKU exists for the item at that location. If a SKU exists, the item is planned according to planning parameters on the SKU card. 
+When the planning system detects demand at a location, it checks whether a SKU exists for the item at that location. If a SKU exists, the item is planned according to planning parameters on the SKU.
 
 The **Missing SKU Planning Policy** field on the **Location Card** page lets you choose what happens when no SKU exists. You can preserve the original behavior, use the item card parameters instead, or skip planning entirely for that location.
 
 ### Missing SKU Planning Policy
 
-When the planning system detects demand at a location, it checks for a SKU in the following sequence. The **Missing SKU Planning Policy** field determines what happens at step 2 when no SKU exists. If it finds a SKU, the item is planned according to planning parameters on the SKU card. This is the same for all three policy values. If it doesn't find a SKU, it checks the **Missing SKU Planning Policy** field on the demand location. What happens next depends on the policy value, as described in the following table.
+When the planning system detects demand at a location, it checks for a SKU in the following sequence. The **Missing SKU Planning Policy** field determines what happens at step 2 when no SKU exists. If it finds a SKU, the item is planned according to planning parameters on the SKU, which is the same for all three policy values. If it doesn't find a SKU, it checks the **Missing SKU Planning Policy** field on the demand location. What happens next depends on the policy value, as described in the following table.
 
 | Policy value | System behavior |
 |---|---|
-|Minimal (default) | This policy preserves the existing behavior described in [Planning with or without locations](/dynamics365/business-central/production-planning-with-without-locations):<br><br>- If the **Components at Location** field in **Manufacturing Setup** equals the demand location, the item is planned according to planning parameters on the item card.<br>- If **Components at Location** differs from the demand location and the **Reordering Policy** on the item card is **Order**, the item is planned according to planning parameters on the item card. Items using the reordering policy **Order** continue to use the policy and the other settings.<br>- Otherwise, the item is planned according to the minimal alternative where the **Reordering Policy** is set to **Lot-for-Lot**, **Include Inventory** is **Yes**, all other planning parameters are empty. |
-|Item Card| The item is planned according to planning parameters on the item card, regardless of the **Components at Location** setting. The system creates a temporary SKU by copying planning parameters from the item for the planning run. It logs an entry on the **Planning Error Log** page, noting that planning parameters were taken from the item card because the SKU doesn't exist. |
+|Minimal (default) | This policy preserves the existing behavior described in [Planning with or without locations](/dynamics365/business-central/production-planning-with-without-locations):<br><br>- If the **Components at Location** field in **Manufacturing Setup** equals the demand location, the item is planned according to planning parameters on the item.<br>- If **Components at Location** differs from the demand location and the **Reordering Policy** on the item card is **Order**, the item is planned according to planning parameters on the item. Items using the reordering policy **Order** continue to use the policy and the other settings.<br>- Otherwise, the item is planned according to the minimal alternative where the **Reordering Policy** is set to **Lot-for-Lot**, **Include Inventory** is **Yes**, all other planning parameters are empty. |
+|Item Card| The item is planned according to planning parameters on the item, regardless of the **Components at Location** setting. The system creates a temporary SKU by copying planning parameters from the item for the planning run. It logs an entry on the **Planning Error Log** page, noting that planning parameters were taken from the item because the SKU doesn't exist. |
 | Don't Plan | The system skips planning for the item at this location entirely, similar to what happens when the **Reordering Policy** field is blank on the item or SKU. It logs an entry on the **Planning Error Log** page, noting that the item wasn't planned because the SKU doesn't exist and the **Missing SKU Planning Policy** is set to **Don't Plan**. |
    
 > [!NOTE]
@@ -18889,8 +19950,51 @@ Requisition worksheet lines contain detailed information about the items that ne
 
 To learn more about planning with locations and transfers, go to [Planning With or Without Locations](production-planning-with-without-locations.md).
 
+## Multilevel production orders
+
+When a finished item contains subassemblies that are also produced in-house (each with its own production BOM and routing), the planning system creates multilevel production orders. Each level in the BOM hierarchy generates its own planned production order, linked to the parent order.
+
+### How multilevel planning works
+
+1. **Top-level demand**: A sales order or forecast creates demand for the finished item.
+2. **Planning run**: When you run the **Calculate Regenerative Plan** or **Calculate Net Change Plan** actions on the **Planning Worksheet** page, the planning system identifies that the finished item needs production.
+3. **BOM explosion**: The system reads the item's production BOM. For each component where the **Replenishment System** field contains **Prod. Order**, it creates a separate planned production order at the next BOM level.
+4. **Recursive nesting**: If a component's production BOM contains further produced components, the system repeats the explosion for each level until all components are either purchased items or lowest-level produced items.
+5. **Scheduling**: Each production order is scheduled based on its routing. Lower-level orders are scheduled to finish in time for the parent order to start.
+
+### Working with multilevel orders on the Planning Worksheet
+
+After the planning run, the **Planning Worksheet** page shows one line per planned production order. To understand the hierarchy:
+
+- **Ref. Order No.**: Sort by this field to group all orders that belong to the same top-level demand.
+- **Planning Level**: Shows the depth in the BOM hierarchy. Level 0 is the finished item, level 1 is its direct subassemblies, and so on.
+- **MPS Order**: Indicates whether the line is a master production schedule order (top-level demand) or a dependent component order.
+
+When you run **Carry Out Action Message**, [!INCLUDE [prod_short](includes/prod_short.md)] creates firm planned production orders for all levels. Each production order's component list references the child production orders through the **Supplied by Prod. Order** flow on the **Prod. Order Components** page.
+
 > [!TIP]
-> When you're working on the **Requisition Worksheet** or **Planning Worksheet** pages, you can organize the lines by sorting on a column name. This sorting is especially useful on the Planning Worksheet page because you can use it for multilevel production orders. By default, lines are sorted by the **Item No.** field. To group lines for a multilevel order, sort by the **Ref. Order No.** field. Also, the **MPS Order** and **Planning Level** fields can help show the hierarchy of the lines.
+> To regenerate a production order and its subassemblies in one step, open the production order, and then choose the **Replan** action. On the request page, set the **Plan** field to **All Levels** to recalculate routings and component needs for the current order and all child production orders. Use **One Level** to recalculate only the current order's components without going deeper into the BOM hierarchy. To learn more, go to [Replan or refresh production orders](production-how-to-replan-refresh-production-orders.md).
+
+## Compare planning approaches
+
+[!INCLUDE [prod_short](includes/prod_short.md)] offers several approaches to supply planning, each suited to different scenarios. The following table compares the main planning methods to help you choose the right one.
+
+| Approach | Page | Best for | How it works |
+|--|--|--|--|
+| **Regenerative Plan (MPS/MRP)** | Planning Worksheet | Ongoing production with many items and complex BOM structures | Recalculates the entire plan from scratch for all items (or selected items). Evaluates all demand and supply, and creates action messages to balance them. Use for periodic full planning runs. |
+| **Net Change Plan** | Planning Worksheet | Daily updates after minor changes | Recalculates only items where demand or supply changed since the last planning run. Faster than regenerative but requires a previous full plan as baseline. |
+| **Order Planning** | Order Planning | Make-to-order environments or one-off demand | Manually go through each unplanned demand line (sales orders, production order components) and decide how to fulfill it. No automatic action messages, you decide item by item. |
+| **Requisition Worksheet** | Requisition Worksheet | Purchasing and transfer replenishment | Calculates replenishment for items with **Purchase** or **Transfer** replenishment system. Useful when separate teams handle purchasing versus production planning. |
+
+### When to use each approach
+
+- **Regenerative Plan**: Run weekly or when significant changes happen, such as new BOMs, price changes, new items, and so on. Ensures a complete, consistent plan.
+- **Net Change Plan**: Run daily to incorporate new sales orders, consumption postings, or other incremental changes without the overhead of a full recalculation.
+- **Order Planning**: Use when you have custom or infrequent orders and want direct control over each fulfillment decision.
+- **Requisition Worksheet**: Use when a separate team handles purchasing, or when you want to separate purchase or transfer planning from production planning.
+
+> [!NOTE]
+> You can combine approaches. For example, run the regenerative plan weekly for production, and use the requisition worksheet daily for purchasing replenishment.
 
 ## Related information
 
@@ -21622,7 +22726,7 @@ The **Order Planning** page can be accessed from several different locations:
     >  If the components have a default vendor number set up on the item cards, the lines will be preset.  
 
 6.  Choose the **Supply From**  field.  
-7.  On the **Item Vendor Catalogue** page, choose the **New** action, and then select vendor **30000**.  
+7.  On the **Item Vendor Catalog** page, choose the **New** action, and then select vendor **30000**.  
 8.  Choose the **OK** button to return to the **Order Planning** page.  
 9. Copy vendor **30000** to the other lines for loudspeaker components on this production order.  
 
@@ -21741,6 +22845,7 @@ The **Order Planning** page can be accessed from several different locations:
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/manufacturing-powerbi-prod-order-wip
@@ -22020,64 +23125,5 @@ This step confirms that you want to transfer the lines to a sales document. You 
 
 [FAQ for Sales Line Suggestions with Copilot](faq-sales-suggest-sales-lines-with-copilot.md)
 [Configure Copilot and agent capabilities](enable-ai.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-and-planning
----
-title: Design details - Item tracking and planning
-description: Because they are stored in the reservation system, item tracking numbers are fully coordinated with order tracking records.
-author: brentholtorf
-ms.topic: concept-article
-ms.search.keywords:
-ms.date: 03/17/2026
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
-ms.custom: bap-template
----
-
-# Design details: Item tracking and planning
-
-Because they are stored in the reservation system, item tracking numbers are fully coordinated with order tracking records. This means that items with order tracking records can be assigned item tracking numbers. Conversely, items that have item tracking numbers can become order tracking records. For more information, see [Design Details: Item Tracking Design](design-details-item-tracking-design.md).
-
-For more information about the integrated systems, see [Design Details: Reservations, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md).
-
-Because order tracking is only concerned with specific item application, the coordination with item tracking numbers only applies to items that are set up to use specific item tracking. This is set by the **SN Specific Tracking** and **Lot Specific Tracking** fields on the item card, which specify the following:
-
-- The item must carry a serial number or lot number when it is posted.
-- The item must apply to the same serial number or lot number when it is posted outbound.
-
-In alignment with standard supply/demand balancing principles, the planning system and the related order tracking feature only match supply and demand carrying item tracking numbers if the item in question uses specific item tracking. In all other cases, the planning and order tracking systems ignore item tracking numbers when they apply supply to meet demand or apply demand to supply. For more information, see [Design Details: Reservation, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md).
-
-For example, when order tracking exists for a given item, it implies that records for the item are already in the **Reservation Entry** table, which is the core of the reservation system, before the item tracking numbers are defined. Therefore, the following coupling restrictions apply to the item tracking numbers to be order tracked:
-
-- Demand with a serial number or lot number can only cover supply with the same serial number or lot number.
-- Demand without a serial or lot number can cover any supply, with or without a serial or lot number.
-
-Apart from their consequences on dynamic order tracking, the item tracking coupling restrictions do not affect the planning system significantly.
-
-On the supply side, a serial or lot number is typically not entered until immediately before the order is posted, such as a purchase receipt into the warehouse. When entering a serial or lot number on the demand side, such as on a sales order, that serial or lot number is already in inventory. Accordingly, item tracking numbers are typically not an issue in supply planning.
-
-For items that use specific item tracking, all demand carrying serial or lot numbers must be matched by corresponding supply. In most cases, it does not make sense to reorder a specific serial or lot number, so the planning of purchase or production supplies is probably not affected. However, when transferring items from one location to another, it is likely that the transfer is for a specific lot, so planning transfer supplies might be affected by the specific coupling restriction.
-
-For more information, see [Design Details: Transfers in Planning](design-details-transfers-in-planning.md).
-
-## Balancing demand and supply
-If an item requires specific item tracking, then an order tracking link is made from all the item’s item tracking demand to any corresponding item tracking supply, with the sole limitation that supply should come before demand. If, under those circumstances, no item tracking supply can be found that corresponds to the item tracking-specific demand, then a new item tracking supply is created immediately and without considering order sizing, planning parameters, or rescheduling of existing supply of the same serial or lot number.
-
-If item tracking numbers are assigned on the demand side or on the supply side without requiring specific item tracking, then an order track link is made from the demand to that supply, based on the most suitable timing and quantity, as in the usual balancing procedure. The specified item tracking number goes into the order tracking record in the same way that any specified item tracking quantity defines one end of the order tracking link. This means that the item tracking number that is entered is preserved while it is also part of the order tracking record.
-
-If item tracking numbers are assigned on the supply side without requiring specific item tracking, then this supply is regarded as fixed by the planning system. No resizing or rescheduling is suggested for this supply, but the supply is taken into consideration when the planning system tries to meet the gross requirements.
-
-For more information, see [Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md).  
-
-## Related information  
-[Design Details: Item Tracking Design](design-details-item-tracking-design.md)  
-[Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md)  
-[Design Details: Reservation, Order Tracking, and Action Messaging](design-details-reservation-order-tracking-and-action-messaging.md)   
-[Design Details: Supply Planning](design-details-supply-planning.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 

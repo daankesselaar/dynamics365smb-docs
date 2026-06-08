@@ -1,3 +1,128 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/copilot-overview
+---
+title: Copilot FAQ
+description: This article answers common questions about Copilot in Business Central.
+author: mikebc
+ms.author: mikebc
+ms.reviewer: jswymer
+ms.topic: overview 
+ms.collection:
+  - bap-ai-copilot
+  - get-started
+ms.date: 05/03/2026
+ms.update-cycle: 180-days
+ms.custom: bap-template
+---
+
+# Copilot FAQ
+
+This article answers common questions about Microsoft Copilot in Dynamics 365 Business Central.
+
+## What is Copilot in Business Central?
+
+Copilot is an AI-powered assistant that helps spark creativity, boost productivity, and eliminate tedious tasks. Copilot in Business Central is the world's first AI-powered assistant across all lines of business. With Copilot in Business Central, small and medium-sized organizations empower their workers through intuitive AI tools that boost creativity and save time.
+
+Get an overview of the Copilot and AI experiences in Business Central at [AI in Business Central](ai-in-bc.md).
+
+## How does Copilot approach security, privacy, and compliance?
+
+Copilot is built on the Microsoft cloud and designed for enterprise use, with the security, privacy, and compliance controls that our customers expect. Here are some key points to common questions:
+
+- When a user interacts with Copilot, it inherits their data permissions and can't read any more data than the user already has access to.
+- Microsoft doesn't read your prompts or use your data to train AI models without your explicit permission.
+- For customers within the EU Data Boundary, data doesn't move outside that boundary. 
+
+Learn about Copilot data security and privacy in [FAQ for Copilot data security and privacy for Dynamics 365 and Power Platform](/dynamics365/faqs-copilot-data-security-privacy). Learn about data movement across geographies in [Copilot data movement across geographies](ai-copilot-data-movement.md).
+
+## How does Copilot approach AI safety?
+
+Generative AI within Copilot in Business Central aligns with Microsoft's responsible AI principles, including: fairness, reliability, safety, privacy and security, inclusiveness, transparency, and accountability. Learn more in [Responsible AI FAQs for Business Central](responsible-ai-overview.md) or explore our [Responsible AI transparency report](https://aka.ms/RAITransparencyReport2025).
+
+## Is Copilot free?
+
+Yes, Copilot in Business Central is included with your Business Central license at no extra cost. However, fair-use policies, quotas, or pricing might be introduced later.
+
+## Is Copilot in Business Central available worldwide?
+
+Copilot includes a constantly expanding set of capabilities that help users in different roles and tasks. Each Copilot capability defines its own list of supported regions and supported languages. Although most features might be available only in English at first, we aim to unlock more languages and regions over time. Learn more in [Copilot geographic and language availability in Business Central](copilot-agents-region-language-availability.md).
+
+## Is Copilot available for Business Central online only?
+
+Yes, Copilot is exclusive to Business Central online. Therefore, it isn't available for other deployment types, such as on-premises or private cloud.
+
+## Is Copilot aware of my environment customizations?
+
+Some but not all Copilot features can work with your custom pages, tables, and other content from the apps that you installed. For example, you can use [analysis assist](analysis-assist.md) on your custom lists, or you can use [chat with Copilot](chat-with-copilot.md) to find records in custom tables. Learn more about how each Copilot feature works with your customizations in [Analyze data in lists with help from Copilot](analysis-assist.md) and [Chat with Copilot](chat-with-copilot.md).
+
+The accuracy and user experience of Business Central's AI-powered features might vary based on the apps that you installed.
+
+## Does Copilot have to be trained on my data?
+
+Copilot in Business Central relies on powerful AI foundation models that are coupled with data management features of the Business Central platform. No expensive or time-consuming training is needed before your organization can start to use Copilot with your own company data.
+
+## Is Copilot connected to the web?
+
+As of update 26.3, some Copilot features in Business Central can search the web for additional information. Allowing Copilot to search the web improves the quality of Copilot responses by grounding them in the latest information from public website content and saves our customers' time from having to switch apps to manually find things themselves.  
+
+At Microsoft, we're committed to ensuring that Copilot is built for enterprise use with the security, privacy, compliance, and responsible AI controls that our customers expect. Learn more about how Copilot searches the web, how it's designed for safety, and how administrators can configure it in [Searching the web with Copilot](ai-search-web-copilot.md).
+
+## Can I develop my own copilots for Business Central?
+
+You can extend and enhance Copilot in Business Central by using tools that are part of Business Central's standard development platform. Learn more in [Integrating AI using Developer Tools for Copilot](/dynamics365/business-central/dev-itpro/developer/ai-integration-landing-page).
+
+You can also connect copilots by using Copilot Studio. In addition, you can implement your own stand-alone AI-powered apps and services that connect to Business Central. Learn more in [Adopt, extend, and build Copilot experiences across the Microsoft Cloud](/microsoft-cloud/dev/copilot/overview).
+
+## How do I stay up to date with the latest news about Copilot in Business Central?
+
+For news about Copilot and other AI innovation in Business Central, you can follow [the release plans](https://aka.ms/BCReleasePlan).
+
+## As a Business Central partner, how easily can I demonstrate Copilot in Business Central to my customers?
+
+Copilot in Business Central is automatically available when you provision a Microsoft Entra tenant with a Business Central environment on the [Customer Digital Experiences (CDX)](https://aka.ms/CDX) site. Learn more about how to prepare demonstrations in [Prepare demonstration environments of Dynamics 365 Business Central](/dynamics365/business-central/dev-itpro/administration/demo-environment).
+
+Depending on the environment that you provision, extra setup might be required. Learn more in [Configure Copilot and agent capabilities](/dynamics365/business-central/enable-ai).
+
+## Is there a difference between Copilot in Business Central and Microsoft 365 Copilot?
+
+Microsoft empowers people to achieve more through copilots that are adapted to different situations. For example, Microsoft 365 Copilot is the general AI assistant that is intended for working with Microsoft Teams, Excel, and other productivity apps. Copilot in Business Central is the AI assistant that is intended specifically for the Business Central app.
+
+## Does Copilot in Business Central work with Copilot for Microsoft 365?
+
+Currently, there's no direct connection between Copilot in Business Central and Microsoft 365 Copilot. Copilot features inside Business Central are unaware of your Microsoft 365 data.
+
+Conversely, when working in the Microsoft 365 suite of applications there are options for Copilot to use Business Central data. One such option is Microsoft 365 Copilot for Finance, a stand-alone product that uses general GPT (generative pretrained transformer) training data, Microsoft 365 Graph data, and ERP information. Microsoft 365 Copilot for Finance can connect to Business Central and work with ERP data useful to specific contexts and scenarios, like collections management.
+
+Learn more about Microsoft 365 Copilot for Finance with Business Central in [Collect outstanding balances](receivables-collect-outstanding-balances.md). Learn more general information at [Microsoft 365 Copilot for Finance](https://www.microsoft.com/microsoft-365/copilot/copilot-for-finance).
+
+## Does Copilot in Business Central require a minimum number of users?
+
+Currently, no minimum number of users is required to start to use Copilot in Business Central.
+
+## How does Copilot use the Azure AI time quota that is included with licenses?
+
+Business Central offers numerous AI-powered features. Some features, such as sales and inventory forecasting, use specific machine learning models. These features rely on Azure AI and aren't related to Copilot. As the Dynamics 365 licensing guide indicates, 30 minutes of Azure AI time are included with Business Central licenses. This quota refers to non-Copilot features, where consumption of Azure AI time has no effect on Copilot in Business Central.
+
+## Is Copilot available to Embed applications?
+
+Currently, because of technical limitations, we can't offer Copilot to customers who run independent software vendor (ISV) Embed apps. ISVs can extend Copilot with their own functionality or provide alternative uses of generative AI.
+
+## Related information
+
+[Configure Copilot and agent capabilities](enable-ai.md)  
+[Analyze data in lists with Copilot](analysis-assist.md)  
+[Autofill with Copilot](autofill-fields-with-copilot.md)  
+[Chat with Copilot](chat-with-copilot.md)  
+[Create marketing text with Copilot](item-marketing-text.md)  
+[Find item substitutions with Copilot](suggest-item-substitutions-copilot.md)  
+[Map e-documents to purchase order lines with Copilot](map-edocuments-with-copilot.md)  
+[Payables Agent](payables-agent.md)  
+[Reconcile bank accounts with Copilot](bank-reconciliation-with-copilot.md)  
+[Sales Order Agent](sales-order-agent.md)  
+[Suggest lines on sales orders with Copilot](sales-suggest-sales-lines-with-copilot.md)  
+[Suggest number series with Copilot](suggest-number-series-copilot.md)  
+[Summarize with Copilot](summarize-with-copilot.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bank-how-setup-bank-statement-service
 ---
 title: Set Up Yodlee Bank Feeds
@@ -3145,7 +3270,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000764, 99000765, 99000766, 99000767, 99000794, 99000796, 99000798, 99000806, 99000808, 99000810, 99000817, 99000834, 99000835, 99000836, 99000837, 99000840, 99000841, 99000844, 99000845
-ms.date: 03/10/2026
+ms.date: 05/28/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -3168,7 +3293,7 @@ Before you can create a routing, the following setups must be in place:
 3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
 4. In the **Type** field, select one of the following options:
    - **Serial** to calculate the production routing according to the value in the **Operation No.** field.  
-   - Select **Parallel** to calculate the operations according to the value in the **Next Operation No.** field.  
+   - Select **Parallel** to calculate the operations according to the value in the **Next Operation No.** field. To learn more, go to [Set up parallel operations in a routing](#set-up-parallel-operations-in-a-routing).  
 5. To edit the routing, set the **Status** field to **New** or **Under Development**.  
 
     Proceed to fill in the routing lines.
@@ -3254,9 +3379,102 @@ The version principle enables you to manage several versions of a routing. The s
 
 7. When you're done setting up the routing version, in the **Status** field, choose **Certified**.
 
+## Time fields on routing lines
+
+Each routing operation has four time fields that together determine the total duration of the operation and the production lead time. All time fields use the unit of measure specified in the corresponding **Unit of Measure Code** field (for example, **Setup Time Unit of Meas. Code**).
+
+| Time field | Purpose | Scaling |
+|--|--|--|
+| **Setup Time** | One-time preparation before work starts (for example, tool changes, machine calibration). | Fixed per operation. Doesn't scale with quantity. |
+| **Run Time** | Processing time per unit produced. | Scales with quantity and lot size. |
+| **Wait Time** | Queue or curing time after run time completes (for example, drying, cooling). | Fixed per operation. Doesn't consume work center capacity. |
+| **Move Time** | Transit time to move parts to the next work center. | Fixed per operation. Doesn't consume work center capacity. |
+
+The scheduling sequence for each operation is: 
+
+1. Setup Time
+1. Run Time
+1. Wait Time
+1. Move Time
+
+Wait time and move time don't consume capacity on the work center calendar, so they extend the elapsed duration but not the work center load.
+
+> [!NOTE]
+> The **Queue Time** field on the work center card adds a buffer before an operation starts. Together with the four routing line fields, queue time helps provide an accurate overall production lead time.
+
+## Send-ahead quantity
+
+The **Send-Ahead Quantity** field on a routing line enables lot overlapping between operations. When you specify a send-ahead quantity, the next operation can start processing a partial lot before the current operation finishes the full quantity.
+
+For example, if operation 10 processes 100 units with a send-ahead quantity of 25, operation 20 can begin after operation 10 finishes the first 25 units. This approach reduces the total production lead time because operations run partially in parallel.
+
+### How send-ahead quantity works
+
+- If the send-ahead quantity is **greater than or equal to** the total quantity, each operation must finish before the next one starts (standard sequential processing).
+- If the send-ahead quantity is **less than** the total quantity, the scheduler calculates when the next operation can start based on the partial lot completion time.
+- Send-ahead quantity works together with the time fields (setup, run, wait, and move) to determine exact overlapping schedules.
+
+> [!TIP]
+> Use send-ahead quantity when consecutive operations use different work centers and the partial lot can physically move to the next station. If both operations share the same work center, overlapping might not be practical.
+
+## Routing scrap
+
+Routing lines include two scrap fields that affect both scheduling and costing:
+
+| Field | Description |
+|--|--|
+| **Scrap Factor %** | A percentage of extra quantity that must be processed at this operation to compensate for expected scrap. |
+| **Fixed Scrap Quantity** | An absolute number of extra units to process at this operation, regardless of lot size. |
+
+### How routing scrap differs from BOM scrap
+
+- **BOM scrap** (on production BOM lines) increases the component quantity needed. It answers: *How much more material do I need?*
+- **Routing scrap** (on routing lines) increases the quantity processed at each operation. It answers: *How many extra units must I run through this operation?*
+
+Both scrap types are cumulative across operations. The formula for calculating the input quantity at an operation is:
+
+$$\text{Input Qty} = \text{Output Qty} \times (1 + \text{Scrap Factor \%}) + \text{Fixed Scrap Qty}$$
+
+[!INCLUDE [prod_short](includes/prod_short.md)] accumulates routing scrap from the last operation backward to the first. The **Scrap Factor % (Accumulated)** and **Fixed Scrap Qty. (Accum.)** fields on the production order routing line show the combined scrap across all subsequent operations.
+
+> [!NOTE]
+> Routing scrap also affects standard cost calculations. The capacity cost for each operation is scaled by the accumulated scrap factor, which increases the standard cost of the produced item.
+
 ## Work with uncertified production BOMs and routings
 
 [!INCLUDE [production-turn-off-uncertified-notifications](includes/production-turn-off-uncertified-notifications.md)]
+
+## Set up parallel operations in a routing
+
+When you set a routing's **Type** to **Parallel**, you use the **Next Operation No.** field to define how operations flow. This arrangement lets multiple operations run at the same time, converging at a later operation. Use parallel routings when independent tasks can happen simultaneously, such as preparing different subcomponents before a final assembly step.
+
+### How the Next Operation No. field controls the flow
+
+In a parallel routing, the **Next Operation No.** field on each routing line tells [!INCLUDE [prod_short](includes/prod_short.md)] which operation to schedule after the current one completes. If you leave **Next Operation No.** blank, the operation is treated as the last step in the routing.
+
+For example, consider a routing where operation 10 splits into two parallel branches (operations 20 and 30 in the following table) that merge at operation 40:
+
+| Operation No. | Description | Next Operation No. |
+|--|--|--|
+| 10 | Prepare raw material | 20\|30 |
+| 20 | Machine part A | 40 |
+| 30 | Machine part B | 40 |
+| 40 | Final assembly | *(blank)* |
+
+In this example:
+
+- Operation 10 has **Next Operation No.** set to **20\|30**, which means that both operations 20 and 30 can start after operation 10 finishes.
+- Operations 20 and 30 each point to operation 40, so operation 40 starts only after both branches complete.
+- Operation 40 has a blank **Next Operation No.** because it's the last operation.
+
+Use the pipe character (\|) in the **Next Operation No.** field to specify multiple subsequent operations that start in parallel.
+
+### Scheduling and capacity
+
+When [!INCLUDE [prod_short](includes/prod_short.md)] schedules a parallel routing, it determines the start time of a converging operation based on the latest finishing time of all preceding operations. The total production lead time therefore depends on the longest parallel branch, not the sum of all operations.
+
+> [!TIP]
+> Use the **Send-Ahead Quantity** field on routing lines to start a downstream operation before the upstream operation is fully complete. This arrangement can further reduce lead times, though it works with both serial and parallel routing types.
 
 ## Related information
 
@@ -3267,7 +3485,6 @@ The version principle enables you to manage several versions of a routing. The s
 [Inventory](inventory-manage-inventory.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -3310,7 +3527,7 @@ If you use the **Company Hub** role, your home page shows a list of companies th
 You can add new companies, such as when you get a new client, or when your corporation adds a new subsidiary. Learn more in [Add Companies to Your Company Hub](company-hub-add-company.md).  
 
 > [!TIP]
-> In order to refresh the data in the company hub, you must have access to the data in the companies that the data comes from.
+> To refresh the data in the company hub, you must have access to the data in the companies that the data comes from.
 
 <!--## Company details
 
@@ -3348,7 +3565,7 @@ Learn more in [Environment links](company-hub-add-company.md#environment-links) 
 
 [!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
 
-In order to access the company hub, you must have access through either the *D365 COMPANY HUB* user group or through the *D365 COMPANY HUB*  permission set. You must also have access to the companies that are listed in your company hub, which means that you must be a user in those companies. Learn more in [Create Users According to Licenses](ui-how-users-permissions.md).  
+To access the company hub, you must have access through either the *D365 COMPANY HUB* user group or through the *D365 COMPANY HUB* permission set. You must also have access to the companies that are listed in your company hub, which means that you must be a user in those companies. Learn more in [Create Users According to Licenses](ui-how-users-permissions.md).  
 
 > [!IMPORTANT]
 > The company hub is a company-wide list, so any user who is granted access to the company hub can see all companies in their own [!INCLUDE [prod_short](includes/prod_short.md)] tenant, and all KPIs for the companies that they have access to.
@@ -4335,7 +4552,7 @@ If you need to pay the vendor by cash or check, you can post the payment when yo
 3. To pay either in cash or by bank transfer, enter the number of the general ledger cash account or the bank account in the **Bal. Account No.** field.  
 
 > [!IMPORTANT]  
-> The **Bal. Account Type** and **Bal. Account No.** fields are not included in the standard layout of the invoice header. In order to post the payment of an invoice, you must contact a Microsoft partner who can add the fields through code.  
+> The **Bal. Account Type** and **Bal. Account No.** fields are not included in the standard layout of the invoice header. To post the payment of an invoice, you must contact a Microsoft partner who can add the fields through code.  
 >
 > This customization is only required if you do not specify balancing accounts on the payment methods as describe above.
 
@@ -4672,14 +4889,14 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-configure-production-processes
 ---
-title: Configure production processes
+title: Configure manufacturing processes
 description: To convert material into produced end items, production resources, such as bills of material, routings, machine operators, and machinery must be set up in the system.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 99000768, 99000779, 99000780, 99000866
-ms.date: 09/11/2025
+ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -4688,7 +4905,7 @@ ms.custom: bap-template
 
 To convert material into produced end items, you must set up production resources, such as bills of material, routings, machine operators, and machinery.
 
-In [!INCLUDE [prod_short](includes/prod_short.md)], machine centers represent operators and machines. You can organize machine centers in work centers and work center groups. When these resources are established, you can load them with operations according to the item's defined material (BOM) and process (routing) structure, and according to the capacity of the machine or work center. You can also set the production capacity of each resource. The work time available in the machine and work centers define capacity, governed by calendars for each level. A work center calendar specifies the working days or hours, shifts, holidays, and absence that determine the work center's gross available capacity (typically measured in minutes). The efficiency and capacity values you define determine all of this.  
+In [!INCLUDE [prod_short](includes/prod_short.md)], machine centers represent operators and machines. You can organize machine centers in work centers and work center groups. When these resources are established, you can load them with operations according to the item's defined material (BOM) and process (routing) structure, and according to the capacity of the machine or work center. You can also set the production capacity of each resource. The work time available in the machine and work centers define capacity, governed by calendars for each level. A work center calendar specifies the working days or hours, shifts, holidays, and absence that determine the work center's gross available capacity (typically measured in minutes). The efficiency and capacity values you define determine all of these things.  
 
 After you set up manufacturing, you can plan and fulfill production orders. To learn more, go to [Planning](production-planning.md) and [Manufacturing](production-manage-manufacturing.md).  
 
@@ -4696,16 +4913,45 @@ The following table describes a sequence of tasks, with links to the articles th
 
 |**To**|**Go to**|  
 |------------|-------------|  
-|Configure the manufacturing features, such as defining shop floor work hours and cost calculation parameters.|The **Manufacturing Setup** page.|
+|Configure the manufacturing features, such as defining shop floor work hours and cost calculation parameters.|[Manufacturing Setup](#manufacturing-setup)|
 |On the **Planning** tab on the **Inventory Setup** page, set global planning parameters that override parameters set on individual item cards.|[Design Details: Planning Parameters](design-details-planning-parameters.md)|
 |Define a standard working week in the manufacturing department in terms of starting and ending times of each work day and related work shift.|[Create Shop Calendars](production-how-to-create-work-center-calendars.md)|  
-|Organize fixed values and requirements of production resources as work centers or machine centers to govern their output of production performed.|[Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md)|
-|Organize production operations in the required order and assign them to work or machine centers with the required work times.|[Create Routings](production-how-to-create-routings.md)|
+|To govern their output of production performed, organize fixed values and requirements of production resources as work centers or machine centers.|[Set Up Work Centers and Machine Centers](production-how-to-set-up-work-and-machine-centers.md)|
+|Organize production operations in the required order and assign them to work centers or machine centers with the required work times.|[Create Routings](production-how-to-create-routings.md)|
 |Organize production components or subassemblies under a produced parent item and certify the BOM for execution at work centers.|[Create Production BOMs](production-how-to-create-production-boms.md)|
 |Make sure that the right component quantity is available when produced items are stocked in one unit of measure but produced in another.|[Work With Manufacturing Batch Units of Measure](production-how-to-use-the-manufacturing-batch-unit-of-measure.md)|  
-|Define families of production items with similar manufacturing processes to save consumption. For example, four pieces of the same item can be produced from one sheet and 10 pieces of another, different, item at the same time.|[Work With Production Families](production-how-work-family.md)|
+|To save consumption, define families of production items with similar manufacturing processes. For example, four pieces of the same item can be produced from one sheet and 10 pieces of another, different, item at the same time.|[Work With Production Families](production-how-work-family.md)|
 |Use standard tasks to simplify the creation of routings by quickly attaching extra information to recurring operations.|[Set Up Standard Routing Lines](production-how-set-up-standard-routing-lines.md)|  
 |Prepare work centers and routings to represent subcontracted production operations.|[Subcontract Manufacturing](production-how-to-subcontract-manufacturing.md)|  
+
+## Manufacturing Setup
+
+The **Manufacturing Setup** page controls global defaults for production scheduling, costing, and journal behavior. To open the page, [!INCLUDE[open-search](includes/open-search.md)], enter **Manufacturing Setup**, and then choose the related link. The next few sections describe the fields on the page's FastTabs.
+
+### General FastTab
+
+| Field | Description |
+| -- | -- |
+| **Normal Starting Time** / **Normal Ending Time** | Default workday boundaries used when creating shop calendars. Individual work center calendars can override these values. |
+| **Preset Output Quantity** | Controls the default output quantity when you open a production journal. **Expected Quantity** prefills with the remaining quantity. **Zero on All Operations** or **Zero on Last Operation** starts at zero so operators enter actual output. |
+| **Default Consumption Calculation Based on** | Determines whether automatic consumption flushing calculates component quantities from **Actual Output** (what was produced) or **Expected Output** (the planned production quantity). |
+| **Show Capacity In** | The default capacity unit of measure (for example, Minutes or Hours) used across work center cards and reports. |
+| **Cost Incl. Setup** | When turned on, setup time from routing operations is included in the standard cost calculation. Turn it off to exclude setup time from costing. |
+| **Dynamic Low-Level Code** | Recalculates BOM hierarchy levels automatically when you modify production BOMs. Required for correct planning of multilevel production structures. Might affect performance in environments with large BOM structures. |
+| **Doc. No. Is Prod. Order No.** | Uses the production order number as the document number in item and capacity ledger entries, which makes it easier to trace posted entries back to their production order. |
+| **Planning Warning** | When turned on, the planning system raises warnings when planned shipment dates can't be met. |
+| **Default Flushing Method** | The flushing method assigned to new items by default. You can override this value on individual item cards. |
+| **Allow Finishing Prod. Order with no Output** | Allows you to change the status of a production order to **Finished** even when no output was posted. The remaining work-in-process (WIP) is written off to the inventory adjustment account. |
+
+### Planning FastTab
+
+| Field | Description |
+| -- | -- |
+| **Components at Location** | The default location where processes consume production components. The planning system uses this location when a stockkeeping unit doesn't specify a location. |
+
+### Numbering FastTab
+
+This FastTab defines the number series for production orders (Simulated, Planned, Firm Planned, Released), work centers, machine centers, production BOMs, and routings. Each field links to a number series that controls automatic numbering.
 
 ## Related information
 
@@ -4728,7 +4974,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, purchase provisions, wizard, setup, BOM, routing
 ms.search.form: 99000886,
-ms.date: 05/20/2026
+ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -4750,7 +4996,7 @@ If the master data you use in the order process, such as items, stockkeeping uni
 
 ## Configure purchase provisions settings
 
-Purchase provision settings are split across two pages. Fields for work centers, flushing method, and the provision wizard are on the **Subcontracting Setup** page. Fields for routing link codes, component locations, and item charges are on the **Manufacturing Setup** page (in the **Subcontracting** section).
+Purchase provision settings are split across two pages. Fields for work centers, flushing method, and the provision wizard are on the **Subcontracting Setup** page. Fields for routing link codes and component locations are on the **Manufacturing Setup** page (in the **Subcontracting** section).
 
 The following table describes each field.
 
@@ -5617,7 +5863,7 @@ If the user has entered a new sales order or changed an existing one, there is r
 
 For multiple locations, the assignment takes place at the level of item per location combination. If, for example, a sales order has been created at only one location, application will assign the item at that specific location for planning.  
 
-The reason for selecting items for planning is a matter of system performance. If no change in an item’s demand-supply pattern has occurred, the planning system will not suggest any actions to be taken. Without the planning assignment, the system would have to perform the calculations for all items in order to find out what to plan for, and that would drain system resources.  
+The reason for selecting items for planning is a matter of system performance. If no change in an item’s demand-supply pattern has occurred, the planning system will not suggest any actions to be taken. Without the planning assignment, the system would have to perform the calculations for all items to find out what to plan for, and that would drain system resources.  
 
 The **Planning Assignment** table monitors demand and supply events and assigns the appropriate items for planning. The following events are monitored:  
 
@@ -6515,7 +6761,7 @@ You can define sales line discounts for a group of customers instead of applying
 3. Choose the **Sales Line Discounts** action.
 4. Fill in the **Sales Code** column with the discount group created on the previous page.
 5. Fill in the fields on the lines with the **Type** (Item or Item Discount Group), **Code**, **Unit of Measure Code**, and the **Line Discount %**.
-6. If the customer group needs to purchase a minimum quantity in order to gain the discount, fill in the **Minimum Quantity** field.
+6. If the customer group needs to purchase a minimum quantity to gain the discount, fill in the **Minimum Quantity** field.
 7. If necessary, enter the **Starting Date** and **Ending Date** for the discount group.
 8. If relevant, you can also specify the **Currency Code** or **Variant Code** after [personalizing the columns](ui-personalization-user.md).
 
@@ -9889,7 +10135,7 @@ Order priorities are applied to the different types to fulfill the most importan
 
 Demand can also be negative. Treat negative demand as supply. However, unlike typical supply, negative demand is considered fixed supply. The planning system can take it into account, but will not suggest changes to it.  
 
-In general, the planning system considers all supply orders after the planning starting date as subject to change in order to fulfill demand. However, after a quantity is posted from a supply order the planning system can't change it. The following orders can't be replanned:  
+In general, the planning system considers all supply orders after the planning starting date as subject to change to fulfill demand. However, after a quantity is posted from a supply order the planning system can't change it. The following orders can't be replanned:  
 
 * Released production orders where consumption or output has been posted.  
 * Assembly orders where consumption or output has been posted.  
@@ -10216,111 +10462,114 @@ title: Plan for New Demand Order by Order
 description: This planning task can be performed on the Order Planning page, which displays all new demand along with availability information and suggestions for supply, including item substitution.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
 ms.search.form: 5522, 5524, 5526
-ms.date: 07/29/2021
+ms.date: 06/04/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Plan for New Demand Order by Order
+# Plan for new demand order by order
 
-This planning task can be performed on the **Order Planning** page, which displays all new demand along with availability information and suggestions for supply. It provides the visibility and tools needed to effectively plan demand from sales lines and component lines and then create different types of supply orders directly.  
+You can plan for new demand on an order by order basis on the **Order Planning** page. The page displays all new demand along with availability information and suggestions for supply. It provides the visibility and tools you need to effectively plan demand from sales lines and component lines, and then create different types of supply orders.  
 
-You can enter the **Order Planning** page in two ways depending on your focus: From an order that you want to plan for specifically or in batch mode because you want to plan for all and any new demand.  
+> [!NOTE]
+> The **Order Planning** page shows demand from sales orders, production order components, assembly order lines, service orders, and job planning lines. It doesn't include demand from transfer orders. To plan for transfer order demand, use the **Planning Worksheet** page with the **Regenerative Plan** or **Net Change Plan** action instead. Learn more at [Run Full Planning, MPS, or MRP](production-how-to-run-mps-and-mrp.md).
 
+You can access the **Order Planning** page in two ways depending on your focus: 
 
-## To plan for new production order demand
+- From an order that you want to plan for specifically.
+- In batch mode, because you want to plan for all new demand.  
 
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Planned Production Orders**, and then choose the related link. (You can perform these steps for planned, firm planned, or released production orders).
+## Plan for new production order demand
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Planned Production Orders**, and then choose the related link. (You can do these steps for planned, firm planned, or released production orders).
 2. Open the production order you want to plan for, and then choose the **Planning** action.  
 3. On the **Order Planning** page, choose the **Calculate Plan** action.  
 
-The page displays planning lines according to the view filter **Production Demand**, meaning unfulfilled component lines of all existing production orders. Demand for only the one production order is not shown because it is necessary to plan for one production order with an overview of demand for potentially earlier components lines. Planning lines for the production order in context are expanded.  
+The page displays planning lines according to the view filter **Production Demand**, meaning unfulfilled component lines of all existing production orders. Demand for only the one production order doesn't show because you must plan with an overview of potential demand for earlier component lines. Planning lines for the production order in context are expanded.  
 
-## To plan for any new demand
+## Plan for any new demand
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Order Planning**, and then choose the related link.  
 2. On the **Order Planning** page, choose the **Calculate Plan** action.
 3. Choose the **Expand (+)** button in front of the date in the **Demand Date** field to see the underlying planning lines that represent demand lines with insufficient availability.  
-4. For each expanded planning line, that is, demand line, you can see values in information fields at the bottom of the page.  
+4. For each expanded planning line, that is, demand line, fields at the bottom of the page display information.  
 
     |Option|Description|  
     |----------------------------------|---------------------------------------|  
-    |**Qty. on Other Locations**|Shows if the item exists on another location. You can then look up and select it.|  
-    |**Substitutes Exist**|Shows if a substitute item is created for the item. You can then look up and select it. Note that this feature only applies to components, that is, from demand lines of type **Production**.|  
-    |**Quantity Available**|Shows the total availability of the item, that is, the Projected Available Balance.|  
+    |**Qty. on Other Locations**|Shows whether the item exists at another location. You can look up and select the item.|  
+    |**Substitutes Exist**|Shows whether a substitute item is created for the item. You can look up and select the item. This feature only applies to components, that is, from demand lines of type **Production**.|  
+    |**Quantity Available**|Shows the total availability of the item, that is, the projected available balance.|  
     |**Earliest Date Available**|Shows the arrival date of an inbound supply order that can cover the needed quantity on a date later than the demand date.|  
 
-5. In the **Replenishment System** field, select which type of supply order to create.  
+5. In the **Replenishment System** field, select the type of supply order to create.  
 
-    The default value is that of the item card, or SKU card, but you can change it to one of three options:  
+    The default value is that of the item or SKU, but you can change it to one of three options:  
 
     |Option|Description|  
-    |----------------------------------|---------------------------------------|  
+    |--------------|------------------------|  
     |**Purchase**|Creates a purchase order.|  
     |**Transfer**|Creates a transfer order.|  
     |**Prod. Order**|Creates a production order.|  
 
-    In the **Supply From** field you must select a value according to the selected replenishment system.  
-
     > [!NOTE]  
-    >  If the field is not filled in, the system will display an error message when you use the **Make Supply Order** function, and no supply order will be created for the planning line in question. This, however, is not the case if the replenishment system is **Prod. Order**.  
+    > If the field isn't filled in, [!INCLUDE [prod_short](includes/prod_short.md)] displays an error message when you use the **Make Supply Order** action, and no supply order is created for the planning line. However, the exception is when the replenishment system is **Prod. Order**.  
 
-6. From the **Supply From** field, you can look up in the relevant list and select where the supply should come from:  
+6. From the **Supply From** field, you can look up in the relevant list and select where the supply should come from. You must select a value according to the selected replenishment system.  
 
     - If replenishment system is **Purchase**, the look-up button in this field looks up on the **Item Vendor Catalog** page.  
     - If replenishment system is **Transfer**, the look-up button in this field looks up on the **Location List** page.  
 
-    In case the item exists in another location, the **Qty. on Other Location** field at the bottom shows a value and you can then look up and select the location from which the item should be supplied when you make the transfer order.  
+    If the item exists in another location, the **Qty. on Other Location** field at the bottom shows a value, and you can then look up and select the supply location when you make the transfer order.  
 
-    If a substitute exists for the demanded item, the **Substitute Exists** field is set to **Yes**, and you can then look up to the **Item Substitution Entries** page and select the substitute.  
-
-    > [!NOTE]  
-    > Be aware that item substitutions will not automatically cause an item to be replaced by another item, for example when creating a sales order or in a BOM. Instead, you will be alerted to the fact that a substitution is available to you.
-
-7. Select the **Reserve** check box if you want to make a reservation between the supply order you are creating and the demand line that it is created for. It is empty by default.  
+    If a substitute exists for the item, the **Substitute Exists** field is set to **Yes**, and you can then look up to the **Item Substitution Entries** page and select the substitute.  
 
     > [!NOTE]  
-    >  You can only select this check box if the item has **Optional** or **Always** in the **Reserve** field on its item card.  
+    > Item substitutions don't automatically cause an item to replace another item, for example when creating a sales order or in a BOM. Instead, you're alerted to the fact that a substitution is available to you.
 
-8. In the **Qty. to Order** field, you can enter the quantity that will go on the supply order you are creating.   
-    The default value is the same quantity as that in the **Needed Quantity** field. But you may decide to order more or less than this quantity based on your knowledge of the demand situation. If, for example, you see on the **Order Planning** page that several unrelated demand lines are for the same purchased item, and they are due around the same date, you can consolidate these by entering the total needed quantity in the **Qty. to Order** field of one line, and then delete the other, obsolete planning lines for that item.  
+7. Select the **Reserve** checkbox if you want to make a reservation between the supply order you're creating and the demand line that it's for. It's empty by default.  
+
+    > [!NOTE]  
+    > You can only select this check box if the item has **Optional** or **Always** in the **Reserve** field on its item card.  
+
+8. In the **Qty. to Order** field, you can enter the quantity that goes on the supply order you're creating.
+
+   The default value is the same as the quantity in the **Needed Quantity** field. But you can decide to order more or less than this quantity based on your knowledge of the demand situation. If, for example, the **Order Planning** page shows that several unrelated demand lines are for the same purchased item, and they're due around the same date, you can consolidate these lines by entering the total needed quantity in the **Qty. to Order** field of one line, and then delete the others planning lines for that item.  
 
 9. In the **Due Date** and **Order Date** fields, you can enter the dates that should apply to the created supply orders.  
 
-    These two fields are interrelated according to the **Default Safety Lead Time** field, which can be found on the **Manufacturing Setup** page. By default, the due date is the same as the demand date, but you can change this as you like.  
+    These fields are interrelated according to the **Default Safety Lead Time** field on the **Manufacturing Setup** page. By default, the due date is the same as the demand date, but you can change the date.  
 
 > [!NOTE]  
-> If you enter a date later than the demand date, you will receive a warning message.  
+> If you enter a date later than the demand date, you receive a warning message.  
 
-## To make supply orders
+## Create supply orders
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Planned Production Orders**, and then choose the related link. You can perform these steps for a planned, firm planned, or released production order.  
 2. Open the production order you want to plan for, and then choose the **Planning** action.  
-3. Place the cursor on a relevant planning line, and then choose the **Make Orders** action.  
+3. Choose a relevant planning line, and then choose the **Make Orders** action.  
 4. On the **Make Supply Orders** page, on the **Order Planning** FastTab, in the **Make Orders for** field, select one of the following options.  
 
     |Option|Description|  
     |----------------------------------|---------------------------------------|  
-    |**The Active Line**|Make a supply order only for the line where the cursor is placed.|  
-    |**The Active Order**|Make supply orders for all lines in the order where the cursor is placed.|  
+    |**The Active Line**|Make a supply order only for the selected line.|  
+    |**The Active Order**|Make supply orders for all lines in the selected order.|  
     |**All Lines**|Make supply orders for all lines on the **Order Planning** page.|  
 
 5. On the **Options** FastTab, define what kind of supply orders, or requisition worksheet lines, should be made.  
 
     > [!NOTE]  
-    >  The settings you last made on the **Make Supply Orders** page will be saved under your user ID so that they are the same the next time you use the page.  
+    > The settings you last made on the **Make Supply Orders** page are saved under your user ID so that they're the same the next time you use the page.  
 
-6. Choose the **OK** button to make the suggested supply orders or requisition worksheet lines.  
+6. Choose the **OK** button to create the suggested supply orders or requisition worksheet lines.  
 
-You have now planned for the unfulfilled demand by making respective supply orders. Details about specific work flows when using the **Order Planning** page would depend on a company’s internal policies.  
+You have a plan for the unfulfilled demand by making respective supply orders. Details about specific work flows when using the **Order Planning** page would depend on a company’s internal policies.  
 
-When you have finished your planning work on the **Order Planning** page, for example defined an alternative way to supply the quantity, you can proceed to create supply orders for one or more of the planning lines.  
+When you finish your planning work on the **Order Planning** page, for example you defined an alternative way to supply the quantity, you can proceed to create supply orders for one or more of the planning lines.  
 
 > [!NOTE]  
-> The supply orders you create may introduce new dependent demand, for example for underlying production orders, and you should therefore choose **Calculate Plan** again to find and resolve this before moving down the list.  
+> The supply orders you create might introduce new dependent demand, for example for underlying production orders, and you should therefore choose **Calculate Plan** again to find and resolve the demand before moving down the list.  
 
 ## Related information
 
@@ -14939,7 +15188,7 @@ To open the Power Pivot model, choose to **Data** > **Data Tools** > **Data Mode
 
 :::image type="content" source="media\powerbi\excel\excel-manage-data-model.png" alt-text="Screenshot of Excel showing steps to Manage Data Model in Power Pivot. " lightbox="media\powerbi\excel\excel-manage-data-model.png":::
 
-Review the created relationship in the Modelling view of Power Pivot. Create a Pivot Table to utilise the connection between the two tables.
+Review the created relationship in the Modelling view of Power Pivot. Create a Pivot Table to utilize the connection between the two tables.
 
 :::image type="content" source="media\powerbi\excel\excel-create-pivot-from-power-pivot.png" alt-text="Screenshot of Excel showing steps to create Pivot Table from Power Pivot." lightbox="media\powerbi\excel\excel-create-pivot-from-power-pivot.png":::
 
@@ -20905,7 +21154,7 @@ You can add more templates, and use filters to define conditions under which [!I
    > [!NOTE]
    > The **Table Config Template Code** and **Int. Tbl. Config Template Code** fields show different values depending on the number of templates that you configure for a specific integration table mapping:
    >
-   > * If you configure a single configuration template, the name of the configuration template shows in order to stay compatible with current capabilities.
+   > * If you configure a single configuration template, the name of the configuration template is displayed to stay compatible with current capabilities.
    > * If you configure multiple configuration templates, the number of configured configuration templates shows.
 
 4. Set the **Int. Tbl. Config Template Code** field to the configuration template to use for new records in [!INCLUDE[prod_short](includes/cds_long_md.md)].
@@ -23642,37 +23891,33 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/set-up-complex-application-areas-using-best-practices
 ---
-title: Set Up Complex Application Areas Using Best Practices | Microsoft Docs
+title: Set Up Complex Application Areas Using Best Practices
 description: Entering the correct setup values from the start is important to the success of any new business software.
 author: brentholtorf
 ms.topic: best-practice
-ms.devlang: al
 ms.search.keywords:
-ms.date: 04/01/2021
+ms.date: 06/03/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Set Up Complex Application Areas Using Best Practices
-Entering the correct setup values from the start is important to the success of any new business software.  
+# Set up complex application areas using best practices
 
- Whether you use Rapid Start to implement setup values or you manually enter them in the new company, you can support your setup decisions with some general recommendations for selected setup fields that are known to potentially cause the solution to be inefficient if defined incorrectly.  
+Entering the correct setup values from the start is important to the success of any new business software. Whether you use Rapid Start to implement setup values or you manually enter them in the new company, you can support your setup decisions with some general recommendations for selected setup fields that are known to potentially cause the solution to be inefficient if defined incorrectly.  
 
- Help in [!INCLUDE[prod_short](includes/prod_short.md)] includes best-practice information about how to set up key fields in the following application areas:  
+Help in [!INCLUDE[prod_short](includes/prod_short.md)] includes best-practice information about how to set up key fields in the following application areas:  
 
--   [Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
-
--   [Setup Best Practices: Costing Method](setup-best-practices-costing-method.md)  
+- [Setup Best Practices: Supply Planning](setup-best-practices-supply-planning.md)  
+- [Setup Best Practices: Costing Method](setup-best-practices-costing-method.md)  
 
 ## Related information  
-[Design Details: Supply Planning](design-details-supply-planning.md)   
+
+[Design Details: Supply Planning](design-details-supply-planning.md)  
 [Design Details: Costing Methods](design-details-costing-methods.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
-## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
- 
-
+[!INCLUDE[prod_short](includes/free_trial_md.md)]  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -24408,7 +24653,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 99000813, 99000814, 99000815, 99000816, 99000829, 99000830, 99000831, 99000832, 99000833, 99000838, 99000839, 99000867, 99000868, 99000882, 99000897, 99000898, 99000900, 99000912, 99000913, 99000914, 99000917 
-ms.date: 04/08/2026
+ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -24563,7 +24808,7 @@ When you refresh the production order, the flushing method is copied from the it
 
 ### Production output  
 
-You can track the time spent working on a production order and the quantity produced. This information can help you determine the costs of production. Also, manufacturers who use a standard costing system might want to record actual information in order to help them develop better standards.  
+You can track the time spent working on a production order and the quantity produced. This information can help you determine the costs of production. Also, manufacturers who use a standard costing system might want to record actual information to help them develop better standards.  
 
 Output can be processed through [output journals](production-how-to-post-output-quantity.md), but can also be recorded automatically. [!INCLUDE [prod_short](includes/prod_short.md)] copies the flushing method from the machine center or work center card to the production order routing when refreshing. As with material consumption, there are **Manual**, **Forward**, and **Backward** reporting methods for output.
 
@@ -24606,6 +24851,29 @@ However, production journals differ from the consumption and output journals in 
 
 In the production journal, consumption quantities are posted as negative item ledger entries, output quantities are posted as positive ledger entries, and times spent are posted as capacity ledger entries.  
 
+## Handle by-products in production
+
+Some manufacturing processes produce secondary items (by-products or co-products) in addition to the main finished item. [!INCLUDE [prod_short](includes/prod_short.md)] doesn't have a dedicated by-product feature, but you can record by-products by posting a negative consumption entry in the consumption journal.
+
+### Post by-products in a consumption journal
+
+The approach works by reversing the normal consumption flow. Instead of consuming material out of inventory, a negative consumption entry adds the by-product into inventory and credits the production order's work in process (WIP) account.
+
+1. Create a separate item for each by-product with its own item number, unit of measure, and costing method.
+2. Open the **Consumption Journal** page, and create a line for the by-product. Specify:
+   - The production order number in the **Order No.** field.
+   - The by-product item number in the **Item No.** field. The item doesn't need to be a component on the production order.
+   - A **negative quantity** representing the amount of the by-product produced. For example, if the process yields 5 units of a by-product, enter *-5*.
+3. Post the journal. The negative consumption entry increases the by-product's inventory and reduces WIP on the production order by the by-product's cost value.
+
+### Cost effects
+
+The following list points out a few things that can affect costs.
+
+- The by-product's value is credited against the production order's WIP, which reduces the effective cost of the main finished item.
+- If the by-product has negligible value (such as production waste), set its unit cost to zero. The full production cost stays with the main item.
+- Consider using the **Standard** costing method for by-product items. With Standard costing, the by-product always enters inventory at the defined standard cost, so the credit to the production order's WIP is predictable and consistent across orders. With other costing methods such as FIFO or Average, the by-product's value depends on the item's unit cost at the time of posting, which can cause the WIP credit to vary between production orders.
+
 ## Related information
 
 [Manufacturing](production-manage-manufacturing.md)  
@@ -24613,7 +24881,7 @@ In the production journal, consumption quantities are posted as negative item le
 [Planning](production-planning.md)  
 [Inventory](inventory-manage-inventory.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -24722,1019 +24990,6 @@ The conversion removes the sales quote from the database. A sales invoice or a s
 [Send Documents by Email](ui-how-send-documents-email.md#to-send-documents-by-email)  
 [Archive Documents](across-how-to-archive-documents.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-kpis
----
-title: Purchases KPIs and measures (Power BI)
-description: Get an overview of all the KPIs and measures in the semantic model for the Purchases Power BI app.
-author: kennienp
-ms.author: kepontop
-ms.reviewer:
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 
-ms.date: 11/06/2024
-ms.service: dynamics-365-business-central
----
-
-# Power BI Purchases app KPIs and measures
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-This page provides a list of all Key Performance Indicators (KPIs) included in the semantic model for the Power BI Purchases report. 
-
-Explore the list of KPIs below to learn more about how they can help you achieve your business goals. 
-
-Each KPI is described, including how it is calculated and what data was used in the calculations.
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-
-## Budget Measures
-- [Budget Amount](#budget-amount)
-- [Budget Amount Variance](#budget-amount-variance)
-- [Budget Amount Variance %](#budget-amount-variance-)
-- [Budget Quantity](#budget-quantity)
-- [Budget Quantity Variance](#budget-quantity-variance)
-- [Budget Quantity Variance %](#budget-quantity-variance-)
-
-### Budget Amount
-
-**Formula**  
-The Budget Amount measure calculates the sum of Purchase Amount column from the Purchase Budget table.
-
-**Data Sources**
-- Item Budget Entries
-
-### Budget Amount Variance
-
-**Formula**
-*Budget Amount Variance = [Purchase Amount](#purchase-amount) - [Budget Amount](#budget-amount)*
-
-**Data Sources**
-- Item Budget Entry
-- Purchase Line
-- Value Entry
-
-### Budget Amount Variance %
-
-**Formula**  
-*Budget Amount Variance % = [Budget Amount Variance](#budget-amount-variance) / [Budget Amount](#budget-amount)*
-
-**Data Sources**
-- Item Budget Entry
-- Purchase Line
-- Value Entry
-
-### Budget Quantity
-
-**Formula**  
-The Budget Quantity measure sums the Quantity column from the Purchase Budget table.
-
-**Data Sources**
-- Item Budget Entry
-
-
-### Budget Quantity Variance
-
-**Formula**  
-*Budget Quantity Variance = [Purchase Quantity](#purchase-quantity) - [Budget Quantity](#budget-quantity)*
-
-**Data Sources**
-- Item Budget Entry
-- Purchase Line
-- Value Entry
-
-### Budget Quantity Variance %
-
-**Formula**  
-*Budget Quantity Variance % = [Budget Quantity Variance](#budget-quantity-variance) / [Budget Quantity](#budget-quantity)*
-
-**Data Sources**
-- Item Budget Entry
-- Purchase Line
-- Value Entry
-
-## Documents
-
-- [Invoiced Prepayment Amount (LCY)](#invoiced-prepayment-amount-lcy)
-- [Purchase (LCY)](#purchase-lcy)
-- [Purchase (LCY) Forecasting](#purchase-lcy-forecasting)
-- [Purchase Quantity](#purchase-quantity)
-- [Return Rate (Amount)](#return-rate-amount)
-- [Return Rate (Qty.)](#return-rate-qty)
-- [Total Credit (Amount)](#total-credit-amount)
-- [Total Credit (Qty.)](#total-credit-qty)
-- [Total Purchase (Amount)](#total-purchase-amount)
-- [Total Purchase (Qty)](#total-purchase-qty)
-
-### Purchase Amount
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**
-The Purchase Amount measure sums the Purchase Amount column of the Purchases table.
-
-**Data Sources**
-- Value Entry
-
-### Purchase Quantity
-
-**Formula**
-The Purchase Quantity measure sums the Purchase Quantity column of the Purchases table.
-
-**Data Sources**
-- Value Entry
-
-### Purchase (LCY)
-
-**Formula**  
-The Purchase (LCY) measure calculates the purchase amount across all invoiced purchase transactions by calculating the sum of [Purchase Value Entries Amount](#purchase-value-entries-amount), [Purchase Credit Line Amount](#purchase-credit-line-amount) and [Purchase Invoice Line Amount](#purchase-invoice-line-amount). Reconcile this measure to the Vendor Statistics page.
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Purchase (LCY) Forecasting
-
-**Formula**  
-The Purchase (LCY) Forecasting measure calculates the [Purchase (LCY)](#purchase-lcy) within the period of dates with purchase transactions and inserts zero values for dates without purchase entries, for compatibility with forecasting.
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Return Rate (Amount)
-
-**Formula**  
-*Return Rate (Amount) = - [Total Credit (Amount)](#total-credit-amount) / [Total Purchase (Amount)](#total-purchase-amount)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Return Rate (Qty.)
-
-**Formula**  
-*Return Rate (Qty.) = - [Total Credit (Qty.)](#total-credit-qty) / [Total Purchase (Qty.)](#total-purchase-qty)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Total Credit (Amount)
-
-**Formula**  
-*Total Credit (Amount) = [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount) + [Purchase Credit Line Amount](#purchase-credit-line-amount)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Credit Memo Line
-
-### Total Credit (Qty.)
-
-**Formula**  
-*Total Credit (Qty.)= [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Credit Memo Line
-
-### Total Purchase (Amount)
-
-**Formula**  
-*Total Purchase (Amount) = [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount) + [Purchase Invoice Line Amount](#purchase-invoice-line-amount)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-
-### Total Purchase (Qty.)
-
-**Formula**  
-*Total Purchase (Qty.)= [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity) + [Purchase Invoice Quantity Base](#purchase-invoice-line-quantity-base)*
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-
-### Invoiced Prepayment Amount (LCY)
-
-**Formula**  
-The Invoiced Prepayment Amount (LCY) measure calculates the sum of the Prepayment Amount Invoiced (LCY) from the Purchase Lines table.
-
-**Data Sources**  
-- Purchase Line
-
-## Purchase Value Entries
-
-- **Counters**
-  - [No. of Distinct Items](#no-of-distinct-items)
-  - [No. of Posted Purchase Invoices](#no-of-posted-purchase-invoices)
-  - [No. of Single Supplier Items](#no-of-single-supplier-items)
-  - [No. of Vendors](#no-of-vendors)
-
-- **Purchase Invoice**
-  - [Posted Purchase Invoice Amount](#posted-purchase-invoice-amount)
-  - [Posted Purchase Invoice Quantity](#posted-purchase-invoice-quantity)
-
-- **Purchase CR/Adj Note**
-  - [Posted Purchase CR/Adj Note Amount](#posted-purchase-cradj-note-amount)
-  - [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity)
-
-- [Purchase Value Entries Amount](#purchase-value-entries-amount)
-- [Purchase Value Entries Discount %](#purchase-value-entries-discount-)
-- [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount)
-- [Purchase Value Entries Quantity](#purchase-value-entries-quantity)
-
-### No. of Distinct Items
-
-**Formula**  
-The No. of Distinct Items calculates the number of unique items that have been purchased by counting the distinct values of the Item No. column of the Purchase Value Entry table.
-
-**Data Sources**  
-- Value Entry 
-
-### No. of Posted Purchase Invoices
-
-**Formula**  
-The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases Value Entries table where Document Type = Posted Purchase Invoice.
-
-**Data Sources**  
-- Value Entry
-
-### No. of Purchase Invoices
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**  
-The No. of Purchase Invoices measure calculates the number of unique posted purchase invoices by counting the distinct count of the Document No. column from the Purchases table where Document Type = Purchase Invoice and Source Type = Value Entries Invoiced.
-
-**Data Sources**  
-- Purchase Line
-- Value Entry
-
-### No. of Vendors
-
-**Formula**  
-The No. of Vendors calculates the number of unique items that have been purchased by counting the distinct values of the Vendor No. column of the Purchase Value Entry table.
-
-**Data Sources**  
-- Value Entry 
-
-### No. of Single Supplier Items
-
-**Formula**  
-The No. of Single Supplier Items calculates the number of items that have been purchased from a single vendor, by filtering to items where [No. of Vendors](#no-of-vendors) equals one.
-
-**Data Sources**  
-- Value Entry 
-
-### Posted Purchase Invoice Amount
-
-**Formula**  
-The Posted Purchase Invoice Amount calculates the total cost amount that has been purchased and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
-
-**Data Sources**  
-- Value Entry
-
-### Posted Purchase Invoice Quantity
-
-**Formula**  
-The Posted Purchase Invoice Quantity calculates the total quantity that has been purchased and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase Invoice.
-
-**Data Sources**  
-- Value Entry
-
-### Invoiced Amount
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**
-The Invoiced Amount calculates the total amount of items that have been purchased and invoiced, by summing the Purchase Amount column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
-
-**Data Sources**  
-- Value Entry
-
-### Invoiced Quantity
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**
-The Invoiced Quantity measure calculates the total quantity of items that have been purchased and invoiced, by summing the Purchase Quantity column of the Purchases table, where Source Type = Purchase Value Entries Invoiced.
-
-**Data Sources**  
-- Value Entry
-
-### Posted Purchase CR/Adj Note Amount
-
-**Formula**
-The Posted Purchase CR/Adj Note Amount calculates the total cost amount that has been credited and invoiced, by summing the Purchase Value Entries Amount column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
-
-**Data Sources**  
-- Value Entry
-
-### Posted Purchase CR/Adj Note Quantity
-
-**Formula**  
-The Posted Purchase CR/Adj Note Quantity calculates the total quantity that has been credited and invoiced, by summing the Purchase Value Entries Quantity column of the Purchase Value Entries table, where Document Type = Posted Purchase CR/Adj Note.
-
-**Data Sources**  
-- Value Entry
-
-### Purchase Value Entries Amount
-
-**Formula**  
-The Purchase Value Entries Amount calculates the total amount that has been purchased, by summing the Cost Amount Actual column of the Purchase Value Entries table, where Value Entry Type = Direct Cost and Adjustment is false.
-
-**Data Sources**  
-- Value Entry
-
-### Purchase Value Entries Quantity
-
-**Formula**  
-The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
-
-**Data Sources**  
-- Value Entry
-
-### Purchase Value Entries Discount Amount
-
-**Formula**  
-The Purchase Value Entries Quantity calculates the total quantity that has been purchased and invoiced, by summing the Invoiced Quantity column of the Purchase Value Entries table.
-
-**Data Sources**  
-- Value Entry
-
-### Purchase Value Entries Discount %
-
-**Formula**  
-*Purchase Value Entries Discount % = [Purchase Value Entries Discount Amount](#purchase-value-entries-discount-amount) / [Purchase Value Entries Amount](#purchase-value-entries-amount)*
-
-**Data Sources**  
-- Value Entry
-
-## Purchase Lines
-
-- **Counters**
-  - [No. of Outstanding Invoices](#no-of-outstanding-invoices)
-  - [No. of Outstanding Purchase Orders](#no-of-outstanding-purchase-orders)
-  - [No. of Outstanding Return Orders](#no-of-outstanding-return-orders)
-  - [No. of Purchase Quotes](#no-of-purchase-quotes)
-  - [No. of Received Not Invd. Purchase Orders](#no-of-received-not-invd-purchase-orders)
-
-- **Outstanding**
-  - [Outstanding Invoices (LCY)](#outstanding-invoices-lcy)
-  - [Outstanding Orders (LCY)](#outstanding-orders-lcy)
-
-- **Quote**
-  - [Purchase Quote Purchase (LCY)](#purchase-quote-purchase-lcy)
-  - [Purchase Quote Quantity](#purchase-quote-quantity)
-
-- **Received Not Invoiced**
-  - [Amt. Rcd. Not Invoiced (LCY)](#amt-rcd-not-invoiced-lcy)
-
-- **Return Order**
-  - [Outstanding Return Order (LCY)](#outstanding-return-order-lcy)
-  - [Return Order Amount](#return-order-amount)
-  - [Return Order Quantity](#return-order-quantity)
-  - [Return Qty. Invoiced](#return-qty-invoiced)
-  - [Return Qty. Shipped](#return-qty-shipped)
-  - [Return Qty. to Invoice](#return-qty-to-invoice)
-  - [Return Qty. to Ship](#return-qty-to-ship)
-  - [Returned Quantity](#returned-quantity)
-
-### No. of Outstanding Invoices
-
-**Formula**  
-The No. of Outstanding Invoices calculates the number of unique purchase invoices that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Invoice.
-
-**Data Sources**  
-- Purchase Line
-
-### No. of Outstanding Purchase Orders
-
-**Formula**  
-The No. of Outstanding Purchase Orders calculates the number of unique purchase orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Order.
-
-**Data Sources**  
-- Purchase Line
-
-### No. of Outstanding Return Orders
-
-**Formula**  
-The No. of Outstanding Return Orders calculates the number of unique purchase return orders that are currently outstanding, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Return Order.
-
-**Data Sources**  
-- Purchase Line
-
-### No. of Purchase Quotes
-
-**Formula**  
-The No. of Purchase Quotes calculates the number of unique purchase quotes, by counting the distinct values of the Document No. column of the Purchase Lines table, where Document Type = Quote.
-
-**Data Sources**  
-- Purchase Line
-
-### No. of Received Not Invd. Purchase Orders
-**Formula**
-The No. of Received Not Invd. Purchase Orders measure calculates the number of unique purchase orders that are received but not invoiced, by counting the distinct count of Document No. column from the Purchases table where Document Type = Order.
-
-**Data Sources**  
-- Purchase Line
-
-### Outstanding Invoices (LCY)
-
-**Formula**  
-The Outstanding Invoices (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Invoice.
-
-**Data Sources**  
-- Purchase Line
-
-### Outstanding Orders (LCY)
-
-**Formula**  
-The Outstanding Orders (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Order.
-
-**Data Sources**  
-- Purchase Line
-
-### Outstanding Amount (Excl. VAT)
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**  
-The Outstanding Amount (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Outstanding, excluding VAT.
-
-**Data Sources**
-- Purchase Line
-
-### Outstanding Quantity
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**  
-The Outstanding Quantity measure calculates the sum of Purchase Qty. (Base) column from the Purchases table where Source Type = Purchase Order Outstanding.
-
-**Data Sources**
-- Purchase Line
-
-### Purchase Quote Purchase (LCY)
-
-**Formula**  
-The Purchase Quote Purchase (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Quote.
-
-**Data Sources**  
-- Purchase Line
-
-### Purchase Quote Quantity
-
-**Formula**  
-The Purchase Quote Quantity measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Quote.
-
-**Data Sources**  
-- Purchase Line
-
-### Amt. Rcd. Not Invoiced (LCY)
-
-**Formula**  
-The Amt. Rcd. Not Invoiced (LCY) measure calculates the sum of the Amount Received Not Invoiced (LCY) column from the Purchase Line table where Document Type = Order.
-
-**Data Sources**
-- Purchase Line
-
-### Amt. Rcd. Not Invd. (Excl. VAT)
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**  
-The Amt. Rcd. Not Invd. (Excl. VAT) measure calculates the sum of Purchase Amount column from the Purchases table where Source Type = Purchase Order Received Not Invoiced, excluding VAT.
-
-**Data Sources**
-- Purchase Line
-
-### Quantity Rcd. Not Invd.
-
-[!INCLUDE[powerbi_deprecated_measure](includes/deprecated-measures.md)]
-
-**Formula**  
-The Quantity Rcd. Not Invd. measure calculates the sum of Purchase Qty. (Base) column from the Purchases table. where Source Type = Purchase Order Received Not Invoiced.
-
-**Data Sources**
-- Purchase Line
-
-### Outstanding Return Order (LCY)
-
-**Formula**  
-The Outstanding Return Order (LCY) measure calculates the sum of the Outstanding Amount (LCY) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
-
-**Data Sources**  
-- Purchase Line
-
-### Return Order Amount
-
-**Formula**  
-The Return Order Amount measure calculates the sum of the Amount column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
-
-**Data Sources**  
-- Purchase Line
-
-### Return Order Quantity
-
-**Formula**  
-The Return Order Quantity measure calculates the sum of the Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
-
-**Data Sources**  
-- Purchase Line
-
-### Return Qty. Invoiced
-
-**Formula**  
-The Return Qty. Invoiced measure calculates the sum of the Quantity Invoiced column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
-
-**Data Sources**  
-- Purchase Line
-
-### Return Qty. Shipped
-
-**Formula**  
-*Return Qty. Shipped = [Return Order Quantity](#return-order-quantity) - [Return Qty. to Ship](#return-qty-to-ship)*
-
-**Data Sources**  
-- Purchase Line
-
-### Return Qty. to Invoice
-
-**Formula**  
-*Return Qty. to Invoice = [Return Order Quantity](#return-order-quantity) - [Return Qty. Invoiced](#return-qty-invoiced)*
-
-**Data Sources**  
-- Purchase Line
-
-### Return Qty. to Ship
-
-**Formula**  
-The Return Qty. to Ship measure calculates the sum of the Outstanding Quantity (Base) column from the Purchase Line table where Document Type = Return Order or Cr/Adj Note.
-
-**Data Sources**  
-- Purchase Line
-
-### Returned Quantity
-
-**Formula**  
-*Returned Quantity = [Posted Purchase CR/Adj Note Quantity](#posted-purchase-cradj-note-quantity) + [Return Qty. to Invoice](#return-qty-to-invoice)*
-
-**Data Sources**  
-- Purchase Line
-- Value Entry
-
-## Purchase Credit Lines
-
-- [Purchase Credit Line Amount](#purchase-credit-line-amount)
-- [Purchase Credit Line Quantity Base](#purchase-credit-line-quantity-base)
-
-### Purchase Credit Line Amount
-
-**Formula**  
-The Purchase Credit Line Amount measure calculates the negative sum of the Amount column from the Purchase Credit Line table.
-
-**Data Sources**  
-- Purchase Credit Memo Line
-
-### Purchase Credit Line Quantity Base
-
-**Formula**  
-The Purchase Credit Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Credit Line table.
-
-**Data Sources**  
-- Purchase Credit Memo Line
-
-## Purchase Invoice Lines
-
-- [Purchase Invoice Line Amount](#purchase-invoice-line-amount)
-- [Purchase Invoice Line Quantity Base](#purchase-invoice-line-quantity-base)
-
-### Purchase Invoice Line Amount
-
-**Formula**  
-The Purchase Invoice Line Amount measure calculates the sum of the Amount column from the Purchase Invoice Line table.
-
-**Data Sources**  
-- Purchase Invoice Line
-
-### Purchase Invoice Line Quantity Base
-
-**Formula**  
-The Purchase Invoice Line Quantity Base measure calculates the sum of the Quantity Base column from the Purchase Invoice Line table.
-
-**Data Sources**  
-- Purchase Invoice Line
-
-## Pareto Measures
-
-- [Pareto Color Cutoff](#pareto-color-cutoff)
-- [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy)
-- [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-)
-- [Pareto Cutoff Cumulative Purchase (LCY)](#pareto-cutoff-cumulative-purchase-lcy)
-- [Pareto Cutoff Purchase (LCY) %](#pareto-cutoff-purchase-lcy-)
-- [Pareto Cutoff Vendor](#pareto-cutoff-vendor)
-- [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank)
-- [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank)
-- [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy)
-- [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy)
-
-### Pareto Color Cutoff
-
-**Formula**  
-The color cutoff where [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) exceeds the [Pareto Vendor Cutoff Rank](#pareto-vendor-cutoff-rank).
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cumulative Purchase (LCY)
-
-**Formula**  
-
-The [Purchase (LCY)](#purchase-lcy) based on the [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy).
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cumulative Purchase (LCY) %
-
-**Formula**  
-
-The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) divided by the [Pareto Total Purchase (LCY)](#pareto-total-purchase-lcy).
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cutoff Cumulative Purchase (LCY)
-
-**Formula**  
-
-The [Pareto Cumulative Purchase (LCY)](#pareto-cumulative-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cutoff Purchase (LCY) %
-
-**Formula**  
-
-The [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cutoff Vendor
-
-**Formula**  
-
-The Vendor with the maximum difference of the [Pareto Cumulative Purchase (LCY) %](#pareto-cumulative-purchase-lcy-) minus the **Pareto Value**.
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Cutoff Vendor Rank
-
-**Formula**  
-
-The [Pareto Vendor Rank by Purchase (LCY)](#pareto-vendor-rank-by-purchase-lcy) for the [Pareto Cutoff Vendor](#pareto-cutoff-vendor).
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Vendor Cutoff Rank
-
-**Formula**  
-
-The maximum [Pareto Cutoff Vendor Rank](#pareto-cutoff-vendor-rank) value across all vendors.
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Vendor Rank by Purchase (LCY)
-
-**Formula**  
-
-The Pareto Vendor Rank by Purchase (LCY) measure calculates the vendor rank, ordered by the [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-### Pareto Total Purchase (LCY)
-
-**Formula**  
-
-The total [Purchase (LCY)](#purchase-lcy) for all purchases from the **Purchase Value Entries**, **Purchase Credit Lines** and **Purchase Invoice Lines** tables.
-
-**Data Source**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Memo Line
-
-## Vendor Measures
-
-- [Item Reliance %](#item-reliance-)
-- [Spend Reliance %](#spend-reliance-)
-
-### Item Reliance %
-
-**Formula**  
-The Item Reliance % measure calculates the proportion of transactions for an item based on either the number of unique vendors or number of unique items, from the Purchase Value Entry Table. In a Vendor context, the Item Reliance % measure is calculated as [No. of Distinct Items](#no-of-distinct-items) divided by the total [No. of Distinct Items](#no-of-distinct-items) for all vendors. In an Item context, the Item Reliance % measure is calculated as one divided by the total [No. of Vendors](#no-of-vendors) who have supplied the item.
-
-### Spend Reliance %
-
-**Formula**  
-The Spend Reliance % measure calculates the [Purchase (LCY)](#purchase-lcy) divided by the total [Purchase (LCY)](#purchase-lcy) across all vendors.
-
-**Data Sources**  
-- Value Entry
-- Purchase Invoice Line
-- Purchase Credit Line
-
-
-**Data Sources**  
-- Value Entry
-
-## Purchase Amount Moving Annual Total
-- [Purchase Amount MAT (Fiscal)](#purchase-amount-mat-fiscal)  
-- [Purchase Amount PYMAT (Fiscal)](#purchase-amount-pymat-fiscal)  
-- [Purchase Amount MATG (Fiscal)](#purchase-amount-matg-fiscal)  
-- [Purchase Amount MATG % (Fiscal)](#purchase-amount-matg--fiscal)
-
-### Purchase Amount MAT (Fiscal)
-
-**Formula**  
-The Purchase Amount MAT (Fiscal) measure calculates the purchases for the last 12 months (moving annual total) using the fiscal calendar by summing up the purchases between the calculated first and last days of the 365-day period.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount PYMAT (Fiscal)
-
-**Formula**  
-The Purchase Amount PYMAT (Fiscal) measure calculates the total purchases for the prior 12 months based on the fiscal calendar. It then determines the maximum available date and calculates the range from 24 months prior to the last available day to 12 months prior. Using these dates, it sums the purchases amount for this period while maintaining filters for the day type and week day.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount MATG (Fiscal)
-
-**Formula**  
-The Purchase Amount MATG (Fiscal) measure compares the current period's moving annual total purchases to the previous period's moving annual total purchases. If both values are not blank, it subtracts the previous period's purchases from the current period's purchases to determine the growth. The result is returned, representing the change in purchases between the two periods.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount MATG % (Fiscal)
-
-**Formula**  
-*Purchase Amount MATG % (Fiscal) = [Purchase Amount MATG (Fiscal)](#purchase-amount-matg-fiscal)  / [Purchase Amount PYMAT (Fiscal)](#purchase-amount-pymat-fiscal)* 
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-## Purchase Amount Moving Averages
-- [Purchase Amount AVG 30D (Fiscal)](#purchase-amount-avg-30d-fiscal)  
-
-### Purchase Amount AVG 30D (Fiscal)
-
-**Formula**  
-The Purchase Amount AVG 30D (Fiscal) measure calculates the average purchase amount for the past 30 days.
-  
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-## Purchase Amount Period-over-Period Growth
-- [Purchase Amount PP (Fiscal)](#purchase-amount-pp-fiscal)  
-- [Purchase Amount PY (Fiscal)](#purchase-amount-py-fiscal)  
-- [Purchase Amount POP (Fiscal)](#purchase-amount-pop-fiscal)  
-- [Purchase Amount POP % (Fiscal)](#purchase-amount-pop--fiscal)  
-- [Purchase Amount YOY (Fiscal)](#purchase-amount-yoy-fiscal)  
-
-### Purchase Amount PP (Fiscal)
-
-**Formula**  
-The Purchase Amount PP (Fiscal) measure calculates the purchase amount in the previous period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount in the previous month.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount PY (Fiscal)
-
-**Formula**  
-The Purchase Amount PY (Fiscal) measure calculates the purchase amount in the previous year.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount POP (Fiscal)
-
-**Formula**  
-The Purchase Amount POP (Fiscal) measure calculates the change in purchases between the current period and the previous period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount period-over-period compared to the previous month.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount POP % (Fiscal)
-
-**Formula**  
-*Purchase Amount POP % (Fiscal) = [Purchase Amount POP (Fiscal)](#purchase-amount-pop-fiscal) / [Purchase Amount PP (Fiscal)](#purchase-amount-pp-fiscal)*
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Purchase Amount YOY (Fiscal)
-
-**Formula**  
-The Purchase Amount YOY (Fiscal) measure shows the purchase amount of a specific period compared to the same period in the previous year. It helps you understand whether your purchases have increased or decreased over time.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-## Purchase Amount Period-to-Date
-
-- [Purchase Amount YTD (Fiscal)](purchases-powerbi-kpis.md#purchase-amount-ytd-fiscal)  
-
-### Purchase Amount YTD (Fiscal)
-
-**Formula**  
-The Purchase Amount YTD (Fiscal) measure calculates the purchase amount to date for the current period. The period is based on the date range you select. For example, if you select a month, the measure will show the purchase amount in the current month.
-
-**Data Sources**  
-- Value Entry
-- Date (Fiscal Calendar)
-
-## Budget Amount Moving Annual Total
-- [Budget Amount MAT (Fiscal)](#budget-amount-mat-fiscal)
-- [Budget Amount MATG (Fiscal)](#budget-amount-matg-fiscal)
-- [Budget Amount MATG % (Fiscal)](#budget-amount-matg--fiscal)
-- [Budget Amount PYMAT (Fiscal)](#budget-amount-pymat-fiscal)
-
-### Budget Amount MAT (Fiscal)
-
-**Formula**  
-The Budget Amount MAT (Fiscal) measure calculates the purchases for the last 12 months (moving annual total) using the fiscal calendar by summing up the purchases between the calculated first and last days of the 365-day period.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Budget Amount MATG (Fiscal)
-
-**Formula**  
-The Budget Amount MATG (Fiscal) measure compares the current period's moving annual total purchases to the previous period's moving annual total purchases. If both values are not blank, it subtracts the previous period's purchases from the current period's purchases to determine the growth. The result is returned, representing the change in purchases between the two periods.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Budget Amount MATG % (Fiscal)
-
-**Formula**  
-*Budget Amount MATG % (Fiscal) = [Budget Amount MATG (Fiscal)](#budget-amount-matg-fiscal) / [Budget Amount PYMAT (Fiscal)](#budget-amount-pymat-fiscal)* 
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Budget Amount PYMAT (Fiscal)
-
-**Formula**  
-The Budget Amount PYMAT (Fiscal) measure calculates the previous year moving annual total (PYMAT) of the Budget Amount by subtracting one year from the current date.
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-## Budget Amount Moving Averages
-- [Budget Amount AVG 1Y (Fiscal)](#budget-amount-avg-1y-fiscal)
-- [Budget Amount AVG 30D (Fiscal)](#budget-amount-avg-30d-fiscal)
-- [Budget Amount AVG 3M (Fiscal)](#budget-amount-avg-3m-fiscal)
-
-### Budget Amount AVG 1Y (Fiscal)
-
-**Formula**  
-The Budget Amount AVG 1Y (Fiscal) measure calculates the average budet amount for the past year.
-  
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Budget Amount AVG 30D (Fiscal)
-**Formula**  
-The Budget Amount AVG 30D (Fiscal) measure calculates the average budet amount for the past 30 days.
-  
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### Budget Amount AVG 3M (Fiscal)
-**Formula**  
-The Budget Amount AVG 3M (Fiscal) measure calculates the average budet amount for the past 3 months.
-  
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-## Gross Totals
-- [% GT Purchase Amount](#-gt-purchase-amount)
-- [% GT Purchase Quantity](#-gt-purchase-quantity)
-- [% GT Purchase Amount PY (Fiscal)](#-gt-purchase-amount-py-fiscal)  
-
-### % GT Purchase Amount
-
-**Formula**  
-*% GT Purchase Amount = [Purchase Amount](#purchase-amount) / Grand Total Purchase Amount*
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### % GT Purchase Quantity
-
-**Formula**  
-*% GT Purchase Quantity = [Purchase Quantity](#purchase-quantity) / Grand Total Purchase Quantity*
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-### % GT Purchase Amount PY (Fiscal)
-
-**Formula**  
-*% GT Purchase Amount = [Purchase Amount](#purchase-amount) / Grand Total Purchase Amount (Previous Year)*
-
-**Data Sources**
-- Value Entry
-- Purchase Line
-- Date (Fiscal Calendar)
-
-
-## Related information
-
-[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Purchasing app](purchases-powerbi-app.md)  
-[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)   
-[Built-in purchasing reports](purchase-reports.md)  
-[Purchasing analytics overview](purchasing-analytics-overview.md)  
-[Purchasing overview](purchasing-manage-purchasing.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

@@ -1,3 +1,59 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-enable-application-ledger-entries-different-currencies
+---
+title: Apply Entries in Different Currencies
+description: You can apply ledger entries in multiple currencies, for example, if you sell in one currency and receive payment in another.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: multiple currencies, payment, reconcile
+ms.search.form: 148, 460, 25
+ms.date: 04/01/2021
+ms.author: bholtorf
+
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Enable Application of Ledger Entries in Different Currencies
+
+If you purchase from a vendor in one currency and submit payment in another currency, you can apply the payment to the purchase.
+
+Likewise, if you sell to a customer in one currency and receive payment in another currency, you can apply the payment to the sales invoice.
+
+The following procedure describes how to set this up for vendor ledger entries on the **Purchases & Payables Setup** page. The setup is similar for customer ledger entries on the **Sales & Receivables Setup** page.
+
+## To enable application of vendor ledger entries in different currencies
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Purchases & Payables Setup**, and then choose the related link.
+2. In the **Appln. between Currencies** field, select one of the following options.
+
+| Option | Description |
+| --- | --- |
+| None |Application between currencies is not allowed. |
+| EMU |Application between EMU currencies is allowed. |
+| All |Application between all currencies is allowed. |
+
+## To set up G/L accounts for currency application rounding differences
+
+If you apply entries in different currencies, you must set up the general ledger accounts to which you want to post rounding differences.  
+
+> [!NOTE]  
+> You must set up the general ledger accounts before you complete the task. For more information, see [Understanding the General Ledger and the Chart of Accounts](finance-general-ledger.md).
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Customer Posting Groups**, and then choose the related link.  
+2. In the **Debit Curr. Appln. Rndg. Acc.** and **Credit Curr. Appln. Rndg. Acc.** fields, enter the relevant general ledger accounts to post rounding differences.  
+3. [!INCLUDE[open-search](includes/open-search.md)], enter **Vendor Posting Groups**, and then choose the related link.  
+4. In the **Debit Curr. Appln. Rndg. Acc.** and **Credit Curr. Appln. Rndg. Acc.** fields, enter the relevant general ledger accounts to post rounding differences.  
+
+## Related information
+
+[Managing Payables](payables-manage-payables.md)  
+[Managing Receivables](receivables-manage-receivables.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-how-categorize-items
 ---
 title: Organize items in categories
@@ -2735,7 +2791,7 @@ Reusing information from similar items can be a good option and Copilot can help
 
 * Substitutions
 
-You can store similar or interchangeable products on the **Item Substitution Entry** page. Copilot helps to add this information for current products by searching for similar ones in the database.
+You can store similar or interchangeable products on the **Item Substitution Entry** page. Copilot helps add this information for current products by searching for similar ones in the database.
 
 ## What is the intended use of suggest item substitutions with Copilot?
 
@@ -7847,7 +7903,7 @@ Learn more at [Synchronizing contacts with customers, vendors, and bank accounts
 
 When you create a contact, [!INCLUDE [prod_short](includes/prod_short.md)] can automatically search for duplicates. Avoiding duplicate contacts can help ensure that you interact with the right person for the right company.
 
-You can specify the percentage of identical data that two contacts must have in order to consider them duplicates. You can also just use the default percentage, which is 60. You specify the percentage on the **Marketing Setup** page by entering a percentage value in the **Search Hit %** field on the **Duplicates** FastTab.
+You can specify the percentage of identical data that two contacts must have to consider them duplicates. You can also just use the default percentage, which is 60. You specify the percentage on the **Marketing Setup** page by entering a percentage value in the **Search Hit %** field on the **Duplicates** FastTab.
 
 For automatic searches, when you create a contact that already has a business relation to a company, [!INCLUDE [prod_short](includes/prod_short.md)] displays a message to inform you.
 
@@ -11837,7 +11893,7 @@ ms.reviewer: bholtorf
 ---
 # Business Process Walkthroughs
 
-This selection of walkthroughs provides step-by-step, end-to-end business processes that you can perform using the CRONUS demonstration company. The walkthroughs consist of multiple procedures, some of which would normally be performed by one user, while others incorporate several different user roles. In order to simulate the working environment, some of the walkthroughs contain setup steps necessary to complete the exercises as described. These steps can provide insight into the kind of information users need to share with their company's IT professionals.  
+This selection of walkthroughs provides step-by-step, end-to-end business processes that you can perform using the CRONUS demonstration company. The walkthroughs consist of multiple procedures, some of which would normally be performed by one user, while others incorporate several different user roles. To simulate the working environment, some of the walkthroughs contain setup steps necessary to complete the exercises as described. These steps can provide insight into the kind of information users need to share with their company's IT professionals.  
 
  The walkthroughs are complete scenarios, and should be performed from beginning to end for the greatest benefit. Many are based on [!INCLUDE[prod_short](includes/prod_short.md)] demonstrations, and enable you to try those procedures yourself, at your own pace.  
 
@@ -11977,7 +12033,7 @@ Items with serial and lot numbers can be traced both backwards and forward in th
 
 ## Numbers and item tracking
 
-As part of your warehouse processes, you can bundle your stock in packages, boxes, containers, and so on. But in order to keep track of the items, you assign unique numbers as identification. For example, you manufacture and sell a chair that has the item number *1900-S*. Each chair has a serial number, *1001*, but you also bundle four chairs into a lot, *LOT0001*. You also ship the chairs in a container with the package number *CONTAINER010* that also includes *LOT0100* with side tables, and *LOT200* with lamps.  
+As part of your warehouse processes, you can bundle your stock in packages, boxes, containers, and so on. But to keep track of the items, you assign unique numbers as identification. For example, you manufacture and sell a chair that has the item number *1900-S*. Each chair has a serial number, *1001*, but you also bundle four chairs into a lot, *LOT0001*. You also ship the chairs in a container with the package number *CONTAINER010* that also includes *LOT0100* with side tables, and *LOT200* with lamps.  
 
 Depending on your configuration, you use these different numbers to keep track of inventory in [!INCLUDE [prod_short](includes/prod_short.md)] at the various stages of purchasing, sales, warehouse operations, and so on.
 
@@ -14287,7 +14343,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, item charges, production order, capacity costs
 ms.search.form: 99000886,
-ms.date: 05/20/2026
+ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -14298,15 +14354,6 @@ ms.custom: bap-template
 [!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
 You can assign item charges to subcontracting receipts to include costs such as transport, packaging, and other incidental expenses directly in your production order costs. When you post additional costs that should be distributed to subcontracting receipts, you can record them as a separate invoice with **Type** set to **Charge (Item)**. The item charges link to the capacity ledger entries of the production order.
-
-## Turn on item charges for subcontracting
-
-Before you can assign item charges to subcontracting receipts, you must turn on the feature.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Manufacturing Setup**, and then choose the related link.
-2. In the **Subcontracting** section, turn on the **Item Charge to Subcontracting Purch. Receipt Lines** toggle.
-
-After you turn on the feature, the **Get Receipt Lines for Subcontracting** action becomes available when you assign item charges.
 
 ## How item charges work with subcontracting
 
@@ -14344,9 +14391,9 @@ The following steps describe how to assign an item charge to a subcontracting re
 3. On the lines, in the **Type** field, choose **Charge (Item)**.
 4. Fill in the remaining fields on the line, such as the item charge, quantity, and unit cost. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
 5. Choose the **Item Charge Assignment** action.
-6. On the **Item Charge Assignment** page, choose the **Get Receipt Lines for Subcontracting** action.
+6. On the **Item Charge Assignment** page, choose the **Get Receipt Lines** action.
 
-   [!INCLUDE [prod_short](includes/prod_short.md)] filters the receipt lines to show only subcontracting receipts.
+   The receipt lines include subcontracting receipts. You can identify them by the **Prod. Order No.** column.
 
 7. Select the subcontracting receipt line, and then enter the quantity and amount to assign.
 8. Close the **Item Charge Assignment** page.
@@ -14354,16 +14401,16 @@ The following steps describe how to assign an item charge to a subcontracting re
 
 [!INCLUDE [prod_short](includes/prod_short.md)] creates the value entries and links them to the capacity ledger entries.
 
-## About the Get Receipt Lines for Subcontracting action
+## Identify subcontracting receipt lines
 
-The **Get Receipt Lines for Subcontracting** action simplifies the process of assigning item charges to subcontracting receipts. When you use the action, [!INCLUDE [prod_short](includes/prod_short.md)] filters purchase receipt lines to show only those related to subcontracting. Receipt lines must have values in the following fields to be included:
+When you use the **Get Receipt Lines** action, the list includes both regular and subcontracting receipt lines. To distinguish subcontracting receipts, the following columns are available on the **Purch. Receipt Lines** page:
 
-- **Production Order No.**
+- **Prod. Order No.** (visible by default)
 - **Routing No.**
 - **Operation No.**
+- **Work Center No.**
 
-> [!NOTE]
-> The **Get Receipt Lines for Subcontracting** action is only available when you turn on the **Item Charge to Subcontracting Purch. Receipt Lines** toggle on the **Manufacturing Setup** page.
+Subcontracting receipt lines have values in these fields. You can use them to filter or sort the list.
 
 ## Value entries for subcontracting item charges
 
@@ -14422,7 +14469,6 @@ Quality testing at the subcontractor costs 100 EUR in addition to 1,200 EUR for 
 
 Keep the following in mind when you work with item charges for subcontracting:
 
-- You must turn on the feature on the **Manufacturing Setup** page before you use it. After you turn it on, the feature only affects new postings.
 - After you post an item charge to a subcontracting receipt, you can't reverse it.
 - Make sure that you assign the item charge to the correct subcontracting receipt because the assignment affects cost distribution.
 - Without the Subcontracting app, standard [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support assigning item charges to purchase receipts for subcontracting operations. If you try to assign charges to a receipt line with a work center, you get an error. The Subcontracting app removes this limitation and routes the charges to capacity ledger entries instead of item ledger entries.
@@ -15123,7 +15169,7 @@ The link is used when you choose the company in the company hub.
 When you have added your environments, your companies show up automatically. However, if you know that a new company has been added to an environment, you can choose the **Reload all companies** action to refresh the list. Use the same action to refresh data from across your companies.  
 
 > [!TIP]
-> In order to refresh the data in the company hub, you must have access to the data in the companies that the data comes from.
+> To refresh the data in the company hub, you must have access to the data in the companies that the data comes from.
 
 ## Related information
 
@@ -16083,7 +16129,7 @@ With the budget structure set up for projects, creating a project is straightfor
 
 ### Copying a project
 
- This part of the walkthrough focuses on how to copy part or all of a project in order to reduce manual data entry and improve accuracy.
+ This part of the walkthrough focuses on how to copy part or all of a project to reduce manual data entry and improve accuracy.
 
 - Copy part of a project to a new project.  
 - Copy project-specific prices.  
@@ -16142,7 +16188,7 @@ To prepare for this walkthrough, you must add Tricia as a resource.
 
 6. Close the page.
 
-In the next procedure, you create a project journal batch for Tricia in order to post their usage.  
+In the next procedure, you create a project journal batch for Tricia to post their usage.  
 
 ### To create a project journal batch  
 
@@ -20722,7 +20768,9 @@ If you don't want the capacities of work centers to contribute to the total capa
 
 ## To set up a capacity constrained machine or work center
 
-You must set up the production resources that you regard as critical to accept a finite load instead of the default infinite load. A capacity-constrained resource can be a work center or machine center that's a bottleneck and would like to establish a limited, finite load for.
+By default, [!INCLUDE [prod_short](includes/prod_short.md)] uses *infinite capacity scheduling*. The system schedules operations based on lead times and routing sequences, but assumes that each resource has unlimited capacity. This approach is fast and simple, but can result in schedules where multiple operations overlap on the same resource, leading to overloaded work centers.
+
+For bottleneck resources, you can switch to *finite capacity scheduling*. You must set up the production resources that you regard as critical to accept a finite load instead of the default infinite load. A capacity-constrained resource can be a work center or machine center that's a bottleneck and would like to establish a limited, finite load for.
 
 [!INCLUDE[prod_short](includes/prod_short.md)] doesn't support detailed shop floor control. It plans for a feasible utilization of resources by providing a rough-cut schedule, but doesn't automatically create and maintain detailed schedules based on priorities or optimization rules.
 
@@ -20732,15 +20780,20 @@ When you plan with capacity-constrained resources, [!INCLUDE [prod_short](includ
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Capacity Constrained Resources**, and then choose the related link.
 2. Choose the **New** action.
-3. Fill in the fields as necessary.
+3. Select the **Capacity Type** (Work Center or Machine Center) and the **Capacity No.** of the resource.
+4. In the **Critical Load %** field, specify the maximum percentage of the resource's available capacity that the scheduler can allocate. For example, entering **90** means the scheduler loads the resource to at most 90% of capacity, leaving a 10% buffer.
+5. In the **Dampener (% of Total Capacity)** field, specify a tolerance percentage. This value allows the scheduler to slightly exceed the critical load when it avoids splitting an operation across multiple time slots.
 
 > [!NOTE]
 > Operations on work centers or machine centers that are set up as constrained resources are always planned serially. This planning means that if a constrained resource has multiple capacities, those capacities must be planned in sequence. You can't plan them in parallel like they would be if the work or machine center wasn't set up as a constrained resource. For a constrained resource, the **Capacity** field on the work center or machine center is greater than **1**.
 
 > In case of operation splitting, the setup time is only assigned one time because it's assumed that some manual adjustment is done to optimize the schedule.
 
+To learn more about viewing capacity and load, go to [View Load on Work and Machine Centers](production-how-to-view-the-load-on-work-centers.md).
+
 ## Related information
 
+[Create Routings](production-how-to-create-routings.md)  
 [Create Shop Calendars](production-how-to-create-work-center-calendars.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Manufacturing](production-manage-manufacturing.md)  
@@ -21259,57 +21312,5 @@ For more information about report design, see [Report Overview](/dynamics365/bus
 [Working with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-assemble-to-project
----
-title: Assemble to Project
-description: Learn how to use assemble-to-order for project.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: project management, task
-ms.search.form: 88, 275, 276, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1020
-ms.date: 08/03/2022
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Assemble to project
-
-Assemble to project helps you improve inventory management by assembling to order only when it's required.
-
-When you choose an assemble-to-order item on a project planning line, [!INCLUDE [prod_short](includes/prod_short.md)] creates an assembly order. The assembly order is based on the project planning line, and its lines are based on the item's assembly bill of materials (BOM). To learn more about assembly BOMs, go to [Work with Assembly BOMs](assembly-how-work-assembly-boms.md). The quantity of components on the assembly BOM is multiplied by the order quantity. The **Assemble-to-Order Lines** page shows details about the linked assembly order lines. The details can help you customize the assembly item. As in sales, you can't directly post linked assembly orders. To learn more about assembly orders, go to [Selling Inventory Items in Assemble-to-Order Flows](assembly-how-to-sell-inventory-items-in-assemble-to-order-flows.md).
-
-Assembly orders are reserved for projects, and [!INCLUDE [prod_short](includes/prod_short.md)] synchronizes item tracking between project planning lines and assembly order.
-
-## Integrate with warehouse management
-
-Assemble to project integrates with warehouse management features to make assembly and shipping easier. The process also helps ensure that the flow from project assembly to delivery runs smoothly in internal warehouse processes. To learn more about internal warehouse flows for projects, go to [Flows for Production, Assembly, and Jobs](design-details-internal-warehouse-flows.md#flows-to-and-from-assembly-in-a-basic-warehouse-configuration).
-
-The following table describes the warehouse configurations that assemble to order supports.
-
-|Configuration  |Description  |
-|---------|---------|
-|**No warehouse handling**|Use a project journal to post full or partial usage. The output and consumption of components post automatically for the assembly order.         |
-|**Inventory pick**|Use an inventory pick to post full or partial usage. The output and consumption of components post automatically for the assembly order.          |
-|**Warehouse pick**|Create and register warehouse picks for components, and then use a project journal to post usage. [!INCLUDE [prod_short](includes/prod_short.md)] verifies whether the consumed assembly components were picked. The output and consumption of components post automatically for the assembly order.         |
-
-## Known limitations
-
-This section describes known limitations for assemble to project.
-
-* The **Quantity to Assemble to Order** field isn't available for projects that are closed.
-* For warehouse pick scenarios, the **Quantity to Assemble to Order** can be either zero or equal to the quantity. You can't mix assemble to order and assemble to stock on a project planning line. You must create separate project planning lines.
-* Assemble to order doesn't affect billable parts of a project. An assembly is included on sales invoices, but not its components. You can't edit the **Quantity to Assemble to Order** field for billable lines.
-* Order planning and the planning worksheet aren't affected because the project is the input for planning. The planning engine considers the assembly as demand.
-* You can't enter a negative quantity in the **Quantity to Assemble to Order** field.
-* You can't undo an assembly.
-
-## Related information
-
-[Project Management](projects-manage-projects.md)  
-[Assembly Management](assembly-assemble-items.md)  
-[Create Jobs](projects-how-create-jobs.md)
 end of article
 
