@@ -1,3 +1,172 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-update-currencies
+---
+title: Update currency exchange rates
+description: Learn how to use Business Central to adjust exchange rates for amounts in different currencies.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: multiple currencies, adjust exchange rates, FX rates
+ms.search.form: 5, 118
+ms.date: 06/16/2025
+ms.custom: bap-template
+
+---
+
+# Update currency exchange rates
+
+If you trade in different currencies, you need to keep track of the changes in currency exchange rates. [!INCLUDE [prod_short](includes/prod_short.md)] helps you manage and update the exchange rates manually or automatically and set up a currency exchange rate service.
+
+## Currencies
+
+> [!TIP]  
+> In [!INCLUDE[prod_short](includes/prod_short.md)], you can find real-time information about foreign exchange (FX) rates or historical rates under the term currency. To learn more, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
+
+[!INCLUDE [finance-currencies-def](includes/finance-currencies-def.md)]
+
+You can specify the currency codes in the **Currencies** list, including extra information and settings that are necessary for each currency code. To learn more, go to [Currencies](finance-set-up-currencies.md#curr)
+
+### Example of a receivable currency transaction
+
+[!INCLUDE [finance-currencies-example](includes/finance-currencies-example.md)]
+
+## Exchange rates
+
+The exchange rates are the tool to calculate the local currency value (LCY) of each currency transaction. The **Currency Exchange Rates** page includes the following fields:
+
+|Field|Description|  
+|---------------------------------|---------------------------------------|  
+|**Starting Date**|The date when the currency rate was effective.|  
+|**Currency Code**|The currency code related to this exchange rate.|  
+|**Relational Currency Code**|If this currency is part of a triangular currency calculation, then you can set up the related currency code here.|  
+|**Exchange Rate Amount**|The exchange rate amount is the rate for the currency code selected on the line. Normally 1 or 100.|  
+|**Relational Exch. Rate Amount**|The relational exchange rate amount relates to the rate to use for the relational currency code.|  
+|**Adjustment Exch. Rate Amount**|The rate for the currency code selected on the line for the use of the **Adjust Exchange Rates** batch job.|  
+|**Relational Adjmt Exch. Rate Amt**|The rate for the currency code selected on the line for the use of the **Adjust Exchange Rates** batch job.|  
+|**Fix Exchange Rate Amount**|Specifies if the currency's exchange rate can be changed on invoices and journal lines.|  
+
+In general, the values of the **Exchange Rate Amount** and **Relational Exchange Rate Amount** fields are used as the default currency rate on all new receivables and payables documents that are created going forward. The currency rate is assigned to the document according to the current working date.  
+
+> [!Note]
+> The actual currency rate is calculated using this formula:
+>
+> `Currency Amount = Amount / Exchange Rate Amount * Relational Exch. Rate Amount`
+
+The adjustment exchange rate amount, or the relational adjustment exchange rate amount, updates all open bank, receivables, or payables transactions.  
+
+> [!Note]
+> The actual currency rate is calculated using this formula:
+>
+> `Currency Amount = Amount / Adjustment Exch. Rate Amount * Relational Adjmt Exch. Rate Amt`
+
+## Adjust exchange rates
+
+Because exchange rates fluctuate constantly, you need to adjust other currency equivalents periodically. If you don't, amounts you converted from foreign (or other) currencies and posted to the general ledger in local currency can be incorrect. Also, you need to update daily entries posted before you enter a daily exchange rate.
+
+You can use the **Adjust Exchange Rates** batch job to manually adjust the exchange rates for posted customer, vendor, and bank account entries. The batch job can also update other reporting currency amounts on G/L entries.  
+
+> [!TIP]
+> You can use a service to update exchange rates automatically. To learn more, go to [To set up a currency exchange rate service](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service). However, this doesn't adjust exchange rates on already posted transactions. To update exchange rates on posted entries, use the **Exchange Rates Adjustment** batch job.
+
+You can also specify how the adjustment handles dimensions for unrealized gains and losses postings by choosing one of the following options in the **Dimension Posting** field:  
+
+* **Source Entry Dimensions**: Transfer dimension values for G/L entries for unrealized gains and losses from the entry you're adjusting.  
+* **No Dimensions**: Don't transfer dimension values for unrealized gains and losses to G/L entries. [!INCLUDE [prod_short](includes/prod_short.md)] still uses default dimension settings, for example, **Code Mandatory**, **Same Code**, or **No Code**. If the source transaction entries have dimension values, the adjustment creates entries without dimension values.  
+* **G/L Account Dimensions**: Transfer dimension values from the unrealized gains and losses G/L account's dimension settings source entry to G/L entries.
+
+> [!NOTE]
+> This capability isn't available in the Swiss version right now, but it's coming soon. We're working on it.
+
+> [!NOTE]
+> [!INCLUDE [prod_short](includes/prod_short.md)] doesn't consider dimensions for individual entries when you adjust exchange rates for additional reporting currencies. Dimensions aren't copied to the G/L entries if you set up the **Exchange Rate Adjustment** batch job with:
+>
+> * The **Adjust G/L Accounts for Add.-Reporting Currency** toggle turned on.
+> * **Source Entry Dimensions** selected in the **Dimension Posting** field.
+
+## Preview the effect of an adjustment
+
+You can preview the effect that an exchange rate adjustment has on posting before you actually post by choosing the **Preview Posting** action on the **Exch. Rates Adjustment** report (Report 596) request page. On the request page, you can specify what to include in the preview:
+
+* Get a detailed posting to the general ledger by entry.
+* Get a summarized posting by currency. Just pick the **Adjust per entry** field on the **Exch. Rates Adjustment** report.
+
+### Effect on customers and vendors
+
+For customer and vendor accounts, the batch job uses the exchange rate that was valid on the posting date specified for the batch job to adjust the currency. The batch job calculates the differences for the individual currency balances and posts the amounts to the general ledger account that is specified in the **Unrealized Gains Acc.** field or the **Unrealized Losses Acc.** field on the **Currencies** page. Balancing entries are automatically posted to the receivables/payables account in the general ledger.
+
+The batch job processes all open customer ledger entries and vendor ledger entries. If there's an exchange rate difference for an entry, the batch job creates a new detailed customer or vendor ledger entry. The new entry reflects the adjusted amount on the customer or vendor ledger entry.
+
+#### Dimensions on customer and vendor ledger entries
+
+[!INCLUDE [prod_short](includes/prod_short.md)] assigns the dimensions from the customer or vendor ledger entries to the adjustment entries, and posts adjustments for each combination of dimension values.
+
+### Effect on bank accounts
+
+For bank accounts, the batch job adjusts the currency by using the exchange rate that is valid on the posting date specified in the batch job. The batch job calculates the differences for each bank account that has a currency code and posts the amounts to the general ledger account that is specified in the **Realized Gains Acc.** field or the **Realized Losses Acc.** field on the **Currencies** page. Balancing entries are automatically posted to the general ledger bank accounts that are specified in the bank account posting groups. The batch job calculates one entry per currency per posting group.
+
+#### Dimensions on bank account entries
+
+The bank account's default dimensions are assigned to the adjustment entries for the bank account's general ledger account and the gain/loss account.
+
+### Effect on G/L accounts
+
+If you post in another reporting currency, the batch job can create new general ledger entries for currency adjustments between the local currency and the other reporting currency. The batch job calculates the differences for each general ledger entry. It adjusts the general ledger entry depending on the contents of the **Exchange Rate Adjustment** field for each general ledger account.
+
+#### Dimensions on G/L account entries
+
+Adjustment entries are assigned the default dimensions from the accounts they posted to.
+
+> [!Important]
+> Before you can use the batch job, enter the adjustment exchange rates that are used to adjust the foreign currency balances. You do so on the **Currency Exchange Rates** page.<br><br>  
+
+> [!Video https://learn-video.azurefd.net/vod/player?id=e871f958-fe42-4cf3-bb8a-e97f4c7658de]
+
+## Set up a currency exchange rate service
+
+You can use an external service to keep your currency exchange rates up to date.
+
+> [!NOTE]
+> Most exchange rate services provide data that is compatible with the import process in [!INCLUDE[prod_short](includes/prod_short.md)]. However, sometimes the data is formatted differently and you need to customize your import process. You can use the data exchange framework to do that by adding your own codeunit. You might need some help from a developer to do that. To learn more, go to [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Currency Exchange Rate Services**, and then select the related link.
+2. Select the **New** action.
+3. On the **Currency Exchange Rate Service** page, fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+4. Map the fields from the XML file to the currency exchange rates table in the source field.
+5. Apply any necessary transformation rules.
+6. Turn on the **Enabled** toggle to enable the service.
+
+> [!NOTE]
+> The following video shows how you can connect to a currency exchange rate service, using the European Central Bank as an example. In the segment that describes how to set up field mappings, the setting in the **Source** column for the **Parent Node for Currency Code**  only returns the first currency found. The setting should be `/gesmes:Envelope/Code/Code/Code`.
+
+<br><br>  
+  
+> [!Video https://learn-video.azurefd.net/vod/player?id=76914b80-c36a-4d74-95fa-0cdf5c5c0bfa]
+
+## Update currency exchange rates through a service
+
+Follow the steps given to update the currency exchange rates through a service:
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Currencies**, and then select the related link.
+2. Select the **Update Exchange Rates** action.
+
+## Correct mistakes
+
+Every now and then, you might need to correct a mistake in a payment transaction for adjustments to foreign currency gains and losses. You can use the **Reverse transaction** action on the **Bank Account Ledger Entries**, **Customer Ledger Entries**, and **Vendor Ledger Entries** pages to unapply and reverse the payment transaction.
+
+> [!NOTE]
+> When you unapply and reverse a payment for an entry that had exchange rate adjustments, the reversal posts reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
+
+## Related information
+
+[Currencies in Business Central](finance-currencies.md)  
+[Set Up Currencies](finance-set-up-currencies.md)  
+[Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md)  
+[Closing Years and Periods](year-close-years-periods.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-setup-vat-statement
 ---
 title: Set up a VAT statement
@@ -2209,7 +2378,7 @@ If any of these requirements aren't met, the feature isn't available for use.
 >
 > The model update and the model selection UI as well as the new methods roll out independently. Some environments might receive GPT-5.3-chat before the model selection option appears. Copilot continues to work normally during this transition.
 >
-> To change the model for designed agents after the selection UI is available, go to the **Agents** page in Business Central. For coded agents, see the updated SDK documentation for the new model selection methods. For those of you having started on the journey of designing and coding agents, then we highly recommend evaluating your agents again once the model has updated, as agent behavior, as well as accuracy, might be impacted.
+> To change the model for designed agents after the selection UI is available, go to the **Agents** page in Business Central. For coded agents, see the updated SDK documentation for the new model selection methods. For those of you having started on the journey of designing and coding agents, then we highly recommend evaluating your agents again once the model has updated, as agent behavior, as well as accuracy, might be impacted. Learn more at [AI models for agents](/dynamics365/business-central/dev-itpro/ai/ai-agent-models).
 
 ## Prerequisites
 
@@ -3464,7 +3633,8 @@ Before you can add or delete permission sets applied to the agent, change the **
 
 ## Next steps
 
-[Process sales quotes and orders with Sales Order Agent](sales-order-agent-process.md)
+- [Process sales quotes and orders with Sales Order Agent](sales-order-agent-process.md)
+- (Optional) [Configure text search language](admin-optimize-text-search-language.md) to optimize item lookups in multilingual environments
 
 ## Related information
 
@@ -3760,7 +3930,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Sales Order Agent overview
 description: Learn about the sales order Copilot agent in Business Central.
-ms.date: 05/03/2026
+ms.date: 06/09/2026
 ms.update-cycle: 180-days
 ms.topic: overview
 author: dmc-dk
@@ -3854,6 +4024,9 @@ The agent analyzes incoming emails to detect parameters for preparing a new sale
 |Extended text Line|Text|
 
 Although the agent can find products based on vague and incomplete descriptions, its effectiveness is influenced by the quality of product information in Business Central. You can improve the agent's ability to find products by enhancing descriptions, attributes, categories, and extended text of your inventory items.
+
+> [!TIP]
+> In multilingual environments like Belgium, Switzerland, or Canada, the agent's item lookup accuracy depends on the text search language setting. By default, modern search uses a neutral language setting for indexing. To optimize search performance for a specific language, configure the text search language from **Advanced Settings**. Learn more in [Configure text search language for multilingual environments](admin-optimize-text-search-language.md).
 
 > [!NOTE]
 > It might take up to 15 minutes for newly entered data to become searchable as the system reindexes the tables in the background.
@@ -6944,7 +7117,7 @@ ms.author: jswymer
 ms.topic: article
 ms.search.keywords: delimit, FlowFilter, totals, limit, advanced
 ms.search.form:
-ms.date: 10/13/2025
+ms.date: 06/09/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ms.reviewer: jswymer
@@ -7023,6 +7196,10 @@ Another difference is that modern search finds words that *start* with the lette
 >   - The list doesn't include any columns that are designated for modern search.
 >
 > - If modern search is enabled for your environment, it's the default search method.
+
+### Configure the text search language
+
+By default, modern search uses a neutral language setting for indexing. If your organization operates in a multilingual environment, you can optimize search performance for a specific language. Learn more in [Configure text search language for multilingual environments](admin-optimize-text-search-language.md).
 
 ### Fine-tune the search by using filter criteria (legacy search only)
 
@@ -11686,6 +11863,8 @@ ms.custom: bap-template
 ---
 
 # Quality management overview
+
+[!INCLUDE [introduced-in-2026rw1](includes/introduced-in-2026rw1.md)]
 
 Quality management is a quality inspection application for [!INCLUDE [prod_short](includes/prod_short.md)]. Quality management features can help you maintain product quality standards by creating inspections at key points in your purchasing, production, assembly, and warehouse management processes. 
 
@@ -17730,7 +17909,7 @@ author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: article
-ms.date: 05/03/2026
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template 
 ms.collection:
@@ -17753,13 +17932,15 @@ When you use Copilot, your inputs (prompts) and outputs (results), including any
 > [!IMPORTANT]
 > If your Business Central environment is hosted in the EU Data Boundary, we use an Azure OpenAI endpoint in the same boundary. Learn more in [EU Data Boundary countries and datacenter locations](/privacy/eudb/eu-data-boundary-learn#eu-data-boundary-countries-and-datacenter-locations).
 
-The following table describes when and how data can move across geographies for Copilot in Business Central.
+The following table shows which Azure OpenAI geography is used for Copilot based on where your Business Central environment is hosted, and whether consent is required.
 
-|Azure&nbsp;region&nbsp;where&nbsp;your&nbsp;Business&nbsp;Central environment is hosted|Azure geography where Azure OpenAI Service is hosted|Consent required for data movement across geographies?|How to allow data to move across geographic areas|
+|Azure&nbsp;geography/regions&nbsp;where&nbsp;your Business Central environment is hosted|Azure geography where Azure OpenAI Service is hosted|Consent required for data movement across geographies?|What you need to do|
 |-|-|-|-|
-|<ul><li>Australia (South East)</li><li>United Kingdom (South, West)</li><li>India (Central, South)</li><li>United States (Central, East, North Central, South Central, West)</li></ul>|Within the same geographic area as the Business Central environment|No|No action required. Data doesn't move across geographies in this scenario.|
-|<ul><li>Europe (West, North)</li><li>France (Central, South)</li><li>Germany (North, West Central)</li><li>Norway (East, West)</li><li>Sweden (Central, South)</li><li>Switzerland (North, West) </li></ul>|A geography in the EU Data Boundary|Yes|Azure OpenAI Service is available in multiple geographies within the EU Data Boundary. Copilot can operate in any of these locations, and your data will remain inside the EU Data Boundary at all times.<br><br>Learn more about the countries and datacenter locations included in the boundary in [What is the EU Data Boundary?](/privacy/eudb/eu-data-boundary-learn#eu-data-boundary-countries-and-datacenter-locations)<br><br>**Note:** The **Allow data movement** toggle is turned on by default. If you disable it, Copilot won’t be able to process data across EU Data Boundary geographies, and Copilot features will no longer be available to your organization.|
-|<ul><li>Asia (East, South East)</li><li>Brazil (South)</li><li>Canada (Central, East)</li><li>Japan (East, West)</li><li>Korea (Central, South)</li><li>South Africa (North, West)</li><li>United Arab Emirates (North, West)</li></ul> |United States|Yes|**Note:** By default, the **Allow data movement** toggle is on. If you don't want to provide consent to data movement, you can switch off the toggle at any time. In this case, Copilot features won't be available to your organization.|
+|<ul><li>United States (Central, East, North Central, South Central, West)</li></ul>|United States|No|No action required. Data doesn't move across geographies in this scenario.|
+|<ul><li>Europe (West, North)</li><li>France (Central, South)</li><li>Germany (North, West Central)</li><li>Norway (East, West)</li><li>Sweden (Central, South)</li><li>Switzerland (North, West)</li></ul>|Within [EU Data Boundary](/privacy/eudb/eu-data-boundary-learn#eu-data-boundary-countries-and-datacenter-locations) (covers multiple geographies)|Yes|Processing can occur across geographies within the EU boundary. By default, the **Allow data movement** toggle on the **Copilot & agent capabilities** page is on.<br><br>If you don't want to provide consent to data movement, turn off the toggle. In this case, Copilot features won't be available to your organization.|
+|<ul><li>United Kingdom (South, West)</li></ul>|Copilot features within the same geographic area as the Business Central environment.<br><br>Agent features within EU Data Boundary (covers multiple geographies)|Yes|Agent processing can occur across geographies within the EU boundary. By default, the **Allow data movement** toggle on the **Copilot & agent capabilities** page is on.<br><br>If you don't want to provide consent to data movement for agents, turn off the toggle. In this case, neither Copilot or agent features will be available to your organization. Alternatively, turn on the toggle to allow using Copilot features, but turn off all agent features.|
+|<ul><li>Australia (South East)</li><li>India (Central, South)</li></ul>|Copilot features within the same geographic area as the Business Central environment.<br><br>Agent features within United States|Yes|Agent processing can occur across geographies within the EU boundary. By default, the **Allow data movement** toggle on the **Copilot & agent capabilities** page is on.<br><br>If you don't want to provide consent to data movement for agents, turn off the toggle. In this case, neither Copilot or agent features will be available to your organization. Alternatively, turn on the toggle to allow using Copilot features, but deactivate all agent features.|
+|<ul><li>Asia (East, South East)</li></li><li>Brazil (South)</li><li>Canada (Central, East)</li><li>Japan (East, West)</li><li>Korea (Central, South)</li><li>South Africa (North, West)</li><li>United Arab Emirates (North, West)</li></ul> |United States|Yes|By default, the **Allow data movement** toggle on the **Copilot & agent capabilities** page is on.<br><br>If you don't want to provide consent to data movement, turn off the toggle. In this case, Copilot features won't be available to your organization.|
 
 <!--
 > [!IMPORTANT]
@@ -17824,23 +18005,18 @@ These two geographic factors are **independent** but work together with environm
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ User in England                                                 │
+│ User in US                                                      │
 │                                                                 │
-│ [1] Uses Business Central in language: English (United Kingdom) │
+│ [1] Uses Business Central in language: Spanish (United States)  │
 │         ↓                                                       │
-│ [2] Environment country/region is: United Kingdom (GB)          │
-│     (UK VAT, tax rules, regulatory features)                    │
+│ [2] Environment country/region is: United States                │
 │         ↓                                                       │
-│ [3] Environment data stored in Azure region: United Kingdom West│
-│     (Database, transactions, customer data)                     │
+│ [3] Environment data stored in Azure region: United States      │
 │         ↓                                                       │
-│ [4] Copilot prompt sent to AZURE OPENAI in: United Kingdom      │
-│     (AI processing, model inference)                            │
-│         ↓                                                       │
-│ [5] Response returned in: English (supported language)          │
+│ [4] Copilot response returned in: Spanish (United States)       │
 └─────────────────────────────────────────────────────────────────┘
 
-   ✓ All factors align - Full functionality available
+   ✓ Copilot processing stays in the United States geography
 ```
 
 **Cross-geography scenario**:
@@ -18442,7 +18618,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 20400, 20408, 20404, 20402, 20416,
-ms.date: 03/10/2026
+ms.date: 06/10/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -18467,6 +18643,19 @@ This article explains the initial setup and configuration of quality management 
   |**Quality Auditor**     |Read-only access to all quality data for review and reporting.         |
 
   Learn more at [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+
+### Actions that require the Quality Admin & Supervisor role
+
+Some actions on quality inspections are restricted to users who have the **Quality Admin & Supervisor** permission set (or SUPER permissions). Users who only have the **Quality Inspector** permission set can't perform these actions, even if they have general data modification permissions.
+
+  |Action  |Description  |
+  |--------- | --------- |
+  | Change another user's inspection assignment  | Only an admin or supervisor can change the **Assigned User ID** field on an inspection that is assigned to a different user.         |
+  | Delete a finished inspection | Only an admin or supervisor can delete an inspection that has already been finished.         |
+  | Change quantities on an inspection  | Only an admin or supervisor can change the values in the **Quantity**, **Passed Quantity**, **Failed Quantity**, or **Sample Size** fields on an inspection.         |
+  | Reopen a finished inspection     | Only an admin or supervisor can reopen an inspection that is finished.         |
+
+  If a user without the required role attempts one of these actions, [!INCLUDE [prod_short](includes/prod_short.md)] displays an error message that indicates that the user doesn't have the necessary permissions.
 
 ## Typical setup scenarios
 
@@ -18551,7 +18740,7 @@ The following steps describe settings you can use to get started with quality ma
    |**Certificate of Analysis Contact** | Specify the contact details that appear on the **Certificate of Analysis** report when supplied.        |
    |**Maximum Rows To Fetch in Lookups** | Specify the maximum number of rows to fetch on data lookups. Keep the number as low as possible to increase usability and performance.        |
    |**Additional Picture Handling** | Specify what to do with pictures.<br><br>- **None** means not to take an action with pictures.<br>- **Save as attachment** attaches the picture as a document.<br>- **Save as attachment and upload to OneDrive** attaches the picture and uploads it to OneDrive.        |
-   
+
 1. On the **Generation Rule Trigger Defaults** FastTab, configure default trigger values for different types of documents, as described in the following table.
 
    |Field  |Options  |
@@ -18573,9 +18762,9 @@ The following steps describe settings you can use to get started with quality ma
    - **Allow only posted item tracking**: Use this option if all lot or serial numbers must be posted before you can finish an inspection. For example, if you inspect finished goods the lot or serial number should exist. If you inspect lots when they're moved to a bin, the lot or serial number must exist.
    - **Allow reserved or posted item tracking**: Use this option if lot or serial numbers need to be in the system but might not yet be posted. For example, lots that are being received or produced might not yet be received or produced, but do exist on your item tracking lines.
    - **Allow any non-empty value**: Use this option if you want to track lot or serial numbers that don't enter the system but need inspections to document why they didn't. For example, if you reject a lot during the receiving process and the failed lot is never put away. Or, if you're producing and know the intended lot or serial number but the in-progress item is discarded before it's posted to inventory. Inspections with lot or serial numbers that aren't in your inventory are permitted.
-     
+
 1. In the **Quality inspection selection criteria** field, specify the inspections to consider when evaluating whether to block a document-specific transaction.
-   
+
    - **Any inspection that matches** considers any inspection.
    - **Only the most recently modified inspection** uses the most recently modified inspection.
    - **Only the newest inspection/reinspection** uses the inspection with the highest reinspection number.
@@ -22839,103 +23028,5 @@ This section explains the minimum requirements for your organization to use Micr
 ## Related information
 
 [Business Central and Microsoft Teams Integration](across-teams-overview.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-to-create-blanket-sales-orders
----
-title: Work with blanket sales orders or purchase orders
-description: Use blanket orders when a customer agrees to buy large quantities that you deliver in small shipments over a period of time.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.form: 507, 509, 6620, 6622, 6623, 9303, 9310
-ms.date: 04/07/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# Work with blanket sales orders or blanket purchase orders
-
-Blanket sales orders and blanket purchase orders represent a framework for a long-term agreement between you and your customer or vendor. This article describes the processes for the sales blanket order side, but the steps are the same for purchasing.
-
-Typically, you use a blanket order when a customer buys a large quantity that you deliver in small shipments over a period of time. Blanket orders often cover only one item with predetermined delivery dates. The main reason for using a blanket order rather than a sales order is that quantities entered on a blanket order don't affect item availability. You can use them as a worksheet for monitoring, forecasting, and planning.
-
-On the blanket order, each separate shipment can be set up as an order line, which can then be converted into a sales order at the time of shipping.
-
-## To create a blanket sales order
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Blanket Sales Orders**, and then choose the related link.  
-2. Choose the **New** action.  
-3. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-4. Leave the **Order Date** field blank. When the separate sales orders are created from the blanket order, the order date of the sales order is set to equal the actual work date.
-5. On the **Lines** FastTab, create separate lines for each shipment. For example, if your customer wants 1,000 units split equally over four weeks, you would enter four separate lines of 250 units each.  
-
-## To create a sales order from a blanket sales order  
-
-1. To create an order for any of the lines in the blanket sales order, remove the quantity in the **Qty. to Ship** field on all the lines that you don't wish to ship at this time.  
-2. When you're ready to create orders, choose the **Make Order** action, and then choose **Yes**. A message informs you that an order number is assigned to the blanket order. The blanket order isn't deleted.  
-3. Choose the **OK** button.  
-4. To see the results of the preceding steps, choose the **Line** action, choose the **Unposted Lines** action, and then choose the **Orders** action.  
-5. On the **Sales Lines** page, select the appropriate sales order, choose the **Line** action, and then choose the **Show Document** action.  
-
-The following information applies to sales orders after they're created from blanket sales orders:  
-
-- After the blanket order is converted into a sales order, the sales order contains all the lines from the blanket order. The lines where the quantity in the **Qty. to Ship** field was deleted show blank **Quantity** fields. You can choose to leave, edit, or delete the lines.  
-- It's important to remember that the sales order line quantity must not exceed the quantity of the associated blanket order line. Otherwise, you can't post the sales order.  
-- When the sales order is posted as shipped and/or invoiced, the **Quantity Shipped** and **Quantity Invoiced** fields are updated on the related blanket order.  
-- The blanket order number and line number are recorded as properties of the sales lines when created from a blanket order.  
-- When sales orders aren't created directly from the blanket order but still relate to it, a link between a sales order and a blanket order can be established by entering the associated blanket order number in the **Blanket Order No.** field on the sales order line.  
-- After the sales order is created for the total quantity of a blanket order line, no other sales order can be created for the same line. Users are prevented from entering a quantity in the **Qty. to Ship** field. If, however, extra quantities need to be added to a blanket order, you can increase the value in the **Quantity** field and more orders can then be created.  
-- The invoiced blanket sales order remains in the system until you delete it, either by deleting individual blanket orders or by running the **Delete Invoiced Blanket Sales Orders** batch job.  
-- If a customer is also recorded as a contact in the Marketing application area, and if you specified an interaction template code for blanket sales order on the **Marketing Setup** page, an interaction is recorded in the Interaction Log Entry table when you select **Print** to print the blanket sales order.
-
-## To view the status of a blanket sales order
-
-You can review the status of a blanket sales order on the **Sales Blanket Order Statistics** page. This review might be relevant when you start to invoice the order that is created from the blanket sales order.  
-
-1.  [!INCLUDE[open-search](includes/open-search.md)], enter **Blanket Sales Orders**, and then choose the related link.  
-2.  Select a blanket sales order, and then choose the **Statistics** action.  
-3.  On the **Sales Blanket Order Statistics** page, on the **General** FastTab, you can see summary information about the entire order based on the total quantity in the various **Quantity fields** on the blanket sales order lines.  
-
-- On the **Invoicing** FastTab, you can see summary information based on the total quantity in the **Qty. to Invoice** fields on the sales blanket order lines.  
-- On the **Shipping** FastTab, you can see summary information based on the total quantity in the **Qty. to Receive** fields on the sales blanket order lines.  
-- On the **Prepayment** FastTab, you can see summary information about any prepaid amounts.  
-- On the **Vendor** FastTab, you can see certain basic information about the vendor.
-
-## To view unposted and posted blanket sales order lines
-
-The link between the blanket sales order and the originating sales order, and any other sales document, is kept after posting.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)] enter **Blanket Sales Orders**, and then choose the related link.
-2. Open the blanket sales order you want to view.
-3. To view unposted entries, select the line in question, choose the **Line** action, and then choose the **Unposted Lines** action. Choose one of the following options.  
-
-|Option|Description|
-|--|--|
-|**Orders**|Specifies open orders associated with the selected line.|
-|**Invoices**|Specifies open invoices that were associated with the selected line. Open invoices are manually associated with a blanket order by entering the blanket order number on the sales invoice line.|
-|**Return Orders**|Specifies open return orders that were associated with the selected line.|
-|**Credit Memos**|Specifies open credit memos that were associated with the selected line.|
-
-4. To view posted entries, select the line in question, choose the **Line** action, and then choose the **Posted Lines** action. Choose one of the following options.  
-
-|Option|Description|
-|---|----|
-|**Shipments**|Posted shipments associated with the selected line.|
-|**Invoices**|Posted invoices associated with the selected line.|
-|**Return Receipts**|Posted return receipts that were associated with the selected line.|
-|**Credit Memos**|Posted credit memos that were associated with the selected line.|
-
-5. On the **Sales Lines** page, choose the **Show Document** action to view the entry.
-
-## Related information
-
-[Sales](sales-manage-sales.md)  
-[Create Blanket Assembly Orders](assembly-how-to-create-blanket-assembly-orders.md)  
-[Setting Up Sales](sales-setup-sales.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
