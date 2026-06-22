@@ -1,3 +1,134 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-powerbi-reports-factbox
+---
+title: Display custom Power BI reports
+description: Use the Power BI FactBox to display interactive Power BI reports and gain deeper insights into data on key list pages.
+author: jswymer
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: business intelligence, KPI, Odata, Power App, SOAP, analysis
+ms.date: 10/16/2025
+ms.author: jswymer
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Create Power BI reports for displaying list data in [!INCLUDE[prod_short](includes/prod_short.md)]
+
+[!INCLUDE[prod_long](includes/prod_long.md)] includes a Power BI FactBox control element on many key list pages. The purpose of this FactBox is to display Power BI reports that are related to records in the lists, providing extra insight into the data. The idea is that as you move between rows in the list, the report updates for the selected entry.
+
+[!INCLUDE[prod_long](includes/prod_long.md)] comes ready with some of these reports. You can also create your own custom reports that display in this FactBox. Creating these reports is similar to other reports. But there are a few design rules you have to follow to make sure the reports display as expected. These rules are explained in this article.
+
+> [!NOTE]
+> Refer to [Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md) for general information about creating and publishing Power BI reports for Business Central.
+
+## Prerequisites
+
+- A Power BI account.
+- Power BI Desktop.
+
+<!-- 
+For more information about getting started, see [Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md).-->
+
+## Create a report for a list page
+
+1. Start Power BI Desktop.
+2. Select **Get Data**, and start choosing the data source for the report.
+
+    Specify the Business Central list pages that contain the data that you want in the report. For example, to create a report for the **Sales Invoices** list, include pages related to sales.
+
+    Follow the instructions [Add [!INCLUDE[prod_short](includes/prod_short.md)] as a data source in Power BI Desktop](across-how-use-financials-data-source-powerbi.md#getdata) for more information.
+
+3. Set the report filter.
+
+    To make the data update to the selected record in the list, you add a filter to the report. The filter must include a field of the data source that's used to uniquely identify each record in the list. In developer terms, this field is the *primary key*. In most cases, the primary key for a list is the **No.** field.
+
+    To set the filter, do the following steps:
+
+    1. In the **Filters**, select the primary key field from the list of available fields.
+    2. Drag the field to **Filters** pane and drop it in the **Filters on all pages** box.
+    3. Set the **Filter type** to **Basic filtering**. It can't be page, visual, or advanced filter.
+
+    ![Set the report filter for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-filter-v3.png)
+4. Design the report layout.
+
+    Create the layout by dragging fields and adding visualizations. Learn more in [Work with Report view in Power BI Desktop](/power-bi/create-reports/desktop-report-view) in the Power BI documentation.
+
+5. See the next sections about sizing the report and using multiple pages.
+
+6. Save and name the report.
+
+    Give the report a name that contains the name of the list page associated with the report, as it is in the client. The name isn't case-sensitive though. Suppose the report is for the **Sales Invoices** list page. In this case, include the words **sales invoices** somewhere in the name, like **my sales invoices.pbix** or **my_Sales Invoices_list.pbix**.
+
+    This naming convention isn't a requirement. However, it makes selecting reports in [!INCLUDE[prod_short](includes/prod_short.md)] quicker. When the report selection page opens from a list page, it's automatically applied a filter based on the page name. The filter has the syntax: `@*<caption>*`,  like `@*Sales Invoices*`. This filtering is done to limit the reports that are displayed. Users can clear the filter to get a full list of reports available in Power BI.
+
+7. When you're done, publish the report as usual.
+
+    Learn more in [Publishing a Report](across-how-use-financials-data-source-powerbi.md#publish-reports).
+
+8. Test the report.
+
+    Once the report's been published to your workspace, it should be available from the Power BI FactBox on the list page in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+    To test it, do the following steps.
+
+    1. Open [!INCLUDE[prod_short](includes/prod_short.md)] and go to the list page.
+    2. If you don't see the Power BI FactBox, go the action bar, then select **Actions** > **Display** > **Show/Hide Power BI Reports**.
+    3. In the Power BI FactBox, select **Select Reports**, select the **Enable** box for the report, then select **OK**.
+
+    If designed correctly, the report displays.  
+
+## Set the report size and color
+
+The size of the report must be set to 325 pixels by 310 pixels. This size provides the proper scaling of the report in the available space of the Power BI FactBox control in [!INCLUDE[prod_short](includes/prod_short.md)]. To define the size of the report, place focus outside of the report layout area, and then choose the paint roller icon.
+
+![Set the report width and height for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-sizing-v3.png)
+
+You can change the width and height of the report by choosing **Custom** in the **Type** field.
+
+If you want the background of the report to blend with the background color of the Power BI FactBox control, set report background color to *#FFFFFF* (white). 
+
+> [!TIP]
+> Use the [!INCLUDE [prod_short](includes/prod_short.md)] theme file to build reports with the same color styling as the [!INCLUDE [prod_short](includes/prod_short.md)] apps. Learn more in [Use the [!INCLUDE [prod_short](includes/prod_short.md)] report theme](across-how-use-financials-data-source-powerbi.md#theme).
+
+## Reports with multiple pages
+
+With Power BI, you can create a single report with multiple pages. However, for reports that display with list pages, we recommend that they don't have more than one page. The Power BI FactBox only shows the first page of your report.
+
+## Fix problems
+
+This section explains how to fix problems that you might run into when you try to view a Power BI report for a list page in [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+### You can't see the Power BI FactBox on a list page
+
+By default, the Power BI FactBox is hidden from view. To show the FactBox on a page, from the action bar, select **Actions** > **Display** > **Show/Hide Power BI Reports**.
+
+### You can't see the report in the Select Report pane
+
+The report's name doesn't contain the name of the list page that's being shown. Clear the filter to get a full list of Power BI reports available.  
+
+### Report is loaded but blank, not filtered, or filtered incorrectly
+
+Verify the report filter contains the right primary key. In most cases, this field is the **No.** field, but in the **G/L Entry** table, for example, you must use the **Entry No.** field.
+
+### Report is loaded, but it shows a page you didn't expect
+
+Verify that the page you want displayed is the first page in your report.  
+
+### Report appears with an unwanted gray boarder, or it's too small or too large
+
+Verify that the report size is set to 325 pixels x 310 pixels. Save the report, and then refresh the list page.  
+
+## Related information
+
+[Enable Your Business Data for Power BI](admin-powerbi.md)  
+[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
+[Get Ready for Doing Business](ui-get-ready-business.md)  
+[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
+[Finance](finance.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-daily-purchases
 ---
 title: Daily Purchases (Power BI Report)
@@ -1652,23 +1783,25 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-cancel-production-orders-that-have-consumption
 ---
-title: Cancel production orders that have consumption
-description: Learn how to revert consumption or output transactions, return unused raw materials, and correct mistakes in your reported operations.
+title: Reverse and correct production order transactions
+description: Learn how to reverse consumption, output, or capacity transactions on production orders, finish orders without output, and reopen finished orders.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
 ms.search.form: 99000768, 99000779, 99000780, 99000866
-ms.date: 04/08/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 
-# Cancel production orders that have consumption
+# Reverse and correct production order transactions
 
 Even when production doesn't go as planned, it's important to keep your inventory, cost, and financial records accurate. You can revert consumption or output transactions, return unused raw materials, and correct mistakes in your reported operations. For actual scrap occurrences, [!INCLUDE [prod_short](includes/prod_short.md)] provides a process that lets you close orders and write off accumulated WIP.
 
-When you post production transactions by mistake, you probably want to cancel (undo the transactions) and in some cases close the order. To do that, from the **Released Production Order** page, you can open the **Item Ledger entries** or **Capacity Ledger entries** pages and use the **Reverse Production Order Transaction** action.
+## Reverse production order transactions
+
+When you post production transactions by mistake, you probably want to cancel (undo) the transactions, and in some cases close the order. To do that, from the **Released Production Order** page, open the **Item Ledger entries** or **Capacity Ledger entries** pages and use the **Reverse Production Order Transaction** action.
 
 - For item ledger entries of the type **Consumption**, the action creates item journal lines of the type **Consumption**. For the lines, it copies values from the original transaction, uses the opposite sign in the **Quantity** field, applies to the original entry, and posts the item journal.
 - For item ledger entries of the types **Output** or **Capacity**, the action creates item journal lines of the type **Output**. For the lines, it copies values from original transaction, uses the opposite sign in the **Quantity**, **Scrap Quantity**, **Setup Time**, and **Run time** fields, applies to the original entry (only for item ledger entries), and posts the item journal. It also removes the **Finished** status from the related production routing line.
@@ -1688,14 +1821,18 @@ You can undo subcontracting receipts before you post them as invoiced. To do so,
 > [!NOTE]
 > If posting a subcontracting receipt caused consumption of components due to the flushing method, the consumption transactions aren't reverted. You must reverse them separately by using an output journal or the **Reverse Production Order Transaction** action.
 
-After you revert and correct the records, you can change the status of the production order to **Finished**. The steps and settings are the same for a scenario where there is no output to allocate accumulated WIP because of actual scrap. To set this up, turn on the **Finish Order Without Output** toggle on the **Manufacturing Setup** page.
+## Finish a production order without output
+
+After you revert and correct the records, you can change the status of the production order to **Finished**. This also applies to scenarios where actual scrap occurred and there's no output to allocate the accumulated work in process (WIP).
+
+To set up this capability, turn on the **Finish Order Without Output** toggle on the **Manufacturing Setup** page.
 
 > [!NOTE]
-> After you turn on the toggle, you can't turn it off again. However, you can decide whether to write-off WIP for each order individually.
+> After you turn on the toggle, you can't turn it off again. However, you can decide whether to write off WIP for each order individually.
 
-When you change the status of a released production order that has consumption or capacity ledger entries but no output, you can turn on the **Allow Finishing Prod. Order with no output** toggle on the **Change production order status** page.
+When you change the status of a released production order that has consumption or capacity ledger entries but no output, turn on the **Allow Finishing Prod. Order with no output** toggle on the **Change production order status** page.
 
-The accumulated WIP amounts are posted to your inventory adjustment account. Remember to fill in the **Inventory Adjustment Account** on the **General Posting Setup** page for the entry defined by:
+The system posts the accumulated WIP amounts to your inventory adjustment account. Fill in the **Inventory Adjustment Account** on the **General Posting Setup** page for the entry defined by:
 
 - The **Gen. Bus. Posting Group** field on the production order.
 - The **Gen. Prod. Posting Group** field on the produced item.
@@ -2509,10 +2646,10 @@ title: Set up approval workflows
 description: Set up workflows, workflow users, and approval users to connect business-process system tasks performed by these different users.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.keywords: workflow, approval workflow, workflow users
-ms.date: 10/20/25
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -2534,7 +2671,7 @@ The following table describes a sequence of tasks, with links to the articles th
 |Set up workflow users and user groups.|[Set Up Workflow Users](across-how-to-set-up-workflow-users.md)|  
 |Set up workflow users who take part in approval workflows.|[Set Up Approval Users](across-how-to-set-up-approval-users.md)|  
 |Specify how workflow users are notified of workflow steps, including approval requests.|[Setting Up Workflow Notifications](across-setting-up-workflow-notifications.md)|  
-|Specify if users are notified by email or note and how often notifications are sent.|[Specify When and How to Receive Notifications](across-how-to-specify-when-and-how-to-receive-notifications.md)|  
+|Specify whether to notify users by email or note, and how often notifications are sent.|[Specify When and How to Receive Notifications](across-how-to-specify-when-and-how-to-receive-notifications.md)|  
 |Customize the content of the email notification by modifying Report 1320, Notification Email.|[Create and Modify Custom Report Layouts](ui-how-create-custom-report-layout.md)|  
 |Set up an SMTP server to enable email communication in and out of [!INCLUDE[prod_short](includes/prod_short.md)]|[Set up Email](admin-how-setup-email.md)|
 |Specify the different steps of a workflow by connecting workflow events with workflow responses.|[Create Approval Workflows](across-how-to-create-workflows.md)|  
@@ -2623,7 +2760,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ---
 
@@ -2845,7 +2982,7 @@ If you select the **Pick According to FEFO** checkbox on the **Bin Policies** Fa
 
 Warehouse activities in all pick and movement documents are sorted according to FEFO, unless the items have serial or lot numbers assigned. If some, but not all, of the quantity on the line has serial or lot numbers assigned, the remaining quantity is sorted according to FEFO.  
 
-When using FEFO, items that expire first are gathered in a temporary item tracking list based on the expiration date. If two items have the same expiration date, the item with the lowest lot or serial number is picked first. If the lot or serial numbers are the same, the item that was registered first is selected first. Standard criteria for selecting items in pick bins, such as Bin Ranking and Break Bulk, are applied to the temporary FEFO item tracking list.  
+When you use FEFO, items that expire first are gathered in a temporary item tracking list based on the expiration date. If two items have the same expiration date, the item with the lowest lot or serial number is picked first. If the lot or serial numbers are the same, the item that was registered first is selected first. Standard criteria for selecting items in pick bins, such as Bin Ranking and Break Bulk, are applied to the temporary FEFO item tracking list.  
 
 Learn more at [Enable Picking Items by FEFO](warehouse-picking-by-fefo.md).
 
@@ -4187,7 +4324,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Set up Payables Agent
 description: Payables Agent lets you automate vendor invoice processing in Business Central. Follow these steps to activate, configure, and manage user access.
-ms.date: 05/03/2026
+ms.date: 06/16/2026
 ms.update-cycle: 180-days
 ms.topic: how-to
 author: sorenfriisalexandersen
@@ -4209,7 +4346,12 @@ Before configuring and activating the Payables Agent, ensure the following prere
 
 - The Business Central environment is a country/region version supported by the Payables Agent as listed in [Feature availability by country/region and language](/dynamics365/business-central/copilot-agents-region-language-availability#feature-availability-by-countryregion-and-language).
 
-- Set up the email account for receiving vendor invoices PDF documents.
+- You have permissions to configure the Payables Agent. You can configure the agent if you meet one of these conditions:
+  - You're listed in the agent's user access list with **Can Configure** selected.
+  - You have the **Configure All Agents** system permission (ID 9665).
+
+  Learn more in [Manage agent permissions and user access](#manage-agent-permissions-and-user-access).
+- An email account is set up to receive vendor invoice PDF documents.
 
    The Payables Agent monitors incoming emails to this mailbox. The email account must be a **Microsoft 365** type (user mailbox or shared mailbox) in your organization. Learn more at [Set up email](admin-how-setup-email.md).
 
@@ -4217,11 +4359,11 @@ Before configuring and activating the Payables Agent, ensure the following prere
    > To activate and configure the agent, you need **Read and manage (Full Access)** permission on the mailbox, unless it's your personal mailbox. As an Exchange admin, delegate these permissions to all users who need to activate and configure the agent. Learn more in [Use the Exchange admin center to edit shared mailbox delegation](/microsoft-365/admin/email/create-a-shared-mailbox#use-the-eac-to-edit-shared-mailbox-delegation).
    >
    > When a user activates the agent, it runs as a background task in the context of that user and needs access to the shared mailbox to process emails. It might take a few hours for Exchange to propagate the permissions to the selected users.
-- Set up the Business Central environment for billing agent capabilities in the Business Central Admin Center.
+- Billing for agent capabilities is configured for the Business Central environment in the Business Central admin center.
 
    Agents use Microsoft Copilot Studio messages when activated, which your company is charged for. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
-- Turn on the **Allow HttpClient Requests** toggle in the **Payables Agent** extension settings (sandbox environments only)
+- (Sandbox environments only) The **Allow HttpClient Requests** toggle in the **Payables Agent** extension settings is turned on.
 
    Open the [Extension management](https://businesscentral.dynamics.com/?page=2500) page, select **Payables Agent**, and then turn on the **Allow HttpClient Requests** toggle.
 
@@ -4235,26 +4377,26 @@ If the icon isn't present, turn it on from the **Copilot & agent capabilities** 
 
 Next, configure and activate the agent so it can process vendor invoices.
 
-## Configure and activate Payables Agent
+## <a name="activate"></a>Configure and activate Payables Agent
 
 Configure and activate the Payables Agent for your company. Only one Payables Agent is allowed per company, but you can give access to many users.
 
 1. In the navigation bar at the upper right of the role center, select ![Shows the Payables Agent icon](media/payables-agent-icon.png) **Payables Agent** > **Activate**.
-1. On the **Configure the Payables Agent** wizard, turn on the **Monitor incoming information** toggle, select the **Mailbox** check box, and then set **Mailbox** field to the email account you want the agent to monitor.
+1. On the **Configure the Payables Agent** assisted setup guide, turn on the **Monitor incoming information** toggle, select the **Mailbox** check box, and then set **Mailbox** field to the email account you want the agent to monitor.
 
-   ![Shows the Payables Agent configuration wizard](media/payables-agent-setup.png)
+   ![Shows the Payables Agent configuration assisted setup guide](media/payables-agent-setup.png)
 
 1. The configuration of an agent can span multiple pages in the configuration. On the right side of the page, select the **Go to next card** arrow to configure more options that determine how the agent behaves.
 
-   ![Shows the second page of the Payables Agent configuration wizard](media/payables-agent-setup-page3.png)
+   ![Shows the second page of the Payables Agent configuration assisted setup guide](media/payables-agent-setup-page3.png)
 
-   - **Get sample invoices:** This option shows in evaluation companies only and intends to provide easy access to demo invoices so you don't have to produce invoices yourself. These invoices work well with the Contoso Coffee demo data. The wizard lets you let the system send the sample invoices to the monitored mailbox, in which case they're sent from the same mailbox. The wizard also lets you the sample invoices so you can send them from your own mailbox to the monitored mailbox
+   - **Get sample invoices:** This option shows in evaluation companies only and provides easy access to demo invoices so you don't have to produce invoices yourself. These invoices work well with the Contoso Coffee demo data. The assisted setup guide lets you send the sample invoices to the monitored mailbox, in which case they're sent from the same mailbox. The assisted setup guide also lets you download the sample invoices so you can send them from your own mailbox to the monitored mailbox.
 
       > [!TIP]
       > If you let the agent send the sample invoices, they show up in the agent task pane as coming from the same mailbox as is being monitored. Basically, it sends an email to itself with the prepared samples.
 
    - **Review email:** Select this checkbox to require users to review the incoming emails before the agent creates purchase document drafts.
-   - **Configure additional fields** Select the link to choose more fields from matched purchase invoice history to populate automatically when the agent finalizes purchase document drafts to become purchase invoice documents. This feature ensures that purchase invoice line fields that aren't visible in the purchase document draft can be populated in the same process when matched with historic data. It's the way the generic **Purchase document draft** experience supports fields from customizations and add-on apps.
+   - **Configure additional fields:** Select the link to choose more fields from matched purchase invoice history to populate automatically when the agent finalizes purchase document drafts to become purchase invoice documents. This feature ensures that purchase invoice line fields that aren't visible in the purchase document draft can be populated in the same process when matched with historic data. It's the way the generic **Purchase document draft** experience supports fields from customizations and add-on apps.
 
 1. Select **Manage user access** to specify more agent supervisors who can manage or interact with the agent. You can add more users now or later. Learn more in [Manage user access to the Payables Agent](#manage-agent-permissions-and-user-access).
 1. Turn on the **Active** toggle.
@@ -4266,16 +4408,16 @@ Configure and activate the Payables Agent for your company. Only one Payables Ag
 The **Payables Agent** icon changes to ![Shows the Payables Agent icon after configured](media/payables-agent-activated-icon.png), indicating the agent is active and ready to handle incoming vendor invoices sent to the mailbox.
 
 > [!TIP]
-> Refer to [Payables Agent process flow](payables-agent.md#payables-agent-process-flow) to understand the agent in more details and learn how it works.
+> Refer to [Payables Agent process flow](payables-agent.md#payables-agent-process-flow) to understand the agent in more detail and learn how it works.
 
 > [!NOTE]
-> The ![Shows the Payables Agent icon when the agent is configure but not active](media/payables-agent-not-activated-icon.png) icon indicates the agent is configured with a mailbox, but it's not active. To activate it, select the icon, then select ![Shows the configuration icon for Payables Order Agent](media/soa-configure-icon.png) **Configure Payables Agent** to reopen the configuration page. From there, turn on the **Active** toggle.
+> The ![Shows the Payables Agent icon when the agent is configured but not active](media/payables-agent-not-activated-icon.png) icon indicates the agent is configured with a mailbox, but it's not active. To activate it, select the icon, then select ![Shows the configuration icon for Payables Agent](media/soa-configure-icon.png) **Configure Payables Agent** to reopen the configuration page. From there, turn on the **Active** toggle.
 
 ## Manage agent permissions and user access
 
-### Add agent users
+### Configure agent users
 
-As an administrator, you can specify which users have permission to use or configure the Payables Agent. There are two ways to add and configure agent users:
+As an administrator, you can specify which users have permission to use or configure the Payables Agent. There are three ways to add and configure agent users:
 
 #### [From Configure Payables Agent page](#tab/payablesagentconfig)
 
@@ -4298,15 +4440,37 @@ As an administrator, you can specify which users have permission to use or confi
    - To give a user permission to configure Payables Agent, select the **Can configure** check box.
    - To remove a user's access to the agent, select ![Shows the icon to show more option on a field](media/show-more-options-icon.png) **Show more options** next to the user name, and then select **Delete**.
 
+#### [Using permissions and licenses](#tab/perms)
+
+The following system permissions are available for controlling user access to the agent's functionality:
+
+- **Configure All Agents** (ID 9665): Grants a user access to manage the configuration settings of Payables Agent.
+- **Manage Agent Tasks** (ID 9670): Allows a user to work with agent tasks displayed in the Copilot pane.
+
+These system permissions are also included in the following permission sets, entitlements, and license types:
+
+- The **SECURITY** permission set includes the **Configure All Agents** permission.
+- The **System Execute - Basic** permission set includes the **Manage Agent Tasks** permission.
+- The **System Tables - Basic** permission set includes all virtual tables used by the agent (labeled as `Agent *` tables).
+- Essential and Premium license entitlements now include the **Manage Agent Tasks** permission.
+- All license types include the **Configure All Agents** permission.
+
+Users can configure Payables Agent if they have the **Configure All Agents** permission or are listed as an agent user with the **Can Configure** field selected.
+
+Users can work with agent tasks in the Copilot pane if they have the **Manage Agent Tasks** permission (either explicitly or as part of their Essential or Premium license permissions) and are listed as an agent user.
+
 ---
+
+> [!TIP]
+> If users need to create or modify email accounts in Business Central (separate from the Exchange mailbox permissions above) or set up the Microsoft 365 document connector, assign them the **Payables Ag. - Adm.** permission set.
 
 ### Manage agent's permissions to objects, data, and UI elements
 
 The Payables Agent has a user account in Business Central, similar to other users. To edit this account, search for and open the **Agents** page, and then select **PAYABLES AGENT - [COMPANY]** to open the agent card page.
 
-The **Agent Permission Sets** section lists all the permission sets currently assigned to the agent. By default, the Payables Agent has the **PAYABLES AGENT – RUN** permission set. This set restricts access to only the objects, data, and UI elements (such as pages, fields, and actions) necessary for processing vendor invoices.
+The **Agent Permission Sets** section lists all the permission sets currently assigned to the agent. By default, the Payables Agent has the **PAYABLES AG. – RUN** permission set. This set restricts access to only the objects, data, and UI elements (such as pages, fields, and actions) necessary for processing vendor invoices.
 
-You can't modify the **PAYABLES AGENT – RUN** permission set directly, because it's a system permissions set. However, you can create a copy, modify the copy to suit your needs, then add it to **Agent Permission Sets** section, along with any other permission sets.
+You can't modify the **PAYABLES AG. – RUN** permission set directly, because it's a system permissions set. However, you can create a copy, modify the copy to suit your needs, then add it to **Agent Permission Sets** section, along with any other permission sets.
 
 Before you can add or delete permission sets applied to the agent, change the **State** to disabled. When you're done making changes, set it back to **Enabled**.
 
@@ -4336,7 +4500,7 @@ ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: feature overview
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 10/13/2025
+ms.date: 06/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
@@ -4362,10 +4526,10 @@ ms.reviewer: v-soumramani
 |Manage and support your sales efforts, and focus your interactions on preferred customers and contacts.|[Relationship Management](marketing-relationship-management.md)|
 |Keep detailed records of your employees, and register absences for analysis purposes. |[Human Resources](hr-manage-human-resources.md)|
 |Plan the production operations required to transform inputs into finished goods.|[Planning](production-planning.md)|
-|Put salable items together in simple steps to make a new item, such as a kit.|[Assembly Management](assembly-assemble-items.md)|
+|Combine items into a new, sellable item, such as a kit.|[Assembly Management](assembly-assemble-items.md)|
 |Define shop floor resources and their capacity, schedule operations, pull production components, and execute production operations.|[Manufacturing](production-manage-manufacturing.md)|
 |Ensure an effective flow of received and shipped goods.|[Warehouse Management Overview](design-details-warehouse-management.md)|
-|Schedule service calls and set up service orders, and track repair parts and supplies.|[Service Management](service-service.md)|
+|Schedule service calls, set up service orders, and track repair parts and supplies.|[Service Management](service-service.md)|
 |Set up and use workflows that connect tasks performed by different users or by the system, such as automatic posting. Request and grant approval to create or post documents are typical workflow steps.|[Workflow](across-workflow.md)|
 |Enable users to exchange data with external sources during daily tasks, such as send/receive electronic documents, import/export bank files, and update currency exchange rates.|[Exchanging Data Electronically](across-data-exchange.md)|
 |Record external documents in [!INCLUDE[prod_short](includes/prod_short.md)], including their file attachments, then manually create the related documents or automatically convert the files to electronic documents.|[Incoming Documents](across-income-documents.md)|
@@ -10179,18 +10343,19 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-about-calculating-unit-cost
 ---
 title: About unit cost calculation
-description: Learn how the costing method and other factors influence the Unit Cost field on the Item card.
+description: Learn how the costing method and other factors influence the Unit Cost field on items.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
-ms.topic: article
-ms.date: 07/29/2024
+ms.topic: concept-article
+ms.date: 06/17/2026
+ms.custom: bap-template
 ---
 
 # About unit cost calculation
 
-Each item has a unit cost that is calculated based on the company's costing method and other factors. As a rule, with the *Standard* costing method, the **Unit Cost** field value is based on the standard cost for the item. For all other costing methods (*FIFO*, *LIFO*, *Specific*, and *Average*), the unit cost is calculated based on the average unit cost across a period of time.  
+Each item has a unit cost that is calculated based on the company's costing method and other factors. As a rule, with the *Standard* costing method, the **Unit Cost** field value on the **Item Card** page is based on the standard cost for the item. For all other costing methods (*FIFO*, *LIFO*, *Specific*, and *Average*), the unit cost is calculated based on the average unit cost across a period of time.  
 
 ## When is the unit cost field updated for item
 
@@ -10202,22 +10367,24 @@ If the costing method is *FIFO*, *LIFO*, *Specific*, or *Average*, then the **Un
 
 * When the item is cost-adjusted, automatically or by an [Adjust Cost](inventory-how-adjust-item-costs.md#to-adjust-item-costs-manually) task.
 * During the posting of purchase invoices, output, or positive adjustment if one of the following conditions is true:
+
   * The net invoiced quantity of the item changes from negative or zero to positive.
   * The current unit cost is zero.
 
-If one of these conditions is true, then the **Unit Cost** field is updated with the value in the **Last Direct Cost** field on the item card.
+If one of these conditions is true, the **Unit Cost** field updates with the value in the **Last Direct Cost** field on the item.
 
 > [!NOTE]
-> The **Unit Cost** field is not updated if the current unit cost is higher than zero and the new unit cost is zero. A unit cost of zero is considered an exception from regular business. Therefore, the current unit cost is retained to provide the last known, relevant value. This exception applies even if the existing inventory has been revalued to zero.
+> The **Unit Cost** field isn't updated if the current unit cost is higher than zero and the new unit cost is zero. A unit cost of zero is considered an exception from regular business. Therefore, the current unit cost is retained to provide the last known, relevant value. This exception applies even if the existing inventory was revalued to zero.
 
-In the **Unit Cost** field on the item card, you can drill down to view the history of transactions that the average cost of units on hand is calculated from in the **Average Cost Calc. Overview** window.
+In the **Unit Cost** field on the item, you can drill down to view the history of transactions that the average cost of units on hand is calculated from in the **Average Cost Calc. Overview** window.
 
-## Impact of unit cost field on purchases and sales
-How the contents of the **Costing Method** field influence the unit cost calculation for purchases and sales is described in more detail in the following sections.
+## Effect of the unit cost field on purchases and sales
+
+The following sections describe how the contents of the **Costing Method** field influence the unit cost calculation for purchases and sales.
 
 ### Unit cost calculation for purchases
 
-When you purchase items, the value in the **Last Direct Cost** field on the item card is copied to the **Direct Unit Cost** field on a purchase line or to the **Unit Amount** line on an item journal line.
+When you purchase items, the value in the **Last Direct Cost** field on the item is copied to the **Direct Unit Cost** field on a purchase line or to the **Unit Amount** line on an item journal line.
 
 What you select in the **Costing Method** field influences how [!INCLUDE[prod_short](includes/prod_short.md)] calculates the contents of the **Unit Cost** field on the lines.
 
@@ -10229,7 +10396,7 @@ What you select in the **Costing Method** field influences how [!INCLUDE[prod_sh
 
 #### Costing method Standard
 
-The **Unit Cost (LCY)** field on the purchase line or the **Unit Cost** field is filled on the item journal line by copying the value in the **Unit Cost** field on the item card. By using costing method set as *Standard*, this value is always based on the standard cost.
+The **Unit Cost (LCY)** field on the purchase line or the **Unit Cost** field is filled on the item journal line by copying the value in the **Unit Cost** field on the item. If you set the costing method to *Standard*, this value is always based on the standard cost.
 
 When you post the purchase, [!INCLUDE[prod_short](includes/prod_short.md)] uses the unit cost from the purchase line or item journal line to the purchase item invoice entry. You can see it on the entry list for the item.
 
@@ -10239,7 +10406,7 @@ The unit cost from the source document line is used to calculate the contents of
 
 ### Unit cost calculation for sales
 
-When you sell items, the unit cost is copied from the **Unit Cost** field on the item card to the sales line or the item journal line.
+When you sell items, the unit cost is copied from the **Unit Cost** field on the item to the sales line or the item journal line.
 
 When you post, the unit cost is copied to the sales invoice item entry, and it can be seen on the entry list for the item. [!INCLUDE[prod_short](includes/prod_short.md)] uses the unit cost from the source document line to calculate the contents of the **Cost Amount (Actual)** field, or if applicable, the **Cost Amount (Expected)** field in the value entry related to this item entry.
 
@@ -10248,29 +10415,28 @@ When you post, the unit cost is copied to the sales invoice item entry, and it c
 
 If you need to change the direct unit cost for several items, you can use the **Adjust Item Costs/Prices** batch job.  
 
-The batch job changes the contents in the **Unit Price** field on the item card. The batch job changes the content of the field in the same way for all items or selected items. The batch job multiplies the value in the field by an adjustment factor that you specify.  
+The batch job changes the contents in the **Unit Price** field on the item. The batch job changes the content of the field in the same way for all items or selected items. The batch job multiplies the value in the field by an adjustment factor that you specify.  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Adjust Item Costs/Prices**, and then choose the related link.  
-2. In the **Adjust Field** field, specify which item or SKU card field you want to adjust.  
+2. In the **Adjust Field** field, specify which item or SKU field you want to adjust.  
 3. In the **Adjustment Factor** field, specify the factor by which to adjust the value. For example, enter **1.5** to increase the value by 50%.  
 4. On the **Item** FastTab, set filters to specify, for example, which items to process with the batch job.  
 5. Choose the **OK** button.  
 
 -->
 
-
 ## Related information
 
-[Managing Inventory Costs](finance-manage-inventory-costs.md)    
-[Registering New Items](inventory-how-register-new-items.md)    
-[About Inventory Costing](finance-learn-about-costing.md)    
-[Inventory](inventory-manage-inventory.md)   
-[Sales](sales-manage-sales.md)    
-[Purchasing](purchasing-manage-purchasing.md)    
-[Design details: Non-deductible VAT](design-details-nondeductible-vat.md)  
-[Setup Best Practices: Costing Method](setup-best-practices-costing-method.md)    
-[Design Details: Costing Methods](design-details-costing-methods.md)    
-[Design Details: Cost Adjustment](design-details-cost-adjustment.md)    
+[Managing Inventory Costs](finance-manage-inventory-costs.md)  
+[Registering New Items](inventory-how-register-new-items.md)  
+[About Inventory Costing](finance-learn-about-costing.md)  
+[Inventory](inventory-manage-inventory.md)  
+[Sales](sales-manage-sales.md)  
+[Purchasing](purchasing-manage-purchasing.md)  
+[Design details: Nondeductible VAT](design-details-nondeductible-vat.md)  
+[Setup Best Practices: Costing Method](setup-best-practices-costing-method.md)  
+[Design Details: Costing Methods](design-details-costing-methods.md)  
+[Design Details: Cost Adjustment](design-details-cost-adjustment.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -10285,7 +10451,7 @@ ms.reviewer: jswymer
 ms.topic: concept-article
 ms.search.keywords: customized report, document layout, logo, personalize
 ms.search.form: 9652, 9650, 9660
-ms.date: 03/12/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -10808,7 +10974,7 @@ ms.author: bholtorf
 ms.reviewer: v-soumramani
 ms.topic: article
 ms.search.keywords: migration, Excel, business data import
-ms.date: 10/16/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -15976,7 +16142,7 @@ author: brentholtorf
 ms.topic: how-to
 ms.search.keywords: procurement, record purchases, purchase invoice, purchase order
 ms.search.form: 50 ,51, 53, 56, 146, 147, 9307, 9309, 9306, 9308, 9310
-ms.date: 10/03/2025
+ms.date: 06/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -16628,7 +16794,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.forms: 6503, 6515, 6513, 6512, 6502, 6506, 6501, 6510, 6507, 6500, 6505, 6508, 9126, 6526, 6516, 6511, 6504, 6509, 163, 6550, 
-ms.date: 07/14/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -16636,14 +16802,14 @@ ms.service: dynamics-365-business-central
 
 You can assign serial numbers, lot numbers, and package numbers to outbound and inbound documents. The posted item tracking entries display on the related item ledger entries. You track items on the **Item Tracking Lines** page, which you can open from inbound or outbound documents.
 
-The quantity fields at the top of the **Item Tracking Lines** page display the quantities and sums of item tracking numbers that are defined on the lines. The quantities must correspond to the quantities on the document lines, which is indicated by *0* in the **Undefined** fields.
+The quantity fields at the top of the **Item Tracking Lines** page display the quantities and sums of item tracking numbers that are defined on the lines. The quantities must correspond to the quantities on the document lines, as indicated by *0* in the **Undefined** fields.
 
 [!INCLUDE [prod_short](includes/prod_short.md)] updates the availability information on the **Item Tracking Lines** page when you open the page. It doesn't update the information while you have the page open, even if changes occur in inventory or on other documents during that time.
 
 > [!NOTE]  
 > To use the features that this article describes, you must set up item tracking. To learn more, go to [Set Up Item Tracking with Serial, Lot, and Package Numbers](inventory-how-setup-item-tracking.md).
 >
-> You can enter **SN No.**, **Lot No.**, or **Package No.** even if their specific tracking fields aren't available. This is helpful, for example, when you need to record tracking details during receipt for warranty purposes but don't track them in transfers, consumption, or sales. However, these scenarios might not align with warehouse flows if you use warehouse handling but only input tracking details for enabled fields. For example, if you only turn on **SN Specific Tracking**, don't fill in the **Lot No.** or **Package No.** fields in transactions.
+> You can enter **SN No.**, **Lot No.**, or **Package No.** even if their specific tracking fields aren't available. This information is helpful, for example, when you need to record tracking details during receipt for warranty purposes but don't track them in transfers, consumption, or sales. However, these scenarios might not align with warehouse flows if you use warehouse handling but only input tracking details for enabled fields. For example, if you only turn on **SN Specific Tracking**, don't fill in the **Lot No.** or **Package No.** fields in transactions.
 
 ## Specify opening balances for the items you track
 
@@ -16700,7 +16866,7 @@ The tracking numbers automatically transfer to all outbound warehouse activities
 
 [!INCLUDE [prod_short](includes/prod_short.md)] creates a lot number with individual serial numbers according to the item quantity on the document line. The number is prefixed with the value you entered in the **Customized SN** field. For example, starting from **S/N-Vend0001**.  
 
-The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to the quantities on the document lines, which is indicated by **0** in the **Undefined** field.  
+The quantity fields in the header dynamically display the quantities and sums of the item tracking numbers you define on the page. The quantities must correspond to the quantities on the document lines, as indicated by **0** in the **Undefined** field.  
 
 When you post the document, the item tracking entries transfer to the item ledger entries.
 
@@ -16741,7 +16907,7 @@ Outbound handling of serial or lot numbers is a frequent task in different wareh
 
 ### To select from existing serial or lot numbers  
 
-When you work with items that require item tracking, and you're creating outbound transactions, you'll typically from select existing lot or serial numbers.
+When you work with items that require item tracking, and you're creating outbound transactions, you typically select from existing lot or serial numbers.
 
 1. From any outbound document, select the line that you want to select serial or lot numbers for.  
 2. On the **Lines** FastTab, choose the **Line** action, then **Related Information**, and then select **Item Tracking Lines**.  
@@ -16762,7 +16928,7 @@ When you post the document line, the item tracking information transfers to the 
 
 When you work with serial, lot, and package numbers, [!INCLUDE[prod_short](includes/prod_short.md)] calculates availability information and shows it on various item tracking pages. It shows how much of a lot, package, or serial number is used on other documents. This information helps reduce errors and uncertainty caused by double allocations.
 
-On the **Item Tracking Lines** page, a warning icon might display in the **Availability, Lot No.** or **Availability, Serial No.** field for the following reasons:
+On the **Item Tracking Lines** page, a warning icon might display in the **Availability, Lot No.** or **Availability, Serial No.** fields for the following reasons:
 
 * Some or all of the quantity you selected is already used in other documents.
 * The lot or serial number isn't available.
@@ -16774,10 +16940,10 @@ The **Lot No./Serial No.-List**, **Lot No./Serial No.-Availability**, and the **
 |**Total Quantity**|The total number of an item currently in inventory.|
 |**Total Requested Quantity**|The total number of items that are requested in this and other documents.|
 |**Current Pending Quantity**|The number of items that are requested on the current document but that isn't posted.|
-|**Current Requested Quantity**|The number of requested items that the current document will use.|
+|**Current Requested Quantity**|The number of requested items that the current document uses.|
 |**Total Available Quantity**|The total number of items in inventory, minus the quantity of the requested item on this and other documents (total requested quantity), minus the requested quantity that isn't yet posted on this document (current pending quantity).|
 
-If you work on the **Item Tracking Lines** page for a long time, or if its a popular item involved in many activities, you can choose the **Refresh Availability** action. Also, the availability of the item is automatically rechecked when you close the page to confirm that there aren't availability problems.
+If you work on the **Item Tracking Lines** page for a long time, or if it's a popular item involved in many activities, you can choose the **Refresh Availability** action. Also, the availability of the item is automatically rechecked when you close the page to confirm that there aren't availability problems.
 
 
 ### To assign new serial or lot numbers  
@@ -19457,6 +19623,99 @@ When return shipments are combined on a credit memo and posted, then a posted pu
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/m365-integration-overview
+---
+title: Integrating with Office apps and Microsoft 365 
+description: Learn how to integrate Business Central with Office apps and Microsoft 365.
+author: kennienp
+ms.reviewer: jswymer
+ms.topic: overview
+ms.author: kepontop
+ms.date: 06/19/2026
+ms.custom: bap-template
+---
+
+# Integrating with Office apps and Microsoft 365
+
+[!INCLUDE[prod_short](includes/prod_short.md)] integrates with [!INCLUDE[m365](includes/m365-name.md)] to gain extra features. This article introduces some of these features.
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/m365-integrations-detail.svg" alt-text="Shows how Business Central integrates to Microsoft 365" lightbox="/dynamics365/business-central/dev-itpro/developer/media/m365-integrations-detail.svg":::
+
+## Using [!INCLUDE[m365_excel](includes/m365-excel-name.md)] with [!INCLUDE [prod_short](includes/prod_short.md)]
+
+[!INCLUDE[m365_excel](includes/m365-excel-name.md)] is used in [!INCLUDE [prod_short](includes/prod_short.md)] in the following scenarios:
+
+- View or edit [!INCLUDE [prod_short](includes/prod_short.md)] data in Excel.
+- Support analytical reporting.
+- Manage G/L budgets (export to, or import from Excel).
+- Import data from other systems.
+
+With pages that display a list of records in rows and columns, like a list of customers, sale orders, or invoices, you can export the list to [!INCLUDE[m365_excel](includes/m365-excel-name.md)] and work with it there. Depending on the page, there are two options:
+
+- **Open in Excel**, where [!INCLUDE [prod_short](includes/prod_short.md)] produces an Excel workbook with the data on the page. This option is useful for slicing and dicing the data for various analyses and keeping a copy.
+- **Edit in Excel** also produces an Excel workbook with the data on the page. However, it goes a step further and uses the [!INCLUDE [prod_short](includes/prod_short.md)] add-in for Excel to let you publish changes you make to the data in the workbook back to [!INCLUDE [prod_short](includes/prod_short.md)]. For example, Edit in Excel is a fast way to update information in a large number of records.
+
+Learn more at [Viewing and Editing in Excel From Business Central](across-work-with-excel.md).
+
+Power users can use Excel as the design tool for the layout of analytical reports and then upload the Excel layout workbook to [!INCLUDE [prod_short](includes/prod_short.md)]. Anyone who has access to these reports can run them. When the [!INCLUDE [prod_short](includes/prod_short.md)] server generates the Excel report, it merges the Excel layout workbook with data and returns the resulting Excel workbook to you as a downloaded file. Learn more at [Working with Microsoft Excel Layouts](ui-excel-report-layouts.md?tabs=any-report).
+
+> [!TIP]
+> If you also enable integration to [!INCLUDE[m365_onedrive_for_business](includes/m365-onedrive-for-business-name.md)], you can open Excel workbooks from [!INCLUDE [prod_short](includes/prod_short.md)] in a browser by using Excel for the web.
+
+If your organization uses G/L budgets, you can export a budget to Excel where you can process or analyze the budget data, and then import the data back to [!INCLUDE[prod_short](includes/prod_short.md)]. Learn more at [Exporting and importing G/L budgets with Excel](finance-how-create-budgets.md#exporting-and-importing-gl-budgets-with-excel).
+
+You can import master data and some transactional data from other applications using configuration packages in [!INCLUDE [prod_short](includes/prod_short.md)]. For example, you can export the configuration package to Excel and set up your data there. Then, you can import the data from Excel again. Learn more at [Using Excel to import data from other systems](across-import-data-configuration-packages.md).
+
+## Integrate with OneDrive
+
+[!INCLUDE[m365_onedrive_for_business](includes/m365-onedrive-for-business-name.md)] is a cloud storage service that is included in Microsoft 365. [!INCLUDE[prod_short](includes/prod_short.md)] makes it easy to store, manage, and share files with other people through OneDrive.
+
+When an administrator enables [!INCLUDE[m365_onedrive_for_business](includes/m365-onedrive-for-business-name.md)] in [!INCLUDE[prod_short](includes/prod_short.md)], more features become available. For example:
+
+- The **Open in OneDrive** and **Share** actions are available on most pages that contain files, such as the **Report Inbox** page or pages where you can attach files to records.
+- The **Open in Excel** and **Edit in Excel** actions on list pages automatically copy the Excel file to OneDrive, then open it in Excel Online.
+- The **Send to Microsoft Excel document** and **Send to Microsoft Word document** actions automatically copy the file to OneDrive, then open it in Excel or Word online.
+
+Learn more at [Business Central and OneDrive Integration](across-onedrive-overview.md).
+
+## Use [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)] with [!INCLUDE [prod_short](includes/prod_short.md)]
+
+With [!INCLUDE [prod_short](includes/prod_short.md)], you can manage business interactions with your customers and vendors directly in [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)]. Install the [!INCLUDE [prod_short](includes/prod_short.md)] add-in for [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)] to get the following capabilities:
+
+- **Contact insights**: This add-in lets you look up [!INCLUDE [prod_short](includes/prod_short.md)] customer or vendor information in [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)] emails and calendar appointments. It also lets you create and send emails including [!INCLUDE [prod_short](includes/prod_short.md)] business documents, such as a sales quote or invoice to a contact.
+- **Document view**: When a business document is sent in an email, the add-in provides a direct link from the email to the actual business document in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+Learn more at [Get the Business Central Add-in for Outlook](/dynamics365/business-central/admin-outlook).
+
+## Integrate with [!INCLUDE[m365_teams](includes/m365-teams-name.md)]
+
+[!INCLUDE [prod_short](includes/prod_short.md)] offers an app that connects [!INCLUDE[m365_teams](includes/m365-teams-name.md)] to the data in [!INCLUDE [prod_short](includes/prod_short.md)] so that you can quickly share details across team members and respond faster to inquiries.
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/teams-intro-v3.png" alt-text="Shows how Business Central integrates to Teams" lightbox="/dynamics365/business-central/dev-itpro/developer/media/teams-intro-v3.png":::
+
+Learn more at [Share Business Central records and page links in Microsoft Teams](across-working-with-teams.md).
+
+## Using [!INCLUDE[m365_word](includes/m365-word-name.md)] with [!INCLUDE [prod_short](includes/prod_short.md)]
+
+Power users in [!INCLUDE [prod_short](includes/prod_short.md)] can use [!INCLUDE[m365_word](includes/m365-word-name.md)] for the following scenarios:
+
+- To change the layout of their outgoing documents.
+- To make it easy to mass communicate in print or email.
+
+If your organization wants to change the layout of its customer-facing documents, such as quotes, sales orders, or sales invoices, a power user can use Word as a design tool to change the layout. When [!INCLUDE [prod_short](includes/prod_short.md)] generates the document report, it merges the Word layout with data and sends the resulting PDF document to the user as a downloaded file (or to a printer). Learn more at [Work with Word Layouts](ui-how-add-fields-word-report-layout.md).
+
+To make it easy to mass communicate in print or email, power users can use mail merge commands in Word to use Word as the design tool to create the layout of the message. They can then upload the Word document to [!INCLUDE [prod_short](includes/prod_short.md)]. When you run the campaign, the [!INCLUDE [prod_short](includes/prod_short.md)] platform merges data from entities such as contacts, customers, and vendors with the template to produce the final documents to send to clients. Learn more at [Using Word Templates for Bulk Communication](ui-mail-merge.md).
+
+## Related information
+
+[Viewing and Editing in Excel From Business Central](across-work-with-excel.md)  
+[Working with Microsoft Excel Layouts](ui-excel-report-layouts.md?tabs=any-report)  
+[Business Central and OneDrive Integration](across-onedrive-overview.md)  
+[Using Outlook with Business Central](admin-outlook.md)  
+[Work with Word Layouts](ui-how-add-fields-word-report-layout.md)  
+[Use Word Templates for Bulk Communication](ui-mail-merge.md)  
+[Business Central integrations overview](integration-overview.md)end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-create-number-series
 ---
 title: Create number series
@@ -21909,169 +22168,6 @@ The app uses data from the following tables:
 [Built-in sales reports](sales-reports.md)  
 [Sales analytics overview](sales-analytics-overview.md)  
 [Sales overview](sales-manage-sales.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchases-by-location
----
-title: Purchases by Location (Power BI Report)
-description: The Purchases by Location report provides an overview of purchasing activities by location.
-author: kennieNP
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: concept-article
-ms.search.keywords: reporting
-ms.search.form: 37019_Primary
-ms.date: 10/31/2024
-ms.service: dynamics-365-business-central
----
-
-# Purchases by Location (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Purchases by Location** report provides an overview of purchasing activities for each warehouse location. It helps you find out which item categories and items are most frequently purchased in each location, and how much money you're spending on the purchases.
-
-:::image type="content" source="media/purchases/purchases-by-location.png" alt-text="Screenshot of the Purchases by Location Power BI report" lightbox="media/purchases/purchases-by-location.png":::
-
-## Use the report
-
-The report is especially useful for purchasing managers and purchasers.
-
-Purchasing managers can use the report to analyze purchasing trends across different warehouse locations. For example, you can use the report to find the most frequently bought items and item categories in each warehouse. You and the warehousing team can gain insights into warehouses with consistently high or low purchasing activities.
-
-Purchasers can use this report to monitor purchasing activities across warehouse locations. For example, you can find item categories and items with low quantities that require attention to prevent stock-outs or disruptions in production. Use this information to plan ahead and work with your team to ensure that you meet purchase demand across locations.
-
-
-## Key Performance Indicators (KPIs)
-
-The *Purchases by Location* report includes the following KPIs and measures: 
-
-- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
-- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
-- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Location
-- Item
-- Vendor
-- Purchase Value Entry
-- Purchase Invoice Lines
-- Purchase Credit Lines
-
-## Try the report
-
-Try the report here: [Purchases by Location](https://businesscentral.dynamics.com?page=37019)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Purchasing app](purchases-powerbi-app.md)  
-[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
-[Built-in purchasing reports](purchase-reports.md)  
-[Purchasing analytics overview](purchasing-analytics-overview.md)  
-[Purchasing overview](purchasing-manage-purchasing.md)  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/quick-start-financial-information
----
-title: Financial Information Quick Start
-description: Get your company ready for business by setting up the financial information in Business Central.
-author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: quickstart
-ms.search.form: 
-ms.date: 08/25/2022
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-
-# Financial Information Quick Start
-
-After entering basic company information in [!INCLUDE[prod_short](includes/prod_short.md)], one of the next steps is completing the financial section. You do this not only to receive or make payments, but also to properly manage and report your business' numbers.
-
-## The chart of accounts
-
-The chart of accounts (COA) offers an overview of the company's finances, listing accounts in structured groups such as assets, liabilities, income, cost of goods sold, and expenses. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts you can customize to your business' accounting practices.
-
-## Set up the chart of accounts
-
-The following video shows how to set up the chart of accounts in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-<br /><br />
-
-> [!Video https://learn-video.azurefd.net/vod/player?id=944c65b0-9b0f-4d35-b330-de2fad57143a]
-
-### Add an account to the chart of accounts
-
-To add an account not included by default in [!INCLUDE[prod_short](includes/prod_short.md)]—for example, gardening services—just follow these steps:
-
-1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Chart of Accounts**, then choose the related link.
-2. Choose the **New** action to open the **G/L Account Card** page.
-3. Enter the following data in the corresponding fields on the **General** FastTab. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-   | Field | Data |
-   | --- | --- |
-   | **No.** | 61250 |
-   | **Name** | Gardening services |
-   | **Income/Balance** | Income Statement |
-   | **Account Category** | Expense |
-   | **Account Subcategory** | Repairs and Maintenance Expense |
-   | **Debit/Credit** | Both |
-   | **Account Type** | Posting |
-
-4. On the **Posting** FastTab, enter the following data:
-
-   | Field | Data |
-   | --- | --- |
-   | **Gen. Posting Type** | Purchase |
-   | **Gen. Bus. Posting Group** | Domestic |
-   | **Gen. Prod. Posting Group** | Services |
-
-5. Fill in the remaining fields on the **G/L Account Card** page as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-### Get an overview of the chart of accounts
-
-If you need a more compact view of the chart of accounts, without columns for posting groups, posting type, or cost type, for example, the **Chart of Accounts Overview** lists the main information for each account in a smaller table. Additionally, you can collapse or expand groups to hide the accounts inside them.
-
-To display the overview, choose the **Chart of Accounts Overview** action on the **Chart of Accounts** page, or search for the feature using ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do").
-
-Learn more about the chart of accounts and the general ledger at [Understanding the General Ledger and the Chart of Accounts](finance-general-ledger.md).
-
-## Set up bank accounts
-
-Bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] register banking transactions and are associated with entries in the chart of accounts. The following video shows how to set up bank accounts.
-
-<br /><br />
-
-> [!Video https://learn-video.azurefd.net/vod/player?id=047a5a25-1f7d-423d-b96d-c4ea45042779]
-
-1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, then choose the related link.
-2. On the **Bank Accounts** page, choose the **New** action.
-3. In the **No.** field, an identifier such as *B010* will be entered automatically if there's a numbered series list set for bank accounts. If not, enter a unique combination.
-
-   The field is different from the **Bank Account No.** field also available in the **General** FastTab.
-4. Fill in the fields on the **Bank Account Card** page as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
-
-## Related information
-
-[Set Up the Chart of Accounts](finance-setup-chart-accounts.md)  
-[Set Up Bank Accounts](bank-how-setup-bank-accounts.md)  
-[Run and Print Reports](ui-work-report.md)  
-[Business Central Quick Starts](quick-start-business-central.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

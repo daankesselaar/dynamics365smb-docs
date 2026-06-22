@@ -1,3 +1,118 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-role-explorer
+---
+title: Finding Pages and Reports with the Role Explorer
+description: You can get an overview of all the business features that are available for your role, and for other roles, with the Role Explorer.
+author: jswymer
+ms.topic: concept-article
+ms.devlang: al
+ms.search.keywords: role explorer, find features, navigate
+ms.search.form: RoleExplorer, 9020, 9022, 9027, 9024
+ms.date: 06/12/2026
+ms.author: jswymer
+ms.service: dynamics-365-business-central
+ms.reviewer: jswymer
+---
+
+# Finding pages and reports with the role explorer
+
+
+By using preview, you agree to follow by the terms of use.
+By using preview, you agree to the terms of use.
+
+You can get an overview of the pages and reports that make up the features that people your business role often use. You can also explore what's available for other roles. This article refers to the overview of pages and reports as the *role explorer*.
+
+In addition to the overview, the role explorer lets you open pages or reports to explore the information they include. You can also use the role explorer as a way to get around in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+[!INCLUDE [about-ui-learn](includes/about-ui-learn.md)]
+
+## Open the role explorer
+
+You can open the role explorer from role centers, list pages, and the **Tell Me** window.
+
+- On your role center or any list page, select the ![Menu button.](media/ui_menu_button.png "Menu button") button or select <kbd>Shift</kbd>+<kbd>F12</kbd>.
+- In the **Tell Me** window, select the **exploring pages** action.
+
+## Open the role explorer filtered to show reports
+
+You can open the role explorer in a filtered view that only shows reports:
+
+- On your role center or any list page, select the **All Reports** action.
+- In the **Tell Me** window, select the **exploring reports** action.
+
+## Open pages and reports
+
+The actions that open pages or reports are organized under nodes that are named after application areas. You can collapse or expand each node individually, or all nodes together.
+
+- To expand/collapse an individual top-level or subnode, select the node.
+- To expand/collapse all top-level nodes on the page, but leave the subnodes as they are, select **...** at the top, then select **Expand** or **Collapse**.
+- To expand/collapse all top-levels node and all subnodes under it, select **...** at the top, then select the **Expand All** or **Collapse All** action.
+
+## Search for pages and reports
+
+To quickly locate a page or report, select the **Find** box near the top of the explorer, and then enter a word or phrase for what you want to find. Role explorer highlights any matching text. If the page or report is hidden in a collapsed node, the collapsed node is marked with a dot.
+
+### Try advanced (preview)
+
+[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner-section.md)]
+
+[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
+
+If you don't find a match or aren't sure of the exact name of what you're looking for, select **Try Advanced** (preview) under the **Find** box to open the **Advanced** tab in **Tell Me** window and get more results. The **Advanced** tab uses AI-powered semantic search, so it finds results based on the meaning of your search instead of just matching exact words. You can type short descriptive phrases or full sentences in plain, everyday language. For example, you can type in natural language like "report that shows my best customers" to find the **Customer - Top 10** report.
+
+Learn more about advanced Tell Me in [Finding pages and information with Tell Me](ui-search.md#get-started-with-tell-me).
+
+> [!NOTE]
+> **Advanced** is available in Business Central online only, not on-premises, and only when an admin enables **Feature: Advanced Tell Me (preview)** in the **Feature Management** page. Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).
+
+## Explore other roles
+
+To explore roles other than your own, select **Explore more roles**. Role explorer displays each role under its own heading, with links to its features. You can find and go to features just like you do when exploring your role.
+
+> [!NOTE]
+> You can only view roles that are set up to show in the role explorer. If a role isn't available, it probably isn't set up to show. Learn more in [Manage Profiles](admin-users-profiles-roles.md#activate-a-profile).
+
+When you explore other roles, you can also narrow down your exploration by using the **Report & Analysis** and **Administration** actions.
+
+- **Report & Analysis** filters the role explorer to show only reports and analysis features.
+- **Administration** filters the role explorer to show only pages for administrative tasks, such as pages related to how you set up your [!INCLUDE [prod_short](includes/prod_short.md)].
+
+> [!TIP]
+> For developers, you categorize pages and reports by setting the [UsageCategory property](/dynamics365/business-central/dev-itpro/developer/properties/devenv-usagecategory-property) in the object's AL code.
+
+## Expand and collapse nodes
+
+The actions that open pages or reports are organized under nodes named after the features or application areas. You can collapse or expand each node individually, and you can collapse or expand all nodes.
+
+- To expand or collapse a top-level or subnode, select the node.
+- To expand or collapse all top-level nodes on the page, select the **Expand** or **Collapse** action.
+- To expand or collapse all top-level nodes and their subnodes:
+  - Select the <kbd>Ctrl</kbd>+<kbd>Shift</kbd> keys while you select the **Expand** or **Collapse** action.
+  - select **...**, and then select the **Expand All** or **Collapse All** action.
+
+## Learn more about a page or report
+
+[!INCLUDE[2025_releasewave1](includes/2025_releasewave1.md)]
+
+Teaching tips are available for some pages and reports. When that's the case, when you hover over the action for the page or report an information icon displays next to the name. Select the icon to learn more about the page or report.
+
+:::image type="content" source="media/report-explorer-more-information.png" alt-text="Example of how the more information window is shown on an element on the role explorer." lightbox="media/report-explorer-more-information.png":::
+
+## Explore a page or report
+
+[!INCLUDE[2025_releasewave1](includes/2025_releasewave1.md)]
+
+You can open the pages or reports in a new window while keeping the role explorer open. To explore an element, select the **Open in a new window** icon to the left of the element's name. If the page or report has a teaching tip, the tip contains the **Open in a new window** icon.
+
+## Related information
+
+[Finding Pages and Information with Tell Me](ui-search.md)  
+[Responsible aI FAQ for advanced Tell Me](faqs-advanced-tell-me.md)  
+[Manage Profiles](admin-users-profiles-roles.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-warehouse-setup
 ---
 title: Design Details - Warehouse Setup
@@ -2030,9 +2145,10 @@ ms.topic: concept-article
 ms.service: dynamics-365-business-central
 ms.search.keywords: customized report, document layout, logo, personalize
 ms.search.form: 9650, 9652
-ms.date: 06/10/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.reviewer: jswymer
+ms.custom: bap-template
 ---
 # Working with RDLC Layouts
 
@@ -2042,7 +2158,7 @@ RDLC layouts are based on report definition layout files (.rdl or .rdlc file typ
 
 ## Required tools
 
-To modify RDL layouts, you can use either Microsoft SQL Server Report Builder or Microsoft Visual Studio with the RDLC Report Designer extension.
+To modify RDLC layouts, you can use either Microsoft SQL Server Report Builder or Microsoft Visual Studio with the RDLC Report Designer extension.
 
 - Report Builder is a stand-alone app installed on your computer by you or an administrator. With Business Central on-premises, Report Builder is automatically installed with the Business Central Server installation. For more information about installing Report Builder, see [Install Report Builder](/sql/reporting-services/install-windows/install-report-builder) in the SQL Server documentation.
 
@@ -2061,7 +2177,7 @@ Creating and modifying RDLC layouts is an advanced task, which is typically done
    This links you to the SQL Server Reporting Services documentation for RDL/RDLC. This article explains the concepts behind RDL/RDLC and how to use Report Builder.
 
 > [!NOTE]
-> Report Builder only recognizes the .rdl file type, not .rdlc. Layout files exported from Business Central are .rdlc file types. So to modify these layout in Report Builder, rename the file type to .rdl.
+> Report Builder only recognizes the .rdl file type, not .rdlc. Layout files exported from Business Central are .rdlc file types. To modify these layouts in Report Builder, rename the file type to .rdl.
 
 ## Related information
 
@@ -6517,7 +6633,7 @@ description: View a list of key combinations (keyboard shortcuts) that you can u
 author: jswymer
 ms.topic: concept-article
 ms.search.keywords: accessibility, shortcuts, keyboarding, keys
-ms.date: 10/09/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.review: jswymer
 ms.service: dynamics-365-business-central
@@ -12109,10 +12225,10 @@ title: Set up approval users
 description: Set up users for approval workflows by assigning approvers, setting amount limits, and defining substitutes.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 663_Primary
-ms.date: 10/16/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ms.search.keywords: approval users, setup approval users, configure approval users
@@ -12147,7 +12263,7 @@ After you set up approval users, you can create workflow responses for approval 
    |**Unlimited Request Approval**|Specify that the person identified in the **User ID** field can approve all purchase quotes regardless of the amount.<br /><br /> If you select this checkbox, you can't fill in the **Request Amount Approval Limit** field.|
    |**Substitute**|Select the user ID of the person who approves requests made by the person identified in the **User ID** field if the user in the **Approver ID** isn't available. <br /><br />**Note:**  The substitute can either be the user in the **Substitute** field, the direct approver, or the approval administrator, in that order of priority. Learn more at [Use Approval Workflows](across-how-use-approval-workflows.md).|
    |**Email**|Specify the email address of the person in the **User ID** field.|
-   |**Approval Administrator**|Specify the user who has permission to unblock approval workflow, such as by delegating approval requests to new substitute approvers or deleting overdue approval requests.<br /><br />**Note** Only one person can be the approval administrator.|
+   |**Approval Administrator**|Specify the user who has permission to unblock approval workflow. For example, by delegating approval requests to new substitute approvers or deleting overdue approval requests.<br /><br />Only one person can be the approval administrator.|
 
 3. To test the approval user setup, choose the **Approval User Setup Test** action.  
 4. Repeat steps 2 and 3 for every person you want to set up as an approval user.  
@@ -13223,44 +13339,44 @@ author: brentholtorf
 ms.topic: get-started
 ms.custom: template-trial-setup
 ms.author: bholtorf
-ms.date: 10/13/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
 
 # Sign up for a free Dynamics 365 Business Central trial
 
-[!INCLUDE[prod_short](includes/prod_short.md)] offers a free trial. There are two ways to access the trial version, depending on your location. If you are in a country where Microsoft offers official localization, you can follow one path. If you are in a country where localization is handled by partners, you'll need to follow a different path. Explore the different types of localization [here](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations). After a quick sign-up, you'll have access to many of the app's key features. The trial allows you to test the app with sample data. If you want to try out things with your own data, you'll switch to a free 30-day trial. [Learn more about Business Central features](across-business-functionality.md).  
+[!INCLUDE[prod_short](includes/prod_short.md)] offers a free trial. There are two ways to access the trial version, depending on your location. If you're in a country/region where Microsoft offers official localization, you can follow one path. If you're in a country/region where partners handle localization, you follow a different path. Explore the different types of localization [here](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations). After a quick sign-up, you have access to many of the app's key features. The trial allows you to test the app with sample data. If you want to try out things with your own data, switch to a free 30-day trial. [Learn more about Business Central features](across-business-functionality.md).  
 
 ## Start the trial in Microsoft-based localizations 
 
-You can find your free [!INCLUDE[prod_short](includes/prod_short.md)] trial on the **[Dynamics 365 Business Central product](https://www.microsoft.com/en-us/dynamics-365/products/business-central)** page. You just need to follow the steps and you'll get trial localized version tailored for your location. If you want eventually to try different localization, you can do it in the sandbox. 
+You can find your free [!INCLUDE[prod_short](includes/prod_short.md)] trial on the [Dynamics 365 Business Central product](https://www.microsoft.com/en-us/dynamics-365/products/business-central) page. Follow the steps to get trial localized version tailored for your location. If you eventually want to try different localization, you can use a sandbox environment.
 
 <!--## To sign up for the trial-->
 
 [!INCLUDE [trial-get](includes/trial-get.md)]
 
-## Start with the trial in location with partner-based localizations  
+## Start a trial with partner-based localizations  
 
-In countries where Microsoft doesn't offer built-in localization, obtaining a localized version by default isn't possible due to localization being managed by partners. Consequently, Microsoft can only provide the standard base app, typically without localization or translation. To avoid confusion not offering all local requirements and the language, we have different path of getting trial version, so you can have full local experience.  
+In countries/regions where Microsoft doesn't offer built-in localization, Microsoft provides the standard base app and partners manage localization. We have a different path to getting a trial version that offers the full local experience.  
 
-You can get your trial version following these steps:
+To get your trial version, follow these steps:
 
-1. You must run "Find your partner" on [Microsoft web site](https://partner.microsoft.com/partnership/find-a-partner) or ask local Microsoft office for advice. 
-2. Microsoft can help you find a partner for you or you might have already found a partner based on your experience. 
-3. You might offer your partner for the trial version and then partner goes to CSP.  
-   1. Finds or adds customer tenant.   
-   2. Assigns the [!INCLUDE[prod_short](includes/prod_short.md)] Trial SKU in CSP. 
-   3. Assigns the localization and translation, and eventually assigns translated demo data to the created tenant. 
-   4. Sends customer link to the environment.   
-   5. The test trial environment will be accessible. 
+1. Go to the [Microsoft web site](https://partner.microsoft.com/partnership/find-a-partner), and choose **Discover here**, or ask your local Microsoft office for advice.  
+2. Choose **Contact me**, and then provide the requested information. Afterward, the partner goes to the Cloud Solution Provider (CSP) program and does the following steps:  
+
+   1. Finds or adds a customer tenant for you.
+   2. Assigns the [!INCLUDE[prod_short](includes/prod_short.md)] Trial SKU in CSP.
+   3. Assigns the localization and translation, and eventually assigns translated demo data to the created tenant.
+   4. Sends you a link to the environment.
+   5. The test trial environment is accessible.
 
 > [!NOTE]
 > Microsoft doesn't oversee how partners set up the trial environment or what specific elements are included. While Microsoft offers recommendations, partners have the flexibility to implement them in their own way. Using a trial version from one partner doesn't obligate you to purchase a license from them, and you can always choose to switch partners at any time.  
 
 ## What to try
 
-Your trial environment includes the same features as the paid version. The links below guide you through some of the key features.
+Your trial environment includes the same features as the paid version. The following links guide you through some of the key features.
 
 - [Overview of business functionality](across-business-functionality.md)  
 - [Get started](ui-get-ready-business.md#get-started)  
@@ -15880,11 +15996,11 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-powerbi-setup
 ---
 title: Enabling Power BI integration with Business Central
-description: Learn how to set up the connection to Power BI. With Power BI reports, you can get insights, business intelligence, and KPIs from your Business Central data.
+description: Learn how to set up the connection to Power BI. With Power BI reports, you can get insights, business intelligence, and key performance indicators from your data.
 author: jswymer
 ms.topic: get-started
 ms.search.keywords: Power BI, setup, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 05/16/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -15892,11 +16008,11 @@ ms.reviewer: jswymer
 ---
 # Enabling Power BI integration with [!INCLUDE[prod_short](includes/prod_short.md)]
 
-This article describes how to get [!INCLUDE[prod_short](includes/prod_short.md)] ready for integration with Power BI. [!INCLUDE[prod_short](includes/prod_short.md)] online is already enabled for integration, although there's some information about licensing that you might want to read. For [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you'll have set up your environment to connect to Power BI before users can work with it.
+This article describes how to get [!INCLUDE[prod_short](includes/prod_short.md)] ready for integration with Power BI. [!INCLUDE[prod_short](includes/prod_short.md)] online is already enabled for integration, although there's some information about licensing that you might want to read. For [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you must set up your environment to connect to Power BI before users can work with it.
 
 ## <a name="license"></a>Power BI Licensing
 
-With [!INCLUDE[prod_short](includes/prod_short.md)], users get a free Power BI license that provides access to the most common features in [!INCLUDE[prod_short](includes/prod_short.md)] and Power BI. You can also purchase a Power BI Pro license that provides access to additional features. The following table provides an overview of the features available with each license.
+With [!INCLUDE[prod_short](includes/prod_short.md)], users get a free Power BI license that provides access to the most common features in [!INCLUDE[prod_short](includes/prod_short.md)] and Power BI. You can also purchase a Power BI Pro license that provides access to extra features. The following table provides an overview of the features available with each license.
 
 |Power License|View reports|Create reports|Share reports|Refresh reports| [!INCLUDE[prod_short](includes/prod_short.md)] [!INCLUDE [powerbi-name](includes/powerbi-name.md)] Apps|
 |-------------|--------||
@@ -15914,7 +16030,7 @@ To learn more about [!INCLUDE [powerbi-name](includes/powerbi-name.md)] licensin
 
 ## <a name="exposedata"></a>Expose data through API or OData web services
 
-[!INCLUDE[prod_short](includes/prod_short.md)] offers two ways to expose data that can be consumed by [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports: 
+[!INCLUDE[prod_short](includes/prod_short.md)] offers two ways to expose data that [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports can consume:
 
 * API pages or queries
 * Open Data Protocol (OData) web services
@@ -15987,7 +16103,7 @@ This section explains the requirements for a [!INCLUDE[prod_short](includes/prod
 
 Dataflows enable you to ingest, transform, and load data into a Power BI workspace and then use the data as the basis for your reports. These dataflows can in some cases experience transient errors while doing a scheduled refresh. The error message looks like this: `DataSource.Error: OData: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.` 
 
-Using PowerAutomate, you can set up retries for this situation. For more information, see [Automatically retry a dataflow on failure](/power-query/dataflows/automatically-retry-dataflow).
+Using Power Automate, you can set up retries for this situation. Learn more at [Automatically retry a dataflow on failure](/power-query/dataflows/automatically-retry-dataflow).
 
 ## Related information
 
@@ -17287,15 +17403,15 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-working-with-powerbi
 ---
 title: Working with Power BI reports in Business Central
-description: Get insight, business intelligence, and KPIs from your Business Central data with Power BI.
+description: Get insight, business intelligence, and key performance indicators from your Business Central data with Power BI.
 author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 10/23/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: jswymer
 ---
 
 # Work with [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports in [!INCLUDE [prod_short](includes/prod_short.md)]
@@ -17382,7 +17498,7 @@ Learn more in [Configure scheduled refresh](/power-bi/connect-data/refresh-sched
 Learn more about how to create reports for list pages in [Creating [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports for Displaying List Data in [!INCLUDE[prod_short](includes/prod_short.md)]](across-how-use-powerbi-reports-factbox.md).
 
 > [!TIP]
-> If the Power BI FactBox isn't available, it might be hidden on your workspace by personalization. Select the ![Settings.](media/ui-experience/settings_icon_small.png "Settings icon for role center") icon, and then select **Personalize** action. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
+> If the Power BI FactBox isn't available, it might be hidden on your workspace. For example, by personalization. Select the ![Settings.](media/ui-experience/settings_icon_small.png "Settings icon for role center") icon, and then select **Personalize** action. Learn more in [Personalize Your Workspace](ui-personalization-user.md).
 >
 > Or, if you have an older version of [!INCLUDE [prod_short](includes/prod_short.md)], on the action bar, select **Actions**, then **Display**, and then **Show/Hide [!INCLUDE [powerbi-name](includes/powerbi-name.md)] reports**.
 
@@ -17496,7 +17612,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
-ms.date: 06/10/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.search.keywords: IC, group, consolidation, affiliate, subsidiary
 ms.search.form: 605, 611, 613, 615, 617, Report_512
@@ -17520,7 +17636,7 @@ There are four main benefits to the intercompany functionality:
 
 Intercompany transactions let you distribute sales and purchasing documents and general journal entries to all of your satellite offices, sales offices, or subsidiary companies. Distributing transactions saves time and increases efficiency throughout the organization by reducing data entry. It cuts down on the need to send, receive, print, and archive sales and purchasing documents.  
 
-You're in full control of all transaction documents. For example, you can reject a document sent to you and use the **Reverse Journal Postings** and **Undo Receipts/Shipments** actions to make corrections. Or, when making a purchase from a partner or subsidiary company, you can update the purchase order as long as the selling company hasn't shipped the goods.  
+You're in full control of all transaction documents. For example, you can reject a document sent to you and use the **Reverse Journal Postings** and **Undo Receipts/Shipments** actions to make corrections. Or, when making a purchase from a partner or subsidiary company, you can update the purchase order as long as the selling company didn't ship the goods.  
 
 When you enter a transaction, you don't need to specify the accounts to use. You just choose the intercompany partner. The intercompany functionality creates general journal lines that balance the books of both companies involved in the transaction. In receivables and payables, you assign an intercompany partner code to any customer or vendor. From that moment on, all orders and invoices for transactions between these companies produce corresponding documents in the partner company. The result is correctly balanced accounts.  
 
@@ -17545,10 +17661,10 @@ When you set up intercompany transactions, you create a list of intercompany par
 > [!NOTE]
 > The general journal by itself doesn't include currencies. It converts all amounts to the local currency at the current exchange rate.
 
-After you set up business partners as customers and vendors, and assign them intercompany partner codes, they can exchange intercompany purchase and sales documents, including items and item charges.
+After you set up partners as customers and vendors and assign them intercompany partner codes, they can exchange intercompany purchase and sales documents that include items and item charges.
 
 > [!NOTE]
-> Companies can't use intercompany to exchange all types of data. Purchase invoices are not submitted to business partners through intercompany processes. However, sales invoices that are submitted through intercompany processes will be created as purchase invoices in the receiving company.
+> Companies can't use intercompany to exchange all types of data. Purchase invoices aren't submitted to business partners through intercompany processes. However, sales invoices that are submitted through intercompany processes are created as purchase invoices in the receiving company.
 
 Consolidating financial data might be relevant for intercompany processes. Learn more at [Consolidating Financial Data from Multiple Companies](finance-consolidated-company-reporting.md).
 
@@ -19497,136 +19613,5 @@ The following table describes a sequence of tasks, with links to the articles th
 [General Business Functionality](ui-across-business-areas.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]  
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-powerbi-reports-factbox
----
-title: Display custom Power BI reports
-description: Use the Power BI FactBox to display interactive Power BI reports and gain deeper insights into data on key list pages.
-author: jswymer
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: business intelligence, KPI, Odata, Power App, SOAP, analysis
-ms.date: 10/16/2025
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Create Power BI reports for displaying list data in [!INCLUDE[prod_short](includes/prod_short.md)]
-
-[!INCLUDE[prod_long](includes/prod_long.md)] includes a Power BI FactBox control element on many key list pages. The purpose of this FactBox is to display Power BI reports that are related to records in the lists, providing extra insight into the data. The idea is that as you move between rows in the list, the report updates for the selected entry.
-
-[!INCLUDE[prod_long](includes/prod_long.md)] comes ready with some of these reports. You can also create your own custom reports that display in this FactBox. Creating these reports is similar to other reports. But there are a few design rules you have to follow to make sure the reports display as expected. These rules are explained in this article.
-
-> [!NOTE]
-> Refer to [Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md) for general information about creating and publishing Power BI reports for Business Central.
-
-## Prerequisites
-
-- A Power BI account.
-- Power BI Desktop.
-
-<!-- 
-For more information about getting started, see [Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md).-->
-
-## Create a report for a list page
-
-1. Start Power BI Desktop.
-2. Select **Get Data**, and start choosing the data source for the report.
-
-    Specify the Business Central list pages that contain the data that you want in the report. For example, to create a report for the **Sales Invoices** list, include pages related to sales.
-
-    Follow the instructions [Add [!INCLUDE[prod_short](includes/prod_short.md)] as a data source in Power BI Desktop](across-how-use-financials-data-source-powerbi.md#getdata) for more information.
-
-3. Set the report filter.
-
-    To make the data update to the selected record in the list, you add a filter to the report. The filter must include a field of the data source that's used to uniquely identify each record in the list. In developer terms, this field is the *primary key*. In most cases, the primary key for a list is the **No.** field.
-
-    To set the filter, do the following steps:
-
-    1. In the **Filters**, select the primary key field from the list of available fields.
-    2. Drag the field to **Filters** pane and drop it in the **Filters on all pages** box.
-    3. Set the **Filter type** to **Basic filtering**. It can't be page, visual, or advanced filter.
-
-    ![Set the report filter for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-filter-v3.png)
-4. Design the report layout.
-
-    Create the layout by dragging fields and adding visualizations. Learn more in [Work with Report view in Power BI Desktop](/power-bi/create-reports/desktop-report-view) in the Power BI documentation.
-
-5. See the next sections about sizing the report and using multiple pages.
-
-6. Save and name the report.
-
-    Give the report a name that contains the name of the list page associated with the report, as it is in the client. The name isn't case-sensitive though. Suppose the report is for the **Sales Invoices** list page. In this case, include the words **sales invoices** somewhere in the name, like **my sales invoices.pbix** or **my_Sales Invoices_list.pbix**.
-
-    This naming convention isn't a requirement. However, it makes selecting reports in [!INCLUDE[prod_short](includes/prod_short.md)] quicker. When the report selection page opens from a list page, it's automatically applied a filter based on the page name. The filter has the syntax: `@*<caption>*`,  like `@*Sales Invoices*`. This filtering is done to limit the reports that are displayed. Users can clear the filter to get a full list of reports available in Power BI.
-
-7. When you're done, publish the report as usual.
-
-    Learn more in [Publishing a Report](across-how-use-financials-data-source-powerbi.md#publish-reports).
-
-8. Test the report.
-
-    Once the report's been published to your workspace, it should be available from the Power BI FactBox on the list page in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-    To test it, do the following steps.
-
-    1. Open [!INCLUDE[prod_short](includes/prod_short.md)] and go to the list page.
-    2. If you don't see the Power BI FactBox, go the action bar, then select **Actions** > **Display** > **Show/Hide Power BI Reports**.
-    3. In the Power BI FactBox, select **Select Reports**, select the **Enable** box for the report, then select **OK**.
-
-    If designed correctly, the report displays.  
-
-## Set the report size and color
-
-The size of the report must be set to 325 pixels by 310 pixels. This size provides the proper scaling of the report in the available space of the Power BI FactBox control in [!INCLUDE[prod_short](includes/prod_short.md)]. To define the size of the report, place focus outside of the report layout area, and then choose the paint roller icon.
-
-![Set the report width and height for the Sales Invoice Activity report.](./media/across-how-use-powerbi-reports-factbox/financials-powerbi-report-sizing-v3.png)
-
-You can change the width and height of the report by choosing **Custom** in the **Type** field.
-
-If you want the background of the report to blend with the background color of the Power BI FactBox control, set report background color to *#FFFFFF* (white). 
-
-> [!TIP]
-> Use the [!INCLUDE [prod_short](includes/prod_short.md)] theme file to build reports with the same color styling as the [!INCLUDE [prod_short](includes/prod_short.md)] apps. Learn more in [Use the [!INCLUDE [prod_short](includes/prod_short.md)] report theme](across-how-use-financials-data-source-powerbi.md#theme).
-
-## Reports with multiple pages
-
-With Power BI, you can create a single report with multiple pages. However, for reports that display with list pages, we recommend that they don't have more than one page. The Power BI FactBox only shows the first page of your report.
-
-## Fix problems
-
-This section explains how to fix problems that you might run into when you try to view a Power BI report for a list page in [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-### You can't see the Power BI FactBox on a list page
-
-By default, the Power BI FactBox is hidden from view. To show the FactBox on a page, from the action bar, select **Actions** > **Display** > **Show/Hide Power BI Reports**.
-
-### You can't see the report in the Select Report pane
-
-The report's name doesn't contain the name of the list page that's being shown. Clear the filter to get a full list of Power BI reports available.  
-
-### Report is loaded but blank, not filtered, or filtered incorrectly
-
-Verify the report filter contains the right primary key. In most cases, this field is the **No.** field, but in the **G/L Entry** table, for example, you must use the **Entry No.** field.
-
-### Report is loaded, but it shows a page you didn't expect
-
-Verify that the page you want displayed is the first page in your report.  
-
-### Report appears with an unwanted gray boarder, or it's too small or too large
-
-Verify that the report size is set to 325 pixels x 310 pixels. Save the report, and then refresh the list page.  
-
-## Related information
-
-[Enable Your Business Data for Power BI](admin-powerbi.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
-[Get Ready for Doing Business](ui-get-ready-business.md)  
-[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
-[Finance](finance.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 

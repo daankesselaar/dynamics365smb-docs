@@ -1,3 +1,166 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-purchases-by-location
+---
+title: Purchases by Location (Power BI Report)
+description: The Purchases by Location report provides an overview of purchasing activities by location.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37019_Primary
+ms.date: 10/31/2024
+ms.service: dynamics-365-business-central
+---
+
+# Purchases by Location (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Purchases by Location** report provides an overview of purchasing activities for each warehouse location. It helps you find out which item categories and items are most frequently purchased in each location, and how much money you're spending on the purchases.
+
+:::image type="content" source="media/purchases/purchases-by-location.png" alt-text="Screenshot of the Purchases by Location Power BI report" lightbox="media/purchases/purchases-by-location.png":::
+
+## Use the report
+
+The report is especially useful for purchasing managers and purchasers.
+
+Purchasing managers can use the report to analyze purchasing trends across different warehouse locations. For example, you can use the report to find the most frequently bought items and item categories in each warehouse. You and the warehousing team can gain insights into warehouses with consistently high or low purchasing activities.
+
+Purchasers can use this report to monitor purchasing activities across warehouse locations. For example, you can find item categories and items with low quantities that require attention to prevent stock-outs or disruptions in production. Use this information to plan ahead and work with your team to ensure that you meet purchase demand across locations.
+
+
+## Key Performance Indicators (KPIs)
+
+The *Purchases by Location* report includes the following KPIs and measures: 
+
+- [**Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+- [**% GT Purchase (LCY)**](purchases-powerbi-kpis.md#purchase-lcy)
+- [**% GT Purchase Quantity**](purchases-powerbi-kpis.md#purchase-quantity)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Location
+- Item
+- Vendor
+- Purchase Value Entry
+- Purchase Invoice Lines
+- Purchase Credit Lines
+
+## Try the report
+
+Try the report here: [Purchases by Location](https://businesscentral.dynamics.com?page=37019)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Purchasing app](purchases-powerbi-app.md)  
+[Ad hoc analysis of purchasing data](ad-hoc-analysis-purchasing.md)  
+[Built-in purchasing reports](purchase-reports.md)  
+[Purchasing analytics overview](purchasing-analytics-overview.md)  
+[Purchasing overview](purchasing-manage-purchasing.md)  
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/quick-start-financial-information
+---
+title: Financial Information Quick Start
+description: Get your company ready for business by setting up the financial information in Business Central.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: quickstart
+ms.search.form: 
+ms.date: 08/25/2022
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# Financial Information Quick Start
+
+After entering basic company information in [!INCLUDE[prod_short](includes/prod_short.md)], one of the next steps is completing the financial section. You do this not only to receive or make payments, but also to properly manage and report your business' numbers.
+
+## The chart of accounts
+
+The chart of accounts (COA) offers an overview of the company's finances, listing accounts in structured groups such as assets, liabilities, income, cost of goods sold, and expenses. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts you can customize to your business' accounting practices.
+
+## Set up the chart of accounts
+
+The following video shows how to set up the chart of accounts in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+<br /><br />
+
+> [!Video https://learn-video.azurefd.net/vod/player?id=944c65b0-9b0f-4d35-b330-de2fad57143a]
+
+### Add an account to the chart of accounts
+
+To add an account not included by default in [!INCLUDE[prod_short](includes/prod_short.md)]—for example, gardening services—just follow these steps:
+
+1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Chart of Accounts**, then choose the related link.
+2. Choose the **New** action to open the **G/L Account Card** page.
+3. Enter the following data in the corresponding fields on the **General** FastTab. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+   | Field | Data |
+   | --- | --- |
+   | **No.** | 61250 |
+   | **Name** | Gardening services |
+   | **Income/Balance** | Income Statement |
+   | **Account Category** | Expense |
+   | **Account Subcategory** | Repairs and Maintenance Expense |
+   | **Debit/Credit** | Both |
+   | **Account Type** | Posting |
+
+4. On the **Posting** FastTab, enter the following data:
+
+   | Field | Data |
+   | --- | --- |
+   | **Gen. Posting Type** | Purchase |
+   | **Gen. Bus. Posting Group** | Domestic |
+   | **Gen. Prod. Posting Group** | Services |
+
+5. Fill in the remaining fields on the **G/L Account Card** page as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+### Get an overview of the chart of accounts
+
+If you need a more compact view of the chart of accounts, without columns for posting groups, posting type, or cost type, for example, the **Chart of Accounts Overview** lists the main information for each account in a smaller table. Additionally, you can collapse or expand groups to hide the accounts inside them.
+
+To display the overview, choose the **Chart of Accounts Overview** action on the **Chart of Accounts** page, or search for the feature using ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do").
+
+Learn more about the chart of accounts and the general ledger at [Understanding the General Ledger and the Chart of Accounts](finance-general-ledger.md).
+
+## Set up bank accounts
+
+Bank accounts in [!INCLUDE[prod_short](includes/prod_short.md)] register banking transactions and are associated with entries in the chart of accounts. The following video shows how to set up bank accounts.
+
+<br /><br />
+
+> [!Video https://learn-video.azurefd.net/vod/player?id=047a5a25-1f7d-423d-b96d-c4ea45042779]
+
+1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Bank Accounts**, then choose the related link.
+2. On the **Bank Accounts** page, choose the **New** action.
+3. In the **No.** field, an identifier such as *B010* will be entered automatically if there's a numbered series list set for bank accounts. If not, enter a unique combination.
+
+   The field is different from the **Bank Account No.** field also available in the **General** FastTab.
+4. Fill in the fields on the **Bank Account Card** page as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]
+
+## Related information
+
+[Set Up the Chart of Accounts](finance-setup-chart-accounts.md)  
+[Set Up Bank Accounts](bank-how-setup-bank-accounts.md)  
+[Run and Print Reports](ui-work-report.md)  
+[Business Central Quick Starts](quick-start-business-central.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-update-currencies
 ---
 title: Update currency exchange rates
@@ -8,7 +171,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: multiple currencies, adjust exchange rates, FX rates
 ms.search.form: 5, 118
-ms.date: 06/16/2025
+ms.date: 06/16/2026
 ms.custom: bap-template
 
 ---
@@ -39,10 +202,10 @@ The exchange rates are the tool to calculate the local currency value (LCY) of e
 |**Starting Date**|The date when the currency rate was effective.|  
 |**Currency Code**|The currency code related to this exchange rate.|  
 |**Relational Currency Code**|If this currency is part of a triangular currency calculation, then you can set up the related currency code here.|  
-|**Exchange Rate Amount**|The exchange rate amount is the rate for the currency code selected on the line. Normally 1 or 100.|  
+|**Exchange Rate Amount**|The exchange rate amount is the rate for the currency code. Normally 1 or 100.|  
 |**Relational Exch. Rate Amount**|The relational exchange rate amount relates to the rate to use for the relational currency code.|  
-|**Adjustment Exch. Rate Amount**|The rate for the currency code selected on the line for the use of the **Adjust Exchange Rates** batch job.|  
-|**Relational Adjmt Exch. Rate Amt**|The rate for the currency code selected on the line for the use of the **Adjust Exchange Rates** batch job.|  
+|**Adjustment Exch. Rate Amount**|The rate for the currency code for the use of the **Adjust Exchange Rates** batch job.|  
+|**Relational Adjmt Exch. Rate Amt**|The rate for the currency code for the use of the **Adjust Exchange Rates** batch job.|  
 |**Fix Exchange Rate Amount**|Specifies if the currency's exchange rate can be changed on invoices and journal lines.|  
 
 In general, the values of the **Exchange Rate Amount** and **Relational Exchange Rate Amount** fields are used as the default currency rate on all new receivables and payables documents that are created going forward. The currency rate is assigned to the document according to the current working date.  
@@ -66,7 +229,7 @@ Because exchange rates fluctuate constantly, you need to adjust other currency e
 You can use the **Adjust Exchange Rates** batch job to manually adjust the exchange rates for posted customer, vendor, and bank account entries. The batch job can also update other reporting currency amounts on G/L entries.  
 
 > [!TIP]
-> You can use a service to update exchange rates automatically. To learn more, go to [To set up a currency exchange rate service](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service). However, this doesn't adjust exchange rates on already posted transactions. To update exchange rates on posted entries, use the **Exchange Rates Adjustment** batch job.
+> You can use a service to update exchange rates automatically. To learn more, go to [To set up a currency exchange rate service](finance-how-update-currencies.md#set-up-a-currency-exchange-rate-service). However, the service doesn't adjust exchange rates on already posted transactions. To update exchange rates on posted entries, use the **Exchange Rates Adjustment** batch job.
 
 You can also specify how the adjustment handles dimensions for unrealized gains and losses postings by choosing one of the following options in the **Dimension Posting** field:  
 
@@ -102,7 +265,7 @@ The batch job processes all open customer ledger entries and vendor ledger entri
 
 ### Effect on bank accounts
 
-For bank accounts, the batch job adjusts the currency by using the exchange rate that is valid on the posting date specified in the batch job. The batch job calculates the differences for each bank account that has a currency code and posts the amounts to the general ledger account that is specified in the **Realized Gains Acc.** field or the **Realized Losses Acc.** field on the **Currencies** page. Balancing entries are automatically posted to the general ledger bank accounts that are specified in the bank account posting groups. The batch job calculates one entry per currency per posting group.
+For bank accounts, the batch job adjusts the currency by using the exchange rate that's valid on the posting date specified in the batch job. The batch job calculates the differences for each bank account that has a currency code and posts the amounts to the general ledger account that is specified in the **Realized Gains Acc.** field or the **Realized Losses Acc.** field on the **Currencies** page. Balancing entries are automatically posted to the general ledger bank accounts that are specified in the bank account posting groups. The batch job calculates one entry per currency per posting group.
 
 #### Dimensions on bank account entries
 
@@ -126,7 +289,7 @@ Adjustment entries are assigned the default dimensions from the accounts they po
 You can use an external service to keep your currency exchange rates up to date.
 
 > [!NOTE]
-> Most exchange rate services provide data that is compatible with the import process in [!INCLUDE[prod_short](includes/prod_short.md)]. However, sometimes the data is formatted differently and you need to customize your import process. You can use the data exchange framework to do that by adding your own codeunit. You might need some help from a developer to do that. To learn more, go to [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
+> Most exchange rate services provide data that's compatible with the import process in [!INCLUDE[prod_short](includes/prod_short.md)]. However, sometimes the data is formatted differently and you need to customize your import process. You can use the data exchange framework to do that by adding your own codeunit. You might need some help from a developer to do that. To learn more, go to [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Currency Exchange Rate Services**, and then select the related link.
 2. Select the **New** action.
@@ -154,7 +317,7 @@ Follow the steps given to update the currency exchange rates through a service:
 Every now and then, you might need to correct a mistake in a payment transaction for adjustments to foreign currency gains and losses. You can use the **Reverse transaction** action on the **Bank Account Ledger Entries**, **Customer Ledger Entries**, and **Vendor Ledger Entries** pages to unapply and reverse the payment transaction.
 
 > [!NOTE]
-> When you unapply and reverse a payment for an entry that had exchange rate adjustments, the reversal posts reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
+> When you unapply and reverse a payment for an entry that had exchange rate adjustments, you post reversal entries for the adjustments. You might have to run the currency exchange rate adjustment again to get the correct current balance.
 
 ## Related information
 
@@ -3418,7 +3581,7 @@ Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-c
 ---
 title: Set up Sales Order Agent
 description: Learn how to activate Sales Order Agent and manage user access.
-ms.date: 05/03/2026
+ms.date: 06/16/2026
 ms.update-cycle: 180-days
 ms.topic: how-to
 author: jswymer
@@ -3438,7 +3601,12 @@ Learn more about the agent in [Sales Order Agent overview](sales-order-agent.md)
 
 Before configuring and activating Sales Order Agent, ensure the following prerequisites are met:
 
-- Set up the email account for receiving incoming requests for sales quotes and orders.
+- You have permissions to configure the Sales Order Agent. You can configure the agent if you meet one of these conditions:
+  - You're listed in the agent's user access list with **Can Configure** selected.
+  - You have the **Configure All Agents** system permission (ID 9665).
+
+  Learn more in [Manage agent permissions and user access](#manage-agent-permissions-and-user-access).
+- An email account is set up for receiving incoming requests for sales quotes and orders.
 
    Sales Order Agent monitors incoming emails to this mailbox. The email account must be a **Microsoft 365** type (user mailbox or shared mailbox) in your organization. Learn more at [Set up email](admin-how-setup-email.md).
 
@@ -3447,11 +3615,11 @@ Before configuring and activating Sales Order Agent, ensure the following prereq
    >
    > When a user activates the agent, it runs as a background task in the context of that user and needs access to the shared mailbox to process emails. It might take a few hours for Exchange to propagate the permissions to the selected users.
 
-- Set up the Business Central environment for billing agent capabilities.
+- Billing for agent capabilities is configured for the Business Central environment in the Business Central admin center.
 
    Agents use Copilot Credits when a user runs it, which your company is charged for. Learn more in [Manage consumption-based billing](/dynamics365/business-central/dev-itpro/administration/tenant-admin-center-manage-consumption-billing).
 
-- Turn on the **Allow HttpClient Requests** toggle in the **Sales Order Agent** extension settings (sandbox environments only).
+- (Sandbox environments only) The **Allow HttpClient Requests** toggle in the **Sales Order Agent** extension settings is turned on.
 
    Open the [Extension management](https://businesscentral.dynamics.com/?page=2500) page, select **Sales Order Agent**, and then turn on the **Allow HttpClient Requests** toggle.
 
@@ -5796,7 +5964,7 @@ Email in [!INCLUDE[prod_short](includes/prod_short.md)] is only for sending mess
 
 There are a couple of requirements for setting up and using the email features.
 
-* To set up email, you must have the **EMAIL SETUP** permission set. To learn more, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+* To set up email, you must have the **EMAIL - ADMIN** permission set. To learn more, go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
 * Everyone who uses the email features must be a fully licensed [!INCLUDE [prod_short](includes/prod_short.md)]. For example, delegated admins and guest users can't use the tenant's email account.
 * Everyone who uses the email features must have a valid, paid license for Exchange Online. Otherwise, they can't use some features. For example, they can’t send emails because Exchange rejects their messages. You can’t use trial licenses.
 
@@ -6791,8 +6959,9 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: reporting
 ms.search.form: 37059_Primary, 36984, 36985, 36986, 36987, 36988, 36989, 36990, 36991, 36992, 36993,36994, 36995, 36996, 36997, 37113
-ms.date: 10/30/2024
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
+ms.custom: bap-template
 ---
 
 # Finance Power BI app
@@ -7180,7 +7349,7 @@ If you want to find all blue chairs in the CRONUS demo company, you might enter 
 
 If you want to mimic the behavior of legacy search when you use modern search, you can enclose your search text in quotation marks, just as you can do in popular search engines. In this way, you refine the results by excluding any that aren't exact matches. For example, if you enter `"blue chair"` as the search text, modern search returns no results, because that exact text doesn't occur in any item name in the demo data.
 
-Another difference is that modern search finds words that *start* with the letters you entered. If you enter 'hair', it doesn't find the word 'chair'.
+Another difference is that modern search finds words that start with the letters you entered. If you enter "hair", it doesn't find the word "chair."
 
 > [!NOTE]
 >
@@ -7259,7 +7428,7 @@ The filter pane is divided into three sections: **Views**, **Filter list by**, a
     > [!NOTE]
     > Filters in the **Filter totals by** section are controlled by FlowFilters in the page design. Learn about the technical aspects of FlowFilters in [FlowFilters overview](/dynamics365/business-central/dev-itpro/developer/devenv-flowfilter-overview).
 
-By using the filter pane, you can set a simple filter directly on a list to show only records that have the same value as a selected cell. Select a cell in the list, select the dropdown arrow, and then select the **Filter to This Value** action. Alternatively, select <kbd>Alt</kbd>+<kbd>F3</kbd>.
+By using the filter pane, you can set a filter directly on a list to show only records that have the same value as a selected cell. Select a cell in the list, select the dropdown arrow, and then select the **Filter to This Value** action. Alternatively, select <kbd>Alt</kbd>+<kbd>F3</kbd>.
 
 ### Set filters in reports, batch jobs, and XMLports
 
@@ -7273,7 +7442,7 @@ In the **Filter totals by** section, you can adjust various dimensions that infl
 
 Both in the filter pane and on a request page, you enter your filter criteria in the box under the filter field.
 
-The type of the filter field determines which criteria you can enter. For example, to filter a field that has fixed values, you can select only among those values. Learn more about special filter symbols in the [Filter criteria and operators](#FilterCriteria) and [Filter tokens](#FilterTokens) sections.
+The type of the filter field determines the criteria you can enter. For example, for fields with fixed values, you can only filter on those values. Learn more about special filter symbols in the [Filter criteria and operators](#FilterCriteria) and [Filter tokens](#FilterTokens) sections.
 
 The ![Filter icon.](media/ui-search/filter-icon.png "Filter icon") symbol in the column heading indicates columns that already have filters. To remove a filter, select the dropdown arrow, and then select the **Clear Filter** action.
 
@@ -7406,7 +7575,7 @@ This requirement applies only to the five symbols in the preceding list.
 
 ### <a name="FilterTokens"></a>Filter tokens
 
-When you enter filter criteria, you can also enter *filter tokens*, which are words that have special meaning. After you enter a filter token, it's replaced by the value or values that it represents. Filter tokens make filtering easier, because you don't have to open other pages to look up values that you want to add to your filter. The following sections describe some of the tokens that you can enter as filter criteria.
+When you enter filter criteria, you can also enter *filter tokens*, which are words that have special meaning. After you enter a filter token, the value or values that it represents replace it. Filter tokens make filtering easier, because you don't have to open other pages to look up values that you want to add to your filter. The following sections describe some of the tokens that you can enter as filter criteria.
 
 > [!TIP]
 > Your organization might use custom tokens. To learn about the complete set of tokens that's available to you, or to add more custom tokens, contact your administrator. Learn about the technical aspects of filter tokens in [Adding Custom Filter Tokens](/dynamics365/business-central/dev-itpro/developer/devenv-adding-filter-tokens).
@@ -10222,10 +10391,10 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: solsen
 ms.topic: install-set-up-deploy
-ms.date: 06/17/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.search.keywords: app, add-in, manifest, customize, install, uninstall
-ms.search.form: 2500, 2514, 20350
+ms.search.form: 2500, 2514, 2515, 20350
 ms.service: dynamics-365-business-central
 ---
 
@@ -11186,11 +11355,11 @@ title: Auditing changes
 description: Track changes to data in selected tables and monitor user activities with change logs and activity logs in Business Central.
 author: brentholtorf
 ms.author: bholtorf
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: user log, user activity, tracking, audit changes
 ms.search.form: 592_Primary, 593_Primary, 594_Primary, 595_Primary, 710, 1366_Primary, 1367_Primary, 1368_Primary, 1369_Primary
-ms.date: 10/16/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
@@ -11228,7 +11397,7 @@ On the **Change Log Setup** page, you can turn on or turn off the change log. Wh
 On the **Change Log Setup** page, if you choose the **Tables** action, you can specify which tables you want to track changes for, and which changes to track. [!INCLUDE[prod_short](includes/prod_short.md)] also tracks several system tables.
 
 > [!NOTE]
-> You can monitor specific fields for changes, such as fields that contain sensitive data, by setting up field monitoring. If you do, to avoid redundancy the table that contains the field will not be available for the change log setup. Learn more in [Monitor Sensitive Fields](across-log-changes.md#monitor-sensitive-fields).
+> You can monitor specific fields for changes, such as fields that contain sensitive data, by setting up field monitoring. If you do, to avoid redundancy the table that contains the field isn't available for the change log setup. Learn more in [Monitor Sensitive Fields](across-log-changes.md#monitor-sensitive-fields).
 
 After you set up the change log, activated it, and made a change to data, you can view and filter the changes on the **Change Log Entries** page. If you want to delete entries, set up a retention policy, where you can set filters based on dates and time. Learn more in [Define Retention Policies](admin-data-retention-policies.md) for information about retention policies.  
 
@@ -11306,7 +11475,7 @@ Keeping sensitive data secure and private is a core concern for most businesses.
 You can use the **Monitor Field Change Setup** assisted setup guide to specify the fields that you want to monitor based on filter criteria, such as the data sensitivity classification for the fields. Learn more in [Classifying Data Sensitivity](admin-classifying-data-sensitivity.md). The guide also lets you specify the person who receives an email notification when a change occurs, and the email account that sends the notification. Specify both the user to notify and the account from which to send the notification. After you finish the guide, you can manage settings for field monitoring on the **Field Monitoring Setup** page.
 
 > [!NOTE]
-> When you specify the email account from which to send notifications, you must add either the **Microsoft 365** or **SMTP** account types. Notifications should be sent from an account that isn't associated with an actual user. Therefore you can't choose the **Current User** account type. If you do, notifications will not be sent.
+> When you specify the email account from which to send notifications, you must add either the **Microsoft 365** or **SMTP** account types. Notifications should be sent from an account that isn't associated with an actual user. Therefore you can't choose the **Current User** account type. If you do, notifications aren't sent.
 
 Over time, the list of entries on the **Monitored Fields Log Entries** page will grow. To reduce the number of entries, you can create a retention policy that will delete entries after a specified period of time. Learn more in [Define Retention Policies](admin-data-retention-policies.md).
 
@@ -11321,7 +11490,7 @@ You can manage settings for field monitoring, such as whether to send an email n
 
 Entries for all changed values for monitored fields are available on the **Monitored Fields Log Entries** page. For example, entries contain the following information:
 
-- The field in which the value changed.
+- The field where the value changed.
 - The original and new values.
 - Who made the change, and when they did so.
 
@@ -15526,7 +15695,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.search.form: 9171,
 ---
@@ -15534,9 +15703,9 @@ ms.search.form: 9171,
 
 Assign all users to profiles that reflect:
 
-* Their business role
-* The department they work in
-* Another type of categorization
+* Their business role.
+* The department they work in.
+* Another type of categorization.
 
 Profiles allow administrators to centrally define and manage what different types of users can access in Business Central.
 
@@ -15569,7 +15738,7 @@ If you can't copy an existing profile, you can create a new one manually.
 
 ## Copy a profile
 
-To save time, you can create a new profile by copying an existing one that has similar settings. When you copy a profile, you also copy page customizations, both user-created and those from extensions.
+To save time, you can create a new profile by copying an existing one that has similar settings. When you copy a profile, you also copy page customizations, both user-created and customizations from extensions.
 
 1. On the **Profiles (Roles)** page, select the line for the profile that you want to copy, and then select the **Copy Profile** action.
 2. Fill in the **Profile ID** and **Display Name** fields, and then select the **OK** button.
@@ -16274,7 +16443,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: transportation, added cost, landed cost
 ms.search.form: 5709, 5800, 5805, 5814
-ms.date: 06/17/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -22836,197 +23005,5 @@ The following table describes the insights that this extension provides for each
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-troubleshooting
----
-title: Set up troubleshooting processes | Microsoft Docs
-description: Learn how to set up processes that help service representatives identify and resolve issues with service items.
-author: brentholtorf
-ms.topic: troubleshooting-general
-ms.devlang: al
-ms.search.keywords: service, service item, troubleshoot, repairs, maintenance
-ms.date: 10/03/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Set up troubleshooting for service items
-
-You can set up troubleshooting guidelines that help technicians solve problems when providing service. For example, guidelines might be a list of steps to perform a repair, or a series of questions to ask about the items. After you set up troubleshooting guidelines, you can assign them to service item groups, service items, and items. There's an inheritance hierarchy for guidelines. If you assign them to a service item group, the items included in the group inherits the guidelines unless you specify them for the items. Similarly, service items inherit guidelines from items.  
-
-## Set up troubleshooting guidelines
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Troubleshooting**, and then choose the related link.  
-2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
-
-## Assign troubleshooting guidelines to items, service items, or service item groups
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, **Service Items**, or **Service Item Groups**, and then choose the related link.  
-2. Choose the relevant entity, and then choose the **Troubleshooting** action.  
-
-## Related information
-
-[Service Management](service-service.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-access-with-m365-license
----
-title: Business Central Access with Microsoft 365 Licenses
-description: Discover how users can view Business Central data in Microsoft Teams with only a Microsoft 365 license. Learn setup steps and requirements.
-author: mikebc
-ms.author: mikebc 
-ms.reviewer: bholtorf
-ms.service: dynamics-365-business-central
-ms.topic: overview
-ms.date: 06/20/2025
-ms.custom: bap-template
-ms.search.keywords: License, access, Microsoft 365, collaborate, collaboration, Teams, Microsoft Teams
-ms.search.form: 1978
----
-
-# Business Central access with Microsoft 365 licenses
-
-Users with a Business Central license can view, modify, and act on their business data from any user interface. For other employees across your organization that only need to occasionally view data, Business Central offers access through Microsoft 365.  
-
-If your organization has both a Business Central and a Microsoft 365 subscription, admins set up environments so users sign in with Microsoft 365 licenses but can access only specific tables and other objects. When configured, employees that have a Microsoft 365 license but no [!INCLUDE [prod_short](includes/prod_short.md)] license can view [!INCLUDE [prod_short](includes/prod_short.md)] records that are shared with them in Microsoft Teams chat and channels.
-
-
-## Why enable access with Microsoft 365 licenses  
-
-- Unlock master data that every employee across the organization should have access to.
-
-- Empower departments that don’t run on [!INCLUDE [prod_short](includes/prod_short.md)] to self-serve, by accessing key data needed to successfully perform their tasks, eliminating the need for continually requesting data from others.
-
-- Increase collaboration efficacy so that tasks and projects that span across departments complete on time, by eliminating the friction that is typically associated with access denied errors due to licensing.
-
-- Increase team performance so that people can make data-driven decisions that are inclusive of everyone in the group, even if they don’t work in [!INCLUDE [prod_short](includes/prod_short.md)].
-
-- Meet licensing budget targets by assigning licenses that match employee needs:
-
-  - Microsoft 365 licenses for read-only access
-  - Dynamics 365 Business Central Team Member licenses for limited write access
-  - Dynamics 365 Business Central Essentials or Premium licenses for full write access.
-
-- Improve data security by reducing the need for pasting screen snippets of business data outside of data governance boundaries.
-
-## Use rights
-
-When a person accesses [!INCLUDE [prod_short](includes/prod_short.md)] with a Microsoft 365 license, the license entitles the user to read (but not write) [!INCLUDE [prod_short](includes/prod_short.md)] data through a simplified user interface in Microsoft Teams. This section explains these use rights and limitations that help you plan how to configure and make the most out of this capability. Learn more about this license type compared to other [!INCLUDE [prod_short](includes/prod_short.md)] licenses in the [Dynamics 365 licensing guide](https://go.microsoft.com/fwlink/?LinkId=866544).
- 
-### Client access
-
-Users are entitled to access [!INCLUDE [prod_short](includes/prod_short.md)] data in Microsoft Teams. The following table summarizes which of the different methods of accessing the [!INCLUDE [prod_short](includes/prod_short.md)] service are allowed with this license.
-
-|Client accessing the Business Central service |Access|
-|-|-|
-|Business Central app for Microsoft Teams|![Yes](media/check.png)|
-|Business Central Web client |![No](media/x-icon.png ) |
-|Business Central mobile apps|![No](media/x-icon.png )|
-|Business Central APIs|![No](media/x-icon.png )|
-|Business Central integrations with other Office applications|![No](media/x-icon.png )|
-|Business Central embedded in any other applications |![No](media/x-icon.png )|
-
-### Data access
-
-Users are entitled to read table data but can't modify, create, or delete records. The [!INCLUDE [prod_short](includes/prod_short.md)] platform automatically prevents writing to any data tables.  
-
-### Use of objects
-
-Access with Microsoft 365 licenses doesn't restrict which Business Central objects or object ranges can be accessed. Users are entitled to access the Microsoft base application and any extensions such as customizations and add-on apps.
-
-## Simplified user interface
-
-Users are entitled to a reduced set of features and functions provided by [!INCLUDE [prod_short](includes/prod_short.md)] in Microsoft Teams. The following tables indicate noteworthy features. This list isn't exhaustive and is subject to change.
-
-Features of the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams:
-
-|Feature  |Available|
-|-|-|
-|View [!INCLUDE [prod_short](includes/prod_short.md)] cards|![Yes](media/check.png)|
-|View card details |![Yes](media/check.png) |
-|Pin card details as a tab |![Yes](media/check.png)|
-|View [!INCLUDE [prod_short](includes/prod_short.md)] tabs|![Yes](media/check.png)|
-|Add a [!INCLUDE [prod_short](includes/prod_short.md)] tab|![No_](media/x-icon.png )|
-|Search for business contacts |![No](media/x-icon.png )|
-|Paste and share a link preview as a card|![No](media/x-icon.png )|
-
-Functions of the [!INCLUDE [prod_short](includes/prod_short.md)] client embedded in Teams:
-
-|Function |Available|Example functions|
-|-|-|-|
-|Data manipulation system actions |![No](media/x-icon.png )|Edit, Create, Delete|
-|Basic functions in lists|![Yes](media/check.png)|Search, sort, change layout|
-|Advanced functions in lists|![No](media/x-icon.png )|Filter pane, views|
-|Drill down from list to card |![Yes](media/check.png)||
-|Access data from related tables|![No](media/x-icon.png )|FactBox pane, field drilldown, peek, look up |
-|Actions|![No](media/x-icon.png )|Action bar, action menus, page notification actions|
-|System-wide shortcuts|![No](media/x-icon.png )|My Settings, Role Explorer, Tell Me search  |
-|Copy|![Yes](media/check.png)|Copy rows, copy field value, copy link to page|
-|UI customization|![No](media/x-icon.png )|Personalize| 
-|Inline customization|![Yes](media/check.png)|Resize column, Expand/Collapse, Show more |
-|Data sharing |![No](media/x-icon.png )|Open or Edit in Excel, Share to Teams|
-|Inline user assistance|![Yes](media/check.png) |Tooltips, links to documentation|
-|Advanced user assistance |![No](media/x-icon.png )|Page and field teaching tips, Help pane|
-
-## Minimum requirements
-
-This section explains the minimum requirements for your organization to use Microsoft 365 licenses, and for individual Microsoft Teams users to use [!INCLUDE [prod_short](includes/prod_short.md)] data without a [!INCLUDE [prod_short](includes/prod_short.md)] license.
-
-### Requirements to enable access
-
-- [!INCLUDE [prod_short](includes/prod_short.md)] online (SaaS).
-
-### Requirements for individual users to access data in Teams
-
-- Data must be accessed using the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams. Users must have the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams installed and must use one of the supported Teams clients. Get a list of Teams clients supported by [!INCLUDE [prod_short](includes/prod_short.md)] in [Minimum Requirements for Using Business Central](product-requirements.md#teams).
-
-- Users must be internal to the organization. A user identity originates from the same home tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and access is enabled. External identities aren't supported. [!INCLUDE [prod_short](includes/prod_short.md)] automatically prevents access to guests.
-
-- Users must be assigned a Microsoft 365 license from one of the following plans.
-  
-  |Supported plan|Product ID |
-  |-|-|
-  |Microsoft 365 Business Basic|3b555118-da6a-4418-894f-7df1e2096870|
-  |Microsoft 365 Business Standard|f245ecc8-75af-4f8e-b61f-27d8114de5f3|
-  |Microsoft 365 Business Premium |cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46|
-  |Microsoft 365 E3 |05e9a617-0261-4cee-bb44-138d3ef5d965 |
-  |Microsoft 365 E5|06ebc4ee-1bb5-47dd-8120-11324bc54e06|
-  |Microsoft 365 F1|50f60901-3181-4b75-8a2c-4c8e4c1d5a72|
-  |Microsoft 365 F3|66b55226-6b4f-492c-910c-a3b7a3c9d993|
-  |Office 365 E1|18181a46-0d4e-45cd-891e-60aabd171b4e|
-  |Office 365 E2 |6634e0ce-1a9f-428c-a498-f84ec7b8aa2e|
-  |Office 365 E3|6fd2c87f-b296-42f0-b197-1e91e994b900|
-  |Office 365 E5|c7df2760-2c81-4ef7-b578-5b5392b571df|
-  |Office 365 F2|131fd665-5752-4995-a628-bcba5c889745|
-  |Office 365 F3|4b585984-651b-448a-9e53-3b10f069cf7f|
-  |Microsoft Teams Essentials (Microsoft Entra Identity) |3ab6abff-666f-4424-bfb7-f0bc274ec7bc|
-  |Microsoft Teams EEA|7e74bd05-2c47-404e-829a-ba95c66fe8e5|
-  
-  Most offers based on these plans are also supported. For example, if you subscribe to Microsoft 365 Business Premium (Nonprofit Staff Pricing), it's a specific offer for not-for-profit organizations based on the Microsoft 365 Business Premium plan, and is therefore supported.
-
-  > [!NOTE]
-  > Can't find your plan in the list? Microsoft is continually looking for feedback on how we can improve our service and expand our offering so that more customers can take advantage of this capability. Share your idea for which plans we should support next at  [https://aka.ms/bcIdeas](https://aka.ms/bcIdeas).
-
-- Users must be assigned a Microsoft 365 license that has the Microsoft Teams app enabled in the list of apps for that license.
-
-  |Supported apps|Service Plan ID|
-  |-|-|
-  |Microsoft Teams|57ff2da0-773e-42df-b2af-ffb7a2317929 |
-
-- The organization must have at least one other user with a Dynamics 365 Business Central license.
-
-## Next steps
-
-- Get an understanding of the user access flow to help plan your approach and configuration of Business Central to match the business needs. Learn more in [User Access Flow](admin-access-with-m365-license-flow.md).
-- Set up your environment and users for access with Microsoft 365 licenses. Learn more in [Set Up Access with Microsoft 365 Licenses ](admin-access-with-m365-license-setup.md).
-- Get troubleshooting tips if you run into problems. Learn more in [Business Central troubleshooting](/troubleshoot/dynamics-365/business-central/welcome-business-central).
-
-## Related information
-
-[Business Central and Microsoft Teams Integration](across-teams-overview.md)  
 end of article
 

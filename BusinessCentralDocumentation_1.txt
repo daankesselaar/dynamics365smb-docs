@@ -2105,7 +2105,7 @@ author: jswymer
 ms.topic: how-to
 ms.search.keywords: access, right, security
 ms.search.form: 119, 774_Primary, 6300, 6301, 6302, 8930, 9061, 9062, 9069, 9173, 9800_Primary, 9807_Primary, 9808, 9830, 9831, 9838, 9816, 9818, 9874
-ms.date: 06/10/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.service: dynamics-365-business-central
@@ -2128,14 +2128,14 @@ This article describes how administrators create users and define who can sign i
 
 User accounts in [!INCLUDE[prod_short](includes/prod_short.md)] online must be first created in the Microsoft 365 admin center. These user accounts aren't exclusive to [!INCLUDE [prod_short](includes/prod_short.md)]. If you subscribe to other plans, they can be used to sign in to other applications, such as Power BI. For information about creating users in the Microsoft 365 admin center, go to [Add users in Microsoft admin center](/microsoft-365/admin/add-users/add-users).
 
-Your subscription to [!INCLUDE[prod_short](includes/prod_short.md)] online defines how many [!INCLUDE[prod_short](includes/prod_short.md)] user licenses you're allowed. Users are added to your tenant in the Microsoft Partner Center, typically by your Microsoft partner. For more information, see [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration).
+Your subscription to [!INCLUDE[prod_short](includes/prod_short.md)] online defines how many [!INCLUDE[prod_short](includes/prod_short.md)] user licenses you're allowed. Users are added to your tenant in the Microsoft Partner Center, typically by your Microsoft partner. Learn more at [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration).
 
 You assign licenses to users according to the work each user does in [!INCLUDE[prod_short](includes/prod_short.md)]. You can assign licenses in several ways:
 
-- Your company's Microsoft 365 administrator can do it in the [Microsoft 365 Admin Center](https://admin.microsoft.com). For more information, see [Add users individually or in bulk to Microsoft 365](/microsoft-365/admin/add-users/add-users).  
-- A Microsoft partner can assign licenses in the Microsoft 365 Admin Center or in the Microsoft Partner Center. For more information, see [User management tasks for customer accounts](/partner-center/assign-licenses-to-users) in the Microsoft Partner Center Help.
+- Your company's Microsoft 365 administrator can do it in the [Microsoft 365 Admin Center](https://admin.microsoft.com). Learn more at [Add users individually or in bulk to Microsoft 365](/microsoft-365/admin/add-users/add-users).  
+- A Microsoft partner can assign licenses in the Microsoft 365 Admin Center or in the Microsoft Partner Center. Learn more at [User management tasks for customer accounts](/partner-center/assign-licenses-to-users) in the Microsoft Partner Center Help.
 
-For more information, see [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration) in the administration Help.
+Learn more at [Administration of Business Central Online](/dynamics365/business-central/dev-itpro/administration/tenant-administration) in the administration Help.
 
 After user accounts are created in the Microsoft 365 admin center, there are two ways to import them to [!INCLUDE [prod_short](includes/prod_short.md)]:
 
@@ -2149,19 +2149,17 @@ After user accounts are created in the Microsoft 365 admin center, there are two
 Both approaches have their own advantages, and you can use them simultaneously. Each approach allows administrators to proactively configure [!INCLUDE [prod_short](includes/prod_short.md)] to assign the starting permissions, user groups, and user profiles. Using the **Update Users from Microsoft 365** action gives administrators more control to adjust permissions, user groups, and profiles. It's an ideal approach when you're setting up [!INCLUDE [prod_short](includes/prod_short.md)] the first time, before any users sign in, or when adding a new team of users.
 
 > [!NOTE]
-> After you add users in the Microsoft 365 Admin Center, we recommend that you update the user information in [!INCLUDE[prod_short](includes/prod_short.md)] as soon as possible. Keeping user information current is easy to do, and helps ensure that people can always sign in. For more information, see [To add users or update user information and license assignments in Business Central](#adduser).<br>
+> After you add users in the Microsoft 365 Admin Center, we recommend that you update the user information in [!INCLUDE[prod_short](includes/prod_short.md)] as soon as possible. Keeping user information current is easy to do, and helps ensure that people can always sign in. Learn more at [To add users or update user information and license assignments in Business Central](#adduser).
 >
-> Updating user information is especially important if you've customized permission sets for the license. If a new user tries to sign in to [!INCLUDE[prod_short](includes/prod_short.md)] before you've added them, they might not be able to. For more information, see [Configure permissions based on licenses](#licensespermissions).
+> Updating user information is especially important if you customize permission sets for the license. If a new user tries to sign in to [!INCLUDE[prod_short](includes/prod_short.md)] before you add them, they might not be able to. Learn more at [Configure permissions based on licenses](#licensespermissions).
 >
-> However, users who experience this problem aren't actually blocked. They can either use the **Go back home** action, or simply sign in again to resolve the issue.
+> However, users who experience this problem aren't blocked. They can either use the **Go back home** action, or just sign in again to resolve the issue.
 
 ### Delegated admin users
 
 [!INCLUDE [admin-gdap-users](includes/admin-gdap-users.md)]
 
 ### <a name="licensespermissions"></a>Configure permissions based on licenses
-
-[!INCLUDE [2022_releasewave1](includes/2022_releasewave1.md)]
 
 Admins can configure permissions sets and user groups for each license.<!--Note to translators: The names in *italics* or capitalized in this section must not be translated.-->  
 
@@ -2187,14 +2185,14 @@ If this default configuration isn't the right setup for a particular environment
     In our example, the admin wants to remove the permission to edit in Excel, so they remove the *Excel Export Action* user group from the Team Member license. Afterward, new users who are assigned the Team Member license can't export data to Excel. If the organization changes their minds on the subject, they can just go back to the **License Configuration** page and switch off the customization for that license type.  
 
 > [!IMPORTANT]
-> This customization of permissions only takes effect for new users that you assign the relevant license. Existing users are not updated. We recommend that you customize permissions before you start assigning users licenses in the Microsoft 365 admin center.
+> This customization of permissions only takes effect for new users that you assign the relevant license. Existing users aren't updated. We recommend that you customize permissions before you start assigning users licenses in the Microsoft 365 admin center.
 
 ### <a name="adduser"></a>To add users or update user information and license assignments in Business Central
 
 After you add users or change user information in the Microsoft 365 Admin Center, you can quickly import the user information to [!INCLUDE[prod_short](includes/prod_short.md)]. The import includes license assignments.  
 
 > [!TIP]
-> If you need to update user information and you have a lot of users, you can use the filter pane to narrow down the list. You can filter on basic information such as the user name, or set more technical filters, such as the user's security ID.
+> If you need to update user information and you have numerous users, you can use the filter pane to narrow down the list. You can filter on basic information such as the user name, or set more technical filters, such as the user's security ID.
 
 1. Sign in to [!INCLUDE[prod_short](includes/prod_short.md)] using an administrator account.
 2. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.  
@@ -2204,19 +2202,19 @@ After you add users or change user information in the Microsoft 365 Admin Center
 > Running the synchronization of users from Microsoft 365 using the **Update Users from Microsoft 365** guide, requires the SUPER permission set.
 
 > [!NOTE]
-> The **Update Users from Microsoft 365** guide doesn't update users that are not assigned a license, such as someone who is a [Dynamics 365 administrator](/entra/identity/role-based-access-control/permissions-reference#dynamics-365-administrator). Those users will update the next time they sign in to the environment.
+> The **Update Users from Microsoft 365** guide doesn't update users that aren't assigned a license, such as someone who is a [Dynamics 365 administrator](/entra/identity/role-based-access-control/permissions-reference#dynamics-365-administrator). Those users will update the next time they sign in to the environment.
 
-The next step for newly created users is to assign user groups and permissions. Go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information. If you update a user with a license change, [!INCLUDE [prod_short](includes/prod_short.md)] assigns users to the appropriate user group and updates their permission sets. For more information, see [To manage permissions through user groups](ui-define-granular-permissions.md).  
-
-> [!NOTE]
-> With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. For more information about licensing, go to [Business Central](https://www.microsoft.com/dynamics-365/products/business-central/) website.
-
-If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. For more information, see [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
-
-For more information about synchronizing user information with Microsoft 365, go to the [Synchronization with Microsoft 365](#m365) section.
+The next step for newly created users is to assign user groups and permissions. Go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information. If you update a user with a license change, [!INCLUDE [prod_short](includes/prod_short.md)] assigns users to the appropriate user group and updates their permission sets. Learn more at [To manage permissions through user groups](ui-define-granular-permissions.md).  
 
 > [!NOTE]
-> If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. For more information, see [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
+> With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This restriction doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. To learn more about licensing, go to [Business Central](https://www.microsoft.com/dynamics-365/products/business-central/) website.
+
+If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. Learn more at [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
+
+To learn more about synchronizing user information with Microsoft 365, go to the [Synchronization with Microsoft 365](#m365) section.
+
+> [!NOTE]
+> If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. Learn more at [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
 
 ### To remove a user's access to the system
 
@@ -2226,7 +2224,7 @@ You can remove a user's access to [!INCLUDE[prod_short](includes/prod_short.md)]
 2. Open the **User Card** page for the relevant user, and then, in the **Status** field, select **Disabled**.
 3. To give the user access again, set the **Status** field to **Enabled**.
 
-You can also remove the license from a user in the Microsoft 365 Admin Center. The user is then unable to sign in. For more information, see [Remove licenses from users](/microsoft-365/admin/manage/remove-licenses-from-users).
+You can also remove the license from a user in the Microsoft 365 Admin Center. The user is then unable to sign in. Learn more at [Remove licenses from users](/microsoft-365/admin/manage/remove-licenses-from-users).
 
 ### <a name="m365"></a>Synchronization with Microsoft 365
 
@@ -2270,9 +2268,9 @@ For on-premises deployments, the administrator creates, edits, and deletes users
 4. To delete a user, select the user that you want to delete, and then choose the **Delete** action.
 
 > [!NOTE]
-> For on-premises deployments an administrator can specify how to authenticate user credentials in the [!INCLUDE[server](includes/server.md)] instance. When you create a user, you provide the credential type that you are using.
+> For on-premises deployments, administrators can specify how to authenticate user credentials in the [!INCLUDE[server](includes/server.md)] instance. When you create a user, you provide the credential type that you're using.
 >
-> For more information, see the [Authentication and Credential Types](/dynamics365/business-central/dev-itpro/administration/users-credential-types) in the administration Help for [!INCLUDE[prod_short](includes/prod_short.md)].
+> Learn more at [Authentication and Credential Types](/dynamics365/business-central/dev-itpro/administration/users-credential-types) in the administration Help for [!INCLUDE[prod_short](includes/prod_short.md)].
 
 ## Analyze user status by license type
 
@@ -2284,8 +2282,8 @@ The following sections provide examples of scenarios where analyzing the user li
 
 | Area | To... | Open this page in analysis mode | Using these fields |
 | ---- | ----- | ------------------------------- |------------------- |
-| [Users by status](#example-users-by-status) | See a list of users based on their status (enabled/disabled). | [Users](https://businesscentral.dynamics.com/?page=9800&layout=analysis) | **Status**, **User Name**, **Full Name**, **Authorization email**, and **License Type**. |
-| [Users by license type](#example-users-by-license-type) | See a list of users based on their license type. | [Users](https://businesscentral.dynamics.com/?page=9800&layout=analysis) | **License Type**, **Status**,  **User Name**, **Full Name**, and **Authorization email**. |
+| [Users by status](#example-users-by-status) | Explore a list of users based on their status (enabled/disabled). | [Users](https://businesscentral.dynamics.com/?page=9800&layout=analysis) | **Status**, **User Name**, **Full Name**, **Authorization email**, and **License Type**. |
+| [Users by license type](#example-users-by-license-type) | Review a list of users based on their license type. | [Users](https://businesscentral.dynamics.com/?page=9800&layout=analysis) | **License Type**, **Status**,  **User Name**, **Full Name**, and **Authorization email**. |
 
 ### Example: Users by status
 
@@ -5451,7 +5449,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ---
 # Count, adjust, and reclassify inventory using journals
@@ -5476,7 +5474,7 @@ To check whether the quantity registered is the same as the physical quantity in
 > [!NOTE]
 > This procedure describes how to do a physical inventory using a journal on the **Phys. Inventory Journal** page. You can use documents on the **Physical Inventory Order** and **Physical Inventory Recording** pages. These documents offer more control and support for distributing the counting work to multiple employees. Learn more at [Count Inventory Using Documents](inventory-how-count-inventory-with-documents.md).
 >
-> Note that you can't use the document-based functionality to count items in bins or warehouse entries.
+> You can't use the document-based functionality to count items in bins or warehouse entries.
 
 The counting process also involves the following tasks:
 
@@ -5503,14 +5501,14 @@ Depending on your warehouse setup, count physical inventory in one of the follow
 ### To print the report to be used when counting
 
 1. On the **Physical Inventory Journals** page containing the calculated expected inventory, Choose the **Print** action from **Home**.
-2. On the **Physical Inventory List** page, specify whether the report will show the calculated quantity and inventory items by serial and lot numbers.
+2. On the **Physical Inventory List** page, specify whether the report shows the calculated quantity and inventory items by serial and lot numbers.
 3. Set filters if you only want to print the report for certain items, bins, locations, or dimensions.
 4. Choose **Print**.
 
 Warehouse employees can now count inventory and record any differences on the printed report.
 
 > [!NOTE]
-> It can take several days before printed reports come back for final processing and posting. When you specify and post actual counted inventory, the system adjusts inventory to reflect the difference between the expected and the actual counted inventory. You must keep the originally calculated journal lines and not recalculate the expected inventory, because the expected inventory may change and lead to incorrect inventory levels. If you need to issue multiple reports, such as for different locations or group of items, you must create and keep separate journal batches.
+> It can take several days before printed reports come back for final processing and posting. When you specify and post actual counted inventory, the system adjusts inventory to reflect the difference between the expected and the actual counted inventory. You must keep the originally calculated journal lines and not recalculate the expected inventory, because the expected inventory might change and lead to incorrect inventory levels. If you need to issue multiple reports, such as for different locations or group of items, you must create and keep separate journal batches.
 
 ### To enter and post the actual counted inventory in basic warehouse configurations
 
@@ -5596,7 +5594,7 @@ Counting physical inventory is typically a recurring task, for example monthly, 
 3. Count the physical inventory. Learn more at [To count physical inventory](inventory-how-count-adjust-reclassify.md#to-count-physical-inventory).  
 
    > [!NOTE]  
-   > Count the item in all bins that contain it. If you delete bin lines that were retrieved for counting on the **Whse. Phys. Inventory** page, the count will be incorrect when you post it in a physical inventory journal.  
+   > Count the item in all bins that contain it. If you delete bin lines that were retrieved for counting on the **Whse. Phys. Inventory** page, the count is incorrect when you post it in a physical inventory journal.  
 
 ## To adjust the quantity of one item
 
@@ -8380,7 +8378,7 @@ author: brentholtorf
 ms.topic: how-to
 ms.search.keywords: bill, sale, invoice, order
 ms.search.form: 43, 48, 9301
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -8561,7 +8559,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: install-set-up-deploy
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.search.keywords: company, setup wizard
 ms.search.form: 1803, 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
@@ -9352,7 +9350,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.form: 1480,
 ms.search.keywords: Excel, add-in, centralized deployment, M365 admin center, individual acquisition, appsource
-ms.date: 08/12/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
@@ -9473,7 +9471,7 @@ Sometimes, users run into problems with the Excel add-in. This section gives tip
 |For some list pages, editing multiple lines in Excel consistently causes errors. This condition can occur if OData calls include FlowFields and fields outside of the repeater control.|On the **Web Services** page, select the **Exclude Non-Editable FlowFields** and **Exclude Fields Outside of the Repeater** checkboxes for the published page. Selecting these checkboxes excludes noneditable FlowFields and fields from the eTag calculation. |These checkboxes are hidden by default. To show them on the **Web Services** page, use [personalization](/dynamics365/business-central/ui-personalization-user). |
 |Users can no longer sign in to the add-in. When they try to sign in, the process stops without completing.| This problem might happen because of an update that we made to the add-in. Learn more at [Modify the Excel Add-in Configuration to Support July 2022 Update](/dynamics365/business-central/dev-itpro/administration/update-excel-addin-configuration).|Applies to [!INCLUDE [prod_short](includes/prod_short.md)] on-premises only.|
 | The add-in communicates using the API v2.0 for Dynamics 365 Business Central, and any limitations of this API are automatically inherited. An example limitation is if you try to edit a list and the underlying card uses a confirmation dialog in its AL logic, for example, as its validation logic. | Sometimes there's nothing to do because it's a design choice that the user must explicitly confirm the change. If the confirmation is negligible when using **Edit in Excel**, then you can wrap the confirmation dialog call in an if-conditional statement that checks whether the client type is different from ODataV4, for example, `if SESSION.CurrentClientType() <> ClientType::ODataV4 then`. | There might be other clients that you want to remove the confirmation dialog from, such as OData and SOAP. |
-| When you choose **Edit In Excel**, the following message displays: "Certain filters applied on the page are not available in Office, so more rows will be shown compared to [!INCLUDE [prod_short](includes/prod_short.md)]. Removed Filters: ...".| If the removed filter applies to a field that you added through an AL extension, make sure that the page field name and the underlying table field name are identical. For example, for the page field ```field("Customer Name", Rec."Customer Name")```, the table field name "Customer Name" must be ```field(1; "Customer Name"; Text)```. If the removed filter relates to a field that Microsoft or a non-Microsoft vendor owns, even though the filter is removed in [!INCLUDE [prod_short](includes/prod_short.md)] it might still be available on the Office Add In's filter tab. The caveat of this is that it would need to be applied manually every time. To permanently fix fields you don't have control over, contact the owner of the extension. | |
+| When you choose **Edit In Excel**, the following message displays: "Certain filters applied on the page are not available in Office, so more rows are shown compared to [!INCLUDE [prod_short](includes/prod_short.md)]. Removed Filters: ...".| If the removed filter applies to a field that you added through an AL extension, make sure that the page field name and the underlying table field name are identical. For example, for the page field ```field("Customer Name", Rec."Customer Name")```, the table field name "Customer Name" must be ```field(1; "Customer Name"; Text)```. If the removed filter relates to a field that Microsoft or a non-Microsoft vendor owns, even though the filter is removed in [!INCLUDE [prod_short](includes/prod_short.md)] it might still be available on the Office Add In's filter tab. The caveat of this is that it would need to be applied manually every time. To permanently fix fields you don't have control over, contact the owner of the extension. | |
 
 ## Known limitations in business logic
 
@@ -11847,14 +11845,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-manage-projects
 ---
 title: Project management
-description: This article outlines how to use resources, time sheets, and projects to manage budgets.
+description: This article outlines how to use resources, time sheets, and projects.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: overview
 ms.search.keywords: projects
 ms.search.form: 89, 200, 289, 290, 376, 462, 463, 1029, 1615, 8904, 9014, 9015, 37033, 37034, 37035, 37036, 37037, 37038, 37039
-ms.date: 07/01/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -12121,13 +12119,13 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-powerbi
 ---
 title: Introduction to Business Central and Power BI
-description: Get an overview of using Power BI to get insights and KPIs from your Business Central data.
+description: Get an overview of using Power BI to get insights from your Business Central data.
 author: jswymer
 ms.topic: overview
 ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
 ms.search.form: 6316, 6317
 ms.reviewer: jswymer
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
@@ -12153,7 +12151,7 @@ It's easy to get insights into your [!INCLUDE[prod_short](includes/prod_short.md
 |Use [!INCLUDE[powerbi-name](includes/powerbi-name.md)] with [!INCLUDE[prod_short](includes/prod_short.md)] | You can use your data from [!INCLUDE[prod_short](includes/prod_short.md)] in reports in [!INCLUDE[powerbi-name](includes/powerbi-name.md)]. [!INCLUDE[prod_short](includes/prod_short.md)] online includes many [!INCLUDE[powerbi-name](includes/powerbi-name.md)] reports. Or, your organization might have some custom reports.|![Works online.](media/check.png)|![Works on-premises](media/check.png)|[Here...](across-working-with-powerbi.md)|
 |View [!INCLUDE[powerbi-name](includes/powerbi-name.md)] reports in the [!INCLUDE[prod_short](includes/prod_short.md)] client.| [!INCLUDE[powerbi-name](includes/powerbi-name.md)] reports that display [!INCLUDE[prod_short](includes/prod_short.md)] data can be embedded directly in parts [!INCLUDE[prod_short](includes/prod_short.md)] pages. You can switch the part to display any report that is made available to you. |![works online.](media/check.png)|![Works on-premises](media/check.png)<sup> [*](#onprem)</sup>|[Here...](across-working-with-powerbi.md).|
 |Create reports and dashboards in [!INCLUDE[powerbi-name](includes/powerbi-name.md)] that display [!INCLUDE[prod_short](includes/prod_short.md)] data.|Use [!INCLUDE[powerbi-desktop-name](includes/powerbi-desktop-name.md)] to create your own reports and dashboards. You can publish the reports to your own [!INCLUDE[powerbi-service-name](includes/powerbi-service-name.md)] or share them with others within your organization.|![Works online.](media/check.png)|![works on-premises](media/check.png)|[Here...](across-how-use-financials-data-source-powerbi.md)|
-|Work with [!INCLUDE [prod_short](includes/prod_short.md)] data in datamarts and dataflows | Use the [!INCLUDE [prod_short](includes/prod_short.md)] connector in Power Query Online to define dataflows that you share across different reports and dashboards.|![works online.](media/check.png)||[Here...](across-powerbi-business-central-apps.md)|
+|Work with [!INCLUDE [prod_short](includes/prod_short.md)] data in datamarts and dataflows | To define dataflows that you share across different reports and dashboards, use the [!INCLUDE [prod_short](includes/prod_short.md)] connector in Power Query Online.|![works online.](media/check.png)||[Here...](across-powerbi-business-central-apps.md)|
 
 <a name="onprem"><sup>*</sup></a> This feature requires a registered application for [!INCLUDE [prod_short](includes/prod_short.md)] in Microsoft Azure. For more information, see [Registering [!INCLUDE [prod_short](includes/prod_short.md)] on-premises in Microsoft Entra ID for integrating with other services](/dynamics365/business-central/dev-itpro/administration/register-app-azure).
 
@@ -12470,6 +12468,8 @@ ms.custom: bap-template #Required; don't change.
 ---
 
 # Save business contacts to Microsoft Outlook
+
+> **APPLIES TO:**  [!INCLUDE[prod_short](includes/prod_short.md)] 2026 release wave 1 (v28) and later. For earlier versions, refer to [Synchronize with contacts in Outlook](admin-synchronize-outlook-contacts.md).
 
 If you use Outlook or Teams to contact and collaborate with people outside your organization, you often need their contact details, like email address and phone number, that are stored in Business Central. The **Contacts** list in Business Central typically contains the people or organizations you do business with, such as customers, vendors, banks, or even leads for new business, connecting them to your organization's business processes.
 
@@ -13357,7 +13357,7 @@ ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: machinery, buildings, fixed assets
 ms.search.form: 5601_Primary, 5604, 5606, 5664, 5601, 5602, 5658, 5603, 5671, 5641, 5629, 5633, 5634, 5649, 5622, 5650
-ms.date: 10/03/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -13388,7 +13388,7 @@ Fixed asset accounting means keeping precise financial records about your capita
 - Depreciation: You record an asset's periodic decline in value, which you use a depreciation method to calculate. Learn more in [FA Depreciation Calculation](LocalFunctionality/India/FA_Depreciation.md).
 - Revaluation: You record an assessment of the current fair market value of an asset. Learn more in [Revalue Fixed Assets](fa-how-revalue.md).
 - Impairment: You record a reduction in value due to events or circumstances.
-- Disposal: You sell, scrap, or use another way dispose of an asset at the end of its service life.
+- Disposal: You sell, scrap, or use another way to dispose of an asset at the end of its service life.
 
 Audits are also included in the detailed checks of your company’s accounting records after closing the books for the financial year. Whether internal or external, audits are where you might notice inconsistencies or differences between your notes and the actual state of your assets. Audits promote transparency in your assets and accounting if you’re losing more money than anticipated.
 
@@ -13417,7 +13417,7 @@ This section describes the analytical tools you can use to get insights into dat
 | To... | Go to... |
 |--|--|
 | Learn about capabilities for analyzing data about fixed assets. | [Fixed assets analytics overview](fa-analytics-overview.md) |
-| Do ad-hoc analysis of fixed assets data directly on list pages and queries. | [Ad-hoc analysis of fixed assets data](ad-hoc-analysis-fa.md) |
+| Do ad-hoc analysis of fixed assets data directly on list pages and queries. | [Ad hoc analysis of fixed assets data](ad-hoc-analysis-fa.md) |
 | Explore built-in reports for fixed assets. | [Built-in fixed assets reports](fa-reports.md) |
 | Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs) |
 | Monitor insurance coverage. | [Monitor insurance coverage](fa-how-insure.md#monitor-insurance-coverage) |
@@ -13428,7 +13428,7 @@ This section describes the analytical tools you can use to get insights into dat
 
 For each fixed asset, you must set up a card that contains information about them. For example, you can set up buildings or production equipment as main assets with a component list. You can group assets in various ways, such as by class, department, or location. Then you can acquire, maintain, and sell the fixed assets. You can also set up budgeted assets. Budgeting lets you include any anticipated acquisitions and sales in reports.
 
-| To  | Go to... |
+| To...  | Go to... |
 | --- | --- |
 | Manage fixed asset budgets, budget acquisition costs, budget disposals of fixed assets, and budget depreciation. |[Manage Budgets for Fixed Assets](fa-how-manage-budgets.md) |
 | Create fixed assets, assign depreciation methods, post acquisitions, salvage values, and print fixed asset lists. |[Acquire Fixed Assets](fa-how-acquire.md) |
@@ -13443,7 +13443,7 @@ To track fixed asset depreciations and other financial transactions for fixed as
 
 [!INCLUDE[prod_short](includes/prod_short.md)] supports several depreciation methods. Learn more in [Depreciation Methods](fa-depreciation-methods.md). You can set up multiple depreciation books for each fixed asset for different purposes, such as one for tax reporting and another for internal reporting.
 
-| To | Go to... |
+| To... | Go to... |
 |--|--|
 | Learn about different fixed asset depreciation methods. | [Depreciation Methods](fa-depreciation-methods.md) |
 | Calculate depreciation, post depreciation, and analyze depreciation in fixed assets reports. | [Depreciate or Amortize Fixed Assets](fa-how-depreciate-amortize.md) |
@@ -13454,7 +13454,7 @@ To track fixed asset depreciations and other financial transactions for fixed as
 
 You can record maintenance costs and the next service date for each asset. Tracking maintenance expenses can be important for budgeting purposes and deciding whether to replace a fixed asset. You can attach each fixed asset to one or more insurance policies, and verify that policy premiums align with the value of the assets.
 
-| To | Go to... |
+| To... | Go to... |
 |--|--|
 | Record service visits, post maintenance costs, and monitor maintenance costs. | [Maintain Fixed Assets](fa-how-maintain.md) |
 | Monitor maintenance costs. | [Monitor maintenance costs](fa-how-maintain.md#monitor-maintenance-costs) |
@@ -13463,7 +13463,7 @@ You can record maintenance costs and the next service date for each asset. Track
 
 ## Reclassify, transfer, split up/combine, adjust value, write-down, and dispose fixed assets
 
-| To | Go to... |
+| To... | Go to... |
 |--|--|
 | Reclassify fixed assets, transfer fixed assets to different locations, split up or combine assets. | [Transfer, Split, or Combine Fixed Assets](fa-how-trans-split-combine.md) |
 | Adjust values of fixed assets, post appreciation, and post write-down transactions. | [Revalue Fixed Assets](fa-how-revalue.md) |
@@ -14972,6 +14972,7 @@ ms.search.keywords: app, apps, install, integration, Marketplace
 ms.date: 04/08/2025
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
+ms.search.form: 2515_Primary
 ---
 
 # Manage Marketplace apps
@@ -18941,13 +18942,13 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: COA, cha of acc
 ms.search.form: 16_Primary, 17, 18, 118, 386, 391
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.service: dynamics-365-business-central
 ---
 # Set up or change the chart of accounts
 
-The chart of accounts (COA) shows the ledger accounts that store your financial data. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard COA that is ready to support your business. You can, however, change the default accounts, and you can add new accounts.
+The chart of accounts (COA) shows the ledger accounts that store your financial data. [!INCLUDE[prod_short](includes/prod_short.md)] includes a standard COA that's ready to support your business. You can, however, change the default accounts, and you can add new accounts.
 <br><br>  
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=944c65b0-9b0f-4d35-b330-de2fad57143a]
@@ -19297,7 +19298,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 291, 292, 293, 295, 517, 9010, 9038
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -20526,6 +20527,79 @@ To synchronize price lists, on the **Sales Price List** page, choose **Related**
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/powerplatform-integration-overview
+---
+title: Integrate with Microsoft Power Platform
+description: Learn how to integrate Business Central with the Microsoft Power Platform
+author: kennienp
+ms.reviewer: jswymer
+ms.topic: overview
+ms.author: kepontop
+ms.date: 06/19/2026
+ms.custom: bap-template
+ai-usage: ai-assisted
+---
+
+# Integrate Business Central with Microsoft Power Platform
+
+You can integrate [!INCLUDE [prod_short](includes/prod_short.md)] with Microsoft Power Platform to enhance your business' productivity and efficiency. The integration lets you analyze data, build solutions, automate processes, and create virtual agents. You can apply the data and business logic of [!INCLUDE [prod_short](includes/prod_short.md)], and benefit from the analytical and automation capabilities of Microsoft Power Platform.
+
+This article outlines how to integrate [!INCLUDE [prod_short](includes/prod_short.md)] with Microsoft Power Platform, and offers links to more information.
+
+## Business Central connector for Power Platform
+
+A *connector* is a proxy, or a wrapper, for APIs that gives you access to data in another application. [!INCLUDE[prod_short](includes/prod_short.md)] has a connector that allows Power Platform products such as Power Automate, Power Apps, and Logic apps to communicate with [!INCLUDE[prod_short](includes/prod_short.md)] through REST APIs.
+
+To learn more about connectors, go to [Power Platform Connectors Overview](/connectors/overview) in the Power Platform documentation. To learn more about the [!INCLUDE [prod_short](includes/prod_short.md)] Connector, go to [Dynamics 365 Business Central Connector](/dynamics365/business-central/dev-itpro/powerplatform/power-automate-overview#the-business-central-connector).
+
+## Integrate Business Central with Microsoft Power Apps
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Microsoft Power Apps by using the [!INCLUDE[prod_short](includes/prod_short.md)] connector for Power Platform. With Power Apps, you have the flexibility to build the perfect solution for your business domain; one that uses [!INCLUDE[prod_short](includes/prod_short.md)] data and processes and maximizes your productivity. With Power Apps custom UI, AI builder, and augmented-reality (AR)/mixed-reality (MR) technologies, you can take your business to the next level with cutting-edge innovation and customized UI.
+
+Learn more at [Integrating with Microsoft Power Apps overview (administration documentation)](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-overview)
+
+## Integrate Business Central with Microsoft Power Automate
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Microsoft Power Automate by using the [!INCLUDE[prod_short](includes/prod_short.md)] connector for Power Platform. With Power Automate, you can set up and use flows to connect business-process tasks performed by different users. You can include system tasks, such as automatic posting, as steps in flows, preceded or followed by user tasks. For example, requesting and granting approval to create new records are typical steps in flows.
+
+Learn more at [Integrating with Microsoft Power Automate overview (administration documentation)](/dynamics365/business-central/dev-itpro/powerplatform/power-automate-overview)
+
+## Integrate Business Central with Microsoft Power BI
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Microsoft Power BI in two ways:
+
+- Connect a Power BI semantic model to [!INCLUDE[prod_short](includes/prod_short.md)] to read data.
+- Embed a Power BI report, page, or visual in the [!INCLUDE[prod_short](includes/prod_short.md)] application.
+
+### Connect a Power BI semantic model to Business Central to read data
+
+[!INCLUDE[prod_short](includes/prod_short.md)] integrates with Power BI through a connector. Learn more at [Power BI integration overview](admin-powerbi-overview.md).
+
+### Embed a Power BI report, page, or visual in Business Central
+
+You can use an iframe to embed a Power BI report, page, or visual in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+There are two ways to add a Power BI report, page, or visual to a page in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+1. You can embed a Power BI report, page, or scorecard on pages that include a Power BI part. Learn more at [Working with Power BI Reports in Business Central](across-working-with-powerbi.md).
+1. A developer can programmatically add them from AL. Learn more at [Adding Power BI Report parts to pages](/dynamics365/business-central/dev-itpro/developer/devenv-power-bi-report-parts).
+
+## Integrate Business Central with Microsoft Power Pages
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Microsoft Power Pages by using virtual tables in Dataverse. With Power Pages, you can give unlicensed, external users access data in [!INCLUDE[prod_short](includes/prod_short.md)].
+
+Learn more at [Integrating with Microsoft Power Pages (preview)](/dynamics365/business-central/dev-itpro/developer/power-pages-on-virtual-tables-overview).
+
+## Related information
+
+[Business Central connector for Power Platform](/connectors/dynamicssmbsaas)  
+[Integrating with Microsoft Power Apps overview](/dynamics365/business-central/dev-itpro/powerplatform/power-apps-overview)  
+[Integrating with Microsoft Power Automate overview](/dynamics365/business-central/dev-itpro/powerplatform/power-automate-overview)  
+[Integrating with Microsoft Power Pages (preview)](/dynamics365/business-central/dev-itpro/developer/power-pages-on-virtual-tables-overview)  
+[Integrating with Microsoft Power BI](admin-powerbi-overview.md)  
+[How users can embed Power BI Reports in Business Central](across-working-with-powerbi.md)  
+[Business Central integrations overview](integration-overview.md)  end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-how-use-ocr-pdf-images-files
 ---
@@ -24984,7 +25058,7 @@ author: jswymer
 ms.topic: get-started
 ms.devlang: al
 ms.search.keywords: desktop, Windows, app
-ms.date: 12/13/2023
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.service: dynamics-365-business-central
 ms.reviewer: jswymer
@@ -24992,7 +25066,13 @@ ms.reviewer: jswymer
 
 # Getting Business Central on your mobile device
 
-Access your [!INCLUDE[prod_short](includes/prod_short.md)] data from your mobile device. You can navigate through your business data, use features such as send to Excel or Microsoft 365, view up-to-date charts and KPIs, email sales quotes and invoices, and shoot and attach pictures with your camera. Follow the steps below to download the app and get started.
+You can access your [!INCLUDE[prod_short](includes/prod_short.md)] data from your mobile device:
+
+- Review your business data.
+- Use features such as Send to Excel or Microsoft 365.
+- View up-to-date charts and key performance indicators.
+- Email sales quotes and invoices.
+- Take and attach pictures with your camera.
 
 > [!Video https://learn-video.azurefd.net/vod/player?id=2b0d907c-c59a-4bcc-a42c-bc2c7e6499a8]
 
@@ -25007,7 +25087,7 @@ Access your [!INCLUDE[prod_short](includes/prod_short.md)] data from your mobile
 2. Launch the app from your mobile device.
 3. Enter your user name and password that you created during sign-up for [!INCLUDE[prod_short](includes/prod_short.md)] and follow the instructions on the screen.
 
-    If your [!INCLUDE [prod_short](includes/prod_short.md)] has more than one production environment, then you'll be asked to choose the environment that you want to access (requires Business Central 2020 release wave 2 and later).
+    If your [!INCLUDE [prod_short](includes/prod_short.md)] has more than one production environment, you're asked to choose the environment that you want to access.
 
 You should now have access to [!INCLUDE[prod_short](includes/prod_short.md)] and can view and edit data.  
 
@@ -25038,121 +25118,6 @@ If you're using [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you 
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)    
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-role-explorer
----
-title: Finding Pages and Reports with the Role Explorer
-description: You can get an overview of all the business features that are available for your role, and for other roles, with the Role Explorer.
-author: jswymer
-ms.topic: concept-article
-ms.devlang: al
-ms.search.keywords: role explorer, find features, navigate
-ms.search.form: RoleExplorer, 9020, 9022, 9027, 9024
-ms.date: 06/12/2026
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: jswymer
----
-
-# Finding pages and reports with the role explorer
-
-
-By using preview, you agree to follow by the terms of use.
-By using preview, you agree to the terms of use.
-
-You can get an overview of the pages and reports that make up the features that people your business role often use. You can also explore what's available for other roles. This article refers to the overview of pages and reports as the *role explorer*.
-
-In addition to the overview, the role explorer lets you open pages or reports to explore the information they include. You can also use the role explorer as a way to get around in [!INCLUDE[prod_short](includes/prod_short.md)].
-
-[!INCLUDE [about-ui-learn](includes/about-ui-learn.md)]
-
-## Open the role explorer
-
-You can open the role explorer from role centers, list pages, and the **Tell Me** window.
-
-- On your role center or any list page, select the ![Menu button.](media/ui_menu_button.png "Menu button") button or select <kbd>Shift</kbd>+<kbd>F12</kbd>.
-- In the **Tell Me** window, select the **exploring pages** action.
-
-## Open the role explorer filtered to show reports
-
-You can open the role explorer in a filtered view that only shows reports:
-
-- On your role center or any list page, select the **All Reports** action.
-- In the **Tell Me** window, select the **exploring reports** action.
-
-## Open pages and reports
-
-The actions that open pages or reports are organized under nodes that are named after application areas. You can collapse or expand each node individually, or all nodes together.
-
-- To expand/collapse an individual top-level or subnode, select the node.
-- To expand/collapse all top-level nodes on the page, but leave the subnodes as they are, select **...** at the top, then select **Expand** or **Collapse**.
-- To expand/collapse all top-levels node and all subnodes under it, select **...** at the top, then select the **Expand All** or **Collapse All** action.
-
-## Search for pages and reports
-
-To quickly locate a page or report, select the **Find** box near the top of the explorer, and then enter a word or phrase for what you want to find. Role explorer highlights any matching text. If the page or report is hidden in a collapsed node, the collapsed node is marked with a dot.
-
-### Try advanced (preview)
-
-[!INCLUDE [preview-banner](~/../shared-content/shared/preview-includes/preview-banner-section.md)]
-
-[!INCLUDE [preview-note](~/../shared-content/shared/preview-includes/production-ready-preview-dynamics365.md)]
-
-If you don't find a match or aren't sure of the exact name of what you're looking for, select **Try Advanced** (preview) under the **Find** box to open the **Advanced** tab in **Tell Me** window and get more results. The **Advanced** tab uses AI-powered semantic search, so it finds results based on the meaning of your search instead of just matching exact words. You can type short descriptive phrases or full sentences in plain, everyday language. For example, you can type in natural language like "report that shows my best customers" to find the **Customer - Top 10** report.
-
-Learn more about advanced Tell Me in [Finding pages and information with Tell Me](ui-search.md#get-started-with-tell-me).
-
-> [!NOTE]
-> **Advanced** is available in Business Central online only, not on-premises, and only when an admin enables **Feature: Advanced Tell Me (preview)** in the **Feature Management** page. Learn more in [Feature Management](/dynamics365/business-central/dev-itpro/administration/feature-management).
-
-## Explore other roles
-
-To explore roles other than your own, select **Explore more roles**. Role explorer displays each role under its own heading, with links to its features. You can find and go to features just like you do when exploring your role.
-
-> [!NOTE]
-> You can only view roles that are set up to show in the role explorer. If a role isn't available, it probably isn't set up to show. Learn more in [Manage Profiles](admin-users-profiles-roles.md#activate-a-profile).
-
-When you explore other roles, you can also narrow down your exploration by using the **Report & Analysis** and **Administration** actions.
-
-- **Report & Analysis** filters the role explorer to show only reports and analysis features.
-- **Administration** filters the role explorer to show only pages for administrative tasks, such as pages related to how you set up your [!INCLUDE [prod_short](includes/prod_short.md)].
-
-> [!TIP]
-> For developers, you categorize pages and reports by setting the [UsageCategory property](/dynamics365/business-central/dev-itpro/developer/properties/devenv-usagecategory-property) in the object's AL code.
-
-## Expand and collapse nodes
-
-The actions that open pages or reports are organized under nodes named after the features or application areas. You can collapse or expand each node individually, and you can collapse or expand all nodes.
-
-- To expand or collapse a top-level or subnode, select the node.
-- To expand or collapse all top-level nodes on the page, select the **Expand** or **Collapse** action.
-- To expand or collapse all top-level nodes and their subnodes:
-  - Select the <kbd>Ctrl</kbd>+<kbd>Shift</kbd> keys while you select the **Expand** or **Collapse** action.
-  - select **...**, and then select the **Expand All** or **Collapse All** action.
-
-## Learn more about a page or report
-
-[!INCLUDE[2025_releasewave1](includes/2025_releasewave1.md)]
-
-Teaching tips are available for some pages and reports. When that's the case, when you hover over the action for the page or report an information icon displays next to the name. Select the icon to learn more about the page or report.
-
-:::image type="content" source="media/report-explorer-more-information.png" alt-text="Example of how the more information window is shown on an element on the role explorer." lightbox="media/report-explorer-more-information.png":::
-
-## Explore a page or report
-
-[!INCLUDE[2025_releasewave1](includes/2025_releasewave1.md)]
-
-You can open the pages or reports in a new window while keeping the role explorer open. To explore an element, select the **Open in a new window** icon to the left of the element's name. If the page or report has a teaching tip, the tip contains the **Open in a new window** icon.
-
-## Related information
-
-[Finding Pages and Information with Tell Me](ui-search.md)  
-[Responsible aI FAQ for advanced Tell Me](faqs-advanced-tell-me.md)  
-[Manage Profiles](admin-users-profiles-roles.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

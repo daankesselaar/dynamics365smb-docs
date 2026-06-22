@@ -1,3 +1,194 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-troubleshooting
+---
+title: Set up troubleshooting processes | Microsoft Docs
+description: Learn how to set up processes that help service representatives identify and resolve issues with service items.
+author: brentholtorf
+ms.topic: troubleshooting-general
+ms.devlang: al
+ms.search.keywords: service, service item, troubleshoot, repairs, maintenance
+ms.date: 10/03/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Set up troubleshooting for service items
+
+You can set up troubleshooting guidelines that help technicians solve problems when providing service. For example, guidelines might be a list of steps to perform a repair, or a series of questions to ask about the items. After you set up troubleshooting guidelines, you can assign them to service item groups, service items, and items. There's an inheritance hierarchy for guidelines. If you assign them to a service item group, the items included in the group inherits the guidelines unless you specify them for the items. Similarly, service items inherit guidelines from items.  
+
+## Set up troubleshooting guidelines
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Troubleshooting**, and then choose the related link.  
+2. Fill in the fields as necessary. [!INCLUDE[tooltip-inline-tip](includes/tooltip-inline-tip_md.md)]  
+
+## Assign troubleshooting guidelines to items, service items, or service item groups
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, **Service Items**, or **Service Item Groups**, and then choose the related link.  
+2. Choose the relevant entity, and then choose the **Troubleshooting** action.  
+
+## Related information
+
+[Service Management](service-service.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-access-with-m365-license
+---
+title: Business Central Access with Microsoft 365 Licenses
+description: Discover how users can view Business Central data in Microsoft Teams with only a Microsoft 365 license. Learn setup steps and requirements.
+author: mikebc
+ms.author: mikebc 
+ms.reviewer: bholtorf
+ms.service: dynamics-365-business-central
+ms.topic: overview
+ms.date: 06/17/2026
+ms.custom: bap-template
+ms.search.keywords: License, access, Microsoft 365, collaborate, collaboration, Teams, Microsoft Teams
+ms.search.form: 1978
+---
+
+# Business Central access with Microsoft 365 licenses
+
+Users with a [!INCLUDE [prod_short](includes/prod_short.md)] license can view, modify, and act on their business data from any user interface. For other employees across your organization that only need to occasionally view data, [!INCLUDE [prod_short](includes/prod_short.md)] offers access through Microsoft 365.  
+
+If your organization has both a [!INCLUDE [prod_short](includes/prod_short.md)] and a Microsoft 365 subscription, admins set up environments so users sign in with Microsoft 365 licenses but can access only specific tables and other objects. When configured, employees that have a Microsoft 365 license but no [!INCLUDE [prod_short](includes/prod_short.md)] license can view [!INCLUDE [prod_short](includes/prod_short.md)] records that are shared with them in Microsoft Teams chat and channels.
+
+## Why enable access with Microsoft 365 licenses  
+
+- Unlock master data that every employee across the organization should have access to.
+
+- Empower departments that don’t run on [!INCLUDE [prod_short](includes/prod_short.md)] to self-serve, by accessing key data needed to successfully perform their tasks, eliminating the need for continually requesting data from others.
+
+- Increase collaboration efficacy so that tasks and projects that span across departments complete on time, by eliminating the friction that is typically associated with access denied errors due to licensing.
+
+- Increase team performance so that people can make data-driven decisions that are inclusive of everyone in the group, even if they don’t work in [!INCLUDE [prod_short](includes/prod_short.md)].
+
+- Meet licensing budget targets by assigning licenses that match employee needs:
+
+  - Microsoft 365 licenses for read-only access
+  - Dynamics 365 Business Central Team Member licenses for limited write access
+  - Dynamics 365 Business Central Essentials or Premium licenses for full write access.
+
+- Improve data security by reducing the need for pasting screen snippets of business data outside of data governance boundaries.
+
+## Use rights
+
+When a person accesses [!INCLUDE [prod_short](includes/prod_short.md)] with a Microsoft 365 license, the license entitles the user to read (but not write) [!INCLUDE [prod_short](includes/prod_short.md)] data through a simplified user interface in Microsoft Teams. This section explains these use rights and limitations that help you plan how to configure and make the most out of this capability. Learn more about this license type compared to other [!INCLUDE [prod_short](includes/prod_short.md)] licenses in the [Dynamics 365 licensing guide](https://go.microsoft.com/fwlink/?LinkId=866544).
+
+### Client access
+
+Users are entitled to access [!INCLUDE [prod_short](includes/prod_short.md)] data in Microsoft Teams. The following table summarizes which of the different methods of accessing the [!INCLUDE [prod_short](includes/prod_short.md)] service are allowed with this license.
+
+|Client accessing the [!INCLUDE [prod_short](includes/prod_short.md)] service |Access|
+|-|-|
+|[!INCLUDE [prod_short](includes/prod_short.md)] app for Microsoft Teams|![Yes](media/check.png)|
+|Business Central Web client |![No](media/x-icon.png ) |
+|[!INCLUDE [prod_short](includes/prod_short.md)] mobile apps|![No](media/x-icon.png )|
+|[!INCLUDE [prod_short](includes/prod_short.md)] APIs|![No](media/x-icon.png )|
+|[!INCLUDE [prod_short](includes/prod_short.md)] integrations with other Office applications|![No](media/x-icon.png )|
+|[!INCLUDE [prod_short](includes/prod_short.md)] embedded in any other applications |![No](media/x-icon.png )|
+
+### Data access
+
+Users are entitled to read table data but can't modify, create, or delete records. The [!INCLUDE [prod_short](includes/prod_short.md)] platform automatically prevents writing to any data tables.  
+
+### Use of objects
+
+Access with Microsoft 365 licenses doesn't restrict which [!INCLUDE [prod_short](includes/prod_short.md)] objects or object ranges can be accessed. Users are entitled to access the Microsoft base application and any extensions such as customizations and add-on apps.
+
+## Simplified user interface
+
+Users are entitled to a reduced set of features and functions provided by [!INCLUDE [prod_short](includes/prod_short.md)] in Microsoft Teams. The following tables indicate noteworthy features. This list isn't exhaustive and is subject to change.
+
+Features of the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams:
+
+|Feature  |Available|
+|-|-|
+|View [!INCLUDE [prod_short](includes/prod_short.md)] cards|![Yes](media/check.png)|
+|View card details |![Yes](media/check.png) |
+|Pin card details as a tab |![Yes](media/check.png)|
+|View [!INCLUDE [prod_short](includes/prod_short.md)] tabs|![Yes](media/check.png)|
+|Add a [!INCLUDE [prod_short](includes/prod_short.md)] tab|![No_](media/x-icon.png )|
+|Search for business contacts |![No](media/x-icon.png )|
+|Paste and share a link preview as a card|![No](media/x-icon.png )|
+
+Functions of the [!INCLUDE [prod_short](includes/prod_short.md)] client embedded in Teams:
+
+|Function |Available|Example functions|
+|-|-|-|
+|Data manipulation system actions |![No](media/x-icon.png )|Edit, Create, Delete|
+|Basic functions in lists|![Yes](media/check.png)|Search, sort, change layout|
+|Advanced functions in lists|![No](media/x-icon.png )|Filter pane, views|
+|Drill down from list to card |![Yes](media/check.png)||
+|Access data from related tables|![No](media/x-icon.png )|FactBox pane, field drilldown, peek, look up |
+|Actions|![No](media/x-icon.png )|Action bar, action menus, page notification actions|
+|System-wide shortcuts|![No](media/x-icon.png )|My Settings, Role Explorer, Tell Me search  |
+|Copy|![Yes](media/check.png)|Copy rows, copy field value, copy link to page|
+|UI customization|![No](media/x-icon.png )|Personalize| 
+|Inline customization|![Yes](media/check.png)|Resize column, Expand/Collapse, Show more |
+|Data sharing |![No](media/x-icon.png )|Open or Edit in Excel, Share to Teams|
+|Inline user assistance|![Yes](media/check.png) |Tooltips, links to documentation|
+|Advanced user assistance |![No](media/x-icon.png )|Page and field teaching tips, Help pane|
+
+## Minimum requirements
+
+This section explains the minimum requirements for your organization to use Microsoft 365 licenses, and for individual Microsoft Teams users to use [!INCLUDE [prod_short](includes/prod_short.md)] data without a [!INCLUDE [prod_short](includes/prod_short.md)] license.
+
+### Requirements to enable access
+
+- [!INCLUDE [prod_short](includes/prod_short.md)] online (SaaS).
+
+### Requirements for individual users to access data in Teams
+
+- Data must be accessed using the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams. Users must have the [!INCLUDE [prod_short](includes/prod_short.md)] app for Teams installed and must use one of the supported Teams clients. Get a list of Teams clients supported by [!INCLUDE [prod_short](includes/prod_short.md)] in [Minimum Requirements for Using Business Central](product-requirements.md#teams).
+
+- Users must be internal to the organization. A user identity originates from the same home tenant where [!INCLUDE [prod_short](includes/prod_short.md)] is deployed and access is enabled. External identities aren't supported. [!INCLUDE [prod_short](includes/prod_short.md)] automatically prevents access to guests.
+
+- Users must be assigned a Microsoft 365 license from one of the following plans.
+  
+  |Supported plan|Product ID |
+  |-|-|
+  |Microsoft 365 Business Basic|3b555118-da6a-4418-894f-7df1e2096870|
+  |Microsoft 365 Business Standard|f245ecc8-75af-4f8e-b61f-27d8114de5f3|
+  |Microsoft 365 Business Premium |cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46|
+  |Microsoft 365 E3 |05e9a617-0261-4cee-bb44-138d3ef5d965 |
+  |Microsoft 365 E5|06ebc4ee-1bb5-47dd-8120-11324bc54e06|
+  |Microsoft 365 F1|50f60901-3181-4b75-8a2c-4c8e4c1d5a72|
+  |Microsoft 365 F3|66b55226-6b4f-492c-910c-a3b7a3c9d993|
+  |Office 365 E1|18181a46-0d4e-45cd-891e-60aabd171b4e|
+  |Office 365 E2 |6634e0ce-1a9f-428c-a498-f84ec7b8aa2e|
+  |Office 365 E3|6fd2c87f-b296-42f0-b197-1e91e994b900|
+  |Office 365 E5|c7df2760-2c81-4ef7-b578-5b5392b571df|
+  |Office 365 F2|131fd665-5752-4995-a628-bcba5c889745|
+  |Office 365 F3|4b585984-651b-448a-9e53-3b10f069cf7f|
+  |Microsoft Teams Essentials (Microsoft Entra Identity) |3ab6abff-666f-4424-bfb7-f0bc274ec7bc|
+  |Microsoft Teams EEA|7e74bd05-2c47-404e-829a-ba95c66fe8e5|
+  
+  Most offers based on these plans are also supported. For example, if you subscribe to Microsoft 365 Business Premium (Nonprofit Staff Pricing), it's a specific offer for not-for-profit organizations based on the Microsoft 365 Business Premium plan, and is therefore supported.
+
+  > [!NOTE]
+  > Can't find your plan in the list? Microsoft is continually looking for feedback on how we can improve our service and expand our offering so that more customers can take advantage of this capability. Share your idea for which plans we should support next at  [https://aka.ms/bcIdeas](https://aka.ms/bcIdeas).
+
+- Users must be assigned a Microsoft 365 license that has the Microsoft Teams app enabled in the list of apps for that license.
+
+  |Supported apps|Service Plan ID|
+  |-|-|
+  |Microsoft Teams|57ff2da0-773e-42df-b2af-ffb7a2317929 |
+
+- The organization must have at least one other user with a Dynamics 365 Business Central license.
+
+## Next steps
+
+- Get an understanding of the user access flow to help plan your approach and configuration of [!INCLUDE [prod_short](includes/prod_short.md)] to match the business needs. Learn more in [User Access Flow](admin-access-with-m365-license-flow.md).
+- Set up your environment and users for access with Microsoft 365 licenses. Learn more in [Set Up Access with Microsoft 365 Licenses ](admin-access-with-m365-license-setup.md).
+- Get troubleshooting tips if you run into problems. Learn more in [Business Central troubleshooting](/troubleshoot/dynamics-365/business-central/welcome-business-central).
+
+## Related information
+
+[Business Central and Microsoft Teams Integration](across-teams-overview.md)  
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-how-to-create-blanket-sales-orders
 ---
 title: Work with blanket sales orders or purchase orders
@@ -919,22 +1110,22 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-manage-purchasing
 ---
-title: Overview of tasks to manage purchasing 
+title: Overview of tasks to manage to purchase 
 description: Outlines tasks to manage your purchasing or procurement processes, including how purchase invoices and purchase orders work.
 author: brentholtorf
 ms.topic: overview
 ms.search.keywords: procurement, supply, vendor order, purchsing
 ms.search.form: 460, 9307
-ms.date: 10/03/2025
+ms.date: 06/17/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: bholtorf
 ms.custom: bap-template
 ---
 
 # Purchasing
 
-You create a purchase invoice or purchase order to record the cost of purchases and to track accounts payable. If you need to control an inventory, purchase invoices are also used to dynamically update inventory levels so that you can minimize your inventory costs and provide better customer service. The purchasing costs, including service expenses, and inventory values that result from posting purchase invoices contribute to profit figures and other financial KPIs on your Role Center.
+You create a purchase invoice or purchase order to record the cost of purchases and to track accounts payable. If you need to control an inventory, purchase invoices are also used to dynamically update inventory levels so that you can minimize your inventory costs and provide better customer service. The purchasing costs, including service expenses, and inventory values that result from posting purchase invoices contribute to profit figures and other financial key performance indicators (KPIs) on your Role Center.
 
 You must use purchase orders if your purchasing process requires that you record partial receipts of an order quantity. For example, because the full quantity wasn't available at the vendor. If you sell items by delivering directly from your vendor to your customer, as a drop shipment, then you must also use purchase orders. Learn more in [Make Drop Shipments](sales-how-drop-shipment.md). In all other aspects, purchase orders work the same way as purchase invoices.
 
@@ -2467,7 +2658,7 @@ description: Learn about capabilities and work scenarios in Business Central tha
 author: jswymer
 ms.topic: concept-article
 ms.devlang: al
-ms.date: 06/20/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
@@ -2476,7 +2667,7 @@ ms.custom: bap-template
 
 # Welcome to Microsoft Dynamics 365 Business Central
 
-[!INCLUDE[prod_short](includes/prod_short.md)] is a business management solution for small and mid-sized organizations that automates and streamlines business processes and helps you manage your business. Highly adaptable and rich with features, [!INCLUDE[prod_short](includes/prod_short.md)] enables companies to manage their business, including finance, manufacturing, sales, shipping, project management, services, and more. Companies can easily add functionality that is relevant to the region of operation, and that is customized to support even highly specialized industries. [!INCLUDE[prod_short](includes/prod_short.md)] is fast to implement, easy to configure, and simplicity guides innovations in product design, development, implementation, and usability.  
+[!INCLUDE[prod_short](includes/prod_short.md)] is a business management solution for small and mid-sized organizations that automates and streamlines business processes and helps you manage your business. Highly adaptable and rich with features, [!INCLUDE[prod_short](includes/prod_short.md)] enables companies to manage their business, including finance, manufacturing, sales, shipping, project management, services, and more. Companies can easily add functionality that's relevant to the region of operation, and that is customized to support even highly specialized industries. [!INCLUDE[prod_short](includes/prod_short.md)] is fast to implement, easy to configure, and simplicity guides innovations in product design, development, implementation, and usability.  
 
 If you already have [!INCLUDE[prod_short](includes/prod_short.md)], sign in at [https://businesscentral.dynamics.com](https://businesscentral.dynamics.com). Otherwise, [get the overview](https://www.microsoft.com/dynamics-365/products/business-central/), [take the guided tour](https://dynamics.microsoft.com/guidedtour/dynamics/business-central/1/1), and then [learn how to start a free trial](trial-signup.md). Check out the [quickstart articles](quick-start-business-central.md) to help you get to know [!INCLUDE [prod_short](includes/prod_short.md)]. To learn more about onboarding to [!INCLUDE[prod_short](includes/prod_short.md)], go to [Get Ready for Doing Business](ui-get-ready-business.md).  
 
@@ -2526,10 +2717,10 @@ With Copilot in [!INCLUDE [prod_short](includes/prod_short.md)], small and mediu
 | Summarize data and content in your records using Copilot. | [Summarize with Copilot](summarize-with-copilot.md) |
 
 To learn more, go to [About Copilot in Business Central](copilot-overview.md).
- 
+
 ## Analytics
 
-Empower any role in your organization with the insights they need to make decisions based on data. Use financial reporting and KPIs in your leadership team, create overview reports for middle management, and operational reports for staff. Group and pivot data from any list to do ad-hoc analyses. Export and analyze your data in Excel, if that app is your tool of choice. Each area in the application comes with standard, easy to use tools for data analysis.
+Empower any role in your organization with the insights they need to make decisions based on data. Use financial reporting and key performance indicators (KPIs) in your leadership team, create overview reports for middle management, and operational reports for staff. Group and pivot data from any list to do ad-hoc analyses. Export and analyze your data in Excel, if that app is your tool of choice. Each area in the application comes with standard, easy to use tools for data analysis.
 
 :::image type="content" source="media/finance/financial-overview.png" alt-text="Screenshot of the Finance Overview report" lightbox="media/finance/financial-overview.png":::
 
@@ -2872,7 +3063,7 @@ ms.custom: bap-template
 ms.reviewer: jswymer
 ms.search.keywords: customize, personalize, personalization, hide columns, remove fields, move fields, resize column, change column width
 ms.search.form: 9020, 9022, 9026, 9027, 9030, 9000, 9009, 9004, 9005, 9024, 9006, 9007, 9010, 9016, 9017
-ms.date: 09/30/2025
+ms.date: 06/17/2026
 ms.author: jswymer
 ---
 
@@ -2941,15 +3132,15 @@ A FactBox is a pane along the right side of a page that displays more informatio
     The **Personalizing** banner appears at the top to indicate that you can start making changes.
 
     > [!NOTE]
-    > To navigate during personalization, use <kbd>Ctrl</kbd>+<kbd>Click</kbd> on an action if it is highlighted by the arrowhead.
+    > To navigate during personalization, use <kbd>Ctrl</kbd>+<kbd>Click</kbd> on an action if it's highlighted.
 
-    If you see **Personalize lock** ![Personalize Lock](media/personalization-lock-icon.png "Personalize lock") or **Personalization blocked** ![Personalization blocked](media/personalization-blocked-icon.png "Personalization blocked") on the banner, you can't personalize the page. For more information, see [Why a Page is Locked from Personalization](ui-personalization-locked.md).
+    If **Personalize lock** ![Personalize Lock](media/personalization-lock-icon.png "Personalize lock") or **Personalization blocked** ![Personalization blocked](media/personalization-blocked-icon.png "Personalization blocked") display on the banner, you can't personalize the page. Learn more at [Why a Page is Locked from Personalization](ui-personalization-locked.md).
 
 1. To change a user interface (UI) element, point to the element, such as an action, a field, or a part. The element is immediately highlighted with an arrowhead or border. Choose the element, and then choose either **Move**, **Remove**, **Hide**, **Show**, **Show under "Show more"**, **Show when collapsed**, **Show always**, **Set/Clear Freeze Pane**, or **Include/Exclude from Quick Entry**, depending on the type and state of the UI element.
 1. To add a field, choose the **+ Field** action. From the **Add Field to Page** pane, drag and drop a field into the desired position on the page.
 1. When you finish changing the layout of one or more pages, choose **Done** on the **Personalizing** banner.
 
-For more information, see [What You Can Personalize](#What).
+Learn more at [What You Can Personalize](#What).
 
 ## <a name="What"></a>What you can personalize
 
@@ -2959,11 +3150,11 @@ For more information, see [What You Can Personalize](#What).
 |Hide an element currently shown, like a field, column in list, tile, action, or part.|Select the element, select the arrowhead, and then select <b>Hide</b>.|In the personalization mode, hidden actions are grayed with italic text, and hidden parts are shaded with diagonal lines. Hidden fields and columns aren't indicated directly on the page, but you can locate them by using the <b>Add Field to Page</b> pane. ([Learn more about working fields.](#fields))<br><br>When you exit personalization mode, all elements disappear from view. If the field you hide is also shown on the FastTab heading when the FastTab is collapsed, the field no longer appears there.|
 |Show an action or part that is currently hidden.|For a grayed (hidden) element, choose the arrowhead, and then choose <b>Show</b>.|The hidden element is visible again.|
 |Add a hidden field|In the <b>Personalizing</b> banner, choose the <b>+ Field</b> action.<br /></br>The <b>Add Field to Page</b> pane opens on the right side of the page. If you select a field in the pane, its hidden location appears on the page.<br /><br />To add a field, drag it from the pane, or from its hidden location, to the position that you want it. A thick horizontal or vertical line indicates the position.<br><br> Another way is to select the arrowhead in the field's hidden location and select **Show**. |Each page includes a predefined set of fields that you can choose to display.<br /><br />[Learn more about working fields.](#fields) |
-|Display a field in the heading of a collapsed FastTab.|Choose the arrowhead, and then choose <b>Show when collapsed</b>. <br /> <br />If you don't see this option, it's set already. In this case, to stop displaying the field on the FastTab heading, choose <b>Show always</b>.|*FastTab* is the term used for a group of fields that appear under a common heading. Use the <b>Show when collapsed</b> option to display the most important fields. If you select a field in the heading, the FastTab opens and focuses on the selected field.<br /><br />This option is only applicable if a page has more than one FastTab. If there's only one FastTab, it can't be collapsed, so the <b>Show when collapsed</b> option isn't available.|
-|Make a field display only when you select **Show more**.|Choose the arrowhead, and then choose <b>Show under "Show More"</b>.|If you don't see the <b>Show More</b> option, it's set already. In this case, to make a field display always, not just when you select **Show more**, choose <b>Show always</b>.|
+|Display a field in the heading of a collapsed FastTab.|Choose the arrowhead, and then choose <b>Show when collapsed</b>. <br /> <br />The option is hidden if it's already set. In this case, to stop displaying the field on the FastTab heading, choose <b>Show always</b>.|*FastTab* is the term used for a group of fields that appear under a common heading. Use the <b>Show when collapsed</b> option to display the most important fields. If you select a field in the heading, the FastTab opens and focuses on the selected field.<br /><br />This option is only applicable if a page has more than one FastTab. If there's only one FastTab, it can't be collapsed, so the <b>Show when collapsed</b> option isn't available.|
+|Make a field display only when you select **Show more**.|Choose the arrowhead, and then choose <b>Show under "Show More"</b>.|The <b>Show More</b> option is hidden if it's already set. In this case, to make a field display always, not just when you select **Show more**, choose <b>Show always</b>.|
 |Change whether a field can be edited.|Select the field, select the arrowhead on the field, and then select <b>Lock editing</b> to prevent changing the field's value or <b>Unlock editing</b> to allow changing the field's value.|You can only unlock fields that you previously locked yourself. Some fields are locked by default, either by design or by a profile admin who [customized the page](ui-personalization-manage.md). These fields can't be unlocked.|
 |Change the freeze pane in a list to another column. |Choose the arrowhead of the column that you want as the last column of the freeze pane, and then choose <b>Set Freeze Pane</b>.<br /><br/>If you want to set the freeze pane back to its original position, choose the arrowhead for the current freeze pane column, and choose <b>Clear Freeze Pane</b>. Note: You can't remove this freeze pane.|The freeze pane specifies the columns that always appear on the left side of the list, even as you scroll horizontally.|  
-|Skip over a field when pressing Enter.|Choose the arrowhead next to the field, or column heading in a list, and choose **Exclude from Quick Entry**.  | If you don't see **Exclude from Quick Entry**, then the field is already skipped. In this case, to stop skipping the field, choose **Include in Quick Entry**.<br><br>[Learn more about Quick Entry.](ui-enter-data.md#QuickEntry)|
+|Skip over a field when pressing Enter.|Choose the arrowhead next to the field, or column heading in a list, and choose **Exclude from Quick Entry**.  | If the **Exclude from Quick Entry** field doesn't display, it's already skipped. In this case, to stop skipping the field, choose **Include in Quick Entry**.<br><br>[Learn more about Quick Entry.](ui-enter-data.md#QuickEntry)|
 |Reorder and remove views representing filtered lists.|Choose the arrowhead next to a view, and then choose **Move**, **Remove**, or **Hide**.|[Learn more about saving and personalizing list views.](ui-views.md)|  
 |Add a new action to a page or report on your Role Center.|From the target page, report request page, or Tell Me window, choose the bookmark icon.|[Learn more about bookmarking pages and reports.](ui-bookmarks.md)|
 |Always start a list as expanded or collapsed.|Choose the **Expand All** or **Collapse All** button in the upper-left corner of the list. Alternatively, choose the **Expand All** or **Collapse All** action in the menu of the first column. |Applies to collapsible hierarchy lists.|
@@ -3009,7 +3200,7 @@ A horizontal line between two actions or a border around an action group indicat
 
 To move an action or action group, drag and drop it into the desired position, like you do with fields and columns.
 
-To move an action or action group into another action group that is empty, drag the action or action group to the new group and drop it in the **Drop an action here** box.
+To move an action or action group into another action group that's empty, drag the action or action group to the new group and drop it in the **Drop an action here** box.
 
 ### About the Automate menu
 
@@ -3054,7 +3245,7 @@ From the **Add field to page** pane, there are two ways to include a hidden fiel
 - Select the field in the list, then go to the shaded field on the page and select the **Show** option.
 
 > [!NOTE]
-> Some fields that you add won't be editable on the page when you're done with personalization. These fields are either originally designed this way or an administrator [customized](ui-personalization-manage.md) the page to prevent you from editing them.
+> Some fields that you add aren't editable on the page when you're done with personalization. These fields are either originally designed this way or an administrator [customized](ui-personalization-manage.md) the page to prevent you from editing them.
 
 ## Clear personalization
 
@@ -7452,15 +7643,15 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/supervise-agent-tasks
 ---
-title: Supervise agent activities in Copilot pane
-description: Monitor Payables and Sales Order agents in Copilot Tasks, review drafts, confirm steps, and keep invoices and orders accurate.
+title: Supervise agent activities
+description: Review agent-generated documents, approve AI suggestions, give instructions to agents, and manage tasks in Business Central.
 author: jswymer
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 05/03/2026
+ms.date: 06/17/2026
 ms.update-cycle: 180-days
 ms.custom:
   - bap-template
@@ -7469,116 +7660,204 @@ ms.custom:
   - ai-seo-date:06/18/2025
 ms.search.form: 4400, 4410
 ---
-# Supervise agent activities in Tasks pane
+# Supervise agent activities
 
-You manage output from Business Central agents, such as the Payables and Sales Order agents, in the **Task** pane. This side pane shows tasks from a selected agent and lets you monitor task status, review agent‑generated drafts and suggestions, and provide confirmations or input to move tasks forward.
+Business Central agents, such as the Payables Agent and Sales Order Agent, work autonomously to process requests like quotes and invoices. Sometimes, they need your input to verify information, approve drafts, or resolve issues they can't handle on their own.
 
-The process flow is different for each agent. This article explains the common aspects of working with tasks for all agents and answers frequently asked questions.
+You can review and approve agent work in two ways: from the **Tasks pane** on the side of the role center or **directly on document pages**. This article explains both approaches and covers common actions like giving instructions to agents and stopping tasks.
 
 ## Prerequisites
 
-The agent is activated, and you have permission to use it. Learn more in [Set up Payables Agent](payables-agent-setup.md) or [Set up Sales Order Agent](sales-order-agent-setup.md).
+- The agent is activated.
+- You have permission to use it.
 
-## Access agent tasks
+Learn more in [Set up Payables Agent](payables-agent-setup.md) or [Set up Sales Order Agent](sales-order-agent-setup.md).
 
-On the upper-right of the navigation menu, select the icon for the agent:
+## Understand how agents request your help
 
-- ![Payables Agent icon in navigation menu.](media/payables-agent-activated-icon.png) **Payables Agent**
-- ![Sales Order Agent icon in navigation menu.](media/soa-activated-number-icon.png) **Sales Order Agent**
+Agents do most of their work without intervention, but they pause and request assistance in situations like:
 
-![Shows the agent task view with process steps](media/agent-task-view-pane.svg)
+- Review and confirm incoming and outgoing emails
+- Review and confirm contact or vendor information
+- Review and confirm draft documents, like quotes, orders, and purchase invoices
+- Resolve issues like missing data, items that aren't available, or customers that don't exist
 
-The **Tasks** pane opens, displaying tasks recently created by the agent. A red circle with a number on the agent icon indicates how many tasks need your attention. Tasks requiring attention&mdash;such as reviewing vendor information&mdash;appear at the top of the list.
+When an agent needs assistance, a notification badge appears on the agent icon in the navigation menu. The specific process flow differs by agent. Learn more in [Payables Agent process](payables-agent.md#payables-agent-process-flow) or [Sales Order Agent process](sales-order-agent.md#how-the-agent-processes-requests).
 
-The agent creates a task for each inquiry it receives, such as a request for a quote or invoice. Each task includes multiple steps that form a timeline, providing a chronological view of all actions taken to complete the task.
+## Review and approve agent work
 
-## View summary of agent activities
+You can review agent work from either the Tasks pane or directly on document pages. Choose the approach that fits your workflow:
 
-To get an overview of the agent's key performance indicators (KPIs) that measure the effect of the agent's work in your organization, hover over the agent's icon or select the ![Show summary for agent icon](media/soa-summary-icon.png) **Show summary for agent** in the **Task** pane.
+| Approach | Best for |
+|----------|----------|
+| **Tasks pane** | Reviewing the full task timeline, seeing what the agent did at each step, and providing instructions when the agent is blocked |
+| **Directly on pages** | Quickly reviewing field-level suggestions on a document you're already viewing, without switching context |
 
-## Review and assist with tasks
+Both approaches let you approve agent work and continue the task.
 
-The agent does most of the work autonomously, but sometimes it asks for user intervention to complete the process. When intervention is needed depends on the agent and  its setup, but here are some common situations:
+## Review from the Tasks pane
 
-- Reviewing and confirming incoming and outgoing emails
-- Review and confirm contact or vendor information.
-- Review and confirm the draft documents, like quotes, orders and purchase invoices.
-- Help the agent get unblocked, like by providing missing data, creating a new contact for an order, or finding items.
+The **Tasks** pane shows all tasks from a selected agent, organized by status. Tasks that need your attention appear at the top.
 
-Learn more about the agent's process flow in [Payables Agent process](payables-agent.md#payables-agent-process-flow) or [Sales Order Agent process](sales-order-agent.md#how-the-agent-processes-requests).
+1. On the upper-right side of the navigation menu, select the icon for the agent:
 
-### Review a step
+   - ![Payables Agent icon in navigation menu.](media/payables-agent-activated-icon.png) **Payables Agent**
+   - ![Sales Order Agent icon in navigation menu.](media/soa-activated-number-icon.png) **Sales Order Agent**
 
-Steps that need intervention appear under **Needs Attention** in the **Tasks** pane. To review a step, follow these instructions:
+   A red circle with a number indicates how many tasks need your attention.
 
-1. In the **Task** pane, select the step requesting review or assistance.
+   ![Shows the agent task view with process steps](media/agent-task-view-pane.svg)
 
-   The task *timeline* opens, focused on the selected step. The timeline displays each step of a task, past and present, in chronological order.
+2. In the **Tasks** pane, select a task under **Needs Attention**.
 
-1. Select **Review** for the step.
+   The task *timeline* opens, showing each step the agent completed and the current step that needs your input.
 
-   The **Tasks** pane switches to **Review** mode, and the review content appears in the main display area.
-1. Review the contents and make changes as needed.
+3. Select **Review** for the step that needs attention.
 
-1. If the agent needs assistance, a message appears at the top of the text explaining the problem.
+   The **Tasks** pane switches to **Review** mode, and the relevant content appears in the main display area.
 
-   You often help the agent by making changes yourself, like making an item available, creating the right customer, contact, or vendor, or changing quantities in sales quotes. You can also [give instructions](#give-instructions-to-the-agent) to guide the agent to make changes for you.
+4. Review the content and make changes as needed.
 
-1. When you're satisfied with the content and want the process to continue, select **Confirm** in the **Review** pane.
+   If the agent needs help with resolving an issue, a message explains the problem. You can either make changes yourself or [give instructions](#give-instructions-to-the-agent) to guide the agent.
 
-   If you want to complete the task yourself, select **Stop** to halt the agent's processing of this task. Learn more in [Stop a task](#stop-a-task).
+5. When you're satisfied, select **Confirm** to let the agent continue with the task.
 
-After confirmation, the agent continues with the task. When a new notification appears on the agent icon after some time, follow the same flow to review and confirm the results.
+After confirmation, the agent resumes work. When a new notification appears, follow the same flow to review the next step.
+
+## Review directly on pages
+
+When an agent creates or modifies a document, you can review its work directly on that page without opening the Tasks pane. A *data review bar* appears at the top of the page, showing which agent made changes and giving you quick access to review field-level suggestions.
+
+:::image type="content" source="media/agents-data-review-bar.svg" alt-text="Shows a document created by an agent that includes the data review bar along the top."::: 
+
+The data review bar appears regardless of how you navigate to the document—from a link in the Tasks pane or through standard navigation like search or menus. It also appears even if you don't have permission to use the agent that made the changes. In that case, you can still identify that agent-influenced data exists on the document, but links or buttons that open the agent task in the **Tasks** pane aren't shown.
+
+### What the data review bar shows
+
+The data review bar displays different elements depending on the situation:
+
+| Situation | What displays |
+|-----------|--------------|
+| Agent task awaits review and modified fields | **Review agent task** link and **Review (N)** button |
+| Agent task awaits review, no field modifications | **Review task** button |
+| Agent modified fields, no task awaiting review | **Review (N)** button only |
+| Multiple agents made changes | Stacked agent icons and a review message. If you have access to only some of the agents, task links or buttons appear only for those agents. |
+
+### Review field suggestions
+
+Fields that an agent modified have a **Show details about suggestion** :::image type="icon" source="media/info-tip-white.png"::: icon next to them. The tooltip for each field shows which agent modified the data, even when you don't have permission to open that agent's task. The icon color indicates confidence level:
+
+- **White icon** :::image type="icon" source="media/info-tip-white.png"::: - Standard confidence. Review the value but it's likely correct.
+- **Orange icon** :::image type="icon" source="media/info-tip-red.png"::: - Low confidence. The agent is less certain about this value, so review it carefully.
+
+To review suggestions:
+
+1. Select the **Review (N)** button on the data review bar to view a list of all modified fields.
+
+   For documents with repeating lines (like invoice lines), the list shows a summary like "rows: 3, fields: 5" to indicate how many rows and fields have suggestions.
+
+2. Select a field from the list to navigate to it.
+
+3. Select the info tip icon next to the field to view:
+   - Which agent made the modification
+   - The reasoning (for example, "most frequently used value" or "based on vendor history")
+   - The confidence level
+
+4. Edit the value if needed, or leave it as suggested.
+
+5. After you review all suggestions, select **Done** to complete the review.
+
+### Open an agent task from the data review bar
+
+If the data review bar shows a **Review agent task** link or **Review task** button, select it to open the task in the **Tasks** pane. If multiple agent tasks are pending for the document, select from the dropdown menu to choose which task to review.
+
+### Complete or dismiss the review
+
+When you finish reviewing a document, you have two options:
+
+- **Done** - Marks the review as complete and records that you reviewed the document (including your name and the date). The agent's task can proceed, and the suggestion markers are cleared from the fields.
+- **Dismiss** (X button) - Hides the data review bar and refreshes the page to clear suggestion markers. Use this button if you want to review the document later or if you already made your changes manually.
 
 ## Give instructions to the agent
 
-When you review a step, you might need to change something the agent created or help it get unblocked. For example, you might need to make an item available, create the correct customer or vendor, or change quantities in sales quotes before the task can continue. Instead of making the changes yourself, you can guide the agent to do the work by providing instructions in the **Tasks** pane.
+When an agent is blocked, you can guide it by providing instructions instead of making changes yourself.
 
 :::image type="content" source="media/give-instructions-to-agent.svg" alt-text="Shows a step in Copilot Task pane that includes the options to give instructions to the agent.":::
 
-In the **Give instructions to the agent** section of the step, you might get suggestions for instructions you can give. Copilot generates these suggestions automatically based on the current task. In some cases, there are no suggestions. Alternatively, you can write your own instructions in the **Type your instructions** box. After you select a suggestion or type instructions, select **Confirm** to let the agent resume the task.
+In the **Give instructions to the agent** section, Copilot might suggest common instructions based on the current task. You can select a suggestion or write your own in the **Type your instructions** box. Then select **Confirm** to let the agent resume the task.
 
 > [!IMPORTANT]
-> Your instructions are only used to complete this specific step. They aren't reused for the subsequent agent runs.
+> Your instructions apply only to the current step. They aren't saved or reused for future tasks.
 
-### How to write instructions
+### Tips for writing instructions
 
-You're free to enter any text in the **Type your instructions** box, which lets you write instructions in plain, everyday language. Here are some tips to get the best results:
+Write instructions in plain, everyday language. Be specific about what you want the agent to do.
 
-- Be specific and clear.
-- Keep instructions focused on actions relevant to the current step.
+| Scenario | Example instruction |
+|----------|---------------------|
+| Requested quantity isn't available | Change the quantity to 50 |
+| Agent can't determine the exact item | Give a quote for the Rome guest chair in blue |
+| You want to change a field value | Change the shipping date to 09/01 |
+| Creating a new entity | Create vendor using OCR data |
 
-Examples:
+Avoid instructions that:
 
-|Scenario|Instructions|
-|---|---|
-|When requested quantity of an item isn't available|Change the quantity to 50|
-|When the agent can't determine the exact item|Give a quote for the Rome guest chair in blue|
-|When you want to change a field| Change the shipping date to 09/01|
-|When you want to give specific information when creating an entity|Create vendor using OCR data|
-
-Here's what to avoid:
-
-- Instructions that directly alter the workflow, such as stopping the task, skipping or discarding a step. These types of operations have dedicated actions in the interface rather than through freeform instructions.
-- Instructions that are out of scope for the step or task, asking the agent to update unrelated records or perform actions outside the current task's context.
+- Try to alter the workflow (like stopping or skipping steps)—use the dedicated buttons instead
+- Ask the agent to update unrelated records or do work outside the current task
 
 ## Stop a task
 
-Most steps of a task include a **Stop** button that lets you terminate the process on that task only. To stop all active tasks at once, you can select the **Stop all tasks** action. This action is useful if the agent becomes blocked after importing too many tasks. It clears the task list and unblocks the agent.
+If you need to stop an agent from continuing a task, select **Stop** on the step. You're asked to confirm before the task stops.
 
-When you select **Stop**, a task isn't terminated immediately&mdash;you're asked to confirm before the task is stopped. Before you stop a task, consider the following behavior:
+To stop all active tasks at once, select **Stop all tasks**. Stopping a task is useful if the agent becomes blocked after importing too many tasks.
+
+Before stopping a task, consider:
 
 - Stopped tasks can't be restarted.
-- Stopping the task might leave some results incomplete or unwanted, and it might require follow-up actions. Follow up actions depend on where in the process the task was stopped.
-- Stopped tasks aren't deleted immediately. You can still explore a task's timeline until it's deleted, typically by an administrator.
+- The document might be left incomplete, and you might need to finish it manually.
+- Stopped tasks remain visible in the timeline until an administrator deletes them.
+
+## View summary of agent activities
+
+To view key performance indicators (KPIs) that measure the agent's impact in your organization, hover over the agent's icon or select the ![Show summary for agent icon](media/soa-summary-icon.png) **Show summary for agent** in the **Tasks** pane.
+
+## Troubleshooting
+
+### Data review bar doesn't appear on a document
+
+The data review bar only appears on certain page types (Card, Document, List Plus, and Worksheet pages). If you're viewing a document that an agent created but the bar isn't shown:
+
+- Make sure you're viewing the main document page, not a subpage or embedded part.
+- Check whether another user already completed the review by looking at the task in the **Tasks** pane.
+- Refresh the page to ensure you have the latest data.
+
+### Task not visible in the Tasks pane
+
+The agent organizes tasks. Make sure you selected the correct agent icon in the navigation menu. Tasks that need attention appear at the top of the list under **Needs Attention**.
+
+If you still can't find the task, it could be:
+
+- Another user stopped or completed the task.
+- The agent is still processing it. Wait a few moments and check again.
+- An administrator deleted older tasks.
+
+### Agent keeps getting blocked on the same issue
+
+If an agent repeatedly gets blocked, consider:
+
+- Setting up master data (vendors, customers, items) that the agent frequently needs
+- Adjusting the agent's configuration to better match your business processes
+- Reviewing the agent's setup to ensure it has the permissions it needs
+
+Learn more in [Set up Payables Agent](payables-agent-setup.md) or [Set up Sales Order Agent](sales-order-agent-setup.md).
 
 ## Related information
 
-[Configure Copilot and agent capabilities](enable-ai.md)  
-[Payables Agent overview](payables-agent.md)  
-[Set up Payables Agent](payables-agent-setup.md)  
-[Sales Order Agent overview](payables-agent.md)  
-[Set up Sales Agent](payables-agent-setup.md)  
+- [Configure Copilot and agent capabilities](enable-ai.md)
+- [Payables Agent overview](payables-agent.md)
+- [Set up Payables Agent](payables-agent-setup.md)
+- [Sales Order Agent overview](sales-order-agent.md)
+- [Set up Sales Order Agent](sales-order-agent-setup.md)
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-how-setup-jobs
@@ -8247,7 +8526,7 @@ ms.reviewer: v-soumramani
 ms.topic: how-to
 ms.search.keywords: price, pricing, discount, discounting, rebate, sale, purchase, invoice
 ms.search.form: 459, 460, 7001, 7011, 7015, 7016, 7017, 7018
-ms.date: 10/17/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -8394,7 +8673,7 @@ To copy sales prices, such as an individual customer's sales prices, to use for 
 6. Choose the **OK** button to fill in the lines on the **Sales Price Worksheet** page with the suggested new prices, indicating that they're valid for the selected sales type.  
 
    > [!NOTE]  
-   > This batch job only creates suggestions and it doesn't implement the suggested changes. If you're satisfied with the suggestions and want to implement them, that is insert them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
+   > This batch job only creates suggestions and it doesn't implement the suggested changes. If you're satisfied with the suggestions and want to implement them, that is, insert them on the **Sales Prices** page, choose the **Implement Price Changes** action on the **Sales Price Worksheet** page.
 
 ### [New Experience](#tab/new-experience/)
 
@@ -8765,6 +9044,151 @@ Fonts for other purposes are also available in [!INCLUDE[prod_short](includes/pr
 [General business functionality](ui-across-business-areas.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/integration-overview
+---
+title: Integration overview for Business Central 
+description: Find links to information about the ways you can integrate Business Central to products and services.
+author: kennienp
+ms.reviewer: jswymer
+ms.topic: overview
+ms.author: kepontop
+ms.date: 06/19/2026
+---
+
+# Integration overview for Business Central 
+
+This article provides on overview of how [!INCLUDE[prod_short](includes/prod_short.md)] integrates with other Microsoft applications.
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/all-integrations.svg" alt-text="Shows how Business Central integrates to Microsoft 365" lightbox="/dynamics365/business-central/dev-itpro/developer/media/all-integrations.svg":::
+
+The article describes integration scenarios as seen from the business. However, it doesn't include technical details about how to use or set up every integration. To learn more about the technical details of integrations, go to [Integration overview for Business Central (for administrators)](/dynamics365/business-central/dev-itpro/developer/integration-overview).
+
+> [!NOTE]
+> Some integrations require a separate subscription or license. Refer to the documentation for the application for requirements and details.
+
+## Integrate with Office apps and [!INCLUDE[m365](includes/m365-name.md)]
+
+[!INCLUDE[prod_short](includes/prod_short.md)] integrates with multiple [!INCLUDE[m365](includes/m365-name.md)] applications to gain extra features. Integrations help you stay in the flow of work by giving you access to the right data at the right time. 
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/m365-integrations-overview.svg" alt-text="Shows how Business Central integrates to Office" lightbox="/dynamics365/business-central/dev-itpro/developer/media/m365-integrations-overview.svg":::
+
+[!INCLUDE [prod_short](includes/prod_short.md)] integrates to the following [!INCLUDE[m365](includes/m365-name.md)] products and services:
+
+- [!INCLUDE[m365_excel](includes/m365-excel-name.md)]
+- [!INCLUDE[m365_onedrive_for_business](includes/m365-onedrive-for-business-name.md)]
+- [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)]
+- [!INCLUDE[m365_teams](includes/m365-teams-name.md)]
+- [!INCLUDE[m365_word](includes/m365-word-name.md)]
+
+### Examples of benefits of integrating with Office apps
+
+Here are a few examples of how these integrations can help your business:
+
+- Open your customer list in [!INCLUDE[m365_excel](includes/m365-excel-name.md)] to quickly analyze sales trends and create reports without leaving your familiar spreadsheet environment.
+- Store and share important business documents like invoices and contracts in [!INCLUDE[m365_onedrive_for_business](includes/m365-onedrive-for-business-name.md)] so your team can access them from anywhere.
+- Turn an incoming email into a vendor invoice or sales quote directly in [!INCLUDE[m365_outlook](includes/m365-outlook-name.md)], so you never lose track of important business opportunities.
+- Share a customer card or sales order in a [!INCLUDE[m365_teams](includes/m365-teams-name.md)] chat, so your colleagues can quickly see the details they need without switching apps.
+- Generate professional-looking quotes and invoices using customized [!INCLUDE[m365_word](includes/m365-word-name.md)] templates that reflect your company's branding.
+
+Learn more at [Integrating Business Central with Microsoft 365](m365-integration-overview.md).
+
+## Integrate Business Central with Power Platform
+
+[!INCLUDE [prod_short](includes/prod_short.md)] integrates with the following Power Platform products and services:
+
+- Power Apps
+- Power Automate
+- Power BI
+- Power Pages
+
+:::image type="content" source="/dynamics365/business-central/dev-itpro/developer/media/powerplatform-integrations.svg" alt-text="Shows how Business Central integrates to Power Platform" lightbox="/dynamics365/business-central/dev-itpro/developer/media/powerplatform-integrations.svg"::: 
+
+### Examples of benefits of integrating with Power Platform
+
+Here are a few examples of how these integrations can help your business:
+
+- Build a custom Power Apps mobile app that lets your warehouse team update inventory counts on the go, with data flowing straight into [!INCLUDE[prod_short](includes/prod_short.md)].
+- Set up a Power Automate flow that automatically sends an approval request to your manager whenever a purchase order exceeds a certain amount.
+- Create interactive Power BI dashboards that give your leadership team real-time visibility into revenue, cash flow, and outstanding receivables.
+- Use Power Pages to build a self-service portal where your vendors can check the status of their invoices without contacting your accounts payable team.
+
+Learn more in [Integrating Business Central with Power Platform](powerplatform-integration-overview.md).
+
+## Built-in: Integrate Business Central with Dataverse
+
+[!INCLUDE[prod_short](includes/prod_short.md)] has four built-in ways to integrate with [!INCLUDE[dataverse_short](includes/dataverse_short.md)]:
+
+- Data synchronization that replicates data between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[dataverse_short](includes/dataverse_short.md)].
+- Data virtualization with virtual tables in [!INCLUDE[dataverse_short](includes/dataverse_short.md)] via [!INCLUDE[prod_short](includes/prod_short.md)] API for create, read, update, and delete (CRUD) operations.
+- Data change (CRUD) events using webhooks.
+- Business events (preview).
+
+### Examples of benefits of integrating with Dataverse
+
+Here are a few examples of how these integrations can help your business:
+
+- Keep customer and product data in sync across all your Dynamics 365 apps. Your teams always have the latest information, no matter which app they use.
+- Use virtual tables to let other apps read and update [!INCLUDE[prod_short](includes/prod_short.md)] data in real time without duplicating records across systems.
+- Trigger automated workflows the moment a new sales order is created, so downstream processes like fulfillment and invoicing start immediately.
+
+Learn more in [Integrating Business Central with Microsoft Dataverse (administration documentation)](/dynamics365/business-central/dev-itpro/developer/dataverse-integration-overview).
+
+## Built-in: Integrate Business Central with Dynamics 365 Sales
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Dynamics 365 Sales by first setting up integration to [!INCLUDE[dataverse_short](includes/dataverse_short.md)], and then completing the connection from [!INCLUDE[prod_short](includes/prod_short.md)] application. Integrating to Dynamics 365 Sales lets you view information from [!INCLUDE[prod_short](includes/prod_short.md)] while you're working in Dynamics 365 Sales. For example, when you prepare a sales quote, it could be useful to know whether you have enough inventory to fulfill the order.
+
+### Examples of benefits of integrating with Sales
+
+Here are a few examples of how this integration can help your business:
+
+- Let your sales team check real-time inventory levels and pricing directly in Dynamics 365 Sales, so they can make accurate promises to customers without switching apps.
+- Automatically sync completed sales orders from Dynamics 365 Sales into [!INCLUDE[prod_short](includes/prod_short.md)] for invoicing and fulfillment, eliminating manual data entry and reducing errors.
+- Give your sales reps visibility into a customer's outstanding invoices and credit limits so they're informed in conversations and manage risk right from the deal stage.
+
+Learn more at [Integrating Business Central with Dynamics 365 Sales](admin-prepare-dynamics-365-for-sales-for-integration.md).
+
+## Built in: Integrate Business Central with Dynamics 365 Field Service
+
+Service organizations require a front-to-back application in which finance, inventory, and procurement are tightly coupled with service delivery. They generate financial data with every transaction. Every work order represents cost and revenue, and every resource generates profit and loss. Customer interactions add entries on the general ledger. The integration between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [m365-field-service-name](includes/m365-field-service-name.md)] streamlines the end-to-end process of managing service operations and ensures a smooth flow of information between the two applications.
+
+### Examples of benefits of integrating with Field Service
+
+Here are a few examples of how this integration can help your business:
+
+- Automatically consume inventory items in [!INCLUDE[prod_short](includes/prod_short.md)] when a field technician uses parts on a work order, keeping your stock levels accurate without any extra paperwork.
+- Convert completed work orders into customer invoices quickly, so your billing team can close the books faster.
+- Give your service managers full visibility into project costs and resource profitability by combining field service data with your financial records in one place.
+
+Learn more at [Integrate with Microsoft Dynamics 365 Field Service](admin-integrate-field-service.md).
+
+## Built-in: Integrate Business Central with Shopify
+
+You can integrate [!INCLUDE[prod_short](includes/prod_short.md)] with Shopify by installing and configuring the Shopify Connector app. By connecting your Shopify stores to [!INCLUDE[prod_short](includes/prod_short.md)], you can maximize your business productivity and manage and view insights from your business and your Shopify store as one unit.
+
+### Examples of benefits of integrating with Shopify
+
+Here are a few examples of how this integration can help your business:
+
+- Automatically sync your product catalog, pricing, and inventory levels between [!INCLUDE[prod_short](includes/prod_short.md)] and Shopify, so your online store always shows accurate availability.
+- Pull Shopify orders directly into [!INCLUDE[prod_short](includes/prod_short.md)] for fulfillment and invoicing, saving your team from tedious copy-and-paste work.
+- Get a unified view of your online and offline sales performance, making it easier to spot trends and plan for growth.
+
+Learn more at [Get started with the Shopify connector](shopify/get-started.md).
+
+## Related information
+
+[Integrating Business Central with Office apps and Microsoft 365](m365-integration-overview.md)  
+[Integrating Business Central with Power Platform](powerplatform-integration-overview.md)  
+[Integrating Business Central with Microsoft Dataverse (administration documentation)](/dynamics365/business-central/dev-itpro/developer/dataverse-integration-overview)  
+[Integrating Business Central with Dynamics 365 Sales](admin-prepare-dynamics-365-for-sales-for-integration.md)  
+[Integrate with Microsoft Dynamics 365 Field Service](admin-integrate-field-service.md)  
+[Integrating Business Central with Shopify](shopify/get-started.md)  
+<!-- 
+[Envestnet Yodlee Bank Feeds extension](ui-extensions-yodlee-bank-feeds.md)  
+[AMC Banking 365 Fundamentals extension](ui-extensions-amc-banking.md)  
+ -->
 end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-kpis
@@ -11286,7 +11710,7 @@ author: kennienp
 ms.topic: concept-article
 ms.search.keywords: analysis, history, track
 ms.search.form: Report_1, 18, 20, 37, 65, 99_Primary, 312, 314, 313, 395, 552, 569, 570, 634, 790, 791, 1158
-ms.date: 08/20/2025
+ms.date: 06/17/2026
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.service: dynamics-365-business-central
@@ -11312,9 +11736,9 @@ Income accounts are divided into two groups:
 
 Use the COA to record transactions in your organization’s general ledger. Each account typically has an identifier (account number) and a descriptive caption or header, and they're systematically coded based on their account type.
 
-[!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts that is ready to support your business.
+[!INCLUDE[prod_short](includes/prod_short.md)] includes a standard chart of accounts that's ready to support your business.
 
-The composition of your company’s chart of accounts is a strategic decision made by your management (or by country-specific regulation). It varies based on your company’s industry, business model, and financial structure. For instance, depending on your industry, you might have specific asset accounts tailored to your company's unique operations and needs:
+The composition of your company’s chart of accounts is a strategic decision made by your management (or by country/region-specific regulation). It varies based on your company’s industry, business model, and financial structure. For instance, depending on your industry, you might have specific asset accounts tailored to your company's unique operations and needs:
 
 * A retail business might emphasize inventory and accounts receivable.
 * A technology company might focus on intangible assets like patents and software.
@@ -11349,7 +11773,7 @@ Each line in the chart of accounts is a G/L account of one of the types:
 A minimalist chart of accounts can consist of only lines of posting accounts. You use the other four types to define how the chart of accounts also shows a financial statement with headers and subtotals. Totaling accounts are frequently used in financial reporting.
 
 > [!TIP]
-> If you use account types other than **Posting** in your chart of accounts, you can define different views to show the "raw" posting accounts without the reporting-type account types for totalling and headings. For example, Show only posting accounts and Hide blocked accounts.
+> If you use account types other than **Posting** in your chart of accounts, you can define different views to show the "raw" posting accounts without the reporting-type account types for totaling and headings. For example, Show only posting accounts and Hide blocked accounts.
 
 ## Use dimensions to simplify your chart of accounts
 
@@ -14365,7 +14789,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 12/10/2025
+ms.date: 06/17/2026
 ms.custom: bap-template
 ms.search.form: 7214_Primary
 ms.service: dynamics-365-business-central
@@ -14380,15 +14804,13 @@ The following steps provide an overview of the steps to integrate [!INCLUDE[cds_
 > [!Note]  
 > These tasks require the **System Administrator** security role in [!INCLUDE[cds_long](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)].  
 
-1. Assign licenses for [!INCLUDE[cds_long](includes/cds_long_md.md)] to the [!INCLUDE[prod_short](includes/prod_short.md)] users who will use the integrated apps.
-
+1. Assign licenses for [!INCLUDE[cds_long](includes/cds_long_md.md)] to the [!INCLUDE[prod_short](includes/prod_short.md)] users who use the integrated apps.
 2. Set up a connection to [!INCLUDE[cds_long](includes/cds_long_md.md)]. To learn more, go to [Connect to Dataverse](admin-how-to-set-up-a-dynamics-crm-connection.md).  
-
 3. Synchronize data between the apps. To learn more, go to [Synchronizing Business Central and Dataverse](admin-synchronizing-business-central-and-sales.md).
 
 ## Get started with [!INCLUDE[cds_long](includes/cds_long_md.md)]
 
-To get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], you'll need a Microsoft Power Apps account. If you don't already have a Power Apps account, you can get one for free by visiting [powerapps.com](https://make.powerapps.com/?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) and choosing the **Get started free** link. To learn more about how to get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], go to the [Get started with Dataverse](/training/modules/get-started-with-powerapps-common-data-service/) module from Microsoft training.
+To get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], you need a Microsoft Power Apps account. If you don't already have a Power Apps account, you can get one for free by visiting [powerapps.com](https://make.powerapps.com/?utm_source=padocs&utm_medium=linkinadoc&utm_campaign=referralsfromdoc) and choosing the **Get started free** link. To learn more about how to get started with [!INCLUDE[cds_long](includes/cds_long_md.md)], go to the [Get started with Dataverse](/training/modules/get-started-with-powerapps-common-data-service/) module from Microsoft training.
 
 ## Bi-directional or uni-directional data synchronization
 
@@ -14409,16 +14831,16 @@ To learn more about user accounts, go to the following articles:
 * [Setting Up User Accounts for Integrating with [!INCLUDE[cds_long](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md)
 * [Create users in Microsoft Dynamics 365 (online) and assign security roles](/dynamics365/customer-engagement/admin/create-users-assign-online-security-roles)
 
-The administrator account is used only one time during the setup for the configuration changes that the Base Integration Solution makes in [!INCLUDE[cds_long](includes/cds_long_md.md)]. After the solution imports, the account is no longer needed. Integration will continue to use the user account that is automatically created specifically for the integration.
+The administrator account is used only one time during the setup for the configuration changes that the Base Integration Solution makes in [!INCLUDE[cds_long](includes/cds_long_md.md)]. After the solution imports, the account is no longer needed. Integration continues to use the user account that is automatically created specifically for the integration.
 
 In addition to customizing [!INCLUDE [cds_long_md](includes/cds_long_md.md)], the solution also creates a security role in [!INCLUDE [cds_long_md](includes/cds_long_md.md)] for the integration:
 
-* **Business Central Dataverse Integration** - Allows you to manage the connection between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. Typically, this role is assigned only to the user account that's automatically created for synchronization. To learn more about this role, go to [Setting Up User Accounts for Integrating with [!INCLUDE[cds_long](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md).
+* **Business Central Dataverse Integration** - Allows you to manage the connection between [!INCLUDE [prod_short](includes/prod_short.md)] and [!INCLUDE [cds_long_md](includes/cds_long_md.md)]. Typically, this role is assigned only to the user account created for synchronization. To learn more about this role, go to [Setting Up User Accounts for Integrating with [!INCLUDE[cds_long](includes/cds_long_md.md)]](admin-setting-up-integration-with-dynamics-sales.md).
 
 When you set up the connection, you create the integration table mappings that you need to synchronize data. Entities in [!INCLUDE[cds_long](includes/cds_long_md.md)] are mapped to tables and table fields in [!INCLUDE [prod_short](includes/prod_short.md)] through integration tables. To learn more about mappings, go to [Standard Entity Mapping for Synchronization](admin-synchronizing-business-central-and-sales.md#standard-table-mapping-for-synchronization).
 
 > [!NOTE]  
-> The Base Integration Solution doesn't define auditing settings (IsAuditEnabled) for the tables it extends. When you import the solution, it might turn off auditing on tables where another solution previously enabled it. [!INCLUDE[cds_long](includes/cds_long_md.md)] applies the settings from the imported solution, and if auditing isn't turned on in the solution file, it turns it off by default. After you enable the integration, check your auditing settings in [!INCLUDE[cds_long](includes/cds_long_md.md)] and reenable auditing for the affected tables if needed. Alternatively, redeploy any solutions that previously enabled auditing on those tables.
+> The Base Integration Solution doesn't define auditing settings (IsAuditEnabled) for the tables it extends. When you import the solution, it might turn off auditing on tables where another solution previously enabled it. [!INCLUDE[cds_long](includes/cds_long_md.md)] applies the settings from the imported solution, and if auditing isn't turned on in the solution file, it turns it off by default. After you enable the integration, check your auditing settings in [!INCLUDE[cds_long](includes/cds_long_md.md)] and re-enable auditing for the affected tables if needed. Alternatively, redeploy any solutions that previously enabled auditing on those tables.
 
 ## Handle differences in local and base transaction currencies
 
@@ -14426,14 +14848,14 @@ You can connect to a [!INCLUDE[cds_long](includes/cds_long_md.md)] environment t
 
 To be able to connect, ensure that the base transaction currency setting in [!INCLUDE[cds_long](includes/cds_long_md.md)] has the currency that is set on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)], and at least one exchange rate is specified for the currency on the **Currency Exchange Rates** page.
 
-Here's an example. You're connecting [!INCLUDE[prod_short](includes/prod_short.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[cds_long](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You'll need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
+Here's an example. You're connecting [!INCLUDE[prod_short](includes/prod_short.md)] with Euro (EUR) set as the local currency on the **General Ledger Setup** page to a [!INCLUDE[cds_long](includes/cds_long_md.md)] environment that has a base transaction currency set to US dollar (USD). You need to have USD on the **Currencies** page in [!INCLUDE [prod_short](includes/prod_short.md)] and the appropriate exchange rate.
 
 When you enable the connection to [!INCLUDE[cds_long](includes/cds_long_md.md)], [!INCLUDE [prod_short](includes/prod_short.md)] adds its local currency to the **Currency** entity in [!INCLUDE[cds_long](includes/cds_long_md.md)] with the exchange rate from the **Currency Factor** field on the **Currency Exchange Rates** page.
 
-Currency synchronization is unidirectional, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE [!INCLUDE[cds_long](includes/cds_long_md.md)], monetary amounts convert and synchronize as follows:
+Currency synchronization is unidirectional, from [!INCLUDE [prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long](includes/cds_long_md.md)], monetary amounts convert and synchronize as follows:
 
 * Amounts in the [!INCLUDE[cds_long](includes/cds_long_md.md)] base currency convert to the [!INCLUDE [prod_short](includes/prod_short.md)] local currency based on the latest exchange rate synchronized from [!INCLUDE [prod_short](includes/prod_short.md)].
-* Amounts in the [!INCLUDE [prod_short](includes/prod_short.md)] local currency synchronize with the [!INCLUDE [prod_short](includes/prod_short.md)] local currency in one of the other (non-base) currencies in [!INCLUDE[cds_long](includes/cds_long_md.md)].
+* Amounts in the [!INCLUDE [prod_short](includes/prod_short.md)] local currency synchronize with the [!INCLUDE [prod_short](includes/prod_short.md)] local currency in one of the other (nonbase) currencies in [!INCLUDE[cds_long](includes/cds_long_md.md)].
 
 ## What happens when you copy a company
 
@@ -14712,8 +15134,8 @@ ms.reviewer: v-soumramani
 ms.service: dynamics-365-business-central
 ms.topic: how-to
 ms.search.keywords: workflow, OData, Power App, SOAP, Power Automate, instant flow
-ms.search.form: 1500
-ms.date: 10/16/2025
+ms.search.form: 1500,
+ms.date: 06/17/2026
 ms.custom: bap-template 
 ---
 
@@ -15467,7 +15889,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: client, customer, credit
 ms.search.form: 7, 21, 22, 33, 42, 43, 367, 368, 369, 461, 512, 785, 1330, 1380, 1381, 1382, 1627, 2107, 7177, 9080, 9081, 9084, 9301, 9305
-ms.date: 05/19/2025
+ms.date: 06/17/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -18907,389 +19329,4 @@ Try the report here: [Project Realization](https://businesscentral.dynamics.com?
 [Project management analytics overview](projects-analytics-overview.md)  
 [Project management overview](projects-manage-projects.md)
 end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/value-chain-howto-transfer
----
-title: Sustainability value chain in transfers
-description: Learn how to work with transfer orders and their effect on the sustainability value chain process.
-author: altotovi
-ms.topic: article
-ms.devlang: al
-ms.search.keywords: Sustainability, scope 3, emission, GHG, CSRD, carbon, CO2, value chain, transfer
-ms.search.form: 5740,
-ms.date: 01/22/2025
-ms.author: altotovi
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
-ms.custom: bap-template
----
-
-
-# Sustainability value chain in transfers
-
-To use the sustainability value chain with transfer orders, you must enable the **Enable Value Chain Tracking** field on the **Sustainability Setup** page.  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Sustainability Setup**, and then select the related link.
-2. Check whether the basic setup already exists. If it doesn't, follow [these instructions](finance-sustainability-setup.md) to set it up.  
-3. On the **Procurement** FastTab, select the **Enable Value Chain tracking** field.
-4. Close the page.
-
-## Work with transfer orders  
-
-To learn how to work with transfer orders, go to [To transfer items with a transfer order](inventory-how-transfer-between-locations.md#to-transfer-items-with-a-transfer-order).  
-
-To use transfer orders in the sustainability value chain process, you must add the carbon equivalent (CO2e) emission that you produce in the transfer process. For example, if you transfer goods by truck. You can add it in the **Total CO2e** field for each line on a transfer order. The value is the total emissions for the item quantities on the lines.
-
-After you post a transfer order, you can find entries related to the transfer on the **Posted Transfer Shipment** page. To find the entries, follow these steps:  
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Posted transfer shipments**, and then select the related link.
-2. Open the **Posted Transfer Shipment** you want to check, and then choose the **Find entries** action.
-3. On the **Find entries** page, choose **Sustainability Value Entry** to review the transactions related to this document.
-4. Close the page.
-
-> [!NOTE]
-> Regardless of whether you select the **Direct Transfer** field on the **Transfer Order** page, [!INCLUDE [prod_short](includes/prod_short.md)] creates sustainability value entries only for transactions related to the posted transfer shipment. The transactions increase the **CO2e per Unit** value for transferred items using the average method.  
-
-## Related information  
-
-[Sustainability Value Chain Overview](value-chain-howto-overview.md)  
-[Sustainability Management overview](finance-manage-sustainability.md)  
-[Sustainability setup](finance-sustainability-setup.md)  
-[Record sustainability entries](finance-sustainability-journal.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-powerbi-business-central-apps
----
-title: Use the Business Central apps in Power BI
-description: Easily gain insights, business intelligence, and KPIs from your Business Central data using the Business Central apps for Power BI.
-author: jswymer
-ms.topic: get-started
-ms.devlang: al
-ms.search.keywords: account schedule, analysis, reporting, financial report, business intelligence, KPI
-ms.date: 10/17/2025
-ms.author: jswymer
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Use the [!INCLUDE [prod_short](includes/prod_short.md)] apps in Power BI
-
-> **APPLIES TO:** [!INCLUDE [prod_long](includes/prod_long.md)] online
-
-[!INCLUDE [prod_long](includes/prod_long.md)] publishes the following Power BI apps, which provide detailed dashboards for viewing data:
-
-- [!INCLUDE [prod_long](includes/prod_long.md)] - CRM  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Finance  
-- [!INCLUDE [prod_long](includes/prod_long.md)] - Sales
-
-## Overview
-
-Each app includes several reports that you can drill into for data, including the following features:
-
-- Choose any visual on the dashboard to bring up one of the underlying reports.  
-- Filter the report or add fields that you want to monitor.  
-- Pin a customized view to the dashboard to continue tracking.  
-  You can refresh data manually, and you can set up a refresh schedule. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).  
-
-The apps are designed to work with data from any company in [!INCLUDE[prod_short](includes/prod_short.md)]. When you install the Power BI app, you specify one or more parameters to connect to your [!INCLUDE [prod_short](includes/prod_short.md)].  
-
-> [!NOTE]
-> You can also build your own reports and dashboards in Power BI based on your [!INCLUDE[prod_short](includes/prod_short.md)] data. Learn more in [Connecting Your Business Data to Power BI](across-how-use-financials-data-source-powerbi.md).
-
-## Prerequisites
-
-Power BI apps require permissions to the tables where data is retrieved and the web services used to retrieve data. The following table lists the web services required for each Power BI app:
-
-|App|Web services |
-|--|-------------|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – CRM| <ul><li>Sales Opportunities</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Finance| <ul><li>PowerBIFinance</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-|[!INCLUDE[prod_short](includes/prod_short.md)] – Sales| <ul><li>Item Sales by Customer</li><li>Sales Dashboard</li><li>Excel Template View Company Information</li><li>Power BI Report Labels</li></ul>|
-
-> [!TIP]
-> An easy way to find the web services is to search for *web services* in [!INCLUDE[prod_short](includes/prod_short.md)]. In the **Web Services** page, make sure that the **Publish** field is selected for the web services listed above. Learn more in [Publishing a Web Service](across-how-publish-web-service.md).
-
-## Get ready
-
-Sign up for the Power BI service. If you haven't already signed up, go to [https://powerbi.microsoft.com](https://powerbi.microsoft.com). When you sign up, use your work email address and password.
-
-## Install a [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-1. Open your browser, navigate to [https://powerbi.microsoft.com](https://powerbi.microsoft.com), and sign in to your account.
-2. Select **Apps** on the navigation pane.
-
-    The **Apps** page appears.
-
-3. On the **Apps** page, select **Get apps** from the upper right corner of the page.
-
-    The **Power BI apps** page opens, where you can browse for the apps that are available for [!INCLUDE[prod_short](includes/prod_short.md)].
-
-    ![Navigating to Get apps.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-get-data.png)
-
-    > [!TIP]
-    > You can also access the **Power BI Report** from [!INCLUDE [prod_short](includes/prod_short.md)]. Navigate to the Power BI Reports section and **Select reports** on your Home page. Choose either **Services** or **My Organization** from **Get Reports**. The Organization gallery in Power BI or Microsoft Marketplace will open, displaying only apps related to [!INCLUDE[prod_short](includes/prod_short.md)].
-
-4. In the **Search** box, enter **Dynamics 365 Business Central**.
-5. Select app that you want to use, select **Get it now**, and then **Install**.  
-
-    When completed, the app is available from **Apps** on the navigation menu in Power BI.
-
-## Connect the [!INCLUDE[prod_short](includes/prod_short.md)] app to your data
-
-1. Under **Apps**, select the Business Central app, then **Connect**.
-2. When prompted, fill in the **Company Name** and **Environment** with information about the [!INCLUDE[prod_short](includes/prod_short.md)] instance that you want to connect to.
-
-    - For **Company Name**, make sure to use the full name, not the display name. You can find the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-    - For **Environment**, if you haven't created multiple environments, enter **Production**.
-
-3. Select **Next**.
-4. Select **Sign-in**.
-5. When prompted, enter the user name and password for signing into [!INCLUDE[prod_short](includes/prod_short.md)].
-6. Once connected, a dashboard and reports are added to your Power BI workspace. When completed, the tiles show data from your [!INCLUDE[prod_short](includes/prod_short.md)] company.
-
-    ![Select Dynamics 365 Business Central  and select Get it now.](./media/across-how-to-connect-powerbi-d365-content-packs/powerbi-workspace-dashboard-report-dataset.png)
-
-## Fix problems
-
-The Power BI dashboard relies on the published web services that are listed above. It shows data from the demonstration company or your own company if you import data from your current finance solution. However, if something goes wrong, this section provides a workaround for the most typical issues.  
-
-### You don't have a Power BI account
-
-A Power BI account hasn't been set up. You must have a license to get a valid Power BI account. Also, you must have previously signed into Power BI to create your Power BI workspace.  
-
-### Message: There are no enabled reports. Select report to see a list of reports that you can display
-
-This message appears if the default report failed to deploy to your Power BI workspace. Or the report deployed but didn't successfully refresh. If this problem happens, navigate to the report in your Power BI workspace, select **Dataset**, **Settings**, and then manually update the credentials. Once the dataset successfully refreshes, navigate back to [!INCLUDE[prod_short](includes/prod_short.md)] and manually select the report from the **Select Reports** page.
-
-### You need a Power BI Pro license to install the [!INCLUDE[prod_short](includes/prod_short.md)] app in Power BI
-
-You need a [Power BI Pro license](/power-bi/service-features-license-type) to share your content, and the people you share it with do too. The content must be in a workspace in a [Premium capacity](/power-bi/service-premium-what-is). Learn more in [Ways to share your work in Power BI](/power-bi/service-how-to-collaborate-distribute-dashboards-reports).  
-
-### "Parameter validation failed, please make sure all parameters are valid"
-
-This error indicates that one more of the parameters aren't valid.
-
-- The specified environment parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] production or sandbox environment.
-- The specified company parameter doesn't match any existing [!INCLUDE[prod_short](includes/prod_short.md)] companies. Verify the company name in the **Companies** page in [!INCLUDE[prod_short](includes/prod_short.md)].
-- If connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, you entered a URL that isn't valid. You can verify the URL in the **Web Services** page in [!INCLUDE[prod_short](includes/prod_short.md)]  
-- A port isn't open to allow the request through your firewall.
-
-### Can't sign in
-
-If you get a "login failed" error after using your [!INCLUDE[prod_short](includes/prod_short.md)] user credentials to sign in, then you're probably experiencing one of the following issues:
-
-- The account that you're using doesn't have permissions to retrieve the [!INCLUDE[prod_short](includes/prod_short.md)] data from your account. Verify that you have permissions to the required data in [!INCLUDE[prod_short](includes/prod_short.md)] and try again.
-- You've selected an authentication type other than Basic, if connecting to [!INCLUDE[prod_short](includes/prod_short.md)] on-premises.
-- You haven't entered a valid user name or password.
-
-### Message: Your data source can't be refreshed because the credentials are invalid. Please update your credentials and try again
-
-For [!INCLUDE[prod_short](includes/prod_short.md)] on-premises, the problem might be that the OData URL is only exposed to the local network.
-
-### Incorrect company name
-
-A common mistake is to enter the company display name instead of the company name. To find the company name search for **Companies**. Then use the **Name** field when entering your company name.
-
-### The key didn't match any rows in the table
-
-If you enter a non-valid company name during the connection process, you may get the error message "The key didn't match any rows in the table". Provide the correct company name and try connecting again.
-
-### Historical data appears to be missing
-
-Once the Power BI app installs and your data show in Power BI, you notice that not all your data displays. The datasets are filtered to only return the previous 365 days of data. This default is in place to help make the reports faster.  
-
-### I only see data for a single company
-
-The Power BI app will only display data from the [!INCLUDE[prod_short](includes/prod_short.md)] company that was defined when the Power BI app was installed. Data from additional companies can be added to the reports by adding new queries that use different companies as the data source.  
-
-### What now?
-
-- Try [asking a question in the Q&A box](/power-bi/service-q-and-a-tips) at the top of the dashboard.
-- [Change the tiles](/power-bi/service-dashboard-edit-tile) in the dashboard.  
-- [Select a tile](/power-bi/service-dashboard-tiles) to open the underlying report.  
-- By default, your dataset isn't scheduled to refresh. You can change the refresh schedule or try refreshing it on demand using **Refresh Now**. Learn more in [Configuring scheduled refresh](/power-bi/refresh-scheduled-refresh).
-
-## Related information
-
-[Business Central and Power BI](admin-powerbi.md)  
-[Power BI Integration Component and Architecture Overview for [!INCLUDE[prod_short](includes/prod_short.md)]](admin-powerbi-overview.md)  
-[Connect to Power BI from [!INCLUDE [prod_short](includes/prod_short.md)] on-premises](across-working-with-business-central-in-powerbi.md)  
-[Build Power BI Reports to Display [!INCLUDE [prod_long](includes/prod_long.md)] Data](across-how-use-financials-data-source-powerbi.md)  
-[Business Intelligence](bi.md)  
-[Get Ready for Doing Business](ui-get-ready-business.md)  
-[Import Business Data from Other Finance Systems](across-import-data-configuration-packages.md)  
-[Set Up [!INCLUDE[prod_short](includes/prod_short.md)]](setup.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power BI Data Source](across-how-use-financials-data-source-powerbi.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] as a Power Apps Data Source](across-how-use-financials-data-source-powerapps.md)  
-[Use [!INCLUDE[prod_short](includes/prod_short.md)] in Power Automate](across-how-use-financials-data-source-flow.md)  
-[Power BI documentation](/power-bi/)  
-[What is Power BI?](/power-bi/fundamentals/power-bi-overview)  
-[Quickstart: Connect to data in Power BI Desktop](/power-bi/desktop-quickstart-connect-to-data)  
-[Introduction to datamarts](/power-bi/transform-model/datamarts/datamarts-overview)  
-[Introduction to dataflows and self-service data prep](/power-bi/transform-model/dataflows/dataflows-introduction-self-service)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-item-charges
----
-title: Assign item charges to subcontracting receipts
-description: Learn how to assign item charges such as transport and packaging costs to subcontracting purchase receipts for accurate production order costing.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: subcontracting, item charges, production order, capacity costs
-ms.search.form: 99000886,
-ms.date: 06/02/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-
-# Assign item charges to subcontracting receipts
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
-You can assign item charges to subcontracting receipts to include costs such as transport, packaging, and other incidental expenses directly in your production order costs. When you post additional costs that should be distributed to subcontracting receipts, you can record them as a separate invoice with **Type** set to **Charge (Item)**. The item charges link to the capacity ledger entries of the production order.
-
-## How item charges work with subcontracting
-
-When you assign item charges to subcontracting receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries differently than for standard item charges.
-
-### Standard item charge assignment
-
-When you assign item charges to regular purchase receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries that:
-
-- Reference item ledger entries.
-- Use **Direct Cost** as the cost type.
-- Affect inventory.
-
-### Subcontracting item charge assignment
-
-When you assign item charges to subcontracting receipts, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries that:
-
-- Don't reference item ledger entries.
-- Reference capacity ledger entries.
-- Use **Direct Cost** as the cost type.
-- Use **Production** as the order type.
-- Have an invoiced quantity of 0 because the costs are capacity costs.
-
-## Assign item charges to subcontracting receipts
-
-Before you assign item charges to a subcontracting receipt, the following must be in place:
-
-- A posted subcontracting purchase order.
-- A purchase receipt with a subcontracting reference.
-
-The following steps describe how to assign an item charge to a subcontracting receipt.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders** or **Purchase Invoices**, and then choose the related link.
-2. Create a new purchase order or invoice.
-3. On the lines, in the **Type** field, choose **Charge (Item)**.
-4. Fill in the remaining fields on the line, such as the item charge, quantity, and unit cost. [!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
-5. Choose the **Item Charge Assignment** action.
-6. On the **Item Charge Assignment** page, choose the **Get Receipt Lines** action.
-
-   The receipt lines include subcontracting receipts. You can identify them by the **Prod. Order No.** column.
-
-7. Select the subcontracting receipt line, and then enter the quantity and amount to assign.
-8. Close the **Item Charge Assignment** page.
-9. Post the purchase order or invoice.
-
-[!INCLUDE [prod_short](includes/prod_short.md)] creates the value entries and links them to the capacity ledger entries.
-
-## Identify subcontracting receipt lines
-
-When you use the **Get Receipt Lines** action, the list includes both regular and subcontracting receipt lines. To distinguish subcontracting receipts, the following columns are available on the **Purch. Receipt Lines** page:
-
-- **Prod. Order No.** (visible by default)
-- **Routing No.**
-- **Operation No.**
-- **Work Center No.**
-
-Subcontracting receipt lines have values in these fields. You can use them to filter or sort the list.
-
-## Value entries for subcontracting item charges
-
-When you post an item charge assigned to a subcontracting receipt, [!INCLUDE [prod_short](includes/prod_short.md)] creates value entries with the following characteristics:
-
-|Field|Value|
-|-----|-----|
-|Item Ledger Entry No.|0 (empty)|
-|Capacity Ledger Entry No.|Reference to the capacity ledger entry|
-|Order Type|Production|
-|Order No.|Production order number|
-|Invoiced Quantity|0|
-|Cost Type|Direct Cost|
-
-The costs are assigned directly to the production order and don't affect item inventories.
-
-### Differences from standard item charges
-
-The following table describes the differences between standard item charges and subcontracting item charges.
-
-|Aspect|Standard item charge|Subcontracting item charge|
-|------|-------------------|-------------------------|
-|Item Ledger Entry No.|Filled|0 (empty)|
-|Capacity Ledger Entry No.|0 (empty)|Filled|
-|Order Type|Purchase|Production|
-|Inventory impact|Yes|No|
-|Cost distribution|Item|Capacity/Production order|
-
-## Benefits of assigning item charges to subcontracting
-
-Assigning item charges to subcontracting receipts offers the following benefits:
-
-- **More accurate cost assignment** - Costs are assigned directly to production orders rather than to items.
-- **Better cost separation** - Manufacturing costs are separated from material costs.
-- **Improved calculation** - Manufacturing cost calculations are more precise.
-- **Better reporting** - You can analyze subcontracting costs separately from item costs.
-- **Better traceability** - You can track the total cost of subcontracting more easily.
-
-## Examples
-
-The following examples show how you can use item charges with subcontracting.
-
-### Example 1: Transport costs
-
-A subcontracting invoice includes 1,000 EUR for processing and 50 EUR for transport. You assign the transport costs as an item charge to the subcontracting receipt.
-
-### Example 2: Packaging costs
-
-Special packaging for sensitive parts costs 30 EUR in addition to 800 EUR for processing. You assign the packaging costs as an item charge for direct assignment to manufacturing costs.
-
-### Example 3: Testing costs
-
-Quality testing at the subcontractor costs 100 EUR in addition to 1,200 EUR for processing. You assign the testing costs as an item charge for better cost transparency.
-
-## Things to consider
-
-Keep the following in mind when you work with item charges for subcontracting:
-
-- After you post an item charge to a subcontracting receipt, you can't reverse it.
-- Make sure that you assign the item charge to the correct subcontracting receipt because the assignment affects cost distribution.
-- Without the Subcontracting app, standard [!INCLUDE [prod_short](includes/prod_short.md)] doesn't support assigning item charges to purchase receipts for subcontracting operations. If you try to assign charges to a receipt line with a work center, you get an error. The Subcontracting app removes this limitation and routes the charges to capacity ledger entries instead of item ledger entries.
-
-## Verify postings
-
-To verify that [!INCLUDE [prod_short](includes/prod_short.md)] posted item charges correctly, check the value entries.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Value Entries**, and then choose the related link.
-2. Filter the entries by the production order number.
-3. Filter by **Cost Type** set to **Direct Cost**.
-4. Verify that the **Capacity Ledger Entry No.** field is filled and the **Item Ledger Entry No.** field is empty.
-
-The item charge costs appear in the production order cost overview under capacity costs.
-
-## Related information
-
-[Manufacturing](production-manage-manufacturing.md)  
-[Setting Up Manufacturing](production-configure-production-processes.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
 
