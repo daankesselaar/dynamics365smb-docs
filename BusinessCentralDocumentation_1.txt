@@ -5000,19 +5000,31 @@ description: Guidance for addressing issues when control add-ins or custom contr
 ms.topic: article
 author: brentholtorf
 ms.author: bholtorf
-ms.date: 10/13/2025
+ms.date: 06/24/2026
 ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
+ms.reviewer: jswymer
 ms.search.keywords: resiliency, control add-in, custom control, performance, slow, unresponsive
 ---
 
 # Control add-in resiliency in Business Central
 
-From update 20.0 of [!INCLUDE[prod_short](includes/prod_short.md)], control add-ins that perform slowly are automatically detected and a dialog similar to the following example is displayed.
+Control add-ins that are unhealthy or perform slowly are automatically detected and a reduced functionality warning similar to the following example appears.
+
+## Busy control add-in
 
 ![Busy control add-in.](media/controladdin-resiliency.png "Busy control add-in.")
 
-An unhealthy control add-in might affect your Business Central experience and cause the page you're working on to start slowly. It has no impact on data and your changes are always saved. If you see the warning as shown above, you can hide it, but it might come back and if the problem persists, you should contact your administrator.
+An unhealthy control add-in might affect your Business Central experience and cause the page you're working on to start slowly. It has no impact on data and your changes are always saved. You can hide the warning, but it might come back. If the problem persists, contact your administrator or control add-in vendor.
+
+## Payload handling
+
+If a control add-in sends a large payload in a single call, the [!INCLUDE[web_client](includes/web_client.md)] might display a warning that communication is being limited, for example:
+
+![Control add-in payload warning](media/controladdin-resiliency-payload.png)
+
+In this case, the web client might upload the request as a temporary file. If the data exceeds the maximum upload size, the call is rejected. The control add-in receives an error, but the page continues to function normally.
+
+The maximum upload size is controlled by the `ClientServicesMaxUploadSize` setting on the [!INCLUDE[server](includes/server.md)]. Learn more about this setting in [Configure Business Central server: Client settings](/dynamics365/business-central/dev-itpro/administration/configure-server-instance#ClientServices).
 
 ## Related information
 
@@ -13930,7 +13942,7 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 07/03/2026
 ms.search.form: 672, 673, 674, 671
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -13965,7 +13977,7 @@ If you integrate [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[p
 
 ### Schedule when to post sales and purchase orders
 
-You can use job queue entries to schedule business processes to run in the background. For example, background tasks are useful when multiple users post sales orders at the same time, but only one order can be processed at a time. To learn more about background posting, go to [To set up background posting with job queues](ui-batch-posting.md#to-set-up-background-posting-with-job-queues).
+You can use job queue entries to schedule business processes to run in the background. For example, background tasks are useful when multiple users post sales orders at the same time, but only one order can be processed at a time. To learn more about background posting, go to [Schedule background posting with the job queue](ui-batch-posting.md#schedule-background-posting-with-the-job-queue).
 
 ## Important for scheduling recurring jobs
 
@@ -21346,20 +21358,20 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ai-in-bc
 ---
-title: AI in Business Central
+title: Business Central AI
 description: Get an overview of the powerful AI capabilities in Business Central.
 author: jswymer 
 ms.author: jswymer 
 ms.reviewer: jswymer
 ms.topic: overview 
-ms.date: 05/03/2026
+ms.date: 07/01/2026
 ms.custom: bap-template 
 ms.collection:
   - bap-ai-copilot
 ---
 <!--[!INCLUDE[ai-preview](includes/ai-preview.md)]-->
 
-# AI in Business Central
+# Business Central AI
 
 ![Shows the icon for chat with Copilot pane with callouts](media/bcaibanner.png)
 
@@ -21441,6 +21453,16 @@ Payables Agent streamlines accounts payable by monitoring your company mailbox f
 
 - [Payables Agent](payables-agent.md)
 - [Responsible AI FAQs for Payables Agent](faqs-payables-agent.md)
+
+### Expense Agent
+
+Expense Agent is an AI-powered expense management app that makes it easy for employees to capture receipts, track spending, and submit expense reports. Upload a photo of a receipt and AI detects the merchant, amount, date, and category, then checks the expense against company policy before submission. Employees can work with Expense Agent through the web app, by email, or Copilot chat, without needing a Business Central license.
+
+[Video](https://www.youtube.com/watch?v=egE6UdOfar0&list=PL1FESh9FqyhQz9EB8c9gqTuAAiJrPPnJr&index=2)
+
+**Learn more in:**
+
+- [Manage expenses with Expense Agent](expense-management/expense-agent-overview.md)
 
 ### E-document matching
 
@@ -25466,6 +25488,9 @@ ms.reviewer: v-soumramani
 
 # Set up reports for VAT and Intrastat
 
+> [!NOTE]
+> From the January 2027 reporting period, INSTAT/XML must be submitted via eSTATISTIK.CORE (IDEV retired) and that the same INSTAT/XML structure is used.
+
 [!INCLUDE[intrastat-2022w2](../../includes/intrastat-2022w2.md)]
 
 In [!INCLUDE[prod_short](../../includes/prod_short.md)], you can specify which reports to use to create the documents that you must submit to the authorities, such as the VAT statement and the Intrastat form.  
@@ -25489,14 +25514,15 @@ In [!INCLUDE[prod_short](../../includes/prod_short.md)], you can specify which r
 > [!NOTE]
 > Intrastat reports can use either the XML or ASCII formats. Depending on the format you use, enter the material number in one of the following fields on the **Company  Information** page.  
 >
-> |Format|Fields|
-> |---------|---------|
-> |XML|Company No.|
-> |ASCII|Sales Material No., Purchase Material No.|
+> |Format|Fields|Comment|
+> |---------|---------|--------------|
+> |XML|Company No.|This is only required for the IDEV channel; for eSTATISTIK.CORE it can be left empty.|
+> |ASCII|Sales Material No., Purchase Material No.||
 
 1. Choose the ![Tell Me feature](../../media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Report Selection**, and then choose the related link.  
 1. On the **Report Selection – Intrastat** page, in the **Usage** field, select the type of document that you want to specify reports for. This includes the Intrastat checklist and Intrastat form.  
-1. Specify the report or batch job that must run when a user starts the activity for the document type that you specified in the **Usage** field. Fill in the fields as described in the following table.  
+1. Specify the report or batch job that must run when a user starts the activity for the document type that you specified in the **Usage** field. Fill in the fields as described in the following table.
+1. Choose the submission channel: IDEV or eSTATISTIK.CORE. 
 
     |Field|Description|  
     |---------------------------------|---------------------------------------|  
