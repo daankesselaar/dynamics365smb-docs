@@ -1,3 +1,460 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-integration-with-inventory
+---
+title: Design Details - Integration with Inventory
+description: The Warehouse Management and the Inventory application area interact with one another in physical inventory and in inventory or warehouse adjustment.
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords:
+ms.date: 06/15/2021
+ms.author: bholtorf
+
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+# Design Details: Integration with Inventory
+
+Warehouse management and inventory features interact with one another in physical inventory and in inventory or warehouse adjustment.  
+
+## Physical inventory  
+
+The **Whse. Phys. Inventory Journal** page is used with the **Phys. Inventory Journal** page for all advanced warehouse locations. The inventory on bin level is calculated, and a printed list is provided for the warehouse employee. The list shows which items in which bins must be counted.  
+  
+The warehouse employee enters the counted quantity on the **Whse. Phys. Inventory Journal** page and then posts the journal.  
+  
+If the counted quantity is greater than the quantity on the journal line, a movement is posted for this difference from the default adjustment bin to the counted bin. This increases the quantity in the counted bin and decreases the quantity in the default adjustment bin.  
+  
+If the quantity counted is less than the quantity on the journal line, a movement for this difference is posted from the counted bin to the default adjustment bin. This decreases the quantity in the counted bin and increases the quantity in the default adjustment bin.  
+  
+In advanced warehouse configurations, the value in the **Quantity (Calculated)** field is retrieved from item ledger entries and the value in the **Quantity (Phys. Inventory)** field is retrieved from warehouse entries, excluding the adjustment bin content. The **Quantity** field specifies the difference between the first two fields, which should be equal to the contents of the adjustment bin.  
+  
+When you post the physical inventory journal, the inventory and the default adjustment bin are updated.  
+
+[!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
+  
+## Warehouse adjustments to the item ledger  
+
+You use the **Item Journal** page and the **Calculate Whse. Adjustment** function to adjust inventory on the item ledger in accordance with an adjustment that has been made to the item quantity in a warehouse bin. To create a link between the inventory and the warehouse, you must define a default adjustment bin per location.  
+  
+The default adjustment bin registers items in the warehouse when you post an increase for the inventory. However, if you post a decrease, the quantity on the default bin is also decreased. In both cases, item ledger entries and warehouse entries are created.  
+  
+> [!NOTE]  
+> Inventory calculations don't include the adjustment bin.  
+  
+To adjust the bin content, use a warehouse item journal, where you can enter the item number, zone code, bin code, and quantity to adjust.  
+  
+If you enter a positive quantity and post the line, then the inventory stored in the bin increases, and the quantity of the default adjustment bin decreases correspondingly.  
+  
+## Related information  
+
+[Warehouse Management Overview](design-details-warehouse-management.md)  
+[Design Details: Availability in the Warehouse](design-details-availability-in-the-warehouse.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-detailed-vendor-ledger-entries
+---
+title: Detailed Vendor Ledger Entries
+description: The Detailed Vendor Ledger Entries report provides a detailed view of individual transactions from the Detailed Vendor Ledger, enhanced with information from Vendor Ledger entries.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 36996_Primary
+ms.date: 10/31/2024
+ms.service: dynamics-365-business-central
+---
+
+# Detailed Vendor Ledger Entries (Power BI report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Detailed Vendor Ledger Entries** report provides a view of individual transactions from the Detailed Vendor Ledger, enhanced with information from the Vendor Ledger. This report is a valuable tool for tracking vendor transactions, reconciliation, and facilitating efficient audits by giving easy access to detailed entry information.
+
+:::image type="content" source="media/finance/detailed-vendor-ledger-entries-report.png" alt-text="Screenshot of the Detailed Vendor Ledger Entries report" lightbox="media/finance/detailed-vendor-ledger-entries-report.png":::
+
+## Use the report
+
+The audiences for the report are:
+
+- Finance managers
+- Finance staff
+
+Finance managers use the report during month-end closing process. Filtering the report to the current month lets you systematically review open invoices, payments, and credit details. This review not only helps you maintain accurate accounts payable records, but also strengthens relationships with vendors by ensuring timely and correct payments.
+
+<!-- ## Key Performance Indicators (KPIs)
+
+The *Detailed Vendor Ledger Entries* report includes the following KPIs and measures: 
+
+- [**Amount Payable (LCY)**](####) -->
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Detailed Vendor Ledger Entries
+- Vendor Ledger Entries
+
+## Try the report
+
+Try the report here: [Detailed Vendor Ledger Entries](https://businesscentral.dynamics.com?page=36996)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI finance app](finance-powerbi-app.md)  
+[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+[Built-in core finance reports](finance-reports.md)  
+[Built-in fixed assets reports](fa-reports.md)  
+[Built-in accounts receivable reports](receivables-reports.md)  
+[Built-in accounts payable reports](payables-reports.md)  
+[Financial analytics overview](bi.md)  
+[Finance overview](finance.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-use-edocuments
+---
+title: Use e-documents in sales
+description: Learn how to use e-documents functionality that is related to sales.
+author: altotovi
+ms.author: altotovi
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.search.keywords: electronic document, electronic invoice, e-document, e-invoice, sales, deliver
+ms.search.form: 42, 43, 132, 6103, 6133, 6121, 9301, 9305
+ms.date: 09/25/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Use e-documents in the sales process
+
+You can use configured electronic documents (e-documents) with the following sales documents:  
+
+- Sales invoices
+- Sales orders
+- Sales credit memos
+- Service invoices
+- Service credit memos
+- Issued finance charge memos
+- Issued reminders
+
+## E-documents in sales  
+
+To create and send an e-invoice to a customer, you must create and post the sales invoice. To learn more about the standard process, go to [Invoice Sales](sales-how-invoice-sales.md).
+
+Before posting, you can choose to add the attachment to the invoice if you want to embed it in the Peppol file format.
+
+When you receive an incoming e-document from an external service or manually upload one, you typically get an XML or similar format that might be difficult to read. For example, if you're not technical and don't understand the XML format, it's hard to review an invoice before you process it. To make it easier to review incoming e-documents, invoices and credit memos have an **E-invoice Lines** FastTab that displays details from the imported file, such as line and header information, in a way that's easy to understand.
+
+> [!NOTE]
+> The preview feature is available only for invoice and credit memo types of incoming e-documents.
+
+After you post the sales document, open the **Posted Sales Invoices** page to access the related **E-Documents** page.
+
+> [!NOTE]
+> When you use issued finance charge memos and issued reminders, [!INCLUDE [prod_short](includes/prod_short.md)] creates an electronic sales invoice file that contain financial details from these documents. If a document doesn't have a financial amount, [!INCLUDE [prod_short](includes/prod_short.md)] doesn't create the e-document.
+
+### View e-documents
+
+To view existing e-documents, follow these steps.
+
+1. On the **Posted Sales Invoices** page, select **E-Document**, and then select **Open E-Document**.
+2. On the **E-Documents** page, on the header, you can view basic information about the posted invoice.
+3. The **Record** field shows the document number of the posted sales invoice. Select the link to open the document.
+4. In the **Electronic Document Status** field, you can view the real-time status of the document and its location in the process. If the document is posted, the status is **Processed**.
+
+### Send e-documents via a service and email simultaneously
+
+[!INCLUDE [prod_short](includes/prod_short.md)] offers flexible ways to share documents and information quickly and easily. Document sending profiles let you specify your preferred way to send documents when you post them. For example, you might want to send a document by email or as an electronic document through a service you use. Or, you might want to do both at the same time. To learn more about document sending profiles, go to [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).
+
+If you choose the **Post** action from the **Sales Order**, **Sales Invoice** or **Sales Credit Memo** pages, [!INCLUDE [prod_short](includes/prod_short.md)] posts the document as usual. However, if you set up e-document workflow for the customer, it can also start a workflow to create an e-document. Then, when you choose **Post and Send**, [!INCLUDE [prod_short](includes/prod_short.md)] also sends the e-document via email as an attachment.
+
+Depending on whether you enable **Service Integration** on the **E-Document Service** page, you can choose one of the following ways to send documents in the sales process:
+
+- When **Service Integration** is enabled, use the **Post** action to send the e-document to the configured access point.
+- When **Service Integration** is enabled, use the **Post and Send** action to send the e-document to the configured access point and as an attachment in an email.
+- When **Service Integration** isn't enabled, use the **Post** action to create an e-document that you can download.
+- When **Service Integration** isn't enabled, use the **Post and Send** action to send the e-document by email.
+
+### E-document statuses and logs
+
+For details about the service status level of your e-document, check the **E-Document Service Status** FastTab. On the lines, the system shows one or more services that the document used. In the most common scenario, each document uses only one service. However, a document can use multiple services.
+
+- Check the **E-Document Service Code** field to determine which service was used.
+- Check the **E-Document Status** field to determine the current service status for this document.
+- If you want more details, select the **Logs** field for the service on the **E-Document Logs** page. A chronological overview of the different statuses for the document is shown.
+- Check the **Entry No.** and **Created At** fields, and other information on the **E-Document Logs** page. In the **E-Document Status** field, the first status is **Exported**, which indicates that the e-document file has been created. The next status is **Sent**, which indicates that document was sent to the service provider, if configured.
+
+For more insights, select the entry that has the **Exported** status, and then run one of the following actions:
+
+- **Open Mapping Logs** – Get an overview of all exported fields from the sourced tables in the **Original Value** field. If you used transformation rules in the export process, you can also get the final value in the **New Value** field.
+- **Export File** – Export the XML file for manual review.
+
+To view the communication between yourself and the service that you're sending your document to, use the **Communication Logs** field. Open the **E-Document Communication Logs** page to view details about the request and reasons message with that service.
+
+If there's an issue with the service provider, and the document can't be sent, look for the following indicators on the **E-Documents** page:
+
+- The **Electronic Document Status** field on the header shows the **Error** status.
+- The **E-Document Status** field on the **E-Document Service Status** FastTab shows the **Sending Error** status.
+- The **Error and Warnings** FastTab contains one or more messages that provide the cause of the issue.
+
+After the issue is fixed, manually run the **Send Document** actions. If you need different actions, such as **Recreated Document**, **Cancel Document**, or **Get Approval**, you can run them.
+
+## Manually create e-documents when they weren't created automatically
+
+Using e-documents requires some configuration, and sometimes people get that wrong. If there was a problem with your setup when you posted sales documents, [!INCLUDE [prod_short](includes/prod_short.md)] might not automatically create e-documents for them. If that happens, after you fix your setup, you can generate new e-documents from the posted documents.
+
+To check whether [!INCLUDE [prod_short](includes/prod_short.md)] created an e-document, open the **Posted Sales Invoice** page and select the **Open E-Document** action. If [!INCLUDE [prod_short](includes/prod_short.md)] doesn't find a related e-document, a message displays. Review your settings for your e-documents and correct any mistakes. To learn more about the setup, go to [Set up e-documents](finance-how-setup-edocuments.md).
+
+When you're ready, you can run the **Create New E-Document** action to generate an e-document based on the workflow rules.
+
+## Overview of e-document statuses
+
+To get a better overview of all e-documents in the company, you can select the **Accountant** role center where e-document statuses exist. There, you can find e-document activities that have the following statuses:
+
+- **Outgoing e-documents:**
+
+    - Processed
+    - In Progress
+    - Error
+
+## Related information
+
+[How to set up e-documents in [!INCLUDE[prod_short](includes/prod_short.md)]](finance-how-setup-edocuments.md)  
+[How to use e-documents in purchase](finance-how-use-edocuments-purchase.md)  
+[How to extend e-documents in [!INCLUDE[prod_short](includes/prod_short.md)]](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments)  
+[Financial Management](finance.md)  
+[Invoice Sales](sales-how-invoice-sales.md)  
+[Record Purchases with Purchase Invoices and Orders](purchasing-how-record-purchases.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-item-availability
+---
+title: Item Availability (Power BI report)
+description: The Item Availability report gives an overview of the availability of each item. 
+author: kennienp
+ms.author: kepontop
+ms.reviewer: 
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37026_Primary
+ms.date: 10/28/2024
+ms.service: dynamics-365-business-central
+---
+
+# Item Availability (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Item Availability** report gives an overview of the availability of each item in terms of supply and demand. Use the report to identify items where demand exceeds supply, so you can take action to avoid delayed orders.
+
+:::image type="content" source="media/inventory/item-availability.png" alt-text="Screenshot of the Item Availability Power BI Report" lightbox="media/inventory/item-availability.png":::
+
+## Use the report
+
+The report is designed for management and customer service teams.
+
+Customer service teams use this report to identify availability of specific items for your customers. By having up-to-date information for each item, you can provide quick, accurate, and informed answers to estimates and avoid disappointing customers.
+
+For inventory management teams, the information in this report can help you keep adequate stock levels of each item. For example, the information can help you coordinate other teams to increase production of specific items, or create purchase orders to replenish stock.
+
+## Key Performance Indicators (KPIs)
+
+The *Item Availability* report includes the following KPIs:
+
+- [**Projected Available Balance**](inventory-powerbi-kpis.md#projected-available-balance)
+- [**Inventory (Quantity)**](inventory-powerbi-kpis.md#inventory-quantity)
+- [**Gross Requirement**](inventory-powerbi-kpis.md#gross-requirement)
+- [**Scheduled Receipt**](inventory-powerbi-kpis.md#scheduled-receipt)
+- [**Planned Order Receipt**](inventory-powerbi-kpis.md#planned-order-receipt)
+- [**Planned Order Release**](inventory-powerbi-kpis.md#planned-order-releases)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
+
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
+
+- Item
+- Item Ledger Entries
+- Sales Lines
+- Service Lines
+- Project Planning Lines
+- Prod. Order Component Lines
+- Transfer Lines
+- Planning Component Lines
+- Assembly Lines
+- Purchase Lines
+
+## Try the report
+
+Try the report here: [Item Availability](https://businesscentral.dynamics.com?page=37026)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Inventory app](inventory-powerbi-app.md)  
+[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
+[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
+[Inventory analytics overview](inventory-analytics-overview.md)  
+[Inventory overview](inventory-manage-inventory.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-aged-receivables-back-dating
+---
+title: Aged Receivables (Back Dating)
+description: The Aged Receivables (Back Dating) report provides an overview of outstanding customer invoices categorized by payment terms and grouped into aging buckets.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 36993_Primary
+ms.date: 10/31/2024
+ms.service: dynamics-365-business-central
+---
+
+# Aged Receivables (Back Dating) (Power BI report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Aged Receivables (Back Dating)** report lets you analyze outstanding customer balances grouped by a customizable aging periods. You can age the report by posting date, due date, or document date. The report categorizes data by payment terms, so you can quickly align net terms with aging buckets for analysis. This technique lets you prioritize collection efforts and manage cash flow effectively.
+
+:::image type="content" source="media/finance/aged-receivables-snapshot.png" alt-text="Screenshot of the Aged Receivables (Back Dating) report" lightbox="media/finance/aged-receivables-snapshot.png":::
+
+## Use the report
+
+The audiences for the report are:
+
+- Executives
+- Finance Administrators
+
+Finance administrators use the report to identify overdue invoices and prioritize collection efforts. By reviewing the aging buckets, you can focus on customers with significant outstanding balances that don't align with payment terms. Expanding the report matrix can help you identify specific invoices that are past due and need action.
+
+## Key Performance Indicators (KPIs)
+
+The *Aged Receivables (Back Dating)* report includes the following KPIs and measures: 
+
+- [**Balance (Accounts Receivable)**](finance-powerbi-kpis.md#balance-accounts-receivable)
+- [**Current (Receivables)**](finance-powerbi-kpis.md#current-receivables)
+- [**Bucket 1 (Receivables)**](finance-powerbi-kpis.md#bucket-1-receivables)
+- [**Bucket 2 (Receivables)**](finance-powerbi-kpis.md#bucket-2-receivables)
+- [**Bucket 3 (Receivables)**](finance-powerbi-kpis.md#bucket-3-receivables)
+- [**Bucket 4 (Receivables)**](finance-powerbi-kpis.md#bucket-4-receivables)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Customer
+- Customer Ledger Entry
+- Detailed Customer Ledger Entry
+
+## Try the report
+
+Try the report here: [Aged Receivables (Back Dating)](https://businesscentral.dynamics.com?page=36993)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI finance app](finance-powerbi-app.md)  
+[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
+[Built-in core finance reports](finance-reports.md)  
+[Built-in fixed assets reports](fa-reports.md)  
+[Built-in accounts receivable reports](receivables-reports.md)  
+[Built-in accounts payable reports](payables-reports.md)  
+[Financial analytics overview](bi.md)  
+[Finance overview](finance.md)
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-project-realization
+---
+title: Project Realization (Power BI report)
+description: The Project Realization report showcases the completion for each project.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37036_Primary
+ms.date: 09/25/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Project Realization (Power BI Report)
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The **Project Realization** report shows how billing is performing against the costs.
+
+The report compares the total invoiced price to the total usage price, and highlights how much of each project was invoiced.
+
+:::image type="content" source="media/projects/project-realization.png" alt-text="Screenshot of the Project Realization Power BI Report" lightbox="media/projects/project-realization.png":::
+
+## Use the report
+
+Leadership and project managers use the report to identify which projects they need to invoice. CFOs also use this report.
+
+CFOs can check which projects have low realization, and send invoices accordingly to ensure you meet monthly invoicing goals and have healthy turnover.
+
+Project managers use this report to identify projects with completed work that isn't invoiced.
+
+## Key Performance Indicators (KPIs)
+
+The *Project Realization* report includes the following KPIs:
+
+- [Realization (%)](projects-powerbi-kpis.md#realization-)
+- [Realization Variance](projects-powerbi-kpis.md#realization-variance)
+- [Total Usage Price](projects-powerbi-kpis.md#total-usage-price)
+- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-price)
+- [Total Billable Price](projects-powerbi-kpis.md#total-billable-price)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
+
+- Job
+- Job Ledger Entries
+
+## Try the report
+
+Try the report here: [Project Realization](https://businesscentral.dynamics.com?page=37036)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Power BI Projects app](projects-powerbi-app.md)  
+[Built-in Projects reports](project-reports.md)  
+[Project management analytics overview](projects-analytics-overview.md)  
+[Project management overview](projects-manage-projects.md)
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/value-chain-howto-transfer
 ---
 title: Sustainability value chain in transfers
@@ -233,7 +690,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, item charges, production order, capacity costs
-ms.search.form: 99000886,
+ms.search.form: 5805
 ms.date: 06/02/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
@@ -241,8 +698,6 @@ ms.custom: bap-template
 ---
 
 # Assign item charges to subcontracting receipts
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
 
 You can assign item charges to subcontracting receipts to include costs such as transport, packaging, and other incidental expenses directly in your production order costs. When you post additional costs that should be distributed to subcontracting receipts, you can record them as a separate invoice with **Type** set to **Charge (Item)**. The item charges link to the capacity ledger entries of the production order.
 

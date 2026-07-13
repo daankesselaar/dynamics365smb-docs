@@ -1,3 +1,853 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/bi-how-work-account-schedule
+---
+title: Build financial reports using financial data and account categories
+description: Describes how to use financial reports to create various views and reports for analyzing financial performance data.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 03/17/2026
+ms.custom: bap-template
+ms.search.keywords: bi, power BI, analysis, KPI, account schedule, financial report
+ms.search.form: Report_25_Primary, 103, 104, 108_Primary, 195, 196, 197, 198, 488, 489, 490_Primary, 764, 765, 766
+ms.service: dynamics-365-business-central
+---
+# Prepare financial reporting with financial data and account categories
+
+The **Financial Reports** feature gives you insights into the financial data shown on your chart of accounts (COA). You can set up financial reports to analyze figures in general ledger (G/L) accounts, and compare general ledger entries with budget entries. The results display in charts and reports in your Role Center, such as the Cash Flow chart, and the built-in Income Statement and Balance Sheet reports. You access these two reports, for example, with the **Financial Statements** action in the Business Manager and Accountant home pages.  
+
+[!INCLUDE[prod_short](includes/prod_short.md)] provides sample financial reports you can use right away as templates. You can also set up your own reports to specify the figures to compare. For example, you can create financial reports to calculate profit margins using dimensions such as departments or customer groups. The number of financial reports you can create is unlimited and require no involvement of a developer.  
+
+## Prerequisites for financial reporting
+
+Setting up financial reports requires an understanding of the structure of your chart of accounts. There are three key concepts that you likely need to pay attention to before you design your financial reports:
+
+- Map G/L posting accounts to G/L account categories.
+- Design how you use dimensions.
+- Set up G/L budgets.
+
+G/L account categories simplify your financial report definitions and make them more resilient to changes in the chart of accounts structure. Learn more at [Use G/L account categories to change the layout of your financial statements](bi-row-definitions.md#use-gl-account-categories-to-change-the-layout-of-your-financial-statements).
+
+Setting up dimensions allows you to slice and dice your financial data in ways that make sense for your organization. Learn more at [Work with Dimensions](finance-dimensions.md).
+
+If you want to view general ledger entries as percentages of budget entries, you must create G/L budgets. Learn more at [Create G/L Budgets](finance-how-create-budgets.md).
+
+## Report selection for built-in finance reports
+
+[!INCLUDE[prod_short](includes/prod_short.md)] provides built-in Balance Sheet, Income Statement, Cash Flow, and Retained Earnings reports. The **Financial Reporting** feature defines the data and layouts for these reports. You can replace the standard layouts provided in [!INCLUDE[prod_short](includes/prod_short.md)] with your own. Learn more at [Report selection for finance reports](finance-financial-reporting-report-selection.md).
+
+## Specify default settings that apply to all financial reports
+
+To save some time and control consistency, on the **Reporting** FastTab of the **General Ledger Setup** page, you can specify settings that apply to all financial reports. For example, you can specify:
+
+- The additional currency, and whether to adjust exchange rates for taxes. 
+- The default category to use for accounts payable and receivable accounts.
+- The specific report setup to use for various reports, including row and column definitions.
+- The length of the period for which to show amounts.
+- How to format negative amounts.
+- Where to position your company logo when you print reports.
+- The default status to assign to new reports.
+
+[!INCLUDE [tooltip-inline-tip_md](includes/tooltip-inline-tip_md.md)]
+
+You can change the default settings on each report, if needed.
+
+## Financial reports
+
+Financial reports arrange accounts from your chart of accounts in ways that make data easier to present. You can set up various layouts to define the information you want to extract from the chart of accounts. Financial reports also provide a place for calculations that can't be made directly in the chart of accounts. For example, you can create subtotals for groups of accounts and then include that total in other totals. Another example is to calculate profit margins on dimensions such as departments or customer groups. Additionally, you can filter general ledger entries and budget entries, for example, by net change or debit amount.
+
+> [!NOTE]
+> Mathematically, think of a financial report as defined by two things:
+>
+> - A vector of row definitions that define what needs to be calculated.
+> - A vector of column definitions that defines the data for the calculation.
+>
+> The financial report is then the outer product of these two vectors. The value in each cell is calculated by applying the formula in the row applied to the data definition from the column.
+
+:::image type="content" source="media/financial-report-definition.svg" alt-text="Shows how a financial report is constructed from a row definition and a column definition." lightbox="media/financial-report-definition.svg":::
+
+The **Financial Reports** page shows how all financial reports follow a pattern that consists of the following attributes:
+
+- Name (code)
+- Description
+- Row definition
+- Column definition
+- Internal description (introduced in [!INCLUDE[2025_releasewave1_name](includes/2025_releasewave1_name.md)])
+
+:::image type="content" source="media/financial-reports.png" alt-text="Shows how all financial reports are constructed from a row definition and a column definition." lightbox="media/financial-reports.png":::
+
+> [!NOTE]
+> The sample finance reports in [!INCLUDE[prod_short](includes/prod_short.md)] aren't ready to use out of the box. Depending on how you set up your G/L accounts, dimensions, G/L account categories, and budgets, you need to adjust the sample row and column definitions and the finance reports they're used in to match your setup.
+
+You can also use formulas to compare two or more financial reports and column definitions. Comparisons let can do the following things:
+
+- Create customized financial reports.
+- Create as many financial reports as you need, each with a unique name.
+- Set up various report layouts and print the reports with the current figures.
+
+To learn more about comparisons, go to [When to use a comparison period formula and comparison date formula in a column definition](bi-design-financial-reports.md#when-to-use-a-comparison-period-formula-and-comparison-date-formula-in-a-column-definition).
+
+## Manage the lifecycle of financial reports
+
+[!INCLUDE [block-row-column-def](includes/block-row-column-def.md)]
+
+## Categorize financial reports
+
+To make it easier to find various financial reports, you can assign them to financial report categories. These categories often mirror the chart of accounts, and organize reports in a similar way as account categories organize general ledger accounts. [!INCLUDE [prod_short](includes/prod_short.md)] provides some financial report categories, but you can create your own and assign them to your reports. 
+
+To create or view financial report categories, [!INCLUDE [open-search-lowercase](includes/open-search-lowercase.md)], enter **Financial Report Categories**, and choose the related link. You assign categories to your reports in the **Category** field on the **Financial Reports** page.
+
+## Learning path: Create financial reports in Microsoft Dynamics 365 Business Central
+
+Want to learn how to create budgets and use financial reports, dimensions, and row and column definitions to generate financial reports that businesses often need?
+
+Start on the following learning path [Create financial reports in Microsoft Dynamics 365 Business Central](/training/paths/create-financial-reports-dynamics-365-business-central).
+
+## Create a new financial report
+
+You use financial reports to analyze general ledger accounts or to compare general ledger entries with budget entries. For example, you can view the general ledger entries as percentages of the budget entries.
+
+The financial reports in the standard version of [!INCLUDE[prod_short](includes/prod_short.md)] might not suit your business needs. To quickly create your own financial reports, start by copying an existing one, as described in step 3 below.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature 1.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.  
+1. On the **Financial Reports** page, choose the **New** action to create a new financial report name. Alternatively, to reuse settings from an existing financial report, choose the report, and then choose the **Copy Report Definition** action.
+1. In the **Name** field, enter a short name for the report
+
+   > [!NOTE]
+   > You can't change the name later.
+1. In the **Display Title** field, enter a description of the report.
+1. Choose a row definition and a column definition.
+1. Optionally, choose analysis views for the row and column definitions.
+1. Choose the **View Financial Report** action to access more properties on the financial report.
+1. On the **Options** FastTab, you can edit the report title, change the row and column definitions, write an internal description, set the formatting for negative numbers, and define how to show dates. Dates can be a Day/Week/Month/Quarter/Year hierarchy, or use accounting periods. To learn more, go to [Comparing accounting periods using period formulas](bi-column-definitions.md#comparing-accounting-periods-using-period-formulas).
+1. On the **Dimensions** FastTab, you can define dimension filters for the report.
+1. If you want the report output to include an introductory and/or a closing paragraph, add them from the *Definitions* menu (these fields are available from the [!INCLUDE[2025_releasewave1_name](includes/2025_releasewave1_name.md)] and later).  
+1. You can now preview the report in the area below the **Dimensions** FastTab.
+
+> [!NOTE]
+> When you open a financial report in View or Edit mode, the Filter pane is available. Don't use the Filter pane to set filters for the data in your report. Such filters can cause errors or might not actually filter the data. Instead, use the fields on the **Options** and **Dimensions** FastTabs to set up filters for the report.
+
+### Adding introductory and/or closing paragraphs
+
+[!INCLUDE[prod_short](includes/introduced_in_2025rw1.md)]
+
+If you want the report output to include an introductory and/or a closing paragraph, you can use the **Edit introductory/closing paragraphs** action on the **Definitions** menu. When you export the report to PDF or Excel, these paragraphs display before and after the report body.
+
+### Choosing a format for negative numbers
+
+[!INCLUDE[prod_short](includes/introduced_in_2025rw1.md)]
+
+If you want to control how negative numbers show in the report output (both on-screen and in PDF), you use the **Negative Amount Format** action on the **Options** FastTab to choose your preferred format. The format can be a minus sign or parentheses.
+
+### Show amounts in an additional currency (ACY)
+
+Your general ledger is set up to use your local currency (LCY), but you can set it up to also use another currency with a current exchange rate assigned. If you designate a second currency as an additional reporting currency (ACY), [!INCLUDE[prod_short](includes/prod_short.md)] automatically records amounts in both LCY and ACY on each G/L entry.
+
+Financial reports are based on G/L entries. To display report data in the additional reporting currency, select the **Show Amounts in Add. Reporting Currency** checkbox on the **Options** FastTab for the relevant report.
+
+> [!TIP]
+> You can report on both LCY and ACY in the same report. To learn more, go to [Create reports that include both local currency and additional currency](bi-column-definitions.md#create-reports-that-include-both-local-currency-and-additional-currency).
+
+> [!NOTE]
+> The **Show Amounts in Add. Reporting Currency** checkbox is only available if you set up an ACY. To learn more, go to [Set Up an Additional Reporting Currency](finance-how-setup-additional-currencies.md).
+
+### Create or edit a row definition
+
+Row definitions in financial reports provide a place for calculations that can't be made directly in the chart of accounts. For example, you can create subtotals for groups of accounts and then include that total in other totals. You can also calculate intermediate steps that aren't shown in the final report.
+
+Row definitions also provide settings for formatting your report. Most of the options provide visual definition to reports when people view or preview them on their monitors, or print them.
+
+> [!NOTE]
+> Some of the formatting options don't carry over when you export them to Excel. If you often export reports to Excel, you might skip the formatting here and format the report in Excel instead.
+
+To learn more, go to [Row definitions in financial reporting](bi-row-definitions.md).
+
+### Create or edit a column definition
+
+Use column definitions to specify the columns to include in the report. For example, you can design a report layout to compare net change and balance for the same period this year and last year. You can have up to 15 columns in a column definition. For example, multiple columns are useful for displaying budgets for 12 months with a column that shows the total.
+
+To learn more, go to [Column definitions in financial reporting](bi-column-definitions.md).
+
+## Using dimensions in financial reports
+
+In financial analysis, a dimension is data you add to an entry as a kind of marker. This data is used to group entries with similar characteristics, such as customers, regions, products, and salesperson, and easily retrieve these groups for analysis. You can use dimensions on entries in journals, documents, and budgets.
+
+Each dimension describes the focus of analysis. So, a two-dimensional analysis, for example, would be sales per area. By using more than two dimensions when you create an entry, you can carry out a more complex analysis. An example of a complex analysis is exploring sales per sales campaign per customer group per area. That gives you greater insight into your business, such as how well your business is operating, where it is or isn't thriving, and where you should allocate more resources. That insight helps you make more informed business decisions. To learn more, go to [Work with Dimensions](finance-dimensions.md).
+
+## Set up financial reports with overviews
+
+You can use a financial report to create a statement that compares general ledger figures with budget figures.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.
+1. On the **Financial Reports** page, select a financial report.  
+1. Choose the **Edit Row Definition** action  
+1. On the **Row Definition** page, in the **Name** field, select the default financial report name.
+1. Choose the **Insert G/L Accounts** action.  
+1. Select the accounts you want to include in your statement, then choose **OK**.
+
+    The accounts are inserted in your financial report. If you want, you can also change the column definition.  
+1. Choose the **Edit Financial Report** action.  
+1. On the **Financial Report** page, on the **Dimensions** FastTab, set the budget filter to the filter name you want to use.  
+1. Choose **OK**.  
+
+Now you can copy and paste your budget statement into a spreadsheet.  
+
+## Best practices for working with financial report definitions
+
+Financial report definitions aren't versioned. When you change a report definition, the old version is replaced when your change saves to the database. The following list contains some best practices for working with financial report definitions:
+
+- If you add report definitions, choose a good code and fill in the description field with a meaningful text while you still know what you use the report for. This information helps your coworkers (and your future self) to work with the report and perhaps changing the report definition.
+- Before you change a report definition, consider taking a copy of it as a backup, just in case your change doesn't work as expected. You can either just copy the definition (give it a good name), or export it. To learn more, go to [Import or export financial report definitions](#import-or-export-financial-report-definitions).
+- If you need a fresh copy of a definition that [!INCLUDE[prod_short](includes/prod_short.md)] provides, an easy way to get one is to create a new company that only contains setup data. Then, export the definition and import it in the company where the definition needs a refresh.
+
+## Import or export financial report definitions
+
+You can import and export financial report definitions as RapidStart configuration packages. For example, configuration packages are useful for sharing information with other companies. The package is created in a .rapidstart file, which compresses the contents.
+
+> [!NOTE]
+> When you import financial report definitions, the new definitions replace existing records with the same names. The configuration package for a report definition won't overwrite any existing row or column definitions that the report definition uses.
+
+To import or export financial report definitions, follow these steps:
+
+1. Choose the ![Lightbulb that opens the Tell Me feature 4.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Financial Reports**, then choose the related link.
+1. Choose the financial report, then choose the **Import Financial Report** or **Export Financial Report** action, depending on what you want to do.
+
+To learn more about how to import or export financial report row or column definitions, go to the following articles: 
+
+- [Import or export financial reporting row definitions](bi-row-definitions.md#import-or-export-financial-reporting-row-definitions), or
+- [Import or export financial reporting column definitions](bi-column-definitions.md#import-or-export-financial-report-column-definitions)
+
+## Integrate financial reports with Excel
+
+[!INCLUDE[integrate_financial_reports_with_excel_intro](includes/include-integrate-financial-reports-with-excel-intro.md)]
+
+To learn more, go to [Integrate financial reports with Excel](finance-financial-reporting-integrate-financial-reports-with-excel.md).
+
+## Print and save financial reports
+
+You can print financial reports using your device's printing services. [!INCLUDE[prod_short](includes/prod_short.md)] also offers options to save reports as PDF files. 
+
+To learn more, go to [How to print and save financial reports](./finance-financial-reporting-view-a-report.md#print-and-save-financial-reports).
+
+## Related information
+
+[Report selection for finance reports](finance-financial-reporting-report-selection.md)   
+[View a financial report](finance-financial-reporting-view-a-report.md)  
+[Row definitions in financial reporting](bi-row-definitions.md)  
+[Column definitions in financial reporting](bi-column-definitions.md)  
+[Financial Reporting Auditing](finance-financial-reporting-auditing.md)  
+[The General Ledger and the Chart of Accounts](finance-general-ledger.md)  
+[Financial analytics overview](bi.md)  
+[Finance](finance.md)  
+[Setting Up Finance](finance-setup-finance.md)  
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/warehouse-how-ship-items
+---
+title: Ship items
+description: This article describes how to ship items from your warehouse.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 06/10/2024
+ms.custom: bap-template
+ms.search.form: 7335, 7337, 7339, 7340, 7341, 7362, 9008
+ms.service: dynamics-365-business-central
+---
+
+# Ship items with a warehouse shipment
+
+In [!INCLUDE[prod_short](includes/prod_short.md)], you pick and ship items using one of four methods, as described in the following table.
+
+|Method|Outbound Process|Require Pick|Require Shipment|Complexity Level (Learn more at [Warehouse Management Overview](design-details-warehouse-management.md))|  
+|------|----------------|-----|---------|-------------------------------------------------------------------------------------|  
+|A|Post the pick and shipment from the order line|||No dedicated warehouse activity.|  
+|B|Post the pick and shipment from an inventory pick document|Turned on||Basic: Order-by-order.|  
+|C|Post the pick and shipment from a warehouse shipment document||Turned on|Basic: Consolidated receive/ship posting for multiple orders.|  
+|D|Post the pick from a warehouse pick document, and post the shipment from a warehouse shipment document|Turned on|Turned on|Advanced|  
+
+To learn more about shipping items, go to [Outbound Warehouse Flow](design-details-outbound-warehouse-flow.md).
+
+This article refers to methods C and D in the table. In both methods, you start by creating a shipment document from a business source document. Then you pick the specified items for the shipment.
+
+When a location requires warehouse shipments, you can ship items based on source documents that were released to the warehouse. Releasing source documents makes the items on them ready to be handled in the warehouse. The following are examples of source documents:
+
+* Sales orders
+* Purchase return orders
+* Transfer orders
+* Service orders
+
+You can create a warehouse shipment in one of two ways:
+
+* In a push fashion, when work is done on an order-by-order basis. Choose the **Create Warehouse Shipment** action in the source document to create a warehouse shipment for the document.
+* In a pull fashion, where you use the **Release** action in the source document to release it to the warehouse. A warehouse employee creates a **Warehouse Shipment** for one or many released source documents. The following procedure describes how to create warehouse shipment in a pull fashion.
+
+## To ship items using a warehouse shipment document
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Warehouse Shipments**, then choose the related link.  
+2. Choose **New**.  
+3. In the **No.** field, choose the number series to use to create an ID for the shipment.  
+4. In the **Location Code** field, choose the location you're shipping from. 
+
+    When you retrieve source document lines, some of the information from the location is copied to each line.  
+5. If the location requires bins, fill in the **Bin Code** field. Depending on your setup, [!INCLUDE[prod_short](includes/prod_short.md)]] can add the bin code for you. Learn more at [Zone and bin codes](warehouse-how-ship-items.md#zone-and-bin-codes).  
+6. You can get the source document in two ways:
+
+    * Choose the **Get Source Documents** action. The **Source Documents - Outbound** page opens. Here you can select one or more source documents released to warehouse that requires shipment.
+    * Choose the **Use Filters to Get Src. Docs.** action. The **Filters to Get Source Docs.** page opens. You can select the source document filter and apply it. All released source document lines that fulfill the filter criteria are added on the **Warehouse Shipment** page. Learn more at [How to Use Filters to Get Source Documents](warehouse-how-ship-items.md#how-to-use-filters-to-get-source-documents).
+
+    > [!NOTE]
+    > If your location uses cross-docking and bins for each line, you can review the quantity of items placed in the cross-dock bins. [!INCLUDE [prod_short](includes/prod_short.md)] calculates the quantities whenever the fields on the shipment are updated. If they're the items on the shipment you're preparing, you can create a pick for all the items and then complete the shipment. Learn more at [Cross-Dock Items](warehouse-how-to-cross-dock-items.md).
+
+7. Create a warehouse pick. If the location requires picking, you can create pick activities for warehouse shipments in one of two ways:
+
+    * In a push fashion, where you use the **Create Pick** action. Select the lines to pick and specify information about the picks. For example, which bins to take from and place in, and how many units to handle. The bins can be predefined for the warehouse location or resource.
+    * In a pull fashion, where you use the **Release** action. On the **Pick Worksheet** page, use the **Get Warehouse Documents** action to get your assigned picks. When the warehouse picks are fully registered, the lines in the **Pick Worksheet** are deleted. Learn more at [Pick Items for Warehouse Shipment](warehouse-how-to-pick-items-for-warehouse-shipment.md).
+
+    > [!TIP]
+    > For a location that doesn't require picking, you can print warehouse shipment and use it as a picking list.
+
+8. Specify the quantity to ship.  
+
+    For a location that requires picking, the **Qty. to Ship** field is updated automatically when the pick is registered. Otherwise, the **Qty. to Ship** field is filled with the quantity outstanding for each line when warehouse shipment line is created.
+
+    You can change the quantity, but you can't ship more items than the number in the **Qty. Outstanding** field on the source document line or the **Qty. Picked** field if picking is required.
+
+    To set the value in the **Qty. to Ship** field on all lines to zero, choose the **Delete Qty. to Ship** action. For example, setting the quantities to zero is useful if you're using a barcode scanner to update the shipping quantities. To add the quantity available for shipping, choose the **Autofill Qty. to Ship** action.
+
+9. Post the shipment.
+
+    [!INCLUDE [preview-posting-shipment](includes/preview-posting-shipment.md)]
+
+## How to use filters to get source documents
+
+From a warehouse shipment, you can use the **Filters to Get Source Docs.** page to retrieve the released source document lines that define which items to ship.
+
+1. In the warehouse shipment, choose the **Use Filters to Get Src. Docs.** action. 
+2. To set up a new filter, enter a descriptive code in the **Code** field, then choose the **Modify** action.
+
+    The **Source Document Filter Card - Outbound** page opens.
+
+3. Use the filters to define the type of source document lines to retrieve. For example you can select types of source documents, such as sales or transfer orders.
+4. Choose **Run**.  
+
+All released source document lines that meet the filter criteria are added on the **Warehouse Shipment** page on which you set the filters.
+
+You can make an unlimited number of filter combinations. Filters are saved on the **Filters to Get Source Docs.** page and are available the next time you need them. You can change the criteria at any time by choosing the **Modify** action.
+
+## Zone and bin codes
+
+If bins are mandatory at the location, [!INCLUDE [prod_short](includes/prod_short.md)] suggests a zone and bin code on the warehouse shipment document.
+
+* For advanced configurations in which a location uses directed put-away and pick, [!INCLUDE [prod_short](includes/prod_short.md)] uses the bin specified in the **Shipment Bin Code** field on the **Location Card**. If a **Shipment Bin Code** isn't specified, the field is blank. If the item and shipment bin don't match, [!INCLUDE [prod_short](includes/prod_short.md)] leaves the shipment bin blank.
+* In other cases, [!INCLUDE [prod_short](includes/prod_short.md)] always uses the bin specified in the **Shipment Bin Code** field on the **Location Card** first. If a shipment bin code isn't specified, [!INCLUDE [prod_short](includes/prod_short.md)] uses the bin code from the source document.
+
+## Handling Assemble-to-Order Items in Warehouse Shipments
+
+In assemble-to-order scenarios, use the **Qty. to Ship** field on warehouse shipment lines to record how many units are assembled. The quantity is posted as assembly output when you post the warehouse shipment. For other warehouse shipment lines, the value in the **Qty. to Ship** field is zero.
+
+When workers finish assembling some or all of the assemble-to-order quantity, record the quantity on the **Qty. to Ship** field on the warehouse shipment line. Then choose the **Post Shipment** action. The assembly output is posted, including the component consumption. A sales shipment for the quantity is posted for the sales order.
+
+From the assembly order, you can choose **Asm.-to-Order Whse. Shpt. Line** to access the warehouse shipment line.
+
+After you post the warehouse shipment, various fields on the sales order line are updated to show progress in the warehouse. The following fields are also updated to show how many assemble-to-order quantities remain to be assembled and shipped:
+
+* **ATO Whse. Outstanding Qty.**
+* **ATO Whse. Outstd. Qty. (Base)**
+
+> [!NOTE]
+> In combination scenarios where a part of the quantity must be assembled and another must be shipped from inventory, two warehouse shipment lines are created. One is for the assemble-to-order quantity, and one is for the inventory quantity.
+>
+> The assemble-to-order quantity is handled as described in this article. The inventory quantity is handled as a regular warehouse shipment line. To learn more about combination scenarios, go to [Understanding Assemble to Order and Assemble to Stock](assembly-assemble-to-order-or-assemble-to-stock.md).
+
+## Related information
+
+[Inventory](inventory-manage-inventory.md)  
+[Setting Up Warehouse Management](warehouse-setup-warehouse.md)  
+[Assembly Management](assembly-assemble-items.md)  
+[Warehouse Management Overview](design-details-warehouse-management.md)
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-to-change-the-annual-amount-on-service-contracts-or-contract-quotes
+---
+title: Change the annual amount on service contracts or contract quotes
+description: Learn how to update the annual invoiced amount on service contracts or contract quotes in Business Central.
+author: brentholtorf
+ms.topic: how-to
+ms.devlang: al
+ms.search.keywords: service contracts, contract quotes, annual amount
+ms.date: 10/03/2025
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: v-soumramani
+---
+
+# Change the annual amount on service contracts or contract quotes
+
+You can change the annual amount of the service contract or contract quote to correct the amount that will be invoiced annually.  
+
+## Change the annual amount of the service contract or contract quote  
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Service Contracts** or **Service Contract Quotes**, and then choose the related link.  
+2. Choose the contract or contract quote.  
+3. Choose the **Open Contract** action to open the contract or contract quote for editing.  
+4. Choose the **Allow Unbalanced Amounts** check box if you want to change the annual amount and distribute the annual amount difference manually on the contract lines. Otherwise, clear the check box to automatically distribute the annual amount difference on the contract lines after you change the annual amount.  
+5. Change the contents of the **Annual Amount** field. You can't sign, that is, convert into a service contract if you're working on a contract quote, or lock a service contract that has a negative annual amount. If you set the annual amount to zero, the contents of the **Invoice Period** field must be **None** when either signing or locking the service contract.  
+6. Depending on whether the **Allow Unbalanced Amounts** check box is selected, run either the manual or automatic distribution of the annual amount difference. The contract lines are updated so that the **Calcd. Annual Amount** field value is equal to the new annual amount.  
+
+## Distribute differences between new and calculated annual amounts
+
+If you change the annual amount of a service contract or contract quote, you may want to distribute the difference between its new and calculated annual amounts on the contract lines. There are three ways to distribute amounts:
+
+* Even distribution  
+* Distribution based on line amounts  
+* Distribution based on Profit
+
+### Even distribution
+
+If you change the annual amount of the service contract or contract quote, you may want to distribute the difference between its new and calculated annual amounts on the contract lines. Even distribution is one of the automatic distribution methods that can help you spread equally the new and calculated annual amounts difference between line amounts on the contract lines. The following list of distribution procedure steps describe the main idea of this method:  
+
+1. The difference between the new **Annual Amount** and **Calcd. Annual Amount** field values are divided by the number of the contract lines in the service contract or contract quote.  
+2. The **Line Amount** field value is updated by adding the result of the previous operation.  
+3. The contents in the **Line Discount Amount**, **Line Discount %**, and **Profit** fields are updated with regard to the new value in the **Line Amount** field in the following way:
+
+    * Line Discount Amount = Line Value - Line Amount.  
+    * Line Discount % = Line Discount Amount / Line Value * 100.  
+    * Profit = Line Amount - Line Cost.  
+
+ The steps are repeated for each contract line.  
+
+#### Example
+
+The **Allow Unbalanced Amounts** check box isn't selected in the service contract that contains three contract lines with such information.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|30.00|40.00|0.00|0.00|40.00|10.00|  
+|Item 2|40.00|50.00|10.00|5.00|45.00|5.00|  
+|Item 3|50.00|70.00|10.00|7.00|63.00|13.00|  
+
+The **Annual Amount** field value is equal to the contents of the **Calcd. Annual Amount** field, which is always set to the sum of the line amounts. In this case, it's equal to the following:  40 + 45 + 63 = 148.  
+
+If you change the **Annual Amount** to 139, the amount is calculated that should be added to each **Line Amount** field value. This amount is calculated by subtracting the **Calcd. Annual Amount** from the new **Annual Amount** field value and dividing the result by the number of the contract lines in the service contract. In this case, it's equal to the following: (139 - 148) / 3 = -3. Then, the last calculated figure is added to each **Line Amount** field value and the **Line Discount %**, **Line Discount Amount**, and **Profit** field values are updated using the formulas in the procedure described above.  
+
+Finally, the contract lines contain this data.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|30.00|40.00|7.50|3.00|37.00|7.00|  
+|Item 2|40.00|50.00|16.00|8.00|42.00|2.00|  
+|Item 3|50.00|70.00|14.29|10.00|60.00|10.00|  
+
+### Distribution based on line amount
+
+If you change the annual amount of the service contract or contract quote, you may want to distribute the difference between its new and calculated annual amounts on the contract lines. Distribution Based on Line Amount is an automatic method that can help you spread the new and calculated annual amounts difference between the line amounts on the contract lines. This distribution is performed proportionally to their line amount shares in the calculated annual amount. The following list of distribution procedure steps for each contract line describe the main idea of this method:  
+
+1. The line amount percentage contribution is calculated as follows: the contents of the **Line Amount** field is divided by the **Calcd. Annual Amount** field values on all contract lines.  
+2. The **Line Amount** field value is updated by adding to it the difference between the new and calculated annual amounts, which is multiplied by the line amount percentage contribution.  
+3. The contents in the **Line Discount Amount**, **Line Discount %**, and **Profit** fields are updated with regard to the new value in the **Line Discount Amount** field in the following way:  
+
+    * Line Discount Amount = Line Value - Line Amount  
+    * Line Discount % = Line Discount Amount / Line Value * 100  
+    * Profit = Line Amount - Line Cost  
+
+The steps are repeated for each contract line.  
+
+#### Example
+
+The **Allow Unbalanced Amounts** check box isn't selected in the service contract that contains three contract lines with such information.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|15.00|17.00|3.00|0.51|25.00|1.49|  
+|Item 2|20.00|23.00|None|0.00|55.10|3.00|  
+|Item 3|24.00|27.00|3.00|0.81|112.70|2.19|  
+
+The **Annual Amount** field value is equal to the contents of the **Calcd. Annual Amount** field, which is always set to the sum of the line amounts. In this case, it's equal to the following: 16.49 + 23.00 + 26.19 = 65.68.  
+
+If you change the **Annual Amount** to 60, the profit percentage contribution for each contract line is calculated:  
+
+* Item 1 – 5 / (5 + 5.1 +12.7) = 0.2193 %  
+* Item 2 – 5.1 / (5 + 5.1 + 12.7) = 0.2237  
+* Item 3 – 12.7 / (5 + 5.1 + 12.7) = 0.557  
+
+The **Line Amount** field value is updated on each contract line using the following formula: Line Amount = Line Amount + difference between the new and calculated annual amounts * Percentage Contribution. After that, the **Line Discount Amount**, **Line Discount %**, and **Profit** field values are updated using the formulas described in the procedure above.  
+
+Finally, the contract lines contain this data.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|15.00|17.00|11.41|1.94|15.06|0.06|  
+|Item 2|20.00|23.00|8.65|1.99|21.01|1.01|  
+|Item 3|24.00|27.00|11.37|3.07|23.93|-0.07|  
+
+### Distribution based on profit
+
+If you change the annual amount of the service contract or contract quote, you may want to distribute the difference between its new and calculated annual amounts on the contract lines. Distribution Based on Profit is one of the automatic methods that can help you spread the new and calculated annual amounts difference between the line amounts on the contract lines. This distribution is performed proportionally to their profit shares in the total contract or contract quote profit. The following list of distribution procedure steps for each contract line describe the main idea of this method:  
+
+1. The profit percentage contribution is calculated as follows: the contents of the **Profit** field is divided by the sum of **Profit** field values on all contract lines.  
+2. The **Line Amount** field value is updated by adding to it the difference between the new and calculated annual amounts, which is multiplied by the profit percentage contribution.  
+3. The contents in the Line Discount Amount, Line Discount %, and Profit fields are updated with regard to the new value in the **Line Amount** field in the following way:  
+
+    * Line Discount Amount = Line Value - Line Amount  
+    * Line Discount % = Line Discount Amount / Line Value * 100  
+    * Profit = Line Amount - Line Cost  
+
+#### Example
+
+The **Allow Unbalanced Amounts** check box isn't selected in the service contract that contains three contract lines with such information.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|20.00|25.00|0.00|0.00|25.00|5.00|  
+|Item 2|50.00|58.00|5.00|2.90|55.10|5.10|  
+|Item 3|100.00|115.00|2.00|2.30|112.70|12.70|  
+
+The **Annual Amount** field value is equal to the contents of the **Calcd. Annual Amount** field, which is always set to the sum of the line amounts. In this case, it's equal to the following:  25.00 + 55.10 + 112.70 = 192.80.  
+
+ If you change the **Annual Amount** to 180, the profit percentage contributions for each contract line are calculated:  
+
+* Item 1 – 5 / (5 + 5.1 +1 2.7) = 0.2193 %  
+* Item 2 – 5.1 / (5 + 5.1 + 12.7) = 0.2237  
+* Item 3 – 12.7 / (5 + 5.1 + 12.7) = 0.557  
+
+The **Line Amount** field value is updated on each contract line using the following formula: Line Amount = Line Amount + difference between the new and calculated annual amounts * Percentage Contribution. After that, the **Line Discount Amount**, **Line Discount %**, and **Profit** field values are updated using the formulas in the step 3 of the procedure described above.  
+
+Finally, the contract lines contain this data.  
+
+|Item|Line Cost|Line Value|Line Discount %|Line Discount Amount|Line Amount|Profit|  
+|----------|---------------|----------------|---------------------|--------------------------|-----------------|------------|  
+|Item 1|20.00|25.00|11.24|2.81|22.19|2.19|  
+|Item 2|50.00|58.00|9.93|5.76|52.24|2.24|  
+|Item 3|100.00|115.00|8.20|9.43|105.57|5.57|  
+
+## Related information
+
+[Create Service Contracts and Service Contract Quotes](service-how-to-create-service-contracts-and-service-contract-quotes.md)  
+[Set Up Service Management](service-setup-service.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-transfers-in-planning
+---
+title: Design details - Transfers in planning
+description: Learn how to use transfer orders as a source of supply when planning inventory levels.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: article
+ms.date: 03/17/2026
+ms.custom: bap-template
+ms.search.keywords: design, transfer, sku, locations, warehouse
+ms.service: dynamics-365-business-central
+---
+# Design details: Transfers in planning
+
+Transfer orders are also a source of supply when working at the SKU level. When using multiple locations (warehouses), the SKU replenishment system can be set to Transfer, implying that the location is replenished by transferring goods from another location. In a situation with more warehouses, you might have a chain of transfers. Supply to GREEN location is transferred from YELLOW, supply to YELLOW is transferred from RED, and so on. In the beginning of the chain, there's a replenishment system of **Prod. Order** or **Purchase**.  
+
+![Example of transfer flow.](media/nav_app_supply_planning_7_transfers1.png "Example of transfer flow")  
+
+> [!NOTE]
+> [!INCLUDE [locations-cronus](includes/locations-cronus.md)]
+
+If you compare the following situations, it's clear that the planning task in the latter can become complex:
+
+* A supply order is directly facing a demand order
+* A sales order is supplied through a chain of SKU transfers
+
+If demand changes, it might cause a ripple effect through the chain. All transfer orders, plus the purchase and production order in the opposite end of the chain, will have to be updated to re-balance demand and supply.  
+
+![Example of supply/demand balance in transfers.](media/nav_app_supply_planning_7_transfers2.png "Example of supply/demand balance in transfers")  
+
+## Why is a transfer a special case?  
+
+Transfer orders are similar to other orders, such as purchase and production orders. However, behind the scene they're different.  
+
+One difference is that a transfer line represents both demand and supply. The outbound part that's shipped is demand. The inbound part that's received at the new location is supply at that location.  
+
+![Content of the Transfer Order page.](media/nav_app_supply_planning_7_transfers3.png "Content of the Transfer Order page")  
+
+When [!INCLUDE [prod_short](includes/prod_short.md)] changes the supply side of the transfer, it must make a similar change on the demand side.  
+
+## Transfers are dependent demand  
+
+The demand and supply relationship is similar to components on production order lines. The difference is that components on production order lines are on the next planning level, and have a different item. The two parts of the transfer are on the same level for the same item.  
+
+An important similarity is that components and transfers are dependent demand. Demand from a transfer line is dictated by the supply side of the transfer. If the supply changes, the demand is directly affected.
+
+Unless the planning flexibility is None, a transfer line shouldn't be treated as independent demand in planning.  
+
+In the planning procedure, the transfer demand should only be taken into account after the planning system has processed the supply side. Before that processing happens, the actual demand isn't known. The sequence of changes is important for transfer orders.  
+
+## Planning sequence  
+
+The following image shows an example of a string of transfers.  
+
+![Example of simple transfer flow.](media/nav_app_supply_planning_7_transfers4.png "Example of simple transfer flow")  
+
+In this example, a customer orders the item at location GREEN. Location GREEN is supplied through transfer from the central warehouse RED. The central warehouse RED is supplied by transfer from production on location BLUE.  
+
+In this example, the planning system starts at the customer demand and works its way back through the chain. The demands and supplies are processed for one location at a time.  
+
+![Supply planning with transfers.](media/nav_app_supply_planning_7_transfers5.png "Supply planning with transfers")  
+
+## Transfer level code  
+
+The transfer level code of the SKU determines the sequence in which the planning system processes locations.  
+
+The transfer level code is an internal field. The field is calculated and stored on the SKU when you create or modify the SKU. The calculation runs across all SKUs for a given combination of item and item variant. The calculation uses the location code and the transfer-from code to determine the route to use for the SKUs. The calculation ensures that all demands are processed.  
+
+The transfer level code will be 0 for SKUs with Purchase or Prod. Order replenishment system, and will be -1 for the first transfer level, -2 for the second, and so on. In the example described in the previous section, the levels would be -1 for RED and -2 for GREEN, as shown in the following illustration.  
+
+![Content of SKU Card page.](media/nav_app_supply_planning_7_transfers6.gif "Content of SKU Card page")  
+
+When updating a SKU, the planning system detects whether replenishment systems for SKUs have circular references.  
+
+## Planning transfers without SKU  
+
+For less advanced warehouse setups, you can use locations and make manual transfers between locations, even if you don't use SKUs. For example, the transfer might cover a sales order at that location. The planning system reacts to changes in the demand.  
+
+For manual transfers, the planning system analyzes transfer orders and then plans the order in which to process the locations. Internally, the planning system uses temporary SKUs that have transfer level codes.  
+
+![Transfer level code.](media/nav_app_supply_planning_7_transfers7.png "Transfer level code")  
+
+If there are several transfers to a location, the first transfer order defines the planning direction. Transfers in the opposite direction are canceled.  
+
+## Changing quantity with reservations  
+
+When changing quantities on a supply, the planning system takes reservations into account. The reserved quantity represents the lower limit for how much to reduce the supply.  
+
+When you change the quantity on a transfer order line, keep the lower limit in mind. The lower limit is the highest reserved quantity of the outbound and inbound transfer lines.
+
+For example, a transfer order line of 117 pieces is reserved for the following lines:
+
+* A sales line of 46
+* A purchase line of 24
+
+Even though the inbound side might have excess supply, you can't reduce the transfer line below 46.  
+
+![Reservations in transfer planning.](media/nav_app_supply_planning_7_transfers8.png "Reservations in transfer planning")  
+
+## Changing quantity in a transfer chain  
+
+Here's an example of what happens when you change a quantity in a transfer change.
+
+The starting point is a balanced situation with a transfer chain supplying a sales order of 27 at location RED. There's a corresponding purchase order at location BLUE. Both transfers go through location PINK. There are two transfer orders, BLUE-PINK and PINK-RED.  
+
+![Changing the quantity in transfer planning 1.](media/nav_app_supply_planning_7_transfers9.png "Changing the quantity in transfer planning 1")  
+
+Now, the planner at the PINK location chooses to reserve for the purchase.  
+
+![Changing the quantity in transfer planning 2.](media/nav_app_supply_planning_7_transfers10.png "Changing the quantity in transfer planning 2")  
+
+The reservation usually means that the planning system ignores the purchase order and transfer demand. There isn't a problem long as there's balance. But what happens when the RED location changes the order from 27 to 22?  
+
+![Changing the quantity in transfer planning 3.](media/nav_app_supply_planning_7_transfers11.png "Changing the quantity in transfer planning 3")  
+
+When the planning system runs again, it should get rid of excess supply. However, the reservation locks the purchase and the transfer to a quantity of 27.  
+
+![Changing the quantity in transfer planning 4.](media/nav_app_supply_planning_7_transfers12.png "Changing the quantity in transfer planning 4")  
+
+The PINK-RED transfer has been reduced to 22. The inbound part of the BLUE-PINK transfer isn't reserved, but the outbound part is. The reservation means that you can't reduce the quantity below 27.  
+
+## Lead time calculation  
+
+When calculating the due date of a transfer order, different kinds of lead time are taken into account.  
+
+The following lead times are active when planning a transfer order:  
+
+* Outbound warehouse handling time  
+* Shipping time  
+* Inbound warehouse handling time  
+
+On the planning line, the following fields are used to provide information about the calculation:  
+
+* Transfer shipment date  
+* Starting date  
+* Ending date  
+* Due date  
+
+The shipment date of the transfer line is shown in the **Transfer Shipment Date** field. The receipt date of the transfer line is shown in the **Due Date** field.  
+
+The starting and ending dates describe the actual transportation period.  
+
+The following image shows the interpretation of the starting date-time and ending date-time on planning lines for transfer orders.  
+
+![Central date-times in transfer planning.](media/nav_app_supply_planning_7_transfers13.png "Central date-times in transfer planning")  
+
+The example shows the following calculations:  
+
+* Shipment date + Outbound handling = Starting Date  
+* Starting Date + Shipping time = Ending Date  
+* Ending Date + Inbound Handling = Receipt Date  
+
+## Safety lead time  
+
+The **Default Safety Lead Time** field on the **Manufacturing Setup** page and the related **Safety Lead Time** field on the **Item Card** page aren't included in transfer order calculations. However, the safety lead time does influence the total plan. The safety lead time affects the replenishment order (purchase or production) at the beginning of the transfer chain. That's the point where the items were put in the location from which they'll be transferred.  
+
+![Elements of the transfer due date.](media/nav_app_supply_planning_7_transfers14.png "Elements of the transfer due date")  
+
+On the production order line, the Ending Date + Safety Lead Time + Inbound Warehouse Handling Time = Due Date.  
+
+On the purchase order line, the Planned Receipt Date + Safety Lead Time + Inbound Warehouse Handling Time = Expected Receipt Date.  
+
+## Reschedule  
+
+When you reschedule a transfer line, the planning system finds the outbound part and changes the date-time.
+
+> [!NOTE]
+> If a lead time is defined, there'll be a gap between the shipment and the receipt. The lead time can consist of more elements, such as transportation time and warehouse handling time. On a time line, the planning system moves back in time while it balances the elements.  
+
+![Changing the due date in transfer planning.](media/nav_app_supply_planning_7_transfers15.png "Changing the due date in transfer planning")  
+
+When you change the due date on a transfer line, the lead time must be calculated to update the outbound side of the transfer.  
+
+## Serial and lot numbers in transfer chains  
+
+If the demand uses serial or lot numbers, and you run the planning engine, it will create transfer orders. For more information about this concept, see Item Attributes. However, if serial or lot numbers are removed from the demand, the transfer orders still use the serial or lot numbers and planning will ignore them (not deleted).  
+
+## Order-to-order links  
+
+In this example, the BLUE SKU is set up with an **Order** reordering policy. The PINK and RED SKUs have the **Lot-for-Lot** reordering policy. Creating a sales order for 27 at location RED leads to a chain of transfers. The last transfer is at location BLUE, and it's reserved with binding. In this example, the reservations aren't hard reservations created by the planner at PINK location. The planning system creates the bindings. The important difference is that the planning system can change the latter.  
+
+![Order-to-order links in transfer planning.](media/nav_app_supply_planning_7_transfers16.png "Order-to-order links in transfer planning")  
+
+If the demand is changed from 27 to 22, the planning system will lower the quantity through the chain. The binding reservation is also reduced.  
+
+## Related information  
+
+[Design Details: Planning Parameters](design-details-planning-parameters.md)   
+[Design Details: Planning Assignment Table](design-details-planning-assignment-table.md)   
+[Design Details: Handling Reordering Policies](design-details-handling-reordering-policies.md)   
+[Design Details: Planning With or Without Locations](production-planning-with-without-locations.md)   
+[Design Details: Central Concepts of the Planning System](design-details-central-concepts-of-the-planning-system.md)   
+[Design Details: Balancing Demand and Supply](design-details-balancing-demand-and-supply.md)   
+[Design Details: Supply Planning](design-details-supply-planning.md)
+
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-customer-retention-history
+---
+title: Customer Retention History (Power BI report)
+description: The Customer Retention History page provides historical insights into customer retention metrics, allowing analysis of trends over time.
+author: kennienp
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.search.form: 37114_Primary
+ms.date: 03/03/2026
+ms.service: dynamics-365-business-central
+---
+
+# Customer Retention History (Power BI Report)
+
+The **Customer Retention History** report provides historical insights into customer retention trends, allowing detailed analysis of customer loyalty metrics. This report compares customer retention volume metrics over time for New, Lost, Returning, and Recovered customers, providing measurable insights into customer engagement. You can use these insights to anticipate customer trends and implement sales strategies, improving customer retention and engaging with new demographics.
+
+:::image type="content" source="media/powerbi/sales/sales-customer-retention-overview.png" alt-text="Screenshot of the Customer Retention History report." lightbox="media/powerbi/sales/sales-customer-retention-history.png":::
+
+## Use the report
+
+Sales managers can use this report to analyze customer retention and empower actionable sales strategies to optimize ongoing sales performance.
+
+With the New and Returning Customers analysis, you identify a decrease in new customers in recent months. In response, you decide to launch a new marketing campaign targeting first-time customers to engage with new customers and invigorating future sales performance.
+
+Using the Temporarily Lost vs Lost Customers visual, you identify a comparative increase in lost customers who weren't recovered. To improve customer retention, you invest in extra salesperson training to improve customer engagement strategies and strengthen customer loyalty, ensuring ongoing returning sales.
+
+## Key Performance Indicators (KPIs)
+
+The **Customer Retention History** report includes the following KPIs and measures:
+
+- [No. of Lost Customers](sales-powerbi-sales-kpis.md#no-of-lost-customers)
+- [No. of New Customers](sales-powerbi-sales-kpis.md#no-of-new-customers)
+- [No. of Recovered Customers](sales-powerbi-sales-kpis.md#no-of-recovered-customers)
+- [No. of Returning Customers](sales-powerbi-sales-kpis.md#no-of-returning-customers)
+- [No. of Temporarily Lost Customers](sales-powerbi-sales-kpis.md#no-of-temporarily-lost-customers)
+- [Sales New Customers](sales-powerbi-sales-kpis.md#sales-new-customers)
+- [Sales Recovered Customers](sales-powerbi-sales-kpis.md#sales-recovered-customers)
+- [Sales Returning Customers](sales-powerbi-sales-kpis.md#sales-returning-customers)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables:
+
+- Sales Value Entries
+- Sales Invoice Lines  
+- Project Ledger Entries
+- Customer
+
+## Try the report
+
+Try the report here: [Sales Demographics](https://businesscentral.dynamics.com?page=37114)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-extensions-essential-business-insights
+---
+title: Display actionable insights in Role Centers
+description: Learn how the Essential Business Insights extension rotates a series of business insights on Role Centers.
+documentationcenter: ''
+author: brentholtorf
+ms.topic: article
+ms.devlang: al
+ms.search.keywords: BI, add-in, insight, headline, data
+ms.search.form: 1439, 
+ms.date: 12/12/2023
+ms.author: bholtorf
+ms.service: dynamics-365-business-central
+ms.reviewer: bholtorf
+---
+
+# The Essential Business Insights extension
+
+The Essential Business Insights extension finds interesting business facts in your company data and displays them as newspaper-like headlines in Role Centers. Depending on what the extension finds in the data, the insights are from the last week, month, or three months from the current date. The insights update every 10 minutes.  
+
+If you want to take a closer look at an insight, you can choose it to go to its source. For example, if you want details about the largest sales invoice that was posted last week, you can choose the insight to display the invoice.
+
+The following table describes the insights that this extension provides for each Role Center.
+
+|Role Center|Questions the Insights Answer|
+|----|-----|
+|Default|Displays a greeting, and link to product information.|
+|Business Manager|<li> What was the most popular item last week, month, or last three months, and how many did we sell?<br><li> What was the largest sale order last week, month, or last three months?<br><li> Who, or what, was the busiest resource, and what were the bookings?<br><li> Have sales gone up in the last week, month, or three months, compared to the same period last year?<br><li> What was the biggest sales invoice we posted last week, month, or last three months, and to which customer did we send the bill?</li> |
+|Accountant|<li> What was the largest sales order and posted invoice last week, month, or last three months?<br><li> Have sales gone up in the last week, month, or three months, compared to the same period last year? |
+|Order Processor| What was the largest sale order and posted invoice last week, month, or last three months?|
+|Relationship Manager| What was the largest invoiced amount, and to which customer did we send the bill?|
+|Team Member| Displays a greeting, and link to product information.|
+|Project Manager| Displays a greeting, and link to product information.|
+|Administrator| Displays a greeting, and link to product information.|
+
+## Related information
+
+[Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md)
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-how-setup-troubleshooting
 ---
 title: Set up troubleshooting processes | Microsoft Docs
@@ -11444,7 +12294,7 @@ ms.topic: how-to
 ms.devlang: al
 ms.search.keywords: Sustainability, ESG, emission, GHG, CSRD, carbon, credit, CO2
 ms.search.form: 
-ms.date: 08/20/2024
+ms.date: 07/09/2026
 ms.author: altotovi
 ms.service: dynamics-365-business-central
 ms.reviewer: solsen
@@ -11463,9 +12313,9 @@ You set up carbon credits in [!INCLUDE[prod_short](includes/prod_short.md)] as i
 To set up an item as a carbon credit, follow these steps:
   
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Items**, and then select the related link.
-2. Create a new item. To learn more about how to create an item, go to [Register new items](inventory-how-register-new-items.md).
-3. On the **Sustainability** FastTab, turn on the **GHG Credit** toggle.
-4. In the **Carbon Credit Per UOM** field, enter the value of the carbon credit.
+1. Create a new item. To learn more about how to create an item, go to [Register new items](inventory-how-register-new-items.md).
+1. On the **Sustainability** FastTab, turn on the **GHG Credit** toggle.
+1. In the **Carbon Credit Per UOM** field, enter the value of the carbon credit.
 
 > [!NOTE]
 > The **Carbon Credit Per UOM** field represents the amount of CO₂ in the unit of measure configured in the **Emission Unit of Measure Code** field on the **Sustainability Setup** page. The total value of carbon credit is the amount of credited CO₂ per one **Base Unit of Measure** of the item.
@@ -11479,10 +12329,10 @@ To work with any purchase-related documents, follow the steps:
 1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon and:  
    1. Enter **Purchase Invoices** if you want invoice as a **Document Type**, and then select the related link.  
    2. Enter **Purchase Orders** if you want order as a **Document Type**, and then select the related link.
-2. Fill in the fields on the **General** FastTab. To learn more, go to [How to work with purchase invoices and orders](purchasing-how-record-purchases.md).
-3. On the **Lines** FastTab, choose the item configured as a carbon credit in the **No.** field on a line. Then fill in the **Quantity** and **Direct Unit Cost** fields.
-4. In the **Sustainability Account No.** field, choose the account to use for decreasing your carbon dioxide (CO₂) value. [!INCLUDE [prod_short](includes/prod_short.md)] automatically fills in the **Emission CO2** field based on the value you configured in the **Carbon Credit Per UOM** field on the **Item** card.
-5. Post the document.
+1. Fill in the fields on the **General** FastTab. To learn more, go to [How to work with purchase invoices and orders](purchasing-how-record-purchases.md).
+1. On the **Lines** FastTab, choose the item configured as a carbon credit in the **No.** field on a line. Then fill in the **Quantity** and **Direct Unit Cost** fields.
+1. In the **Sustainability Account No.** field, choose the account to use for decreasing your carbon dioxide (CO₂) value. [!INCLUDE [prod_short](includes/prod_short.md)] automatically fills in the **Emission CO2** field based on the value you configured in the **Carbon Credit Per UOM** field on the **Item** card.
+1. Post the document.
 
 > [!NOTE]
 > Although carbon credits decrease the value of entries, the **Emission CO2** field shows a positive amount. After you post the document, on the **Sustainability Ledger Entry** page, the entries have negative values and the **Document Type** field shows **GHG Credit**.  
@@ -11492,11 +12342,22 @@ To work with any purchase-related documents, follow the steps:
 To work with sustainability journals, follow these steps:  
 
 1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Sustainability Journal**, and then select the related link.
-2. On the **Sustainability Journal** page, enter as many lines as you intend to post in the same batch.  
-3. In the **Document Type** field, choose **GHG Credit**.
-4. In the **Account No.** field, you can select only nonblocked sustainability accounts where the **Direct Posting** field is selected and the **Accounting Type** field is set to **Posting**. The accounts must also be configured with a category and a subcategory. Choose the account to which you post carbon credits.
-5. Select the **Manual Input** checkbox, and then enter the value you want to post as a carbon credit to the **Emission CO2** field.  
-6. Post the journal.
+1. On the **Sustainability Journal** page, enter as many lines as you intend to post in the same batch.  
+1. In the **Document Type** field, choose **GHG Credit**.
+1. In the **Account No.** field, select only nonblocked sustainability accounts where the **Direct Posting** field is selected and the **Accounting Type** field is set to **Posting**. The accounts must also be configured with a category and a subcategory. Choose the account to which you post carbon credits.
+1. Select the **Manual Input** checkbox, and then enter the value you want to post as a carbon credit to the **Emission CO2** field.
+1. If the sustainability account category uses the **Custom** calculation foundation with the **Calculate from General Ledger** option enabled, you must collect the custom amount from posted G/L entries before posting. To do that:
+
+   - Make sure the correct **Account No.** is assigned to the journal line. The sustainability account must be linked to a category that has **Calculate from General Ledger** enabled with a **G/L Account** filter configured.
+   - Select the **Collect Amount from G/L Entries** action.
+   - On the page that opens, specify a **From Date** and **To Date** to define the period from which to collect amounts.
+   - Select **OK**. [!INCLUDE [prod_short](includes/prod_short.md)] filters all G/L entries that match the account and dimension filters configured on the  account category, sums their amounts (as an absolute value), and populates the **Custom Amount** field on the journal line.
+   - The emission values (CO₂, CH₄, N₂O) or intensity values (Water, Waste) are then automatically calculated by multiplying the collected custom amount by the emission factors defined on the account subcategory.
+
+   > [!IMPORTANT]
+   > If you change emission factors on the subcategory after you fill in the journal lines, you must select the **Recalculate** action to update the emission amounts.
+
+1. Post the journal.
 
 ## Related information
 
@@ -18871,462 +19732,5 @@ The **Item Tracking Lines** and **Item Tracking Summary** pages provide dynamic 
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-integration-with-inventory
----
-title: Design Details - Integration with Inventory
-description: The Warehouse Management and the Inventory application area interact with one another in physical inventory and in inventory or warehouse adjustment.
-author: brentholtorf
-ms.topic: article
-ms.devlang: al
-ms.search.keywords:
-ms.date: 06/15/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Design Details: Integration with Inventory
-
-Warehouse management and inventory features interact with one another in physical inventory and in inventory or warehouse adjustment.  
-
-## Physical inventory  
-
-The **Whse. Phys. Inventory Journal** page is used with the **Phys. Inventory Journal** page for all advanced warehouse locations. The inventory on bin level is calculated, and a printed list is provided for the warehouse employee. The list shows which items in which bins must be counted.  
-  
-The warehouse employee enters the counted quantity on the **Whse. Phys. Inventory Journal** page and then posts the journal.  
-  
-If the counted quantity is greater than the quantity on the journal line, a movement is posted for this difference from the default adjustment bin to the counted bin. This increases the quantity in the counted bin and decreases the quantity in the default adjustment bin.  
-  
-If the quantity counted is less than the quantity on the journal line, a movement for this difference is posted from the counted bin to the default adjustment bin. This decreases the quantity in the counted bin and increases the quantity in the default adjustment bin.  
-  
-In advanced warehouse configurations, the value in the **Quantity (Calculated)** field is retrieved from item ledger entries and the value in the **Quantity (Phys. Inventory)** field is retrieved from warehouse entries, excluding the adjustment bin content. The **Quantity** field specifies the difference between the first two fields, which should be equal to the contents of the adjustment bin.  
-  
-When you post the physical inventory journal, the inventory and the default adjustment bin are updated.  
-
-[!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
-  
-## Warehouse adjustments to the item ledger  
-
-You use the **Item Journal** page and the **Calculate Whse. Adjustment** function to adjust inventory on the item ledger in accordance with an adjustment that has been made to the item quantity in a warehouse bin. To create a link between the inventory and the warehouse, you must define a default adjustment bin per location.  
-  
-The default adjustment bin registers items in the warehouse when you post an increase for the inventory. However, if you post a decrease, the quantity on the default bin is also decreased. In both cases, item ledger entries and warehouse entries are created.  
-  
-> [!NOTE]  
-> Inventory calculations don't include the adjustment bin.  
-  
-To adjust the bin content, use a warehouse item journal, where you can enter the item number, zone code, bin code, and quantity to adjust.  
-  
-If you enter a positive quantity and post the line, then the inventory stored in the bin increases, and the quantity of the default adjustment bin decreases correspondingly.  
-  
-## Related information  
-
-[Warehouse Management Overview](design-details-warehouse-management.md)  
-[Design Details: Availability in the Warehouse](design-details-availability-in-the-warehouse.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-detailed-vendor-ledger-entries
----
-title: Detailed Vendor Ledger Entries
-description: The Detailed Vendor Ledger Entries report provides a detailed view of individual transactions from the Detailed Vendor Ledger, enhanced with information from Vendor Ledger entries.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 36996_Primary
-ms.date: 10/31/2024
-ms.service: dynamics-365-business-central
----
-
-# Detailed Vendor Ledger Entries (Power BI report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Detailed Vendor Ledger Entries** report provides a view of individual transactions from the Detailed Vendor Ledger, enhanced with information from the Vendor Ledger. This report is a valuable tool for tracking vendor transactions, reconciliation, and facilitating efficient audits by giving easy access to detailed entry information.
-
-:::image type="content" source="media/finance/detailed-vendor-ledger-entries-report.png" alt-text="Screenshot of the Detailed Vendor Ledger Entries report" lightbox="media/finance/detailed-vendor-ledger-entries-report.png":::
-
-## Use the report
-
-The audiences for the report are:
-
-- Finance managers
-- Finance staff
-
-Finance managers use the report during month-end closing process. Filtering the report to the current month lets you systematically review open invoices, payments, and credit details. This review not only helps you maintain accurate accounts payable records, but also strengthens relationships with vendors by ensuring timely and correct payments.
-
-<!-- ## Key Performance Indicators (KPIs)
-
-The *Detailed Vendor Ledger Entries* report includes the following KPIs and measures: 
-
-- [**Amount Payable (LCY)**](####) -->
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Detailed Vendor Ledger Entries
-- Vendor Ledger Entries
-
-## Try the report
-
-Try the report here: [Detailed Vendor Ledger Entries](https://businesscentral.dynamics.com?page=36996)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI finance app](finance-powerbi-app.md)  
-[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Built-in core finance reports](finance-reports.md)  
-[Built-in fixed assets reports](fa-reports.md)  
-[Built-in accounts receivable reports](receivables-reports.md)  
-[Built-in accounts payable reports](payables-reports.md)  
-[Financial analytics overview](bi.md)  
-[Finance overview](finance.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-use-edocuments
----
-title: Use e-documents in sales
-description: Learn how to use e-documents functionality that is related to sales.
-author: altotovi
-ms.author: altotovi
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: electronic document, electronic invoice, e-document, e-invoice, sales, deliver
-ms.search.form: 42, 43, 132, 6103, 6133, 6121, 9301, 9305
-ms.date: 09/25/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Use e-documents in the sales process
-
-You can use configured electronic documents (e-documents) with the following sales documents:  
-
-- Sales invoices
-- Sales orders
-- Sales credit memos
-- Service invoices
-- Service credit memos
-- Issued finance charge memos
-- Issued reminders
-
-## E-documents in sales  
-
-To create and send an e-invoice to a customer, you must create and post the sales invoice. To learn more about the standard process, go to [Invoice Sales](sales-how-invoice-sales.md).
-
-Before posting, you can choose to add the attachment to the invoice if you want to embed it in the Peppol file format.
-
-When you receive an incoming e-document from an external service or manually upload one, you typically get an XML or similar format that might be difficult to read. For example, if you're not technical and don't understand the XML format, it's hard to review an invoice before you process it. To make it easier to review incoming e-documents, invoices and credit memos have an **E-invoice Lines** FastTab that displays details from the imported file, such as line and header information, in a way that's easy to understand.
-
-> [!NOTE]
-> The preview feature is available only for invoice and credit memo types of incoming e-documents.
-
-After you post the sales document, open the **Posted Sales Invoices** page to access the related **E-Documents** page.
-
-> [!NOTE]
-> When you use issued finance charge memos and issued reminders, [!INCLUDE [prod_short](includes/prod_short.md)] creates an electronic sales invoice file that contain financial details from these documents. If a document doesn't have a financial amount, [!INCLUDE [prod_short](includes/prod_short.md)] doesn't create the e-document.
-
-### View e-documents
-
-To view existing e-documents, follow these steps.
-
-1. On the **Posted Sales Invoices** page, select **E-Document**, and then select **Open E-Document**.
-2. On the **E-Documents** page, on the header, you can view basic information about the posted invoice.
-3. The **Record** field shows the document number of the posted sales invoice. Select the link to open the document.
-4. In the **Electronic Document Status** field, you can view the real-time status of the document and its location in the process. If the document is posted, the status is **Processed**.
-
-### Send e-documents via a service and email simultaneously
-
-[!INCLUDE [prod_short](includes/prod_short.md)] offers flexible ways to share documents and information quickly and easily. Document sending profiles let you specify your preferred way to send documents when you post them. For example, you might want to send a document by email or as an electronic document through a service you use. Or, you might want to do both at the same time. To learn more about document sending profiles, go to [Set Up Document Sending Profiles](sales-how-setup-document-send-profiles.md).
-
-If you choose the **Post** action from the **Sales Order**, **Sales Invoice** or **Sales Credit Memo** pages, [!INCLUDE [prod_short](includes/prod_short.md)] posts the document as usual. However, if you set up e-document workflow for the customer, it can also start a workflow to create an e-document. Then, when you choose **Post and Send**, [!INCLUDE [prod_short](includes/prod_short.md)] also sends the e-document via email as an attachment.
-
-Depending on whether you enable **Service Integration** on the **E-Document Service** page, you can choose one of the following ways to send documents in the sales process:
-
-- When **Service Integration** is enabled, use the **Post** action to send the e-document to the configured access point.
-- When **Service Integration** is enabled, use the **Post and Send** action to send the e-document to the configured access point and as an attachment in an email.
-- When **Service Integration** isn't enabled, use the **Post** action to create an e-document that you can download.
-- When **Service Integration** isn't enabled, use the **Post and Send** action to send the e-document by email.
-
-### E-document statuses and logs
-
-For details about the service status level of your e-document, check the **E-Document Service Status** FastTab. On the lines, the system shows one or more services that the document used. In the most common scenario, each document uses only one service. However, a document can use multiple services.
-
-- Check the **E-Document Service Code** field to determine which service was used.
-- Check the **E-Document Status** field to determine the current service status for this document.
-- If you want more details, select the **Logs** field for the service on the **E-Document Logs** page. A chronological overview of the different statuses for the document is shown.
-- Check the **Entry No.** and **Created At** fields, and other information on the **E-Document Logs** page. In the **E-Document Status** field, the first status is **Exported**, which indicates that the e-document file has been created. The next status is **Sent**, which indicates that document was sent to the service provider, if configured.
-
-For more insights, select the entry that has the **Exported** status, and then run one of the following actions:
-
-- **Open Mapping Logs** – Get an overview of all exported fields from the sourced tables in the **Original Value** field. If you used transformation rules in the export process, you can also get the final value in the **New Value** field.
-- **Export File** – Export the XML file for manual review.
-
-To view the communication between yourself and the service that you're sending your document to, use the **Communication Logs** field. Open the **E-Document Communication Logs** page to view details about the request and reasons message with that service.
-
-If there's an issue with the service provider, and the document can't be sent, look for the following indicators on the **E-Documents** page:
-
-- The **Electronic Document Status** field on the header shows the **Error** status.
-- The **E-Document Status** field on the **E-Document Service Status** FastTab shows the **Sending Error** status.
-- The **Error and Warnings** FastTab contains one or more messages that provide the cause of the issue.
-
-After the issue is fixed, manually run the **Send Document** actions. If you need different actions, such as **Recreated Document**, **Cancel Document**, or **Get Approval**, you can run them.
-
-## Manually create e-documents when they weren't created automatically
-
-Using e-documents requires some configuration, and sometimes people get that wrong. If there was a problem with your setup when you posted sales documents, [!INCLUDE [prod_short](includes/prod_short.md)] might not automatically create e-documents for them. If that happens, after you fix your setup, you can generate new e-documents from the posted documents.
-
-To check whether [!INCLUDE [prod_short](includes/prod_short.md)] created an e-document, open the **Posted Sales Invoice** page and select the **Open E-Document** action. If [!INCLUDE [prod_short](includes/prod_short.md)] doesn't find a related e-document, a message displays. Review your settings for your e-documents and correct any mistakes. To learn more about the setup, go to [Set up e-documents](finance-how-setup-edocuments.md).
-
-When you're ready, you can run the **Create New E-Document** action to generate an e-document based on the workflow rules.
-
-## Overview of e-document statuses
-
-To get a better overview of all e-documents in the company, you can select the **Accountant** role center where e-document statuses exist. There, you can find e-document activities that have the following statuses:
-
-- **Outgoing e-documents:**
-
-    - Processed
-    - In Progress
-    - Error
-
-## Related information
-
-[How to set up e-documents in [!INCLUDE[prod_short](includes/prod_short.md)]](finance-how-setup-edocuments.md)  
-[How to use e-documents in purchase](finance-how-use-edocuments-purchase.md)  
-[How to extend e-documents in [!INCLUDE[prod_short](includes/prod_short.md)]](/dynamics365/business-central/dev-itpro/developer/devenv-extend-edocuments)  
-[Financial Management](finance.md)  
-[Invoice Sales](sales-how-invoice-sales.md)  
-[Record Purchases with Purchase Invoices and Orders](purchasing-how-record-purchases.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/inventory-powerbi-item-availability
----
-title: Item Availability (Power BI report)
-description: The Item Availability report gives an overview of the availability of each item. 
-author: kennienp
-ms.author: kepontop
-ms.reviewer: 
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 37026_Primary
-ms.date: 10/28/2024
-ms.service: dynamics-365-business-central
----
-
-# Item Availability (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Item Availability** report gives an overview of the availability of each item in terms of supply and demand. Use the report to identify items where demand exceeds supply, so you can take action to avoid delayed orders.
-
-:::image type="content" source="media/inventory/item-availability.png" alt-text="Screenshot of the Item Availability Power BI Report" lightbox="media/inventory/item-availability.png":::
-
-## Use the report
-
-The report is designed for management and customer service teams.
-
-Customer service teams use this report to identify availability of specific items for your customers. By having up-to-date information for each item, you can provide quick, accurate, and informed answers to estimates and avoid disappointing customers.
-
-For inventory management teams, the information in this report can help you keep adequate stock levels of each item. For example, the information can help you coordinate other teams to increase production of specific items, or create purchase orders to replenish stock.
-
-## Key Performance Indicators (KPIs)
-
-The *Item Availability* report includes the following KPIs:
-
-- [**Projected Available Balance**](inventory-powerbi-kpis.md#projected-available-balance)
-- [**Inventory (Quantity)**](inventory-powerbi-kpis.md#inventory-quantity)
-- [**Gross Requirement**](inventory-powerbi-kpis.md#gross-requirement)
-- [**Scheduled Receipt**](inventory-powerbi-kpis.md#scheduled-receipt)
-- [**Planned Order Receipt**](inventory-powerbi-kpis.md#planned-order-receipt)
-- [**Planned Order Release**](inventory-powerbi-kpis.md#planned-order-releases)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)] 
-
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE [prod_short](includes/prod_short.md)]:
-
-- Item
-- Item Ledger Entries
-- Sales Lines
-- Service Lines
-- Project Planning Lines
-- Prod. Order Component Lines
-- Transfer Lines
-- Planning Component Lines
-- Assembly Lines
-- Purchase Lines
-
-## Try the report
-
-Try the report here: [Item Availability](https://businesscentral.dynamics.com?page=37026)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Inventory app](inventory-powerbi-app.md)  
-[Ad hoc analysis of inventory data](ad-hoc-analysis-inventory.md)  
-[Built-in inventory and warehouse reports](inventory-WMS-reports.md)  
-[Inventory analytics overview](inventory-analytics-overview.md)  
-[Inventory overview](inventory-manage-inventory.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-aged-receivables-back-dating
----
-title: Aged Receivables (Back Dating)
-description: The Aged Receivables (Back Dating) report provides an overview of outstanding customer invoices categorized by payment terms and grouped into aging buckets.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 36993_Primary
-ms.date: 10/31/2024
-ms.service: dynamics-365-business-central
----
-
-# Aged Receivables (Back Dating) (Power BI report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Aged Receivables (Back Dating)** report lets you analyze outstanding customer balances grouped by a customizable aging periods. You can age the report by posting date, due date, or document date. The report categorizes data by payment terms, so you can quickly align net terms with aging buckets for analysis. This technique lets you prioritize collection efforts and manage cash flow effectively.
-
-:::image type="content" source="media/finance/aged-receivables-snapshot.png" alt-text="Screenshot of the Aged Receivables (Back Dating) report" lightbox="media/finance/aged-receivables-snapshot.png":::
-
-## Use the report
-
-The audiences for the report are:
-
-- Executives
-- Finance Administrators
-
-Finance administrators use the report to identify overdue invoices and prioritize collection efforts. By reviewing the aging buckets, you can focus on customers with significant outstanding balances that don't align with payment terms. Expanding the report matrix can help you identify specific invoices that are past due and need action.
-
-## Key Performance Indicators (KPIs)
-
-The *Aged Receivables (Back Dating)* report includes the following KPIs and measures: 
-
-- [**Balance (Accounts Receivable)**](finance-powerbi-kpis.md#balance-accounts-receivable)
-- [**Current (Receivables)**](finance-powerbi-kpis.md#current-receivables)
-- [**Bucket 1 (Receivables)**](finance-powerbi-kpis.md#bucket-1-receivables)
-- [**Bucket 2 (Receivables)**](finance-powerbi-kpis.md#bucket-2-receivables)
-- [**Bucket 3 (Receivables)**](finance-powerbi-kpis.md#bucket-3-receivables)
-- [**Bucket 4 (Receivables)**](finance-powerbi-kpis.md#bucket-4-receivables)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)] 
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Customer
-- Customer Ledger Entry
-- Detailed Customer Ledger Entry
-
-## Try the report
-
-Try the report here: [Aged Receivables (Back Dating)](https://businesscentral.dynamics.com?page=36993)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI finance app](finance-powerbi-app.md)  
-[Ad hoc analysis on finance data](ad-hoc-analysis-finance.md)  
-[Built-in core finance reports](finance-reports.md)  
-[Built-in fixed assets reports](fa-reports.md)  
-[Built-in accounts receivable reports](receivables-reports.md)  
-[Built-in accounts payable reports](payables-reports.md)  
-[Financial analytics overview](bi.md)  
-[Finance overview](finance.md)
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-project-realization
----
-title: Project Realization (Power BI report)
-description: The Project Realization report showcases the completion for each project.
-author: kennienp
-ms.author: kepontop
-ms.reviewer: bholtorf
-ms.topic: article
-ms.search.keywords: reporting
-ms.search.form: 37036_Primary
-ms.date: 09/25/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-
-# Project Realization (Power BI Report)
-
-[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
-
-The **Project Realization** report shows how billing is performing against the costs.
-
-The report compares the total invoiced price to the total usage price, and highlights how much of each project was invoiced.
-
-:::image type="content" source="media/projects/project-realization.png" alt-text="Screenshot of the Project Realization Power BI Report" lightbox="media/projects/project-realization.png":::
-
-## Use the report
-
-Leadership and project managers use the report to identify which projects they need to invoice. CFOs also use this report.
-
-CFOs can check which projects have low realization, and send invoices accordingly to ensure you meet monthly invoicing goals and have healthy turnover.
-
-Project managers use this report to identify projects with completed work that isn't invoiced.
-
-## Key Performance Indicators (KPIs)
-
-The *Project Realization* report includes the following KPIs:
-
-- [Realization (%)](projects-powerbi-kpis.md#realization-)
-- [Realization Variance](projects-powerbi-kpis.md#realization-variance)
-- [Total Usage Price](projects-powerbi-kpis.md#total-usage-price)
-- [Total Invoiced Price](projects-powerbi-kpis.md#total-invoiced-price)
-- [Total Billable Price](projects-powerbi-kpis.md#total-billable-price)
-
-[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
-
-[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
-
-## Data used in the report
-
-The report uses data from the following tables in [!INCLUDE[prod_short](includes/prod_short.md)]:
-
-- Job
-- Job Ledger Entries
-
-## Try the report
-
-Try the report here: [Project Realization](https://businesscentral.dynamics.com?page=37036)
-
-[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
-
-## Related information
-
-[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
-[Power BI Projects app](projects-powerbi-app.md)  
-[Built-in Projects reports](project-reports.md)  
-[Project management analytics overview](projects-analytics-overview.md)  
-[Project management overview](projects-manage-projects.md)
 end of article
 

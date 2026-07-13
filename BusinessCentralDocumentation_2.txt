@@ -1,3 +1,256 @@
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/projects-powerbi-app-semantic-model
+---
+title: Power BI Projects app semantic model
+description: Learn about the project tables and fields in the Power BI Projects app semantic model for Business Central reporting and analysis.
+author: SusanneWindfeldPedersen
+ms.author: solsen
+ms.reviewer: solsen
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.date: 07/03/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+ai.usage: ai-assisted
+---
+
+# Power BI Projects app semantic model
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The semantic model in the Power BI Projects app is organized in a [Star Schema Model](/power-bi/guidance/star-schema#star-schema-overview).
+
+The fact tables contain information about individual transactions, such as project ledger entries, project planning lines, and project-related purchases from [!INCLUDE [prod_short](includes/prod_short.md)].
+
+The dimension tables provide more context and attributes to the transactional data, such as project, customer, and resource information.
+
+## Fact tables
+
+Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. The Power BI Projects app includes several fact tables:
+
+- [Project Ledger Entries](#project-ledger-entries)
+- [Project Planning Lines](#project-planning-lines)
+- [Purchases](#purchases)
+
+### Project Ledger Entries
+
+The app uses data from the following table:
+
+- Project Ledger Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| No. & Description | - | Specifies a combination of the number and description of the project ledger entry in Power BI. |
+| Task No. | Project Task No. | Specifies the number of the related project task. |
+| Posting Date | Posting Date | Specifies the posting date of the project ledger entry. |
+| Entry Type | Entry Type | Specifies the entry type of the project ledger entry, either usage or sale. |
+| Type | Type | Specifies the type of account that the project ledger entry is posted to. |
+| No. | No. | Specifies the number of the resource, item, or general ledger account posted on the entry. |
+| Description | Description | Specifies the description of the project ledger entry. |
+| Location | Location Code | Specifies the location code if an item is posted. |
+| Unit of Measure Code | Unit of Measure Code | Specifies how each unit of the item or resource is measured, such as in pieces or hours. |
+| Unit Cost (LCY) | Unit Cost (LCY) | Specifies the cost, in the local currency, of one unit on the entry. |
+| Unit Price (LCY) | Unit Price (LCY) | Specifies the price, in the local currency, of one unit on the entry. |
+
+### Project Planning Lines
+
+The app uses data from the following table:
+
+- Project Planning Line
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Task No. | Project Task No. | Specifies the number of the related project task. |
+| Line No. | Line No. | Specifies the planning line's entry number. |
+| Type | Type | Specifies the type of account that the planning line relates to. |
+| Line Type | Line Type | Specifies the type of planning line. |
+| No. | No. | Specifies the number of the resource, item, or general ledger account on the planning line. |
+| Description | Description | Specifies the description of the resource, item, or general ledger account on the planning line. |
+| Unit Cost (LCY) | Unit Cost (LCY) | Specifies the cost, in the local currency, of one unit on the planning line. |
+| Unit Price (LCY) | Unit Price (LCY) | Specifies the price, in the local currency, of one unit on the planning line. |
+| Planning Date | Planning Date | Specifies the date of the planning line. |
+
+### Purchases
+
+The app uses data from the following table:
+
+- Purchase Line
+
+Purchase lines are broken down into **Purchase Orders (Outstanding)** and **Purchase Orders (Received Not Invoiced)**. Use the **Source Type** field to filter on these sources.
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Source Type | - | Specifies the source of the record, either outstanding purchase orders or purchase orders received but not invoiced. |
+| Document Type | Document Type | Specifies the type of the purchase document. |
+| Line No. | Line No. | Specifies the line number of the purchase line. |
+| Document No. | Document No. | Specifies the document number of the purchase line. |
+| No. | No. | Specifies the number of the item, resource, or general ledger account on the purchase line. |
+| Type | Type | Specifies the type of the purchase line. |
+| Description | Description | Specifies a description of the purchase line. |
+| Project No. | Project No. | Specifies the number of the related project. |
+| Task No. | Project Task No. | Specifies the number of the related project task. |
+| Project No. & Task No. | - | Specifies a combination of the project number and project task number in Power BI. |
+
+## Dimension tables
+
+The star schema model uses dimension tables and you can filter and group data.
+
+- [Customer](#customer)
+- [G/L Accounts](#gl-accounts)
+- [Items](#items)
+- [Project](#project)
+- [Resources](#resources)
+- [Tasks](#tasks)
+- [Type](#type)
+
+### Customer
+
+The app uses data from the following table:
+
+- Customer
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Customer No. & Name | - | Specifies a combination of customer number and customer name in Power BI. |
+| Customer No. | No. | Specifies the number of the customer. |
+| Customer Name | Name | Specifies the name of the customer. |
+| Customer Address | Address | Specifies the address of the customer. |
+| Customer Address 2 | Address 2 | Specifies additional address information. |
+| Customer City | City | Specifies the city of the customer. |
+| Customer Post Code | Post Code | Specifies the postal code. |
+| Customer State | County | Specifies the state, province, or county as part of the address. |
+| Customer Country/Region Code | Country/Region Code | Specifies the country/region of the address. |
+| Customer Posting Group | Customer Posting Group | Specifies the customer's posting group. |
+| Customer Price Group | Customer Price Group | Specifies the customer price group. |
+| Customer Discount Group | Customer Disc. Group | Specifies the customer discount group. |
+
+### G/L Accounts
+
+The app uses data from the following table:
+
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Account No. | No. | Specifies the number of the general ledger account. |
+| G/L Account Name | Name | Specifies the name of the general ledger account. |
+| G/L Account Type | Account Type | Specifies the purpose of the account, such as Posting, Heading, Total, Begin-Total, or End-Total. |
+| G/L Account Income/Balance | Income/Balance | Specifies whether the account is an income statement account or a balance sheet account. |
+| G/L Account No. and Name | - | Specifies a combination of the general ledger account number and name in Power BI. |
+
+### Items
+
+The app uses data from the following tables:
+
+- Item
+- Item Category
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Item No. | No. | Specifies the number of the item. |
+| Item Description | Description | Specifies the description of the item. |
+| Item Base Unit of Measure | Base Unit of Measure | Specifies the base unit used to measure the item. |
+| Item Unit Cost (LCY) | Unit Cost | Specifies the unit cost of the item. |
+| Item Inventory Posting Group | Inventory Posting Group | Specifies the inventory posting group of the item. |
+| Item Category Code | Code | Specifies the code for the item category. |
+| Item Category Description | Description | Specifies the description of the item category. |
+| Item No. & Description | - | Specifies a combination of item number and description in Power BI. |
+
+### Project
+
+The app uses data from the following table:
+
+- Project
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Project No. | No. | Specifies the number of the project. |
+| Project Description | Description | Specifies a short description of the project. |
+| Project Creation Date | Creation Date | Specifies the date when the project was created. |
+| Project Starting Date | Starting Date | Specifies the date when the project starts. |
+| Project Ending Date | Ending Date | Specifies the date when the project is expected to be completed. |
+| Project Status | Status | Specifies the current status of the project. |
+| Project Posting Group | Project Posting Group | Specifies the posting group that links project transactions to the appropriate general ledger accounts. |
+| Project Blocked | Blocked | Specifies that the project is blocked from being posted in transactions. |
+| Project Project Manager | Project Manager | Specifies the person who's assigned to manage the project. |
+| Project Complete | Complete | Specifies that the current status of the project is complete. |
+| Project No. & Description | - | Specifies a combination of project number and description in Power BI. |
+
+### Resources
+
+The app uses data from the following table:
+
+- Resource
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Resource No. | No. | Specifies the number of the resource. |
+| Resource Name | Name | Specifies the name of the resource. |
+| Resource Base Unit of Measure | Base Unit of Measure | Specifies the base unit used to measure the resource. |
+| Resource Unit Cost | Unit Cost | Specifies the cost of one unit of the resource. |
+| Resource Unit Price | Unit Price | Specifies the price of one unit of the resource. |
+| Resource No. and Name | - | Specifies a combination of resource number and name in Power BI. |
+
+### Tasks
+
+The app uses data from the following table:
+
+- Project Task
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Task Project No. | Project No. | Specifies the number of the related project. |
+| Task No. | Project Task No. | Specifies the number of the project task. |
+| Task Description | Description | Specifies a description of the project task. |
+| Task Project No. & Task No. | - | Specifies a combination of project number and project task number in Power BI. |
+| Task Project Task & Description | - | Specifies a combination of project task number and description in Power BI. |
+| Project Task Starting Date | Start Date | Specifies the start date of the project task. |
+| Project Task Ending Date | End Date | Specifies the end date of the project task. |
+
+### Type
+
+The app builds this table in the semantic model from the following tables:
+
+- Item
+- Resource
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| No. | No. or Account No. | Specifies the code of the item, resource, or general ledger account. |
+| Type | - | Specifies the type of the object, either item, resource, or general ledger account. |
+| Type Key | - | Specifies a concatenated value generated by combining the No. and Type columns. |
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Related information
+
+[Projects KPI overview](projects-powerbi-kpis.md)  
+[Power BI projects app](projects-powerbi-app.md)  
+[Use Power BI with Business Central](admin-powerbi.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-role-explorer
 ---
 title: Finding Pages and Reports with the Role Explorer
@@ -1579,73 +1832,6 @@ The following procedure shows how to track a package from a posted sales shipmen
 [Send Documents by Email](ui-how-send-documents-email.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-worksheet
----
-title: Use the subcontracting worksheet
-description: Learn how to use the subcontracting worksheet to find production orders ready for subcontracting and create purchase orders.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.keywords: 99000886,
-ms.date: 05/16/2026
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
-
----
-
-# Use the subcontracting worksheet
-
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
-
-The subcontracting worksheet lets you find production orders with material ready to send to a subcontractor and automatically create purchase orders for subcontract operations from production order routings. The worksheet functions like the planning worksheet — it calculates the needed supply (purchase orders), which you review and then create with the **Carry Out Action Message** action.
-
-> [!TIP]
-> You can also create subcontracting purchase orders directly from released production order routings without using the worksheet. Learn more in [Order subcontracting from production orders](subcontract-order.md).
-
-> [!NOTE]
-> Only production orders with a status of **Released** can be accessed and used from a subcontracting worksheet.
-
-## Calculate the subcontracting worksheet
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Subcontracting Worksheet**, and then choose the related link.
-2. To calculate the worksheet, choose the **Calculate Subcontracts** action.
-3. On the **Calculate Subcontracts** page, set filters for the subcontracted operations, or the work centers where they're performed, to calculate only the relevant production orders.
-4. Choose the **OK** button.
-
-    Review the lines on the **Subcontracting Worksheet** page. The information in this worksheet comes from the production order and production order routing lines and flows to the purchase order when that document is created. You can delete a row from the worksheet without affecting the original information, just as you can with the other worksheets. The information reappears the next time you run the **Calculate Subcontracts** function.
-
-## Create the subcontract purchase order
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Subcontracting Worksheet**, and then choose the related link.
-2. Choose the **Carry Out Action Message** action.
-3. Select the **Print Orders** field to print the purchase order as it's created.
-4. Choose the **OK** button.
-
-If all subcontracted operations are sent to the same vendor location, then only one purchase order is created.
-
-The worksheet line that was turned into a purchase order is deleted from the worksheet. After a purchase order is created, it doesn't appear in the worksheet again.
-
-## Post subcontracting purchase orders
-
-After subcontracting purchase orders are created, you can post them. To learn about posting and its effects on production order entries, see [Post subcontracting purchase orders](subcontract-order.md#post-subcontracting-purchase-orders).
-
-## Related information
-
-[Subcontracting overview](production-how-to-subcontract-manufacturing.md)  
-[Order subcontracting from production orders](subcontract-order.md)  
-[Set up subcontracting](subcontract-setup.md)  
-[Manufacturing](production-manage-manufacturing.md)  
-[Setting Up Manufacturing](production-configure-production-processes.md)  
-[Planning](production-planning.md)  
-[Inventory](inventory-manage-inventory.md)  
-[Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -5039,7 +5225,7 @@ ms.author: jswymer
 ms.reviewer: jswymer
 ms.topic: concept-article
 ms.collection: get-started
-ms.date: 03/26/2026
+ms.date: 06/30/2026
 ms.custom: bap-template
 ---
 
@@ -5059,7 +5245,7 @@ The following table lists Copilot features in Business Central, along with the B
 |[Autofill fields](autofill-fields-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
 |[Bank account reconciliation assist](bank-reconciliation-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Chinese Simplified (zh-CN)</li><li>Czech (cs-CZ)</li><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Greek (el-GR)</li><li>Italian (it-CH, it-IT)</li><li>Japanese (ja-JP)</li><li>Korean (ko-KR)</li><li>Norwegian Bokmål (nb-NO)</li><li>Polish (pl-PL)</li><li>Portuguese Brazil (pt-BR)</li><li>Russian (ru-RU)</li><li>Spanish (es-CO, es-ES, es-MX, es-PE)</li><li>Swedish (sv-SE)</li><li>Thai (th-TH)</li><li>Turkish (tr-TR)</li></ul>|
 |[Chat](chat-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
-|[Expense Agent](expense-management/expense-agent.md)|US|<ul><li>English (en-US)</li></ul>|
+|[Expense Agent](expense-management/expense-agent.md)|<ul><li>Australia</li><li>Austria</li><li>Canada</li><li>Denmark</li><li>France</li><li>Germany</li><li>New Zealand</li><li>Spain</li><li>United Kingdom</li><li>United States</li></ul>|<ul><li>Danish (da-DK)</li><li>English (en-AU, en-CA, en-GB, en-NZ, en-US)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Spanish (es-ES)</li></ul>|
 |[Map e-documents to purchase order lines](map-edocuments-with-copilot.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li></ul>|
 |[Marketing text suggestions](item-marketing-text.md)|[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Chinese Simplified (zh-CN)</li><li>Czech (cs-CZ)</li><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-PH, en-SG, en-US, en-ZA)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Greek (el-GR)</li><li>Italian (it-CH, it-IT)</li><li>Japanese (ja-JP)</li><li>Korean (ko-KR)</li><li>Norwegian Bokmål (nb-NO)</li><li>Polish (pl-PL)</li><li>Portuguese Brazil (pt-BR)</li><li>Russian (ru-RU)</li><li>Spanish (es-CO, es-ES, es-MX, es-PE)</li><li>Swedish (sv-SE)</li><li>Thai (th-TH)</li><li>Turkish (tr-TR)</li></ul>|
 |[Payables Agent](payables-agent.md) |[All](/dynamics365/business-central/dev-itpro/compliance/apptest-countries-and-translations#countries-and-regions)|<ul><li>Czech (cs-CZ)</li><li>Danish (da-DK)</li><li>Dutch (nl-BE, nl-NL)</li><li>English (en-AU, en-CA, en-GB, en-IN, en-NZ, en-US)</li><li>Finnish (fi-FI)</li><li>French (fr-BE, fr-CA, fr-CH, fr-FR)</li><li>German (de-AT, de-CH, de-DE)</li><li>Italian (it-CH, it-IT)</li><li>Norwegian Bokmål (nb-NO)</li></li><li>Spanish (es-ES, es-MX)</li><li>Swedish (sv-SE)</li></ul><ul>|
@@ -10126,12 +10312,16 @@ The following table describes how the combinations differ.
 |Capability|The **Direct Transfer** field is disabled in the **Transfer Order** page|**Direct Transfer** is enabled on the **Transfer Order** page</br>The **Direct Transfer Posting** field is set to **Direct Transfer** on the **Inventory Setup** page|**Direct Transfer** is enabled in the **Transfer Order** page</br>The **Direct Transfer Posting** field is set to **Receipt and Shipment** on the **Inventory Setup** page|
 |---|---|---|---|
 |Use in-transit location|Yes|No|No|
-|Can post receipt without shipment.</br>Can use **Undo receipt**.|Yes|No|No|
-|Partial posting|Yes|No|Yes|
+|Can post receipt without shipment|Yes|No|No|
+|Undo shipment|Yes, if not yet received|No|No|
+|Partial posting|Yes|No|Yes, but **Qty. to Ship** must equal **Qty. to Receive**|
 |Item ledger entries|4:</br>Transfer from From-Location,</br>Transfer to In-Transit,</br>Transfer from In-Transit,</br>Transfer to To-Location.|2:</br>Transfer from From-Location,</br>Transfer to To-Location.|4:</br>Transfer from From-Location,</br>Transfer to *blank*,</br>Transfer from *blank*,</br>Transfer to To-Location.|
 |Posted documents|Posted transfer shipment,</br>Posted transfer receipt.|Posted direct transfer|Posted transfer shipment,</br>Posted transfer receipt.|
 |Reservation: inbound and outbound|Yes|Yes|Yes|
 |Item Charges - assign to posted transfer receipt|Yes|No|Yes|
+|Change serial or lot number at receipt (reclassification)|Yes|No|No|
+|Change package number at receipt|Yes|No|Yes|
+|Change expiration date at receipt|Yes|No|Yes|
 |Warehouse handling|Full|No|Limited, see below|
 
 Warehouse handling matrix for configuration: **Direct Transfer** is enabled on the **Transfer Order** page and **Direct Transfer Posting** is set to **Direct Transfer** on the **Inventory Setup** page.
@@ -11993,6 +12183,258 @@ You can change the posting date in the assembly order manually. However, it can 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sustainability-powerbi-app-semantic-model
+---
+title: Power BI Sustainability app semantic model
+description: Learn how tables and fields in the Power BI Sustainability app semantic model map to Business Central data for emissions and workforce analysis.
+author: SusanneWindfeldPedersen
+ms.author: solsen
+ms.reviewer: solsen
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.date: 07/03/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+ai.usage: ai-assisted
+---
+
+# Power BI Sustainability app semantic model
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The semantic model in the Power BI Sustainability app is organized in a [Star Schema Model](/power-bi/guidance/star-schema#star-schema-overview).
+
+The fact tables contain information about individual transactions and targets, such as sustainability ledger entries, employee ledger entries, employee absences, employee qualifications, and sustainability goals from [!INCLUDE [prod_short](includes/prod_short.md)].
+
+The dimension tables provide more context and attributes to the transactional data, such as sustainability accounts, employees, emission fees, responsibility centers, and country/region information.
+
+## Fact tables
+
+Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. The Power BI Sustainability app includes several fact tables:
+
+- [Employee Absences](#employee-absences)
+- [Employee Ledger Entries](#employee-ledger-entries)
+- [Employee Qualifications](#employee-qualifications)
+- [Sustainability Goals](#sustainability-goals)
+- [Sustainability Ledger Entries](#sustainability-ledger-entries)
+
+### Employee absences
+
+The app uses data from the following table:
+
+- Employee Absence
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry No | Entry No. | Specifies the entry number assigned to the employee absence. |
+| From Date | From Date | Specifies the first day of the employee absence. |
+| To Date | To Date | Specifies the last day of the employee absence. |
+| Cause of Absence | Cause of Absence Code | Specifies the cause of absence code that defines the absence type. |
+| Description | Description | Specifies a description of the employee absence. |
+
+### Employee Ledger Entries
+
+The app uses data from the following table:
+
+- Employee Ledger Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry No. | Entry No. | Specifies the entry number assigned to the employee ledger entry. |
+| Document Type | Document Type | Specifies the document type of the employee ledger entry. |
+| Document No. | Document No. | Specifies the document number of the employee ledger entry. |
+| Description | Description | Specifies a description of the employee ledger entry. |
+
+### Employee Qualifications
+
+The app uses data from the following table:
+
+- Employee Qualification
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Employee Qualification Codes | Qualification Code | Specifies the qualification code assigned to the employee. |
+
+### Sustainability Goals
+
+The app uses data from the following table:
+
+- Sustainability Goal
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Score Card No. | Scorecard No. | Specifies the scorecard number of the sustainability goal. |
+| No. | No. | Specifies the number of the sustainability goal. |
+| Name | Name | Specifies the name of the sustainability goal. |
+| Owner | Owner | Specifies the owner of the sustainability goal. |
+| Target Value For CO2 | Target Value for CO2 | Specifies the target value for CO2 emissions. |
+| Target Value For CH4 | Target Value for CH4 | Specifies the target value for CH4 emissions. |
+| Target Value For N2O | Target Value for N2O | Specifies the target value for N2O emissions. |
+| Target Value For Water Intensity | Target Value for Water Int. | Specifies the target value for water intensity. |
+| Target Value For Waste Intensity | Target Value for Waste Int. | Specifies the target value for waste intensity. |
+| Main Goal | Main Goal | Specifies whether the sustainability goal is the main goal. |
+| Start Date | Start Date | Specifies the start date of the sustainability goal. |
+| End Date | End Date | Specifies the end date of the sustainability goal. |
+| Baseline Start Date | Baseline Start Date | Specifies the start date of the baseline period. |
+| Baseline End Date | Baseline End Date | Specifies the end date of the baseline period. |
+
+### Sustainability Ledger Entries
+
+The app uses data from the following table:
+
+- Sustainability Ledger Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry No. | Entry No. | Specifies the entry number assigned to the sustainability ledger entry. |
+| Description | Description | Specifies a description of the sustainability ledger entry. |
+| Water Type | Water Type | Specifies the water type for the sustainability ledger entry. |
+| Water/Waste Intensity Type | Water/Waste Intensity Type | Specifies the water or waste intensity type for the sustainability ledger entry. |
+| Document Type | Document Type | Specifies the document type of the sustainability ledger entry. |
+
+## Dimension tables
+
+The star schema model uses dimension tables and you can filter and group data.
+
+- [Country/Region](#countryregion)
+- [Emission Fees](#emission-fees)
+- [Employees](#employees)
+- [Responsibility Centre](#responsibility-centre)
+- [Sustainability Account Category](#sustainability-account-category)
+- [Sustainability Accounts](#sustainability-accounts)
+- [Sustainability Sub-Account Categories](#sustainability-sub-account-categories)
+
+### Country/Region
+
+The app uses data from the following table:
+
+- Country/Region
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Country Region Code | Code | Specifies the country/region code. |
+| Country Region Name | Name | Specifies the name of the country/region. |
+
+### Emission fees
+
+The app uses data from the following table:
+
+- Emission Fee
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Emission Type | Emission Type | Specifies the type of emission that the fee applies to. |
+| Scope Type | Scope Type | Specifies the emission scope that the fee applies to. |
+| Starting Date | Starting Date | Specifies the starting date when the emission fee applies. |
+| Ending Date | Ending Date | Specifies the ending date when the emission fee applies. |
+| Country Region Code | Country/Region Code | Specifies the country/region code for the emission fee. |
+| Responsibility Centre | Responsibility Center | Specifies the responsibility center for the emission fee. |
+| Carbon Fee | Carbon Fee | Specifies the carbon fee amount. |
+| Carbon Equivalent Factor | Carbon Equivalent Factor | Specifies the factor used to calculate carbon equivalent values. |
+
+### Employees
+
+The app uses data from the following table:
+
+- Employee
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Employee No. | No. | Specifies the number of the employee. |
+| Employee Full Name | - | Specifies a combination of the employee's first name and last name in Power BI. |
+| Employee First Name | First Name | Specifies the first name of the employee. |
+| Employee Last Name | Last Name | Specifies the last name of the employee. |
+| Employee Gender | Gender | Specifies the gender of the employee. |
+| Employee Union Code | Union Code | Specifies the union code assigned to the employee. |
+| Employee Status | Status | Specifies the employment status of the employee. |
+| Employee Cause of Inactivity | Cause of Inactivity Code | Specifies the cause of inactivity code assigned to the employee. |
+| Employee Inactive Date | Inactive Date | Specifies the date when the employee became inactive. |
+| Employee Grounds for Termination | Grounds for Term. Code | Specifies the grounds for termination code assigned to the employee. |
+| Employee Date of Birth | Birth Date | Specifies the birth date of the employee. |
+| Age | - | Specifies the employee's age calculated in Power BI. |
+| Age Distribution | - | Specifies the employee's age group calculated in Power BI. |
+
+### Responsibility Centre
+
+The app uses data from the following table:
+
+- Responsibility Center
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Responsibility Centre Code | Code | Specifies the responsibility center code. |
+| Responsibility Centre Name | Name | Specifies the name of the responsibility center. |
+
+### Sustainability Account Category
+
+The app uses data from the following table:
+
+- Sustain. Account Category
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Sustainability Account Category Description | Description | Specifies the description of the sustainability account category. |
+| Sustainability Account Category Code | Code | Specifies the code of the sustainability account category. |
+| Sustainability Account Category Emission Scope | Emission Scope | Specifies the emission scope of the sustainability account category. |
+
+### Sustainability Accounts
+
+The app uses data from the following table:
+
+- Sustainability Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Sustainability Account No. | No. | Specifies the number of the sustainability account. |
+| Sustainability Account Name | Name | Specifies the name of the sustainability account. |
+
+### Sustainability Sub-Account Categories
+
+The app uses data from the following table:
+
+- Sustain. Account Subcategory
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Sub-Category Description | Description | Specifies the description of the sustainability account subcategory. |
+| Renewable Energy | Renewable Energy | Specifies whether the sustainability account subcategory relates to renewable energy. |
+| Sub-Category Code | Code | Specifies the code of the sustainability account subcategory. |
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Related information
+
+[Power BI Sustainability app KPIs and measures](sustainability-powerbi-kpis.md)  
+[Sustainability Power BI app](sustainability-powerbi-app.md)  
+[Use Power BI with Business Central](admin-powerbi.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchasing-ext-doc-no
 ---
 title: External document numbers on purchase documents
@@ -12019,6 +12461,345 @@ You can also specify external document numbers on sales documents. Learn more in
 [Purchasing](purchasing-manage-purchasing.md)  
 [External Document Numbers on Sales Documents](sales-how-invoice-sales.md#external-document-numbers)  
 [General Business Functionality](ui-across-business-areas.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/purchases-powerbi-app-semantic-model
+---
+title: Power BI Purchases app semantic model
+description: Learn about the fact and dimension tables and visible fields in the Power BI Purchases app semantic model for Business Central reports.
+author: SusanneWindfeldPedersen
+ms.author: solsen
+ms.reviewer: solsen
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.date: 07/03/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+ai.usage: ai-assisted
+---
+
+# Power BI Purchases app semantic model
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The semantic model in the Power BI Purchases app uses a [Star Schema Model](/power-bi/guidance/star-schema#star-schema-overview).
+
+The fact tables hold details about individual transactions, like purchase budgets, purchase lines, and posted purchase entries from [!INCLUDE [prod_short](includes/prod_short.md)].
+
+The dimension tables add context and attributes to the transactional data, including vendor, item, project, and purchaser information.
+
+## Fact tables
+
+Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. The Power BI Purchases app includes several fact tables:
+
+- [Purchase Budget](#purchase-budget)
+- [Purchase Credit Lines](#purchase-credit-lines)
+- [Purchase Invoice Lines](#purchase-invoice-lines)
+- [Purchase Lines](#purchase-lines)
+- [Purchase Value Entries](#purchase-value-entries)
+
+### Purchase Budget
+
+The app uses data from the following table:
+
+- Item Budget Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry No. | Entry No. | Specifies the entry number of the purchase budget entry. |
+
+### Purchase Credit Lines
+
+The app uses data from the following tables:
+
+- Purch. Cr. Memo Line
+- Purch. Cr. Memo Hdr.
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Description | Description | Specifies a description of the posted purchase credit memo line. |
+| Purchase Credit Line No. | Line No. | Specifies the line number of the posted purchase credit memo line. |
+| Exprected Receipt Date | Expected Receipt Date | Specifies the expected receipt date on the posted purchase credit memo line. |
+
+### Purchase Invoice Lines
+
+The app uses data from the following tables:
+
+- Purch. Inv. Line
+- Purch. Inv. Header
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Description | Description | Specifies a description of the posted purchase invoice line. |
+| Purchase Invoice Line No. | Line No. | Specifies the line number of the posted purchase invoice line. |
+| Expected Receipt Date | Expected Receipt Date | Specifies the expected receipt date on the posted purchase invoice line. |
+
+### Purchase Lines
+
+The app uses data from the following tables:
+
+- Purchase Header
+- Purchase Line
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Order Date | Order Date | Specifies the date when the purchase order was created. |
+| Document Date | Document Date | Specifies the date when the purchase document was created. |
+| Due Date | Due Date | Specifies when the purchase invoice is due for payment. |
+| Description | Description | Specifies a description of the purchase line. |
+| Purchase Line No. | Line No. | Specifies the line number of the purchase line. |
+| Planned Receipt Date | Planned Receipt Date | Specifies the date when the item is planned to arrive in inventory. |
+| Expected Receipt Date | Expected Receipt Date | Specifies the date when you expect to receive the items. |
+| Promised Receipt Date | Promised Receipt Date | Specifies the date that the vendor promised to deliver the order. |
+| Requested Receipt Date | Requested Receipt Date | Specifies the date that you requested the vendor to deliver the order. |
+
+### Purchase value entries
+
+The app uses data from the following tables:
+
+- Value Entry
+- Item Ledger Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Item Ledger Entry No. | Entry No. | Specifies the entry number of the related item ledger entry. |
+| Value Entry No. | Entry No. | Specifies the entry number of the value entry. |
+| Value Entry Type | Entry Type | Specifies the type of value entry. |
+| Document No. | Document No. | Specifies the document number of the value entry. |
+| Document Type | Document Type | Specifies the type of document that created the value entry. |
+| Item Ledger Entry Type | Entry Type | Specifies the entry type of the related item ledger entry. |
+| Adjustment | Adjustment | Specifies whether the value entry is an adjustment. |
+| Capacity Ledger Entry No. | Capacity Ledger Entry No. | Specifies the related capacity ledger entry number. |
+
+### Dimension tables
+
+The star schema model uses dimension tables and you can filter and group data.
+
+- [Documents](#documents)
+- [G/L Accounts](#gl-accounts)
+- [Item](#item)
+- [Item Category](#item-category)
+- [Location](#location)
+- [Project](#project)
+- [Purchase Budget Name](#purchase-budget-name)
+- [Purchaser](#purchaser)
+- [Reason Codes](#reason-codes)
+- [Resources](#resources)
+- [Type](#type)
+- [Vendor](#vendor)
+
+### Documents
+
+The app builds this table in the semantic model from the following tables:
+
+- Purchase Credit Lines
+- Purchase Invoice Lines
+- Purchase Lines
+- Purchase Value Entries
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Document No. | Document No. | Specifies the document number from the source purchase table. |
+| Document Type | Document Type | Specifies the document type from the source purchase table. |
+| Source Table | - | Specifies the semantic model table that contributed the document. |
+
+### G/L Accounts
+
+The app uses data from the following table:
+
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Account No. | No. | Specifies the number of the general ledger account. |
+| G/L Account Name | Name | Specifies the name of the general ledger account. |
+| G/L Account Type | Account Type | Specifies the purpose of the account, such as Posting, Heading, Total, Begin-Total, or End-Total. |
+| G/L Account Income/Balance | Income/Balance | Specifies whether the account is an income statement account or a balance sheet account. |
+| G/L Account No. and Name | - | Specifies a combination of the general ledger account number and name in Power BI. |
+
+### Item
+
+The app uses data from the following tables:
+
+- Item
+- Item Category
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Item No. & Description | - | Specifies a combination of item number and description in Power BI. |
+| Item No. | No. | Specifies the number of the item. |
+| Item Description | Description | Specifies the description of the item. |
+| Item Unit Cost (LCY) | Unit Cost | Specifies the unit cost of the item in the local currency. |
+| Item Category Description | Description | Specifies the description of the item category. |
+
+### Item Category
+
+The app uses data from the following table:
+
+- Item Category
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Item Category Code | Code | Specifies the code for the item category. |
+| Item Category Description | Description | Specifies the description of the item category. |
+
+### Location
+
+The app uses data from the following table:
+
+- Location
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Location Code | Code | Specifies the code for the location. |
+| Location Name | Name | Specifies the name of the location. |
+| Location Adjustment Bin Code | - | Specifies a location-specific adjustment bin code in Power BI. |
+
+### Project
+
+The app uses data from the following table:
+
+- Project
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Project No. | No. | Specifies the number of the project. |
+| Project Description | Description | Specifies a short description of the project. |
+| Project Bill to Customer No. | Bill-to Customer No. | Specifies the customer that the project is billed to. |
+| Project Creation Date | Creation Date | Specifies the date when the project was created. |
+| Project Starting Date | Starting Date | Specifies the date when the project starts. |
+| Project Ending Date | Ending Date | Specifies the date when the project is expected to be completed. |
+| Project Status | Status | Specifies the current status of the project. |
+| Project Posting Group | Project Posting Group | Specifies the posting group that links project transactions to the appropriate general ledger accounts. |
+| Project Blocked | Blocked | Specifies whether the project is blocked from posting. |
+| Project Project Manager | Project Manager | Specifies the person who's assigned to manage the project. |
+| Project Complete | Complete | Specifies whether the project is complete. |
+| Project No. & Description | - | Specifies a combination of project number and description in Power BI. |
+
+### Purchase Budget Name
+
+The app uses data from the following table:
+
+- Item Budget Name
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Purchase Budget Name | Name | Specifies the name of the purchase budget. |
+| Purchase Budget Description | Description | Specifies the description of the purchase budget. |
+
+### Purchaser
+
+The app uses data from the following table:
+
+- Salesperson/Purchaser
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Purchaser Code | Code | Specifies the code for the purchaser. |
+| Purchaser Name | Name | Specifies the name of the purchaser. |
+
+### Reason codes
+
+The app uses data from the following table:
+
+- Return Reason
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Return Reason Code | Code | Specifies the return reason code. |
+| Return Reason Description | Description | Specifies the description of the return reason. |
+
+### Resources
+
+The app uses data from the following table:
+
+- Resource
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Resource No. | No. | Specifies the number of the resource. |
+| Resource Name | Name | Specifies the name of the resource. |
+| Resource Base Unit of Measure | Base Unit of Measure | Specifies the base unit used to measure the resource. |
+| Resource Unit Cost | Unit Cost | Specifies the cost of one unit of the resource. |
+| Resource Unit Price | Unit Price | Specifies the price of one unit of the resource. |
+| Resource No. and Name | - | Specifies a combination of resource number and name in Power BI. |
+
+### Type
+
+The app builds this table in the semantic model from the following tables:
+
+- Item
+- Resource
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Type | - | Specifies the type of the object, either item, resource, or general ledger account. |
+| Type Key | - | Specifies a concatenated value generated by combining the No. and Type columns. |
+| No. | No. or Account No. | Specifies the code of the item, resource, or general ledger account. |
+
+### Vendor
+
+The app uses data from the following table:
+
+- Vendor
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Vendor No. & Name | - | Specifies a combination of vendor number and vendor name in Power BI. |
+| Vendor No. | No. | Specifies the number of the vendor. |
+| Vendor Name | Name | Specifies the name of the vendor. |
+| Vendor Address | Address | Specifies the street address of the vendor. |
+| Vendor Address 2 | Address 2 | Specifies additional address information. |
+| Vendor City | City | Specifies the city of the vendor. |
+| Vendor Post Code | Post Code | Specifies the postal code. |
+| Vendor State | County | Specifies the state, province, or county as part of the address. |
+| Vendor Country/Region Code | Country/Region Code | Specifies the country/region of the address. |
+| Vendor Posting Group | Vendor Posting Group | Specifies the vendor posting group. |
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Related information
+
+[Purchases KPI overview](purchases-powerbi-kpis.md)  
+[Power BI purchasing app](purchases-powerbi-app.md)  
+[Use Power BI with Business Central](admin-powerbi.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13930,14 +14711,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-components
 ---
 title: Manage components in subcontracting
-description: Learn how subcontracting types determine how you handle components, assign locations, create transfer orders and returns, and how flushing works.
+description: Learn how component supply methods determine how you handle components, assign locations, create transfer orders and returns, and how flushing works.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, components, production BOM, routing, flushing, transfer order, location
-ms.search.form: 99000886
-ms.date: 01/15/2026
+ms.search.form: 99000886, 99000818, 99001503, 99000788
+ms.date: 07/08/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -13945,101 +14726,108 @@ ms.custom: bap-template
 
 # Manage components in subcontracting
 
-[!INCLUDE [early-access-partners-only](includes/early-access-partners-only.md)]
+When you subcontract manufacturing operations, you must have components available at the right location. That location is either the subcontractor's site or your own warehouse. This article explains the component supply methods that control how you handle components, assign locations, and use transfer orders to move materials to and from subcontractors.
 
-When you subcontract manufacturing operations, components must be available at the right location. That is, either at the subcontractor's site or at your own warehouse. This article explains the subcontracting types that control how you handle components, assign locations, and use transfer orders to move materials to and from subcontractors.
+## About component supply methods
 
-## About subcontracting types
+The component supply method on a component determines where the component is consumed and how it gets there. Set the method in the production BOM (for master data) or directly on components in released production orders.
 
-The subcontracting type on a component determines where the component is consumed and how it gets there. You can set the type in the production BOM (for master data) or directly on components in released production orders.
+Use these three component supply methods:
 
-There are three subcontracting types:
-
-- **Purchase with Service**: The subcontractor procures the component directly and provides it alongside the manufacturing service. [!INCLUDE [prod_short](includes/prod_short.md)] automatically adds a purchase line for the component on the subcontracting purchase order. You don't supply the material, the vendor does. The component location changes to the subcontractor's location.
-- **Inventory by Vendor**: The component is already physically at the subcontractor's location, available for them to consume. The components are your property, and you're responsible for keeping that location stocked. For example, by shipping materials in bulk or purchasing directly to the vendor's location. You can use standard [!INCLUDE [prod_short](includes/prod_short.md)] planning tools (requisition worksheets, reorder policies on the SKU at that location) to manage replenishment. The subcontracting extension doesn't create purchase lines or transfer orders for this type. The subcontractor draws from available stock. The component location changes to the subcontractor's location.
-- **Transfer**: You ship the exact quantity of the component to the subcontractor for each production order. You create transfer orders from the subcontracting purchase order to move materials from your warehouse to the vendor location. The component keeps its original location until the transfer order moves it. You can also create return transfer orders for unused quantities. Learn more in [Create transfer orders](#create-transfer-orders).
+- **Vendor-Supplied**: The subcontractor procures the component directly and provides it alongside the manufacturing service. [!INCLUDE [prod_short](includes/prod_short.md)] automatically adds a purchase line for the component on the subcontracting purchase order. You don't supply the material, the vendor does. The component location changes to the subcontractor's location.
+- **Consignment at Vendor**: The component is already physically at the subcontractor's location, available for them to consume. The components are your property, and you're responsible for keeping that location stocked. For example, you can ship materials in bulk or purchase directly to the vendor's location. Use standard [!INCLUDE [prod_short](includes/prod_short.md)] planning tools, such as requisition worksheets and reorder policies on the SKU at that location, to manage replenishment. The subcontracting extension doesn't create purchase lines or transfer orders for this method. The subcontractor draws from available stock. The component location changes to the subcontractor's location.
+- **Transfer to Vendor**: You ship the exact quantity of the component to the subcontractor for each production order. You create transfer orders from the subcontracting purchase order to move materials from your warehouse to the vendor location. The component keeps its original location until the transfer order moves it. You can also create return transfer orders for unused quantities. Learn more in [Create transfer orders](#create-transfer-orders).
 
 > [!NOTE]
-> You can set subcontracting types in the production BOM and in released production orders.
+> You can set component supply methods in the production BOM and in released production orders.
 
 ## Set up components in master data
 
 To link components to subcontracting operations, set up routing link codes in your routing and production BOM.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Routing**, and then choose the related link.
-2. Open the routing for the item you want to manufacture.
-3. In the line for the subcontracting operation, add the appropriate routing link code.
-4. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOM**, and then choose the related link.
-5. Open the production BOM for the item you want to manufacture.
-6. In the line for the component to provide for subcontracting, add the routing link code from the subcontracting operation.
-7. In the **Subcontracting Type** field, select the type. Learn more in [About subcontracting types](#about-subcontracting-types).
+1. Open the routing for the item you want to manufacture.
+1. In the line for the subcontracting operation, add the appropriate routing link code.
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Production BOM**, and then choose the related link.
+1. Open the production BOM for the item you want to manufacture.
+1. In the line for the component to provide for subcontracting, add the routing link code from the subcontracting operation.
+1. In the **Component Supply Method** field, select the method. 
 
-## Change subcontracting types in production orders
+## Change component supply methods in production orders
 
-You can change the subcontracting type on components in released production orders.
+You can change the component supply method on components in released production orders.
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Released Production Orders**, and then choose the related link.
-2. Open the production order.
-3. On the production order lines, select the line.
-4. Choose the **Components** action.
-5. In the routing link code field, enter the appropriate code.
-6. In the **Subcontracting Type** field, select or change the type.
+1. Open the production order.
+1. On the production order lines, select the line.
+1. Choose the **Components** action.
+1. In the routing link code field, enter the appropriate code.
+1. In the **Component Supply Method** field, select or change the method.
 
-## How locations are assigned to components
+## Set up flushing for subcontracting components
 
-When you create production orders, [!INCLUDE [prod_short](includes/prod_short.md)] automatically assigns locations to components based on your setup and the subcontracting type.
+If a component is used for subcontracting, set its flushing method to **Backward** in the stockkeeping unit card for the subcontracting location.
+
+1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Stockkeeping Units**, and then choose the related link.
+1. Open the stockkeeping unit card for the subcontracting location.
+1. On the **Replenishment** FastTab, in the **Flushing Method** field, choose **Backward**.
+
+When you use backward flushing, [!INCLUDE [prod_short](includes/prod_short.md)] automatically consumes the material in the subcontracting warehouse without requiring other posting.
+
+## How locations are assigned to components in production order
+
+When you create production orders, [!INCLUDE [prod_short](includes/prod_short.md)] automatically assigns locations to components based on your setup and the component supply method.
 
 ### Initial assignment
 
 When [!INCLUDE [prod_short](includes/prod_short.md)] explodes the production BOM to create component lines, it determines the component location using the following priority:
 
 1. **Stockkeeping unit (SKU) for the finished good**: [!INCLUDE [prod_short](includes/prod_short.md)] looks up the SKU for the *parent item on the production order line* (not the component item) at the production order line's location. If the SKU's **Components at Location** field has a value, components use that location.
-2. **Manufacturing Setup**: If the SKU doesn't exist or its **Components at Location** field is blank, [!INCLUDE [prod_short](includes/prod_short.md)] uses the **Components at Location** field from the **Manufacturing Setup** page.
-3. **Production order line location**: If both the SKU and Manufacturing Setup fields are blank, components use the same location as the production order line.
+1. **Manufacturing Setup**: If the SKU doesn't exist or its **Components at Location** field is blank, [!INCLUDE [prod_short](includes/prod_short.md)] uses the **Components at Location** field from the **Manufacturing Setup** page.
+1. **Production order line location**: If both the SKU and Manufacturing Setup fields are blank, components use the same location as the production order line.
 
-### Location changes by subcontracting type
+### Location changes by component supply method
 
-When you set or change the subcontracting type, [!INCLUDE [prod_short](includes/prod_short.md)] adjusts the component location automatically:
+When you set or change the component supply method, [!INCLUDE [prod_short](includes/prod_short.md)] adjusts the component location automatically:
 
-- **Purchase with Service and Inventory by Vendor**: The location changes to the **Subcontracting Location Code** specified on the vendor card, because the components are consumed at the subcontractor's site.
-- **Transfer**: The component keeps the location from the initial assignment (based on the SKU, manufacturing setup, or production order line priority). [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order later to move the component to the subcontractor.
+- **Vendor-Supplied** and **Consignment at Vendor**: The location changes to the **Subcontracting Location Code** specified on the vendor card, because the components are consumed at the subcontractor's site.
+- **Transfer to Vendor**: The component keeps the location from the initial assignment (based on the SKU, manufacturing setup, or production order line priority). [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order later to move the component to the subcontractor.
 
 ### Planning components
 
 During demand planning, [!INCLUDE [prod_short](includes/prod_short.md)] assigns locations the same way:
 
-- **Purchase subcontracting type**: The location is set to the subcontracting location of the vendor.
-- **Transfer subcontracting type**: The location remains at the standard location.
+- **Vendor-Supplied supply method**: The location is set to the subcontracting location of the vendor.
+- **Transfer to Vendor supply method**: The location remains at the standard location.
 
 ## Create transfer orders
 
-For components with the **Transfer** subcontracting type, you create transfer orders to move materials from your warehouse to the subcontractor.
+For components with the **Transfer to Vendor** component supply method, you create transfer orders to move materials from your warehouse to the subcontractor.
 
 ### Prerequisites
 
 Before you create a transfer order, the following things must be in place:
 
-- A purchase order with subcontracting. Learn more in [Order subcontracting from production orders](subcontract-order.md) or [Use the subcontracting worksheet](subcontract-worksheet.md).
-- Production order components with the **Transfer** subcontracting type.
-- Transfer routes between locations (optional, if not configured, direct transfers are used). Learn more in [Set up locations for subcontracting](subcontract-location-management.md#set-up-transfer-routes).
 - A **Subcontracting Location Code** on the vendor card.
+- Transfer routes with an **In-Transit Code** between locations (recommended). If you don't configure this code, [!INCLUDE [prod_short](includes/prod_short.md)] uses direct transfers, which have limitations with advanced warehouse locations. For more information, see [Set up transfer routes](subcontract-location-management.md#set-up-transfer-routes) and [Supported combinations for component transfers](#supported-combinations-for-component-transfers).
+- Production order components with the **Transfer to Vendor** component supply method.
+- A purchase order with subcontracting. Learn more in [Order subcontracting](subcontract-order.md).
 
 ### Create a transfer order from a purchase order
 
 1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders**, and then choose the related link.
-2. Open the subcontracting purchase order.
-3. Choose the **Create Transfer Order for Subcontracting** action.
+1. Open the subcontracting purchase order.
+1. Choose the **Create Transf. Ord. to Subcontractor** action.
 
 [!INCLUDE [prod_short](includes/prod_short.md)] opens the **Transfer Order** page. On the **General** FastTab, you can see the source and destination locations, which are filled in automatically.
 
-> [!NOTE]
-> You must choose the action to create transfer orders. The process isn't automated.
+When [!INCLUDE [prod_short](includes/prod_short.md)] creates the transfer order, it saves each component's original location code and bin code. If you later delete the transfer order before posting, [!INCLUDE [prod_short](includes/prod_short.md)] restores the location code and bin code to their original values on the production order component.
 
 ### How locations are determined for transfer orders
 
 [!INCLUDE [prod_short](includes/prod_short.md)] automatically determines the locations:
 
-- **Transfer-from**: The location of the production order component. If you change the component location after creating the transfer order, [!INCLUDE [prod_short](includes/prod_short.md)] automatically uses the new location.
+- **Transfer-from**: The location of the production order component.
 - **Transfer-to**: The **Subcontracting Location Code** from the vendor card.
 
 ### Use direct transfers
@@ -14049,33 +14837,43 @@ When [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order fo
 - If a transfer route exists and has an **In-Transit Code**, [!INCLUDE [prod_short](includes/prod_short.md)] creates a regular transfer order that uses the transit location.
 - If no transfer route exists, or the route doesn't have an **In-Transit Code**, [!INCLUDE [prod_short](includes/prod_short.md)] automatically creates a **direct transfer** order instead.
 
+### Supported combinations for component transfers
+
+The following table shows which transfer modes work for components depending on the warehouse handling at the transfer-from and transfer-to locations.
+
+|Transfer mode|Direction|No warehouse handling|Require Pick / Put-away|Require Shipment / Receive|Directed Put-away and Pick|
+|---|---|---|---|---|---|
+|In-Transit (recommended)|Send to subcontractor|Supported|Supported|Supported|Supported|
+|In-Transit (recommended)|Receive from subcontractor|Supported|Supported|Supported|Supported|
+|Direct – Shipment and Receipt|Send to subcontractor|Supported|Supported|Supported|Supported|
+|Direct – Shipment and Receipt|Receive from subcontractor|Supported|Not supported|Not supported|Not supported|
+|Direct – Direct Transfer|Send to subcontractor|Supported|Supported|Supported|Supported|
+|Direct – Direct Transfer|Receive from subcontractor|Supported|Partial (1)|Not supported|Not supported|
+
+(1) Inventory Put-away creation isn't supported. Post directly from the transfer order as a workaround.
+
+> [!IMPORTANT]
+> **Sending** components to subcontractors works in all transfer modes and warehouse configurations. **Receiving** components back (returns) fails with direct transfers when the destination location requires inbound warehouse handling (Require Receive, Require Put-away, or Directed Put-away and Pick).
+>
+> To ensure component returns work reliably, set up transfer routes with an **In-Transit Code** between your subcontractor locations and the destination warehouse. Also review the **Direct Transfer Posting** field on the **Inventory Setup** page.
+
 ### How receipt dates are calculated
 
-[!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the receipt date in the transfer order using the following formula:
+[!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the receipt date in the transfer order by using the following formula:
 
-   **Receipt Date = Due date of the production order component - Subcontracting Inbound Whse. Handling Time**
+   **Receipt Date = Due date of the production order component - Subcontracting Component Transfer Lead Time**
 
-The **Subcontracting Inbound Whse. Handling Time** is defined on the **Manufacturing Setup** page.
+You define the **Subcontracting Component Transfer Lead Time** on the **Manufacturing Setup** page.
 
 ### Use the Subcontracting Details FactBox
 
-On the transfer order, the **Subcontracting Details** FactBox shows the related purchase order, production order, routing operations, and components for the selected transfer line. Choose a value to open the related document or list.
-
-### Post a transfer order
-
-You can post the transfer order using one of the following methods:
-
-- Post from the **Transfer Order** page.
-- Post through warehouse shipments.
-- Post through picking.
-
-After you post the transfer order, [!INCLUDE [prod_short](includes/prod_short.md)] changes the status in the **Operation Status** field in the production order routing to **In Process**.
+On the transfer order, the **Subcontracting Details** FactBox shows the related purchase order, production order, routing operations, and components for the selected transfer line. Select a value to open the related document or list.
 
 ### Access transfer entries
 
 You can access posted subcontracting transfer entries from the production order.
 
-1. On the production order, choose the **Subcontracting Transfer Entries** action.
+- On the production order, choose the **Subcontracting Transfer Entries** action.
 
 [!INCLUDE [prod_short](includes/prod_short.md)] displays the **Item Ledger Entries** page, where you can view all processes and details of the transfer.
 
@@ -14083,35 +14881,32 @@ You can access posted subcontracting transfer entries from the production order.
 
 If the subcontractor didn't completely consume the provided components, you can transfer the unused quantities back to your source location.
 
-1. On the purchase order, choose the **Create Return from Subcontractor** action.
+- On the purchase order, choose the **Create Return from Subcontractor** action.
 
    [!INCLUDE [prod_short](includes/prod_short.md)] opens the **Transfer Order** page. The **Transfer-from** location is the vendor's subcontracting location. The **Transfer-to** location is your original source location.
 
-2. The components with the **Transfer** subcontracting type are available for transfer in the lines. In the lines, enter the quantities you want to post with this transfer order.
-3. Post the transfer order from the **Transfer Order** page, through warehouse shipments, or through picking.
+When you post the return transfer order, [!INCLUDE [prod_short](includes/prod_short.md)] restores the component's location code and bin code to their original values on the production order component. If you delete the return transfer order instead of posting it, [!INCLUDE [prod_short](includes/prod_short.md)] also restores the original values.
 
 ### How return quantities are calculated
 
-[!INCLUDE [prod_short](includes/prod_short.md)] automatically calculates the maximum quantity you can return for each component. The calculation considers:
+[!INCLUDE [prod_short](includes/prod_short.md)] calculates the return quantity
+for each component as the lesser of:
 
-- Components in transit to the subcontractor (shipped but not yet received).
-- Components that arrived at the subcontractor and aren't consumed.
-- Components already on a return transfer order or in transit back.
-- The quantity still needed for remaining production (based on outstanding purchase order quantity).
+- **Physically available at the subcontractor**: components in transit to the subcontractor (shipped but not yet received), plus components that arrived and aren't consumed, minus quantities already on a return transfer order or in transit back.
+- **Quantity needed for outstanding production**: the outstanding quantity on the purchase order line multiplied by the quantity per from the production BOM.
 
-The return quantity is the lesser of what's physically available at the subcontractor and what's no longer needed for production.
+**Example:** You ordered 10 units from a subcontractor. The BOM requires 1 component
+per unit, so you transferred 10 components.
 
-**Example:** You ordered 100 units from the subcontractor. The BOM requires 2 kg of steel per unit, so you transferred 200 kg to the subcontractor.
-
-- The subcontractor delivered 80 units (you posted receipt for 80), consuming 160 kg.
-- Remaining at subcontractor: 40 kg.
-- Outstanding purchase order quantity: 20 units, which need 40 kg.
-- **Return quantity: 40 kg** (the lesser of 40 kg available and 40 kg needed).
-
-If you cancel the remaining 20 units on the purchase order, the outstanding quantity drops to zero, and the return quantity also becomes zero because no production remains to justify a return.
+| Scenario | Received | Outstanding | Available | Return qty |
+|---|---|---|
+| No receipts posted | 0 | 10 | 10 | 10 |
+| Reduce purchase order to 8 | 0 | 8 | 10 | 8 |
+| Receive 4 of 10 | 4 | 6 | 6 | 6 |
+| Receive 4, then reduce to 4 | 4 | 0 | 6 | 0 |
 
 > [!NOTE]
-> When the subcontractor delivers the finished goods (you post the purchase receipt), [!INCLUDE [prod_short](includes/prod_short.md)] automatically reduces the components available for return. Only unconsumed components can be returned.
+> When the outstanding purchase order quantity is zero, the return quantity is also zero even if unconsumed components remain at the subcontractor.
 
 ### One return per purchase order line
 
@@ -14119,40 +14914,38 @@ You can create one return transfer order per purchase order line. If you try to 
 
 If you need to return a different quantity, delete the existing return transfer order (if it isn't posted) and create a new one.
 
-## Set up flushing for subcontracting components
-
-If a component is used for subcontracting, we recommend that you set its flushing method to **Backward** in the stockkeeping unit card for the subcontracting location.
-
-1. Choose the ![Lightbulb that opens the Tell Me feature.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Stockkeeping Units**, and then choose the related link.
-2. Open the stockkeeping unit card for the subcontracting location.
-3. On the **Replenishment** FastTab, in the **Flushing Method** field, choose **Backward**.
-
-When you use backward flushing, [!INCLUDE [prod_short](includes/prod_short.md)] automatically consumes the material in the subcontracting warehouse without requiring other posting.
-
 ## Restrictions and validations
 
-[!INCLUDE [prod_short](includes/prod_short.md)] applies the following restrictions to help ensure data consistency.
+[!INCLUDE [prod_short](includes/prod_short.md)] protects fields on subcontracting documents after you transfer components or WIP items to the subcontractor (or while transfer orders exist). This protection prevents inventory discrepancies between what is physically at the vendor and what the system expects.
 
-### Location changes after transfer orders
+### Transfer line restrictions
 
-After [!INCLUDE [prod_short](includes/prod_short.md)] creates a transfer order for a production order component:
+After you link a transfer line to a production order, you can't change the following fields on that line:
 
-- You can't change the component location.
-- You receive the error message: "The component has already been assigned to the subcontracting transfer order."
+- **Quantity**
+- **Item No.**
+- **Variant Code**
+
+This restriction applies to both outbound transfers (to the subcontractor) and return transfers (from the subcontractor). 
+
+### Transfer header restrictions
+
+You can't change the **Transfer-from Code** or **Transfer-to Code** fields on a subcontracting transfer order if any of its lines are linked to a production order.
+
+### Component restrictions
+
+When a component with the **Transfer to Vendor** component supply method has transfer orders or stock at the subcontractor location, you can't change the following fields:
+
+- **Location Code**
+- **Bin Code**
+- **Item No.**
+- **Variant Code**
+- **Expected Quantity**
+- **Component Supply Method** (changing away from Transfer to Vendor)
 
 ### Item tracking restrictions
 
-When transfer orders exist for a component:
-
-- You can't open item tracking lines.
-- You receive the error message: "You cannot open Tracking Specification because this component is already specified in Transfer Order [Number]."
-
-### Bin code management
-
-[!INCLUDE [prod_short](includes/prod_short.md)] manages bin codes automatically:
-
-- When it creates transfer orders, it saves the original bin code.
-- When you delete the transfer order, it restores the location and bin code to the original values.
+You can't open item tracking lines when transfer orders exist for a component.
 
 ## Related information
 
@@ -18292,6 +19085,241 @@ The general content about ad-hoc data analysis is also available in special vers
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-powerbi-app-semantic-model
+---
+title: Power BI Finance app semantic model
+description: Learn about the finance tables and fields in the Power BI Finance app semantic model for Business Central reporting and analysis.
+author: SusanneWindfeldPedersen
+ms.author: solsen
+ms.reviewer: solsen
+ms.topic: concept-article
+ms.search.keywords: reporting
+ms.date: 07/03/2026
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+ai.usage: ai-assisted
+---
+
+# Power BI Finance app semantic model
+
+[!INCLUDE[applies-to-2024w2](includes/applies-to-2024w2.md)]
+
+The semantic model in the Power BI Finance app is organized in a [Star Schema Model](/power-bi/guidance/star-schema#star-schema-overview).
+
+The fact tables contain information about individual transactions, such as general ledger entries, G/L budget entries, and customer and vendor ledger entries from [!INCLUDE [prod_short](includes/prod_short.md)].
+
+The dimension tables provide more context and attributes to the transactional data, such as account, budget, customer, and vendor information.
+
+## Fact tables
+
+Fact tables store transactional data and support summarizations such as SUM, AVG, COUNT, and more. The Power BI Finance app includes several fact tables:
+
+- [Customer Ledger Entries](#customer-ledger-entries)
+- [G/L Budget Entries](#gl-budget-entries)
+- [G/L Entries](#gl-entries)
+- [Vendor Ledger Entries](#vendor-ledger-entries)
+
+### Customer Ledger Entries
+
+The app uses data from the following tables:
+
+- Cust. Ledger Entry
+- Detailed Cust. Ledg. Entry
+- Sales Invoice Header
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| CLE Entry No. | Entry No. | Specifies the entry number of the customer ledger entry. |
+| CLE Due Date | Due Date | Specifies the date when the customer ledger entry is due. |
+| CLE Open | Open | Specifies whether the customer ledger entry is still open. |
+| CLE Posting Date | Posting Date | Specifies the posting date of the customer ledger entry. |
+| CLE Document Date | Document Date | Specifies the document date of the customer ledger entry. |
+| DCLE Entry No. | Entry No. | Specifies the entry number of the detailed customer ledger entry. |
+| Ledger Entry Amount | Ledger Entry Amount | Specifies whether the detailed customer ledger entry amount updates the customer ledger entry balance. |
+| Entry Type | Entry Type | Specifies the type of detailed customer ledger entry, such as initial entry or application. |
+| Document Type | Document Type | Specifies the document type of the detailed customer ledger entry. |
+| Document No. | Document No. | Specifies the document number of the detailed customer ledger entry. |
+| DCLE Initial Entry Due Date | Initial Entry Due Date | Specifies the due date of the initial customer ledger entry. |
+| Customer No. | Customer No. | Specifies the number of the customer account. |
+| Application No. | Application No. | Specifies the application number of the detailed customer ledger entry. |
+| Applied Customer Ledger Entry No. | Applied Cust. Ledger Entry No. | Specifies the customer ledger entry number that was applied. |
+| Sales Invoice Header Document No. | No. | Specifies the posted sales invoice number. |
+| Payment Terms Code | Payment Terms Code | Specifies the payment terms that apply to the posted sales invoice. |
+| Payment Discount Date | Pmt. Discount Date | Specifies the date when the payment discount is available. |
+| CLE Closed At Date | Closed at Date | Specifies the date when the customer ledger entry was closed. |
+| Late Payment | - | Specifies whether the payment was posted after the due date in Power BI. |
+| Late Payment Invoice No. | - | Specifies the invoice number related to a late payment in Power BI. |
+
+### G/L Budget Entries
+
+The app uses data from the following table:
+
+- G/L Budget Entry
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Entry No. | Entry No. | Specifies the entry number of the G/L budget entry. |
+
+### G/L Entries
+
+The app uses data from the following tables:
+
+- G/L Account
+- G/L Entry
+- PBI C. Income St. Source Code
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Posting Date | Posting Date | Specifies the posting date of the general ledger entry. |
+| Closing Entry | - | Specifies whether the general ledger entry is treated as a closing entry in Power BI. |
+| Source Code | Source Code | Specifies the source code that identifies where the general ledger entry was created. |
+| Source Type | Source Type | Specifies the type of source that the general ledger entry is related to. |
+| Source No. | Source No. | Specifies the number of the source that the general ledger entry is related to. |
+| Entry No. | Entry No. | Specifies the entry number of the general ledger entry. |
+| Description | Description | Specifies a description of the general ledger entry. |
+
+### Vendor Ledger Entries
+
+The app uses data from the following tables:
+
+- Vendor Ledger Entry
+- Detailed Vendor Ledg. Entry
+- Purch. Inv. Header
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| VLE Entry No. | Entry No. | Specifies the entry number of the vendor ledger entry. |
+| VLE Due Date | Due Date | Specifies the date when the vendor ledger entry is due. |
+| VLE Open | Open | Specifies whether the vendor ledger entry is still open. |
+| VLE Posting Date | Posting Date | Specifies the posting date of the vendor ledger entry. |
+| VLE Document Date | Document Date | Specifies the document date of the vendor ledger entry. |
+| DVLE Entry No. | Entry No. | Specifies the entry number of the detailed vendor ledger entry. |
+| DVLE Ledger Entry Amount | Ledger Entry Amount | Specifies whether the detailed vendor ledger entry amount updates the vendor ledger entry balance. |
+| Entry Type | Entry Type | Specifies the type of detailed vendor ledger entry, such as initial entry or application. |
+| Document Type | Document Type | Specifies the document type of the detailed vendor ledger entry. |
+| Document No. | Document No. | Specifies the document number of the detailed vendor ledger entry. |
+| DVLE Initial Entry Due Date | Initial Entry Due Date | Specifies the due date of the initial vendor ledger entry. |
+| Vendor No. | Vendor No. | Specifies the number of the vendor account. |
+| Application No. | Application No. | Specifies the application number of the detailed vendor ledger entry. |
+| Applied Vendor Ledger Entry No. | Applied Vend. Ledger Entry No. | Specifies the vendor ledger entry number that was applied. |
+| PIH Document No. | No. | Specifies the posted purchase invoice number. |
+| Payment Terms Code | Payment Terms Code | Specifies the payment terms that apply to the posted purchase invoice. |
+| Payment Discount Date | Pmt. Discount Date | Specifies the date when the payment discount is available. |
+| VLE Closed At Date | Closed at Date | Specifies the date when the vendor ledger entry was closed. |
+
+## Dimension tables
+
+The star schema model uses dimension tables and you can filter and group data.
+
+- [Customers](#customers)
+- [G/L Account](#gl-account)
+- [G/L Account Category](#gl-account-category)
+- [G/L Budget](#gl-budget)
+- [Vendors](#vendors)
+
+### Customers
+
+The app uses data from the following table:
+
+- Customer
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Customer No. | No. | Specifies the number of the customer. |
+| Customer Name | Name | Specifies the name of the customer. |
+| Customer Address | Address | Specifies the address of the customer. |
+| Customer Address 2 | Address 2 | Specifies additional address information. |
+| Customer City | City | Specifies the city of the customer. |
+| Customer Post Code | Post Code | Specifies the postal code of the customer. |
+| Customer State | County | Specifies the state, province, or county as part of the customer address. |
+| Country/Region Code | Country/Region Code | Specifies the country/region of the customer address. |
+| Customer Posting Group | Customer Posting Group | Specifies the customer's posting group. |
+| Customer Price Group | Customer Price Group | Specifies the customer price group. |
+| Customer Discount Group | Customer Disc. Group | Specifies the customer discount group. |
+| Customer No. & Name | - | Specifies a combination of customer number and customer name in Power BI. |
+
+### G/L Account
+
+The app uses data from the following table:
+
+- G/L Account
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Account No./Name | - | Specifies a combination of general ledger account number and name in Power BI. |
+| G/L Account No. | No. | Specifies the number of the general ledger account. |
+| G/L Account Name | Name | Specifies the name of the general ledger account. |
+| Income/Balance | Income/Balance | Specifies whether the general ledger account is an income statement account or a balance sheet account. |
+
+### G/L Account Category
+
+The app uses data from the following table:
+
+- G/L Account Category
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Acc. Category Description | Description | Specifies the description of the general ledger account category. |
+
+### G/L Budget
+
+The app uses data from the following table:
+
+- G/L Budget Name
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| G/L Budget Name | Name | Specifies the name of the general ledger budget. |
+| G/L Budget Description | Description | Specifies the description of the general ledger budget. |
+
+### Vendors
+
+The app uses data from the following table:
+
+- Vendor
+
+#### Table definition
+
+| Power BI field name | Business Central field name | Description |
+| ------ | -------------- | ---------- |
+| Vendor No. | No. | Specifies the number of the vendor. |
+| Vendor Name | Name | Specifies the name of the vendor. |
+| Vendor Address | Address | Specifies the address of the vendor. |
+| Vendor Address 2 | Address 2 | Specifies additional address information. |
+| Vendor City | City | Specifies the city of the vendor. |
+| Vendor Post Code | Post Code | Specifies the postal code of the vendor. |
+| Vendor State | County | Specifies the state, province, or county as part of the vendor address. |
+| Vendor Country/Region Code | Country/Region Code | Specifies the country/region of the vendor address. |
+| Vendor Posting Group | Vendor Posting Group | Specifies the vendor's posting group. |
+| Vendor No. & Name | - | Specifies a combination of vendor number and vendor name in Power BI. |
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Related information
+
+[Finance KPI overview](finance-powerbi-kpis.md)  
+[Power BI finance app](finance-powerbi-app.md)  
+[Use Power BI with Business Central](admin-powerbi.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/qms-purchase-receipt-testing-simple
 ---
 title: Purchase receipt inspections without warehouse handling
@@ -19414,254 +20442,5 @@ To learn more, go to [Handling vendor payment disputes](payables-how-handling-pa
 
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-how-create-custom-report-layout
----
-title: (Obsolete) Create and modify custom report layouts
-description: Learn how to create customized layouts to personalize the appearance of a report when viewed, printed, or saved.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.search.keywords: customized report, document layout, logo, personalize
-ms.search.form: 9650_Primary, 9652
-ms.date: 03/12/2025
-ms.service: dynamics-365-business-central
-ms.custom: bap-template
----
-# (Obsolete) Create and modify custom report layouts
-
-[!INCLUDE[legacy-custom-layouts](includes/legacy-custom-layouts.md)]
-
-By default, reports have a built-in layout. The report layout can be either an RDLC (report definition language client side) report layout, a Microsoft Word report layout, or both. And while you can't modify built-in layouts, you can create custom layouts. A report can have multiple custom report layouts.
-
-> [!NOTE]  
-> In [!INCLUDE[prod_short](includes/prod_short.md)], the term "report" also covers externally facing documents, such as sales invoices and order confirmations you send to customers as PDF files.
-
-To create a custom layout, either copy an existing custom layout or add a new custom layout. Custom layouts are often based on a built-in layout. When you add a new custom layout, you can choose to add either an RDLC or a Word report layout type, or both. The new custom layout is based on the built-in layout for the report, if one is available. If there's no built-in layout for the report type, a new blank layout is created. You modify and design this blank layout from scratch. Learn more about RDLC, Word, built-in, and custom layouts in [Manage Report Layouts](ui-manage-report-layouts.md).  
-
-> [!TIP]
-> Use financial reports to get insight into the financial data stored in your chart of accounts. Learn more at [Prepare Financial Reporting with Financial Data and Account Categories](bi-how-work-account-schedule.md).
-
-After you define your custom report layouts, you can select them on the customer card and vendor card pages. The layouts are then used when you create documents for the customer or vendor. Learn more at [Define Document Layouts for Customers and Vendors](ui-define-customer-vendor-document-layouts.md).
-
-You can also use custom report layouts to add content to email messages. Report layouts can save time and help ensure consistency by reusing the same content when you communicate with your customers. To use custom report layouts with email, the file type for the layout must be Word. You can't use the RDLC file type. Learn more in [Set Up Reusable Email Texts and Layouts](admin-how-setup-email.md#set-up-reusable-email-texts-and-layouts).
-
-## Create a custom layout
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Report Layout Selection**, and then choose the related link.
-
-    The **Report Layout Selection** page lists all the reports available in the company specified in the **Company Name** field at the top of the page.
-1. In the **Company Name** field, choose the company you want to create the report layout for.
-1. Select the row for the report you want to create the layout for, and then choose the **Custom Layouts** action.  
-
-   The **Custom Report Layouts** page appears and lists all the custom layouts available for the selected report.
-1. If you want to create a copy of an existing custom layout, select the existing custom layout in the list, then choose the **Copy** action.  
-
-   The copy of the custom layout appears on the **Custom Report Layouts** page and has the words *Copy of* in the **Description** field.
-1. If you want to add a new custom layout based on a built-in layout, follow these steps:  
-   1. Choose the **New** action. The **Insert Built-in Layout for a Report** page appears with the **ID** and **Name** fields automatically filled in.
-   1. Turn on the **Insert Word Layout** toggle to add a custom Word report layout type OR turn on the **Insert RDLC Layout** toggle to add a custom RDLC report layout type.
-   1. Choose the **OK** button.  
-
-    The new custom layout now appears on the **Custom Report Layouts** page. If a new layout is based on a built-in layout, then the words **Copy of a Built-in Layout** appear in the **Description** field. If there was no built-in layout for the report, then the new layout has the words **New Layout** in the **Description** field, which means that custom layout is blank.
-1. By default, the **Company Name** field is blank and the custom layout is available for reports by all companies. To make the custom layout available to a specific company only, choose **Edit**, then set the **Company Name** field to the company you want.
-
-The custom layout is created and you can modify it as you like.
-
-> [!TIP]
-> You can export the report results to a Microsoft Excel file to view the full dataset, including all columns, but without the layout. The Excel file can help you validate the report returns the expected data or diagnose problems. Learn more at [Analyzing Report Data with Excel](report-analyze-excel.md).
-
-## <a name="ModifyCustomLayout"></a>Modifying a custom layout
-
-To modify a custom report layout, you must first export the report layout as a file to a location on your computer or network. Then, open the exported document and make the changes. When you're finished making the changes, you import the report layout.
-
-### Modify a custom layout
-
-1. Export a custom layout from the **Custom Report Layouts** page. If that page isn't already open, search for and open the **Report Layout Selection** page, select the report that has the layout you want to modify, then choose the **Custom Layouts** action.  
-1. On the **Custom Report Layouts** page, select the layout you want to modify, choose the **Export Layout** action, then choose **Save** or **Save As** to save the report layout document to a location on your computer or network.  
-1. Open the report layout document you saved and make changes.
-
-   If you're changing a Word layout, open the layout document in Word. Learn more about editing Word reports at [Work with Word Layouts](ui-how-add-fields-word-report-layout.md)<!--the next section [Making Changes to the Report Layout](ui-how-create-custom-report-layout.md#MakeChangesToLayout)-->.
-
-   RDLC report layouts are more advanced than Word report layouts. Learn more about modifying an RDLC report layout at [Designing RDLC Report Layouts](/dynamics-nav/Designing-RDLC-Report-Layouts).
-
-   Remember to save your changes when you're done.
-
-1. Return to the **Custom Report Layouts** page, select the report layout you exported and modified, then choose the **Import Layout** action.  
-1. In the **Import** dialog box, select **Choose** to find and select the modified report layout document, then choose **Open**.
-
-> [!IMPORTANT]
-> Remember to import the report layout document that you modified. Otherwise, the new report layout isn't available.
-
-<!--
-##  <a name="MakeChangesToLayout"></a> Create and modify custom report layouts
-
-To make general formatting and layout changes, such as changing text font, adding and modifying a table, or removing a data field, just use the basic editing features of Word like you do with any Word document.
-
-If you're designing a Word report layout from scratch or adding new data fields, then start by adding a table that includes rows and columns that will eventually hold the data fields.
-
-> [!TIP]  
-> Show the table gridlines so that you see the boundaries of table cells. Remember to hide the gridlines when you're done editing. To show or hide table gridlines, select the table, and then under **Layout** on the **Table** tab, choose **View Gridlines**.
-
-### Embedding fonts in Word layouts for consistency
-
-To ensure that reports always display and print with the intended fonts, wherever users open or print the reports, you can embed the fonts in the Word document. However, embedding fonts can significantly increase the size of the Word files. Learn more about embedding fonts in Word at [Embed fonts in Word, PowerPoint, or Excel](https://support.office.com/article/Embed-fonts-in-Word-PowerPoint-or-Excel-cb3982aa-ea76-4323-b008-86670f222dbc).
-
-###  <a name="RemoveField"></a> Removing label and data fields in Word layouts
-
- Label and data fields of a report are contained in content controls in Word. The following figure illustrates a content control when it's selected in the Word document.  
-
- ![Content control for field in Word report layout.](media/nav_wordreportlayouts_contentcontrol.png "NAV_WordReportLayouts_ContentControl")  
-
- The name of the label or data field name displays in the content control. In the example, the field name is CompanyAddr1.  
-
-### To remove a label or data field  
-
-1. Right-click the field you want to delete, then choose **Remove Content Control**.  
-
-     The content control is removed, but the field name remains as text.  
-
-2. Delete the remaining text as needed.  
-
-### Adding data fields
-
-Adding data fields from a report dataset is more advanced and requires some knowledge of the report dataset. Learn more about adding fields for data, labels, and images at [Add Fields to a Word Report Layout](ui-how-add-fields-word-report-layout.md).  -->
-
-## Related information
-
-[Managing Report Layouts](ui-manage-report-layouts.md)  
-[Change the Current Report Layout](ui-how-change-layout-currently-used-report.md)  
-[Import and Export a Custom Report or Document Layout](ui-how-import-and-export-report-layout.md)  
-[Work with Reports, Batch Jobs, and XMLports](ui-work-report.md)  
-[Prepare Financial Reporting with Financial Data and Account Categories](bi-how-work-account-schedule.md)  
-[Business Intelligence](bi.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-how-use-non-deductible-vat
----
-title: Use non-deductible VAT
-description: This article explains how to use and report non-deductible VAT.
-author: altotovi
-ms.author: altotovi
-ms.service: dynamics-365-business-central
-ms.topic: how-to
-ms.search.keywords: VAT, non-deductible, return, settlement
-ms.search.form: 50, 51, 52, 161, 187, 317, 403, 6640, 9401
-ms.date: 04/26/2023
-ms.custom: bap-template
-ms.reviewer: bholtorf
----
-
-# Use non-deductible VAT
-
-This article explains how to use and report non-deductible VAT.
-
-## Create a purchase invoice with non-deductible VAT
-
-1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Invoices**, and then select the related link.
-2. Select **New** to create a purchase invoice, and enter the appropriate information on the invoice header.
-3. In the **Lines** section, create a new line of any type, based on the VAT business posting group and the VAT product posting group where you configure non-deductible VAT.
-4. In the **Quantity** and **Direct Unit Cost** fields, enter appropriate values.
-
-    If you selected the **Show Non-Ded. VAT In Lines** checkbox on the **VAT Setup** page, the amounts in the **Non-Deductible VAT Base** and **Non-Deductible VAT Amount** fields are calculated based on the **Non-Deductible VAT %** field on the **VAT Posting Setup** page.
-
-5. Post the invoice.
-
-## Create a purchase order with non-deductible VAT
-
-1. Select the ![Lightbulb that opens the Tell Me feature 3.](media/ui-search/search_small.png "Tell me what you want to do") icon, enter **Purchase Orders** and then select the related link.
-2. Select **New** to create a purchase order, and enter the appropriate information on the document header.
-3. In the **Lines** section, create a new line of any type, based on the VAT business posting group and the VAT product posting group where you configure non-deductible VAT.
-4. In the **Quantity** and **Direct Unit Cost** fields, enter appropriate values.
-
-    If you selected the **Show Non-Ded. VAT In Lines** checkbox on the **VAT Setup** page, the amounts in the **Non-Deductible VAT Base** and **Non-Deductible VAT Amount** fields are calculated based on the **Non-Deductible VAT %** field on the **VAT Posting Setup** page.
-
-5. Post the purchase order.
-
-## Adjust rounded VAT amounts before document posting
-
-If VAT amounts aren't rounded in the same way in your environment and in the external accounting system (the original invoice document), you can adjust the VAT amount before you post the document. To make this adjustment, follow these steps before you post the document.
-
-1. On the Action Pane, select **Statistic**.
-2. If you're working with a purchase invoice, follow these steps:
-
-    1. On the **Lines** FastTab, select the VAT amount or non-deductible VAT amount.
-    2. Set the values that you need from the original document, and then close the **Purchase Invoice Statistics** page.
-
-3.	If you're working with the purchase order, follow these steps:
-
-    1. On the **Invoicing** FastTab, select **No. of Tax Lines** to open the **VAT Amounts Lines** page.
-    2. Select the VAT amount or non-deductible VAT amount that you want to correct.
-    3. Enter the values that you need from the original document, close the **VAT Amount lines** page, and then close the **Purchase Order Statistics** page.
-
-To use adjustments of VAT amounts, you must enable the adjustments. On the **General Ledger Setup** page, in the **Max. VAT Difference Allowed** field, enter the maximum allowed VAT amount for correction. Then, on the **Purchases & Payables Setup** page, select **Allow VAT Difference**.
-
-You can adjust the values of the **VAT Amount** and **Non-Deductible VAT Amount** fields. The value of the **Deductible VAT Amount** field is the result of these two values. The amount that you enter in the **Non-Deductible VAT Amount** field can't be more than the amount that you enter in the **VAT Amount** field. The **Max. VAT Difference Allowed** field on the **General Ledger Setup** page works independently for deductible and non-deductible VAT amounts on statistic pages when you want to adjust VAT amounts.
-
-> [!IMPORTANT]
-> You can't use non-deductible VAT on the prepayment invoices.
-
-## Related information
-
-[Financial Management](finance.md)
-
-[Set Up Calculations and Posting Methods for Value-Added Tax](finance-setup-vat.md)  
-
-[Set up Non-deductible VAT](finance-setup-nondeductible-vat.md)
-
-[Design details about non-deductible VAT](design-details-nondeductible-vat.md)
-
-[Report VAT to Tax Authorities](finance-how-report-vat.md)
-
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/across-data-exchange
----
-title: Electronic documents in Business Central
-description: Overview of using the Data Exchange Framework in Business Central to exchange business documents, including bank files and currency exchange rates.
-author: brentholtorf
-ms.topic: concept-article
-ms.devlang: al
-ms.search.keywords: Data exchange framework, data files, data exchange, electronic document, invoice, standard-compliant file
-ms.date: 10/13/2025
-ms.author: bholtorf
-ms.service: dynamics-365-business-central
-ms.reviewer: v-soumramani
----
-
-# Exchanging data electronically
-
-You can use the Data Exchange Framework to manage the exchange of business documents, bank files, currency exchange rates, and any other data files with your business partners.
-
-In the standard version of [!INCLUDE[prod_short](includes/prod_short.md)], the Data Exchange Framework is used in processes such as exchanging electronic documents, importing and exporting bank files, and updating exchange rates for currencies. Learn more in [About the Data Exchange Framework](across-about-the-data-exchange-framework.md).
-
-As an administrator or Microsoft partner, you can use the framework in new integration features by specifying the data to exchange, and how to exchange it. Learn more in [Set Up Data Exchange Definitions](across-how-to-set-up-data-exchange-definitions.md).
-
-The following table describes a sequence of tasks, with links to the articles that describe them.  
-
-|To|Go to|  
-|--------|---------|  
-|Learn how the Data Exchange Framework works.|[About the Data Exchange Framework](across-about-the-data-exchange-framework.md)|  
-|Prepare to exchange data in a file by reusing the file’s XML schema. Set up data exchange definitions. Set up master data for electronic document sending. Set up various bank import/export fields.|[Setting Up Data Exchange](across-set-up-data-exchange.md)|  
-|Based on data exchange definitions, send PEPPOL invoices, receive PEPPOL invoices, import bank statements, and export bank payment files.|[Exchanging Data](across-exchange-data.md)|  
-
-## Related information
-
-[About the Data Exchange Framework](across-about-the-data-exchange-framework.md)  
-[Use XML Schemas to Prepare Data Exchange Definitions](across-how-to-use-xml-schemas-to-prepare-data-exchange-definitions.md)  
-[Set Up Data Exchange](across-set-up-data-exchange.md)  
-[Exchange Data](across-exchange-data.md)  
-[Incoming Documents](across-income-documents.md)  
-[General Business Functionality](ui-across-business-areas.md)  
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]  
 end of article
 
