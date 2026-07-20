@@ -2692,7 +2692,7 @@ author: jswymer
 ms.topic: how-to
 ms.search.keywords: access, right, security
 ms.search.form: 119, 774_Primary, 6300, 6301, 6302, 8930, 9061, 9062, 9069, 9173, 9800_Primary, 9807_Primary, 9808, 9830, 9831, 9838, 9816, 9818, 9874
-ms.date: 06/17/2026
+ms.date: 07/16/2026
 ms.author: jswymer
 ms.reviewer: jswymer
 ms.service: dynamics-365-business-central
@@ -2794,7 +2794,7 @@ After you add users or change user information in the Microsoft 365 Admin Center
 The next step for newly created users is to assign user groups and permissions. Go to [Assign Permissions to Users and Groups](ui-define-granular-permissions.md) for information. If you update a user with a license change, [!INCLUDE [prod_short](includes/prod_short.md)] assigns users to the appropriate user group and updates their permission sets. Learn more at [To manage permissions through user groups](ui-define-granular-permissions.md).  
 
 > [!NOTE]
-> With 2024 release wave 1, a Premium license user can sign in to a company where the **User Experience** field is set to **Essentials** on the **Company Information** page. However, the Premium user can't use any of the features that the Premium license provides. This restriction doesn't work in the opposite direction. Users who have an Essentials license can't sign in to a company where the **User Experience** is set to **Premium** on the **Company Information** page. To learn more about licensing, go to [Business Central](https://www.microsoft.com/dynamics-365/products/business-central/) website.
+> A user with a Premium license can sign in to a company where the **Experience** field is set to **Essentials** on the **Company Information** page, but can't use Premium features in that company. Users with an Essentials license can't sign in to a company where the **Experience** field is set to **Premium**. Learn more in [Enable Premium features](ui-experiences.md).
 
 If you use an external accountant to manage your books and financial reporting, you can invite them to your [!INCLUDE[prod_short](includes/prod_short.md)] so they can work with you on your fiscal data. Learn more at [Inviting Your External Accountant to Your Business Central](finance-accounting.md#inviteaccountant).
 
@@ -2900,7 +2900,8 @@ To analyze users by license type, follow these steps:
 
 [Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
 [Manage Profiles](admin-users-profiles-roles.md)  
-[Change Which Features are Displayed](ui-experiences.md)  
+[Enable Premium features](ui-experiences.md)
+
 [Customizing [!INCLUDE[prod_short](includes/prod_short.md)]](ui-customizing-overview.md)  
 [Getting Ready for Doing Business](ui-get-ready-business.md)  
 [Administration](admin-setup-and-administration.md)  
@@ -6725,23 +6726,28 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ui-experiences
 ---
-title: Change which features are displayed
+title: Enable Premium features
 description: Learn what the Essentials and Premium user experience tiers mean for the user interface, application areas, and your company.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
-ms.search.keywords: essential, basic, user interface, application area, experience
+ms.search.keywords: Premium, activate Premium, enable Premium, Premium experience, Company Information, Manufacturing, Service Management, trial, essential, user interface, application area, experience
 ms.search.form: 1,
-ms.date: 03/11/2024
+ms.date: 07/16/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
-# Change which features are displayed
+# Enable premium features
 
-[!INCLUDE[prod_short](includes/prod_short.md)] is designed to help you run your business regardless of the size and complexity. At the core of the product, you find essential features, such as financial reporting, sales, purchasing, and inventory management. As business complexity increases, you can turn on functionality for manufacturing and service management, for example.
+[!INCLUDE[prod_short](includes/prod_short.md)] helps you run your business regardless of the size and complexity. At the core of the product, you find essential features, such as financial reporting, sales, purchasing, and inventory management. As business complexity increases, you can turn on premium functionality for manufacturing and service management.
 
 You can define the product complexity level, and thereby which features the company's users get access to, by changing the **Experience** setting on the **Company Information** page. Note that the experience setting can also be changed by adding certain extensions from Marketplace. For more information, see [Customizing [!INCLUDE[prod_short](includes/prod_short.md)] Using Extensions](ui-extensions.md).
+
+## To select the premium experience
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Company Information**, and then choose the related link.
+1. On the **Company Information** page, on the **User Experience** FastTab, select **Premium** in the **Experience** field.
 
 The following table lists the experiences that are currently available.
 
@@ -6750,38 +6756,16 @@ The following table lists the experiences that are currently available.
 | **Essentials** |Shows all actions and fields for all common business functionality.|
 | **Premium** |Shows all actions and fields for all business functionality, including Manufacturing and Service Management.|
 
-The experiences that can be selected in [!INCLUDE[prod_short](includes/prod_short.md)] reflect the solution licenses, called plans, that are defined for the product. For information about the Essentials and Premium plans, see [Business Central](https://go.microsoft.com/fwlink/?linkid=2264940) on the Microsoft Dynamics 365 marketing site. See also the [[!INCLUDE[prod_short](includes/prod_short.md)] Licensing Guide](https://go.microsoft.com/fwlink/?linkid=2264939).
+## Licenses and permissions
 
-> [!IMPORTANT]  
-> Users of type Team Member, Internal Admin, External Accountant, and Delegated Admin can be assigned a different plan than other users in the solution. Only users of type Evaluation or Premium can change the value in the **Experience** field from Essentials to Premium.
+Only users with an Evaluation or Premium license can change the **Experience** field from **Essentials** to **Premium**. If your administrator recently assigned or changed premium licenses, first [update user information and license assignments in [!INCLUDE[prod_short](includes/prod_short.md)]](ui-how-users-permissions.md#adduser). Selecting the **Premium** experience doesn't assign premium licenses.
 
-> [!NOTE]
-> In 2024 release wave 1, a user with the Premium plan can sign in to a company that's using the Essentials plan. However, the Premium user can't use any of the features that the Premium license provides. The same isn't true in the opposite direction. Users who have the Essentials plan can't sign in to a company that's using the Premium plan.
+The **Experience** setting controls which features are available to all users in the company. Permission sets are more specific, and control which features and pages each user can access. Each user can also [personalize their workspace](ui-personalization-user.md) by changing page layouts and content.
 
-Prior to defining a company's experience setting, you define users' access to specific functions and pages by assigning permission sets. For more information, see [Assign Permissions to Users and Groups](ui-define-granular-permissions.md).
+> [!IMPORTANT]
+> Users with an Essentials license can't sign in to a company that uses the **Premium** experience.
 
-The **Experience** setting applies to all users in a company, but each user can personalize their own experience further by changing page layouts and content. For more information, see [Personalize Your Workspace](ui-personalization-user.md).
-
-## Enabling premium features after upgrading a plan
-
-Users are assigned to plans in Microsoft 365 Admin Center in connection with the general work to create the Business Central users. For more information, see [Add users and assign licenses at the same time](/microsoft-365/admin/add-users/add-users?view=o365-worldwide&preserve-view=true).
-
-### To update plan changes in users groups
-
-[!INCLUDE [2023rw1-sec-group-short](includes/2023rw1-sec-group-short.md)]
-
-When you have made a change to users plans in Microsoft 365 Admin Center, such as assigned more users to the Premium plan, you must update [!INCLUDE[prod_short](includes/prod_short.md)] to reflect the change.
-
-1. Sign is as an administrator.
-2. [!INCLUDE[open-search](includes/open-search.md)], enter **Users**, and then choose the related link.
-3. On the **Users** page, choose the **Update users from Microsoft 365** action.
-
-### To select the Premium experience
-
-You can now proceed to select the new experience.
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Company Information**, and then choose the related link.
-2. On the **Company Information** page, on the **User Experience** FastTab, select Premium  in the **Experience** field.
+Learn about the different types of licenses and how licensing works in the [Dynamics 365 Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=866544).
 
 ## Help assumes the Premium experience
 
@@ -6789,12 +6773,11 @@ All feature descriptions in user documentation for [!INCLUDE[prod_short](include
 
 ## Related information
 
+[Create Users According to Licenses](ui-how-users-permissions.md)  
+[Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
 [Personalize Your Workspace](ui-personalization-user.md)  
 [Customizing Business Central](ui-customizing-overview.md)  
-[Assign Permissions to Users and Groups](ui-define-granular-permissions.md)  
-[Creating New Companies](about-new-company.md)  
-[Change Basic Settings](ui-change-basic-settings.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+[Company Information Overview](admin-company-information.md)  
 
 ## [!INCLUDE[prod_short](includes/free_trial_md.md)]  
 
@@ -7223,12 +7206,12 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-work-family
 ---
 title: Work with Production Families in Manufacturing 
-description: The main task in customizing a base calendar for your company, or one of its business partners, is to enter any changes to working and nonworking day status.
+description: Learn how to group items that share a manufacturing process so you can produce them together and reduce material scrap and repeated setup work.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 99000790, 99000791, 99000792, 99000793
-ms.date: 04/01/2021
+ms.date: 07/15/2026
 ms.author: bholtorf
 
 ms.service: dynamics-365-business-central
@@ -7236,7 +7219,7 @@ ms.reviewer: bholtorf
 ---
 # Work with Production Families
 
-A production family is a group of individual items whose relationship is based on the similarity of their manufacturing processes. By forming production families, some items can be manufactured twice or more in one production, which will optimize material consumption.
+Production families group items that you can produce together because they share a manufacturing process. Use a family production order when one operation yields multiple related items, such as different parts cut from the same sheet. Producing the items together can reduce material scrap and repeated setup work.
 
 In the **Quantity** field on the **Family** page, you enter the quantity that will be produced when the whole family has been manufactured once.
 
@@ -8412,20 +8395,22 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/finance-about-finished-production-order-costs
 ---
 title: About finished production order costs
-description: Finishing the production order is key to completing the costing lifecycle of a production item.
+description: Learn how finished production orders reconcile material, capacity, subcontracting, overhead, work-in-process, inventory, and variances.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 99000867,
-ms.date: 07/01/2025
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
 # About finished production order costs
 
-Finishing a production order is an important task in completing the costing lifecycle of the item that you're producing. Final costs, including variances in a standard cost environment, actuals in a FIFO, Average, or LIFO cost environment, are calculated using the **Adjust Cost - Item Entries** batch job. The batch job allows for financial reconciliation of the costs of item production. For a production order to be considered for cost adjustment, its status must be **Finished**, so it's important to update the status when the order is complete.
+A finished production order brings together the actual cost of consumed materials, capacity, subcontracting, and overhead for the items produced. Cost adjustment reconciles those costs with work in process and inventory and calculates variances when you use standard costing. This article explains why production orders must be finished before their final costs can be adjusted.
+
+Final costs, including variances in a standard cost environment and actual costs in a FIFO, Average, or LIFO cost environment, are calculated by using the **Adjust Cost - Item Entries** batch job. For a production order to be considered for cost adjustment, its status must be **Finished**, so it's important to update the status when the order is complete.
 
 ## Example
 
@@ -8559,7 +8544,7 @@ ms.author: bholtorf
 ms.reviewer: v-soumramani
 ms.topic: get-started
 ms.search.keywords: service management, service orders, service items, service contracts, service pricing, service personnel, service estimates, service invoices
-ms.date: 10/03/2025
+ms.date: 07/16/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -8567,7 +8552,7 @@ ms.custom: bap-template
 # Service management
 
 > [!NOTE]
-> The functionality described in this article and related articles is only available if you have the **Premium** experience. Learn more in [Change Which Features are Displayed](ui-experiences.md).
+> The features that this article and related articles describe are only available if you use the **Premium** experience. Learn how to [select the Premium experience](ui-experiences.md#to-select-the-premium-experience).
 
 Providing ongoing service to customers is an important part of any business and one that can be a source of customer satisfaction and loyalty, in addition to revenue. However, managing and tracking service isn't always easy, so [!INCLUDE[prod_short](includes/prod_short.md)] provides a set of tools to help. These tools are designed to support repair shops and field service operations, and support typical scenarios for those businesses:
 
@@ -8579,7 +8564,7 @@ Providing ongoing service to customers is an important part of any business and 
 
 In addition, you can standardize coding, set up contracts, implement a discounting policy, and create route maps for service employees.  
 
-The following table describes a sequence of tasks, with links to the articles that describe them.
+The following table contains a sequence of tasks, with links to the articles that describe them.
 
 | To... | Go to ... |
 |--|--|
@@ -16205,12 +16190,12 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-view-the-load-on-work-centers
 ---
 title: View Load on Work and Machine Centers
-description: Learn how to view loads on work and machine centers, how finite capacity planning prevents overloading bottleneck resources, and how to use the Work Center Task List.
+description: Learn how to compare resource load and capacity, identify bottlenecks, use finite scheduling, and review the Work Center Task List.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 99000887, 99000888, 99000889, 99000890, 99000891, 99000892, 99000915, 99000916
-ms.date: 05/28/2026
+ms.date: 07/15/2026
 ms.author: bholtorf
 
 ms.service: dynamics-365-business-central
@@ -16218,7 +16203,7 @@ ms.reviewer: bholtorf
 ---
 # View the load on work and machine centers
 
-On the **Work Center Card** and **Machine Center Card** pages, you can view the shop floor load as a result of planned and released production orders.
+Capacity shows how much work a production resource can perform, while load shows the work assigned by planned and released production orders. Comparing them helps you identify overloaded resources, unused capacity, and operations that might delay production. This article explains how to review load and use finite capacity scheduling for constrained resources.
 
 ## Understanding load and capacity
 

@@ -1,106 +1,3 @@
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-scheduled-synchronization-using-the-synchronization-job-queue-entries
----
-title: Synchronizing Business Central and Dataverse
-description: Learn about synchronizing data between Business Central and Dataverse.
-author: brentholtorf
-ms.author: bholtorf
-ms.reviewer: bholtorf
-ms.topic: how-to
-ms.date: 03/31/2023
-ms.custom: bap-template
-ms.search.keywords: sales, crm, integration, sync, synchronize
-ms.service: dynamics-365-business-central
----
-
-# Scheduling a Synchronization between Business Central and Dataverse
-
-You can synchronize [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] on scheduled intervals by setting up jobs in the job queue. The synchronization jobs synchronize data in [!INCLUDE[prod_short](includes/prod_short.md)] records and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records that are coupled. For records that are not already coupled, depending on the synchronization direction and rules, the synchronization jobs can create and couple new records in the destination system.
-
-There are several synchronization jobs that are available out-of-the-box. The jobs are run in the following order to avoid coupling dependencies between tables. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
-
-1. CURRENCY - Common Data Service synchronization job.
-2. VENDOR - Common Data Service synchronization job.
-3. CONTACT - Common Data Service synchronization job.
-4. CUSTOMER - Common Data Service synchronization job.
-5. SALESPEOPLE - Common Data Service synchronization job.
-
-You can view the jobs on the **Job Queue Entries** page. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
-
-## Default synchronization job queue entries
-
-The following table describes the default synchronization jobs for [!INCLUDE[cds_long_md](includes/cds_long_md.md)].  
-
-| Job Queue Entry | Description | Direction | Integration Table Mapping | Default Synchronization Frequency (mins) | Default inactivity sleep time (mins) |
-|--|--|--|--|--|--|--|
-| CONTACT - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] contacts with [!INCLUDE[prod_short](includes/prod_short.md)] contacts. | Bidirectional | CONTACT | 30 | 720 <br>(12 hours) |
-| CURRENCY - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] transaction currencies with [!INCLUDE[prod_short](includes/prod_short.md)] currencies. | From [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)] | CURRENCY | 30 | 720 <br> (12 hrs) |
-| CUSTOMER - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | CUSTOMER | 30 | 720<br> (12 hrs) |
-| VENDOR - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | VENDOR | 30 | 720<br> (12 hrs) |
-| SALESPEOPLE - Common Data Service synchronization job | Synchronizes [!INCLUDE[prod_short](includes/prod_short.md)] salespeople with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] users. | From [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)] | SALESPEOPLE | 30 | 1440<br> (24 hrs) |
-
-## Synchronization process
-
-Each synchronization job queue entry uses a specific integration table mapping that specifies which [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize. The table mappings also include some settings that control which records in the [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize.  
-
-To synchronize data, [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table records must be coupled to [!INCLUDE[prod_short](includes/prod_short.md)] records. For example, a [!INCLUDE[prod_short](includes/prod_short.md)] customer must be coupled to a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account. You can set up couplings manually, before running the synchronization jobs, or let the synchronization jobs set up couplings automatically. The following list describes how data is synchronized between [!INCLUDE[cds_long_md](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)] when you are using the synchronization job queue entries. For more information, see [Couple and Synchronize Records Manually](admin-how-to-couple-and-synchronize-records-manually.md).
-
-- The **Sync. Only Coupled Records** check box controls whether new records are created when you synchronize. By default, the check box is selected, which means that only records that are coupled will be synchronized. In the integration table mapping, you can change the table mapping between a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table and a [!INCLUDE[prod_short](includes/prod_short.md)] table so that the integration synchronization jobs will create new records in the destination database for each row in the source database that is not coupled. For more information, see [Creating New Records](admin-how-to-modify-table-mappings-for-synchronization.md#create-new-records).
-
-    **Example**
-    If you clear the **Sync. Only Coupled Records** check box, when you synchronize customers in [!INCLUDE[prod_short](includes/prod_short.md)] with accounts in [!INCLUDE[cds_long_md](includes/cds_long_md.md)], a new account is created for each customer in [!INCLUDE[prod_short](includes/prod_short.md)] and automatically coupled. Additionally, because the synchronization is bidirectional in this case, a new customer is created and coupled for each [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account that is not already coupled.  
-
-    > [!NOTE]  
-    > There are rules and filters that determine what data is synchronized. For more information, go to [Synchronization Rules](admin-synchronizing-business-central-and-sales.md).
-
-- When new records are created in [!INCLUDE[prod_short](includes/prod_short.md)], the records use the either the template that is defined for the integration table mapping or the default template that is available for the row type. Fields are populated with data from [!INCLUDE[prod_short](includes/prod_short.md)] or [!INCLUDE[cds_long_md](includes/cds_long_md.md)] depending on the synchronization direction. For more information, see [Modify Table Mappings for Synchronization](admin-how-to-modify-table-mappings-for-synchronization.md).  
-
-- With subsequent synchronizations, only records that have been modified or added after the last successful synchronization job for the table will be updated.  
-
-     New records in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] are added in [!INCLUDE[prod_short](includes/prod_short.md)]. If data in fields in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records has changed, the data is copied to the corresponding field in [!INCLUDE[prod_short](includes/prod_short.md)].  
-
-- With bidirectional synchronization, the job synchronizes from [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)], and then from [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)].
-
-## About inactivity timeouts
-
-Some job queue entries, such as those that schedule synchronization between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[cds_long_md](includes/cds_long_md.md)], use the **Inactivity Timeout** field on the **Job Queue Entry** page to prevent the job queue entry from running unnecessarily.  
-
-:::image type="content" source="media/on-hold-with-inactivity-timeout.png" alt-text="Flowchart for when job queue entries are put on hold due to inactivity.":::
-
-When the value in this field is not zero, and the job queue did not find any changes during the last run, [!INCLUDE[prod_short](includes/prod_short.md)] puts the job queue entry on hold. When that happens, the **Status of Job Queue** field will show **On Hold Due to Inactivity**, and [!INCLUDE[prod_short](includes/prod_short.md)] will wait for the period of time specified in **Inactivity Timeout** field before it runs the job queue entry again.  
-
-For example, by default, the CURRENCY job queue entry, which synchronizes currencies in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] with exchange rates in [!INCLUDE[prod_short](includes/prod_short.md)], will look for changes to exchange rates every 30 minutes. If no changes are found, [!INCLUDE[prod_short](includes/prod_short.md)] puts the CURRENCY job queue entry on hold for 720 minutes (twelve hours). If an exchange rate is changed in [!INCLUDE[prod_short](includes/prod_short.md)] while the job queue entry is on hold, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically reactivate the job queue entry and restart the job queue. 
-
-> [!Note]
-> [!INCLUDE[prod_short](includes/prod_short.md)] will automatically activate job queue entries that are on hold only when changes happen in [!INCLUDE[prod_short](includes/prod_short.md)]. Changes in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] will not activate job queue entries.
-
-## To view the synchronization job log
-
-1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Log**, and then choose the related link.
-2. If one or more error occurred for a synchronization job, the number of errors appears in the **Failed** column. To view the errors for the job, choose the number.  
-
-    > [!TIP]  
-    > You can view all synchronization job errors by opening the synchronization job error log directly.
-
-## To view the synchronization job log from the table mappings
-
-1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Table Mappings**, and then choose the related link.
-2. In the **Integration Table Mappings** page, select an entry, and then choose **Integration Synch. Job Log**.  
-
-## To view the synchronization error log
-
-- Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Errors**, and then choose the related link.
-
-## Related information
-
-[Synchronizing Data in Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md)  
-[Manually Synchronize Table Mappings](admin-manual-synchronization-of-table-mappings.md)  
-[Scheduling a Synchronization between Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-scheduled-synchronization-using-the-synchronization-job-queue-entries.md)  
-[About Integrating Dynamics 365 Business Central with [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-prepare-dynamics-365-for-sales-for-integration.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/quick-start-company-information
 ---
 title: Company Information Quick Start
@@ -3085,19 +2982,21 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-register-consumption-and-output
 ---
 title: Register consumption output for a production order
-description: This article explains how to register consumption and output for a released production order line.
+description: Learn how to record component consumption, finished quantities, scrap, and operation time together for a released production order.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 5510,
-ms.date: 03/10/2026
+ms.date: 07/15/2026
 ms.custom: bap-template
 
 ---
 # Register consumption and output for a released production order
 
-Use the **Production Journal** page to register consumption output for a released production order. The journal combines the functions of the separate consumption journal and output journals into one journal. You open the combined journal from a released production order. Its purpose is to manually post the consumption of components, the quantity of end items produced, and the time spent on operations. The values post to ledger entries under the released production order. Consumption quantities post as negative item ledger entries, output quantities post as positive ledger entries, and time spent posts as capacity ledger entries. The posted values also display at the bottom of the journal as actual quantities.  
+The **Production Journal** page provides a single place to record the components used, quantities produced, scrap, and operation time for a released production order. When you post the journal, it updates inventory, capacity, costs, and production progress all at once.
+
+The journal combines the functions of the separate consumption and output journals. Consumption quantities post as negative item ledger entries, output quantities post as positive item ledger entries, and time spent posts as capacity ledger entries. The posted values also display at the bottom of the journal as actual quantities.
 
 > [!NOTE]  
 > Because consumption data is processed together with output data, this journal displays linked components and operations in a logical process structure. Components are indented under their respective operation. This linking requires that you use routing link codes. To learn more about routing links, go to [To create routing links](production-how-to-create-routings.md#to-create-routing-links).  
@@ -3157,7 +3056,7 @@ In many manufacturing environments, you post production consumption and output b
 
 ## Related information  
 
-[Cancel production orders that have consumption](production-cancel-production-orders-that-have-consumption.md)  
+[Reverse and correct production order transactions](production-cancel-production-orders-that-have-consumption.md)  
 [Manufacturing](production-manage-manufacturing.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Planning](production-planning.md)  
@@ -16392,7 +16291,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 20400, 20408, 20404, 20402, 20416,
-ms.date: 06/10/2026
+ms.date: 07/14/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -16511,7 +16410,7 @@ The following steps describe settings you can use to get started with quality ma
    |**Quality Inspection Nos.** | Specify the default number series to use for quality inspection documents when there isn't a number series defined on a quality inspection template. The number series defined on a template takes precedence.  |
    |**Inspection Creation Option** | Specify when to create a new inspection:<br><br>- **Always create new inspection** creates a new inspection every time, and doesn't search for existing inspections.<br>- **Create a reinspection if matching inspection is finished** searches for an existing, completed inspection that matches. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Always create a reinspection** searches for an existing inspection. If it finds one, it creates a reinspection. If it doesn't find one, it creates a new inspection.<br>- **Use existing open inspection if available** searches for an existing, open inspection. If it finds an open inspection, it reuses it without any changes. If it finds an inspection that matches but is completed, or doesn't find a matching inspection, it creates a new inspection.<br>- **Use any existing inspection if available** searches for an existing inspection. If it finds one, it reuses it regardless of its status. If it doesn't find one, it creates a new inspection.<br><br>**Important:** When an existing inspection is reused, the test data (status, results, measurements) remains unchanged.<br><br>**Tip:** If you automate inspection creation but manually create an inspection, for example, for the first receipt of a lot that you'll receive in multiple shipments, and you want automation to reuse that inspection for subsequent receipts, choose **Use existing open inspection if available** or **Use any existing inspection if available**. Then, in the **Inspection Search Criteria** field, choose **By Item Tracking** to find inspections by lot or serial numbers.  |
    |**Inspection Search Criteria** | Specify the search criteria to use to find existing inspections. All of the options in the **Create Inspection Behavior** field use this setting, with the exception of **Always create a new inspection**, which skips the search entirely.<br><br>- **By Standard Source Fields** searches by template, source table, document number, item, variant, and lot, serial, and package numbers. Use this option for the most comprehensive matching.<br>- **By Source Record** searches by the specific source record ID that triggered the inspection. Use this option when you want to find inspections linked to a specific document line.<br>- **By Item Tracking** searches primarily by item number, variant, and lot, serial, and package numbers. This option ignores the source document. Use this option to find inspections for a specific lot or serial number across different documents.<br>- **By Document and Item only** searches by document number and item only, and ignores lot, serial, and package numbers. Use this option to find inspections for an item on a document, regardless of tracking information.<br><br>**Note:** The search always returns the most recent inspection (highest retest number) that matches the criteria.    |
-   |**Certificate of Analysis Contact** | Specify the contact details that appear on the **Certificate of Analysis** report when supplied.        |
+   |**Certificate of Analysis Contact** | Specify the contact who appears in the signature block on the **Certificate of Analysis** report. This contact is typically your quality manager, lab director, or the person authorized to certify that a batch meets specifications. When set, the report shows the contact's name, job title, and address. When left blank, the signature block is empty. To set this field, you need a contact record for the person in [!INCLUDE [prod_short](includes/prod_short.md)].        |
    |**Maximum Rows To Fetch in Lookups** | Specify the maximum number of rows to fetch on data lookups. Keep the number as low as possible to increase usability and performance.        |
    |**Additional Picture Handling** | Specify what to do with pictures.<br><br>- **None** means not to take an action with pictures.<br>- **Save as attachment** attaches the picture as a document.<br>- **Save as attachment and upload to OneDrive** attaches the picture and uploads it to OneDrive.        |
 
@@ -16520,7 +16419,7 @@ The following steps describe settings you can use to get started with quality ma
    |Field  |Options  |
    |---------|---------|
    |**Warehouse Receipts Trigger** | - **Never** means no automatic inspection creation.<br>- **When Warehouse Receipt is created** creates an inspection when you create a warehouse receipt.<br>- **When Warehouse Receipt is posted** creates an inspection when you post a warehouse receipt.        |
-   |**Purchase Orders Trigger** | - **Never** means no automatic inspection creation.<br>- **When Purchase Order is received** creates an inspection when you post a purchase order receipt.<br>- **When Purchase Order is released** creates an inspection when you release a purchase order.        |
+   |**Purchase Orders Trigger** | - **Never** means no automatic inspection creation.<br>- **When Purchase Order is received** creates an inspection when you post a purchase order receipt.<br>- **When Purchase Order is released** creates an inspection when you release a purchase order.<br><br>**Note:** Posting an open purchase order automatically releases it and triggers inspection creation. If posting fails, the order returns to **Open**, but the inspection remains, so another posting attempt might create another inspection depending on the **Inspection Creation Option** setting.        |
    |**Sales Returns Trigger** | - **Never** means no automatic inspection creation.<br>- **When Sales Return is received** creates an inspection when you post a sales return order receipt.        |
    |**Transfer Orders Trigger** | - **Never** means no automatic inspection creation.<br>- **When Transfer Order is received** creates an inspection when you post a transfer order receipt.        |
    |**Production Order Trigger**| - **Never** means no automatic inspection creation.<br>- **When Production Output is posted** creates an inspection when you post production output.<br>- **When Production Order is released** creates an inspection when you release a production order.<br>- **When a Released Production Order is refreshed** creates an inspection when you refresh a production order that is already released.|
@@ -19549,20 +19448,20 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-post-consumption
 ---
 title: Batch post consumption
-description: If the flushing method is Manual, post the components manually using a consumption journal.
+description: Learn how to manually record component usage for one or more production order lines and reduce the related inventory quantities.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000846, 99000850
-ms.date: 09/01/2025
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
 ---
 # Batch post production consumption
 
-If the flushing method is **Manual**, use a consumption journal to post the components manually.  
+When you post consumption, you record the components used to produce an item and reduce their available inventory. You can post consumption automatically by using flushing methods or warehouse activities, or manually in the consumption journal. Use the journal when you need to enter or calculate component usage for one or more production order lines.
 
 > [!NOTE]
 > If you select the **Inventory Pick/Movement** option in the **Prod. Consumption Whse. Handling** field on the location card to indicate that the location requires inventory pick processing, you don't need to use this batch job. [!INCLUDE[prod_short](includes/prod_short.md)] handles consumption when you post the inventory pick. To learn more, go to [Pick for Production in Basic Warehouse Configurations](warehouse-how-to-pick-for-production.md).  
@@ -19590,7 +19489,7 @@ You can also set up [!INCLUDE[prod_short](includes/prod_short.md)] to automatica
 
 ## Related information
 
-[Cancel production orders that have consumption](production-cancel-production-orders-that-have-consumption.md)  
+[Reverse and correct production order transactions](production-cancel-production-orders-that-have-consumption.md)  
 [Manufacturing](production-manage-manufacturing.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Planning](production-planning.md)  
@@ -21284,6 +21183,86 @@ Entries that you post with documents require a credit memo process. However, you
 [Reverse Journal Postings and Undo Receipts/Shipments](finance-how-reverse-journal-posting.md)    
 [Finance](finance.md)    
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/sales-powerbi-sales-by-project
+---
+title: Sales by Project (Power BI Report)
+description: The Sales by Project report provides an overview of sales performance broken down by project.
+author: kennieNP
+ms.author: kepontop
+ms.reviewer: bholtorf
+ms.topic: article
+ms.search.keywords: reporting
+ms.search.form: 37119_Primary 
+ms.date: 10/07/2025
+ms.service: dynamics-365-business-central
+ms.custom: bap-template
+---
+
+# Sales by Project (Power BI Report)
+
+[!INCLUDE[2025_releasewave2](includes/2025_releasewave2.md)]
+
+The **Sales by Project** report provides a high-level overview of sales performance for each project. It showcases key metrics such as total sales amount and quantity for each project and customer. These metrics can be analyzed further through the type dimension, encompassing resources, items, and general ledger accounts.
+
+:::image type="content" source="media/powerbi/sales/sales-by-project.png" alt-text="Screenshot of the Sales by Project Power BI report" lightbox="media/powerbi/sales/sales-by-project.png":::
+
+## Use the report
+
+This report helps sales and project management teams to track the sales amounts that each project generates and their contribution to the overall revenue.
+
+Project managers can track the sales impact of projects across key factors, including status, type and customer. By reviewing the project sales by type or by customer, this report provides a high-level overview of project sales performance. You can use these metrics to optimize planning and sales expectations for future project proposals. For more detailed analysis of the underlying project ledger entries, use the cross-report drillthrough to go to the dedicated [Power BI Projects app](projects-powerbi-app.md).
+
+> [!NOTE]
+> To enable cross-report drillthrough, you must publish the source and target reports to the same workspace. Also, the Back button only works for pages in the same report.
+
+Sales managers can use this report to analyze ongoing and completed projects and identify key projects. For example, you might notice an emerging trend in recent projects that contributes to increased sales. In response, you conduct dedicated training to implement new sales strategies to include project offerings, enhancing sales pitches to customers.
+
+Salespeople can monitor the contribution of projects to sales performance and review project sales for individual customers. For example, you identify a recently completed project was highly profitable. Using this information, you initiate new opportunities and engage with customers in similar demographics to empower future sales.
+
+## Key performance indicators
+
+The report includes the following key performance indicators (KPIs) and measures:
+
+- [Sales LCY](sales-powerbi-sales-kpis.md#sales-lcy)
+- [Sales Quantity](sales-powerbi-sales-kpis.md#sales-quantity)
+- [Adjusted Profit (LCY)](sales-powerbi-sales-kpis.md#adjusted-profit-lcy)
+- [Adjusted Profit Margin](sales-powerbi-sales-kpis.md#adjusted-profit-margin)
+
+[!INCLUDE[click-on-a-kpi-link](includes/click-on-a-kpi-link.md)]
+
+[!INCLUDE[powerbi-tip-track-kpis](includes/powerbi-tip-track-kpis.md)]
+
+## Data used in the report
+
+The report uses data from the following tables:
+
+- Value Entries
+- Sales Invoice Lines
+- Sales Credit Lines
+- Project Ledger Entries
+- Customer
+- Project
+- Item
+- G/L Account
+- Resource
+
+## Try the report
+
+Try the report here: [Sales by Project](https://businesscentral.dynamics.com?page=37119)
+
+[!INCLUDE[ctrl-right-click-to-open-in-new-tab](includes/ctrl-right-click-to-open-in-new-tab.md)]
+
+## Related information
+
+[Track your business KPIs with Power BI metrics](track-kpis-with-power-bi-metrics.md)  
+[Ad hoc analysis of sales data](ad-hoc-analysis-sales.md)  
+[Built-in sales reports](sales-reports.md)  
+[Sales analytics overview](sales-analytics-overview.md)  
+[Sales overview](sales-manage-sales.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

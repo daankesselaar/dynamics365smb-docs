@@ -6985,46 +6985,6 @@ If you want to change the skill codes assigned to items, for example from **PC**
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
 
-Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-reverse-output-posting
----
-title: Reverse Output Posting
-description: There are times when output posting must be reversed. This topic outlines the procedure for reversing output posting.
-author: brentholtorf
-ms.topic: how-to
-ms.devlang: al
-ms.search.form: 5510
-ms.date: 06/22/2021
-ms.author: bholtorf
-
-ms.service: dynamics-365-business-central
-ms.reviewer: bholtorf
----
-# Reverse Output Posting
-
-There are times when output posting must be reversed. An example of this would be if a data entry error occurred and an incorrect amount of output is posted to a production order.  
-
-## To reverse an output posting
-
-1. [!INCLUDE[open-search](includes/open-search.md)], enter **Output Journal**, and then choose the related link. Select your batch.  
-2. Fill in the fields as necessary. For more information, see [Batch Post Output and Run Times](production-how-to-post-output-quantity.md).
-3. In the **Applies-To Entry** field, select the associated item ledger entry. This reverses the capacity and item ledger entries.  
-4. Post the reversal by posting the journal.  
-
-The output journal entries are posted to the item ledger as a positive adjustment.  
-
-## Related information
-
- [Manufacturing](production-manage-manufacturing.md)
- [Setting Up Manufacturing](production-configure-production-processes.md)  
- [Planning](production-planning.md)  
- [Inventory](inventory-manage-inventory.md)  
- [Purchasing](purchasing-manage-purchasing.md)  
- [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
-
-
-[!INCLUDE[footer-include](includes/footer-banner.md)]
-end of article
-
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/ad-hoc-analysis-sales
 ---
 title: Ad-hoc analysis of sales data
@@ -8299,7 +8259,7 @@ ms.reviewer: jswymer
 ms.topic: how-to
 ms.collection:
   - bap-ai-copilot
-ms.date: 05/03/2026
+ms.date: 07/02/2026
 ms.update-cycle: 180-days
 ms.custom: bap-template
 ms.search.form: 4400, 4410
@@ -8312,7 +8272,7 @@ This article explains how to use Sales Order Agent to automate taking sales orde
 Sales Order Agent monitors a designated mailbox for incoming customer emails about item inquiries. When it identifies a potential request, it starts converting the request into an order. For example, it verifies the customer, checks item availability, creates a sales quote, and prepares an email response to the customer with the quote as a PDF attachment.
 
 > [!NOTE]
-> Sales Order Agent only processes unread email messages. Once an email is marked as read, the agent doesn't react to it.
+> The agent processes all emails in the configured folder starting from the activation date, regardless of read status. To avoid reprocessing, it applies a *Processed by Sales Order Agent* category to each email after importing it. The agent skips emails that already have this category. Optionally, you can enable the **Mark email as read** setting so the agent also marks processed emails as read, making it easy for team members to identify processed messages. Learn more about mark as read in [Set up Sales Order Agent: Manage mailbox](sales-order-agent-setup.md#configure-and-activate-sales-order-agent).
 
 Some steps require your intervention, such as reviewing email correspondence and assisting the agent as needed. Until an order is created, the agent handles email exchanges with the customer to resolve any missing details and allow for modifications to the original request if necessary.
 
@@ -8341,7 +8301,7 @@ The ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** pane ope
 For each sales quote request, Sales Order Agent adds a task to track, review, and follow up on updates, eventually processing the quote into an order. Tasks can consist of multiple steps that form a timeline of the process.
 
 > [!TIP]
-> Hover over the ![Shows Sales Order Agent icon with an open action.](media/soa-activated-icon.png) **Sales Order Agent** icon in the navigation menu or select the ![Show summary for Sales Order Agent icon](media/soa-summary-icon.png) **Show summary for Sales Order Agent** in the **Task** pane to get an overview of the agent's key performance indicators (KPIs) summarizing the impact of the agent's work in your organization. For example, view the number of sales quotes or orders created by the agent, the time saved by your team, and the total number of sales orders created.
+> To get an overview of the agent's key performance indicators (KPIs), hover over the ![Shows Sales Order Agent icon with an open action.](media/soa-activated-icon.png) **Sales Order Agent** icon in the navigation menu or select the ![Show summary for Sales Order Agent icon](media/soa-summary-icon.png) **Show summary for Sales Order Agent** in the **Task** pane. The summary provides insights that highlight the effect of the agent's work in your organization. For example, explore the number of sales quotes or orders that the agent created, the time saved by your team, and the total number of sales orders created.
 
 ## Review and assist
 
@@ -8410,13 +8370,13 @@ Learn more in [Item availability in Sales Order Agent (preview)](sales-order-age
 
 Most steps of a task include a **Stop** button that lets you terminate the process on that task only. To stop all active tasks at once, you can select the **Stop all tasks** action. This action is useful if the agent becomes blocked after importing too many tasks. It clears the task list and unblocks the agent.
 
-When you select **Stop**, a task isn't terminated immediately&mdash;you're asked to confirm before the task is stopped. Before you stop a task, consider the following behavior:
+When you select **Stop**, the task isn't terminated immediately. You're asked to confirm before the task is stopped. Before you stop a task, consider the following consequences:
 
-- Stopped tasks can't be restarted.
+- You can't restart stopped tasks.
 - Stopping the task might leave some results incomplete or unwanted, and it might require follow-up actions with the customers. Follow up actions depend on where in the process the task was stopped.
 
-  For example, suppose you stopped a task after a sales quote was created. Although the process stopped, the sales quote is still stored in the system as open. You might have to manually edit the state depending on your company policy and then update the customer.
-- Stopped tasks aren't deleted immediately. You can still explore a task's timeline until it's deleted, typically by an administrator.
+  For example, suppose you stopped a task after a sales quote was created. Although the process stopped, the sales quote is still stored in the system as open. You might have to manually edit the state depending on your company's policy and then update the customer.
+- Stopped tasks aren't deleted immediately. You can explore a task's timeline until you delete the task.
 
 <!--
 ## Discard and resume a task to modify a quote or order
@@ -8429,7 +8389,7 @@ From the ![Shows the task view icon](media/sot-task-view-icon.png) **Tasks** vie
 
 ## Scenarios impacting reliability in handling customer requests
 
-- You might need to correct the quantities in the created document when non-base units of measurement differ from the standard ones.  
+- You might need to correct the quantities in the created document when nonbase units of measurement differ from the standard ones.  
 
   For example, if the system treats 1 kilogram as 900 grams and a customer requests 2 kilograms, the system might generate a document showing 2,000 grams instead of 1,800 grams or 2 kilograms.
 
@@ -9873,24 +9833,24 @@ end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-post-scrap
 ---
-title: Post Scrap Manually
-description: If scrap is produced during processing, it can be entered in the output journal. Note that the scrap quantity does not increase the output quantity.
+title: Post scrap manually
+description: Learn how to record scrap quantities and reason codes by production operation without increasing finished output.
 author: brentholtorf
 ms.topic: how-to
-ms.devlang: al
-ms.search.form: 99000823
-ms.date: 03/08/2023
+ms.search.form: 99000823,
+ms.date: 07/15/2026
 ms.author: bholtorf
-
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
+ms.custom: bap-template
 ---
-# Post Scrap Manually
 
-If scrap is produced during processing, it can be entered in the output journal.  
+# Post scrap manually
+
+When you post scrap, you record the quantities that an operation processed but that don't qualify as finished output. To keep good output separate from production losses and to show scrap by operation, enter scrap quantities and reason codes in the output journal.
 
 > [!NOTE]
-> The scrap quantity does not increase the output quantity.  
+> The scrap quantity doesn't increase the output quantity.  
 
 ## To post scrap manually
 
@@ -9900,17 +9860,17 @@ If scrap is produced during processing, it can be entered in the output journal.
 4. In the **Scrap Code** field, enter the scrap code.  
 5. Choose the **Post** action to post the specified scrap per operation.  
 
-    [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]    
+    [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
 
 ## Related information
 
-[Manufacturing](production-manage-manufacturing.md)
+[Reverse and correct production order transactions](production-cancel-production-orders-that-have-consumption.md)  
+[Manufacturing](production-manage-manufacturing.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Planning](production-planning.md)  
 [Inventory](inventory-manage-inventory.md)  
 [Purchasing](purchasing-manage-purchasing.md)  
-[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
-
+[Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)  
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article
@@ -13113,11 +13073,11 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-use-the-manufacturing-batch-unit-of-measure
 ---
 title: Use the manufacturing batch units of measure
-description: This article gives an overview of how to work with manufacturing batch units of measure in Business Central. 
+description: Learn how to calculate production components when an item is stocked in one unit of measure but produced in another.
 author: brentholtorf
 ms.topic: how-to
 ms.search.keywords:
-ms.date: 07/14/2025
+ms.date: 07/15/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -13125,7 +13085,7 @@ ms.custom: bap-template
 ---
 # Work with manufacturing batch units of measure
 
-If an item is stocked in one unit of measure but produced in another, a production order is created that uses a manufacturing batch unit of measure to calculate the correct quantity of the components when you run the **Refresh Production Order** batch job. An example of a manufacturing batch unit of measure calculation is when a manufactured item is stocked in pieces but produced in tons.  
+Use a manufacturing batch unit of measure when you stock an item in one unit but produce it in another unit. For example, you might stock pieces while producing by the ton. The batch unit lets [!INCLUDE [prod_short](includes/prod_short.md)] calculate component quantities for the way production runs while inventory remains expressed in the item's stocking unit.
 
 ## To create a production BOM using a batch unit of measure
 
@@ -13248,8 +13208,8 @@ author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: article
-ms.search.form: 99000768, 99000779, 99000780, 99000866
-ms.date: 06/17/2026
+ms.search.form: 5510, 99000768, 99000779, 99000780, 99000866
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
@@ -13272,6 +13232,17 @@ The action isn't supported under the following conditions:
 - If the output entry was already applied to an outbound transaction.
 - If consumption/output involve warehouse handling. Bins are supported.
 - Entries were created through subcontracting purchase orders. You can undo receipt in the Posted Purchase Receipt page.
+
+### Reverse output manually with the output journal
+
+You can also manually reverse an output posting by using the **Output Journal** page. Apply the reversal to the original item ledger entry to correct the related item and capacity entries.
+
+1. [!INCLUDE[open-search](includes/open-search.md)], enter **Output Journal**, and then choose the related link. Select your batch.
+2. Fill in the fields as necessary. Learn more in [Batch Post Production Output and Run Times](production-how-to-post-output-quantity.md).
+3. In the **Applies-To Entry** field, select the associated item ledger entry. This selection reverses the capacity and item ledger entries.
+4. Choose the **Post** action to post the reversal.
+
+The system posts the output journal entries to the item ledger as a positive adjustment.
 
 ## Undo subcontracting receipts
 
@@ -14877,7 +14848,7 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 
-ms.date: 01/15/2026
+ms.date: 07/14/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -14941,13 +14912,36 @@ The following list describes how [!INCLUDE [prod_short](includes/prod_short.md)]
 
 ### Examples of result configurations
 
-The following table shows a sample configuration for three inspection results. The **INPROGRESS** result restricts most transactions while inspections are in progress — you can store and move items for inspections, but not use them in business transactions. The **FAIL** result requires quarantine when a quality inspection fails, blocking all use and allowing only quarantine and disposal activities. The **PASS** result allows normal business operations when a quality inspection passes, enabling all transactions for items with confirmed quality.
+An inspection's result and status are separate. For example, an inspection can have the result **FAIL** or **PASS** while its status is still **Open**. The inspection becomes **Finished** only when you finish it.
 
-| Result | Priority | Allow Sales | Allow Transfer | Allow Consumption | Allow Pick | Allow Put-away | Allow Movement | 
-|---|---|---|---|---|---|---|---|
-|**INPROGRESS**| 0 | **No** <br> (can't sell unconfirmed quality) | **No** <br>  prevent distribution before inspection is complete | **No** <br> can't use in production |  **No** <br> prevent picking for shipments | **Yes** <br> allow warehouse storage| **Yes** <br> allow movement to inspection areas| 
-|**FAIL**| 1 |  **No** <br> (can't sell nonconforming items) |  **No** <br> prevent distribution of failed items | **No** <br> can't use defective materials |  **No** <br> prevent accidental picking | **Yes** <br> allow quarantine storage | **Yes** <br> allow movement for disposal| 
-|**PASS**| 2 | **Yes** <br> (approved for customer shipment) | **Yes** <br> approved for distribution| **Yes** <br> approved for production use | **Yes** <br> approved for warehouse operations | **Yes** <br> normal warehouse operations | **Yes** <br> normal warehouse operations| 
+For each transaction type, configure one of the following restrictions on the inspection result:
+
+| Restriction | Open inspection | Finished inspection |
+|---|---|---|
+| **Block** | Blocked | Blocked |
+| **Allow finished only** | Blocked | Allowed |
+| **Allow** | Allowed | Allowed |
+
+**Allow finished only** is useful when you want to permit an operation only after the inspection is formally completed, regardless of whether it passed or failed. For example, you can prevent the sale of a failed lot but allow it to be transferred to a quarantine location after the failure is confirmed.
+
+The following table shows a configuration for this policy:
+
+| Result | Finish Allowed | Sales | Transfer |
+|---|---|---|---|
+| **INPROGRESS** | Do Not Allow Finish | Block | Block |
+| **FAIL** | Allow Finish | Block | Allow finished only |
+| **PASS** | Allow Finish | Allow | Allow |
+
+With this configuration, the restrictions change as the inspection progresses:
+
+| Current inspection | Sales | Transfer |
+|---|---|---|
+| Open, INPROGRESS | Blocked | Blocked |
+| Open, FAIL | Blocked | Blocked |
+| Finished, FAIL | Blocked | Allowed, for example, to move the lot to quarantine |
+| Finished, PASS | Allowed | Allowed |
+
+On the **Quality Management Setup** page, set **Quality inspection selection criteria** to **Only the newest inspection/re-inspection** if the latest inspection should determine the restrictions. For example, if the original inspection is finished with a **PASS** result but its latest re-inspection is open with an **INPROGRESS** result, the open re-inspection is selected and blocks sales and transfers. Finished-only selection criteria ignore the open re-inspection and can therefore apply the older **PASS** result instead.
 
 To learn more about quality inspection results, go to [Configure quality inspection results](qms-configuring-grades.md).
 
@@ -18160,13 +18154,16 @@ author: brentholtorf
 ms.topic: concept-article
 ms.devlang: al
 ms.search.keywords: service, service items, repairs, maintenance, fix
-ms.date: 10/03/2025
+ms.date: 07/16/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: v-soumramani
 ---
 
 # Set up service management
+
+> [!NOTE]
+> Service Management features are available only if you have the **Premium** experience. Learn how to [select the Premium experience](ui-experiences.md#to-select-the-premium-experience).
 
 Before you can start using Service Management features in [!INCLUDE[prod_short](includes/prod_short.md)], there are a few things to set up. For example, you can establish coding for standard services, symptoms, and fault codes, and the service items and service item types based on your company’s customer service requirements.  
 
@@ -21780,12 +21777,15 @@ ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: concept-article
 ms.search.form: 99000768, 99000779, 99000780, 99000866
-ms.date: 06/02/2026
+ms.date: 07/16/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 
 # Setting up manufacturing
+
+> [!NOTE]
+> Manufacturing features are available only if you have the **Premium** experience. Learn how to [select the Premium experience](ui-experiences.md#to-select-the-premium-experience).
 
 To convert material into produced end items, you must set up production resources, such as bills of material, routings, machine operators, and machinery.
 
@@ -22184,19 +22184,19 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-post-output-quantity
 ---
 title: Batch post production output and run times
-description: The output quantity represents the work progress in the form of the finished quantity and used capacity of work or machine center.
+description: Learn how to post completed quantities, scrap, setup time, and run time for one or more released production orders.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.form: 99000773, 99000778, 99000823, 99000827
-ms.date: 05/28/2026
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 ---
 # Batch post output and run times
 
-The output quantity represents the work progress in the form of the finished quantity and used capacity of the work or machine center.
+When you post output, you record the quantities completed during production and the setup and run time used by work or machine centers. When you post output, you update production progress, capacity ledger entries, production costs, and, for the last routing operation, finished-goods inventory. Use the output journal to register results for one or more released production orders.
 
 You can use an output journal to:
 
@@ -22252,7 +22252,7 @@ To set up stop codes and scrap codes, use the **Stop Codes** and **Scrap Codes**
 ## Related information
 
 [Post Scrap Manually](production-how-to-post-scrap.md)  
-[Reverse Output Posting](production-how-to-reverse-output-posting.md)  
+[Reverse and correct production order transactions](production-cancel-production-orders-that-have-consumption.md)  
 [Manufacturing](production-manage-manufacturing.md)  
 [Setting Up Manufacturing](production-configure-production-processes.md)  
 [Planning](production-planning.md)  
@@ -22668,7 +22668,7 @@ ms.search.form: 4400, 4410
 ---
 # Sales Order Agent overview
 
-Sales Order Agent helps Business Central users automate the process of capturing sales orders. The agent uses AI to analyze customer requests received via email and locates the customer in Business Central. If important details are missing or more choices are available, the agent engages in multi-turn email conversations to clarify the request. It checks and informs the customer about the availability of the items they're looking for. The agent then follows up with a sales quote. The quote is formatted as a PDF and includes the requested items, quantities, units of measure, prices, taxes, requested delivery dates, provided external document reference, and other important details.
+Sales Order Agent helps you automate the process of capturing information for sales orders. The agent uses AI to analyze customer requests received via email and locates the customer in [!INCLUDE [prod_short](includes/prod_short.md)]. If important details are missing or more choices are available, the agent engages in multiturn email conversations to clarify the request. It checks inventory and informs the customer about the availability of the items they're looking for. The agent then follows up with a sales quote or order, based on configuration. The sales document is formatted as a PDF and includes the requested items, quantities, units of measure, prices, taxes, requested delivery dates, provided external document reference, and other important details.
 
 > [!TIP]
 > Watch a short video in the Dynamics Business Central channel on YouTube at [Get started with the Sales Order Agent for Dynamics 365 Business Central](https://www.youtube.com/watch?v=6icbmbLc_Og).
@@ -22701,15 +22701,17 @@ This flexibility enables the agent to discover and interact with relevant custom
 
 The agent relies on an internal email dispatcher running as a background task to continuously monitor a designated mailbox for item requests. The dispatcher triggers the agent to perform tasks and then sends results, such as prepared sales quotes or orders, to the customer in response.
 
-The agent helps with composing email bodies based on the context of the current step. For instance, it can list available inventory or provide a brief description of the attached sales quote or sales order. Additionally, it can detect and flag irrelevant or potentially malicious email content, prompting users to review and decide how to proceed.  
+The agent helps compose body texts for emails based on the context of the current step. For example, it can list available inventory or provide a brief description of the attached sales quote or sales order.
+
+The agent validates incoming messages and attachments against a relevance model before it processes them. The relevance model filters out messages that are outside the agent's scope. For example, it filters out offers to sell, discount requests, or attempts to access internal data. A separate check runs on attachments to ensure non-sales-related documents don't trigger unnecessary processing. Filtered messages are tracked in telemetry for audit purposes.
 
 ### Customer and Business Central user involvement
 
-Users can inspect the agent's steps and the created sales documents. They can easily identify the data entered by the agent compared to data generated by Business Central's own business logic. If needed, users can provide more input, such as adding discounts or updating shipping costs.
+You can inspect the agent's steps and the sales documents it creates. You can easily identify the data entered by the agent compared to data generated by business logic in [!INCLUDE [prod_short](includes/prod_short.md)]. If needed, you can provide more input, such as adding discounts or updating shipping costs.
 
-If the customer decides to update the quote by sending another email listing required changes, the agent assists with these changes by locating the quote and making the requested updates. Once the customer confirms the quote's accuracy, the agent converts it into a sales order, which is then also shared with the customer via email, following the user's confirmation. 
+If the customer decides to update the quote by sending another email listing required changes, the agent assists with these changes by locating the quote and making the requested updates. When the customer confirms the quote's accuracy, the agent converts it into a sales order, which is then also shared with the customer via email after you confirm it.
 
-The agent always involves designated Business Central users to review and approve all outgoing messages before they're sent to the customers.
+The agent always involves designated [!INCLUDE [prod_short](includes/prod_short.md)] users to review and approve all outgoing messages before it sends them to customers.
 
 ## How the agent processes requests
 
@@ -22730,13 +22732,21 @@ The agent ensures that a request from one customer can't be about another custom
   This behavior ensures that the agent only creates and updates documents belonging to the customer that sent the email
 
 - If a contact is found but it's not a customer, the agent filters to use only documents belonging to the contact. Quotes can be sent to contacts that aren't registered as a customer.
-- If no contact is found, the agent filters out all documents, and it might request user intervention because it can't find the document.
+- If the agent doesn't find a contact, it displays a notification on the incoming message review page. You have three options to proceed:
 
-To prevent the agent from requesting intervention, the agent verifies whether the contact is registered. If it isn't registered, the agent displays a notification on the incoming message review page. To resolve this issue, you can either register a new contact/customer or update the contact information of an existing contact/customer. The agent generates the notification to indicate that the contact email wasn't found.
+- Create a new contact. Register the sender as a new contact (adds them to your contact list permanently).
+- Use another contact one time. Pick an existing contact from your contact list and link them to this specific task only, without modifying any master data. Future emails from the same address still show as unregistered.
+- Update an existing contact's email address. Select an existing contact and update their email address to the sender's address permanently.
 
 ### Finding products/items
 
-The agent analyzes incoming emails to detect parameters for preparing a new sales quote or updating an existing one. Apart from the items themselves, parameters might include the item attributes, quantities, units of measure, requested delivery date, external document number, and more. The agent then searches for these items in Business Central's inventory, within a wide range of related tables.
+The agent analyzes incoming emails to detect parameters for preparing a new sales quote or updating an existing one. Apart from the items themselves, parameters might include the item attributes, quantities, units of measure, requested delivery date, external document number, and more. The agent uses a multi-layer strategy to find the best matching items in your catalog:
+
+1. Exact identifier match by item number, vendor item number, GTIN, or cross-references. Exact identifier matches have the highest confidence.
+1. Semantic attribute matching uses item attributes from the customer's message (such as color, material, or size) and AI to rank candidates by relevance.
+1. Broader fuzzy search falls back to a global search across all items when the direct and attribute-based searches don't produce results.
+
+The agent searches across a wide range of related tables:
 
 |Table|Fields|
 |-|-|
@@ -22749,7 +22759,7 @@ The agent analyzes incoming emails to detect parameters for preparing a new sale
 |Item Identifier|Code|
 |Extended text Line|Text|
 
-Although the agent can find products based on vague and incomplete descriptions, its effectiveness is influenced by the quality of product information in Business Central. You can improve the agent's ability to find products by enhancing descriptions, attributes, categories, and extended text of your inventory items.
+Although the agent can find products based on vague and incomplete descriptions, the quality of product information in [!INCLUDE [prod_short](includes/prod_short.md)] affects its effectiveness. You can improve the agent's ability to find products by enhancing descriptions, attributes, categories, and extended text of your inventory items.
 
 > [!TIP]
 > In multilingual environments like Belgium, Switzerland, or Canada, the agent's item lookup accuracy depends on the text search language setting. By default, modern search uses a neutral language setting for indexing. To optimize search performance for a specific language, configure the text search language from **Advanced Settings**. Learn more in [Configure text search language for multilingual environments](admin-optimize-text-search-language.md).
@@ -24158,6 +24168,109 @@ The following procedure uses a posted service invoice as an example, but the sam
 
 [Post Service Orders](service-how-to-post-service-orders.md)  
 [Create Service Orders](service-how-to-create-service-orders.md)  
+
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
+
+Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/admin-scheduled-synchronization-using-the-synchronization-job-queue-entries
+---
+title: Synchronizing Business Central and Dataverse
+description: Learn about synchronizing data between Business Central and Dataverse.
+author: brentholtorf
+ms.author: bholtorf
+ms.reviewer: bholtorf
+ms.topic: how-to
+ms.date: 03/31/2023
+ms.custom: bap-template
+ms.search.keywords: sales, crm, integration, sync, synchronize
+ms.service: dynamics-365-business-central
+---
+
+# Scheduling a Synchronization between Business Central and Dataverse
+
+You can synchronize [!INCLUDE[prod_short](includes/prod_short.md)] with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] on scheduled intervals by setting up jobs in the job queue. The synchronization jobs synchronize data in [!INCLUDE[prod_short](includes/prod_short.md)] records and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records that are coupled. For records that are not already coupled, depending on the synchronization direction and rules, the synchronization jobs can create and couple new records in the destination system.
+
+There are several synchronization jobs that are available out-of-the-box. The jobs are run in the following order to avoid coupling dependencies between tables. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+1. CURRENCY - Common Data Service synchronization job.
+2. VENDOR - Common Data Service synchronization job.
+3. CONTACT - Common Data Service synchronization job.
+4. CUSTOMER - Common Data Service synchronization job.
+5. SALESPEOPLE - Common Data Service synchronization job.
+
+You can view the jobs on the **Job Queue Entries** page. For more information, see [Use Job Queues to Schedule Tasks](admin-job-queues-schedule-tasks.md).
+
+## Default synchronization job queue entries
+
+The following table describes the default synchronization jobs for [!INCLUDE[cds_long_md](includes/cds_long_md.md)].  
+
+| Job Queue Entry | Description | Direction | Integration Table Mapping | Default Synchronization Frequency (mins) | Default inactivity sleep time (mins) |
+|--|--|--|--|--|--|--|
+| CONTACT - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] contacts with [!INCLUDE[prod_short](includes/prod_short.md)] contacts. | Bidirectional | CONTACT | 30 | 720 <br>(12 hours) |
+| CURRENCY - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] transaction currencies with [!INCLUDE[prod_short](includes/prod_short.md)] currencies. | From [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)] | CURRENCY | 30 | 720 <br> (12 hrs) |
+| CUSTOMER - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | CUSTOMER | 30 | 720<br> (12 hrs) |
+| VENDOR - Common Data Service synchronization job | Synchronizes [!INCLUDE[cds_long_md](includes/cds_long_md.md)] accounts with [!INCLUDE[prod_short](includes/prod_short.md)] customers. | Bidirectional | VENDOR | 30 | 720<br> (12 hrs) |
+| SALESPEOPLE - Common Data Service synchronization job | Synchronizes [!INCLUDE[prod_short](includes/prod_short.md)] salespeople with [!INCLUDE[cds_long_md](includes/cds_long_md.md)] users. | From [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)] | SALESPEOPLE | 30 | 1440<br> (24 hrs) |
+
+## Synchronization process
+
+Each synchronization job queue entry uses a specific integration table mapping that specifies which [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize. The table mappings also include some settings that control which records in the [!INCLUDE[prod_short](includes/prod_short.md)] table and [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table to synchronize.  
+
+To synchronize data, [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table records must be coupled to [!INCLUDE[prod_short](includes/prod_short.md)] records. For example, a [!INCLUDE[prod_short](includes/prod_short.md)] customer must be coupled to a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account. You can set up couplings manually, before running the synchronization jobs, or let the synchronization jobs set up couplings automatically. The following list describes how data is synchronized between [!INCLUDE[cds_long_md](includes/cds_long_md.md)] and [!INCLUDE[prod_short](includes/prod_short.md)] when you are using the synchronization job queue entries. For more information, see [Couple and Synchronize Records Manually](admin-how-to-couple-and-synchronize-records-manually.md).
+
+- The **Sync. Only Coupled Records** check box controls whether new records are created when you synchronize. By default, the check box is selected, which means that only records that are coupled will be synchronized. In the integration table mapping, you can change the table mapping between a [!INCLUDE[cds_long_md](includes/cds_long_md.md)] table and a [!INCLUDE[prod_short](includes/prod_short.md)] table so that the integration synchronization jobs will create new records in the destination database for each row in the source database that is not coupled. For more information, see [Creating New Records](admin-how-to-modify-table-mappings-for-synchronization.md#create-new-records).
+
+    **Example**
+    If you clear the **Sync. Only Coupled Records** check box, when you synchronize customers in [!INCLUDE[prod_short](includes/prod_short.md)] with accounts in [!INCLUDE[cds_long_md](includes/cds_long_md.md)], a new account is created for each customer in [!INCLUDE[prod_short](includes/prod_short.md)] and automatically coupled. Additionally, because the synchronization is bidirectional in this case, a new customer is created and coupled for each [!INCLUDE[cds_long_md](includes/cds_long_md.md)] account that is not already coupled.  
+
+    > [!NOTE]  
+    > There are rules and filters that determine what data is synchronized. For more information, go to [Synchronization Rules](admin-synchronizing-business-central-and-sales.md).
+
+- When new records are created in [!INCLUDE[prod_short](includes/prod_short.md)], the records use the either the template that is defined for the integration table mapping or the default template that is available for the row type. Fields are populated with data from [!INCLUDE[prod_short](includes/prod_short.md)] or [!INCLUDE[cds_long_md](includes/cds_long_md.md)] depending on the synchronization direction. For more information, see [Modify Table Mappings for Synchronization](admin-how-to-modify-table-mappings-for-synchronization.md).  
+
+- With subsequent synchronizations, only records that have been modified or added after the last successful synchronization job for the table will be updated.  
+
+     New records in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] are added in [!INCLUDE[prod_short](includes/prod_short.md)]. If data in fields in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] records has changed, the data is copied to the corresponding field in [!INCLUDE[prod_short](includes/prod_short.md)].  
+
+- With bidirectional synchronization, the job synchronizes from [!INCLUDE[prod_short](includes/prod_short.md)] to [!INCLUDE[cds_long_md](includes/cds_long_md.md)], and then from [!INCLUDE[cds_long_md](includes/cds_long_md.md)] to [!INCLUDE[prod_short](includes/prod_short.md)].
+
+## About inactivity timeouts
+
+Some job queue entries, such as those that schedule synchronization between [!INCLUDE[prod_short](includes/prod_short.md)] and [!INCLUDE[cds_long_md](includes/cds_long_md.md)], use the **Inactivity Timeout** field on the **Job Queue Entry** page to prevent the job queue entry from running unnecessarily.  
+
+:::image type="content" source="media/on-hold-with-inactivity-timeout.png" alt-text="Flowchart for when job queue entries are put on hold due to inactivity.":::
+
+When the value in this field is not zero, and the job queue did not find any changes during the last run, [!INCLUDE[prod_short](includes/prod_short.md)] puts the job queue entry on hold. When that happens, the **Status of Job Queue** field will show **On Hold Due to Inactivity**, and [!INCLUDE[prod_short](includes/prod_short.md)] will wait for the period of time specified in **Inactivity Timeout** field before it runs the job queue entry again.  
+
+For example, by default, the CURRENCY job queue entry, which synchronizes currencies in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] with exchange rates in [!INCLUDE[prod_short](includes/prod_short.md)], will look for changes to exchange rates every 30 minutes. If no changes are found, [!INCLUDE[prod_short](includes/prod_short.md)] puts the CURRENCY job queue entry on hold for 720 minutes (twelve hours). If an exchange rate is changed in [!INCLUDE[prod_short](includes/prod_short.md)] while the job queue entry is on hold, [!INCLUDE[prod_short](includes/prod_short.md)] will automatically reactivate the job queue entry and restart the job queue. 
+
+> [!Note]
+> [!INCLUDE[prod_short](includes/prod_short.md)] will automatically activate job queue entries that are on hold only when changes happen in [!INCLUDE[prod_short](includes/prod_short.md)]. Changes in [!INCLUDE[cds_long_md](includes/cds_long_md.md)] will not activate job queue entries.
+
+## To view the synchronization job log
+
+1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Log**, and then choose the related link.
+2. If one or more error occurred for a synchronization job, the number of errors appears in the **Failed** column. To view the errors for the job, choose the number.  
+
+    > [!TIP]  
+    > You can view all synchronization job errors by opening the synchronization job error log directly.
+
+## To view the synchronization job log from the table mappings
+
+1. Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Table Mappings**, and then choose the related link.
+2. In the **Integration Table Mappings** page, select an entry, and then choose **Integration Synch. Job Log**.  
+
+## To view the synchronization error log
+
+- Choose the :::image type="icon" source="media/ui-search/search_small.png" border="false"::: icon, enter **Integration Synchronization Errors**, and then choose the related link.
+
+## Related information
+
+[Synchronizing Data in Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-synchronizing-business-central-and-sales.md)  
+[Manually Synchronize Table Mappings](admin-manual-synchronization-of-table-mappings.md)  
+[Scheduling a Synchronization between Business Central and [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-scheduled-synchronization-using-the-synchronization-job-queue-entries.md)  
+[About Integrating Dynamics 365 Business Central with [!INCLUDE[cds_long_md](includes/cds_long_md.md)]](admin-prepare-dynamics-365-for-sales-for-integration.md)  
+
 
 [!INCLUDE[footer-include](includes/footer-banner.md)]
 end of article

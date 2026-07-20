@@ -3361,14 +3361,14 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/subcontract-setup
 ---
 title: Set up subcontracting
-description: Learn how to configure subcontracting settings, work centers, and transfer routes for manufacturing operations.
+description: Learn how to connect outsourced production operations with vendors, work centers, components, purchasing, locations, transfers, and costs.
 author: brentholtorf
 ms.author: bholtorf
 ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, setup, work center, transfer routes
 ms.search.form: 99000768, 99000754, 99000755
-ms.date: 07/08/2026
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -3376,7 +3376,7 @@ ms.custom: bap-template
 
 # Set up subcontracting
 
-To use subcontracting, you must configure several settings. This article describes how to configure the basic subcontracting settings and work centers.
+Subcontracting lets you outsource selected production routing operations to vendors while keeping the related production order, components, purchasing, transfers, and costs connected in [!INCLUDE [prod_short](includes/prod_short.md)]. This article explains how to configure subcontracting defaults, vendor work centers, locations, and transfer routes.
 
 ## Prerequisites
 
@@ -5085,6 +5085,20 @@ To complete an inspection, follow these steps:
 3. Review the calculated grade that the template configuration and measurement results determined.
 4. Choose **Finish** to complete the inspection.
 
+### Print inspection reports
+
+After you finish an inspection, you can print or email a report from the **Quality Inspection** page. The **Report** menu offers the following reports:
+
+|Report|Use|
+|-|-|
+|**Certificate of Analysis**|Send to customers to certify that a lot or batch meets quality specifications. Includes measurement results, grades, and a signature block for the designated quality contact.|
+|**Non Conformance Report**|Document a deviation when items fail inspection. Use for internal records or when filing claims with suppliers.|
+|**Inspection Report**|A general-purpose report that works for any inspection type. Use when you don't need the formal structure of a certificate or non-conformance report.|
+
+Each report adapts its content based on the inspection data. For example, grade columns appear only when grading is configured on the template, and the signature block on the Certificate of Analysis appears only when a **Certificate of Analysis Contact** is set in the **Quality Management Setup** page.
+
+All three reports include a default Word layout that you can customize. For more information, see [About report and document layouts](ui-manage-report-layouts.md).
+
 ## Configuration options
 
 The following sections describe various configuration options on the **Quality Management Setup** page.
@@ -6744,11 +6758,11 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-production-orders
 ---
 title: Create production orders
-description: You can create a production order manually, and the first step is to create a production order header.
+description: Learn how to manually create a firm planned production order that brings together items, quantities, dates, components, operations, and capacity.
 author: brentholtorf
 ms.topic: how-to
 ms.search.form: 9325, 99000815, 99000829, 9900083
-ms.date: 02/25/2025
+ms.date: 07/15/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -6756,7 +6770,7 @@ ms.custom: bap-template
 ---
 # Create production orders
 
-Typically, businesses use the planning engine to create production orders automatically to fulfill a known demand. To learn more, go to [Planning](production-planning.md). However, you can create a production order manually. This article describes how to create a firm planned production order. You can also create production orders with a different status.  
+Production orders specify which items to produce, in what quantities, and by which dates. They bring together the item's production BOM, routing, components, operations, and capacity requirements. Planning can create production orders automatically from demand, or you can create them manually for a specific production need. This article explains how to create a firm planned production order manually. To learn more about automatic creation, go to [Planning](production-planning.md).
 
 ## To create a production order header
 
@@ -10282,12 +10296,12 @@ end of article
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-create-work-center-calendars
 ---
 title: Set Up Shop Calendars
-description: Creating and enabling a work center calendar involves several tasks including setting up shop calendars and creating work shifts.
+description: Learn how to define shifts, working time, holidays, and absences for accurate production capacity calculations and resource load.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 9291, 9293, 9295, 99000750, 99000751, 99000752, 99000753, 99000759, 99000769, 99000770, 99000771, 99000772, 99000920
-ms.date: 05/20/2026
+ms.date: 07/15/2026
 ms.author: bholtorf
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
@@ -10295,7 +10309,7 @@ ms.custom: bap-template
 ---
 # Set up shop calendars
 
-A work center or machine calendar specifies the working days and hours, shifts, holidays, and absences that determine the center’s gross available capacity according to its defined efficiency and capacity values. Capacity is measured in time.
+Shop calendars define when production resources are available. Working days, shifts, holidays, absences, capacity, and efficiency determine the time that work and machine centers can use for production. [!INCLUDE [prod_short](includes/prod_short.md)] uses this availability when it schedules routing operations and calculates resource load. This article explains how to define shifts and calendars and calculate capacity for production resources.
 
 As a foundation for calculating a specific work or machine center calendar, you must first set up one or more general shop calendars. A shop calendar defines a standard work week according to start and end times of each working day and the work shift relation. In addition, the shop calendar defines the fixed holidays during a year.  
 
@@ -10708,7 +10722,7 @@ ms.reviewer: bholtorf
 ms.topic: how-to
 ms.search.keywords: subcontracting, production order, purchase order, dispatch list, worksheet
 ms.search.form: 99001504, 99000886, 50, 99000831
-ms.date: 06/18/2026
+ms.date: 07/15/2026
 ms.service: dynamics-365-business-central
 ms.custom: bap-template
 
@@ -10832,7 +10846,7 @@ This action creates an identical line with the opposite sign in the **Quantity**
 > You can't undo a receipt if it's invoiced or if the production order is finished.
 
 > [!IMPORTANT]
-> If posting the subcontracting receipt consumed components because of the flushing method, the undo action doesn't revert the consumption transactions. To reverse these transactions, use an output journal or the **Reverse Production Order Transaction** action. Learn more in [Cancel production orders that have consumption](production-cancel-production-orders-that-have-consumption.md).
+> If posting the subcontracting receipt consumed components because of the flushing method, the undo action doesn't revert the consumption transactions. To reverse these transactions, use an output journal or the **Reverse Production Order Transaction** action. Learn more in [Reverse and correct production order transactions](production-cancel-production-orders-that-have-consumption.md).
 
 ## Restrictions and validations
 
@@ -10865,7 +10879,8 @@ You can't delete a subcontracting purchase order if components or WIP items have
 [Purchasing](purchasing-manage-purchasing.md)  
 [Work with [!INCLUDE[prod_short](includes/prod_short.md)]](ui-work-product.md)
 
-[!INCLUDE[footer-include](includes/footer-banner.md)]end of article
+[!INCLUDE[footer-include](includes/footer-banner.md)]
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/service-fulfill-service-contracts
 ---
@@ -11277,38 +11292,38 @@ In this procedure, you process the sale of an item that will be assembled accord
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/production-how-to-post-capacities
 ---
-title: Post Capacities
-description: Post consumed capacities that are not assigned to the production order in the capacity journal and view posted capacities on the capacity ledger entries page. 
+title: Post capacities
+description: Learn how to record time used by work and machine centers for maintenance or other activities outside production orders.
 author: brentholtorf
 ms.topic: how-to
 ms.devlang: al
 ms.search.form: 5832, 99000802, 99000820
-ms.date: 03/08/2023
+ms.date: 07/15/2026
 ms.author: bholtorf
 
 ms.service: dynamics-365-business-central
 ms.reviewer: bholtorf
 ---
-# Post Capacities
+# Post capacities
 
-In the capacity journal, you post consumed capacities that are not assigned to the production order. For example, maintenance work must be assigned to capacity, but not to a production order.  
+Capacity journals record time used by work or machine centers outside a production order, such as maintenance or internal work. When you post this time, you create capacity ledger entries so that resource usage and availability reflect both production and nonproduction activities.
 
 ## To post capacities  
 
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Capacity Journals**, and then choose the related link.  
-2. Fill in the **Posting Date** and **Document No.** fields.  
-3. In the **Type** field, enter the type of the capacity, either **Machine Center** or **Work Center**, that you are posting.  
-4. In the **No.** field, enter the number of the machine center or work center.  
-5. Enter the relevant data in the other fields, such as **Starting Time**, **Ending Time**, **Quantity**, and **Scrap**.  
-6. Choose the **Post** action to post the capacities.  
+1. Fill in the **Posting Date** and **Document No.** fields.  
+1. In the **Type** field, enter the type of the capacity, either **Machine Center** or **Work Center**, that you are posting.  
+1. In the **No.** field, enter the number of the machine center or work center.  
+1. Enter the relevant data in the other fields, such as **Starting Time**, **Ending Time**, **Quantity**, and **Scrap**.  
+1. Choose the **Post** action to post the capacities.  
 
     [!INCLUDE [preview-posting-inventory](includes/preview-posting-inventory.md)]
 
 ## To view work center ledger entries  
 
-In the **Work Center Card** and **Machine Center Card** pages, you can view the posted capacities as a result of finished production orders.    
+On the **Work Center Card** and **Machine Center Card** pages, you can view the posted capacities as a result of finished production orders.    
 1. [!INCLUDE[open-search](includes/open-search.md)], enter **Work Centers**, and then choose the related link.  
-2. Open the relevant **Work Center** card from the list, and then choose the **Capacity Ledger Entries** action.  
+1. Open the relevant **Work Center** page from the list, and then choose the **Capacity Ledger Entries** action.  
 
     The **Capacity Ledger Entries** page displays the posted entries from the work center in the order they were posted.   
 
@@ -18988,7 +19003,7 @@ To automate the process of creating inspections for production output, there are
    - Make sure a routing is created for the item.
 
 - You must set up a global trigger for production output. On the **Quality Management Setup** page, in the **Production - Create Inspection** field, choose **When Output is Posted**.
-- You must create inspection generation rules for production output testing. Learn more at [Create a production rule](qms-test-generation-rules.md#create-a-production-rule).
+- Create inspection generation rules for production output testing. For more information, see [Create a production rule](qms-test-generation-rules.md#create-a-production-rule).
 
 
 ## Create production output inspections
@@ -19050,6 +19065,20 @@ The following steps give an overview of how to complete a production inspection.
 3. Review the calculated results that the template configuration and measurements determine.
 4. Choose the **Finish** action when the inspection is complete.
 
+### Print inspection reports
+
+After you finish an inspection, you can print or email a report from the **Quality Inspection** page. The **Report** menu offers the following reports:
+
+|Report|Use|
+|-|-|
+|**Certificate of Analysis**|Send to customers to certify that a lot or batch meets quality specifications. Includes measurement results, grades, and a signature block for the designated quality contact.|
+|**Non Conformance Report**|Document a deviation when items fail inspection. Use for internal records or when filing claims with suppliers.|
+|**Inspection Report**|A general-purpose report that works for any inspection type. Use when you don't need the formal structure of a certificate or non-conformance report.|
+
+Each report adapts its content based on the inspection data. For example, grade columns appear only when grading is configured on the template, and the signature block on the Certificate of Analysis appears only when a **Certificate of Analysis Contact** is set in the **Quality Management Setup** page.
+
+All three reports include a default Word layout that you can customize. Learn more in [About report and document layouts](ui-manage-report-layouts.md).
+
 ## Advanced configuration
 
 ### Location-specific rules
@@ -19068,7 +19097,7 @@ Configure inspections for specific routing operations:
 
 ### Posting setup requirements
 
-Ensure that you have an **Inventory Posting Setup** for item transactions. Learn more at [Specific posting groups](finance-posting-groups.md#specific-posting-groups).
+Ensure that you have an **Inventory Posting Setup** for item transactions. Learn more in [Specific posting groups](finance-posting-groups.md#specific-posting-groups).
 
 ### Item tracking integration
 
@@ -19092,7 +19121,8 @@ If you use backflushing, there are a few things to consider:
 [Setting Up Inspection Generation Rules](qms-test-generation-rules.md)  
 [Manual Inspection Creation](qms-manual-test-creation.md)  
 [Lot Blocking and Unblocking](qms-lot-blocking-unblocking.md)  
-[Quality Management Overview](qms-overview.md)end of article
+[Quality Management Overview](qms-overview.md)
+end of article
 
 Link to Microsoft Learn Page: https://learn.microsoft.com/dynamics365/business-central/design-details-item-tracking-lines-window
 ---
